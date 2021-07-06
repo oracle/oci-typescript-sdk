@@ -316,4 +316,18 @@ export namespace VirtualCircuit {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VirtualCircuit): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "crossConnectMappings": obj.crossConnectMappings
+          ? obj.crossConnectMappings.map(item => {
+              return model.CrossConnectMapping.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

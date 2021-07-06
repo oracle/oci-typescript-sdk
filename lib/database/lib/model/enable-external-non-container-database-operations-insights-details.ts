@@ -35,4 +35,11 @@ export namespace EnableExternalNonContainerDatabaseOperationsInsightsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: EnableExternalNonContainerDatabaseOperationsInsightsDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -61,4 +61,18 @@ export namespace PostMetricDataDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PostMetricDataDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metricData": obj.metricData
+          ? obj.metricData.map(item => {
+              return model.MetricDataDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

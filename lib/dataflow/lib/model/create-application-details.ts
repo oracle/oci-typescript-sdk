@@ -163,4 +163,18 @@ export namespace CreateApplicationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateApplicationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.ApplicationParameter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

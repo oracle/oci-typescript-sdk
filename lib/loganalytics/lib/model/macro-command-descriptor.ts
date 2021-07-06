@@ -35,4 +35,17 @@ export namespace MacroCommandDescriptor {
     return jsonObj;
   }
   export const name = "MACRO";
+  export function getDeserializedJsonObj(
+    obj: MacroCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as MacroCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

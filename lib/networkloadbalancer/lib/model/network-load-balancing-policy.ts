@@ -30,7 +30,12 @@ export enum NetworkLoadBalancingPolicy {
 }
 
 export namespace NetworkLoadBalancingPolicy {
-  export function getJsonObj(obj: NetworkLoadBalancingPolicy): object {
-    return { obj };
+  export function getJsonObj(obj: NetworkLoadBalancingPolicy): NetworkLoadBalancingPolicy {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: NetworkLoadBalancingPolicy
+  ): NetworkLoadBalancingPolicy {
+    return obj;
   }
 }

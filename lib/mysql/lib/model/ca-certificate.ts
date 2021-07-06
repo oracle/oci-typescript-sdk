@@ -35,4 +35,20 @@ export namespace CaCertificate {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CaCertificate): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("certificateType" in obj && obj.certificateType) {
+      switch (obj.certificateType) {
+        case "PEM":
+          return model.PemCaCertificate.getDeserializedJsonObj(
+            <model.PemCaCertificate>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.certificateType);
+      }
+    }
+    return jsonObj;
+  }
 }

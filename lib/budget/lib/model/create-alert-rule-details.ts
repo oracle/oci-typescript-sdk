@@ -75,4 +75,9 @@ export namespace CreateAlertRuleDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateAlertRuleDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

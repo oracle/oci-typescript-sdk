@@ -43,4 +43,19 @@ export namespace ImageSourceViaObjectStorageUriDetails {
     return jsonObj;
   }
   export const sourceType = "objectStorageUri";
+  export function getDeserializedJsonObj(
+    obj: ImageSourceViaObjectStorageUriDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ImageSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as ImageSourceViaObjectStorageUriDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

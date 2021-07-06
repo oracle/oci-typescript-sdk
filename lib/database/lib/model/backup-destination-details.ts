@@ -59,4 +59,9 @@ export namespace BackupDestinationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BackupDestinationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

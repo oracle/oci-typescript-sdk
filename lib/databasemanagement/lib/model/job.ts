@@ -128,4 +128,30 @@ export namespace Job {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Job): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "managedDatabasesDetails": obj.managedDatabasesDetails
+          ? obj.managedDatabasesDetails.map(item => {
+              return model.JobDatabase.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "resultLocation": obj.resultLocation
+          ? model.JobExecutionResultLocation.getDeserializedJsonObj(obj.resultLocation)
+          : undefined
+      }
+    };
+
+    if ("jobType" in obj && obj.jobType) {
+      switch (obj.jobType) {
+        case "SQL":
+          return model.SqlJob.getDeserializedJsonObj(<model.SqlJob>(<object>jsonObj), true);
+        default:
+          throw Error("Unknown value for: " + obj.jobType);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -49,4 +49,9 @@ export namespace ShapeNetworkingBandwidthOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ShapeNetworkingBandwidthOptions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

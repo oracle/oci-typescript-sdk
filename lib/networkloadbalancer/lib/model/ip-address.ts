@@ -48,4 +48,16 @@ export namespace IpAddress {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IpAddress): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "reservedIp": obj.reservedIp
+          ? model.ReservedIP.getDeserializedJsonObj(obj.reservedIp)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

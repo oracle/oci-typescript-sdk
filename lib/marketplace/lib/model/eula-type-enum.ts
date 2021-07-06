@@ -22,7 +22,10 @@ export enum EulaTypeEnum {
 }
 
 export namespace EulaTypeEnum {
-  export function getJsonObj(obj: EulaTypeEnum): object {
-    return { obj };
+  export function getJsonObj(obj: EulaTypeEnum): EulaTypeEnum {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: EulaTypeEnum): EulaTypeEnum {
+    return obj;
   }
 }

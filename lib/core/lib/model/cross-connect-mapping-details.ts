@@ -142,4 +142,9 @@ export namespace CrossConnectMappingDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CrossConnectMappingDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

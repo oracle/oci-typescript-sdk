@@ -43,4 +43,18 @@ export namespace PutObjectLifecyclePolicyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PutObjectLifecyclePolicyDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ObjectLifecycleRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

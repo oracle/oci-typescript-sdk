@@ -37,4 +37,9 @@ export namespace HostInstanceMap {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HostInstanceMap): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

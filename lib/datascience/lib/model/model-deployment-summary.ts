@@ -93,4 +93,21 @@ export namespace ModelDeploymentSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ModelDeploymentSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "modelDeploymentConfigurationDetails": obj.modelDeploymentConfigurationDetails
+          ? model.ModelDeploymentConfigurationDetails.getDeserializedJsonObj(
+              obj.modelDeploymentConfigurationDetails
+            )
+          : undefined,
+        "categoryLogDetails": obj.categoryLogDetails
+          ? model.CategoryLogDetails.getDeserializedJsonObj(obj.categoryLogDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

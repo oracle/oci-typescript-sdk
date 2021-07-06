@@ -46,4 +46,17 @@ export namespace SourceIpAddressCondition {
     return jsonObj;
   }
   export const attributeName = "SOURCE_IP_ADDRESS";
+  export function getDeserializedJsonObj(
+    obj: SourceIpAddressCondition,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.RuleCondition.getDeserializedJsonObj(obj) as SourceIpAddressCondition)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

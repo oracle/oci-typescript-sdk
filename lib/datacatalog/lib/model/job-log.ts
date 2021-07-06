@@ -67,4 +67,9 @@ export namespace JobLog {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobLog): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

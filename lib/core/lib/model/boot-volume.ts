@@ -179,4 +179,22 @@ export namespace BootVolume {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BootVolume): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.BootVolumeSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "bootVolumeReplicas": obj.bootVolumeReplicas
+          ? obj.bootVolumeReplicas.map(item => {
+              return model.BootVolumeReplicaInfo.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

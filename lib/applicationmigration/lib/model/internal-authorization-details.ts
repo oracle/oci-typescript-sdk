@@ -47,4 +47,17 @@ export namespace InternalAuthorizationDetails {
     return jsonObj;
   }
   export const type = "INTERNAL_COMPUTE";
+  export function getDeserializedJsonObj(
+    obj: InternalAuthorizationDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AuthorizationDetails.getDeserializedJsonObj(obj) as InternalAuthorizationDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

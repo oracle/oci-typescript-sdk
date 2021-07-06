@@ -49,4 +49,26 @@ export namespace UpdateScheduledPolicyDetails {
     return jsonObj;
   }
   export const policyType = "scheduled";
+  export function getDeserializedJsonObj(
+    obj: UpdateScheduledPolicyDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateAutoScalingPolicyDetails.getDeserializedJsonObj(
+            obj
+          ) as UpdateScheduledPolicyDetails)),
+      ...{
+        "executionSchedule": obj.executionSchedule
+          ? model.ExecutionSchedule.getDeserializedJsonObj(obj.executionSchedule)
+          : undefined,
+        "resourceAction": obj.resourceAction
+          ? model.ResourceAction.getDeserializedJsonObj(obj.resourceAction)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

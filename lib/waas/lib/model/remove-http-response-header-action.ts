@@ -46,4 +46,19 @@ export namespace RemoveHttpResponseHeaderAction {
     return jsonObj;
   }
   export const action = "REMOVE_HTTP_RESPONSE_HEADER";
+  export function getDeserializedJsonObj(
+    obj: RemoveHttpResponseHeaderAction,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.HeaderManipulationAction.getDeserializedJsonObj(
+            obj
+          ) as RemoveHttpResponseHeaderAction)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

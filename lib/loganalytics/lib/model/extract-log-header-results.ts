@@ -44,4 +44,18 @@ export namespace ExtractLogHeaderResults {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExtractLogHeaderResults): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "jsonPaths": obj.jsonPaths
+          ? obj.jsonPaths.map(item => {
+              return model.ExtractLogHeaderDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

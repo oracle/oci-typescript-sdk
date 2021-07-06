@@ -32,4 +32,16 @@ export namespace UpdateIncident {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateIncident): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ticket": obj.ticket
+          ? model.UpdateTicketDetails.getDeserializedJsonObj(obj.ticket)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

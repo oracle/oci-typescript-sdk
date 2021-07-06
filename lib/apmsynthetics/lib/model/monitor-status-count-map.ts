@@ -44,4 +44,9 @@ export namespace MonitorStatusCountMap {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MonitorStatusCountMap): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

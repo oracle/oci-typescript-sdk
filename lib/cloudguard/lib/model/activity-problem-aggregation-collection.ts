@@ -39,4 +39,18 @@ export namespace ActivityProblemAggregationCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ActivityProblemAggregationCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ActivityProblemAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

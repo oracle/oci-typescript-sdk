@@ -125,4 +125,9 @@ export namespace LogAnalyticsField {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsField): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

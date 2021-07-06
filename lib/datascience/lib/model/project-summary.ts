@@ -69,4 +69,9 @@ export namespace ProjectSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProjectSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

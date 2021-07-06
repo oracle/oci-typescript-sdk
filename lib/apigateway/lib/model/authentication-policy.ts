@@ -53,4 +53,25 @@ export namespace AuthenticationPolicy {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AuthenticationPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "JWT_AUTHENTICATION":
+          return model.JwtAuthenticationPolicy.getDeserializedJsonObj(
+            <model.JwtAuthenticationPolicy>(<object>jsonObj),
+            true
+          );
+        case "CUSTOM_AUTHENTICATION":
+          return model.CustomAuthenticationPolicy.getDeserializedJsonObj(
+            <model.CustomAuthenticationPolicy>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

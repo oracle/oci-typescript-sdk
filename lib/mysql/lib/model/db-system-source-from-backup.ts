@@ -40,4 +40,17 @@ export namespace DbSystemSourceFromBackup {
     return jsonObj;
   }
   export const sourceType = "BACKUP";
+  export function getDeserializedJsonObj(
+    obj: DbSystemSourceFromBackup,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DbSystemSource.getDeserializedJsonObj(obj) as DbSystemSourceFromBackup)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

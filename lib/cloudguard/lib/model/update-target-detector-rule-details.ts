@@ -39,4 +39,18 @@ export namespace UpdateTargetDetectorRuleDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateTargetDetectorRuleDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "conditionGroups": obj.conditionGroups
+          ? obj.conditionGroups.map(item => {
+              return model.ConditionGroup.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

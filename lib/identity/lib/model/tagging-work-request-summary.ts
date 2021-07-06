@@ -107,4 +107,18 @@ export namespace TaggingWorkRequestSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TaggingWorkRequestSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resources": obj.resources
+          ? obj.resources.map(item => {
+              return model.WorkRequestResource.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

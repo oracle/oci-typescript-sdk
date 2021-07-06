@@ -29,4 +29,9 @@ export namespace MoveCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MoveCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

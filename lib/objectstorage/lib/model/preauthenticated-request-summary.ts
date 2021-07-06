@@ -79,4 +79,9 @@ export namespace PreauthenticatedRequestSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PreauthenticatedRequestSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

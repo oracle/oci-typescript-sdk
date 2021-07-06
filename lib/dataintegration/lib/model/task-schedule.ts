@@ -157,4 +157,30 @@ export namespace TaskSchedule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TaskSchedule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "scheduleRef": obj.scheduleRef
+          ? model.Schedule.getDeserializedJsonObj(obj.scheduleRef)
+          : undefined,
+        "configProviderDelegate": obj.configProviderDelegate
+          ? model.ConfigProvider.getDeserializedJsonObj(obj.configProviderDelegate)
+          : undefined,
+
+        "lastRunDetails": obj.lastRunDetails
+          ? model.LastRunDetails.getDeserializedJsonObj(obj.lastRunDetails)
+          : undefined,
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

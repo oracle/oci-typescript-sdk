@@ -63,4 +63,18 @@ export namespace SdkLanguageTypeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SdkLanguageTypeSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.SdkLanguageOptionalParameters.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

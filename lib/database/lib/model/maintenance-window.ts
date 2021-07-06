@@ -82,4 +82,24 @@ export namespace MaintenanceWindow {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MaintenanceWindow): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "months": obj.months
+          ? obj.months.map(item => {
+              return model.Month.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "daysOfWeek": obj.daysOfWeek
+          ? obj.daysOfWeek.map(item => {
+              return model.DayOfWeek.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

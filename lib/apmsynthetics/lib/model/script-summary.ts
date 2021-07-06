@@ -74,4 +74,16 @@ export namespace ScriptSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScriptSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "monitorStatusCountMap": obj.monitorStatusCountMap
+          ? model.MonitorStatusCountMap.getDeserializedJsonObj(obj.monitorStatusCountMap)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

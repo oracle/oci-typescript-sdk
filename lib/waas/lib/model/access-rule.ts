@@ -177,4 +177,24 @@ export namespace AccessRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AccessRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "criteria": obj.criteria
+          ? obj.criteria.map(item => {
+              return model.AccessRuleCriteria.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "responseHeaderManipulation": obj.responseHeaderManipulation
+          ? obj.responseHeaderManipulation.map(item => {
+              return model.HeaderManipulationAction.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

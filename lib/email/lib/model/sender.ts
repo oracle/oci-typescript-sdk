@@ -93,4 +93,9 @@ export namespace Sender {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Sender): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

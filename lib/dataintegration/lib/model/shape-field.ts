@@ -45,4 +45,16 @@ export namespace ShapeField {
     return jsonObj;
   }
   export const modelType = "SHAPE_FIELD";
+  export function getDeserializedJsonObj(obj: ShapeField, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.TypedObject.getDeserializedJsonObj(obj) as ShapeField)),
+      ...{
+        "nativeShapeField": obj.nativeShapeField
+          ? model.NativeShapeField.getDeserializedJsonObj(obj.nativeShapeField)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -77,4 +77,25 @@ export namespace ApiSpecificationRoute {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApiSpecificationRoute): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "requestPolicies": obj.requestPolicies
+          ? model.ApiSpecificationRouteRequestPolicies.getDeserializedJsonObj(obj.requestPolicies)
+          : undefined,
+        "responsePolicies": obj.responsePolicies
+          ? model.ApiSpecificationRouteResponsePolicies.getDeserializedJsonObj(obj.responsePolicies)
+          : undefined,
+        "loggingPolicies": obj.loggingPolicies
+          ? model.ApiSpecificationLoggingPolicies.getDeserializedJsonObj(obj.loggingPolicies)
+          : undefined,
+        "backend": obj.backend
+          ? model.ApiSpecificationRouteBackend.getDeserializedJsonObj(obj.backend)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

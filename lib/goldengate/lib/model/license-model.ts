@@ -31,7 +31,10 @@ export enum LicenseModel {
 }
 
 export namespace LicenseModel {
-  export function getJsonObj(obj: LicenseModel): object {
-    return { obj };
+  export function getJsonObj(obj: LicenseModel): LicenseModel {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: LicenseModel): LicenseModel {
+    return obj;
   }
 }

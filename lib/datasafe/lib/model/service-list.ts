@@ -38,7 +38,10 @@ export enum ServiceList {
 }
 
 export namespace ServiceList {
-  export function getJsonObj(obj: ServiceList): object {
-    return { obj };
+  export function getJsonObj(obj: ServiceList): ServiceList {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ServiceList): ServiceList {
+    return obj;
   }
 }

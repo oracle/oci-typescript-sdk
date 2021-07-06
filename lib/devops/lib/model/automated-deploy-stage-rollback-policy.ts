@@ -36,4 +36,19 @@ export namespace AutomatedDeployStageRollbackPolicy {
     return jsonObj;
   }
   export const policyType = "AUTOMATED_STAGE_ROLLBACK_POLICY";
+  export function getDeserializedJsonObj(
+    obj: AutomatedDeployStageRollbackPolicy,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageRollbackPolicy.getDeserializedJsonObj(
+            obj
+          ) as AutomatedDeployStageRollbackPolicy)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

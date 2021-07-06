@@ -40,7 +40,12 @@ export enum LogSavedSearchLifecycleState {
 }
 
 export namespace LogSavedSearchLifecycleState {
-  export function getJsonObj(obj: LogSavedSearchLifecycleState): object {
-    return { obj };
+  export function getJsonObj(obj: LogSavedSearchLifecycleState): LogSavedSearchLifecycleState {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: LogSavedSearchLifecycleState
+  ): LogSavedSearchLifecycleState {
+    return obj;
   }
 }

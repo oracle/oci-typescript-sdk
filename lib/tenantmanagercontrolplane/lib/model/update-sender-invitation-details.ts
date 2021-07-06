@@ -42,4 +42,9 @@ export namespace UpdateSenderInvitationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateSenderInvitationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

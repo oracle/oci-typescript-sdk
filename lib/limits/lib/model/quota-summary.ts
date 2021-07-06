@@ -82,4 +82,9 @@ export namespace QuotaSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QuotaSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

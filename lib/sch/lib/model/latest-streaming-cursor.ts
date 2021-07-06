@@ -37,4 +37,17 @@ export namespace LatestStreamingCursor {
     return jsonObj;
   }
   export const kind = "LATEST";
+  export function getDeserializedJsonObj(
+    obj: LatestStreamingCursor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.StreamingCursorDetails.getDeserializedJsonObj(obj) as LatestStreamingCursor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

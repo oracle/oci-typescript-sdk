@@ -36,4 +36,18 @@ export namespace MultipleTransferAppliances {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MultipleTransferAppliances): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "transferApplianceObjects": obj.transferApplianceObjects
+          ? obj.transferApplianceObjects.map(item => {
+              return model.TransferApplianceSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

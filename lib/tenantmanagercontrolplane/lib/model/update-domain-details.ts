@@ -38,4 +38,9 @@ export namespace UpdateDomainDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDomainDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

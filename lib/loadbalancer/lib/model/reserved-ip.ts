@@ -26,4 +26,9 @@ export namespace ReservedIP {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReservedIP): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

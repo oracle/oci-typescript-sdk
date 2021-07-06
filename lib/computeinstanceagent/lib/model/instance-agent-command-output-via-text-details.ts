@@ -41,4 +41,19 @@ export namespace InstanceAgentCommandOutputViaTextDetails {
     return jsonObj;
   }
   export const outputType = "TEXT";
+  export function getDeserializedJsonObj(
+    obj: InstanceAgentCommandOutputViaTextDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.InstanceAgentCommandOutputDetails.getDeserializedJsonObj(
+            obj
+          ) as InstanceAgentCommandOutputViaTextDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

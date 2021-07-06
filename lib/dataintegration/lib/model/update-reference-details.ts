@@ -47,4 +47,18 @@ export namespace UpdateReferenceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateReferenceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "childReferences": obj.childReferences
+          ? obj.childReferences.map(item => {
+              return model.ChildReferenceDetail.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

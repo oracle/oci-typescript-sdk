@@ -41,4 +41,18 @@ export namespace UpdatePathRouteSetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdatePathRouteSetDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pathRoutes": obj.pathRoutes
+          ? obj.pathRoutes.map(item => {
+              return model.PathRoute.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

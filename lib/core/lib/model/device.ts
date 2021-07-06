@@ -39,4 +39,9 @@ export namespace Device {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Device): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

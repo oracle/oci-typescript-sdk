@@ -35,4 +35,19 @@ export namespace DistinctCommandDescriptor {
     return jsonObj;
   }
   export const name = "DISTINCT";
+  export function getDeserializedJsonObj(
+    obj: DistinctCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as DistinctCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

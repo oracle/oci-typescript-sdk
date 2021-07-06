@@ -38,4 +38,9 @@ export namespace OracleWriteAttributes {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OracleWriteAttributes): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

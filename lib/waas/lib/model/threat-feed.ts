@@ -53,4 +53,9 @@ export namespace ThreatFeed {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ThreatFeed): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

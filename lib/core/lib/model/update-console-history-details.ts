@@ -50,4 +50,9 @@ export namespace UpdateConsoleHistoryDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateConsoleHistoryDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

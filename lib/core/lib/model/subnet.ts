@@ -218,4 +218,9 @@ export namespace Subnet {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Subnet): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

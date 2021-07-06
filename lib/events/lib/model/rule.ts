@@ -142,4 +142,14 @@ export namespace Rule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Rule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "actions": obj.actions ? model.ActionList.getDeserializedJsonObj(obj.actions) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -80,4 +80,18 @@ export namespace DbBackupConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbBackupConfig): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backupDestinationDetails": obj.backupDestinationDetails
+          ? obj.backupDestinationDetails.map(item => {
+              return model.BackupDestinationDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

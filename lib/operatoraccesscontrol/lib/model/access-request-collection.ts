@@ -43,4 +43,18 @@ export namespace AccessRequestCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AccessRequestCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AccessRequestSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

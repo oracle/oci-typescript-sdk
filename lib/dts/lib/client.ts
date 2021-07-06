@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { ApplianceExportJobWaiter } from "./applianceexportjob-waiter";
@@ -176,7 +176,7 @@ export class ApplianceExportJobClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeApplianceExportJobCompartmentRequest.changeApplianceExportJobCompartmentDetails,
         "ChangeApplianceExportJobCompartmentDetails",
-        models.ChangeApplianceExportJobCompartmentDetails.getJsonObj
+        model.ChangeApplianceExportJobCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -236,7 +236,7 @@ export class ApplianceExportJobClient {
       bodyContent: common.ObjectSerializer.serialize(
         createApplianceExportJobRequest.createApplianceExportJobDetails,
         "CreateApplianceExportJobDetails",
-        models.CreateApplianceExportJobDetails.getJsonObj
+        model.CreateApplianceExportJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -248,7 +248,8 @@ export class ApplianceExportJobClient {
         responseObject: <responses.CreateApplianceExportJobResponse>{},
         body: await response.json(),
         bodyKey: "applianceExportJob",
-        bodyModel: "model.ApplianceExportJob",
+        bodyModel: model.ApplianceExportJob,
+        type: "model.ApplianceExportJob",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -369,7 +370,8 @@ export class ApplianceExportJobClient {
         responseObject: <responses.GetApplianceExportJobResponse>{},
         body: await response.json(),
         bodyKey: "applianceExportJob",
-        bodyModel: "model.ApplianceExportJob",
+        bodyModel: model.ApplianceExportJob,
+        type: "model.ApplianceExportJob",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -437,7 +439,8 @@ export class ApplianceExportJobClient {
         responseObject: <responses.ListApplianceExportJobsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ApplianceExportJobSummary[]",
+        bodyModel: model.ApplianceExportJobSummary,
+        type: "Array<model.ApplianceExportJobSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -467,7 +470,7 @@ export class ApplianceExportJobClient {
    */
   public listAllApplianceExportJobs(
     request: requests.ListApplianceExportJobsRequest
-  ): AsyncIterableIterator<models.ApplianceExportJobSummary> {
+  ): AsyncIterableIterator<model.ApplianceExportJobSummary> {
     return paginateRecords(request, req => this.listApplianceExportJobs(req));
   }
 
@@ -520,7 +523,7 @@ export class ApplianceExportJobClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateApplianceExportJobRequest.updateApplianceExportJobDetails,
         "UpdateApplianceExportJobDetails",
-        models.UpdateApplianceExportJobDetails.getJsonObj
+        model.UpdateApplianceExportJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -532,7 +535,8 @@ export class ApplianceExportJobClient {
         responseObject: <responses.UpdateApplianceExportJobResponse>{},
         body: await response.json(),
         bodyKey: "applianceExportJob",
-        bodyModel: "model.ApplianceExportJob",
+        bodyModel: model.ApplianceExportJob,
+        type: "model.ApplianceExportJob",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -677,7 +681,8 @@ export class ShippingVendorsClient {
         responseObject: <responses.ListShippingVendorsResponse>{},
         body: await response.json(),
         bodyKey: "shippingVendors",
-        bodyModel: "model.ShippingVendors",
+        bodyModel: model.ShippingVendors,
+        type: "model.ShippingVendors",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -837,7 +842,7 @@ export class TransferApplianceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTransferApplianceRequest.createTransferApplianceDetails,
         "CreateTransferApplianceDetails",
-        models.CreateTransferApplianceDetails.getJsonObj
+        model.CreateTransferApplianceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -849,7 +854,8 @@ export class TransferApplianceClient {
         responseObject: <responses.CreateTransferApplianceResponse>{},
         body: await response.json(),
         bodyKey: "transferAppliance",
-        bodyModel: "model.TransferAppliance",
+        bodyModel: model.TransferAppliance,
+        type: "model.TransferAppliance",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -909,7 +915,7 @@ export class TransferApplianceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTransferApplianceAdminCredentialsRequest.adminPublicKey,
         "TransferAppliancePublicKey",
-        models.TransferAppliancePublicKey.getJsonObj
+        model.TransferAppliancePublicKey.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -921,7 +927,8 @@ export class TransferApplianceClient {
         responseObject: <responses.CreateTransferApplianceAdminCredentialsResponse>{},
         body: await response.json(),
         bodyKey: "transferApplianceCertificate",
-        bodyModel: "model.TransferApplianceCertificate",
+        bodyModel: model.TransferApplianceCertificate,
+        type: "model.TransferApplianceCertificate",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1041,7 +1048,8 @@ export class TransferApplianceClient {
         responseObject: <responses.GetTransferApplianceResponse>{},
         body: await response.json(),
         bodyKey: "transferAppliance",
-        bodyModel: "model.TransferAppliance",
+        bodyModel: model.TransferAppliance,
+        type: "model.TransferAppliance",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1109,7 +1117,8 @@ export class TransferApplianceClient {
         responseObject: <responses.GetTransferApplianceCertificateAuthorityCertificateResponse>{},
         body: await response.json(),
         bodyKey: "transferApplianceCertificate",
-        bodyModel: "model.TransferApplianceCertificate",
+        bodyModel: model.TransferApplianceCertificate,
+        type: "model.TransferApplianceCertificate",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1176,7 +1185,8 @@ export class TransferApplianceClient {
         responseObject: <responses.GetTransferApplianceEncryptionPassphraseResponse>{},
         body: await response.json(),
         bodyKey: "transferApplianceEncryptionPassphrase",
-        bodyModel: "model.TransferApplianceEncryptionPassphrase",
+        bodyModel: model.TransferApplianceEncryptionPassphrase,
+        type: "model.TransferApplianceEncryptionPassphrase",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1241,7 +1251,8 @@ export class TransferApplianceClient {
         responseObject: <responses.ListTransferAppliancesResponse>{},
         body: await response.json(),
         bodyKey: "multipleTransferAppliances",
-        bodyModel: "model.MultipleTransferAppliances",
+        bodyModel: model.MultipleTransferAppliances,
+        type: "model.MultipleTransferAppliances",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1294,7 +1305,7 @@ export class TransferApplianceClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateTransferApplianceRequest.updateTransferApplianceDetails,
         "UpdateTransferApplianceDetails",
-        models.UpdateTransferApplianceDetails.getJsonObj
+        model.UpdateTransferApplianceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1306,7 +1317,8 @@ export class TransferApplianceClient {
         responseObject: <responses.UpdateTransferApplianceResponse>{},
         body: await response.json(),
         bodyKey: "transferAppliance",
-        bodyModel: "model.TransferAppliance",
+        bodyModel: model.TransferAppliance,
+        type: "model.TransferAppliance",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1473,7 +1485,7 @@ export class TransferApplianceEntitlementClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTransferApplianceEntitlementRequest.createTransferApplianceEntitlementDetails,
         "CreateTransferApplianceEntitlementDetails",
-        models.CreateTransferApplianceEntitlementDetails.getJsonObj
+        model.CreateTransferApplianceEntitlementDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1485,7 +1497,8 @@ export class TransferApplianceEntitlementClient {
         responseObject: <responses.CreateTransferApplianceEntitlementResponse>{},
         body: await response.json(),
         bodyKey: "transferApplianceEntitlement",
-        bodyModel: "model.TransferApplianceEntitlement",
+        bodyModel: model.TransferApplianceEntitlement,
+        type: "model.TransferApplianceEntitlement",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1552,7 +1565,8 @@ export class TransferApplianceEntitlementClient {
         responseObject: <responses.GetTransferApplianceEntitlementResponse>{},
         body: await response.json(),
         bodyKey: "transferApplianceEntitlement",
-        bodyModel: "model.TransferApplianceEntitlement",
+        bodyModel: model.TransferApplianceEntitlement,
+        type: "model.TransferApplianceEntitlement",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1615,7 +1629,8 @@ export class TransferApplianceEntitlementClient {
         responseObject: <responses.ListTransferApplianceEntitlementResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "TransferApplianceEntitlementSummary[]",
+        bodyModel: model.TransferApplianceEntitlementSummary,
+        type: "Array<model.TransferApplianceEntitlementSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1775,7 +1790,7 @@ export class TransferDeviceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTransferDeviceRequest.createTransferDeviceDetails,
         "CreateTransferDeviceDetails",
-        models.CreateTransferDeviceDetails.getJsonObj
+        model.CreateTransferDeviceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1787,7 +1802,8 @@ export class TransferDeviceClient {
         responseObject: <responses.CreateTransferDeviceResponse>{},
         body: await response.json(),
         bodyKey: "newTransferDevice",
-        bodyModel: "model.NewTransferDevice",
+        bodyModel: model.NewTransferDevice,
+        type: "model.NewTransferDevice",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1906,7 +1922,8 @@ export class TransferDeviceClient {
         responseObject: <responses.GetTransferDeviceResponse>{},
         body: await response.json(),
         bodyKey: "transferDevice",
-        bodyModel: "model.TransferDevice",
+        bodyModel: model.TransferDevice,
+        type: "model.TransferDevice",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1972,7 +1989,8 @@ export class TransferDeviceClient {
         responseObject: <responses.ListTransferDevicesResponse>{},
         body: await response.json(),
         bodyKey: "multipleTransferDevices",
-        bodyModel: "model.MultipleTransferDevices",
+        bodyModel: model.MultipleTransferDevices,
+        type: "model.MultipleTransferDevices",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2025,7 +2043,7 @@ export class TransferDeviceClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateTransferDeviceRequest.updateTransferDeviceDetails,
         "UpdateTransferDeviceDetails",
-        models.UpdateTransferDeviceDetails.getJsonObj
+        model.UpdateTransferDeviceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2037,7 +2055,8 @@ export class TransferDeviceClient {
         responseObject: <responses.UpdateTransferDeviceResponse>{},
         body: await response.json(),
         bodyKey: "transferDevice",
-        bodyModel: "model.TransferDevice",
+        bodyModel: model.TransferDevice,
+        type: "model.TransferDevice",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2204,7 +2223,7 @@ export class TransferJobClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeTransferJobCompartmentRequest.changeTransferJobCompartmentDetails,
         "ChangeTransferJobCompartmentDetails",
-        models.ChangeTransferJobCompartmentDetails.getJsonObj
+        model.ChangeTransferJobCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2268,7 +2287,7 @@ export class TransferJobClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTransferJobRequest.createTransferJobDetails,
         "CreateTransferJobDetails",
-        models.CreateTransferJobDetails.getJsonObj
+        model.CreateTransferJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2280,7 +2299,8 @@ export class TransferJobClient {
         responseObject: <responses.CreateTransferJobResponse>{},
         body: await response.json(),
         bodyKey: "transferJob",
-        bodyModel: "model.TransferJob",
+        bodyModel: model.TransferJob,
+        type: "model.TransferJob",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2398,7 +2418,8 @@ export class TransferJobClient {
         responseObject: <responses.GetTransferJobResponse>{},
         body: await response.json(),
         bodyKey: "transferJob",
-        bodyModel: "model.TransferJob",
+        bodyModel: model.TransferJob,
+        type: "model.TransferJob",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2465,7 +2486,8 @@ export class TransferJobClient {
         responseObject: <responses.ListTransferJobsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "TransferJobSummary[]",
+        bodyModel: model.TransferJobSummary,
+        type: "Array<model.TransferJobSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2495,7 +2517,7 @@ export class TransferJobClient {
    */
   public listAllTransferJobs(
     request: requests.ListTransferJobsRequest
-  ): AsyncIterableIterator<models.TransferJobSummary> {
+  ): AsyncIterableIterator<model.TransferJobSummary> {
     return paginateRecords(request, req => this.listTransferJobs(req));
   }
 
@@ -2547,7 +2569,7 @@ export class TransferJobClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateTransferJobRequest.updateTransferJobDetails,
         "UpdateTransferJobDetails",
-        models.UpdateTransferJobDetails.getJsonObj
+        model.UpdateTransferJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2559,7 +2581,8 @@ export class TransferJobClient {
         responseObject: <responses.UpdateTransferJobResponse>{},
         body: await response.json(),
         bodyKey: "transferJob",
-        bodyModel: "model.TransferJob",
+        bodyModel: model.TransferJob,
+        type: "model.TransferJob",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2724,7 +2747,7 @@ export class TransferPackageClient {
       bodyContent: common.ObjectSerializer.serialize(
         attachDevicesToTransferPackageRequest.attachDevicesDetails,
         "AttachDevicesDetails",
-        models.AttachDevicesDetails.getJsonObj
+        model.AttachDevicesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2790,7 +2813,7 @@ export class TransferPackageClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTransferPackageRequest.createTransferPackageDetails,
         "CreateTransferPackageDetails",
-        models.CreateTransferPackageDetails.getJsonObj
+        model.CreateTransferPackageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2802,7 +2825,8 @@ export class TransferPackageClient {
         responseObject: <responses.CreateTransferPackageResponse>{},
         body: await response.json(),
         bodyKey: "transferPackage",
-        bodyModel: "model.TransferPackage",
+        bodyModel: model.TransferPackage,
+        type: "model.TransferPackage",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2917,7 +2941,7 @@ export class TransferPackageClient {
       bodyContent: common.ObjectSerializer.serialize(
         detachDevicesFromTransferPackageRequest.detachDevicesDetails,
         "DetachDevicesDetails",
-        models.DetachDevicesDetails.getJsonObj
+        model.DetachDevicesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2990,7 +3014,8 @@ export class TransferPackageClient {
         responseObject: <responses.GetTransferPackageResponse>{},
         body: await response.json(),
         bodyKey: "transferPackage",
-        bodyModel: "model.TransferPackage",
+        bodyModel: model.TransferPackage,
+        type: "model.TransferPackage",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3056,7 +3081,8 @@ export class TransferPackageClient {
         responseObject: <responses.ListTransferPackagesResponse>{},
         body: await response.json(),
         bodyKey: "multipleTransferPackages",
-        bodyModel: "model.MultipleTransferPackages",
+        bodyModel: model.MultipleTransferPackages,
+        type: "model.MultipleTransferPackages",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3109,7 +3135,7 @@ export class TransferPackageClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateTransferPackageRequest.updateTransferPackageDetails,
         "UpdateTransferPackageDetails",
-        models.UpdateTransferPackageDetails.getJsonObj
+        model.UpdateTransferPackageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3121,7 +3147,8 @@ export class TransferPackageClient {
         responseObject: <responses.UpdateTransferPackageResponse>{},
         body: await response.json(),
         bodyKey: "transferPackage",
-        bodyModel: "model.TransferPackage",
+        bodyModel: model.TransferPackage,
+        type: "model.TransferPackage",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

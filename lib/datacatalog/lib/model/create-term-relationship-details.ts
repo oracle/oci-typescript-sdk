@@ -40,4 +40,9 @@ export namespace CreateTermRelationshipDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTermRelationshipDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

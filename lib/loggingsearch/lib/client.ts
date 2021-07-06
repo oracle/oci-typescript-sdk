@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
@@ -141,7 +141,7 @@ export class LogSearchClient {
       bodyContent: common.ObjectSerializer.serialize(
         searchLogsRequest.searchLogsDetails,
         "SearchLogsDetails",
-        models.SearchLogsDetails.getJsonObj
+        model.SearchLogsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -153,7 +153,8 @@ export class LogSearchClient {
         responseObject: <responses.SearchLogsResponse>{},
         body: await response.json(),
         bodyKey: "searchResponse",
-        bodyModel: "model.SearchResponse",
+        bodyModel: model.SearchResponse,
+        type: "model.SearchResponse",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),

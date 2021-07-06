@@ -44,4 +44,9 @@ export namespace AggregatedDatapoint {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AggregatedDatapoint): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

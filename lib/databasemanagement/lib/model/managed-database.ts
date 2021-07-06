@@ -127,4 +127,30 @@ export namespace ManagedDatabase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagedDatabase): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "managedDatabaseGroups": obj.managedDatabaseGroups
+          ? obj.managedDatabaseGroups.map(item => {
+              return model.ParentGroup.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "instanceDetails": obj.instanceDetails
+          ? obj.instanceDetails.map(item => {
+              return model.InstanceDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "pdbStatus": obj.pdbStatus
+          ? obj.pdbStatus.map(item => {
+              return model.PdbStatusDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

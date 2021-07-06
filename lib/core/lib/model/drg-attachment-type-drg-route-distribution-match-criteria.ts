@@ -65,4 +65,19 @@ export namespace DrgAttachmentTypeDrgRouteDistributionMatchCriteria {
     return jsonObj;
   }
   export const matchType = "DRG_ATTACHMENT_TYPE";
+  export function getDeserializedJsonObj(
+    obj: DrgAttachmentTypeDrgRouteDistributionMatchCriteria,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DrgRouteDistributionMatchCriteria.getDeserializedJsonObj(
+            obj
+          ) as DrgAttachmentTypeDrgRouteDistributionMatchCriteria)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

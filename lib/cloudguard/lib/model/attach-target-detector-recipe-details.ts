@@ -30,4 +30,9 @@ export namespace AttachTargetDetectorRecipeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AttachTargetDetectorRecipeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

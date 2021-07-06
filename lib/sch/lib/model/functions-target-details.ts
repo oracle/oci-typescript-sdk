@@ -41,4 +41,17 @@ export namespace FunctionsTargetDetails {
     return jsonObj;
   }
   export const kind = "functions";
+  export function getDeserializedJsonObj(
+    obj: FunctionsTargetDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TargetDetails.getDeserializedJsonObj(obj) as FunctionsTargetDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

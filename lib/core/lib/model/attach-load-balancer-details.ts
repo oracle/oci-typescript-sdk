@@ -51,4 +51,9 @@ export namespace AttachLoadBalancerDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AttachLoadBalancerDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

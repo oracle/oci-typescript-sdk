@@ -99,4 +99,9 @@ export namespace ListMetricsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ListMetricsDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

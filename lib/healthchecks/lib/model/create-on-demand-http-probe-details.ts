@@ -66,4 +66,9 @@ export namespace CreateOnDemandHttpProbeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateOnDemandHttpProbeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

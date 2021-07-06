@@ -54,4 +54,25 @@ export namespace BaseTagDefinitionValidator {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BaseTagDefinitionValidator): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("validatorType" in obj && obj.validatorType) {
+      switch (obj.validatorType) {
+        case "DEFAULT":
+          return model.DefaultTagDefinitionValidator.getDeserializedJsonObj(
+            <model.DefaultTagDefinitionValidator>(<object>jsonObj),
+            true
+          );
+        case "ENUM":
+          return model.EnumTagDefinitionValidator.getDeserializedJsonObj(
+            <model.EnumTagDefinitionValidator>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.validatorType);
+      }
+    }
+    return jsonObj;
+  }
 }

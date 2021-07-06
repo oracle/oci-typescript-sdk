@@ -82,4 +82,19 @@ export namespace CreateSourceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSourceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.SourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined,
+        "authorizationDetails": obj.authorizationDetails
+          ? model.AuthorizationDetails.getDeserializedJsonObj(obj.authorizationDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

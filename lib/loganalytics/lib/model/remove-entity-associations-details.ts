@@ -33,4 +33,9 @@ export namespace RemoveEntityAssociationsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RemoveEntityAssociationsDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

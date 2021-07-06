@@ -49,4 +49,21 @@ export namespace DataAssetFromMySQL {
     return jsonObj;
   }
   export const modelType = "MYSQL_DATA_ASSET";
+  export function getDeserializedJsonObj(
+    obj: DataAssetFromMySQL,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DataAsset.getDeserializedJsonObj(obj) as DataAssetFromMySQL)),
+      ...{
+        "defaultConnection": obj.defaultConnection
+          ? model.ConnectionFromMySQLDetails.getDeserializedJsonObj(obj.defaultConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

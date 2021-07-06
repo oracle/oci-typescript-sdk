@@ -89,4 +89,9 @@ export namespace ManagementDashboardTileDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagementDashboardTileDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

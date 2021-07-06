@@ -47,4 +47,19 @@ export namespace AnyOfRouteAuthorizationPolicy {
     return jsonObj;
   }
   export const type = "ANY_OF";
+  export function getDeserializedJsonObj(
+    obj: AnyOfRouteAuthorizationPolicy,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.RouteAuthorizationPolicy.getDeserializedJsonObj(
+            obj
+          ) as AnyOfRouteAuthorizationPolicy)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

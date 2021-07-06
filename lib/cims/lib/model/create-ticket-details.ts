@@ -68,4 +68,22 @@ export namespace CreateTicketDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTicketDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resourceList": obj.resourceList
+          ? obj.resourceList.map(item => {
+              return model.CreateResourceDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "contextualData": obj.contextualData
+          ? model.ContextualData.getDeserializedJsonObj(obj.contextualData)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

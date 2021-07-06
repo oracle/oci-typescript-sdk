@@ -46,4 +46,9 @@ export namespace UpdateStreamDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateStreamDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -90,4 +90,9 @@ export namespace Patch {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Patch): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -31,7 +31,10 @@ export enum CapacityType {
 }
 
 export namespace CapacityType {
-  export function getJsonObj(obj: CapacityType): object {
-    return { obj };
+  export function getJsonObj(obj: CapacityType): CapacityType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: CapacityType): CapacityType {
+    return obj;
   }
 }

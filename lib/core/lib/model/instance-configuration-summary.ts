@@ -68,4 +68,9 @@ export namespace InstanceConfigurationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceConfigurationSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

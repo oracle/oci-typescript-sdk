@@ -78,4 +78,9 @@ export namespace ComputeImageCapabilitySchemaSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ComputeImageCapabilitySchemaSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

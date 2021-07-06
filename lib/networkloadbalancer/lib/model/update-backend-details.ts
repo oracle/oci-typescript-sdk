@@ -61,4 +61,9 @@ export namespace UpdateBackendDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateBackendDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

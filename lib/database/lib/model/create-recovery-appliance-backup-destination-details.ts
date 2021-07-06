@@ -49,4 +49,19 @@ export namespace CreateRecoveryApplianceBackupDestinationDetails {
     return jsonObj;
   }
   export const type = "RECOVERY_APPLIANCE";
+  export function getDeserializedJsonObj(
+    obj: CreateRecoveryApplianceBackupDestinationDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateBackupDestinationDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateRecoveryApplianceBackupDestinationDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

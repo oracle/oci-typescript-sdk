@@ -57,4 +57,30 @@ export namespace DatabaseUpgradeSourceBase {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseUpgradeSourceBase): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("source" in obj && obj.source) {
+      switch (obj.source) {
+        case "DB_HOME":
+          return model.DatabaseUpgradeWithDbHomeDetails.getDeserializedJsonObj(
+            <model.DatabaseUpgradeWithDbHomeDetails>(<object>jsonObj),
+            true
+          );
+        case "DB_SOFTWARE_IMAGE":
+          return model.DatabaseUpgradeWithDatabaseSoftwareImageDetails.getDeserializedJsonObj(
+            <model.DatabaseUpgradeWithDatabaseSoftwareImageDetails>(<object>jsonObj),
+            true
+          );
+        case "DB_VERSION":
+          return model.DatabaseUpgradeWithDbVersionDetails.getDeserializedJsonObj(
+            <model.DatabaseUpgradeWithDbVersionDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.source);
+      }
+    }
+    return jsonObj;
+  }
 }

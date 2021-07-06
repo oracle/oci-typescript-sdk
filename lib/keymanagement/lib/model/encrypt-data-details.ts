@@ -66,4 +66,9 @@ export namespace EncryptDataDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EncryptDataDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

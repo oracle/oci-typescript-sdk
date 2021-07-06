@@ -35,4 +35,9 @@ export namespace IngestSqlPlanLinesResponseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IngestSqlPlanLinesResponseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

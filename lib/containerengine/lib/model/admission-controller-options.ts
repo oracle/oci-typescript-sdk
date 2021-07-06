@@ -33,4 +33,9 @@ export namespace AdmissionControllerOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AdmissionControllerOptions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

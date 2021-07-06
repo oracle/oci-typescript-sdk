@@ -79,4 +79,9 @@ export namespace LogAnalyticsEntityTypeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsEntityTypeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

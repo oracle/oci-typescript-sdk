@@ -55,4 +55,18 @@ export namespace IncidentType {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IncidentType): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "classifierList": obj.classifierList
+          ? obj.classifierList.map(item => {
+              return model.Classifier.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

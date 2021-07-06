@@ -36,4 +36,12 @@ export namespace Query {
     return jsonObj;
   }
   export const modelType = "QUERY";
+  export function getDeserializedJsonObj(obj: Query, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.PushDownOperation.getDeserializedJsonObj(obj) as Query)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

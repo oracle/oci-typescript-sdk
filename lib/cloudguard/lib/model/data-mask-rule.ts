@@ -116,4 +116,16 @@ export namespace DataMaskRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataMaskRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "targetSelected": obj.targetSelected
+          ? model.TargetSelected.getDeserializedJsonObj(obj.targetSelected)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -41,4 +41,17 @@ export namespace TailCommandDescriptor {
     return jsonObj;
   }
   export const name = "TAIL";
+  export function getDeserializedJsonObj(
+    obj: TailCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as TailCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

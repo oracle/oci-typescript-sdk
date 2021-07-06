@@ -59,4 +59,9 @@ export namespace ShapeMemoryOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ShapeMemoryOptions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

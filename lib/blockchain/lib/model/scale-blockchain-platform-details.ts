@@ -87,4 +87,37 @@ export namespace ScaleBlockchainPlatformDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScaleBlockchainPlatformDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "addOsns": obj.addOsns
+          ? obj.addOsns.map(item => {
+              return model.CreateOsnDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "addReplicas": obj.addReplicas
+          ? model.ReplicaDetails.getDeserializedJsonObj(obj.addReplicas)
+          : undefined,
+        "addPeers": obj.addPeers
+          ? obj.addPeers.map(item => {
+              return model.CreatePeerDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "addStorage": obj.addStorage
+          ? model.ScaleStorageDetails.getDeserializedJsonObj(obj.addStorage)
+          : undefined,
+        "modifyPeers": obj.modifyPeers
+          ? obj.modifyPeers.map(item => {
+              return model.ModifyPeerDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "removeReplicas": obj.removeReplicas
+          ? model.ReplicaDetails.getDeserializedJsonObj(obj.removeReplicas)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

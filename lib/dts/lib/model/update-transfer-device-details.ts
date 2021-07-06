@@ -30,4 +30,9 @@ export namespace UpdateTransferDeviceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateTransferDeviceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

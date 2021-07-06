@@ -38,4 +38,9 @@ export namespace CandidateResponderRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CandidateResponderRule): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

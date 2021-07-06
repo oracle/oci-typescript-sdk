@@ -44,7 +44,10 @@ export enum OdmsJobPhases {
 }
 
 export namespace OdmsJobPhases {
-  export function getJsonObj(obj: OdmsJobPhases): object {
-    return { obj };
+  export function getJsonObj(obj: OdmsJobPhases): OdmsJobPhases {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: OdmsJobPhases): OdmsJobPhases {
+    return obj;
   }
 }

@@ -61,4 +61,18 @@ export namespace ContainerRepositoryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ContainerRepositoryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ContainerRepositorySummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

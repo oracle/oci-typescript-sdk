@@ -109,4 +109,18 @@ export namespace Connection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Connection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertyGetUsage.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

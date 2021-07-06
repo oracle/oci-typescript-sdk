@@ -154,4 +154,20 @@ export namespace PolicyConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PolicyConfig): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "loadBalancingMethod": obj.loadBalancingMethod
+          ? model.LoadBalancingMethod.getDeserializedJsonObj(obj.loadBalancingMethod)
+          : undefined,
+
+        "healthChecks": obj.healthChecks
+          ? model.HealthCheck.getDeserializedJsonObj(obj.healthChecks)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

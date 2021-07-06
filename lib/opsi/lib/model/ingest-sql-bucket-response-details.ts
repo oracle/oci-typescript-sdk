@@ -35,4 +35,9 @@ export namespace IngestSqlBucketResponseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IngestSqlBucketResponseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

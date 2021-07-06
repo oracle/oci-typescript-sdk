@@ -44,4 +44,18 @@ export namespace RecommendationCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RecommendationCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.RecommendationDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

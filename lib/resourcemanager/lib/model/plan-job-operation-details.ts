@@ -38,4 +38,17 @@ export namespace PlanJobOperationDetails {
     return jsonObj;
   }
   export const operation = "PLAN";
+  export function getDeserializedJsonObj(
+    obj: PlanJobOperationDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.JobOperationDetails.getDeserializedJsonObj(obj) as PlanJobOperationDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

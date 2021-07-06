@@ -42,4 +42,9 @@ export namespace AddressRateLimiting {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddressRateLimiting): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

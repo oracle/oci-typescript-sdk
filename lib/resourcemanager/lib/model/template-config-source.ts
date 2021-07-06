@@ -43,4 +43,20 @@ export namespace TemplateConfigSource {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TemplateConfigSource): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("templateConfigSourceType" in obj && obj.templateConfigSourceType) {
+      switch (obj.templateConfigSourceType) {
+        case "ZIP_UPLOAD":
+          return model.TemplateZipUploadConfigSource.getDeserializedJsonObj(
+            <model.TemplateZipUploadConfigSource>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.templateConfigSourceType);
+      }
+    }
+    return jsonObj;
+  }
 }

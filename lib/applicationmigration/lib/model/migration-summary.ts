@@ -88,4 +88,9 @@ export namespace MigrationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MigrationSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

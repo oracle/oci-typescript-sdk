@@ -28,4 +28,9 @@ export namespace CreateSmtpCredentialDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSmtpCredentialDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { RedirectWaiter } from "./redirect-waiter";
@@ -171,7 +171,7 @@ export class RedirectClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeHttpRedirectCompartmentRequest.changeHttpRedirectCompartmentDetails,
         "ChangeHttpRedirectCompartmentDetails",
-        models.ChangeHttpRedirectCompartmentDetails.getJsonObj
+        model.ChangeHttpRedirectCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -230,7 +230,7 @@ export class RedirectClient {
       bodyContent: common.ObjectSerializer.serialize(
         createHttpRedirectRequest.createHttpRedirectDetails,
         "CreateHttpRedirectDetails",
-        models.CreateHttpRedirectDetails.getJsonObj
+        model.CreateHttpRedirectDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -364,7 +364,8 @@ export class RedirectClient {
         responseObject: <responses.GetHttpRedirectResponse>{},
         body: await response.json(),
         bodyKey: "httpRedirect",
-        bodyModel: "model.HttpRedirect",
+        bodyModel: model.HttpRedirect,
+        type: "model.HttpRedirect",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -436,7 +437,8 @@ export class RedirectClient {
         responseObject: <responses.ListHttpRedirectsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "HttpRedirectSummary[]",
+        bodyModel: model.HttpRedirectSummary,
+        type: "Array<model.HttpRedirectSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -466,7 +468,7 @@ export class RedirectClient {
    */
   public listAllHttpRedirects(
     request: requests.ListHttpRedirectsRequest
-  ): AsyncIterableIterator<models.HttpRedirectSummary> {
+  ): AsyncIterableIterator<model.HttpRedirectSummary> {
     return paginateRecords(request, req => this.listHttpRedirects(req));
   }
 
@@ -519,7 +521,7 @@ export class RedirectClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateHttpRedirectRequest.updateHttpRedirectDetails,
         "UpdateHttpRedirectDetails",
-        models.UpdateHttpRedirectDetails.getJsonObj
+        model.UpdateHttpRedirectDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -823,7 +825,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       bodyContent: common.ObjectSerializer.serialize(
         changeAddressListCompartmentRequest.changeAddressListCompartmentDetails,
         "ChangeAddressListCompartmentDetails",
-        models.ChangeAddressListCompartmentDetails.getJsonObj
+        model.ChangeAddressListCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -888,7 +890,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       bodyContent: common.ObjectSerializer.serialize(
         changeCertificateCompartmentRequest.changeCertificateCompartmentDetails,
         "ChangeCertificateCompartmentDetails",
-        models.ChangeCertificateCompartmentDetails.getJsonObj
+        model.ChangeCertificateCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -952,7 +954,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       bodyContent: common.ObjectSerializer.serialize(
         changeCustomProtectionRuleCompartmentRequest.changeCustomProtectionRuleCompartmentDetails,
         "ChangeCustomProtectionRuleCompartmentDetails",
-        models.ChangeCustomProtectionRuleCompartmentDetails.getJsonObj
+        model.ChangeCustomProtectionRuleCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1016,7 +1018,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       bodyContent: common.ObjectSerializer.serialize(
         changeWaasPolicyCompartmentRequest.changeWaasPolicyCompartmentDetails,
         "ChangeWaasPolicyCompartmentDetails",
-        models.ChangeWaasPolicyCompartmentDetails.getJsonObj
+        model.ChangeWaasPolicyCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1075,7 +1077,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       bodyContent: common.ObjectSerializer.serialize(
         createAddressListRequest.createAddressListDetails,
         "CreateAddressListDetails",
-        models.CreateAddressListDetails.getJsonObj
+        model.CreateAddressListDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1087,7 +1089,8 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
         responseObject: <responses.CreateAddressListResponse>{},
         body: await response.json(),
         bodyKey: "addressList",
-        bodyModel: "model.AddressList",
+        bodyModel: model.AddressList,
+        type: "model.AddressList",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1144,7 +1147,7 @@ For more information, see [WAF Settings](https://docs.cloud.oracle.com/iaas/Cont
       bodyContent: common.ObjectSerializer.serialize(
         createCertificateRequest.createCertificateDetails,
         "CreateCertificateDetails",
-        models.CreateCertificateDetails.getJsonObj
+        model.CreateCertificateDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1156,7 +1159,8 @@ For more information, see [WAF Settings](https://docs.cloud.oracle.com/iaas/Cont
         responseObject: <responses.CreateCertificateResponse>{},
         body: await response.json(),
         bodyKey: "certificate",
-        bodyModel: "model.Certificate",
+        bodyModel: model.Certificate,
+        type: "model.Certificate",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1213,7 +1217,7 @@ Custom protection rules allow you to create rules in addition to the rulesets pr
       bodyContent: common.ObjectSerializer.serialize(
         createCustomProtectionRuleRequest.createCustomProtectionRuleDetails,
         "CreateCustomProtectionRuleDetails",
-        models.CreateCustomProtectionRuleDetails.getJsonObj
+        model.CreateCustomProtectionRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1225,7 +1229,8 @@ Custom protection rules allow you to create rules in addition to the rulesets pr
         responseObject: <responses.CreateCustomProtectionRuleResponse>{},
         body: await response.json(),
         bodyKey: "customProtectionRule",
-        bodyModel: "model.CustomProtectionRule",
+        bodyModel: model.CustomProtectionRule,
+        type: "model.CustomProtectionRule",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1292,7 +1297,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       bodyContent: common.ObjectSerializer.serialize(
         createWaasPolicyRequest.createWaasPolicyDetails,
         "CreateWaasPolicyDetails",
-        models.CreateWaasPolicyDetails.getJsonObj
+        model.CreateWaasPolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1602,7 +1607,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.GetAddressListResponse>{},
         body: await response.json(),
         bodyKey: "addressList",
-        bodyModel: "model.AddressList",
+        bodyModel: model.AddressList,
+        type: "model.AddressList",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1665,7 +1671,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.GetCertificateResponse>{},
         body: await response.json(),
         bodyKey: "certificate",
-        bodyModel: "model.Certificate",
+        bodyModel: model.Certificate,
+        type: "model.Certificate",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1728,7 +1735,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.GetCustomProtectionRuleResponse>{},
         body: await response.json(),
         bodyKey: "customProtectionRule",
-        bodyModel: "model.CustomProtectionRule",
+        bodyModel: model.CustomProtectionRule,
+        type: "model.CustomProtectionRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1792,7 +1800,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.GetDeviceFingerprintChallengeResponse>{},
         body: await response.json(),
         bodyKey: "deviceFingerprintChallenge",
-        bodyModel: "model.DeviceFingerprintChallenge",
+        bodyModel: model.DeviceFingerprintChallenge,
+        type: "model.DeviceFingerprintChallenge",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1856,7 +1865,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.GetHumanInteractionChallengeResponse>{},
         body: await response.json(),
         bodyKey: "humanInteractionChallenge",
-        bodyModel: "model.HumanInteractionChallenge",
+        bodyModel: model.HumanInteractionChallenge,
+        type: "model.HumanInteractionChallenge",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1919,7 +1929,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.GetJsChallengeResponse>{},
         body: await response.json(),
         bodyKey: "jsChallenge",
-        bodyModel: "model.JsChallenge",
+        bodyModel: model.JsChallenge,
+        type: "model.JsChallenge",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1982,7 +1993,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.GetPolicyConfigResponse>{},
         body: await response.json(),
         bodyKey: "policyConfig",
-        bodyModel: "model.PolicyConfig",
+        bodyModel: model.PolicyConfig,
+        type: "model.PolicyConfig",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2046,7 +2058,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.GetProtectionRuleResponse>{},
         body: await response.json(),
         bodyKey: "protectionRule",
-        bodyModel: "model.ProtectionRule",
+        bodyModel: model.ProtectionRule,
+        type: "model.ProtectionRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2109,7 +2122,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.GetProtectionSettingsResponse>{},
         body: await response.json(),
         bodyKey: "protectionSettings",
-        bodyModel: "model.ProtectionSettings",
+        bodyModel: model.ProtectionSettings,
+        type: "model.ProtectionSettings",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2172,7 +2186,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.GetWaasPolicyResponse>{},
         body: await response.json(),
         bodyKey: "waasPolicy",
-        bodyModel: "model.WaasPolicy",
+        bodyModel: model.WaasPolicy,
+        type: "model.WaasPolicy",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2235,7 +2250,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.GetWafAddressRateLimitingResponse>{},
         body: await response.json(),
         bodyKey: "addressRateLimiting",
-        bodyModel: "model.AddressRateLimiting",
+        bodyModel: model.AddressRateLimiting,
+        type: "model.AddressRateLimiting",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2298,7 +2314,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.GetWafConfigResponse>{},
         body: await response.json(),
         bodyKey: "wafConfig",
-        bodyModel: "model.WafConfig",
+        bodyModel: model.WafConfig,
+        type: "model.WafConfig",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2361,7 +2378,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2433,7 +2451,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.ListAccessRulesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AccessRule[]",
+        bodyModel: model.AccessRule,
+        type: "Array<model.AccessRule>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2468,7 +2487,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    */
   public listAllAccessRules(
     request: requests.ListAccessRulesRequest
-  ): AsyncIterableIterator<models.AccessRule> {
+  ): AsyncIterableIterator<model.AccessRule> {
     return paginateRecords(request, req => this.listAccessRules(req));
   }
 
@@ -2535,7 +2554,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.ListAddressListsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AddressListSummary[]",
+        bodyModel: model.AddressListSummary,
+        type: "Array<model.AddressListSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2565,7 +2585,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    */
   public listAllAddressLists(
     request: requests.ListAddressListsRequest
-  ): AsyncIterableIterator<models.AddressListSummary> {
+  ): AsyncIterableIterator<model.AddressListSummary> {
     return paginateRecords(request, req => this.listAddressLists(req));
   }
 
@@ -2627,7 +2647,8 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
         responseObject: <responses.ListCachingRulesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CachingRuleSummary[]",
+        bodyModel: model.CachingRuleSummary,
+        type: "Array<model.CachingRuleSummary>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2662,7 +2683,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
    */
   public listAllCachingRules(
     request: requests.ListCachingRulesRequest
-  ): AsyncIterableIterator<models.CachingRuleSummary> {
+  ): AsyncIterableIterator<model.CachingRuleSummary> {
     return paginateRecords(request, req => this.listCachingRules(req));
   }
 
@@ -2728,7 +2749,8 @@ The order of the CAPTCHA challenges is important. The URL for each
         responseObject: <responses.ListCaptchasResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Captcha[]",
+        bodyModel: model.Captcha,
+        type: "Array<model.Captcha>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2763,7 +2785,7 @@ The order of the CAPTCHA challenges is important. The URL for each
    */
   public listAllCaptchas(
     request: requests.ListCaptchasRequest
-  ): AsyncIterableIterator<models.Captcha> {
+  ): AsyncIterableIterator<model.Captcha> {
     return paginateRecords(request, req => this.listCaptchas(req));
   }
 
@@ -2830,7 +2852,8 @@ The order of the CAPTCHA challenges is important. The URL for each
         responseObject: <responses.ListCertificatesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CertificateSummary[]",
+        bodyModel: model.CertificateSummary,
+        type: "Array<model.CertificateSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2860,7 +2883,7 @@ The order of the CAPTCHA challenges is important. The URL for each
    */
   public listAllCertificates(
     request: requests.ListCertificatesRequest
-  ): AsyncIterableIterator<models.CertificateSummary> {
+  ): AsyncIterableIterator<model.CertificateSummary> {
     return paginateRecords(request, req => this.listCertificates(req));
   }
 
@@ -2928,7 +2951,8 @@ The order of the CAPTCHA challenges is important. The URL for each
         responseObject: <responses.ListCustomProtectionRulesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CustomProtectionRuleSummary[]",
+        bodyModel: model.CustomProtectionRuleSummary,
+        type: "Array<model.CustomProtectionRuleSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2958,7 +2982,7 @@ The order of the CAPTCHA challenges is important. The URL for each
    */
   public listAllCustomProtectionRules(
     request: requests.ListCustomProtectionRulesRequest
-  ): AsyncIterableIterator<models.CustomProtectionRuleSummary> {
+  ): AsyncIterableIterator<model.CustomProtectionRuleSummary> {
     return paginateRecords(request, req => this.listCustomProtectionRules(req));
   }
 
@@ -3019,7 +3043,8 @@ The order of the CAPTCHA challenges is important. The URL for each
         responseObject: <responses.ListEdgeSubnetsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "EdgeSubnet[]",
+        bodyModel: model.EdgeSubnet,
+        type: "Array<model.EdgeSubnet>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3049,7 +3074,7 @@ The order of the CAPTCHA challenges is important. The URL for each
    */
   public listAllEdgeSubnets(
     request: requests.ListEdgeSubnetsRequest
-  ): AsyncIterableIterator<models.EdgeSubnet> {
+  ): AsyncIterableIterator<model.EdgeSubnet> {
     return paginateRecords(request, req => this.listEdgeSubnets(req));
   }
 
@@ -3113,7 +3138,8 @@ The list is sorted by `key`, in ascending order.
         responseObject: <responses.ListGoodBotsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "GoodBot[]",
+        bodyModel: model.GoodBot,
+        type: "Array<model.GoodBot>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3148,7 +3174,7 @@ The list is sorted by `key`, in ascending order.
    */
   public listAllGoodBots(
     request: requests.ListGoodBotsRequest
-  ): AsyncIterableIterator<models.GoodBot> {
+  ): AsyncIterableIterator<model.GoodBot> {
     return paginateRecords(request, req => this.listGoodBots(req));
   }
 
@@ -3212,7 +3238,8 @@ The list is sorted by `key`, in ascending order.
         responseObject: <responses.ListProtectionRulesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ProtectionRule[]",
+        bodyModel: model.ProtectionRule,
+        type: "Array<model.ProtectionRule>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3247,7 +3274,7 @@ The list is sorted by `key`, in ascending order.
    */
   public listAllProtectionRules(
     request: requests.ListProtectionRulesRequest
-  ): AsyncIterableIterator<models.ProtectionRule> {
+  ): AsyncIterableIterator<model.ProtectionRule> {
     return paginateRecords(request, req => this.listProtectionRules(req));
   }
 
@@ -3312,7 +3339,8 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
         responseObject: <responses.ListRecommendationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Recommendation[]",
+        bodyModel: model.Recommendation,
+        type: "Array<model.Recommendation>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3347,7 +3375,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    */
   public listAllRecommendations(
     request: requests.ListRecommendationsRequest
-  ): AsyncIterableIterator<models.Recommendation> {
+  ): AsyncIterableIterator<model.Recommendation> {
     return paginateRecords(request, req => this.listRecommendations(req));
   }
 
@@ -3411,7 +3439,8 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
         responseObject: <responses.ListThreatFeedsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ThreatFeed[]",
+        bodyModel: model.ThreatFeed,
+        type: "Array<model.ThreatFeed>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3446,7 +3475,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    */
   public listAllThreatFeeds(
     request: requests.ListThreatFeedsRequest
-  ): AsyncIterableIterator<models.ThreatFeed> {
+  ): AsyncIterableIterator<model.ThreatFeed> {
     return paginateRecords(request, req => this.listThreatFeeds(req));
   }
 
@@ -3513,7 +3542,8 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
         responseObject: <responses.ListWaasPoliciesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WaasPolicySummary[]",
+        bodyModel: model.WaasPolicySummary,
+        type: "Array<model.WaasPolicySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3543,7 +3573,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    */
   public listAllWaasPolicies(
     request: requests.ListWaasPoliciesRequest
-  ): AsyncIterableIterator<models.WaasPolicySummary> {
+  ): AsyncIterableIterator<model.WaasPolicySummary> {
     return paginateRecords(request, req => this.listWaasPolicies(req));
   }
 
@@ -3607,7 +3637,8 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
         responseObject: <responses.ListWaasPolicyCustomProtectionRulesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WaasPolicyCustomProtectionRuleSummary[]",
+        bodyModel: model.WaasPolicyCustomProtectionRuleSummary,
+        type: "Array<model.WaasPolicyCustomProtectionRuleSummary>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3642,7 +3673,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    */
   public listAllWaasPolicyCustomProtectionRules(
     request: requests.ListWaasPolicyCustomProtectionRulesRequest
-  ): AsyncIterableIterator<models.WaasPolicyCustomProtectionRuleSummary> {
+  ): AsyncIterableIterator<model.WaasPolicyCustomProtectionRuleSummary> {
     return paginateRecords(request, req => this.listWaasPolicyCustomProtectionRules(req));
   }
 
@@ -3707,7 +3738,8 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
         responseObject: <responses.ListWafBlockedRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WafBlockedRequest[]",
+        bodyModel: model.WafBlockedRequest,
+        type: "Array<model.WafBlockedRequest>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3737,7 +3769,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    */
   public listAllWafBlockedRequests(
     request: requests.ListWafBlockedRequestsRequest
-  ): AsyncIterableIterator<models.WafBlockedRequest> {
+  ): AsyncIterableIterator<model.WafBlockedRequest> {
     return paginateRecords(request, req => this.listWafBlockedRequests(req));
   }
 
@@ -3820,7 +3852,8 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
         responseObject: <responses.ListWafLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WafLog[]",
+        bodyModel: model.WafLog,
+        type: "Array<model.WafLog>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3848,9 +3881,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllWafLogs(
-    request: requests.ListWafLogsRequest
-  ): AsyncIterableIterator<models.WafLog> {
+  public listAllWafLogs(request: requests.ListWafLogsRequest): AsyncIterableIterator<model.WafLog> {
     return paginateRecords(request, req => this.listWafLogs(req));
   }
 
@@ -3916,7 +3947,8 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
         responseObject: <responses.ListWafRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WafRequest[]",
+        bodyModel: model.WafRequest,
+        type: "Array<model.WafRequest>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3946,7 +3978,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    */
   public listAllWafRequests(
     request: requests.ListWafRequestsRequest
-  ): AsyncIterableIterator<models.WafRequest> {
+  ): AsyncIterableIterator<model.WafRequest> {
     return paginateRecords(request, req => this.listWafRequests(req));
   }
 
@@ -4011,7 +4043,8 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
         responseObject: <responses.ListWafTrafficResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WafTrafficDatum[]",
+        bodyModel: model.WafTrafficDatum,
+        type: "Array<model.WafTrafficDatum>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4041,7 +4074,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    */
   public listAllWafTraffic(
     request: requests.ListWafTrafficRequest
-  ): AsyncIterableIterator<models.WafTrafficDatum> {
+  ): AsyncIterableIterator<model.WafTrafficDatum> {
     return paginateRecords(request, req => this.listWafTraffic(req));
   }
 
@@ -4102,7 +4135,8 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
         responseObject: <responses.ListWhitelistsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Whitelist[]",
+        bodyModel: model.Whitelist,
+        type: "Array<model.Whitelist>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4137,7 +4171,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    */
   public listAllWhitelists(
     request: requests.ListWhitelistsRequest
-  ): AsyncIterableIterator<models.Whitelist> {
+  ): AsyncIterableIterator<model.Whitelist> {
     return paginateRecords(request, req => this.listWhitelists(req));
   }
 
@@ -4200,7 +4234,8 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -4230,7 +4265,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -4283,7 +4318,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       bodyContent: common.ObjectSerializer.serialize(
         purgeCacheRequest.purgeCache,
         "PurgeCache",
-        models.PurgeCache.getJsonObj
+        model.PurgeCache.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4358,7 +4393,7 @@ Any existing access rules that are not specified with a `key` in the list of acc
       bodyContent: common.ObjectSerializer.serialize(
         updateAccessRulesRequest.accessRules,
         "Array<model.AccessRule>",
-        models.AccessRule.getJsonObj
+        model.AccessRule.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4424,7 +4459,7 @@ Any existing access rules that are not specified with a `key` in the list of acc
       bodyContent: common.ObjectSerializer.serialize(
         updateAddressListRequest.updateAddressListDetails,
         "UpdateAddressListDetails",
-        models.UpdateAddressListDetails.getJsonObj
+        model.UpdateAddressListDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4436,7 +4471,8 @@ Any existing access rules that are not specified with a `key` in the list of acc
         responseObject: <responses.UpdateAddressListResponse>{},
         body: await response.json(),
         bodyKey: "addressList",
-        bodyModel: "model.AddressList",
+        bodyModel: model.AddressList,
+        type: "model.AddressList",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4500,7 +4536,7 @@ The order the caching rules are specified in is important. The rules are process
       bodyContent: common.ObjectSerializer.serialize(
         updateCachingRulesRequest.cachingRulesDetails,
         "Array<model.CachingRule>",
-        models.CachingRule.getJsonObj
+        model.CachingRule.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4575,7 +4611,7 @@ Query parameters are allowed in CAPTCHA URL.
       bodyContent: common.ObjectSerializer.serialize(
         updateCaptchasRequest.captchas,
         "Array<model.Captcha>",
-        models.Captcha.getJsonObj
+        model.Captcha.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4641,7 +4677,7 @@ Query parameters are allowed in CAPTCHA URL.
       bodyContent: common.ObjectSerializer.serialize(
         updateCertificateRequest.updateCertificateDetails,
         "UpdateCertificateDetails",
-        models.UpdateCertificateDetails.getJsonObj
+        model.UpdateCertificateDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4653,7 +4689,8 @@ Query parameters are allowed in CAPTCHA URL.
         responseObject: <responses.UpdateCertificateResponse>{},
         body: await response.json(),
         bodyKey: "certificate",
-        bodyModel: "model.Certificate",
+        bodyModel: model.Certificate,
+        type: "model.Certificate",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4711,7 +4748,7 @@ Query parameters are allowed in CAPTCHA URL.
       bodyContent: common.ObjectSerializer.serialize(
         updateCustomProtectionRuleRequest.updateCustomProtectionRuleDetails,
         "UpdateCustomProtectionRuleDetails",
-        models.UpdateCustomProtectionRuleDetails.getJsonObj
+        model.UpdateCustomProtectionRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4723,7 +4760,8 @@ Query parameters are allowed in CAPTCHA URL.
         responseObject: <responses.UpdateCustomProtectionRuleResponse>{},
         body: await response.json(),
         bodyKey: "customProtectionRule",
-        bodyModel: "model.CustomProtectionRule",
+        bodyModel: model.CustomProtectionRule,
+        type: "model.CustomProtectionRule",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4786,7 +4824,7 @@ DFC collects attributes to generate a hashed signature about a client - if a fin
       bodyContent: common.ObjectSerializer.serialize(
         updateDeviceFingerprintChallengeRequest.updateDeviceFingerprintChallengeDetails,
         "DeviceFingerprintChallenge",
-        models.DeviceFingerprintChallenge.getJsonObj
+        model.DeviceFingerprintChallenge.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4855,7 +4893,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       bodyContent: common.ObjectSerializer.serialize(
         updateGoodBotsRequest.goodBots,
         "Array<model.GoodBot>",
-        models.GoodBot.getJsonObj
+        model.GoodBot.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4923,7 +4961,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       bodyContent: common.ObjectSerializer.serialize(
         updateHumanInteractionChallengeRequest.updateHumanInteractionChallengeDetails,
         "HumanInteractionChallenge",
-        models.HumanInteractionChallenge.getJsonObj
+        model.HumanInteractionChallenge.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4990,7 +5028,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       bodyContent: common.ObjectSerializer.serialize(
         updateJsChallengeRequest.updateJsChallengeDetails,
         "JsChallenge",
-        models.JsChallenge.getJsonObj
+        model.JsChallenge.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5057,7 +5095,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       bodyContent: common.ObjectSerializer.serialize(
         updatePolicyConfigRequest.updatePolicyConfigDetails,
         "PolicyConfig",
-        models.PolicyConfig.getJsonObj
+        model.PolicyConfig.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5125,7 +5163,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       bodyContent: common.ObjectSerializer.serialize(
         updateProtectionRulesRequest.protectionRules,
         "Array<model.ProtectionRuleAction>",
-        models.ProtectionRuleAction.getJsonObj
+        model.ProtectionRuleAction.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5192,7 +5230,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       bodyContent: common.ObjectSerializer.serialize(
         updateProtectionSettingsRequest.updateProtectionSettingsDetails,
         "ProtectionSettings",
-        models.ProtectionSettings.getJsonObj
+        model.ProtectionSettings.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5258,7 +5296,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       bodyContent: common.ObjectSerializer.serialize(
         updateThreatFeedsRequest.threatFeeds,
         "Array<model.ThreatFeedAction>",
-        models.ThreatFeedAction.getJsonObj
+        model.ThreatFeedAction.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5327,7 +5365,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       bodyContent: common.ObjectSerializer.serialize(
         updateWaasPolicyRequest.updateWaasPolicyDetails,
         "UpdateWaasPolicyDetails",
-        models.UpdateWaasPolicyDetails.getJsonObj
+        model.UpdateWaasPolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5395,7 +5433,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       bodyContent: common.ObjectSerializer.serialize(
         updateWaasPolicyCustomProtectionRulesRequest.updateCustomProtectionRulesDetails,
         "Array<model.CustomProtectionRuleSetting>",
-        models.CustomProtectionRuleSetting.getJsonObj
+        model.CustomProtectionRuleSetting.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5463,7 +5501,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       bodyContent: common.ObjectSerializer.serialize(
         updateWafAddressRateLimitingRequest.updateWafAddressRateLimitingDetails,
         "AddressRateLimiting",
-        models.AddressRateLimiting.getJsonObj
+        model.AddressRateLimiting.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5538,7 +5576,7 @@ The returned list will contain objects with `key` properties that can be used to
       bodyContent: common.ObjectSerializer.serialize(
         updateWafConfigRequest.updateWafConfigDetails,
         "WafConfig",
-        models.WafConfig.getJsonObj
+        model.WafConfig.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5613,7 +5651,7 @@ Whitelists can be deleted by removing the existing whitelist object from the lis
       bodyContent: common.ObjectSerializer.serialize(
         updateWhitelistsRequest.whitelists,
         "Array<model.Whitelist>",
-        models.Whitelist.getJsonObj
+        model.Whitelist.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

@@ -56,4 +56,30 @@ export namespace VolumeSourceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VolumeSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "blockVolumeReplica":
+          return model.VolumeSourceFromBlockVolumeReplicaDetails.getDeserializedJsonObj(
+            <model.VolumeSourceFromBlockVolumeReplicaDetails>(<object>jsonObj),
+            true
+          );
+        case "volume":
+          return model.VolumeSourceFromVolumeDetails.getDeserializedJsonObj(
+            <model.VolumeSourceFromVolumeDetails>(<object>jsonObj),
+            true
+          );
+        case "volumeBackup":
+          return model.VolumeSourceFromVolumeBackupDetails.getDeserializedJsonObj(
+            <model.VolumeSourceFromVolumeBackupDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

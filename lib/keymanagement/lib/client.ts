@@ -15,7 +15,7 @@ Secret Management API. For the API for retrieving secrets, see the Vault Service
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { KmsManagementWaiter } from "./kmsmanagement-waiter";
@@ -105,7 +105,7 @@ export class KmsCryptoClient {
       bodyContent: common.ObjectSerializer.serialize(
         decryptRequest.decryptDataDetails,
         "DecryptDataDetails",
-        models.DecryptDataDetails.getJsonObj
+        model.DecryptDataDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -117,7 +117,8 @@ export class KmsCryptoClient {
         responseObject: <responses.DecryptResponse>{},
         body: await response.json(),
         bodyKey: "decryptedData",
-        bodyModel: "model.DecryptedData",
+        bodyModel: model.DecryptedData,
+        type: "model.DecryptedData",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -168,7 +169,7 @@ export class KmsCryptoClient {
       bodyContent: common.ObjectSerializer.serialize(
         encryptRequest.encryptDataDetails,
         "EncryptDataDetails",
-        models.EncryptDataDetails.getJsonObj
+        model.EncryptDataDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -180,7 +181,8 @@ export class KmsCryptoClient {
         responseObject: <responses.EncryptResponse>{},
         body: await response.json(),
         bodyKey: "encryptedData",
-        bodyModel: "model.EncryptedData",
+        bodyModel: model.EncryptedData,
+        type: "model.EncryptedData",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -231,7 +233,7 @@ export class KmsCryptoClient {
       bodyContent: common.ObjectSerializer.serialize(
         exportKeyRequest.exportKeyDetails,
         "ExportKeyDetails",
-        models.ExportKeyDetails.getJsonObj
+        model.ExportKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -243,7 +245,8 @@ export class KmsCryptoClient {
         responseObject: <responses.ExportKeyResponse>{},
         body: await response.json(),
         bodyKey: "exportedKeyData",
-        bodyModel: "model.ExportedKeyData",
+        bodyModel: model.ExportedKeyData,
+        type: "model.ExportedKeyData",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -294,7 +297,7 @@ export class KmsCryptoClient {
       bodyContent: common.ObjectSerializer.serialize(
         generateDataEncryptionKeyRequest.generateKeyDetails,
         "GenerateKeyDetails",
-        models.GenerateKeyDetails.getJsonObj
+        model.GenerateKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -306,7 +309,8 @@ export class KmsCryptoClient {
         responseObject: <responses.GenerateDataEncryptionKeyResponse>{},
         body: await response.json(),
         bodyKey: "generatedKey",
-        bodyModel: "model.GeneratedKey",
+        bodyModel: model.GeneratedKey,
+        type: "model.GeneratedKey",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -356,7 +360,7 @@ export class KmsCryptoClient {
       bodyContent: common.ObjectSerializer.serialize(
         signRequest.signDataDetails,
         "SignDataDetails",
-        models.SignDataDetails.getJsonObj
+        model.SignDataDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -368,7 +372,8 @@ export class KmsCryptoClient {
         responseObject: <responses.SignResponse>{},
         body: await response.json(),
         bodyKey: "signedData",
-        bodyModel: "model.SignedData",
+        bodyModel: model.SignedData,
+        type: "model.SignedData",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -418,7 +423,7 @@ export class KmsCryptoClient {
       bodyContent: common.ObjectSerializer.serialize(
         verifyRequest.verifyDataDetails,
         "VerifyDataDetails",
-        models.VerifyDataDetails.getJsonObj
+        model.VerifyDataDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -430,7 +435,8 @@ export class KmsCryptoClient {
         responseObject: <responses.VerifyResponse>{},
         body: await response.json(),
         bodyKey: "verifiedData",
-        bodyModel: "model.VerifiedData",
+        bodyModel: model.VerifiedData,
+        type: "model.VerifiedData",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -554,7 +560,7 @@ export class KmsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         backupKeyRequest.backupKeyDetails,
         "BackupKeyDetails",
-        models.BackupKeyDetails.getJsonObj
+        model.BackupKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -566,7 +572,8 @@ export class KmsManagementClient {
         responseObject: <responses.BackupKeyResponse>{},
         body: await response.json(),
         bodyKey: "key",
-        bodyModel: "model.Key",
+        bodyModel: model.Key,
+        type: "model.Key",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -644,7 +651,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.CancelKeyDeletionResponse>{},
         body: await response.json(),
         bodyKey: "key",
-        bodyModel: "model.Key",
+        bodyModel: model.Key,
+        type: "model.Key",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -719,7 +727,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.CancelKeyVersionDeletionResponse>{},
         body: await response.json(),
         bodyKey: "keyVersion",
-        bodyModel: "model.KeyVersion",
+        bodyModel: model.KeyVersion,
+        type: "model.KeyVersion",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -787,7 +796,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       bodyContent: common.ObjectSerializer.serialize(
         changeKeyCompartmentRequest.changeKeyCompartmentDetails,
         "ChangeKeyCompartmentDetails",
-        models.ChangeKeyCompartmentDetails.getJsonObj
+        model.ChangeKeyCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -857,7 +866,7 @@ As a management operation, this call is subject to a Key Management limit that a
       bodyContent: common.ObjectSerializer.serialize(
         createKeyRequest.createKeyDetails,
         "CreateKeyDetails",
-        models.CreateKeyDetails.getJsonObj
+        model.CreateKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -869,7 +878,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.CreateKeyResponse>{},
         body: await response.json(),
         bodyKey: "key",
-        bodyModel: "model.Key",
+        bodyModel: model.Key,
+        type: "model.Key",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -940,7 +950,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.CreateKeyVersionResponse>{},
         body: await response.json(),
         bodyKey: "keyVersion",
-        bodyModel: "model.KeyVersion",
+        bodyModel: model.KeyVersion,
+        type: "model.KeyVersion",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1012,7 +1023,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.DisableKeyResponse>{},
         body: await response.json(),
         bodyKey: "key",
-        bodyModel: "model.Key",
+        bodyModel: model.Key,
+        type: "model.Key",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1084,7 +1096,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.EnableKeyResponse>{},
         body: await response.json(),
         bodyKey: "key",
-        bodyModel: "model.Key",
+        bodyModel: model.Key,
+        type: "model.Key",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1151,7 +1164,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.GetKeyResponse>{},
         body: await response.json(),
         bodyKey: "key",
-        bodyModel: "model.Key",
+        bodyModel: model.Key,
+        type: "model.Key",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1221,7 +1235,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.GetKeyVersionResponse>{},
         body: await response.json(),
         bodyKey: "keyVersion",
-        bodyModel: "model.KeyVersion",
+        bodyModel: model.KeyVersion,
+        type: "model.KeyVersion",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1289,7 +1304,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.GetReplicationStatusResponse>{},
         body: await response.json(),
         bodyKey: "replicationStatusDetails",
-        bodyModel: "model.ReplicationStatusDetails",
+        bodyModel: model.ReplicationStatusDetails,
+        type: "model.ReplicationStatusDetails",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1352,7 +1368,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.GetWrappingKeyResponse>{},
         body: await response.json(),
         bodyKey: "wrappingKey",
-        bodyModel: "model.WrappingKey",
+        bodyModel: model.WrappingKey,
+        type: "model.WrappingKey",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1410,7 +1427,7 @@ As a management operation, this call is subject to a Key Management limit that a
       bodyContent: common.ObjectSerializer.serialize(
         importKeyRequest.importKeyDetails,
         "ImportKeyDetails",
-        models.ImportKeyDetails.getJsonObj
+        model.ImportKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1422,7 +1439,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.ImportKeyResponse>{},
         body: await response.json(),
         bodyKey: "key",
-        bodyModel: "model.Key",
+        bodyModel: model.Key,
+        type: "model.Key",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1484,7 +1502,7 @@ As a management operation, this call is subject to a Key Management limit that a
       bodyContent: common.ObjectSerializer.serialize(
         importKeyVersionRequest.importKeyVersionDetails,
         "ImportKeyVersionDetails",
-        models.ImportKeyVersionDetails.getJsonObj
+        model.ImportKeyVersionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1496,7 +1514,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.ImportKeyVersionResponse>{},
         body: await response.json(),
         bodyKey: "keyVersion",
-        bodyModel: "model.KeyVersion",
+        bodyModel: model.KeyVersion,
+        type: "model.KeyVersion",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1571,7 +1590,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.ListKeyVersionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "KeyVersionSummary[]",
+        bodyModel: model.KeyVersionSummary,
+        type: "Array<model.KeyVersionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1601,7 +1621,7 @@ As a management operation, this call is subject to a Key Management limit that a
    */
   public listAllKeyVersions(
     request: requests.ListKeyVersionsRequest
-  ): AsyncIterableIterator<models.KeyVersionSummary> {
+  ): AsyncIterableIterator<model.KeyVersionSummary> {
     return paginateRecords(request, req => this.listKeyVersions(req));
   }
 
@@ -1673,7 +1693,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.ListKeysResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "KeySummary[]",
+        bodyModel: model.KeySummary,
+        type: "Array<model.KeySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1701,7 +1722,7 @@ As a management operation, this call is subject to a Key Management limit that a
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllKeys(request: requests.ListKeysRequest): AsyncIterableIterator<models.KeySummary> {
+  public listAllKeys(request: requests.ListKeysRequest): AsyncIterableIterator<model.KeySummary> {
     return paginateRecords(request, req => this.listKeys(req));
   }
 
@@ -1765,7 +1786,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.RestoreKeyFromFileResponse>{},
         body: await response.json(),
         bodyKey: "key",
-        bodyModel: "model.Key",
+        bodyModel: model.Key,
+        type: "model.Key",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1835,7 +1857,7 @@ As a management operation, this call is subject to a Key Management limit that a
       bodyContent: common.ObjectSerializer.serialize(
         restoreKeyFromObjectStoreRequest.restoreKeyFromObjectStoreDetails,
         "RestoreKeyFromObjectStoreDetails",
-        models.RestoreKeyFromObjectStoreDetails.getJsonObj
+        model.RestoreKeyFromObjectStoreDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1847,7 +1869,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.RestoreKeyFromObjectStoreResponse>{},
         body: await response.json(),
         bodyKey: "key",
-        bodyModel: "model.Key",
+        bodyModel: model.Key,
+        type: "model.Key",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1918,7 +1941,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       bodyContent: common.ObjectSerializer.serialize(
         scheduleKeyDeletionRequest.scheduleKeyDeletionDetails,
         "ScheduleKeyDeletionDetails",
-        models.ScheduleKeyDeletionDetails.getJsonObj
+        model.ScheduleKeyDeletionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1930,7 +1953,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.ScheduleKeyDeletionResponse>{},
         body: await response.json(),
         bodyKey: "key",
-        bodyModel: "model.Key",
+        bodyModel: model.Key,
+        type: "model.Key",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1997,7 +2021,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       bodyContent: common.ObjectSerializer.serialize(
         scheduleKeyVersionDeletionRequest.scheduleKeyVersionDeletionDetails,
         "ScheduleKeyVersionDeletionDetails",
-        models.ScheduleKeyVersionDeletionDetails.getJsonObj
+        model.ScheduleKeyVersionDeletionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2009,7 +2033,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.ScheduleKeyVersionDeletionResponse>{},
         body: await response.json(),
         bodyKey: "keyVersion",
-        bodyModel: "model.KeyVersion",
+        bodyModel: model.KeyVersion,
+        type: "model.KeyVersion",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2074,7 +2099,7 @@ As a management operation, this call is subject to a Key Management limit that a
       bodyContent: common.ObjectSerializer.serialize(
         updateKeyRequest.updateKeyDetails,
         "UpdateKeyDetails",
-        models.UpdateKeyDetails.getJsonObj
+        model.UpdateKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2086,7 +2111,8 @@ As a management operation, this call is subject to a Key Management limit that a
         responseObject: <responses.UpdateKeyResponse>{},
         body: await response.json(),
         bodyKey: "key",
-        bodyModel: "model.Key",
+        bodyModel: model.Key,
+        type: "model.Key",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2253,7 +2279,7 @@ export class KmsVaultClient {
       bodyContent: common.ObjectSerializer.serialize(
         backupVaultRequest.backupVaultDetails,
         "BackupVaultDetails",
-        models.BackupVaultDetails.getJsonObj
+        model.BackupVaultDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2265,7 +2291,8 @@ export class KmsVaultClient {
         responseObject: <responses.BackupVaultResponse>{},
         body: await response.json(),
         bodyKey: "vault",
-        bodyModel: "model.Vault",
+        bodyModel: model.Vault,
+        type: "model.Vault",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2344,7 +2371,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.CancelVaultDeletionResponse>{},
         body: await response.json(),
         bodyKey: "vault",
-        bodyModel: "model.Vault",
+        bodyModel: model.Vault,
+        type: "model.Vault",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2411,7 +2439,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       bodyContent: common.ObjectSerializer.serialize(
         changeVaultCompartmentRequest.changeVaultCompartmentDetails,
         "ChangeVaultCompartmentDetails",
-        models.ChangeVaultCompartmentDetails.getJsonObj
+        model.ChangeVaultCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2484,7 +2512,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       bodyContent: common.ObjectSerializer.serialize(
         createVaultRequest.createVaultDetails,
         "CreateVaultDetails",
-        models.CreateVaultDetails.getJsonObj
+        model.CreateVaultDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2496,7 +2524,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.CreateVaultResponse>{},
         body: await response.json(),
         bodyKey: "vault",
-        bodyModel: "model.Vault",
+        bodyModel: model.Vault,
+        type: "model.Vault",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2564,7 +2593,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       bodyContent: common.ObjectSerializer.serialize(
         createVaultReplicaRequest.createVaultReplicaDetails,
         "CreateVaultReplicaDetails",
-        models.CreateVaultReplicaDetails.getJsonObj
+        model.CreateVaultReplicaDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2637,7 +2666,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       bodyContent: common.ObjectSerializer.serialize(
         deleteVaultReplicaRequest.deleteVaultReplicaDetails,
         "DeleteVaultReplicaDetails",
-        models.DeleteVaultReplicaDetails.getJsonObj
+        model.DeleteVaultReplicaDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2715,7 +2744,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.GetVaultResponse>{},
         body: await response.json(),
         bodyKey: "vault",
-        bodyModel: "model.Vault",
+        bodyModel: model.Vault,
+        type: "model.Vault",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2779,7 +2809,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.GetVaultUsageResponse>{},
         body: await response.json(),
         bodyKey: "vaultUsage",
-        bodyModel: "model.VaultUsage",
+        bodyModel: model.VaultUsage,
+        type: "model.VaultUsage",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2850,7 +2881,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.ListVaultReplicasResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VaultReplicaSummary[]",
+        bodyModel: model.VaultReplicaSummary,
+        type: "Array<model.VaultReplicaSummary>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2885,7 +2917,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
    */
   public listAllVaultReplicas(
     request: requests.ListVaultReplicasRequest
-  ): AsyncIterableIterator<models.VaultReplicaSummary> {
+  ): AsyncIterableIterator<model.VaultReplicaSummary> {
     return paginateRecords(request, req => this.listVaultReplicas(req));
   }
 
@@ -2953,7 +2985,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.ListVaultsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VaultSummary[]",
+        bodyModel: model.VaultSummary,
+        type: "Array<model.VaultSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2983,7 +3016,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
    */
   public listAllVaults(
     request: requests.ListVaultsRequest
-  ): AsyncIterableIterator<models.VaultSummary> {
+  ): AsyncIterableIterator<model.VaultSummary> {
     return paginateRecords(request, req => this.listVaults(req));
   }
 
@@ -3049,7 +3082,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.RestoreVaultFromFileResponse>{},
         body: await response.json(),
         bodyKey: "vault",
-        bodyModel: "model.Vault",
+        bodyModel: model.Vault,
+        type: "model.Vault",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3121,7 +3155,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       bodyContent: common.ObjectSerializer.serialize(
         restoreVaultFromObjectStoreRequest.restoreVaultFromObjectStoreDetails,
         "RestoreVaultFromObjectStoreDetails",
-        models.RestoreVaultFromObjectStoreDetails.getJsonObj
+        model.RestoreVaultFromObjectStoreDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3133,7 +3167,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.RestoreVaultFromObjectStoreResponse>{},
         body: await response.json(),
         bodyKey: "vault",
-        bodyModel: "model.Vault",
+        bodyModel: model.Vault,
+        type: "model.Vault",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3206,7 +3241,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       bodyContent: common.ObjectSerializer.serialize(
         scheduleVaultDeletionRequest.scheduleVaultDeletionDetails,
         "ScheduleVaultDeletionDetails",
-        models.ScheduleVaultDeletionDetails.getJsonObj
+        model.ScheduleVaultDeletionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3218,7 +3253,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.ScheduleVaultDeletionResponse>{},
         body: await response.json(),
         bodyKey: "vault",
-        bodyModel: "model.Vault",
+        bodyModel: model.Vault,
+        type: "model.Vault",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3283,7 +3319,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       bodyContent: common.ObjectSerializer.serialize(
         updateVaultRequest.updateVaultDetails,
         "UpdateVaultDetails",
-        models.UpdateVaultDetails.getJsonObj
+        model.UpdateVaultDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3295,7 +3331,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
         responseObject: <responses.UpdateVaultResponse>{},
         body: await response.json(),
         bodyKey: "vault",
-        bodyModel: "model.Vault",
+        bodyModel: model.Vault,
+        type: "model.Vault",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

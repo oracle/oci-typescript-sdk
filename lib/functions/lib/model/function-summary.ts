@@ -133,4 +133,16 @@ export namespace FunctionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FunctionSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "traceConfig": obj.traceConfig
+          ? model.FunctionTraceConfig.getDeserializedJsonObj(obj.traceConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

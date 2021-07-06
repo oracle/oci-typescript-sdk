@@ -27,7 +27,10 @@ export enum DataMaskCategory {
 }
 
 export namespace DataMaskCategory {
-  export function getJsonObj(obj: DataMaskCategory): object {
-    return { obj };
+  export function getJsonObj(obj: DataMaskCategory): DataMaskCategory {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DataMaskCategory): DataMaskCategory {
+    return obj;
   }
 }

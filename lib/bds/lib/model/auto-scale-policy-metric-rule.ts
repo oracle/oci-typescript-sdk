@@ -48,4 +48,16 @@ export namespace AutoScalePolicyMetricRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutoScalePolicyMetricRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "threshold": obj.threshold
+          ? model.MetricThresholdRule.getDeserializedJsonObj(obj.threshold)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

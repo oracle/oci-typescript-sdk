@@ -44,4 +44,9 @@ export namespace LabelPriority {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LabelPriority): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

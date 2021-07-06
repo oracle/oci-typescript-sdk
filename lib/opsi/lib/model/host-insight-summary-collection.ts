@@ -42,4 +42,18 @@ export namespace HostInsightSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HostInsightSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.HostInsightSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

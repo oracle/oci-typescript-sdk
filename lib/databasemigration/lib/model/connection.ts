@@ -124,4 +124,29 @@ export namespace Connection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Connection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "connectDescriptor": obj.connectDescriptor
+          ? model.ConnectDescriptor.getDeserializedJsonObj(obj.connectDescriptor)
+          : undefined,
+
+        "sshDetails": obj.sshDetails
+          ? model.SshDetails.getDeserializedJsonObj(obj.sshDetails)
+          : undefined,
+        "adminCredentials": obj.adminCredentials
+          ? model.AdminCredentials.getDeserializedJsonObj(obj.adminCredentials)
+          : undefined,
+        "privateEndpoint": obj.privateEndpoint
+          ? model.PrivateEndpointDetails.getDeserializedJsonObj(obj.privateEndpoint)
+          : undefined,
+        "vaultDetails": obj.vaultDetails
+          ? model.VaultDetails.getDeserializedJsonObj(obj.vaultDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

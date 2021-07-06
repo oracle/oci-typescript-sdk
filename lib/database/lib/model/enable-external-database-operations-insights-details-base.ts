@@ -33,4 +33,11 @@ export namespace EnableExternalDatabaseOperationsInsightsDetailsBase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: EnableExternalDatabaseOperationsInsightsDetailsBase
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

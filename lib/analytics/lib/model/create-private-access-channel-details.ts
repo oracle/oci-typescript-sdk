@@ -59,4 +59,18 @@ export namespace CreatePrivateAccessChannelDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePrivateAccessChannelDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "privateSourceDnsZones": obj.privateSourceDnsZones
+          ? obj.privateSourceDnsZones.map(item => {
+              return model.PrivateSourceDnsZone.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

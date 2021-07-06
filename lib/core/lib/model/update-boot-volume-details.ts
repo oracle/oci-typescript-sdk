@@ -87,4 +87,18 @@ export namespace UpdateBootVolumeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateBootVolumeDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "bootVolumeReplicas": obj.bootVolumeReplicas
+          ? obj.bootVolumeReplicas.map(item => {
+              return model.BootVolumeReplicaDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -43,4 +43,18 @@ export namespace ConditionMetadataType {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConditionMetadataType): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "serviceTypes": obj.serviceTypes
+          ? obj.serviceTypes.map(item => {
+              return model.ServiceTypeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

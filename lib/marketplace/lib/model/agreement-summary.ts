@@ -53,4 +53,9 @@ export namespace AgreementSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AgreementSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -58,4 +58,16 @@ export namespace CreateKeyStoreDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateKeyStoreDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "typeDetails": obj.typeDetails
+          ? model.KeyStoreTypeDetails.getDeserializedJsonObj(obj.typeDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

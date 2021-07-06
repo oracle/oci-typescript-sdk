@@ -38,4 +38,9 @@ export namespace ApiError {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApiError): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

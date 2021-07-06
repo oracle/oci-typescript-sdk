@@ -46,4 +46,9 @@ export namespace ScaledPlatformMeteringPreview {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScaledPlatformMeteringPreview): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

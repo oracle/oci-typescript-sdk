@@ -45,4 +45,17 @@ export namespace NodeSourceViaImageDetails {
     return jsonObj;
   }
   export const sourceType = "IMAGE";
+  export function getDeserializedJsonObj(
+    obj: NodeSourceViaImageDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.NodeSourceDetails.getDeserializedJsonObj(obj) as NodeSourceViaImageDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

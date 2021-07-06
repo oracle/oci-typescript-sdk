@@ -69,4 +69,19 @@ export namespace ClusterCompareCommandDescriptor {
     return jsonObj;
   }
   export const name = "CLUSTER_COMPARE";
+  export function getDeserializedJsonObj(
+    obj: ClusterCompareCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as ClusterCompareCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

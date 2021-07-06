@@ -112,4 +112,9 @@ export namespace EsxiHostSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EsxiHostSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

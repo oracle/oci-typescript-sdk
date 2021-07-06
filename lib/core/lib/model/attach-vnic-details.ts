@@ -55,4 +55,16 @@ export namespace AttachVnicDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AttachVnicDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "createVnicDetails": obj.createVnicDetails
+          ? model.CreateVnicDetails.getDeserializedJsonObj(obj.createVnicDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

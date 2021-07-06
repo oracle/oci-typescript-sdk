@@ -173,4 +173,9 @@ export namespace FastConnectProviderService {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FastConnectProviderService): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -107,4 +107,21 @@ export namespace Script {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Script): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.ScriptParameterInfo.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "monitorStatusCountMap": obj.monitorStatusCountMap
+          ? model.MonitorStatusCountMap.getDeserializedJsonObj(obj.monitorStatusCountMap)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

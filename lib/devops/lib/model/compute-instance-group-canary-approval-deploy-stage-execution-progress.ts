@@ -47,4 +47,25 @@ export namespace ComputeInstanceGroupCanaryApprovalDeployStageExecutionProgress 
     return jsonObj;
   }
   export const deployStageType = "COMPUTE_INSTANCE_GROUP_CANARY_APPROVAL";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceGroupCanaryApprovalDeployStageExecutionProgress,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageExecutionProgress.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceGroupCanaryApprovalDeployStageExecutionProgress)),
+      ...{
+        "approvalActions": obj.approvalActions
+          ? obj.approvalActions.map(item => {
+              return model.ApprovalAction.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -34,7 +34,10 @@ export enum UsageUnit {
 }
 
 export namespace UsageUnit {
-  export function getJsonObj(obj: UsageUnit): object {
-    return { obj };
+  export function getJsonObj(obj: UsageUnit): UsageUnit {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: UsageUnit): UsageUnit {
+    return obj;
   }
 }

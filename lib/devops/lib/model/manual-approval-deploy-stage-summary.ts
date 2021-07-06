@@ -42,4 +42,23 @@ export namespace ManualApprovalDeployStageSummary {
     return jsonObj;
   }
   export const deployStageType = "MANUAL_APPROVAL";
+  export function getDeserializedJsonObj(
+    obj: ManualApprovalDeployStageSummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageSummary.getDeserializedJsonObj(
+            obj
+          ) as ManualApprovalDeployStageSummary)),
+      ...{
+        "approvalPolicy": obj.approvalPolicy
+          ? model.ApprovalPolicy.getDeserializedJsonObj(obj.approvalPolicy)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -33,7 +33,10 @@ export enum ApplicationLanguage {
 }
 
 export namespace ApplicationLanguage {
-  export function getJsonObj(obj: ApplicationLanguage): object {
-    return { obj };
+  export function getJsonObj(obj: ApplicationLanguage): ApplicationLanguage {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ApplicationLanguage): ApplicationLanguage {
+    return obj;
   }
 }

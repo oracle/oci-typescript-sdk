@@ -59,4 +59,14 @@ export namespace HTTPBackend {
     return jsonObj;
   }
   export const type = "HTTP_BACKEND";
+  export function getDeserializedJsonObj(obj: HTTPBackend, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ApiSpecificationRouteBackend.getDeserializedJsonObj(obj) as HTTPBackend)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

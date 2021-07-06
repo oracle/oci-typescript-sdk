@@ -38,4 +38,9 @@ export namespace TermAssociatedObject {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TermAssociatedObject): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

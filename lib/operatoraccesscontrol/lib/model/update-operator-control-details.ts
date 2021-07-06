@@ -77,4 +77,9 @@ export namespace UpdateOperatorControlDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateOperatorControlDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

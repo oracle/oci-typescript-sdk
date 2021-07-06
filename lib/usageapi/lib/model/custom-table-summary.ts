@@ -38,4 +38,16 @@ export namespace CustomTableSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CustomTableSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "savedCustomTable": obj.savedCustomTable
+          ? model.SavedCustomTable.getDeserializedJsonObj(obj.savedCustomTable)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

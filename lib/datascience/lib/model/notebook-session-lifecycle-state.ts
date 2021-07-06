@@ -35,7 +35,12 @@ export enum NotebookSessionLifecycleState {
 }
 
 export namespace NotebookSessionLifecycleState {
-  export function getJsonObj(obj: NotebookSessionLifecycleState): object {
-    return { obj };
+  export function getJsonObj(obj: NotebookSessionLifecycleState): NotebookSessionLifecycleState {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: NotebookSessionLifecycleState
+  ): NotebookSessionLifecycleState {
+    return obj;
   }
 }

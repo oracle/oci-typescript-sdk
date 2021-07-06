@@ -49,4 +49,9 @@ export namespace MonitorResultData {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MonitorResultData): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -34,7 +34,10 @@ export enum ArchTypes {
 }
 
 export namespace ArchTypes {
-  export function getJsonObj(obj: ArchTypes): object {
-    return { obj };
+  export function getJsonObj(obj: ArchTypes): ArchTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ArchTypes): ArchTypes {
+    return obj;
   }
 }

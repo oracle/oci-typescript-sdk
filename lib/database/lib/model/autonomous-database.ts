@@ -525,4 +525,42 @@ export namespace AutonomousDatabase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousDatabase): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backupConfig": obj.backupConfig
+          ? model.AutonomousDatabaseBackupConfig.getDeserializedJsonObj(obj.backupConfig)
+          : undefined,
+        "keyHistoryEntry": obj.keyHistoryEntry
+          ? obj.keyHistoryEntry.map(item => {
+              return model.AutonomousDatabaseKeyHistoryEntry.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "connectionStrings": obj.connectionStrings
+          ? model.AutonomousDatabaseConnectionStrings.getDeserializedJsonObj(obj.connectionStrings)
+          : undefined,
+        "connectionUrls": obj.connectionUrls
+          ? model.AutonomousDatabaseConnectionUrls.getDeserializedJsonObj(obj.connectionUrls)
+          : undefined,
+
+        "apexDetails": obj.apexDetails
+          ? model.AutonomousDatabaseApex.getDeserializedJsonObj(obj.apexDetails)
+          : undefined,
+
+        "standbyDb": obj.standbyDb
+          ? model.AutonomousDatabaseStandbySummary.getDeserializedJsonObj(obj.standbyDb)
+          : undefined,
+
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

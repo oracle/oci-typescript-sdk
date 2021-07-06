@@ -57,4 +57,9 @@ export namespace ObjectRelationship {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ObjectRelationship): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

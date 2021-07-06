@@ -86,4 +86,9 @@ export namespace CreateSubscriptionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSubscriptionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

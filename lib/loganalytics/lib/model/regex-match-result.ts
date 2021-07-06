@@ -60,4 +60,22 @@ export namespace RegexMatchResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RegexMatchResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "regexStepsInfo": obj.regexStepsInfo
+          ? obj.regexStepsInfo.map(item => {
+              return model.StepInfo.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "subRegexesMatchInfo": obj.subRegexesMatchInfo
+          ? common.mapContainer(obj.subRegexesMatchInfo, model.MatchInfo.getDeserializedJsonObj)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

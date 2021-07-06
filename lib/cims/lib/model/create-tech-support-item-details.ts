@@ -36,4 +36,17 @@ export namespace CreateTechSupportItemDetails {
     return jsonObj;
   }
   export const type = "tech";
+  export function getDeserializedJsonObj(
+    obj: CreateTechSupportItemDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateItemDetails.getDeserializedJsonObj(obj) as CreateTechSupportItemDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

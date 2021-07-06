@@ -78,4 +78,16 @@ export namespace UpdateDataMaskRuleDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDataMaskRuleDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "targetSelected": obj.targetSelected
+          ? model.TargetSelected.getDeserializedJsonObj(obj.targetSelected)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -15,7 +15,7 @@ information, see [Overview of Load Balancing](/iaas/Content/Balance/Concepts/bal
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { LoadBalancerWaiter } from "./loadbalancer-waiter";
@@ -172,7 +172,7 @@ export class LoadBalancerClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeLoadBalancerCompartmentRequest.changeLoadBalancerCompartmentDetails,
         "ChangeLoadBalancerCompartmentDetails",
-        models.ChangeLoadBalancerCompartmentDetails.getJsonObj
+        model.ChangeLoadBalancerCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -239,7 +239,7 @@ export class LoadBalancerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createBackendRequest.createBackendDetails,
         "CreateBackendDetails",
-        models.CreateBackendDetails.getJsonObj
+        model.CreateBackendDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -305,7 +305,7 @@ export class LoadBalancerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createBackendSetRequest.createBackendSetDetails,
         "CreateBackendSetDetails",
-        models.CreateBackendSetDetails.getJsonObj
+        model.CreateBackendSetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -371,7 +371,7 @@ export class LoadBalancerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createCertificateRequest.createCertificateDetails,
         "CreateCertificateDetails",
-        models.CreateCertificateDetails.getJsonObj
+        model.CreateCertificateDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -439,7 +439,7 @@ export class LoadBalancerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createHostnameRequest.createHostnameDetails,
         "CreateHostnameDetails",
-        models.CreateHostnameDetails.getJsonObj
+        model.CreateHostnameDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -505,7 +505,7 @@ export class LoadBalancerClient {
       bodyContent: common.ObjectSerializer.serialize(
         createListenerRequest.createListenerDetails,
         "CreateListenerDetails",
-        models.CreateListenerDetails.getJsonObj
+        model.CreateListenerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -596,7 +596,7 @@ When you create a load balancer, the system assigns an IP address.
       bodyContent: common.ObjectSerializer.serialize(
         createLoadBalancerRequest.createLoadBalancerDetails,
         "CreateLoadBalancerDetails",
-        models.CreateLoadBalancerDetails.getJsonObj
+        model.CreateLoadBalancerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -664,7 +664,7 @@ When you create a load balancer, the system assigns an IP address.
       bodyContent: common.ObjectSerializer.serialize(
         createPathRouteSetRequest.createPathRouteSetDetails,
         "CreatePathRouteSetDetails",
-        models.CreatePathRouteSetDetails.getJsonObj
+        model.CreatePathRouteSetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -732,7 +732,7 @@ When you create a load balancer, the system assigns an IP address.
       bodyContent: common.ObjectSerializer.serialize(
         createRoutingPolicyRequest.createRoutingPolicyDetails,
         "CreateRoutingPolicyDetails",
-        models.CreateRoutingPolicyDetails.getJsonObj
+        model.CreateRoutingPolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -799,7 +799,7 @@ When you create a load balancer, the system assigns an IP address.
       bodyContent: common.ObjectSerializer.serialize(
         createRuleSetRequest.createRuleSetDetails,
         "CreateRuleSetDetails",
-        models.CreateRuleSetDetails.getJsonObj
+        model.CreateRuleSetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -866,7 +866,7 @@ When you create a load balancer, the system assigns an IP address.
       bodyContent: common.ObjectSerializer.serialize(
         createSSLCipherSuiteRequest.createSSLCipherSuiteDetails,
         "CreateSSLCipherSuiteDetails",
-        models.CreateSSLCipherSuiteDetails.getJsonObj
+        model.CreateSSLCipherSuiteDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1567,7 +1567,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.GetBackendResponse>{},
         body: await response.json(),
         bodyKey: "backend",
-        bodyModel: "model.Backend",
+        bodyModel: model.Backend,
+        type: "model.Backend",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1628,7 +1629,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.GetBackendHealthResponse>{},
         body: await response.json(),
         bodyKey: "backendHealth",
-        bodyModel: "model.BackendHealth",
+        bodyModel: model.BackendHealth,
+        type: "model.BackendHealth",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1687,7 +1689,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.GetBackendSetResponse>{},
         body: await response.json(),
         bodyKey: "backendSet",
-        bodyModel: "model.BackendSet",
+        bodyModel: model.BackendSet,
+        type: "model.BackendSet",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1746,7 +1749,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.GetBackendSetHealthResponse>{},
         body: await response.json(),
         bodyKey: "backendSetHealth",
-        bodyModel: "model.BackendSetHealth",
+        bodyModel: model.BackendSetHealth,
+        type: "model.BackendSetHealth",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1805,7 +1809,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.GetHealthCheckerResponse>{},
         body: await response.json(),
         bodyKey: "healthChecker",
-        bodyModel: "model.HealthChecker",
+        bodyModel: model.HealthChecker,
+        type: "model.HealthChecker",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1864,7 +1869,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.GetHostnameResponse>{},
         body: await response.json(),
         bodyKey: "hostname",
-        bodyModel: "model.Hostname",
+        bodyModel: model.Hostname,
+        type: "model.Hostname",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1922,7 +1928,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.GetLoadBalancerResponse>{},
         body: await response.json(),
         bodyKey: "loadBalancer",
-        bodyModel: "model.LoadBalancer",
+        bodyModel: model.LoadBalancer,
+        type: "model.LoadBalancer",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1981,7 +1988,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.GetLoadBalancerHealthResponse>{},
         body: await response.json(),
         bodyKey: "loadBalancerHealth",
-        bodyModel: "model.LoadBalancerHealth",
+        bodyModel: model.LoadBalancerHealth,
+        type: "model.LoadBalancerHealth",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2040,7 +2048,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.GetPathRouteSetResponse>{},
         body: await response.json(),
         bodyKey: "pathRouteSet",
-        bodyModel: "model.PathRouteSet",
+        bodyModel: model.PathRouteSet,
+        type: "model.PathRouteSet",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2099,7 +2108,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.GetRoutingPolicyResponse>{},
         body: await response.json(),
         bodyKey: "routingPolicy",
-        bodyModel: "model.RoutingPolicy",
+        bodyModel: model.RoutingPolicy,
+        type: "model.RoutingPolicy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2158,7 +2168,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.GetRuleSetResponse>{},
         body: await response.json(),
         bodyKey: "ruleSet",
-        bodyModel: "model.RuleSet",
+        bodyModel: model.RuleSet,
+        type: "model.RuleSet",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2217,7 +2228,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.GetSSLCipherSuiteResponse>{},
         body: await response.json(),
         bodyKey: "sSLCipherSuite",
-        bodyModel: "model.SSLCipherSuite",
+        bodyModel: model.SSLCipherSuite,
+        type: "model.SSLCipherSuite",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2275,7 +2287,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2333,7 +2346,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListBackendSetsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "BackendSet[]",
+        bodyModel: model.BackendSet,
+        type: "Array<model.BackendSet>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2392,7 +2406,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListBackendsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Backend[]",
+        bodyModel: model.Backend,
+        type: "Array<model.Backend>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2450,7 +2465,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListCertificatesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Certificate[]",
+        bodyModel: model.Certificate,
+        type: "Array<model.Certificate>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2508,7 +2524,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListHostnamesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Hostname[]",
+        bodyModel: model.Hostname,
+        type: "Array<model.Hostname>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2574,7 +2591,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListListenerRulesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ListenerRuleSummary[]",
+        bodyModel: model.ListenerRuleSummary,
+        type: "Array<model.ListenerRuleSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2635,7 +2653,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListLoadBalancerHealthsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "LoadBalancerHealthSummary[]",
+        bodyModel: model.LoadBalancerHealthSummary,
+        type: "Array<model.LoadBalancerHealthSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2665,7 +2684,7 @@ To delete a rule from a rule set, use the
    */
   public listAllLoadBalancerHealths(
     request: requests.ListLoadBalancerHealthsRequest
-  ): AsyncIterableIterator<models.LoadBalancerHealthSummary> {
+  ): AsyncIterableIterator<model.LoadBalancerHealthSummary> {
     return paginateRecords(request, req => this.listLoadBalancerHealths(req));
   }
 
@@ -2730,7 +2749,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListLoadBalancersResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "LoadBalancer[]",
+        bodyModel: model.LoadBalancer,
+        type: "Array<model.LoadBalancer>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2760,7 +2780,7 @@ To delete a rule from a rule set, use the
    */
   public listAllLoadBalancers(
     request: requests.ListLoadBalancersRequest
-  ): AsyncIterableIterator<models.LoadBalancer> {
+  ): AsyncIterableIterator<model.LoadBalancer> {
     return paginateRecords(request, req => this.listLoadBalancers(req));
   }
 
@@ -2818,7 +2838,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListPathRouteSetsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PathRouteSet[]",
+        bodyModel: model.PathRouteSet,
+        type: "Array<model.PathRouteSet>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2878,7 +2899,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListPoliciesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "LoadBalancerPolicy[]",
+        bodyModel: model.LoadBalancerPolicy,
+        type: "Array<model.LoadBalancerPolicy>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2908,7 +2930,7 @@ To delete a rule from a rule set, use the
    */
   public listAllPolicies(
     request: requests.ListPoliciesRequest
-  ): AsyncIterableIterator<models.LoadBalancerPolicy> {
+  ): AsyncIterableIterator<model.LoadBalancerPolicy> {
     return paginateRecords(request, req => this.listPolicies(req));
   }
 
@@ -2968,7 +2990,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListProtocolsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "LoadBalancerProtocol[]",
+        bodyModel: model.LoadBalancerProtocol,
+        type: "Array<model.LoadBalancerProtocol>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2998,7 +3021,7 @@ To delete a rule from a rule set, use the
    */
   public listAllProtocols(
     request: requests.ListProtocolsRequest
-  ): AsyncIterableIterator<models.LoadBalancerProtocol> {
+  ): AsyncIterableIterator<model.LoadBalancerProtocol> {
     return paginateRecords(request, req => this.listProtocols(req));
   }
 
@@ -3059,7 +3082,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListRoutingPoliciesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "RoutingPolicy[]",
+        bodyModel: model.RoutingPolicy,
+        type: "Array<model.RoutingPolicy>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3089,7 +3113,7 @@ To delete a rule from a rule set, use the
    */
   public listAllRoutingPolicies(
     request: requests.ListRoutingPoliciesRequest
-  ): AsyncIterableIterator<models.RoutingPolicy> {
+  ): AsyncIterableIterator<model.RoutingPolicy> {
     return paginateRecords(request, req => this.listRoutingPolicies(req));
   }
 
@@ -3147,7 +3171,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListRuleSetsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "RuleSet[]",
+        bodyModel: model.RuleSet,
+        type: "Array<model.RuleSet>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3205,7 +3230,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListSSLCipherSuitesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SSLCipherSuite[]",
+        bodyModel: model.SSLCipherSuite,
+        type: "Array<model.SSLCipherSuite>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3265,7 +3291,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "LoadBalancerShape[]",
+        bodyModel: model.LoadBalancerShape,
+        type: "Array<model.LoadBalancerShape>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3295,7 +3322,7 @@ To delete a rule from a rule set, use the
    */
   public listAllShapes(
     request: requests.ListShapesRequest
-  ): AsyncIterableIterator<models.LoadBalancerShape> {
+  ): AsyncIterableIterator<model.LoadBalancerShape> {
     return paginateRecords(request, req => this.listShapes(req));
   }
 
@@ -3356,7 +3383,8 @@ To delete a rule from a rule set, use the
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequest[]",
+        bodyModel: model.WorkRequest,
+        type: "Array<model.WorkRequest>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -3386,7 +3414,7 @@ To delete a rule from a rule set, use the
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequest> {
+  ): AsyncIterableIterator<model.WorkRequest> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -3440,7 +3468,7 @@ To delete a rule from a rule set, use the
       bodyContent: common.ObjectSerializer.serialize(
         updateBackendRequest.updateBackendDetails,
         "UpdateBackendDetails",
-        models.UpdateBackendDetails.getJsonObj
+        model.UpdateBackendDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3507,7 +3535,7 @@ To delete a rule from a rule set, use the
       bodyContent: common.ObjectSerializer.serialize(
         updateBackendSetRequest.updateBackendSetDetails,
         "UpdateBackendSetDetails",
-        models.UpdateBackendSetDetails.getJsonObj
+        model.UpdateBackendSetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3574,7 +3602,7 @@ To delete a rule from a rule set, use the
       bodyContent: common.ObjectSerializer.serialize(
         updateHealthCheckerRequest.healthChecker,
         "UpdateHealthCheckerDetails",
-        models.UpdateHealthCheckerDetails.getJsonObj
+        model.UpdateHealthCheckerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3642,7 +3670,7 @@ To delete a rule from a rule set, use the
       bodyContent: common.ObjectSerializer.serialize(
         updateHostnameRequest.updateHostnameDetails,
         "UpdateHostnameDetails",
-        models.UpdateHostnameDetails.getJsonObj
+        model.UpdateHostnameDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3709,7 +3737,7 @@ To delete a rule from a rule set, use the
       bodyContent: common.ObjectSerializer.serialize(
         updateListenerRequest.updateListenerDetails,
         "UpdateListenerDetails",
-        models.UpdateListenerDetails.getJsonObj
+        model.UpdateListenerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3775,7 +3803,7 @@ To delete a rule from a rule set, use the
       bodyContent: common.ObjectSerializer.serialize(
         updateLoadBalancerRequest.updateLoadBalancerDetails,
         "UpdateLoadBalancerDetails",
-        models.UpdateLoadBalancerDetails.getJsonObj
+        model.UpdateLoadBalancerDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3848,7 +3876,7 @@ To delete a rule from a rule set, use the
       bodyContent: common.ObjectSerializer.serialize(
         updateLoadBalancerShapeRequest.updateLoadBalancerShapeDetails,
         "UpdateLoadBalancerShapeDetails",
-        models.UpdateLoadBalancerShapeDetails.getJsonObj
+        model.UpdateLoadBalancerShapeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3915,7 +3943,7 @@ To delete a rule from a rule set, use the
       bodyContent: common.ObjectSerializer.serialize(
         updateNetworkSecurityGroupsRequest.updateNetworkSecurityGroupsDetails,
         "UpdateNetworkSecurityGroupsDetails",
-        models.UpdateNetworkSecurityGroupsDetails.getJsonObj
+        model.UpdateNetworkSecurityGroupsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3988,7 +4016,7 @@ To add a new path route rule to a path route set, the `pathRoutes` in the
       bodyContent: common.ObjectSerializer.serialize(
         updatePathRouteSetRequest.updatePathRouteSetDetails,
         "UpdatePathRouteSetDetails",
-        models.UpdatePathRouteSetDetails.getJsonObj
+        model.UpdatePathRouteSetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4059,7 +4087,7 @@ To add a new routing rule to a routing policy, the body must include both the ne
       bodyContent: common.ObjectSerializer.serialize(
         updateRoutingPolicyRequest.updateRoutingPolicyDetails,
         "UpdateRoutingPolicyDetails",
-        models.UpdateRoutingPolicyDetails.getJsonObj
+        model.UpdateRoutingPolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4129,7 +4157,7 @@ To add a new rule to a set, the body must include both the new rule to add and t
       bodyContent: common.ObjectSerializer.serialize(
         updateRuleSetRequest.updateRuleSetDetails,
         "UpdateRuleSetDetails",
-        models.UpdateRuleSetDetails.getJsonObj
+        model.UpdateRuleSetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4197,7 +4225,7 @@ To add a new rule to a set, the body must include both the new rule to add and t
       bodyContent: common.ObjectSerializer.serialize(
         updateSSLCipherSuiteRequest.updateSSLCipherSuiteDetails,
         "UpdateSSLCipherSuiteDetails",
-        models.UpdateSSLCipherSuiteDetails.getJsonObj
+        model.UpdateSSLCipherSuiteDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

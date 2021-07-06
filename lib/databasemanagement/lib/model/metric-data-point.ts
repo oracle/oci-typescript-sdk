@@ -50,4 +50,18 @@ export namespace MetricDataPoint {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MetricDataPoint): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dimensions": obj.dimensions
+          ? obj.dimensions.map(item => {
+              return model.MetricDimensionDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -93,4 +93,59 @@ export namespace UpdateDeployStageDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDeployStageDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "deployStagePredecessorCollection": obj.deployStagePredecessorCollection
+          ? model.DeployStagePredecessorCollection.getDeserializedJsonObj(
+              obj.deployStagePredecessorCollection
+            )
+          : undefined
+      }
+    };
+
+    if ("deployStageType" in obj && obj.deployStageType) {
+      switch (obj.deployStageType) {
+        case "OKE_DEPLOYMENT":
+          return model.UpdateOkeDeployStageDetails.getDeserializedJsonObj(
+            <model.UpdateOkeDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "LOAD_BALANCER_TRAFFIC_SHIFT":
+          return model.UpdateLoadBalancerTrafficShiftDeployStageDetails.getDeserializedJsonObj(
+            <model.UpdateLoadBalancerTrafficShiftDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT":
+          return model.UpdateComputeInstanceGroupDeployStageDetails.getDeserializedJsonObj(
+            <model.UpdateComputeInstanceGroupDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "WAIT":
+          return model.UpdateWaitDeployStageDetails.getDeserializedJsonObj(
+            <model.UpdateWaitDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "MANUAL_APPROVAL":
+          return model.UpdateManualApprovalDeployStageDetails.getDeserializedJsonObj(
+            <model.UpdateManualApprovalDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "DEPLOY_FUNCTION":
+          return model.UpdateFunctionDeployStageDetails.getDeserializedJsonObj(
+            <model.UpdateFunctionDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "INVOKE_FUNCTION":
+          return model.UpdateInvokeFunctionDeployStageDetails.getDeserializedJsonObj(
+            <model.UpdateInvokeFunctionDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.deployStageType);
+      }
+    }
+    return jsonObj;
+  }
 }

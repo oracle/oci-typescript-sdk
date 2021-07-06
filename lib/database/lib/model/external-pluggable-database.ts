@@ -170,4 +170,20 @@ export namespace ExternalPluggableDatabase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExternalPluggableDatabase): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "operationsInsightsConfig": obj.operationsInsightsConfig
+          ? model.OperationsInsightsConfig.getDeserializedJsonObj(obj.operationsInsightsConfig)
+          : undefined,
+
+        "databaseManagementConfig": obj.databaseManagementConfig
+          ? model.DatabaseManagementConfig.getDeserializedJsonObj(obj.databaseManagementConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

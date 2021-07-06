@@ -62,4 +62,9 @@ export namespace MultipartUpload {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MultipartUpload): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

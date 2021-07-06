@@ -43,4 +43,19 @@ export namespace ComputeInstanceGroupByIdsSelector {
     return jsonObj;
   }
   export const selectorType = "INSTANCE_IDS";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceGroupByIdsSelector,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ComputeInstanceGroupSelector.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceGroupByIdsSelector)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

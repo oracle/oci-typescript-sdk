@@ -50,4 +50,25 @@ export namespace DhcpOption {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DhcpOption): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "DomainNameServer":
+          return model.DhcpDnsOption.getDeserializedJsonObj(
+            <model.DhcpDnsOption>(<object>jsonObj),
+            true
+          );
+        case "SearchDomain":
+          return model.DhcpSearchDomainOption.getDeserializedJsonObj(
+            <model.DhcpSearchDomainOption>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

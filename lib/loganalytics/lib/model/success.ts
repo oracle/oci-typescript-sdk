@@ -31,4 +31,9 @@ export namespace Success {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Success): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

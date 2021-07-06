@@ -63,7 +63,10 @@ export enum AvailabilityDomain {
 }
 
 export namespace AvailabilityDomain {
-  export function getJsonObj(obj: AvailabilityDomain): object {
-    return { obj };
+  export function getJsonObj(obj: AvailabilityDomain): AvailabilityDomain {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: AvailabilityDomain): AvailabilityDomain {
+    return obj;
   }
 }

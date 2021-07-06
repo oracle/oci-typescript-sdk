@@ -39,4 +39,9 @@ export namespace StepInfo {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StepInfo): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

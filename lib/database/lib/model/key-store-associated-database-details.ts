@@ -35,4 +35,9 @@ export namespace KeyStoreAssociatedDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KeyStoreAssociatedDatabaseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

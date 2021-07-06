@@ -38,4 +38,9 @@ export namespace CertificatePublicKeyInfo {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CertificatePublicKeyInfo): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

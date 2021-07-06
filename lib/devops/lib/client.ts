@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { DevopsWaiter } from "./devops-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -166,7 +166,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         approveDeploymentRequest.approveDeploymentDetails,
         "ApproveDeploymentDetails",
-        models.ApproveDeploymentDetails.getJsonObj
+        model.ApproveDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -178,7 +178,8 @@ export class DevopsClient {
         responseObject: <responses.ApproveDeploymentResponse>{},
         body: await response.json(),
         bodyKey: "deployment",
-        bodyModel: "model.Deployment",
+        bodyModel: model.Deployment,
+        type: "model.Deployment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -236,7 +237,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         cancelDeploymentRequest.cancelDeploymentDetails,
         "CancelDeploymentDetails",
-        models.CancelDeploymentDetails.getJsonObj
+        model.CancelDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -248,7 +249,8 @@ export class DevopsClient {
         responseObject: <responses.CancelDeploymentResponse>{},
         body: await response.json(),
         bodyKey: "deployment",
-        bodyModel: "model.Deployment",
+        bodyModel: model.Deployment,
+        type: "model.Deployment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -306,7 +308,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeProjectCompartmentRequest.changeProjectCompartmentDetails,
         "ChangeProjectCompartmentDetails",
-        models.ChangeProjectCompartmentDetails.getJsonObj
+        model.ChangeProjectCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -370,7 +372,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDeployArtifactRequest.createDeployArtifactDetails,
         "CreateDeployArtifactDetails",
-        models.CreateDeployArtifactDetails.getJsonObj
+        model.CreateDeployArtifactDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -382,7 +384,8 @@ export class DevopsClient {
         responseObject: <responses.CreateDeployArtifactResponse>{},
         body: await response.json(),
         bodyKey: "deployArtifact",
-        bodyModel: "model.DeployArtifact",
+        bodyModel: model.DeployArtifact,
+        type: "model.DeployArtifact",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -447,7 +450,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDeployEnvironmentRequest.createDeployEnvironmentDetails,
         "CreateDeployEnvironmentDetails",
-        models.CreateDeployEnvironmentDetails.getJsonObj
+        model.CreateDeployEnvironmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -459,7 +462,8 @@ export class DevopsClient {
         responseObject: <responses.CreateDeployEnvironmentResponse>{},
         body: await response.json(),
         bodyKey: "deployEnvironment",
-        bodyModel: "model.DeployEnvironment",
+        bodyModel: model.DeployEnvironment,
+        type: "model.DeployEnvironment",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -524,7 +528,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDeployPipelineRequest.createDeployPipelineDetails,
         "CreateDeployPipelineDetails",
-        models.CreateDeployPipelineDetails.getJsonObj
+        model.CreateDeployPipelineDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -536,7 +540,8 @@ export class DevopsClient {
         responseObject: <responses.CreateDeployPipelineResponse>{},
         body: await response.json(),
         bodyKey: "deployPipeline",
-        bodyModel: "model.DeployPipeline",
+        bodyModel: model.DeployPipeline,
+        type: "model.DeployPipeline",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -601,7 +606,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDeployStageRequest.createDeployStageDetails,
         "CreateDeployStageDetails",
-        models.CreateDeployStageDetails.getJsonObj
+        model.CreateDeployStageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -613,7 +618,8 @@ export class DevopsClient {
         responseObject: <responses.CreateDeployStageResponse>{},
         body: await response.json(),
         bodyKey: "deployStage",
-        bodyModel: "model.DeployStage",
+        bodyModel: model.DeployStage,
+        type: "model.DeployStage",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -678,7 +684,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDeploymentRequest.createDeploymentDetails,
         "CreateDeploymentDetails",
-        models.CreateDeploymentDetails.getJsonObj
+        model.CreateDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -690,7 +696,8 @@ export class DevopsClient {
         responseObject: <responses.CreateDeploymentResponse>{},
         body: await response.json(),
         bodyKey: "deployment",
-        bodyModel: "model.Deployment",
+        bodyModel: model.Deployment,
+        type: "model.Deployment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -745,7 +752,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createProjectRequest.createProjectDetails,
         "CreateProjectDetails",
-        models.CreateProjectDetails.getJsonObj
+        model.CreateProjectDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -757,7 +764,8 @@ export class DevopsClient {
         responseObject: <responses.CreateProjectResponse>{},
         body: await response.json(),
         bodyKey: "project",
-        bodyModel: "model.Project",
+        bodyModel: model.Project,
+        type: "model.Project",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -1135,7 +1143,8 @@ export class DevopsClient {
         responseObject: <responses.GetDeployArtifactResponse>{},
         body: await response.json(),
         bodyKey: "deployArtifact",
-        bodyModel: "model.DeployArtifact",
+        bodyModel: model.DeployArtifact,
+        type: "model.DeployArtifact",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1198,7 +1207,8 @@ export class DevopsClient {
         responseObject: <responses.GetDeployEnvironmentResponse>{},
         body: await response.json(),
         bodyKey: "deployEnvironment",
-        bodyModel: "model.DeployEnvironment",
+        bodyModel: model.DeployEnvironment,
+        type: "model.DeployEnvironment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1261,7 +1271,8 @@ export class DevopsClient {
         responseObject: <responses.GetDeployPipelineResponse>{},
         body: await response.json(),
         bodyKey: "deployPipeline",
-        bodyModel: "model.DeployPipeline",
+        bodyModel: model.DeployPipeline,
+        type: "model.DeployPipeline",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1324,7 +1335,8 @@ export class DevopsClient {
         responseObject: <responses.GetDeployStageResponse>{},
         body: await response.json(),
         bodyKey: "deployStage",
-        bodyModel: "model.DeployStage",
+        bodyModel: model.DeployStage,
+        type: "model.DeployStage",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1387,7 +1399,8 @@ export class DevopsClient {
         responseObject: <responses.GetDeploymentResponse>{},
         body: await response.json(),
         bodyKey: "deployment",
-        bodyModel: "model.Deployment",
+        bodyModel: model.Deployment,
+        type: "model.Deployment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1450,7 +1463,8 @@ export class DevopsClient {
         responseObject: <responses.GetProjectResponse>{},
         body: await response.json(),
         bodyKey: "project",
-        bodyModel: "model.Project",
+        bodyModel: model.Project,
+        type: "model.Project",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1513,7 +1527,8 @@ export class DevopsClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1584,7 +1599,8 @@ export class DevopsClient {
         responseObject: <responses.ListDeployArtifactsResponse>{},
         body: await response.json(),
         bodyKey: "deployArtifactCollection",
-        bodyModel: "model.DeployArtifactCollection",
+        bodyModel: model.DeployArtifactCollection,
+        type: "model.DeployArtifactCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1655,7 +1671,8 @@ export class DevopsClient {
         responseObject: <responses.ListDeployEnvironmentsResponse>{},
         body: await response.json(),
         bodyKey: "deployEnvironmentCollection",
-        bodyModel: "model.DeployEnvironmentCollection",
+        bodyModel: model.DeployEnvironmentCollection,
+        type: "model.DeployEnvironmentCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1726,7 +1743,8 @@ export class DevopsClient {
         responseObject: <responses.ListDeployPipelinesResponse>{},
         body: await response.json(),
         bodyKey: "deployPipelineCollection",
-        bodyModel: "model.DeployPipelineCollection",
+        bodyModel: model.DeployPipelineCollection,
+        type: "model.DeployPipelineCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1797,7 +1815,8 @@ export class DevopsClient {
         responseObject: <responses.ListDeployStagesResponse>{},
         body: await response.json(),
         bodyKey: "deployStageCollection",
-        bodyModel: "model.DeployStageCollection",
+        bodyModel: model.DeployStageCollection,
+        type: "model.DeployStageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1871,7 +1890,8 @@ export class DevopsClient {
         responseObject: <responses.ListDeploymentsResponse>{},
         body: await response.json(),
         bodyKey: "deploymentCollection",
-        bodyModel: "model.DeploymentCollection",
+        bodyModel: model.DeploymentCollection,
+        type: "model.DeploymentCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1941,7 +1961,8 @@ export class DevopsClient {
         responseObject: <responses.ListProjectsResponse>{},
         body: await response.json(),
         bodyKey: "projectCollection",
-        bodyModel: "model.ProjectCollection",
+        bodyModel: model.ProjectCollection,
+        type: "model.ProjectCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2009,7 +2030,8 @@ export class DevopsClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2077,7 +2099,8 @@ export class DevopsClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogEntryCollection",
-        bodyModel: "model.WorkRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2147,7 +2170,8 @@ export class DevopsClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2204,7 +2228,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDeployArtifactRequest.updateDeployArtifactDetails,
         "UpdateDeployArtifactDetails",
-        models.UpdateDeployArtifactDetails.getJsonObj
+        model.UpdateDeployArtifactDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2216,7 +2240,8 @@ export class DevopsClient {
         responseObject: <responses.UpdateDeployArtifactResponse>{},
         body: await response.json(),
         bodyKey: "deployArtifact",
-        bodyModel: "model.DeployArtifact",
+        bodyModel: model.DeployArtifact,
+        type: "model.DeployArtifact",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -2283,7 +2308,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDeployEnvironmentRequest.updateDeployEnvironmentDetails,
         "UpdateDeployEnvironmentDetails",
-        models.UpdateDeployEnvironmentDetails.getJsonObj
+        model.UpdateDeployEnvironmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2295,7 +2320,8 @@ export class DevopsClient {
         responseObject: <responses.UpdateDeployEnvironmentResponse>{},
         body: await response.json(),
         bodyKey: "deployEnvironment",
-        bodyModel: "model.DeployEnvironment",
+        bodyModel: model.DeployEnvironment,
+        type: "model.DeployEnvironment",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -2362,7 +2388,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDeployPipelineRequest.updateDeployPipelineDetails,
         "UpdateDeployPipelineDetails",
-        models.UpdateDeployPipelineDetails.getJsonObj
+        model.UpdateDeployPipelineDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2374,7 +2400,8 @@ export class DevopsClient {
         responseObject: <responses.UpdateDeployPipelineResponse>{},
         body: await response.json(),
         bodyKey: "deployPipeline",
-        bodyModel: "model.DeployPipeline",
+        bodyModel: model.DeployPipeline,
+        type: "model.DeployPipeline",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -2441,7 +2468,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDeployStageRequest.updateDeployStageDetails,
         "UpdateDeployStageDetails",
-        models.UpdateDeployStageDetails.getJsonObj
+        model.UpdateDeployStageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2453,7 +2480,8 @@ export class DevopsClient {
         responseObject: <responses.UpdateDeployStageResponse>{},
         body: await response.json(),
         bodyKey: "deployStage",
-        bodyModel: "model.DeployStage",
+        bodyModel: model.DeployStage,
+        type: "model.DeployStage",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -2520,7 +2548,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDeploymentRequest.updateDeploymentDetails,
         "UpdateDeploymentDetails",
-        models.UpdateDeploymentDetails.getJsonObj
+        model.UpdateDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2532,7 +2560,8 @@ export class DevopsClient {
         responseObject: <responses.UpdateDeploymentResponse>{},
         body: await response.json(),
         bodyKey: "deployment",
-        bodyModel: "model.Deployment",
+        bodyModel: model.Deployment,
+        type: "model.Deployment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2589,7 +2618,7 @@ export class DevopsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateProjectRequest.updateProjectDetails,
         "UpdateProjectDetails",
-        models.UpdateProjectDetails.getJsonObj
+        model.UpdateProjectDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2601,7 +2630,8 @@ export class DevopsClient {
         responseObject: <responses.UpdateProjectResponse>{},
         body: await response.json(),
         bodyKey: "project",
-        bodyModel: "model.Project",
+        bodyModel: model.Project,
+        type: "model.Project",
         responseHeaders: [
           {
             value: response.headers.get("location"),

@@ -31,4 +31,9 @@ export namespace UpdateIdpGroupMappingDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateIdpGroupMappingDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

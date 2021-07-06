@@ -94,4 +94,14 @@ export namespace HostMemoryUsage {
     return jsonObj;
   }
   export const metricName = "HOST_MEMORY_USAGE";
+  export function getDeserializedJsonObj(obj: HostMemoryUsage, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.HostPerformanceMetricGroup.getDeserializedJsonObj(obj) as HostMemoryUsage)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

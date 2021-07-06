@@ -110,4 +110,22 @@ export namespace DetectorRecipeDetectorRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectorRecipeDetectorRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "details": obj.details
+          ? model.DetectorDetails.getDeserializedJsonObj(obj.details)
+          : undefined,
+
+        "candidateResponderRules": obj.candidateResponderRules
+          ? obj.candidateResponderRules.map(item => {
+              return model.CandidateResponderRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

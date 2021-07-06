@@ -71,4 +71,9 @@ export namespace ExportedKeyData {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExportedKeyData): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

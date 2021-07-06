@@ -141,4 +141,16 @@ export namespace LogAnalyticsEntity {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsEntity): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "creationSource": obj.creationSource
+          ? model.CreationSource.getDeserializedJsonObj(obj.creationSource)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

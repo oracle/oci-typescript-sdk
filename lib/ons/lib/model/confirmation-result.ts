@@ -59,4 +59,9 @@ export namespace ConfirmationResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfirmationResult): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

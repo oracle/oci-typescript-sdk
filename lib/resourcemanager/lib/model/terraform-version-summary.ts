@@ -36,4 +36,9 @@ export namespace TerraformVersionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TerraformVersionSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

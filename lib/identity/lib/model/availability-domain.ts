@@ -41,4 +41,9 @@ export namespace AvailabilityDomain {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AvailabilityDomain): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

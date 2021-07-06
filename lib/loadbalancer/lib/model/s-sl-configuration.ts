@@ -132,4 +132,9 @@ export namespace SSLConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SSLConfiguration): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -64,4 +64,28 @@ export namespace SteeringPolicyFilterRule {
     return jsonObj;
   }
   export const ruleType = "FILTER";
+  export function getDeserializedJsonObj(
+    obj: SteeringPolicyFilterRule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SteeringPolicyRule.getDeserializedJsonObj(obj) as SteeringPolicyFilterRule)),
+      ...{
+        "cases": obj.cases
+          ? obj.cases.map(item => {
+              return model.SteeringPolicyFilterRuleCase.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "defaultAnswerData": obj.defaultAnswerData
+          ? obj.defaultAnswerData.map(item => {
+              return model.SteeringPolicyFilterAnswerData.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

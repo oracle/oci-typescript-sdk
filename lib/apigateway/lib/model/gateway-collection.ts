@@ -42,4 +42,18 @@ export namespace GatewayCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GatewayCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.GatewaySummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

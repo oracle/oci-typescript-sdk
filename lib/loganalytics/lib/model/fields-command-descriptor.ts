@@ -35,4 +35,17 @@ export namespace FieldsCommandDescriptor {
     return jsonObj;
   }
   export const name = "FIELDS";
+  export function getDeserializedJsonObj(
+    obj: FieldsCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as FieldsCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

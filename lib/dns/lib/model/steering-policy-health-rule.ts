@@ -51,4 +51,23 @@ export namespace SteeringPolicyHealthRule {
     return jsonObj;
   }
   export const ruleType = "HEALTH";
+  export function getDeserializedJsonObj(
+    obj: SteeringPolicyHealthRule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SteeringPolicyRule.getDeserializedJsonObj(obj) as SteeringPolicyHealthRule)),
+      ...{
+        "cases": obj.cases
+          ? obj.cases.map(item => {
+              return model.SteeringPolicyHealthRuleCase.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -60,4 +60,27 @@ export namespace DataPumpSettings {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataPumpSettings): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dataPumpParameters": obj.dataPumpParameters
+          ? model.DataPumpParameters.getDeserializedJsonObj(obj.dataPumpParameters)
+          : undefined,
+        "metadataRemaps": obj.metadataRemaps
+          ? obj.metadataRemaps.map(item => {
+              return model.MetadataRemap.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "exportDirectoryObject": obj.exportDirectoryObject
+          ? model.DirectoryObject.getDeserializedJsonObj(obj.exportDirectoryObject)
+          : undefined,
+        "importDirectoryObject": obj.importDirectoryObject
+          ? model.DirectoryObject.getDeserializedJsonObj(obj.importDirectoryObject)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

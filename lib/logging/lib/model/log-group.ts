@@ -71,4 +71,9 @@ export namespace LogGroup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogGroup): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

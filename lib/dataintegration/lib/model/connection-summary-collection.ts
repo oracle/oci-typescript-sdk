@@ -39,4 +39,18 @@ export namespace ConnectionSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConnectionSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ConnectionSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -62,4 +62,9 @@ export namespace CreateNetworkSecurityGroupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateNetworkSecurityGroupDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

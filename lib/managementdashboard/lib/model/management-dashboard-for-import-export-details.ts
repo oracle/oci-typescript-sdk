@@ -135,4 +135,24 @@ export namespace ManagementDashboardForImportExportDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagementDashboardForImportExportDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tiles": obj.tiles
+          ? obj.tiles.map(item => {
+              return model.ManagementDashboardTileDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "savedSearches": obj.savedSearches
+          ? obj.savedSearches.map(item => {
+              return model.ManagementSavedSearchForImportDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

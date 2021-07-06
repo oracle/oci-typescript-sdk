@@ -42,4 +42,9 @@ export namespace RuleAttribute {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RuleAttribute): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -35,4 +35,9 @@ export namespace SteeringPolicyHealthRuleCase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SteeringPolicyHealthRuleCase): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

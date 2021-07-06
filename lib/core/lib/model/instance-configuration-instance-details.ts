@@ -40,4 +40,20 @@ export namespace InstanceConfigurationInstanceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceConfigurationInstanceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("instanceType" in obj && obj.instanceType) {
+      switch (obj.instanceType) {
+        case "compute":
+          return model.ComputeInstanceDetails.getDeserializedJsonObj(
+            <model.ComputeInstanceDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.instanceType);
+      }
+    }
+    return jsonObj;
+  }
 }

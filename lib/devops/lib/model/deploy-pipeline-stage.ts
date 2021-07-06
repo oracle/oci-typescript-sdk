@@ -34,4 +34,9 @@ export namespace DeployPipelineStage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployPipelineStage): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

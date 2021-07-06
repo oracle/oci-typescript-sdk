@@ -84,4 +84,9 @@ export namespace SmtpCredentialSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SmtpCredentialSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -67,4 +67,9 @@ export namespace RecordDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RecordDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

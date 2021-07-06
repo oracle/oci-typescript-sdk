@@ -55,4 +55,19 @@ export namespace CreateEmManagedExternalDatabaseInsightDetails {
     return jsonObj;
   }
   export const entitySource = "EM_MANAGED_EXTERNAL_DATABASE";
+  export function getDeserializedJsonObj(
+    obj: CreateEmManagedExternalDatabaseInsightDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDatabaseInsightDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateEmManagedExternalDatabaseInsightDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

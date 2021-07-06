@@ -32,7 +32,10 @@ export enum OsFamilies {
 }
 
 export namespace OsFamilies {
-  export function getJsonObj(obj: OsFamilies): object {
-    return { obj };
+  export function getJsonObj(obj: OsFamilies): OsFamilies {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: OsFamilies): OsFamilies {
+    return obj;
   }
 }

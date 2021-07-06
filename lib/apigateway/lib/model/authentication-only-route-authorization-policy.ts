@@ -42,4 +42,19 @@ export namespace AuthenticationOnlyRouteAuthorizationPolicy {
     return jsonObj;
   }
   export const type = "AUTHENTICATION_ONLY";
+  export function getDeserializedJsonObj(
+    obj: AuthenticationOnlyRouteAuthorizationPolicy,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.RouteAuthorizationPolicy.getDeserializedJsonObj(
+            obj
+          ) as AuthenticationOnlyRouteAuthorizationPolicy)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

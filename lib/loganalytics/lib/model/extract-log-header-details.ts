@@ -35,4 +35,9 @@ export namespace ExtractLogHeaderDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExtractLogHeaderDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -81,4 +81,26 @@ export namespace ClassifyColumn {
     return jsonObj;
   }
   export const type = "CLASSIFY_COLUMN";
+  export function getDeserializedJsonObj(obj: ClassifyColumn, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractColumn.getDeserializedJsonObj(obj) as ClassifyColumn)),
+      ...{
+        "classifyColumns": obj.classifyColumns
+          ? obj.classifyColumns.map(item => {
+              return model.AbstractColumn.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "classifyCorrelateColumns": obj.classifyCorrelateColumns
+          ? obj.classifyCorrelateColumns.map(item => {
+              return model.AbstractColumn.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

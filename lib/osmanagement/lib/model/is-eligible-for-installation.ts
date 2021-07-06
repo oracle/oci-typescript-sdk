@@ -32,7 +32,12 @@ export enum IsEligibleForInstallation {
 }
 
 export namespace IsEligibleForInstallation {
-  export function getJsonObj(obj: IsEligibleForInstallation): object {
-    return { obj };
+  export function getJsonObj(obj: IsEligibleForInstallation): IsEligibleForInstallation {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: IsEligibleForInstallation
+  ): IsEligibleForInstallation {
+    return obj;
   }
 }

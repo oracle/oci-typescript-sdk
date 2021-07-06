@@ -32,4 +32,9 @@ export namespace GenerateToken {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GenerateToken): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

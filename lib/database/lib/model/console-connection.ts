@@ -61,4 +61,9 @@ export namespace ConsoleConnection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConsoleConnection): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

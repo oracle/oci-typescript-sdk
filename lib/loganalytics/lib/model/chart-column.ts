@@ -60,4 +60,20 @@ export namespace ChartColumn {
     return jsonObj;
   }
   export const type = "CHART_COLUMN";
+  export function getDeserializedJsonObj(obj: ChartColumn, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractColumn.getDeserializedJsonObj(obj) as ChartColumn)),
+      ...{
+        "series": obj.series
+          ? obj.series.map(item => {
+              return model.ChartDataColumn.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

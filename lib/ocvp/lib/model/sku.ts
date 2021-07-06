@@ -32,7 +32,10 @@ export enum Sku {
 }
 
 export namespace Sku {
-  export function getJsonObj(obj: Sku): object {
-    return { obj };
+  export function getJsonObj(obj: Sku): Sku {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: Sku): Sku {
+    return obj;
   }
 }

@@ -95,4 +95,9 @@ export namespace StreamSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StreamSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

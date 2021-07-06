@@ -51,4 +51,9 @@ export namespace UnsupportedDatabaseObject {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UnsupportedDatabaseObject): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -57,4 +57,9 @@ export namespace SqlSearchSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlSearchSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

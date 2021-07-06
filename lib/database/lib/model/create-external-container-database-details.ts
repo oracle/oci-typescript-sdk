@@ -50,4 +50,9 @@ export namespace CreateExternalContainerDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateExternalContainerDatabaseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

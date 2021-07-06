@@ -39,4 +39,18 @@ export namespace CustomTableCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CustomTableCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.CustomTableSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

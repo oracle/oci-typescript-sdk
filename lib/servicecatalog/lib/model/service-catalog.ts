@@ -80,4 +80,9 @@ export namespace ServiceCatalog {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ServiceCatalog): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

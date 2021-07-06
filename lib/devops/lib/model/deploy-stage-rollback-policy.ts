@@ -43,4 +43,25 @@ export namespace DeployStageRollbackPolicy {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployStageRollbackPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("policyType" in obj && obj.policyType) {
+      switch (obj.policyType) {
+        case "NO_STAGE_ROLLBACK_POLICY":
+          return model.NoDeployStageRollbackPolicy.getDeserializedJsonObj(
+            <model.NoDeployStageRollbackPolicy>(<object>jsonObj),
+            true
+          );
+        case "AUTOMATED_STAGE_ROLLBACK_POLICY":
+          return model.AutomatedDeployStageRollbackPolicy.getDeserializedJsonObj(
+            <model.AutomatedDeployStageRollbackPolicy>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.policyType);
+      }
+    }
+    return jsonObj;
+  }
 }

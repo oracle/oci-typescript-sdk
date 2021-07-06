@@ -36,4 +36,17 @@ export namespace DeployPipelineDeploymentSummary {
     return jsonObj;
   }
   export const deploymentType = "PIPELINE_DEPLOYMENT";
+  export function getDeserializedJsonObj(
+    obj: DeployPipelineDeploymentSummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeploymentSummary.getDeserializedJsonObj(obj) as DeployPipelineDeploymentSummary)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

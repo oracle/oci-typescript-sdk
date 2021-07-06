@@ -38,4 +38,9 @@ export namespace PublisherSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublisherSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

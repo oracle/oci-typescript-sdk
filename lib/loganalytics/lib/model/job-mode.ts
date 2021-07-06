@@ -30,7 +30,10 @@ export enum JobMode {
 }
 
 export namespace JobMode {
-  export function getJsonObj(obj: JobMode): object {
-    return { obj };
+  export function getJsonObj(obj: JobMode): JobMode {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: JobMode): JobMode {
+    return obj;
   }
 }

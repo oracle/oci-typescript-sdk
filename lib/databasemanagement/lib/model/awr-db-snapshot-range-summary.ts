@@ -93,4 +93,9 @@ export namespace AwrDbSnapshotRangeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AwrDbSnapshotRangeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

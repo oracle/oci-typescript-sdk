@@ -32,4 +32,9 @@ export namespace AutonomousDatabaseManualRefreshDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousDatabaseManualRefreshDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

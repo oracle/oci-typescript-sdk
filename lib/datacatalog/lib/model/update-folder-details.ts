@@ -81,4 +81,18 @@ export namespace UpdateFolderDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateFolderDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertySetUsage.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

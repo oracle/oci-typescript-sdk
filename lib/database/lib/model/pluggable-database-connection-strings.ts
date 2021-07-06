@@ -40,4 +40,9 @@ export namespace PluggableDatabaseConnectionStrings {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PluggableDatabaseConnectionStrings): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

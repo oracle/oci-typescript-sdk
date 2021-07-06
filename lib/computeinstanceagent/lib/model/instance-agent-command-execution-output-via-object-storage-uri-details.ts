@@ -46,4 +46,19 @@ export namespace InstanceAgentCommandExecutionOutputViaObjectStorageUriDetails {
     return jsonObj;
   }
   export const outputType = "OBJECT_STORAGE_URI";
+  export function getDeserializedJsonObj(
+    obj: InstanceAgentCommandExecutionOutputViaObjectStorageUriDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.InstanceAgentCommandExecutionOutputContent.getDeserializedJsonObj(
+            obj
+          ) as InstanceAgentCommandExecutionOutputViaObjectStorageUriDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

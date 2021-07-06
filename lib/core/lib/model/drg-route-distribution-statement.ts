@@ -77,4 +77,18 @@ export namespace DrgRouteDistributionStatement {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DrgRouteDistributionStatement): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "matchCriteria": obj.matchCriteria
+          ? obj.matchCriteria.map(item => {
+              return model.DrgRouteDistributionMatchCriteria.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

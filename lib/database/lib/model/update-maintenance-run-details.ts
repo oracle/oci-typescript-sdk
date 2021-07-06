@@ -56,4 +56,9 @@ export namespace UpdateMaintenanceRunDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateMaintenanceRunDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

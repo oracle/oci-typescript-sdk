@@ -27,4 +27,9 @@ export namespace ShippingVendors {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ShippingVendors): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

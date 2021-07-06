@@ -102,4 +102,21 @@ export namespace UpdateMonitorDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateMonitorDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "scriptParameters": obj.scriptParameters
+          ? obj.scriptParameters.map(item => {
+              return model.MonitorScriptParameter.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "configuration": obj.configuration
+          ? model.MonitorConfiguration.getDeserializedJsonObj(obj.configuration)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

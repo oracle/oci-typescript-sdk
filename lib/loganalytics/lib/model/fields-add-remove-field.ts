@@ -49,4 +49,17 @@ export namespace FieldsAddRemoveField {
     return jsonObj;
   }
   export const name = "FIELDS";
+  export function getDeserializedJsonObj(
+    obj: FieldsAddRemoveField,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractField.getDeserializedJsonObj(obj) as FieldsAddRemoveField)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

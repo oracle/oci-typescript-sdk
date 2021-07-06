@@ -124,4 +124,36 @@ export namespace DataEntitySummaryFromTable {
     return jsonObj;
   }
   export const modelType = "TABLE_ENTITY";
+  export function getDeserializedJsonObj(
+    obj: DataEntitySummaryFromTable,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DataEntitySummary.getDeserializedJsonObj(obj) as DataEntitySummaryFromTable)),
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "shape": obj.shape ? model.Shape.getDeserializedJsonObj(obj.shape) : undefined,
+
+        "types": obj.types ? model.TypeLibrary.getDeserializedJsonObj(obj.types) : undefined,
+
+        "uniqueKeys": obj.uniqueKeys
+          ? obj.uniqueKeys.map(item => {
+              return model.UniqueKey.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "foreignKeys": obj.foreignKeys
+          ? obj.foreignKeys.map(item => {
+              return model.ForeignKey.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

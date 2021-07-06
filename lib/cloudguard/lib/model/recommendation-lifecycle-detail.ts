@@ -30,7 +30,12 @@ export enum RecommendationLifecycleDetail {
 }
 
 export namespace RecommendationLifecycleDetail {
-  export function getJsonObj(obj: RecommendationLifecycleDetail): object {
-    return { obj };
+  export function getJsonObj(obj: RecommendationLifecycleDetail): RecommendationLifecycleDetail {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: RecommendationLifecycleDetail
+  ): RecommendationLifecycleDetail {
+    return obj;
   }
 }

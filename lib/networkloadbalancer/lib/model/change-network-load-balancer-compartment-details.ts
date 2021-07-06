@@ -33,4 +33,9 @@ export namespace ChangeNetworkLoadBalancerCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeNetworkLoadBalancerCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

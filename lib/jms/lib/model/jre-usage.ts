@@ -74,4 +74,9 @@ export namespace JreUsage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JreUsage): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

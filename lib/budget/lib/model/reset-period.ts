@@ -29,7 +29,10 @@ export enum ResetPeriod {
 }
 
 export namespace ResetPeriod {
-  export function getJsonObj(obj: ResetPeriod): object {
-    return { obj };
+  export function getJsonObj(obj: ResetPeriod): ResetPeriod {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ResetPeriod): ResetPeriod {
+    return obj;
   }
 }

@@ -51,4 +51,18 @@ export namespace Origin {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Origin): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customHeaders": obj.customHeaders
+          ? obj.customHeaders.map(item => {
+              return model.Header.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

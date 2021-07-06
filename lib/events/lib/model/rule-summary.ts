@@ -112,4 +112,9 @@ export namespace RuleSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RuleSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

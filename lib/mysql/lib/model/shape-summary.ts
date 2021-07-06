@@ -58,4 +58,9 @@ export namespace ShapeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ShapeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

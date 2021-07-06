@@ -86,4 +86,16 @@ export namespace SecretBundle {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SecretBundle): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "secretBundleContent": obj.secretBundleContent
+          ? model.SecretBundleContentDetails.getDeserializedJsonObj(obj.secretBundleContent)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

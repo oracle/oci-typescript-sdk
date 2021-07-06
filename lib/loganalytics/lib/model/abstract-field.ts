@@ -98,4 +98,29 @@ export namespace AbstractField {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AbstractField): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("name" in obj && obj.name) {
+      switch (obj.name) {
+        case "FIELDS":
+          return model.FieldsAddRemoveField.getDeserializedJsonObj(
+            <model.FieldsAddRemoveField>(<object>jsonObj),
+            true
+          );
+        case "FUNCTION":
+          return model.FunctionField.getDeserializedJsonObj(
+            <model.FunctionField>(<object>jsonObj),
+            true
+          );
+        case "FIELD":
+          return model.Field.getDeserializedJsonObj(<model.Field>(<object>jsonObj), true);
+        case "SORT":
+          return model.SortField.getDeserializedJsonObj(<model.SortField>(<object>jsonObj), true);
+        default:
+          throw Error("Unknown value for: " + obj.name);
+      }
+    }
+    return jsonObj;
+  }
 }

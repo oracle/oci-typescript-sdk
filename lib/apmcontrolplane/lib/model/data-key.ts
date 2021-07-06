@@ -41,4 +41,9 @@ export namespace DataKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

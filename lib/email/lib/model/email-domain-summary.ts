@@ -95,4 +95,9 @@ export namespace EmailDomainSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EmailDomainSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

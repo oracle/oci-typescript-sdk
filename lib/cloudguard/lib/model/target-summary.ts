@@ -87,4 +87,9 @@ export namespace TargetSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TargetSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

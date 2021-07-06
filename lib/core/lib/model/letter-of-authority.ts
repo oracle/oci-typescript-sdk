@@ -75,4 +75,9 @@ export namespace LetterOfAuthority {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LetterOfAuthority): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

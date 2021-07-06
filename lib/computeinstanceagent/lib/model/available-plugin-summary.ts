@@ -44,4 +44,9 @@ export namespace AvailablePluginSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AvailablePluginSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -40,4 +40,14 @@ export namespace QueryResultCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryResultCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "usage": obj.usage ? model.RequestUsage.getDeserializedJsonObj(obj.usage) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

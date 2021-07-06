@@ -73,4 +73,50 @@ export namespace HostConfigurationMetricGroup {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HostConfigurationMetricGroup): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("metricName" in obj && obj.metricName) {
+      switch (obj.metricName) {
+        case "HOST_RESOURCE_ALLOCATION":
+          return model.HostResourceAllocation.getDeserializedJsonObj(
+            <model.HostResourceAllocation>(<object>jsonObj),
+            true
+          );
+        case "HOST_PRODUCT":
+          return model.HostProduct.getDeserializedJsonObj(
+            <model.HostProduct>(<object>jsonObj),
+            true
+          );
+        case "HOST_NETWORK_CONFIGURATION":
+          return model.HostNetworkConfiguration.getDeserializedJsonObj(
+            <model.HostNetworkConfiguration>(<object>jsonObj),
+            true
+          );
+        case "HOST_ENTITIES":
+          return model.HostEntities.getDeserializedJsonObj(
+            <model.HostEntities>(<object>jsonObj),
+            true
+          );
+        case "HOST_MEMORY_CONFIGURATION":
+          return model.HostMemoryConfiguration.getDeserializedJsonObj(
+            <model.HostMemoryConfiguration>(<object>jsonObj),
+            true
+          );
+        case "HOST_CPU_HARDWARE_CONFIGURATION":
+          return model.HostCpuHardwareConfiguration.getDeserializedJsonObj(
+            <model.HostCpuHardwareConfiguration>(<object>jsonObj),
+            true
+          );
+        case "HOST_HARDWARE_CONFIGURATION":
+          return model.HostHardwareConfiguration.getDeserializedJsonObj(
+            <model.HostHardwareConfiguration>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.metricName);
+      }
+    }
+    return jsonObj;
+  }
 }

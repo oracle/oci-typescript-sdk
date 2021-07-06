@@ -52,4 +52,9 @@ export namespace CreateTagNamespaceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTagNamespaceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

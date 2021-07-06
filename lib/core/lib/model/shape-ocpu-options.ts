@@ -44,4 +44,9 @@ export namespace ShapeOcpuOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ShapeOcpuOptions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

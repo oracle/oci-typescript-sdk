@@ -115,4 +115,9 @@ export namespace MountTargetSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MountTargetSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

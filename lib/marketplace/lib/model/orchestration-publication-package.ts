@@ -51,4 +51,25 @@ export namespace OrchestrationPublicationPackage {
     return jsonObj;
   }
   export const packageType = "ORCHESTRATION";
+  export function getDeserializedJsonObj(
+    obj: OrchestrationPublicationPackage,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.PublicationPackage.getDeserializedJsonObj(
+            obj
+          ) as OrchestrationPublicationPackage)),
+      ...{
+        "variables": obj.variables
+          ? obj.variables.map(item => {
+              return model.OrchestrationVariable.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

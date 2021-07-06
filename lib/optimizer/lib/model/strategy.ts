@@ -48,4 +48,18 @@ export namespace Strategy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Strategy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parametersDefinition": obj.parametersDefinition
+          ? obj.parametersDefinition.map(item => {
+              return model.StrategyParameter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

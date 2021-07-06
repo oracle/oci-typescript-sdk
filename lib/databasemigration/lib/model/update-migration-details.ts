@@ -102,4 +102,32 @@ export namespace UpdateMigrationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateMigrationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dataTransferMediumDetails": obj.dataTransferMediumDetails
+          ? model.UpdateDataTransferMediumDetails.getDeserializedJsonObj(
+              obj.dataTransferMediumDetails
+            )
+          : undefined,
+        "datapumpSettings": obj.datapumpSettings
+          ? model.UpdateDataPumpSettings.getDeserializedJsonObj(obj.datapumpSettings)
+          : undefined,
+        "excludeObjects": obj.excludeObjects
+          ? obj.excludeObjects.map(item => {
+              return model.DatabaseObject.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "goldenGateDetails": obj.goldenGateDetails
+          ? model.UpdateGoldenGateDetails.getDeserializedJsonObj(obj.goldenGateDetails)
+          : undefined,
+        "vaultDetails": obj.vaultDetails
+          ? model.UpdateVaultDetails.getDeserializedJsonObj(obj.vaultDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

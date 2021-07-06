@@ -45,4 +45,17 @@ export namespace TerminatePreemptionAction {
     return jsonObj;
   }
   export const type = "TERMINATE";
+  export function getDeserializedJsonObj(
+    obj: TerminatePreemptionAction,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.PreemptionAction.getDeserializedJsonObj(obj) as TerminatePreemptionAction)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

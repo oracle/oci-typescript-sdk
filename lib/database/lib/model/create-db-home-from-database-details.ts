@@ -56,4 +56,16 @@ export namespace CreateDbHomeFromDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDbHomeFromDatabaseDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "database": obj.database
+          ? model.CreateDatabaseFromAnotherDatabaseDetails.getDeserializedJsonObj(obj.database)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

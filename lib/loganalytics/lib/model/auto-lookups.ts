@@ -35,4 +35,9 @@ export namespace AutoLookups {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutoLookups): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

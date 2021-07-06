@@ -61,4 +61,9 @@ export namespace InfoForNetworkGenDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InfoForNetworkGenDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

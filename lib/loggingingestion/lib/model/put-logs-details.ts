@@ -46,4 +46,18 @@ export namespace PutLogsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PutLogsDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "logEntryBatches": obj.logEntryBatches
+          ? obj.logEntryBatches.map(item => {
+              return model.LogEntryBatch.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

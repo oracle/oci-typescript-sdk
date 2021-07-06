@@ -88,4 +88,18 @@ export namespace AnalyticsCluster {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AnalyticsCluster): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "clusterNodes": obj.clusterNodes
+          ? obj.clusterNodes.map(item => {
+              return model.AnalyticsClusterNode.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

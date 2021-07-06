@@ -151,4 +151,32 @@ export namespace UpdateInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateInstanceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "agentConfig": obj.agentConfig
+          ? model.UpdateInstanceAgentConfigDetails.getDeserializedJsonObj(obj.agentConfig)
+          : undefined,
+
+        "shapeConfig": obj.shapeConfig
+          ? model.UpdateInstanceShapeConfigDetails.getDeserializedJsonObj(obj.shapeConfig)
+          : undefined,
+        "instanceOptions": obj.instanceOptions
+          ? model.InstanceOptions.getDeserializedJsonObj(obj.instanceOptions)
+          : undefined,
+
+        "launchOptions": obj.launchOptions
+          ? model.UpdateLaunchOptions.getDeserializedJsonObj(obj.launchOptions)
+          : undefined,
+        "availabilityConfig": obj.availabilityConfig
+          ? model.UpdateInstanceAvailabilityConfigDetails.getDeserializedJsonObj(
+              obj.availabilityConfig
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

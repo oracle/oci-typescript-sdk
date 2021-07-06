@@ -33,4 +33,9 @@ export namespace DetectDominantLanguageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectDominantLanguageDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

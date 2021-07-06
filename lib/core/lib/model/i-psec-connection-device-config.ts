@@ -60,4 +60,18 @@ export namespace IPSecConnectionDeviceConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IPSecConnectionDeviceConfig): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tunnels": obj.tunnels
+          ? obj.tunnels.map(item => {
+              return model.TunnelConfig.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

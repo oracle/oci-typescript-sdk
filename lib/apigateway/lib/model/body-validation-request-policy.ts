@@ -74,4 +74,16 @@ export namespace BodyValidationRequestPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BodyValidationRequestPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "content": obj.content
+          ? common.mapContainer(obj.content, model.ContentValidation.getDeserializedJsonObj)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

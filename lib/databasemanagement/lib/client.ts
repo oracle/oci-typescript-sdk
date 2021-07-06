@@ -16,7 +16,7 @@ running a SQL job on a Managed Database or Managed Database Group.
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { DbManagementWaiter } from "./dbmanagement-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -175,7 +175,7 @@ export class DbManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         addManagedDatabaseToManagedDatabaseGroupRequest.addManagedDatabaseToManagedDatabaseGroupDetails,
         "AddManagedDatabaseToManagedDatabaseGroupDetails",
-        models.AddManagedDatabaseToManagedDatabaseGroupDetails.getJsonObj
+        model.AddManagedDatabaseToManagedDatabaseGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -250,7 +250,7 @@ export class DbManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeDatabaseParametersRequest.changeDatabaseParametersDetails,
         "ChangeDatabaseParametersDetails",
-        models.ChangeDatabaseParametersDetails.getJsonObj
+        model.ChangeDatabaseParametersDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -262,7 +262,8 @@ export class DbManagementClient {
         responseObject: <responses.ChangeDatabaseParametersResponse>{},
         body: await response.json(),
         bodyKey: "updateDatabaseParametersResult",
-        bodyModel: "model.UpdateDatabaseParametersResult",
+        bodyModel: model.UpdateDatabaseParametersResult,
+        type: "model.UpdateDatabaseParametersResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -317,7 +318,7 @@ export class DbManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeJobCompartmentRequest.changeJobCompartmentDetails,
         "ChangeJobCompartmentDetails",
-        models.ChangeJobCompartmentDetails.getJsonObj
+        model.ChangeJobCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -386,7 +387,7 @@ export class DbManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeManagedDatabaseGroupCompartmentRequest.changeManagedDatabaseGroupCompartmentDetails,
         "ChangeManagedDatabaseGroupCompartmentDetails",
-        models.ChangeManagedDatabaseGroupCompartmentDetails.getJsonObj
+        model.ChangeManagedDatabaseGroupCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -448,7 +449,7 @@ export class DbManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         createJobRequest.createJobDetails,
         "CreateJobDetails",
-        models.CreateJobDetails.getJsonObj
+        model.CreateJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -460,7 +461,8 @@ export class DbManagementClient {
         responseObject: <responses.CreateJobResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -523,7 +525,7 @@ export class DbManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         createManagedDatabaseGroupRequest.createManagedDatabaseGroupDetails,
         "CreateManagedDatabaseGroupDetails",
-        models.CreateManagedDatabaseGroupDetails.getJsonObj
+        model.CreateManagedDatabaseGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -535,7 +537,8 @@ export class DbManagementClient {
         responseObject: <responses.CreateManagedDatabaseGroupResponse>{},
         body: await response.json(),
         bodyKey: "managedDatabaseGroup",
-        bodyModel: "model.ManagedDatabaseGroup",
+        bodyModel: model.ManagedDatabaseGroup,
+        type: "model.ManagedDatabaseGroup",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -730,7 +733,8 @@ export class DbManagementClient {
         responseObject: <responses.GetAwrDbReportResponse>{},
         body: await response.json(),
         bodyKey: "awrDbReport",
-        bodyModel: "model.AwrDbReport",
+        bodyModel: model.AwrDbReport,
+        type: "model.AwrDbReport",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -800,7 +804,8 @@ export class DbManagementClient {
         responseObject: <responses.GetAwrDbSqlReportResponse>{},
         body: await response.json(),
         bodyKey: "awrDbSqlReport",
-        bodyModel: "model.AwrDbSqlReport",
+        bodyModel: model.AwrDbSqlReport,
+        type: "model.AwrDbSqlReport",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -865,7 +870,8 @@ export class DbManagementClient {
         responseObject: <responses.GetClusterCacheMetricResponse>{},
         body: await response.json(),
         bodyKey: "clusterCacheMetric",
-        bodyModel: "model.ClusterCacheMetric",
+        bodyModel: model.ClusterCacheMetric,
+        type: "model.ClusterCacheMetric",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -933,7 +939,8 @@ export class DbManagementClient {
         responseObject: <responses.GetDatabaseFleetHealthMetricsResponse>{},
         body: await response.json(),
         bodyKey: "databaseFleetHealthMetrics",
-        bodyModel: "model.DatabaseFleetHealthMetrics",
+        bodyModel: model.DatabaseFleetHealthMetrics,
+        type: "model.DatabaseFleetHealthMetrics",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -994,7 +1001,8 @@ export class DbManagementClient {
         responseObject: <responses.GetDatabaseHomeMetricsResponse>{},
         body: await response.json(),
         bodyKey: "databaseHomeMetrics",
-        bodyModel: "model.DatabaseHomeMetrics",
+        bodyModel: model.DatabaseHomeMetrics,
+        type: "model.DatabaseHomeMetrics",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1051,7 +1059,8 @@ export class DbManagementClient {
         responseObject: <responses.GetJobResponse>{},
         body: await response.json(),
         bodyKey: "job",
-        bodyModel: "model.Job",
+        bodyModel: model.Job,
+        type: "model.Job",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -1120,7 +1129,8 @@ export class DbManagementClient {
         responseObject: <responses.GetJobExecutionResponse>{},
         body: await response.json(),
         bodyKey: "jobExecution",
-        bodyModel: "model.JobExecution",
+        bodyModel: model.JobExecution,
+        type: "model.JobExecution",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1179,7 +1189,8 @@ export class DbManagementClient {
         responseObject: <responses.GetJobRunResponse>{},
         body: await response.json(),
         bodyKey: "jobRun",
-        bodyModel: "model.JobRun",
+        bodyModel: model.JobRun,
+        type: "model.JobRun",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1238,7 +1249,8 @@ export class DbManagementClient {
         responseObject: <responses.GetManagedDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "managedDatabase",
-        bodyModel: "model.ManagedDatabase",
+        bodyModel: model.ManagedDatabase,
+        type: "model.ManagedDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1298,7 +1310,8 @@ export class DbManagementClient {
         responseObject: <responses.GetManagedDatabaseGroupResponse>{},
         body: await response.json(),
         bodyKey: "managedDatabaseGroup",
-        bodyModel: "model.ManagedDatabaseGroup",
+        bodyModel: model.ManagedDatabaseGroup,
+        type: "model.ManagedDatabaseGroup",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1375,7 +1388,8 @@ export class DbManagementClient {
         responseObject: <responses.ListAwrDbSnapshotsResponse>{},
         body: await response.json(),
         bodyKey: "awrDbSnapshotCollection",
-        bodyModel: "model.AwrDbSnapshotCollection",
+        bodyModel: model.AwrDbSnapshotCollection,
+        type: "model.AwrDbSnapshotCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1448,7 +1462,8 @@ export class DbManagementClient {
         responseObject: <responses.ListAwrDbsResponse>{},
         body: await response.json(),
         bodyKey: "awrDbCollection",
-        bodyModel: "model.AwrDbCollection",
+        bodyModel: model.AwrDbCollection,
+        type: "model.AwrDbCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1519,7 +1534,8 @@ export class DbManagementClient {
         responseObject: <responses.ListDatabaseParametersResponse>{},
         body: await response.json(),
         bodyKey: "databaseParametersCollection",
-        bodyModel: "model.DatabaseParametersCollection",
+        bodyModel: model.DatabaseParametersCollection,
+        type: "model.DatabaseParametersCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1591,7 +1607,8 @@ export class DbManagementClient {
         responseObject: <responses.ListJobExecutionsResponse>{},
         body: await response.json(),
         bodyKey: "jobExecutionCollection",
-        bodyModel: "model.JobExecutionCollection",
+        bodyModel: model.JobExecutionCollection,
+        type: "model.JobExecutionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1668,7 +1685,8 @@ export class DbManagementClient {
         responseObject: <responses.ListJobRunsResponse>{},
         body: await response.json(),
         bodyKey: "jobRunCollection",
-        bodyModel: "model.JobRunCollection",
+        bodyModel: model.JobRunCollection,
+        type: "model.JobRunCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1744,7 +1762,8 @@ export class DbManagementClient {
         responseObject: <responses.ListJobsResponse>{},
         body: await response.json(),
         bodyKey: "jobCollection",
-        bodyModel: "model.JobCollection",
+        bodyModel: model.JobCollection,
+        type: "model.JobCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1819,7 +1838,8 @@ export class DbManagementClient {
         responseObject: <responses.ListManagedDatabaseGroupsResponse>{},
         body: await response.json(),
         bodyKey: "managedDatabaseGroupCollection",
-        bodyModel: "model.ManagedDatabaseGroupCollection",
+        bodyModel: model.ManagedDatabaseGroupCollection,
+        type: "model.ManagedDatabaseGroupCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1892,7 +1912,8 @@ export class DbManagementClient {
         responseObject: <responses.ListManagedDatabasesResponse>{},
         body: await response.json(),
         bodyKey: "managedDatabaseCollection",
-        bodyModel: "model.ManagedDatabaseCollection",
+        bodyModel: model.ManagedDatabaseCollection,
+        type: "model.ManagedDatabaseCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1961,7 +1982,8 @@ export class DbManagementClient {
         responseObject: <responses.ListTablespacesResponse>{},
         body: await response.json(),
         bodyKey: "tablespaceCollection",
-        bodyModel: "model.TablespaceCollection",
+        bodyModel: model.TablespaceCollection,
+        type: "model.TablespaceCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2026,7 +2048,7 @@ export class DbManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         removeManagedDatabaseFromManagedDatabaseGroupRequest.removeManagedDatabaseFromManagedDatabaseGroupDetails,
         "RemoveManagedDatabaseFromManagedDatabaseGroupDetails",
-        models.RemoveManagedDatabaseFromManagedDatabaseGroupDetails.getJsonObj
+        model.RemoveManagedDatabaseFromManagedDatabaseGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2089,7 +2111,7 @@ export class DbManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         resetDatabaseParametersRequest.resetDatabaseParametersDetails,
         "ResetDatabaseParametersDetails",
-        models.ResetDatabaseParametersDetails.getJsonObj
+        model.ResetDatabaseParametersDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2101,7 +2123,8 @@ export class DbManagementClient {
         responseObject: <responses.ResetDatabaseParametersResponse>{},
         body: await response.json(),
         bodyKey: "updateDatabaseParametersResult",
-        bodyModel: "model.UpdateDatabaseParametersResult",
+        bodyModel: model.UpdateDatabaseParametersResult,
+        type: "model.UpdateDatabaseParametersResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2175,7 +2198,8 @@ export class DbManagementClient {
         responseObject: <responses.SummarizeAwrDbCpuUsagesResponse>{},
         body: await response.json(),
         bodyKey: "awrDbCpuUsageCollection",
-        bodyModel: "model.AwrDbCpuUsageCollection",
+        bodyModel: model.AwrDbCpuUsageCollection,
+        type: "model.AwrDbCpuUsageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2254,7 +2278,8 @@ export class DbManagementClient {
         responseObject: <responses.SummarizeAwrDbMetricsResponse>{},
         body: await response.json(),
         bodyKey: "awrDbMetricCollection",
-        bodyModel: "model.AwrDbMetricCollection",
+        bodyModel: model.AwrDbMetricCollection,
+        type: "model.AwrDbMetricCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2338,7 +2363,8 @@ export class DbManagementClient {
         responseObject: <responses.SummarizeAwrDbParameterChangesResponse>{},
         body: await response.json(),
         bodyKey: "awrDbParameterChangeCollection",
-        bodyModel: "model.AwrDbParameterChangeCollection",
+        bodyModel: model.AwrDbParameterChangeCollection,
+        type: "model.AwrDbParameterChangeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2430,7 +2456,8 @@ export class DbManagementClient {
         responseObject: <responses.SummarizeAwrDbParametersResponse>{},
         body: await response.json(),
         bodyKey: "awrDbParameterCollection",
-        bodyModel: "model.AwrDbParameterCollection",
+        bodyModel: model.AwrDbParameterCollection,
+        type: "model.AwrDbParameterCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2504,7 +2531,8 @@ export class DbManagementClient {
         responseObject: <responses.SummarizeAwrDbSnapshotRangesResponse>{},
         body: await response.json(),
         bodyKey: "awrDbSnapshotRangeCollection",
-        bodyModel: "model.AwrDbSnapshotRangeCollection",
+        bodyModel: model.AwrDbSnapshotRangeCollection,
+        type: "model.AwrDbSnapshotRangeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2583,7 +2611,8 @@ export class DbManagementClient {
         responseObject: <responses.SummarizeAwrDbSysstatsResponse>{},
         body: await response.json(),
         bodyKey: "awrDbSysstatCollection",
-        bodyModel: "model.AwrDbSysstatCollection",
+        bodyModel: model.AwrDbSysstatCollection,
+        type: "model.AwrDbSysstatCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2662,7 +2691,8 @@ export class DbManagementClient {
         responseObject: <responses.SummarizeAwrDbTopWaitEventsResponse>{},
         body: await response.json(),
         bodyKey: "awrDbTopWaitEventCollection",
-        bodyModel: "model.AwrDbTopWaitEventCollection",
+        bodyModel: model.AwrDbTopWaitEventCollection,
+        type: "model.AwrDbTopWaitEventCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2745,7 +2775,8 @@ export class DbManagementClient {
         responseObject: <responses.SummarizeAwrDbWaitEventBucketsResponse>{},
         body: await response.json(),
         bodyKey: "awrDbWaitEventBucketCollection",
-        bodyModel: "model.AwrDbWaitEventBucketCollection",
+        bodyModel: model.AwrDbWaitEventBucketCollection,
+        type: "model.AwrDbWaitEventBucketCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2826,7 +2857,8 @@ export class DbManagementClient {
         responseObject: <responses.SummarizeAwrDbWaitEventsResponse>{},
         body: await response.json(),
         bodyKey: "awrDbWaitEventCollection",
-        bodyModel: "model.AwrDbWaitEventCollection",
+        bodyModel: model.AwrDbWaitEventCollection,
+        type: "model.AwrDbWaitEventCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2885,7 +2917,7 @@ export class DbManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateManagedDatabaseGroupRequest.updateManagedDatabaseGroupDetails,
         "UpdateManagedDatabaseGroupDetails",
-        models.UpdateManagedDatabaseGroupDetails.getJsonObj
+        model.UpdateManagedDatabaseGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2897,7 +2929,8 @@ export class DbManagementClient {
         responseObject: <responses.UpdateManagedDatabaseGroupResponse>{},
         body: await response.json(),
         bodyKey: "managedDatabaseGroup",
-        bodyModel: "model.ManagedDatabaseGroup",
+        bodyModel: model.ManagedDatabaseGroup,
+        type: "model.ManagedDatabaseGroup",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

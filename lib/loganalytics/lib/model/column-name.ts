@@ -31,4 +31,9 @@ export namespace ColumnName {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ColumnName): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -46,4 +46,9 @@ export namespace ConfigParameterValue {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfigParameterValue): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -36,4 +36,9 @@ export namespace SteeringPolicyWeightedAnswerData {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SteeringPolicyWeightedAnswerData): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

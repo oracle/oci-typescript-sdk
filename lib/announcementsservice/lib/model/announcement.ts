@@ -56,4 +56,20 @@ export namespace Announcement {
     return jsonObj;
   }
   export const type = "Announcement";
+  export function getDeserializedJsonObj(obj: Announcement, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.BaseAnnouncement.getDeserializedJsonObj(obj) as Announcement)),
+      ...{
+        "affectedResources": obj.affectedResources
+          ? obj.affectedResources.map(item => {
+              return model.AffectedResource.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -81,4 +81,9 @@ export namespace TermSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TermSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

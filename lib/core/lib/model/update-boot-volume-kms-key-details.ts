@@ -35,4 +35,9 @@ export namespace UpdateBootVolumeKmsKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateBootVolumeKmsKeyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

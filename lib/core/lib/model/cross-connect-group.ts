@@ -104,4 +104,9 @@ export namespace CrossConnectGroup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CrossConnectGroup): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

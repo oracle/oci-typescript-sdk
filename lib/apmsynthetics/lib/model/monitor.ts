@@ -134,4 +134,27 @@ export namespace Monitor {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Monitor): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "vantagePoints": obj.vantagePoints
+          ? obj.vantagePoints.map(item => {
+              return model.VantagePointInfo.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "scriptParameters": obj.scriptParameters
+          ? obj.scriptParameters.map(item => {
+              return model.MonitorScriptParameterInfo.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "configuration": obj.configuration
+          ? model.MonitorConfiguration.getDeserializedJsonObj(obj.configuration)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

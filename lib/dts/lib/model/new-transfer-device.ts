@@ -39,4 +39,9 @@ export namespace NewTransferDevice {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NewTransferDevice): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

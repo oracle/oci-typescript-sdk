@@ -78,4 +78,19 @@ export namespace InstanceAgentCommand {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceAgentCommand): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "target": obj.target
+          ? model.InstanceAgentCommandTarget.getDeserializedJsonObj(obj.target)
+          : undefined,
+        "content": obj.content
+          ? model.InstanceAgentCommandContent.getDeserializedJsonObj(obj.content)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

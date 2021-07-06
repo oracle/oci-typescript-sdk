@@ -106,4 +106,9 @@ export namespace Problem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Problem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

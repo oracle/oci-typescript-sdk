@@ -186,4 +186,20 @@ export namespace Image {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Image): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "launchOptions": obj.launchOptions
+          ? model.LaunchOptions.getDeserializedJsonObj(obj.launchOptions)
+          : undefined,
+
+        "agentFeatures": obj.agentFeatures
+          ? model.InstanceAgentFeatures.getDeserializedJsonObj(obj.agentFeatures)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

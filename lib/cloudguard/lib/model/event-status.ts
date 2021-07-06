@@ -32,7 +32,10 @@ export enum EventStatus {
 }
 
 export namespace EventStatus {
-  export function getJsonObj(obj: EventStatus): object {
-    return { obj };
+  export function getJsonObj(obj: EventStatus): EventStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: EventStatus): EventStatus {
+    return obj;
   }
 }

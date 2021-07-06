@@ -14,7 +14,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { FileStorageWaiter } from "./filestorage-waiter";
@@ -169,7 +169,7 @@ export class FileStorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeFileSystemCompartmentRequest.changeFileSystemCompartmentDetails,
         "ChangeFileSystemCompartmentDetails",
-        models.ChangeFileSystemCompartmentDetails.getJsonObj
+        model.ChangeFileSystemCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -232,7 +232,7 @@ export class FileStorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeMountTargetCompartmentRequest.changeMountTargetCompartmentDetails,
         "ChangeMountTargetCompartmentDetails",
-        models.ChangeMountTargetCompartmentDetails.getJsonObj
+        model.ChangeMountTargetCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -293,7 +293,7 @@ export class FileStorageClient {
       bodyContent: common.ObjectSerializer.serialize(
         createExportRequest.createExportDetails,
         "CreateExportDetails",
-        models.CreateExportDetails.getJsonObj
+        model.CreateExportDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -305,7 +305,8 @@ export class FileStorageClient {
         responseObject: <responses.CreateExportResponse>{},
         body: await response.json(),
         bodyKey: "export",
-        bodyModel: "model.Export",
+        bodyModel: model.Export,
+        type: "model.Export",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -389,7 +390,7 @@ All Oracle Cloud Infrastructure resources, including
       bodyContent: common.ObjectSerializer.serialize(
         createFileSystemRequest.createFileSystemDetails,
         "CreateFileSystemDetails",
-        models.CreateFileSystemDetails.getJsonObj
+        model.CreateFileSystemDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -401,7 +402,8 @@ All Oracle Cloud Infrastructure resources, including
         responseObject: <responses.CreateFileSystemResponse>{},
         body: await response.json(),
         bodyKey: "fileSystem",
-        bodyModel: "model.FileSystem",
+        bodyModel: model.FileSystem,
+        type: "model.FileSystem",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -488,7 +490,7 @@ All Oracle Cloud Infrastructure Services resources, including
       bodyContent: common.ObjectSerializer.serialize(
         createMountTargetRequest.createMountTargetDetails,
         "CreateMountTargetDetails",
-        models.CreateMountTargetDetails.getJsonObj
+        model.CreateMountTargetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -500,7 +502,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.CreateMountTargetResponse>{},
         body: await response.json(),
         bodyKey: "mountTarget",
-        bodyModel: "model.MountTarget",
+        bodyModel: model.MountTarget,
+        type: "model.MountTarget",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -557,7 +560,7 @@ All Oracle Cloud Infrastructure Services resources, including
       bodyContent: common.ObjectSerializer.serialize(
         createSnapshotRequest.createSnapshotDetails,
         "CreateSnapshotDetails",
-        models.CreateSnapshotDetails.getJsonObj
+        model.CreateSnapshotDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -569,7 +572,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.CreateSnapshotResponse>{},
         body: await response.json(),
         bodyKey: "snapshot",
-        bodyModel: "model.Snapshot",
+        bodyModel: model.Snapshot,
+        type: "model.Snapshot",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -863,7 +867,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.GetExportResponse>{},
         body: await response.json(),
         bodyKey: "export",
-        bodyModel: "model.Export",
+        bodyModel: model.Export,
+        type: "model.Export",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -926,7 +931,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.GetExportSetResponse>{},
         body: await response.json(),
         bodyKey: "exportSet",
-        bodyModel: "model.ExportSet",
+        bodyModel: model.ExportSet,
+        type: "model.ExportSet",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -989,7 +995,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.GetFileSystemResponse>{},
         body: await response.json(),
         bodyKey: "fileSystem",
-        bodyModel: "model.FileSystem",
+        bodyModel: model.FileSystem,
+        type: "model.FileSystem",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1052,7 +1059,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.GetMountTargetResponse>{},
         body: await response.json(),
         bodyKey: "mountTarget",
-        bodyModel: "model.MountTarget",
+        bodyModel: model.MountTarget,
+        type: "model.MountTarget",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1115,7 +1123,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.GetSnapshotResponse>{},
         body: await response.json(),
         bodyKey: "snapshot",
-        bodyModel: "model.Snapshot",
+        bodyModel: model.Snapshot,
+        type: "model.Snapshot",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1187,7 +1196,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.ListExportSetsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ExportSetSummary[]",
+        bodyModel: model.ExportSetSummary,
+        type: "Array<model.ExportSetSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1217,7 +1227,7 @@ All Oracle Cloud Infrastructure Services resources, including
    */
   public listAllExportSets(
     request: requests.ListExportSetsRequest
-  ): AsyncIterableIterator<models.ExportSetSummary> {
+  ): AsyncIterableIterator<model.ExportSetSummary> {
     return paginateRecords(request, req => this.listExportSets(req));
   }
 
@@ -1286,7 +1296,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.ListExportsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ExportSummary[]",
+        bodyModel: model.ExportSummary,
+        type: "Array<model.ExportSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1316,7 +1327,7 @@ All Oracle Cloud Infrastructure Services resources, including
    */
   public listAllExports(
     request: requests.ListExportsRequest
-  ): AsyncIterableIterator<models.ExportSummary> {
+  ): AsyncIterableIterator<model.ExportSummary> {
     return paginateRecords(request, req => this.listExports(req));
   }
 
@@ -1385,7 +1396,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.ListFileSystemsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "FileSystemSummary[]",
+        bodyModel: model.FileSystemSummary,
+        type: "Array<model.FileSystemSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1415,7 +1427,7 @@ All Oracle Cloud Infrastructure Services resources, including
    */
   public listAllFileSystems(
     request: requests.ListFileSystemsRequest
-  ): AsyncIterableIterator<models.FileSystemSummary> {
+  ): AsyncIterableIterator<model.FileSystemSummary> {
     return paginateRecords(request, req => this.listFileSystems(req));
   }
 
@@ -1483,7 +1495,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.ListMountTargetsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "MountTargetSummary[]",
+        bodyModel: model.MountTargetSummary,
+        type: "Array<model.MountTargetSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1513,7 +1526,7 @@ All Oracle Cloud Infrastructure Services resources, including
    */
   public listAllMountTargets(
     request: requests.ListMountTargetsRequest
-  ): AsyncIterableIterator<models.MountTargetSummary> {
+  ): AsyncIterableIterator<model.MountTargetSummary> {
     return paginateRecords(request, req => this.listMountTargets(req));
   }
 
@@ -1577,7 +1590,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.ListSnapshotsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SnapshotSummary[]",
+        bodyModel: model.SnapshotSummary,
+        type: "Array<model.SnapshotSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1607,7 +1621,7 @@ All Oracle Cloud Infrastructure Services resources, including
    */
   public listAllSnapshots(
     request: requests.ListSnapshotsRequest
-  ): AsyncIterableIterator<models.SnapshotSummary> {
+  ): AsyncIterableIterator<model.SnapshotSummary> {
     return paginateRecords(request, req => this.listSnapshots(req));
   }
 
@@ -1659,7 +1673,7 @@ All Oracle Cloud Infrastructure Services resources, including
       bodyContent: common.ObjectSerializer.serialize(
         updateExportRequest.updateExportDetails,
         "UpdateExportDetails",
-        models.UpdateExportDetails.getJsonObj
+        model.UpdateExportDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1671,7 +1685,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.UpdateExportResponse>{},
         body: await response.json(),
         bodyKey: "export",
-        bodyModel: "model.Export",
+        bodyModel: model.Export,
+        type: "model.Export",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1728,7 +1743,7 @@ All Oracle Cloud Infrastructure Services resources, including
       bodyContent: common.ObjectSerializer.serialize(
         updateExportSetRequest.updateExportSetDetails,
         "UpdateExportSetDetails",
-        models.UpdateExportSetDetails.getJsonObj
+        model.UpdateExportSetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1740,7 +1755,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.UpdateExportSetResponse>{},
         body: await response.json(),
         bodyKey: "exportSet",
-        bodyModel: "model.ExportSet",
+        bodyModel: model.ExportSet,
+        type: "model.ExportSet",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1799,7 +1815,7 @@ All Oracle Cloud Infrastructure Services resources, including
       bodyContent: common.ObjectSerializer.serialize(
         updateFileSystemRequest.updateFileSystemDetails,
         "UpdateFileSystemDetails",
-        models.UpdateFileSystemDetails.getJsonObj
+        model.UpdateFileSystemDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1811,7 +1827,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.UpdateFileSystemResponse>{},
         body: await response.json(),
         bodyKey: "fileSystem",
-        bodyModel: "model.FileSystem",
+        bodyModel: model.FileSystem,
+        type: "model.FileSystem",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1868,7 +1885,7 @@ All Oracle Cloud Infrastructure Services resources, including
       bodyContent: common.ObjectSerializer.serialize(
         updateMountTargetRequest.updateMountTargetDetails,
         "UpdateMountTargetDetails",
-        models.UpdateMountTargetDetails.getJsonObj
+        model.UpdateMountTargetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1880,7 +1897,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.UpdateMountTargetResponse>{},
         body: await response.json(),
         bodyKey: "mountTarget",
-        bodyModel: "model.MountTarget",
+        bodyModel: model.MountTarget,
+        type: "model.MountTarget",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1937,7 +1955,7 @@ All Oracle Cloud Infrastructure Services resources, including
       bodyContent: common.ObjectSerializer.serialize(
         updateSnapshotRequest.updateSnapshotDetails,
         "UpdateSnapshotDetails",
-        models.UpdateSnapshotDetails.getJsonObj
+        model.UpdateSnapshotDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1949,7 +1967,8 @@ All Oracle Cloud Infrastructure Services resources, including
         responseObject: <responses.UpdateSnapshotResponse>{},
         body: await response.json(),
         bodyKey: "snapshot",
-        bodyModel: "model.Snapshot",
+        bodyModel: model.Snapshot,
+        type: "model.Snapshot",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

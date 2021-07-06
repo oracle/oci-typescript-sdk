@@ -38,4 +38,25 @@ export namespace Action {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Action): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "PURGE":
+          return model.PurgeAction.getDeserializedJsonObj(
+            <model.PurgeAction>(<object>jsonObj),
+            true
+          );
+        case "STREAM":
+          return model.StreamAction.getDeserializedJsonObj(
+            <model.StreamAction>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

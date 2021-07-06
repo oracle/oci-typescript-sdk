@@ -97,4 +97,9 @@ export namespace CreateCrossConnectDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateCrossConnectDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

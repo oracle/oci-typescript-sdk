@@ -44,4 +44,12 @@ export namespace RenameRule {
     return jsonObj;
   }
   export const modelType = "RENAME_RULE";
+  export function getDeserializedJsonObj(obj: RenameRule, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.ProjectionRule.getDeserializedJsonObj(obj) as RenameRule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

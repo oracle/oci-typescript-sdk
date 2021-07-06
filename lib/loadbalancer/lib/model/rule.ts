@@ -76,4 +76,62 @@ export namespace Rule {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Rule): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("action" in obj && obj.action) {
+      switch (obj.action) {
+        case "ADD_HTTP_REQUEST_HEADER":
+          return model.AddHttpRequestHeaderRule.getDeserializedJsonObj(
+            <model.AddHttpRequestHeaderRule>(<object>jsonObj),
+            true
+          );
+        case "REDIRECT":
+          return model.RedirectRule.getDeserializedJsonObj(
+            <model.RedirectRule>(<object>jsonObj),
+            true
+          );
+        case "REMOVE_HTTP_REQUEST_HEADER":
+          return model.RemoveHttpRequestHeaderRule.getDeserializedJsonObj(
+            <model.RemoveHttpRequestHeaderRule>(<object>jsonObj),
+            true
+          );
+        case "EXTEND_HTTP_REQUEST_HEADER_VALUE":
+          return model.ExtendHttpRequestHeaderValueRule.getDeserializedJsonObj(
+            <model.ExtendHttpRequestHeaderValueRule>(<object>jsonObj),
+            true
+          );
+        case "REMOVE_HTTP_RESPONSE_HEADER":
+          return model.RemoveHttpResponseHeaderRule.getDeserializedJsonObj(
+            <model.RemoveHttpResponseHeaderRule>(<object>jsonObj),
+            true
+          );
+        case "CONTROL_ACCESS_USING_HTTP_METHODS":
+          return model.ControlAccessUsingHttpMethodsRule.getDeserializedJsonObj(
+            <model.ControlAccessUsingHttpMethodsRule>(<object>jsonObj),
+            true
+          );
+        case "ALLOW":
+          return model.AllowRule.getDeserializedJsonObj(<model.AllowRule>(<object>jsonObj), true);
+        case "HTTP_HEADER":
+          return model.HttpHeaderRule.getDeserializedJsonObj(
+            <model.HttpHeaderRule>(<object>jsonObj),
+            true
+          );
+        case "ADD_HTTP_RESPONSE_HEADER":
+          return model.AddHttpResponseHeaderRule.getDeserializedJsonObj(
+            <model.AddHttpResponseHeaderRule>(<object>jsonObj),
+            true
+          );
+        case "EXTEND_HTTP_RESPONSE_HEADER_VALUE":
+          return model.ExtendHttpResponseHeaderValueRule.getDeserializedJsonObj(
+            <model.ExtendHttpResponseHeaderValueRule>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.action);
+      }
+    }
+    return jsonObj;
+  }
 }

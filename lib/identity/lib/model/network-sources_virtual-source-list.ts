@@ -25,4 +25,9 @@ export namespace NetworkSourcesVirtualSourceList {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NetworkSourcesVirtualSourceList): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -59,4 +59,9 @@ export namespace SetHeaderPolicyItem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SetHeaderPolicyItem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

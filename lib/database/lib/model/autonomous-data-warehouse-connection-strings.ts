@@ -46,4 +46,9 @@ export namespace AutonomousDataWarehouseConnectionStrings {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousDataWarehouseConnectionStrings): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

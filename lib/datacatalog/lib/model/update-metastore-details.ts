@@ -42,4 +42,9 @@ export namespace UpdateMetastoreDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateMetastoreDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

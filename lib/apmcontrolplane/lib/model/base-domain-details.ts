@@ -72,4 +72,9 @@ export namespace BaseDomainDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BaseDomainDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -32,4 +32,9 @@ export namespace RemoveContainerVersionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RemoveContainerVersionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -40,4 +40,18 @@ export namespace LogAnalyticsAssociatedEntityCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsAssociatedEntityCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.LogAnalyticsAssociatedEntity.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

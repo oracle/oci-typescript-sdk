@@ -35,4 +35,9 @@ export namespace UploadFileStatus {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UploadFileStatus): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

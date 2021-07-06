@@ -31,4 +31,12 @@ export namespace Projection {
     return jsonObj;
   }
   export const modelType = "PROJECTION_OPERATOR";
+  export function getDeserializedJsonObj(obj: Projection, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as Projection)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

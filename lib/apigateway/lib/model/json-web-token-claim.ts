@@ -47,4 +47,9 @@ export namespace JsonWebTokenClaim {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JsonWebTokenClaim): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

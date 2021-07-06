@@ -30,7 +30,12 @@ export enum LogAnalyticsOperationTypes {
 }
 
 export namespace LogAnalyticsOperationTypes {
-  export function getJsonObj(obj: LogAnalyticsOperationTypes): object {
-    return { obj };
+  export function getJsonObj(obj: LogAnalyticsOperationTypes): LogAnalyticsOperationTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: LogAnalyticsOperationTypes
+  ): LogAnalyticsOperationTypes {
+    return obj;
   }
 }

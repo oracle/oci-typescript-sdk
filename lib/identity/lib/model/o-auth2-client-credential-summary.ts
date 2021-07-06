@@ -94,4 +94,18 @@ export namespace OAuth2ClientCredentialSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OAuth2ClientCredentialSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "scopes": obj.scopes
+          ? obj.scopes.map(item => {
+              return model.FullyQualifiedScope.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

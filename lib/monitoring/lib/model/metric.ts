@@ -68,4 +68,9 @@ export namespace Metric {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Metric): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -41,4 +41,9 @@ export namespace WorkRequestError {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkRequestError): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

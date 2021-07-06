@@ -24,7 +24,10 @@ export enum RestoreDeploymentType {
 }
 
 export namespace RestoreDeploymentType {
-  export function getJsonObj(obj: RestoreDeploymentType): object {
-    return { obj };
+  export function getJsonObj(obj: RestoreDeploymentType): RestoreDeploymentType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: RestoreDeploymentType): RestoreDeploymentType {
+    return obj;
   }
 }

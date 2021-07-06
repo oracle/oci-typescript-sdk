@@ -40,4 +40,9 @@ export namespace ContainerVersion {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ContainerVersion): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -177,4 +177,29 @@ export namespace SearchResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SearchResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tagSummary": obj.tagSummary
+          ? obj.tagSummary.map(item => {
+              return model.SearchTagSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "termSummary": obj.termSummary
+          ? obj.termSummary.map(item => {
+              return model.SearchTermSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "customProperties": obj.customProperties
+          ? obj.customProperties.map(item => {
+              return model.FacetedSearchCustomProperty.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

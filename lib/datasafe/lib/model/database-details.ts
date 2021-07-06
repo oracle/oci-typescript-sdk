@@ -56,4 +56,30 @@ export namespace DatabaseDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("databaseType" in obj && obj.databaseType) {
+      switch (obj.databaseType) {
+        case "INSTALLED_DATABASE":
+          return model.InstalledDatabaseDetails.getDeserializedJsonObj(
+            <model.InstalledDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "AUTONOMOUS_DATABASE":
+          return model.AutonomousDatabaseDetails.getDeserializedJsonObj(
+            <model.AutonomousDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "DATABASE_CLOUD_SERVICE":
+          return model.DatabaseCloudServiceDetails.getDeserializedJsonObj(
+            <model.DatabaseCloudServiceDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.databaseType);
+      }
+    }
+    return jsonObj;
+  }
 }

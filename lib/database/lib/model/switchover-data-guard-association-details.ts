@@ -32,4 +32,9 @@ export namespace SwitchoverDataGuardAssociationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SwitchoverDataGuardAssociationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

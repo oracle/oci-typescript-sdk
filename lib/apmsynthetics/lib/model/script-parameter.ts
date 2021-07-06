@@ -40,4 +40,9 @@ export namespace ScriptParameter {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScriptParameter): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

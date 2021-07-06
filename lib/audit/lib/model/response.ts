@@ -96,4 +96,9 @@ export namespace Response {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Response): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

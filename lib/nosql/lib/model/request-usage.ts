@@ -38,4 +38,9 @@ export namespace RequestUsage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RequestUsage): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

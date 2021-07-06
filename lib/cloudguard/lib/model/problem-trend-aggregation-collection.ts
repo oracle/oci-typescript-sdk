@@ -39,4 +39,18 @@ export namespace ProblemTrendAggregationCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProblemTrendAggregationCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ProblemTrendAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

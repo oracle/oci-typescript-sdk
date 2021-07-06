@@ -85,4 +85,16 @@ export namespace UpdateDrgAttachmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDrgAttachmentDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "networkDetails": obj.networkDetails
+          ? model.DrgAttachmentNetworkUpdateDetails.getDeserializedJsonObj(obj.networkDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

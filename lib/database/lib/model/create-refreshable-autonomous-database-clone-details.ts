@@ -55,4 +55,19 @@ export namespace CreateRefreshableAutonomousDatabaseCloneDetails {
     return jsonObj;
   }
   export const source = "CLONE_TO_REFRESHABLE";
+  export function getDeserializedJsonObj(
+    obj: CreateRefreshableAutonomousDatabaseCloneDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateAutonomousDatabaseBase.getDeserializedJsonObj(
+            obj
+          ) as CreateRefreshableAutonomousDatabaseCloneDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -54,4 +54,14 @@ export namespace AwrDbReport {
     return jsonObj;
   }
   export const awrResultType = "AWRDB_DB_REPORT";
+  export function getDeserializedJsonObj(obj: AwrDbReport, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AwrQueryResult.getDeserializedJsonObj(obj) as AwrDbReport)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -103,4 +103,9 @@ export namespace DbNode {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbNode): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

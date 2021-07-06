@@ -55,4 +55,17 @@ export namespace MonitoringTargetDetails {
     return jsonObj;
   }
   export const kind = "monitoring";
+  export function getDeserializedJsonObj(
+    obj: MonitoringTargetDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TargetDetails.getDeserializedJsonObj(obj) as MonitoringTargetDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

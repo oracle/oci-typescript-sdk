@@ -33,4 +33,9 @@ export namespace ChangeLogAnalyticsEntityCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeLogAnalyticsEntityCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

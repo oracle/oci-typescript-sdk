@@ -62,4 +62,18 @@ export namespace ApiValidationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApiValidationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "details": obj.details
+          ? obj.details.map(item => {
+              return model.ApiValidationDetail.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

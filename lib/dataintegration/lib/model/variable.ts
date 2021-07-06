@@ -86,4 +86,25 @@ export namespace Variable {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Variable): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "type": obj.type ? model.BaseType.getDeserializedJsonObj(obj.type) : undefined,
+        "configValues": obj.configValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.configValues)
+          : undefined,
+
+        "rootObjectDefaultValue": obj.rootObjectDefaultValue
+          ? model.RootObject.getDeserializedJsonObj(obj.rootObjectDefaultValue)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -49,4 +49,25 @@ export namespace CompositeCondition {
     return jsonObj;
   }
   export const kind = "COMPOSITE";
+  export function getDeserializedJsonObj(
+    obj: CompositeCondition,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Condition.getDeserializedJsonObj(obj) as CompositeCondition)),
+      ...{
+        "leftOperand": obj.leftOperand
+          ? model.Condition.getDeserializedJsonObj(obj.leftOperand)
+          : undefined,
+
+        "rightOperand": obj.rightOperand
+          ? model.Condition.getDeserializedJsonObj(obj.rightOperand)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

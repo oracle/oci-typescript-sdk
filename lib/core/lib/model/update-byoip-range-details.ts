@@ -53,4 +53,9 @@ export namespace UpdateByoipRangeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateByoipRangeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

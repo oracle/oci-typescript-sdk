@@ -53,4 +53,18 @@ export namespace SuggestResults {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SuggestResults): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SuggestListItem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

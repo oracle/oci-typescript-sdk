@@ -112,4 +112,9 @@ export namespace Subscription {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Subscription): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -76,4 +76,32 @@ export namespace PublicationPackage {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublicationPackage): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "operatingSystem": obj.operatingSystem
+          ? model.OperatingSystem.getDeserializedJsonObj(obj.operatingSystem)
+          : undefined
+      }
+    };
+
+    if ("packageType" in obj && obj.packageType) {
+      switch (obj.packageType) {
+        case "ORCHESTRATION":
+          return model.OrchestrationPublicationPackage.getDeserializedJsonObj(
+            <model.OrchestrationPublicationPackage>(<object>jsonObj),
+            true
+          );
+        case "IMAGE":
+          return model.ImagePublicationPackage.getDeserializedJsonObj(
+            <model.ImagePublicationPackage>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.packageType);
+      }
+    }
+    return jsonObj;
+  }
 }

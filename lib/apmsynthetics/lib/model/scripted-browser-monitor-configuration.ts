@@ -41,4 +41,19 @@ export namespace ScriptedBrowserMonitorConfiguration {
     return jsonObj;
   }
   export const configType = "SCRIPTED_BROWSER_CONFIG";
+  export function getDeserializedJsonObj(
+    obj: ScriptedBrowserMonitorConfiguration,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.MonitorConfiguration.getDeserializedJsonObj(
+            obj
+          ) as ScriptedBrowserMonitorConfiguration)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

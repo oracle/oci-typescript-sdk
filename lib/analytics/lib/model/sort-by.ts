@@ -30,7 +30,10 @@ export enum SortBy {
 }
 
 export namespace SortBy {
-  export function getJsonObj(obj: SortBy): object {
-    return { obj };
+  export function getJsonObj(obj: SortBy): SortBy {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: SortBy): SortBy {
+    return obj;
   }
 }

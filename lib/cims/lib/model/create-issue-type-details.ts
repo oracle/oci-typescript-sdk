@@ -33,4 +33,9 @@ export namespace CreateIssueTypeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateIssueTypeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

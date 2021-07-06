@@ -49,4 +49,19 @@ export namespace VolumeSourceFromBlockVolumeReplicaDetails {
     return jsonObj;
   }
   export const type = "blockVolumeReplica";
+  export function getDeserializedJsonObj(
+    obj: VolumeSourceFromBlockVolumeReplicaDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.VolumeSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as VolumeSourceFromBlockVolumeReplicaDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

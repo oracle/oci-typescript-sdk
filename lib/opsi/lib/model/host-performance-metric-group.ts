@@ -53,4 +53,30 @@ export namespace HostPerformanceMetricGroup {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HostPerformanceMetricGroup): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("metricName" in obj && obj.metricName) {
+      switch (obj.metricName) {
+        case "HOST_MEMORY_USAGE":
+          return model.HostMemoryUsage.getDeserializedJsonObj(
+            <model.HostMemoryUsage>(<object>jsonObj),
+            true
+          );
+        case "HOST_CPU_USAGE":
+          return model.HostCpuUsage.getDeserializedJsonObj(
+            <model.HostCpuUsage>(<object>jsonObj),
+            true
+          );
+        case "HOST_NETWORK_ACTIVITY_SUMMARY":
+          return model.HostNetworkActivitySummary.getDeserializedJsonObj(
+            <model.HostNetworkActivitySummary>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.metricName);
+      }
+    }
+    return jsonObj;
+  }
 }

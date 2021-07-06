@@ -61,4 +61,9 @@ export namespace TemplateSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TemplateSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

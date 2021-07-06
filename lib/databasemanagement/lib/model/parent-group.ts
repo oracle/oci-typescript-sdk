@@ -41,4 +41,9 @@ export namespace ParentGroup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ParentGroup): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

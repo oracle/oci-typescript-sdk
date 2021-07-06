@@ -43,4 +43,18 @@ export namespace RetentionRuleCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RetentionRuleCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.RetentionRuleSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

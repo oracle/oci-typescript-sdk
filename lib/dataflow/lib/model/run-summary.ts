@@ -125,4 +125,9 @@ export namespace RunSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RunSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

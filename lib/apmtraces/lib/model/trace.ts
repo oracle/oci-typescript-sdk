@@ -143,4 +143,26 @@ export namespace Trace {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Trace): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "serviceSummaries": obj.serviceSummaries
+          ? obj.serviceSummaries.map(item => {
+              return model.TraceServiceSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "spanSummary": obj.spanSummary
+          ? model.TraceSpanSummary.getDeserializedJsonObj(obj.spanSummary)
+          : undefined,
+        "spans": obj.spans
+          ? obj.spans.map(item => {
+              return model.Span.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

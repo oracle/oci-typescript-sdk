@@ -38,4 +38,9 @@ export namespace ManagedListTypeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagedListTypeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

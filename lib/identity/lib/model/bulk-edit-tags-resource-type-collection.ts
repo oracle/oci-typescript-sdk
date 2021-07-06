@@ -40,4 +40,18 @@ export namespace BulkEditTagsResourceTypeCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BulkEditTagsResourceTypeCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.BulkEditTagsResourceType.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

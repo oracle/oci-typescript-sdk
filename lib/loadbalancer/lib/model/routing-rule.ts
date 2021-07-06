@@ -54,4 +54,18 @@ export namespace RoutingRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RoutingRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "actions": obj.actions
+          ? obj.actions.map(item => {
+              return model.Action.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

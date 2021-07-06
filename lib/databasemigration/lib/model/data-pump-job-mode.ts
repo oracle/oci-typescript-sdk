@@ -33,7 +33,10 @@ export enum DataPumpJobMode {
 }
 
 export namespace DataPumpJobMode {
-  export function getJsonObj(obj: DataPumpJobMode): object {
-    return { obj };
+  export function getJsonObj(obj: DataPumpJobMode): DataPumpJobMode {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DataPumpJobMode): DataPumpJobMode {
+    return obj;
   }
 }

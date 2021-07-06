@@ -38,4 +38,9 @@ export namespace PrivateSourceDnsZone {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PrivateSourceDnsZone): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

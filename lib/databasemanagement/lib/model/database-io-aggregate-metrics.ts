@@ -51,4 +51,23 @@ export namespace DatabaseIOAggregateMetrics {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseIOAggregateMetrics): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "iops": obj.iops
+          ? obj.iops.map(item => {
+              return model.MetricDataPoint.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "ioThroughput": obj.ioThroughput
+          ? obj.ioThroughput.map(item => {
+              return model.MetricDataPoint.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -31,4 +31,9 @@ export namespace SchedulerResource {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SchedulerResource): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

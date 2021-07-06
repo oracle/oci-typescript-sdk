@@ -32,7 +32,10 @@ export enum RiskLevel {
 }
 
 export namespace RiskLevel {
-  export function getJsonObj(obj: RiskLevel): object {
-    return { obj };
+  export function getJsonObj(obj: RiskLevel): RiskLevel {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: RiskLevel): RiskLevel {
+    return obj;
   }
 }

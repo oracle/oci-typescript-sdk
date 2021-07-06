@@ -33,4 +33,9 @@ export namespace DeleteVaultReplicaDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeleteVaultReplicaDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

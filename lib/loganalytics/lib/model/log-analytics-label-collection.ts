@@ -41,4 +41,18 @@ export namespace LogAnalyticsLabelCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsLabelCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.LogAnalyticsLabelSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

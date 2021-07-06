@@ -33,4 +33,9 @@ export namespace AddEntityAssociationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddEntityAssociationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

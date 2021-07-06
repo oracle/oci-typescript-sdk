@@ -31,7 +31,10 @@ export enum DeploymentBackupType {
 }
 
 export namespace DeploymentBackupType {
-  export function getJsonObj(obj: DeploymentBackupType): object {
-    return { obj };
+  export function getJsonObj(obj: DeploymentBackupType): DeploymentBackupType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DeploymentBackupType): DeploymentBackupType {
+    return obj;
   }
 }

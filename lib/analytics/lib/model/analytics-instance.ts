@@ -130,4 +130,27 @@ export namespace AnalyticsInstance {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AnalyticsInstance): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "capacity": obj.capacity ? model.Capacity.getDeserializedJsonObj(obj.capacity) : undefined,
+
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getDeserializedJsonObj(obj.networkEndpointDetails)
+          : undefined,
+        "privateAccessChannels": obj.privateAccessChannels
+          ? common.mapContainer(
+              obj.privateAccessChannels,
+              model.PrivateAccessChannel.getDeserializedJsonObj
+            )
+          : undefined,
+        "vanityUrlDetails": obj.vanityUrlDetails
+          ? common.mapContainer(obj.vanityUrlDetails, model.VanityUrlDetails.getDeserializedJsonObj)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -56,4 +56,9 @@ export namespace UpdateIpv6Details {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateIpv6Details): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

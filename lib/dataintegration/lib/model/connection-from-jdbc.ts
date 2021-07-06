@@ -36,4 +36,17 @@ export namespace ConnectionFromJdbc {
     return jsonObj;
   }
   export const modelType = "GENERIC_JDBC_CONNECTION";
+  export function getDeserializedJsonObj(
+    obj: ConnectionFromJdbc,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Connection.getDeserializedJsonObj(obj) as ConnectionFromJdbc)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

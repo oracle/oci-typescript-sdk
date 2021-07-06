@@ -55,4 +55,9 @@ export namespace UpdatePolicyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdatePolicyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

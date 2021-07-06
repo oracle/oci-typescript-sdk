@@ -94,4 +94,16 @@ export namespace ObjectLifecycleRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ObjectLifecycleRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "objectNameFilter": obj.objectNameFilter
+          ? model.ObjectNameFilter.getDeserializedJsonObj(obj.objectNameFilter)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

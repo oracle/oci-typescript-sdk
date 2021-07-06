@@ -66,4 +66,14 @@ export namespace PrivateApplicationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PrivateApplicationSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "logo": obj.logo ? model.UploadData.getDeserializedJsonObj(obj.logo) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -47,4 +47,18 @@ export namespace RuleSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RuleSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.OperatorSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

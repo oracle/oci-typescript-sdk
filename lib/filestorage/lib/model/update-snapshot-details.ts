@@ -42,4 +42,9 @@ export namespace UpdateSnapshotDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateSnapshotDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

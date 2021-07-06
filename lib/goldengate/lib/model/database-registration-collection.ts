@@ -42,4 +42,18 @@ export namespace DatabaseRegistrationCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseRegistrationCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DatabaseRegistrationSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

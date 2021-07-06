@@ -68,4 +68,21 @@ export namespace ChannelSourceMysql {
     return jsonObj;
   }
   export const sourceType = "MYSQL";
+  export function getDeserializedJsonObj(
+    obj: ChannelSourceMysql,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ChannelSource.getDeserializedJsonObj(obj) as ChannelSourceMysql)),
+      ...{
+        "sslCaCertificate": obj.sslCaCertificate
+          ? model.CaCertificate.getDeserializedJsonObj(obj.sslCaCertificate)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -34,4 +34,9 @@ export namespace DeploymentArgument {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeploymentArgument): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -43,4 +43,28 @@ export namespace DatabaseTimeAggregateMetrics {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseTimeAggregateMetrics): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "cpuCount": obj.cpuCount
+          ? model.MetricDataPoint.getDeserializedJsonObj(obj.cpuCount)
+          : undefined,
+        "cpuTime": obj.cpuTime
+          ? model.MetricDataPoint.getDeserializedJsonObj(obj.cpuTime)
+          : undefined,
+        "waitTime": obj.waitTime
+          ? model.MetricDataPoint.getDeserializedJsonObj(obj.waitTime)
+          : undefined,
+        "userIoTime": obj.userIoTime
+          ? model.MetricDataPoint.getDeserializedJsonObj(obj.userIoTime)
+          : undefined,
+        "cluster": obj.cluster
+          ? model.MetricDataPoint.getDeserializedJsonObj(obj.cluster)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

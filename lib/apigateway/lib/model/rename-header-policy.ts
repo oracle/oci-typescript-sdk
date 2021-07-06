@@ -43,4 +43,18 @@ export namespace RenameHeaderPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RenameHeaderPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.RenameHeaderPolicyItem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

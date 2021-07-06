@@ -108,4 +108,61 @@ export namespace CreateConnectionDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateConnectionDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "connectionProperties": obj.connectionProperties
+          ? obj.connectionProperties.map(item => {
+              return model.ConnectionProperty.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "registryMetadata": obj.registryMetadata
+          ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "MYSQL_CONNECTION":
+          return model.CreateConnectionFromMySQL.getDeserializedJsonObj(
+            <model.CreateConnectionFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC_CONNECTION":
+          return model.CreateConnectionFromJdbc.getDeserializedJsonObj(
+            <model.CreateConnectionFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_CONNECTION":
+          return model.CreateConnectionFromAtp.getDeserializedJsonObj(
+            <model.CreateConnectionFromAtp>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_CONNECTION":
+          return model.CreateConnectionFromAdwc.getDeserializedJsonObj(
+            <model.CreateConnectionFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "ORACLEDB_CONNECTION":
+          return model.CreateConnectionFromOracle.getDeserializedJsonObj(
+            <model.CreateConnectionFromOracle>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_OBJECT_STORAGE_CONNECTION":
+          return model.CreateConnectionFromObjectStorage.getDeserializedJsonObj(
+            <model.CreateConnectionFromObjectStorage>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

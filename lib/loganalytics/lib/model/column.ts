@@ -33,4 +33,12 @@ export namespace Column {
     return jsonObj;
   }
   export const type = "COLUMN";
+  export function getDeserializedJsonObj(obj: Column, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.AbstractColumn.getDeserializedJsonObj(obj) as Column)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

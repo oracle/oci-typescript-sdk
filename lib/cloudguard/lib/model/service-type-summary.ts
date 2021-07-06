@@ -43,4 +43,18 @@ export namespace ServiceTypeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ServiceTypeSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resourceTypes": obj.resourceTypes
+          ? obj.resourceTypes.map(item => {
+              return model.ResourceTypeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

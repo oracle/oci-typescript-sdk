@@ -102,4 +102,20 @@ export namespace LogAnalyticsSourceExtendedFieldDefinition {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsSourceExtendedFieldDefinition): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "field": obj.field ? model.LogAnalyticsField.getDeserializedJsonObj(obj.field) : undefined,
+
+        "extendedFields": obj.extendedFields
+          ? obj.extendedFields.map(item => {
+              return model.LogAnalyticsExtendedField.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

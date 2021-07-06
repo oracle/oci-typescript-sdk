@@ -47,4 +47,17 @@ export namespace OccAuthorizationDetails {
     return jsonObj;
   }
   export const type = "OCC";
+  export function getDeserializedJsonObj(
+    obj: OccAuthorizationDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AuthorizationDetails.getDeserializedJsonObj(obj) as OccAuthorizationDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

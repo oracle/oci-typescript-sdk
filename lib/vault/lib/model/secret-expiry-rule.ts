@@ -57,4 +57,14 @@ export namespace SecretExpiryRule {
     return jsonObj;
   }
   export const ruleType = "SECRET_EXPIRY_RULE";
+  export function getDeserializedJsonObj(obj: SecretExpiryRule, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SecretRule.getDeserializedJsonObj(obj) as SecretExpiryRule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

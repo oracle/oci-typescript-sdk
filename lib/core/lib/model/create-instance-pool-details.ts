@@ -98,4 +98,26 @@ export namespace CreateInstancePoolDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateInstancePoolDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "placementConfigurations": obj.placementConfigurations
+          ? obj.placementConfigurations.map(item => {
+              return model.CreateInstancePoolPlacementConfigurationDetails.getDeserializedJsonObj(
+                item
+              );
+            })
+          : undefined,
+
+        "loadBalancers": obj.loadBalancers
+          ? obj.loadBalancers.map(item => {
+              return model.AttachLoadBalancerDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

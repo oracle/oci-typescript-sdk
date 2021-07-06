@@ -54,4 +54,19 @@ export namespace InstanceAgentCommandExecutionOutputViaObjectStorageTupleDetails
     return jsonObj;
   }
   export const outputType = "OBJECT_STORAGE_TUPLE";
+  export function getDeserializedJsonObj(
+    obj: InstanceAgentCommandExecutionOutputViaObjectStorageTupleDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.InstanceAgentCommandExecutionOutputContent.getDeserializedJsonObj(
+            obj
+          ) as InstanceAgentCommandExecutionOutputViaObjectStorageTupleDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

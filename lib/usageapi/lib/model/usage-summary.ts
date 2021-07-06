@@ -151,4 +151,18 @@ export namespace UsageSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UsageSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tags": obj.tags
+          ? obj.tags.map(item => {
+              return model.Tag.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

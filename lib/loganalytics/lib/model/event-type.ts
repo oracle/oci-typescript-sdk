@@ -48,4 +48,9 @@ export namespace EventType {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EventType): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

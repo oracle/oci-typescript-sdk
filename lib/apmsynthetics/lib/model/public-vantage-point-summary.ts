@@ -40,4 +40,14 @@ export namespace PublicVantagePointSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublicVantagePointSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "geo": obj.geo ? model.GeoSummary.getDeserializedJsonObj(obj.geo) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -36,4 +36,9 @@ export namespace CreateVolumeBackupPolicyAssignmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateVolumeBackupPolicyAssignmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

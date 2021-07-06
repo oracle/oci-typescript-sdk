@@ -65,4 +65,9 @@ export namespace ClusterMetadata {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ClusterMetadata): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

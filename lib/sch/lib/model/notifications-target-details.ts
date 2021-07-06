@@ -50,4 +50,17 @@ export namespace NotificationsTargetDetails {
     return jsonObj;
   }
   export const kind = "notifications";
+  export function getDeserializedJsonObj(
+    obj: NotificationsTargetDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TargetDetails.getDeserializedJsonObj(obj) as NotificationsTargetDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

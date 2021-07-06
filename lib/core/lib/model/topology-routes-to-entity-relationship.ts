@@ -50,4 +50,23 @@ export namespace TopologyRoutesToEntityRelationship {
     return jsonObj;
   }
   export const type = "ROUTES_TO";
+  export function getDeserializedJsonObj(
+    obj: TopologyRoutesToEntityRelationship,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TopologyEntityRelationship.getDeserializedJsonObj(
+            obj
+          ) as TopologyRoutesToEntityRelationship)),
+      ...{
+        "routeRuleDetails": obj.routeRuleDetails
+          ? model.TopologyRoutesToRelationshipDetails.getDeserializedJsonObj(obj.routeRuleDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

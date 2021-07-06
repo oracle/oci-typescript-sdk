@@ -44,4 +44,18 @@ export namespace CustomPropertyCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CustomPropertyCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.CustomPropertySummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -33,4 +33,9 @@ export namespace RemoveCloudSqlDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RemoveCloudSqlDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

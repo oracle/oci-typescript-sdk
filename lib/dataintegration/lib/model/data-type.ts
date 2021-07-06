@@ -55,4 +55,16 @@ export namespace DataType {
     return jsonObj;
   }
   export const modelType = "DATA_TYPE";
+  export function getDeserializedJsonObj(obj: DataType, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.BaseType.getDeserializedJsonObj(obj) as DataType)),
+      ...{
+        "configDefinition": obj.configDefinition
+          ? model.ConfigDefinition.getDeserializedJsonObj(obj.configDefinition)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

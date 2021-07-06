@@ -25,7 +25,10 @@ export enum DatabaseEntitySource {
 }
 
 export namespace DatabaseEntitySource {
-  export function getJsonObj(obj: DatabaseEntitySource): object {
-    return { obj };
+  export function getJsonObj(obj: DatabaseEntitySource): DatabaseEntitySource {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DatabaseEntitySource): DatabaseEntitySource {
+    return obj;
   }
 }

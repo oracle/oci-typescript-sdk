@@ -65,4 +65,18 @@ export namespace UpdatePublicationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdatePublicationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "supportContacts": obj.supportContacts
+          ? obj.supportContacts.map(item => {
+              return model.SupportContact.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

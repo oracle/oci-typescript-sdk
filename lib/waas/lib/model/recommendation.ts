@@ -53,4 +53,9 @@ export namespace Recommendation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Recommendation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -36,4 +36,9 @@ export namespace EstimateRecallDataSizeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EstimateRecallDataSizeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -42,4 +42,9 @@ export namespace LocalClonePluggableDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LocalClonePluggableDatabaseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

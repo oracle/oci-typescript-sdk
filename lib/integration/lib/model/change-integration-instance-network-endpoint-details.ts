@@ -35,4 +35,18 @@ export namespace ChangeIntegrationInstanceNetworkEndpointDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeIntegrationInstanceNetworkEndpointDetails
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getDeserializedJsonObj(obj.networkEndpointDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

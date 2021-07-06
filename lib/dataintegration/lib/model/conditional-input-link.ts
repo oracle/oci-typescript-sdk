@@ -43,4 +43,25 @@ export namespace ConditionalInputLink {
     return jsonObj;
   }
   export const modelType = "CONDITIONAL_INPUT_LINK";
+  export function getDeserializedJsonObj(
+    obj: ConditionalInputLink,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.FlowPortLink.getDeserializedJsonObj(obj) as ConditionalInputLink)),
+      ...{
+        "fromLink": obj.fromLink
+          ? model.OutputLink.getDeserializedJsonObj(obj.fromLink)
+          : undefined,
+        "fieldMap": obj.fieldMap ? model.FieldMap.getDeserializedJsonObj(obj.fieldMap) : undefined,
+        "condition": obj.condition
+          ? model.Expression.getDeserializedJsonObj(obj.condition)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

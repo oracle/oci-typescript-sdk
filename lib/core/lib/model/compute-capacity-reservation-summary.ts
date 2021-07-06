@@ -100,4 +100,9 @@ export namespace ComputeCapacityReservationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ComputeCapacityReservationSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

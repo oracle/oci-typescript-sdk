@@ -57,4 +57,9 @@ export namespace VcnDnsResolverAssociation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VcnDnsResolverAssociation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

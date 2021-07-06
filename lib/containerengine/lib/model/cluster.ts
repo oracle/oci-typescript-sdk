@@ -103,4 +103,31 @@ export namespace Cluster {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Cluster): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "endpointConfig": obj.endpointConfig
+          ? model.ClusterEndpointConfig.getDeserializedJsonObj(obj.endpointConfig)
+          : undefined,
+
+        "options": obj.options
+          ? model.ClusterCreateOptions.getDeserializedJsonObj(obj.options)
+          : undefined,
+        "metadata": obj.metadata
+          ? model.ClusterMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined,
+
+        "endpoints": obj.endpoints
+          ? model.ClusterEndpoints.getDeserializedJsonObj(obj.endpoints)
+          : undefined,
+
+        "imagePolicyConfig": obj.imagePolicyConfig
+          ? model.ImagePolicyConfig.getDeserializedJsonObj(obj.imagePolicyConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

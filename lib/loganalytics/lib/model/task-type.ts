@@ -32,7 +32,10 @@ export enum TaskType {
 }
 
 export namespace TaskType {
-  export function getJsonObj(obj: TaskType): object {
-    return { obj };
+  export function getJsonObj(obj: TaskType): TaskType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: TaskType): TaskType {
+    return obj;
   }
 }

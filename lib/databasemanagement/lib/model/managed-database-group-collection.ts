@@ -42,4 +42,18 @@ export namespace ManagedDatabaseGroupCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagedDatabaseGroupCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ManagedDatabaseGroupSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

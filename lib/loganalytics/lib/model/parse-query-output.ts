@@ -68,4 +68,24 @@ export namespace ParseQueryOutput {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ParseQueryOutput): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "columns": obj.columns
+          ? obj.columns.map(item => {
+              return model.AbstractColumn.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "commands": obj.commands
+          ? obj.commands.map(item => {
+              return model.AbstractCommandDescriptor.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

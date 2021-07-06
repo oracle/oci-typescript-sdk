@@ -35,4 +35,9 @@ export namespace ErrorDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ErrorDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

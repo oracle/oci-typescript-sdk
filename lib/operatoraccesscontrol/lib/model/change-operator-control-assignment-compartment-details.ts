@@ -34,4 +34,11 @@ export namespace ChangeOperatorControlAssignmentCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeOperatorControlAssignmentCompartmentDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

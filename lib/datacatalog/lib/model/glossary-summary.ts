@@ -88,4 +88,9 @@ export namespace GlossarySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GlossarySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

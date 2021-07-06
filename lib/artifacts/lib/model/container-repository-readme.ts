@@ -46,4 +46,9 @@ export namespace ContainerRepositoryReadme {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ContainerRepositoryReadme): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

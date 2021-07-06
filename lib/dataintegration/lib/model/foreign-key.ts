@@ -74,4 +74,26 @@ export namespace ForeignKey {
     return jsonObj;
   }
   export const modelType = "FOREIGN_KEY";
+  export function getDeserializedJsonObj(obj: ForeignKey, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Key.getDeserializedJsonObj(obj) as ForeignKey)),
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "attributeRefs": obj.attributeRefs
+          ? obj.attributeRefs.map(item => {
+              return model.KeyAttribute.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "referenceUniqueKey": obj.referenceUniqueKey
+          ? model.UniqueKey.getDeserializedJsonObj(obj.referenceUniqueKey)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -82,4 +82,18 @@ export namespace Ticket {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Ticket): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resourceList": obj.resourceList
+          ? obj.resourceList.map(item => {
+              return model.Resource.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -54,4 +54,9 @@ export namespace SummaryStatistics {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SummaryStatistics): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -52,4 +52,19 @@ export namespace BootVolumeSourceFromBootVolumeReplicaDetails {
     return jsonObj;
   }
   export const type = "bootVolumeReplica";
+  export function getDeserializedJsonObj(
+    obj: BootVolumeSourceFromBootVolumeReplicaDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.BootVolumeSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as BootVolumeSourceFromBootVolumeReplicaDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

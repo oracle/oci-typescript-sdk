@@ -36,4 +36,19 @@ export namespace OkeDeployStageExecutionProgress {
     return jsonObj;
   }
   export const deployStageType = "OKE_DEPLOYMENT";
+  export function getDeserializedJsonObj(
+    obj: OkeDeployStageExecutionProgress,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageExecutionProgress.getDeserializedJsonObj(
+            obj
+          ) as OkeDeployStageExecutionProgress)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

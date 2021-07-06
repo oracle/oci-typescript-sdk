@@ -51,4 +51,9 @@ export namespace SentimentAspect {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SentimentAspect): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

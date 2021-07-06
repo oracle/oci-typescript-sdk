@@ -38,4 +38,16 @@ export namespace UpdateResponderRecipeResponderRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateResponderRecipeResponderRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "details": obj.details
+          ? model.UpdateResponderRuleDetails.getDeserializedJsonObj(obj.details)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

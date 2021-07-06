@@ -35,4 +35,17 @@ export namespace GenericRepositorySummary {
     return jsonObj;
   }
   export const repositoryType = "GENERIC";
+  export function getDeserializedJsonObj(
+    obj: GenericRepositorySummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.RepositorySummary.getDeserializedJsonObj(obj) as GenericRepositorySummary)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

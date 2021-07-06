@@ -39,4 +39,18 @@ export namespace PatchSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PatchSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.PatchSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

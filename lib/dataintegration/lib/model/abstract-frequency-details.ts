@@ -64,4 +64,30 @@ export namespace AbstractFrequencyDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AbstractFrequencyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "MONTHLY":
+          return model.MonthlyFrequencyDetails.getDeserializedJsonObj(
+            <model.MonthlyFrequencyDetails>(<object>jsonObj),
+            true
+          );
+        case "DAILY":
+          return model.DailyFrequencyDetails.getDeserializedJsonObj(
+            <model.DailyFrequencyDetails>(<object>jsonObj),
+            true
+          );
+        case "HOURLY":
+          return model.HourlyFrequencyDetails.getDeserializedJsonObj(
+            <model.HourlyFrequencyDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

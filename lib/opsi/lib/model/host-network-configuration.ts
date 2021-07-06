@@ -50,4 +50,19 @@ export namespace HostNetworkConfiguration {
     return jsonObj;
   }
   export const metricName = "HOST_NETWORK_CONFIGURATION";
+  export function getDeserializedJsonObj(
+    obj: HostNetworkConfiguration,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.HostConfigurationMetricGroup.getDeserializedJsonObj(
+            obj
+          ) as HostNetworkConfiguration)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

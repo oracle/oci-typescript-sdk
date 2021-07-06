@@ -68,4 +68,16 @@ export namespace UpdateDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDatabaseDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbBackupConfig": obj.dbBackupConfig
+          ? model.DbBackupConfig.getDeserializedJsonObj(obj.dbBackupConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

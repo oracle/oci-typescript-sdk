@@ -51,4 +51,18 @@ export namespace SqlStatisticAggregationCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlStatisticAggregationCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SqlStatisticAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

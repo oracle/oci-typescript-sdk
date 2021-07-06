@@ -28,7 +28,12 @@ export enum OnPremConnectorLifecycleState {
 }
 
 export namespace OnPremConnectorLifecycleState {
-  export function getJsonObj(obj: OnPremConnectorLifecycleState): object {
-    return { obj };
+  export function getJsonObj(obj: OnPremConnectorLifecycleState): OnPremConnectorLifecycleState {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: OnPremConnectorLifecycleState
+  ): OnPremConnectorLifecycleState {
+    return obj;
   }
 }

@@ -47,4 +47,23 @@ export namespace AwrDbParameterCollection {
     return jsonObj;
   }
   export const awrResultType = "AWRDB_DB_PARAMETER_SET";
+  export function getDeserializedJsonObj(
+    obj: AwrDbParameterCollection,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AwrQueryResult.getDeserializedJsonObj(obj) as AwrDbParameterCollection)),
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AwrDbParameterSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { OceInstanceWaiter } from "./oceinstance-waiter";
@@ -168,7 +168,7 @@ export class OceInstanceClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeOceInstanceCompartmentRequest.changeOceInstanceCompartmentDetails,
         "ChangeOceInstanceCompartmentDetails",
-        models.ChangeOceInstanceCompartmentDetails.getJsonObj
+        model.ChangeOceInstanceCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -233,7 +233,7 @@ export class OceInstanceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createOceInstanceRequest.createOceInstanceDetails,
         "CreateOceInstanceDetails",
-        models.CreateOceInstanceDetails.getJsonObj
+        model.CreateOceInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -366,7 +366,8 @@ export class OceInstanceClient {
         responseObject: <responses.GetOceInstanceResponse>{},
         body: await response.json(),
         bodyKey: "oceInstance",
-        bodyModel: "model.OceInstance",
+        bodyModel: model.OceInstance,
+        type: "model.OceInstance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -429,7 +430,8 @@ export class OceInstanceClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -470,6 +472,7 @@ export class OceInstanceClient {
     const pathParams = {};
 
     const queryParams = {
+      "tenancyId": listOceInstancesRequest.tenancyId,
       "compartmentId": listOceInstancesRequest.compartmentId,
       "displayName": listOceInstancesRequest.displayName,
       "limit": listOceInstancesRequest.limit,
@@ -504,7 +507,8 @@ export class OceInstanceClient {
         responseObject: <responses.ListOceInstancesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "OceInstanceSummary[]",
+        bodyModel: model.OceInstanceSummary,
+        type: "Array<model.OceInstanceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -534,7 +538,7 @@ export class OceInstanceClient {
    */
   public listAllOceInstances(
     request: requests.ListOceInstancesRequest
-  ): AsyncIterableIterator<models.OceInstanceSummary> {
+  ): AsyncIterableIterator<model.OceInstanceSummary> {
     return paginateRecords(request, req => this.listOceInstances(req));
   }
 
@@ -597,7 +601,8 @@ export class OceInstanceClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -627,7 +632,7 @@ export class OceInstanceClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -689,7 +694,8 @@ export class OceInstanceClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -719,7 +725,7 @@ export class OceInstanceClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -781,7 +787,8 @@ export class OceInstanceClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequest[]",
+        bodyModel: model.WorkRequest,
+        type: "Array<model.WorkRequest>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -811,7 +818,7 @@ export class OceInstanceClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequest> {
+  ): AsyncIterableIterator<model.WorkRequest> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -863,7 +870,7 @@ export class OceInstanceClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateOceInstanceRequest.updateOceInstanceDetails,
         "UpdateOceInstanceDetails",
-        models.UpdateOceInstanceDetails.getJsonObj
+        model.UpdateOceInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

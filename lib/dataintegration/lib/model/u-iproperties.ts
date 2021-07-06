@@ -34,4 +34,9 @@ export namespace UIProperties {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UIProperties): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

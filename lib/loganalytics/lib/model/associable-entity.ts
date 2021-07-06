@@ -70,4 +70,9 @@ export namespace AssociableEntity {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AssociableEntity): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

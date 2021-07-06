@@ -31,4 +31,9 @@ export namespace Cursor {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Cursor): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

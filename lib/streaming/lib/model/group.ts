@@ -48,4 +48,18 @@ export namespace Group {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Group): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "reservations": obj.reservations
+          ? obj.reservations.map(item => {
+              return model.PartitionReservation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

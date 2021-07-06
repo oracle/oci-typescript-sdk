@@ -48,4 +48,9 @@ export namespace TransferDeviceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TransferDeviceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

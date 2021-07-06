@@ -32,7 +32,10 @@ export enum ConnectionResult {
 }
 
 export namespace ConnectionResult {
-  export function getJsonObj(obj: ConnectionResult): object {
-    return { obj };
+  export function getJsonObj(obj: ConnectionResult): ConnectionResult {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ConnectionResult): ConnectionResult {
+    return obj;
   }
 }

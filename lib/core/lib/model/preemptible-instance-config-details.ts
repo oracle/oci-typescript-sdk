@@ -40,4 +40,16 @@ export namespace PreemptibleInstanceConfigDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PreemptibleInstanceConfigDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "preemptionAction": obj.preemptionAction
+          ? model.PreemptionAction.getDeserializedJsonObj(obj.preemptionAction)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

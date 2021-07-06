@@ -43,4 +43,9 @@ export namespace AccessLogPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AccessLogPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

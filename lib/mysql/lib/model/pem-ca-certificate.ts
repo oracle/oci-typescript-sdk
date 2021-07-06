@@ -36,4 +36,14 @@ export namespace PemCaCertificate {
     return jsonObj;
   }
   export const certificateType = "PEM";
+  export function getDeserializedJsonObj(obj: PemCaCertificate, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CaCertificate.getDeserializedJsonObj(obj) as PemCaCertificate)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

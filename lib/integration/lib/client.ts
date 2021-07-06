@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { IntegrationInstanceWaiter } from "./integrationinstance-waiter";
@@ -172,7 +172,7 @@ export class IntegrationInstanceClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeIntegrationInstanceCompartmentRequest.changeIntegrationInstanceCompartmentDetails,
         "ChangeIntegrationInstanceCompartmentDetails",
-        models.ChangeIntegrationInstanceCompartmentDetails.getJsonObj
+        model.ChangeIntegrationInstanceCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -245,7 +245,7 @@ export class IntegrationInstanceClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeIntegrationInstanceNetworkEndpointRequest.changeIntegrationInstanceNetworkEndpointDetails,
         "ChangeIntegrationInstanceNetworkEndpointDetails",
-        models.ChangeIntegrationInstanceNetworkEndpointDetails.getJsonObj
+        model.ChangeIntegrationInstanceNetworkEndpointDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -311,7 +311,7 @@ export class IntegrationInstanceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createIntegrationInstanceRequest.createIntegrationInstanceDetails,
         "CreateIntegrationInstanceDetails",
-        models.CreateIntegrationInstanceDetails.getJsonObj
+        model.CreateIntegrationInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -446,7 +446,8 @@ export class IntegrationInstanceClient {
         responseObject: <responses.GetIntegrationInstanceResponse>{},
         body: await response.json(),
         bodyKey: "integrationInstance",
-        bodyModel: "model.IntegrationInstance",
+        bodyModel: model.IntegrationInstance,
+        type: "model.IntegrationInstance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -510,7 +511,8 @@ export class IntegrationInstanceClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -586,7 +588,8 @@ export class IntegrationInstanceClient {
         responseObject: <responses.ListIntegrationInstancesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "IntegrationInstanceSummary[]",
+        bodyModel: model.IntegrationInstanceSummary,
+        type: "Array<model.IntegrationInstanceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -621,7 +624,7 @@ export class IntegrationInstanceClient {
    */
   public listAllIntegrationInstances(
     request: requests.ListIntegrationInstancesRequest
-  ): AsyncIterableIterator<models.IntegrationInstanceSummary> {
+  ): AsyncIterableIterator<model.IntegrationInstanceSummary> {
     return paginateRecords(request, req => this.listIntegrationInstances(req));
   }
 
@@ -684,7 +687,8 @@ export class IntegrationInstanceClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -719,7 +723,7 @@ export class IntegrationInstanceClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -782,7 +786,8 @@ export class IntegrationInstanceClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -817,7 +822,7 @@ export class IntegrationInstanceClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -880,7 +885,8 @@ export class IntegrationInstanceClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -915,7 +921,7 @@ export class IntegrationInstanceClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -1096,7 +1102,7 @@ export class IntegrationInstanceClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateIntegrationInstanceRequest.updateIntegrationInstanceDetails,
         "UpdateIntegrationInstanceDetails",
-        models.UpdateIntegrationInstanceDetails.getJsonObj
+        model.UpdateIntegrationInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

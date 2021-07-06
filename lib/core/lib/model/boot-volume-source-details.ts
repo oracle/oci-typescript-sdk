@@ -50,4 +50,30 @@ export namespace BootVolumeSourceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BootVolumeSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "bootVolumeBackup":
+          return model.BootVolumeSourceFromBootVolumeBackupDetails.getDeserializedJsonObj(
+            <model.BootVolumeSourceFromBootVolumeBackupDetails>(<object>jsonObj),
+            true
+          );
+        case "bootVolume":
+          return model.BootVolumeSourceFromBootVolumeDetails.getDeserializedJsonObj(
+            <model.BootVolumeSourceFromBootVolumeDetails>(<object>jsonObj),
+            true
+          );
+        case "bootVolumeReplica":
+          return model.BootVolumeSourceFromBootVolumeReplicaDetails.getDeserializedJsonObj(
+            <model.BootVolumeSourceFromBootVolumeReplicaDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

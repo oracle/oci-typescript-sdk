@@ -49,4 +49,23 @@ export namespace AnnouncementsCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AnnouncementsCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AnnouncementSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "userStatuses": obj.userStatuses
+          ? obj.userStatuses.map(item => {
+              return model.AnnouncementUserStatusDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

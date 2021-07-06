@@ -183,4 +183,28 @@ export namespace TaskRun {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TaskRun): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "configProvider": obj.configProvider
+          ? model.ConfigProvider.getDeserializedJsonObj(obj.configProvider)
+          : undefined,
+
+        "taskSchedule": obj.taskSchedule
+          ? model.TaskSchedule.getDeserializedJsonObj(obj.taskSchedule)
+          : undefined,
+
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

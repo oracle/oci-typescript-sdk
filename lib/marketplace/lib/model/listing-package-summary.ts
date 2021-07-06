@@ -64,4 +64,18 @@ export namespace ListingPackageSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ListingPackageSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "regions": obj.regions
+          ? obj.regions.map(item => {
+              return model.Region.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

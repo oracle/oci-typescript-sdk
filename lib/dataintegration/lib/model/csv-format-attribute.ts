@@ -62,4 +62,17 @@ export namespace CsvFormatAttribute {
     return jsonObj;
   }
   export const modelType = "CSV_FORMAT";
+  export function getDeserializedJsonObj(
+    obj: CsvFormatAttribute,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractFormatAttribute.getDeserializedJsonObj(obj) as CsvFormatAttribute)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

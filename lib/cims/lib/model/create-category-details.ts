@@ -33,4 +33,9 @@ export namespace CreateCategoryDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateCategoryDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

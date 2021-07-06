@@ -51,4 +51,9 @@ export namespace Datapoint {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Datapoint): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

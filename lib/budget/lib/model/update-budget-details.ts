@@ -64,4 +64,9 @@ export namespace UpdateBudgetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateBudgetDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

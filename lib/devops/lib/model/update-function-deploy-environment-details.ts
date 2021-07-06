@@ -44,4 +44,19 @@ export namespace UpdateFunctionDeployEnvironmentDetails {
     return jsonObj;
   }
   export const deployEnvironmentType = "FUNCTION";
+  export function getDeserializedJsonObj(
+    obj: UpdateFunctionDeployEnvironmentDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateDeployEnvironmentDetails.getDeserializedJsonObj(
+            obj
+          ) as UpdateFunctionDeployEnvironmentDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

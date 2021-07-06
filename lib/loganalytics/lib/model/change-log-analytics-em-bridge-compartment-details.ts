@@ -33,4 +33,11 @@ export namespace ChangeLogAnalyticsEmBridgeCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeLogAnalyticsEmBridgeCompartmentDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

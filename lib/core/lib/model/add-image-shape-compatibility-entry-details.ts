@@ -43,4 +43,19 @@ export namespace AddImageShapeCompatibilityEntryDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddImageShapeCompatibilityEntryDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "memoryConstraints": obj.memoryConstraints
+          ? model.ImageMemoryConstraints.getDeserializedJsonObj(obj.memoryConstraints)
+          : undefined,
+        "ocpuConstraints": obj.ocpuConstraints
+          ? model.ImageOcpuConstraints.getDeserializedJsonObj(obj.ocpuConstraints)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

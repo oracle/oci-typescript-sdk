@@ -28,7 +28,14 @@ export enum UnifiedAgentServiceConfigurationTypes {
 }
 
 export namespace UnifiedAgentServiceConfigurationTypes {
-  export function getJsonObj(obj: UnifiedAgentServiceConfigurationTypes): object {
-    return { obj };
+  export function getJsonObj(
+    obj: UnifiedAgentServiceConfigurationTypes
+  ): UnifiedAgentServiceConfigurationTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentServiceConfigurationTypes
+  ): UnifiedAgentServiceConfigurationTypes {
+    return obj;
   }
 }

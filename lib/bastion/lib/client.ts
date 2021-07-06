@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { BastionWaiter } from "./bastion-waiter";
@@ -166,7 +166,7 @@ export class BastionClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeBastionCompartmentRequest.changeBastionCompartmentDetails,
         "ChangeBastionCompartmentDetails",
-        models.ChangeBastionCompartmentDetails.getJsonObj
+        model.ChangeBastionCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -226,7 +226,7 @@ export class BastionClient {
       bodyContent: common.ObjectSerializer.serialize(
         createBastionRequest.createBastionDetails,
         "CreateBastionDetails",
-        models.CreateBastionDetails.getJsonObj
+        model.CreateBastionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -238,7 +238,8 @@ export class BastionClient {
         responseObject: <responses.CreateBastionResponse>{},
         body: await response.json(),
         bodyKey: "bastion",
-        bodyModel: "model.Bastion",
+        bodyModel: model.Bastion,
+        type: "model.Bastion",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -304,7 +305,7 @@ export class BastionClient {
       bodyContent: common.ObjectSerializer.serialize(
         createSessionRequest.createSessionDetails,
         "CreateSessionDetails",
-        models.CreateSessionDetails.getJsonObj
+        model.CreateSessionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -316,7 +317,8 @@ export class BastionClient {
         responseObject: <responses.CreateSessionResponse>{},
         body: await response.json(),
         bodyKey: "session",
-        bodyModel: "model.Session",
+        bodyModel: model.Session,
+        type: "model.Session",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -511,7 +513,8 @@ export class BastionClient {
         responseObject: <responses.GetBastionResponse>{},
         body: await response.json(),
         bodyKey: "bastion",
-        bodyModel: "model.Bastion",
+        bodyModel: model.Bastion,
+        type: "model.Bastion",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -574,7 +577,8 @@ export class BastionClient {
         responseObject: <responses.GetSessionResponse>{},
         body: await response.json(),
         bodyKey: "session",
-        bodyModel: "model.Session",
+        bodyModel: model.Session,
+        type: "model.Session",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -637,7 +641,8 @@ export class BastionClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -708,7 +713,8 @@ export class BastionClient {
         responseObject: <responses.ListBastionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "BastionSummary[]",
+        bodyModel: model.BastionSummary,
+        type: "Array<model.BastionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -738,7 +744,7 @@ export class BastionClient {
    */
   public listAllBastions(
     request: requests.ListBastionsRequest
-  ): AsyncIterableIterator<models.BastionSummary> {
+  ): AsyncIterableIterator<model.BastionSummary> {
     return paginateRecords(request, req => this.listBastions(req));
   }
 
@@ -804,7 +810,8 @@ export class BastionClient {
         responseObject: <responses.ListSessionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SessionSummary[]",
+        bodyModel: model.SessionSummary,
+        type: "Array<model.SessionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -834,7 +841,7 @@ export class BastionClient {
    */
   public listAllSessions(
     request: requests.ListSessionsRequest
-  ): AsyncIterableIterator<models.SessionSummary> {
+  ): AsyncIterableIterator<model.SessionSummary> {
     return paginateRecords(request, req => this.listSessions(req));
   }
 
@@ -896,7 +903,8 @@ export class BastionClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -926,7 +934,7 @@ export class BastionClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -988,7 +996,8 @@ export class BastionClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1018,7 +1027,7 @@ export class BastionClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -1079,7 +1088,8 @@ export class BastionClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1109,7 +1119,7 @@ export class BastionClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -1161,7 +1171,7 @@ export class BastionClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateBastionRequest.updateBastionDetails,
         "UpdateBastionDetails",
-        models.UpdateBastionDetails.getJsonObj
+        model.UpdateBastionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1227,7 +1237,7 @@ export class BastionClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateSessionRequest.updateSessionDetails,
         "UpdateSessionDetails",
-        models.UpdateSessionDetails.getJsonObj
+        model.UpdateSessionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1239,7 +1249,8 @@ export class BastionClient {
         responseObject: <responses.UpdateSessionResponse>{},
         body: await response.json(),
         bodyKey: "session",
-        bodyModel: "model.Session",
+        bodyModel: model.Session,
+        type: "model.Session",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

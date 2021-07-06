@@ -153,4 +153,18 @@ export namespace LogAnalyticsMetric {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsMetric): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sources": obj.sources
+          ? obj.sources.map(item => {
+              return model.LogAnalyticsSource.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

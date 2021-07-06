@@ -43,7 +43,10 @@ export enum WorkRequestActionResult {
 }
 
 export namespace WorkRequestActionResult {
-  export function getJsonObj(obj: WorkRequestActionResult): object {
-    return { obj };
+  export function getJsonObj(obj: WorkRequestActionResult): WorkRequestActionResult {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: WorkRequestActionResult): WorkRequestActionResult {
+    return obj;
   }
 }

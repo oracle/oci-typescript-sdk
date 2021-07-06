@@ -36,7 +36,14 @@ export enum AnalyticsInstanceLifecycleState {
 }
 
 export namespace AnalyticsInstanceLifecycleState {
-  export function getJsonObj(obj: AnalyticsInstanceLifecycleState): object {
-    return { obj };
+  export function getJsonObj(
+    obj: AnalyticsInstanceLifecycleState
+  ): AnalyticsInstanceLifecycleState {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: AnalyticsInstanceLifecycleState
+  ): AnalyticsInstanceLifecycleState {
+    return obj;
   }
 }

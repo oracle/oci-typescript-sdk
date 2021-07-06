@@ -39,7 +39,10 @@ export enum ManagedListType {
 }
 
 export namespace ManagedListType {
-  export function getJsonObj(obj: ManagedListType): object {
-    return { obj };
+  export function getJsonObj(obj: ManagedListType): ManagedListType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ManagedListType): ManagedListType {
+    return obj;
   }
 }

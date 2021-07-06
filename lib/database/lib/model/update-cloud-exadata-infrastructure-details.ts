@@ -63,4 +63,16 @@ export namespace UpdateCloudExadataInfrastructureDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateCloudExadataInfrastructureDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

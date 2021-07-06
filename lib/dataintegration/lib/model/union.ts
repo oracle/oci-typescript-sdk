@@ -50,4 +50,12 @@ export namespace Union {
     return jsonObj;
   }
   export const modelType = "UNION_OPERATOR";
+  export function getDeserializedJsonObj(obj: Union, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as Union)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

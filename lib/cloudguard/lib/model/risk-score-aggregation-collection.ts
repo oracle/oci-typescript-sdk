@@ -39,4 +39,18 @@ export namespace RiskScoreAggregationCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RiskScoreAggregationCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.RiskScoreAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

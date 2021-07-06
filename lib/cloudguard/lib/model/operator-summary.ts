@@ -63,4 +63,18 @@ export namespace OperatorSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OperatorSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "operators": obj.operators
+          ? obj.operators.map(item => {
+              return model.ConditionOperator.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

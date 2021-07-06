@@ -110,4 +110,30 @@ export namespace CreateDataGuardAssociationDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDataGuardAssociationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("creationType" in obj && obj.creationType) {
+      switch (obj.creationType) {
+        case "NewDbSystem":
+          return model.CreateDataGuardAssociationWithNewDbSystemDetails.getDeserializedJsonObj(
+            <model.CreateDataGuardAssociationWithNewDbSystemDetails>(<object>jsonObj),
+            true
+          );
+        case "ExistingVmCluster":
+          return model.CreateDataGuardAssociationToExistingVmClusterDetails.getDeserializedJsonObj(
+            <model.CreateDataGuardAssociationToExistingVmClusterDetails>(<object>jsonObj),
+            true
+          );
+        case "ExistingDbSystem":
+          return model.CreateDataGuardAssociationToExistingDbSystemDetails.getDeserializedJsonObj(
+            <model.CreateDataGuardAssociationToExistingDbSystemDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.creationType);
+      }
+    }
+    return jsonObj;
+  }
 }

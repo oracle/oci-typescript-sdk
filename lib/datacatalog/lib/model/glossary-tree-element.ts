@@ -91,4 +91,18 @@ export namespace GlossaryTreeElement {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GlossaryTreeElement): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "childTerms": obj.childTerms
+          ? obj.childTerms.map(item => {
+              return model.GlossaryTreeElement.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

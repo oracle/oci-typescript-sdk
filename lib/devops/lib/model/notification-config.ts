@@ -30,4 +30,9 @@ export namespace NotificationConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NotificationConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

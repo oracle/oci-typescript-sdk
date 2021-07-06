@@ -75,4 +75,9 @@ export namespace SchemaDriftConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SchemaDriftConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

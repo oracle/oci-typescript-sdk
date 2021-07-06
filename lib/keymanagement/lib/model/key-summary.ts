@@ -126,4 +126,9 @@ export namespace KeySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KeySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

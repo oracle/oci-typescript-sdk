@@ -50,4 +50,9 @@ export namespace UpdateVolumeBackupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateVolumeBackupDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

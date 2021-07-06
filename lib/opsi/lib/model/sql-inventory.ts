@@ -41,4 +41,9 @@ export namespace SqlInventory {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlInventory): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

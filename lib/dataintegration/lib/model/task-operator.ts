@@ -121,4 +121,18 @@ export namespace TaskOperator {
     return jsonObj;
   }
   export const modelType = "TASK_OPERATOR";
+  export function getDeserializedJsonObj(obj: TaskOperator, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as TaskOperator)),
+      ...{
+        "task": obj.task ? model.Task.getDeserializedJsonObj(obj.task) : undefined,
+
+        "configProviderDelegate": obj.configProviderDelegate
+          ? model.ConfigProvider.getDeserializedJsonObj(obj.configProviderDelegate)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

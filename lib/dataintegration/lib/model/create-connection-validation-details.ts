@@ -54,4 +54,22 @@ export namespace CreateConnectionValidationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateConnectionValidationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dataAsset": obj.dataAsset
+          ? model.CreateDataAssetDetails.getDeserializedJsonObj(obj.dataAsset)
+          : undefined,
+        "connection": obj.connection
+          ? model.CreateConnectionDetails.getDeserializedJsonObj(obj.connection)
+          : undefined,
+        "registryMetadata": obj.registryMetadata
+          ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

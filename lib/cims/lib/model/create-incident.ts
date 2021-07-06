@@ -61,4 +61,22 @@ export namespace CreateIncident {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateIncident): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ticket": obj.ticket
+          ? model.CreateTicketDetails.getDeserializedJsonObj(obj.ticket)
+          : undefined,
+
+        "contacts": obj.contacts
+          ? obj.contacts.map(item => {
+              return model.Contact.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

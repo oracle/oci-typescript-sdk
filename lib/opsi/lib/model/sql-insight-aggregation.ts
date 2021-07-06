@@ -74,4 +74,9 @@ export namespace SqlInsightAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlInsightAggregation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

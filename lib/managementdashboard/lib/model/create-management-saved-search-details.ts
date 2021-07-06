@@ -108,4 +108,9 @@ export namespace CreateManagementSavedSearchDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateManagementSavedSearchDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

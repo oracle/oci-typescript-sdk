@@ -38,4 +38,9 @@ export namespace SpanLog {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SpanLog): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

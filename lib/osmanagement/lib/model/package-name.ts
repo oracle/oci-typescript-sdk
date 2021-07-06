@@ -32,4 +32,9 @@ export namespace PackageName {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PackageName): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -74,4 +74,20 @@ export namespace CreateInstancePoolPlacementConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: CreateInstancePoolPlacementConfigurationDetails
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "secondaryVnicSubnets": obj.secondaryVnicSubnets
+          ? obj.secondaryVnicSubnets.map(item => {
+              return model.InstancePoolPlacementSecondaryVnicSubnet.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

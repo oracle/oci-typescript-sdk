@@ -34,4 +34,9 @@ export namespace RejectAccessRequestDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RejectAccessRequestDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

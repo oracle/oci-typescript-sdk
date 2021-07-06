@@ -35,4 +35,9 @@ export namespace AssociatedDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AssociatedDatabaseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

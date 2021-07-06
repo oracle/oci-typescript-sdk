@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { BudgetWaiter } from "./budget-waiter";
@@ -167,7 +167,7 @@ export class BudgetClient {
       bodyContent: common.ObjectSerializer.serialize(
         createAlertRuleRequest.createAlertRuleDetails,
         "CreateAlertRuleDetails",
-        models.CreateAlertRuleDetails.getJsonObj
+        model.CreateAlertRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -179,7 +179,8 @@ export class BudgetClient {
         responseObject: <responses.CreateAlertRuleResponse>{},
         body: await response.json(),
         bodyKey: "alertRule",
-        bodyModel: "model.AlertRule",
+        bodyModel: model.AlertRule,
+        type: "model.AlertRule",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -235,7 +236,7 @@ export class BudgetClient {
       bodyContent: common.ObjectSerializer.serialize(
         createBudgetRequest.createBudgetDetails,
         "CreateBudgetDetails",
-        models.CreateBudgetDetails.getJsonObj
+        model.CreateBudgetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -247,7 +248,8 @@ export class BudgetClient {
         responseObject: <responses.CreateBudgetResponse>{},
         body: await response.json(),
         bodyKey: "budget",
-        bodyModel: "model.Budget",
+        bodyModel: model.Budget,
+        type: "model.Budget",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -424,7 +426,8 @@ export class BudgetClient {
         responseObject: <responses.GetAlertRuleResponse>{},
         body: await response.json(),
         bodyKey: "alertRule",
-        bodyModel: "model.AlertRule",
+        bodyModel: model.AlertRule,
+        type: "model.AlertRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -487,7 +490,8 @@ export class BudgetClient {
         responseObject: <responses.GetBudgetResponse>{},
         body: await response.json(),
         bodyKey: "budget",
-        bodyModel: "model.Budget",
+        bodyModel: model.Budget,
+        type: "model.Budget",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -558,7 +562,8 @@ export class BudgetClient {
         responseObject: <responses.ListAlertRulesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AlertRuleSummary[]",
+        bodyModel: model.AlertRuleSummary,
+        type: "Array<model.AlertRuleSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -588,7 +593,7 @@ export class BudgetClient {
    */
   public listAllAlertRules(
     request: requests.ListAlertRulesRequest
-  ): AsyncIterableIterator<models.AlertRuleSummary> {
+  ): AsyncIterableIterator<model.AlertRuleSummary> {
     return paginateRecords(request, req => this.listAlertRules(req));
   }
 
@@ -663,7 +668,8 @@ Additional targetTypes would be available in future releases. Clients should ign
         responseObject: <responses.ListBudgetsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "BudgetSummary[]",
+        bodyModel: model.BudgetSummary,
+        type: "Array<model.BudgetSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -693,7 +699,7 @@ Additional targetTypes would be available in future releases. Clients should ign
    */
   public listAllBudgets(
     request: requests.ListBudgetsRequest
-  ): AsyncIterableIterator<models.BudgetSummary> {
+  ): AsyncIterableIterator<model.BudgetSummary> {
     return paginateRecords(request, req => this.listBudgets(req));
   }
 
@@ -746,7 +752,7 @@ Additional targetTypes would be available in future releases. Clients should ign
       bodyContent: common.ObjectSerializer.serialize(
         updateAlertRuleRequest.updateAlertRuleDetails,
         "UpdateAlertRuleDetails",
-        models.UpdateAlertRuleDetails.getJsonObj
+        model.UpdateAlertRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -758,7 +764,8 @@ Additional targetTypes would be available in future releases. Clients should ign
         responseObject: <responses.UpdateAlertRuleResponse>{},
         body: await response.json(),
         bodyKey: "alertRule",
-        bodyModel: "model.AlertRule",
+        bodyModel: model.AlertRule,
+        type: "model.AlertRule",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -815,7 +822,7 @@ Additional targetTypes would be available in future releases. Clients should ign
       bodyContent: common.ObjectSerializer.serialize(
         updateBudgetRequest.updateBudgetDetails,
         "UpdateBudgetDetails",
-        models.UpdateBudgetDetails.getJsonObj
+        model.UpdateBudgetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -827,7 +834,8 @@ Additional targetTypes would be available in future releases. Clients should ign
         responseObject: <responses.UpdateBudgetResponse>{},
         body: await response.json(),
         bodyKey: "budget",
-        bodyModel: "model.Budget",
+        bodyModel: model.Budget,
+        type: "model.Budget",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

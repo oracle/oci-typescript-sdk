@@ -31,4 +31,12 @@ export namespace StartOperator {
     return jsonObj;
   }
   export const modelType = "START_OPERATOR";
+  export function getDeserializedJsonObj(obj: StartOperator, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as StartOperator)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

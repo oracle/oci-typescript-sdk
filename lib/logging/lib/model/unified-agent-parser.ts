@@ -127,4 +127,80 @@ export namespace UnifiedAgentParser {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UnifiedAgentParser): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("parserType" in obj && obj.parserType) {
+      switch (obj.parserType) {
+        case "MULTILINE_GROK":
+          return model.UnifiedAgentMultilineGrokParser.getDeserializedJsonObj(
+            <model.UnifiedAgentMultilineGrokParser>(<object>jsonObj),
+            true
+          );
+        case "JSON":
+          return model.UnifiedJSONParser.getDeserializedJsonObj(
+            <model.UnifiedJSONParser>(<object>jsonObj),
+            true
+          );
+        case "GROK":
+          return model.UnifiedAgentGrokParser.getDeserializedJsonObj(
+            <model.UnifiedAgentGrokParser>(<object>jsonObj),
+            true
+          );
+        case "NONE":
+          return model.UnifiedAgentNoneParser.getDeserializedJsonObj(
+            <model.UnifiedAgentNoneParser>(<object>jsonObj),
+            true
+          );
+        case "SYSLOG":
+          return model.UnifiedAgentSyslogParser.getDeserializedJsonObj(
+            <model.UnifiedAgentSyslogParser>(<object>jsonObj),
+            true
+          );
+        case "AUDITD":
+          return model.UnifiedAgentAuditdParser.getDeserializedJsonObj(
+            <model.UnifiedAgentAuditdParser>(<object>jsonObj),
+            true
+          );
+        case "APACHE2":
+          return model.UnifiedAgentApache2Parser.getDeserializedJsonObj(
+            <model.UnifiedAgentApache2Parser>(<object>jsonObj),
+            true
+          );
+        case "REGEXP":
+          return model.UnifiedAgentRegexParser.getDeserializedJsonObj(
+            <model.UnifiedAgentRegexParser>(<object>jsonObj),
+            true
+          );
+        case "MULTILINE":
+          return model.UnifiedAgentMultilineParser.getDeserializedJsonObj(
+            <model.UnifiedAgentMultilineParser>(<object>jsonObj),
+            true
+          );
+        case "TSV":
+          return model.UnifiedAgentTsvParser.getDeserializedJsonObj(
+            <model.UnifiedAgentTsvParser>(<object>jsonObj),
+            true
+          );
+        case "APACHE_ERROR":
+          return model.UnifiedAgentApacheErrorParser.getDeserializedJsonObj(
+            <model.UnifiedAgentApacheErrorParser>(<object>jsonObj),
+            true
+          );
+        case "MSGPACK":
+          return model.UnifiedAgentMsgpackParser.getDeserializedJsonObj(
+            <model.UnifiedAgentMsgpackParser>(<object>jsonObj),
+            true
+          );
+        case "CSV":
+          return model.UnifiedAgentCsvParser.getDeserializedJsonObj(
+            <model.UnifiedAgentCsvParser>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.parserType);
+      }
+    }
+    return jsonObj;
+  }
 }

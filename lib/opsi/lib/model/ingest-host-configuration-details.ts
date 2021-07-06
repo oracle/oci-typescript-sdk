@@ -43,4 +43,18 @@ export namespace IngestHostConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IngestHostConfigurationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.HostConfigurationMetricGroup.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

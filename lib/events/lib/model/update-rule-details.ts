@@ -95,4 +95,16 @@ export namespace UpdateRuleDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateRuleDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "actions": obj.actions
+          ? model.ActionDetailsList.getDeserializedJsonObj(obj.actions)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

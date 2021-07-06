@@ -52,4 +52,9 @@ export namespace SourceApplicationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SourceApplicationSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

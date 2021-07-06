@@ -37,4 +37,18 @@ export namespace BulkDeleteResourcesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BulkDeleteResourcesDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resources": obj.resources
+          ? obj.resources.map(item => {
+              return model.BulkActionResource.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

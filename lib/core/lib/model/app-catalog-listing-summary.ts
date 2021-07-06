@@ -47,4 +47,9 @@ export namespace AppCatalogListingSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AppCatalogListingSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -73,4 +73,21 @@ export namespace RedirectRule {
     return jsonObj;
   }
   export const action = "REDIRECT";
+  export function getDeserializedJsonObj(obj: RedirectRule, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Rule.getDeserializedJsonObj(obj) as RedirectRule)),
+      ...{
+        "conditions": obj.conditions
+          ? obj.conditions.map(item => {
+              return model.RuleCondition.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "redirectUri": obj.redirectUri
+          ? model.RedirectUri.getDeserializedJsonObj(obj.redirectUri)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

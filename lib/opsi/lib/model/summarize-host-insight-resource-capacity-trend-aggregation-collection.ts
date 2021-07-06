@@ -80,4 +80,20 @@ export namespace SummarizeHostInsightResourceCapacityTrendAggregationCollection 
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: SummarizeHostInsightResourceCapacityTrendAggregationCollection
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "capacityData": obj.capacityData
+          ? obj.capacityData.map(item => {
+              return model.HostResourceCapacityTrendAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

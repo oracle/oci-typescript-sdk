@@ -59,4 +59,25 @@ export namespace ImageSourceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ImageSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("sourceType" in obj && obj.sourceType) {
+      switch (obj.sourceType) {
+        case "objectStorageTuple":
+          return model.ImageSourceViaObjectStorageTupleDetails.getDeserializedJsonObj(
+            <model.ImageSourceViaObjectStorageTupleDetails>(<object>jsonObj),
+            true
+          );
+        case "objectStorageUri":
+          return model.ImageSourceViaObjectStorageUriDetails.getDeserializedJsonObj(
+            <model.ImageSourceViaObjectStorageUriDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.sourceType);
+      }
+    }
+    return jsonObj;
+  }
 }

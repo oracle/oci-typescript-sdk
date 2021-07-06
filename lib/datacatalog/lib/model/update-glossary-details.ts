@@ -57,4 +57,18 @@ export namespace UpdateGlossaryDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateGlossaryDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertySetUsage.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

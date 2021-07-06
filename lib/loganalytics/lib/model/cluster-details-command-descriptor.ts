@@ -38,4 +38,19 @@ export namespace ClusterDetailsCommandDescriptor {
     return jsonObj;
   }
   export const name = "CLUSTER_DETAILS";
+  export function getDeserializedJsonObj(
+    obj: ClusterDetailsCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as ClusterDetailsCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

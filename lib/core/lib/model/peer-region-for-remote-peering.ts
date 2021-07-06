@@ -40,4 +40,9 @@ export namespace PeerRegionForRemotePeering {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PeerRegionForRemotePeering): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

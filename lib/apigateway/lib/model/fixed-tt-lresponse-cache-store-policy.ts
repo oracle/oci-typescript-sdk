@@ -46,4 +46,19 @@ export namespace FixedTTLResponseCacheStorePolicy {
     return jsonObj;
   }
   export const type = "FIXED_TTL_STORE_POLICY";
+  export function getDeserializedJsonObj(
+    obj: FixedTTLResponseCacheStorePolicy,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ResponseCacheStorePolicy.getDeserializedJsonObj(
+            obj
+          ) as FixedTTLResponseCacheStorePolicy)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

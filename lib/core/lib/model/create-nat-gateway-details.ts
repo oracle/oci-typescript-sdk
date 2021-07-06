@@ -73,4 +73,9 @@ export namespace CreateNatGatewayDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateNatGatewayDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

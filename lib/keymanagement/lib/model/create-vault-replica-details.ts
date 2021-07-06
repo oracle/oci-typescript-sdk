@@ -33,4 +33,9 @@ export namespace CreateVaultReplicaDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateVaultReplicaDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

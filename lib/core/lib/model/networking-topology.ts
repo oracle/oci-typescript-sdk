@@ -36,4 +36,17 @@ export namespace NetworkingTopology {
     return jsonObj;
   }
   export const type = "NETWORKING";
+  export function getDeserializedJsonObj(
+    obj: NetworkingTopology,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Topology.getDeserializedJsonObj(obj) as NetworkingTopology)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

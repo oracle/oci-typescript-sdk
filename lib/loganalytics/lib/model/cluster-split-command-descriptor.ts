@@ -38,4 +38,19 @@ export namespace ClusterSplitCommandDescriptor {
     return jsonObj;
   }
   export const name = "CLUSTER_SPLIT";
+  export function getDeserializedJsonObj(
+    obj: ClusterSplitCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as ClusterSplitCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -40,4 +40,18 @@ export namespace SourceValidateResults {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SourceValidateResults): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SourceValidateDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -58,4 +58,20 @@ export namespace ResponseCacheLookupPolicy {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponseCacheLookupPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "SIMPLE_LOOKUP_POLICY":
+          return model.SimpleLookupPolicy.getDeserializedJsonObj(
+            <model.SimpleLookupPolicy>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

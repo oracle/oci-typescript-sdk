@@ -48,4 +48,9 @@ export namespace MigrationReplacement {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MigrationReplacement): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

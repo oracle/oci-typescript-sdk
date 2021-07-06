@@ -70,4 +70,19 @@ export namespace CreateApplicationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateApplicationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sourceApplicationInfo": obj.sourceApplicationInfo
+          ? model.CreateSourceApplicationInfo.getDeserializedJsonObj(obj.sourceApplicationInfo)
+          : undefined,
+        "registryMetadata": obj.registryMetadata
+          ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

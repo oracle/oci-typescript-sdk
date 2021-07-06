@@ -80,4 +80,18 @@ export namespace UpdateVolumeBackupPolicyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateVolumeBackupPolicyDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "schedules": obj.schedules
+          ? obj.schedules.map(item => {
+              return model.VolumeBackupSchedule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

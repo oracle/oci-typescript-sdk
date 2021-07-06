@@ -81,4 +81,9 @@ export namespace LimitDefinitionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LimitDefinitionSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

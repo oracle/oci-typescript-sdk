@@ -38,4 +38,9 @@ export namespace ContainerConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ContainerConfiguration): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

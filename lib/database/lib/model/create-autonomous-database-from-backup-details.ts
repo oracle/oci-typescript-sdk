@@ -55,4 +55,19 @@ export namespace CreateAutonomousDatabaseFromBackupDetails {
     return jsonObj;
   }
   export const source = "BACKUP_FROM_ID";
+  export function getDeserializedJsonObj(
+    obj: CreateAutonomousDatabaseFromBackupDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateAutonomousDatabaseBase.getDeserializedJsonObj(
+            obj
+          ) as CreateAutonomousDatabaseFromBackupDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

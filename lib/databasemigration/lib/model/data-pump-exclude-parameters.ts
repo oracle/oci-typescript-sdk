@@ -25,7 +25,12 @@ export enum DataPumpExcludeParameters {
 }
 
 export namespace DataPumpExcludeParameters {
-  export function getJsonObj(obj: DataPumpExcludeParameters): object {
-    return { obj };
+  export function getJsonObj(obj: DataPumpExcludeParameters): DataPumpExcludeParameters {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: DataPumpExcludeParameters
+  ): DataPumpExcludeParameters {
+    return obj;
   }
 }

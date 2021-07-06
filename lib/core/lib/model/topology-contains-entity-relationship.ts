@@ -45,4 +45,19 @@ export namespace TopologyContainsEntityRelationship {
     return jsonObj;
   }
   export const type = "CONTAINS";
+  export function getDeserializedJsonObj(
+    obj: TopologyContainsEntityRelationship,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TopologyEntityRelationship.getDeserializedJsonObj(
+            obj
+          ) as TopologyContainsEntityRelationship)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

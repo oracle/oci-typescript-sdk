@@ -121,4 +121,65 @@ export namespace Connection {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Connection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "primarySchema": obj.primarySchema
+          ? model.Schema.getDeserializedJsonObj(obj.primarySchema)
+          : undefined,
+        "connectionProperties": obj.connectionProperties
+          ? obj.connectionProperties.map(item => {
+              return model.ConnectionProperty.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "ORACLE_OBJECT_STORAGE_CONNECTION":
+          return model.ConnectionFromObjectStorage.getDeserializedJsonObj(
+            <model.ConnectionFromObjectStorage>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_CONNECTION":
+          return model.ConnectionFromAdwc.getDeserializedJsonObj(
+            <model.ConnectionFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_CONNECTION":
+          return model.ConnectionFromAtp.getDeserializedJsonObj(
+            <model.ConnectionFromAtp>(<object>jsonObj),
+            true
+          );
+        case "ORACLEDB_CONNECTION":
+          return model.ConnectionFromOracle.getDeserializedJsonObj(
+            <model.ConnectionFromOracle>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_CONNECTION":
+          return model.ConnectionFromMySQL.getDeserializedJsonObj(
+            <model.ConnectionFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC_CONNECTION":
+          return model.ConnectionFromJdbc.getDeserializedJsonObj(
+            <model.ConnectionFromJdbc>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

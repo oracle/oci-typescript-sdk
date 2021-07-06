@@ -58,4 +58,9 @@ export namespace AppCatalogListingResourceVersionAgreements {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AppCatalogListingResourceVersionAgreements): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

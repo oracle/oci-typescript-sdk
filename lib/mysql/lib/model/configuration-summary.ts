@@ -75,4 +75,9 @@ export namespace ConfigurationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfigurationSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

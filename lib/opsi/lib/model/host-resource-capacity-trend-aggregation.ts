@@ -38,4 +38,9 @@ export namespace HostResourceCapacityTrendAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HostResourceCapacityTrendAggregation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

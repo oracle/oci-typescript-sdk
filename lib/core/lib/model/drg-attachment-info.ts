@@ -37,4 +37,9 @@ export namespace DrgAttachmentInfo {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DrgAttachmentInfo): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

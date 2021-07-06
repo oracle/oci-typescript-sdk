@@ -84,4 +84,9 @@ export namespace ApiKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApiKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -56,4 +56,9 @@ export namespace CreateTopicDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTopicDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

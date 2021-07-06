@@ -54,4 +54,9 @@ export namespace UpdateListenerDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateListenerDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

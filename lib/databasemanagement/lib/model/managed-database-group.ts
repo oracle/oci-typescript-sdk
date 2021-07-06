@@ -70,4 +70,18 @@ export namespace ManagedDatabaseGroup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagedDatabaseGroup): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "managedDatabases": obj.managedDatabases
+          ? obj.managedDatabases.map(item => {
+              return model.ChildDatabase.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

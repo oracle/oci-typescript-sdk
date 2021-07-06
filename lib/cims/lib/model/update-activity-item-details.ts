@@ -52,4 +52,17 @@ export namespace UpdateActivityItemDetails {
     return jsonObj;
   }
   export const type = "activity";
+  export function getDeserializedJsonObj(
+    obj: UpdateActivityItemDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateItemDetails.getDeserializedJsonObj(obj) as UpdateActivityItemDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

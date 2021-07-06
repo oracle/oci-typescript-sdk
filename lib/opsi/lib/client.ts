@@ -16,7 +16,7 @@ see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.o
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { OperationsInsightsWaiter } from "./operationsinsights-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -173,7 +173,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeDatabaseInsightCompartmentRequest.changeDatabaseInsightCompartmentDetails,
         "ChangeDatabaseInsightCompartmentDetails",
-        models.ChangeDatabaseInsightCompartmentDetails.getJsonObj
+        model.ChangeDatabaseInsightCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -243,7 +243,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeEnterpriseManagerBridgeCompartmentRequest.changeEnterpriseManagerBridgeCompartmentDetails,
         "ChangeEnterpriseManagerBridgeCompartmentDetails",
-        models.ChangeEnterpriseManagerBridgeCompartmentDetails.getJsonObj
+        model.ChangeEnterpriseManagerBridgeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -311,7 +311,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeHostInsightCompartmentRequest.changeHostInsightCompartmentDetails,
         "ChangeHostInsightCompartmentDetails",
-        models.ChangeHostInsightCompartmentDetails.getJsonObj
+        model.ChangeHostInsightCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -377,7 +377,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDatabaseInsightRequest.createDatabaseInsightDetails,
         "CreateDatabaseInsightDetails",
-        models.CreateDatabaseInsightDetails.getJsonObj
+        model.CreateDatabaseInsightDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -389,7 +389,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.CreateDatabaseInsightResponse>{},
         body: await response.json(),
         bodyKey: "databaseInsight",
-        bodyModel: "model.DatabaseInsight",
+        bodyModel: model.DatabaseInsight,
+        type: "model.DatabaseInsight",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -463,7 +464,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createEnterpriseManagerBridgeRequest.createEnterpriseManagerBridgeDetails,
         "CreateEnterpriseManagerBridgeDetails",
-        models.CreateEnterpriseManagerBridgeDetails.getJsonObj
+        model.CreateEnterpriseManagerBridgeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -475,7 +476,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.CreateEnterpriseManagerBridgeResponse>{},
         body: await response.json(),
         bodyKey: "enterpriseManagerBridge",
-        bodyModel: "model.EnterpriseManagerBridge",
+        bodyModel: model.EnterpriseManagerBridge,
+        type: "model.EnterpriseManagerBridge",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -547,7 +549,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createHostInsightRequest.createHostInsightDetails,
         "CreateHostInsightDetails",
-        models.CreateHostInsightDetails.getJsonObj
+        model.CreateHostInsightDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -559,7 +561,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.CreateHostInsightResponse>{},
         body: await response.json(),
         bodyKey: "hostInsight",
-        bodyModel: "model.HostInsight",
+        bodyModel: model.HostInsight,
+        type: "model.HostInsight",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -947,7 +950,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         enableDatabaseInsightRequest.enableDatabaseInsightDetails,
         "EnableDatabaseInsightDetails",
-        models.EnableDatabaseInsightDetails.getJsonObj
+        model.EnableDatabaseInsightDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1015,7 +1018,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         enableHostInsightRequest.enableHostInsightDetails,
         "EnableHostInsightDetails",
-        models.EnableHostInsightDetails.getJsonObj
+        model.EnableHostInsightDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1088,7 +1091,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.GetDatabaseInsightResponse>{},
         body: await response.json(),
         bodyKey: "databaseInsight",
-        bodyModel: "model.DatabaseInsight",
+        bodyModel: model.DatabaseInsight,
+        type: "model.DatabaseInsight",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1152,7 +1156,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.GetEnterpriseManagerBridgeResponse>{},
         body: await response.json(),
         bodyKey: "enterpriseManagerBridge",
-        bodyModel: "model.EnterpriseManagerBridge",
+        bodyModel: model.EnterpriseManagerBridge,
+        type: "model.EnterpriseManagerBridge",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1216,7 +1221,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.GetHostInsightResponse>{},
         body: await response.json(),
         bodyKey: "hostInsight",
-        bodyModel: "model.HostInsight",
+        bodyModel: model.HostInsight,
+        type: "model.HostInsight",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1280,7 +1286,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1340,7 +1347,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         ingestDatabaseConfigurationRequest.ingestDatabaseConfigurationDetails,
         "IngestDatabaseConfigurationDetails",
-        models.IngestDatabaseConfigurationDetails.getJsonObj
+        model.IngestDatabaseConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1352,7 +1359,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.IngestDatabaseConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "ingestDatabaseConfigurationResponseDetails",
-        bodyModel: "model.IngestDatabaseConfigurationResponseDetails",
+        bodyModel: model.IngestDatabaseConfigurationResponseDetails,
+        type: "model.IngestDatabaseConfigurationResponseDetails",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1411,7 +1419,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         ingestHostConfigurationRequest.ingestHostConfigurationDetails,
         "IngestHostConfigurationDetails",
-        models.IngestHostConfigurationDetails.getJsonObj
+        model.IngestHostConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1423,7 +1431,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.IngestHostConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "ingestHostConfigurationResponseDetails",
-        bodyModel: "model.IngestHostConfigurationResponseDetails",
+        bodyModel: model.IngestHostConfigurationResponseDetails,
+        type: "model.IngestHostConfigurationResponseDetails",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1482,7 +1491,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         ingestHostMetricsRequest.ingestHostMetricsDetails,
         "IngestHostMetricsDetails",
-        models.IngestHostMetricsDetails.getJsonObj
+        model.IngestHostMetricsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1494,7 +1503,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.IngestHostMetricsResponse>{},
         body: await response.json(),
         bodyKey: "ingestHostMetricsResponseDetails",
-        bodyModel: "model.IngestHostMetricsResponseDetails",
+        bodyModel: model.IngestHostMetricsResponseDetails,
+        type: "model.IngestHostMetricsResponseDetails",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1557,7 +1567,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         ingestSqlBucketRequest.ingestSqlBucketDetails,
         "IngestSqlBucketDetails",
-        models.IngestSqlBucketDetails.getJsonObj
+        model.IngestSqlBucketDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1569,7 +1579,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.IngestSqlBucketResponse>{},
         body: await response.json(),
         bodyKey: "ingestSqlBucketResponseDetails",
-        bodyModel: "model.IngestSqlBucketResponseDetails",
+        bodyModel: model.IngestSqlBucketResponseDetails,
+        type: "model.IngestSqlBucketResponseDetails",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1632,7 +1643,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         ingestSqlPlanLinesRequest.ingestSqlPlanLinesDetails,
         "IngestSqlPlanLinesDetails",
-        models.IngestSqlPlanLinesDetails.getJsonObj
+        model.IngestSqlPlanLinesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1644,7 +1655,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.IngestSqlPlanLinesResponse>{},
         body: await response.json(),
         bodyKey: "ingestSqlPlanLinesResponseDetails",
-        bodyModel: "model.IngestSqlPlanLinesResponseDetails",
+        bodyModel: model.IngestSqlPlanLinesResponseDetails,
+        type: "model.IngestSqlPlanLinesResponseDetails",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1707,7 +1719,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         ingestSqlTextRequest.ingestSqlTextDetails,
         "IngestSqlTextDetails",
-        models.IngestSqlTextDetails.getJsonObj
+        model.IngestSqlTextDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1719,7 +1731,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.IngestSqlTextResponse>{},
         body: await response.json(),
         bodyKey: "ingestSqlTextResponseDetails",
-        bodyModel: "model.IngestSqlTextResponseDetails",
+        bodyModel: model.IngestSqlTextResponseDetails,
+        type: "model.IngestSqlTextResponseDetails",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1792,7 +1805,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.ListDatabaseConfigurationsResponse>{},
         body: await response.json(),
         bodyKey: "databaseConfigurationCollection",
-        bodyModel: "model.DatabaseConfigurationCollection",
+        bodyModel: model.DatabaseConfigurationCollection,
+        type: "model.DatabaseConfigurationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1872,7 +1886,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.ListDatabaseInsightsResponse>{},
         body: await response.json(),
         bodyKey: "databaseInsightsCollection",
-        bodyModel: "model.DatabaseInsightsCollection",
+        bodyModel: model.DatabaseInsightsCollection,
+        type: "model.DatabaseInsightsCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1949,7 +1964,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.ListEnterpriseManagerBridgesResponse>{},
         body: await response.json(),
         bodyKey: "enterpriseManagerBridgeCollection",
-        bodyModel: "model.EnterpriseManagerBridgeCollection",
+        bodyModel: model.EnterpriseManagerBridgeCollection,
+        type: "model.EnterpriseManagerBridgeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2022,7 +2038,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.ListHostInsightsResponse>{},
         body: await response.json(),
         bodyKey: "hostInsightSummaryCollection",
-        bodyModel: "model.HostInsightSummaryCollection",
+        bodyModel: model.HostInsightSummaryCollection,
+        type: "model.HostInsightSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2101,7 +2118,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.ListHostedEntitiesResponse>{},
         body: await response.json(),
         bodyKey: "hostedEntityCollection",
-        bodyModel: "model.HostedEntityCollection",
+        bodyModel: model.HostedEntityCollection,
+        type: "model.HostedEntityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2173,7 +2191,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.ListImportableEnterpriseManagerEntitiesResponse>{},
         body: await response.json(),
         bodyKey: "importableEnterpriseManagerEntityCollection",
-        bodyModel: "model.ImportableEnterpriseManagerEntityCollection",
+        bodyModel: model.ImportableEnterpriseManagerEntityCollection,
+        type: "model.ImportableEnterpriseManagerEntityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2243,7 +2262,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.ListSqlPlansResponse>{},
         body: await response.json(),
         bodyKey: "sqlPlanCollection",
-        bodyModel: "model.SqlPlanCollection",
+        bodyModel: model.SqlPlanCollection,
+        type: "model.SqlPlanCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2312,7 +2332,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.ListSqlSearchesResponse>{},
         body: await response.json(),
         bodyKey: "sqlSearchCollection",
-        bodyModel: "model.SqlSearchCollection",
+        bodyModel: model.SqlSearchCollection,
+        type: "model.SqlSearchCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2379,7 +2400,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.ListSqlTextsResponse>{},
         body: await response.json(),
         bodyKey: "sqlTextCollection",
-        bodyModel: "model.SqlTextCollection",
+        bodyModel: model.SqlTextCollection,
+        type: "model.SqlTextCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2447,7 +2469,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2515,7 +2538,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogEntryCollection",
-        bodyModel: "model.WorkRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2582,7 +2606,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2666,7 +2691,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeDatabaseInsightResourceCapacityTrendResponse>{},
         body: await response.json(),
         bodyKey: "summarizeDatabaseInsightResourceCapacityTrendAggregationCollection",
-        bodyModel: "model.SummarizeDatabaseInsightResourceCapacityTrendAggregationCollection",
+        bodyModel: model.SummarizeDatabaseInsightResourceCapacityTrendAggregationCollection,
+        type: "model.SummarizeDatabaseInsightResourceCapacityTrendAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2751,7 +2777,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeDatabaseInsightResourceForecastTrendResponse>{},
         body: await response.json(),
         bodyKey: "summarizeDatabaseInsightResourceForecastTrendAggregation",
-        bodyModel: "model.SummarizeDatabaseInsightResourceForecastTrendAggregation",
+        bodyModel: model.SummarizeDatabaseInsightResourceForecastTrendAggregation,
+        type: "model.SummarizeDatabaseInsightResourceForecastTrendAggregation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2835,7 +2862,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeDatabaseInsightResourceStatisticsResponse>{},
         body: await response.json(),
         bodyKey: "summarizeDatabaseInsightResourceStatisticsAggregationCollection",
-        bodyModel: "model.SummarizeDatabaseInsightResourceStatisticsAggregationCollection",
+        bodyModel: model.SummarizeDatabaseInsightResourceStatisticsAggregationCollection,
+        type: "model.SummarizeDatabaseInsightResourceStatisticsAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2916,7 +2944,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeDatabaseInsightResourceUsageResponse>{},
         body: await response.json(),
         bodyKey: "summarizeDatabaseInsightResourceUsageAggregation",
-        bodyModel: "model.SummarizeDatabaseInsightResourceUsageAggregation",
+        bodyModel: model.SummarizeDatabaseInsightResourceUsageAggregation,
+        type: "model.SummarizeDatabaseInsightResourceUsageAggregation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2998,7 +3027,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeDatabaseInsightResourceUsageTrendResponse>{},
         body: await response.json(),
         bodyKey: "summarizeDatabaseInsightResourceUsageTrendAggregationCollection",
-        bodyModel: "model.SummarizeDatabaseInsightResourceUsageTrendAggregationCollection",
+        bodyModel: model.SummarizeDatabaseInsightResourceUsageTrendAggregationCollection,
+        type: "model.SummarizeDatabaseInsightResourceUsageTrendAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3078,7 +3108,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeDatabaseInsightResourceUtilizationInsightResponse>{},
         body: await response.json(),
         bodyKey: "summarizeDatabaseInsightResourceUtilizationInsightAggregation",
-        bodyModel: "model.SummarizeDatabaseInsightResourceUtilizationInsightAggregation",
+        bodyModel: model.SummarizeDatabaseInsightResourceUtilizationInsightAggregation,
+        type: "model.SummarizeDatabaseInsightResourceUtilizationInsightAggregation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3155,7 +3186,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeDatabaseInsightTablespaceUsageTrendResponse>{},
         body: await response.json(),
         bodyKey: "summarizeDatabaseInsightTablespaceUsageTrendAggregationCollection",
-        bodyModel: "model.SummarizeDatabaseInsightTablespaceUsageTrendAggregationCollection",
+        bodyModel: model.SummarizeDatabaseInsightTablespaceUsageTrendAggregationCollection,
+        type: "model.SummarizeDatabaseInsightTablespaceUsageTrendAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3233,7 +3265,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeHostInsightResourceCapacityTrendResponse>{},
         body: await response.json(),
         bodyKey: "summarizeHostInsightResourceCapacityTrendAggregationCollection",
-        bodyModel: "model.SummarizeHostInsightResourceCapacityTrendAggregationCollection",
+        bodyModel: model.SummarizeHostInsightResourceCapacityTrendAggregationCollection,
+        type: "model.SummarizeHostInsightResourceCapacityTrendAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3312,7 +3345,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeHostInsightResourceForecastTrendResponse>{},
         body: await response.json(),
         bodyKey: "summarizeHostInsightResourceForecastTrendAggregation",
-        bodyModel: "model.SummarizeHostInsightResourceForecastTrendAggregation",
+        bodyModel: model.SummarizeHostInsightResourceForecastTrendAggregation,
+        type: "model.SummarizeHostInsightResourceForecastTrendAggregation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3388,7 +3422,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeHostInsightResourceStatisticsResponse>{},
         body: await response.json(),
         bodyKey: "summarizeHostInsightResourceStatisticsAggregationCollection",
-        bodyModel: "model.SummarizeHostInsightResourceStatisticsAggregationCollection",
+        bodyModel: model.SummarizeHostInsightResourceStatisticsAggregationCollection,
+        type: "model.SummarizeHostInsightResourceStatisticsAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3465,7 +3500,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeHostInsightResourceUsageResponse>{},
         body: await response.json(),
         bodyKey: "summarizeHostInsightResourceUsageAggregation",
-        bodyModel: "model.SummarizeHostInsightResourceUsageAggregation",
+        bodyModel: model.SummarizeHostInsightResourceUsageAggregation,
+        type: "model.SummarizeHostInsightResourceUsageAggregation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3537,7 +3573,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeHostInsightResourceUsageTrendResponse>{},
         body: await response.json(),
         bodyKey: "summarizeHostInsightResourceUsageTrendAggregationCollection",
-        bodyModel: "model.SummarizeHostInsightResourceUsageTrendAggregationCollection",
+        bodyModel: model.SummarizeHostInsightResourceUsageTrendAggregationCollection,
+        type: "model.SummarizeHostInsightResourceUsageTrendAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3612,7 +3649,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeHostInsightResourceUtilizationInsightResponse>{},
         body: await response.json(),
         bodyKey: "summarizeHostInsightResourceUtilizationInsightAggregation",
-        bodyModel: "model.SummarizeHostInsightResourceUtilizationInsightAggregation",
+        bodyModel: model.SummarizeHostInsightResourceUtilizationInsightAggregation,
+        type: "model.SummarizeHostInsightResourceUtilizationInsightAggregation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3680,7 +3718,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeSqlInsightsResponse>{},
         body: await response.json(),
         bodyKey: "sqlInsightAggregationCollection",
-        bodyModel: "model.SqlInsightAggregationCollection",
+        bodyModel: model.SqlInsightAggregationCollection,
+        type: "model.SqlInsightAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3753,7 +3792,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeSqlPlanInsightsResponse>{},
         body: await response.json(),
         bodyKey: "sqlPlanInsightAggregationCollection",
-        bodyModel: "model.SqlPlanInsightAggregationCollection",
+        bodyModel: model.SqlPlanInsightAggregationCollection,
+        type: "model.SqlPlanInsightAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3828,7 +3868,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeSqlResponseTimeDistributionsResponse>{},
         body: await response.json(),
         bodyKey: "sqlResponseTimeDistributionAggregationCollection",
-        bodyModel: "model.SqlResponseTimeDistributionAggregationCollection",
+        bodyModel: model.SqlResponseTimeDistributionAggregationCollection,
+        type: "model.SqlResponseTimeDistributionAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3906,7 +3947,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeSqlStatisticsResponse>{},
         body: await response.json(),
         bodyKey: "sqlStatisticAggregationCollection",
-        bodyModel: "model.SqlStatisticAggregationCollection",
+        bodyModel: model.SqlStatisticAggregationCollection,
+        type: "model.SqlStatisticAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3981,7 +4023,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeSqlStatisticsTimeSeriesResponse>{},
         body: await response.json(),
         bodyKey: "sqlStatisticsTimeSeriesAggregationCollection",
-        bodyModel: "model.SqlStatisticsTimeSeriesAggregationCollection",
+        bodyModel: model.SqlStatisticsTimeSeriesAggregationCollection,
+        type: "model.SqlStatisticsTimeSeriesAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4056,7 +4099,8 @@ export class OperationsInsightsClient {
         responseObject: <responses.SummarizeSqlStatisticsTimeSeriesByPlanResponse>{},
         body: await response.json(),
         bodyKey: "sqlStatisticsTimeSeriesByPlanAggregationCollection",
-        bodyModel: "model.SqlStatisticsTimeSeriesByPlanAggregationCollection",
+        bodyModel: model.SqlStatisticsTimeSeriesByPlanAggregationCollection,
+        type: "model.SqlStatisticsTimeSeriesByPlanAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4114,7 +4158,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDatabaseInsightRequest.updateDatabaseInsightDetails,
         "UpdateDatabaseInsightDetails",
-        models.UpdateDatabaseInsightDetails.getJsonObj
+        model.UpdateDatabaseInsightDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4183,7 +4227,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateEnterpriseManagerBridgeRequest.updateEnterpriseManagerBridgeDetails,
         "UpdateEnterpriseManagerBridgeDetails",
-        models.UpdateEnterpriseManagerBridgeDetails.getJsonObj
+        model.UpdateEnterpriseManagerBridgeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -4250,7 +4294,7 @@ export class OperationsInsightsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateHostInsightRequest.updateHostInsightDetails,
         "UpdateHostInsightDetails",
-        models.UpdateHostInsightDetails.getJsonObj
+        model.UpdateHostInsightDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

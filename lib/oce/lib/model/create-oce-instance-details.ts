@@ -110,4 +110,16 @@ export namespace CreateOceInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateOceInstanceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "identityStripe": obj.identityStripe
+          ? model.IdentityStripeDetails.getDeserializedJsonObj(obj.identityStripe)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

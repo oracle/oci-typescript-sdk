@@ -31,7 +31,10 @@ export enum ActorType {
 }
 
 export namespace ActorType {
-  export function getJsonObj(obj: ActorType): object {
-    return { obj };
+  export function getJsonObj(obj: ActorType): ActorType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ActorType): ActorType {
+    return obj;
   }
 }

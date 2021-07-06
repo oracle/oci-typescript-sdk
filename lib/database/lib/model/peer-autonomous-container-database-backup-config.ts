@@ -48,4 +48,18 @@ export namespace PeerAutonomousContainerDatabaseBackupConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PeerAutonomousContainerDatabaseBackupConfig): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backupDestinationDetails": obj.backupDestinationDetails
+          ? obj.backupDestinationDetails.map(item => {
+              return model.BackupDestinationDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -38,4 +38,19 @@ export namespace CreateGenericRepositoryDetails {
     return jsonObj;
   }
   export const repositoryType = "GENERIC";
+  export function getDeserializedJsonObj(
+    obj: CreateGenericRepositoryDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateRepositoryDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateGenericRepositoryDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

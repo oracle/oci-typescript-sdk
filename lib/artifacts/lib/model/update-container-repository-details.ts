@@ -42,4 +42,16 @@ export namespace UpdateContainerRepositoryDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateContainerRepositoryDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "readme": obj.readme
+          ? model.ContainerRepositoryReadme.getDeserializedJsonObj(obj.readme)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

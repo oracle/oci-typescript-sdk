@@ -48,4 +48,23 @@ export namespace BlockchainPlatformComponentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BlockchainPlatformComponentDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "osns": obj.osns
+          ? obj.osns.map(item => {
+              return model.Osn.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "peers": obj.peers
+          ? obj.peers.map(item => {
+              return model.Peer.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -42,4 +42,18 @@ export namespace DetectLanguageTextClassificationResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectLanguageTextClassificationResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "textClassification": obj.textClassification
+          ? obj.textClassification.map(item => {
+              return model.TextClassification.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,18 @@ export namespace ReportCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReportCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ReportSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,9 @@ export namespace CreationSource {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreationSource): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

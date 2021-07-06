@@ -46,4 +46,18 @@ export namespace AddDrgRouteDistributionStatementsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddDrgRouteDistributionStatementsDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "statements": obj.statements
+          ? obj.statements.map(item => {
+              return model.AddDrgRouteDistributionStatementDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

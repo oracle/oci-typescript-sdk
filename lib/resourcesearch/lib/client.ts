@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -148,7 +148,8 @@ export class ResourceSearchClient {
         responseObject: <responses.GetResourceTypeResponse>{},
         body: await response.json(),
         bodyKey: "resourceType",
-        bodyModel: "model.ResourceType",
+        bodyModel: model.ResourceType,
+        type: "model.ResourceType",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -208,7 +209,8 @@ export class ResourceSearchClient {
         responseObject: <responses.ListResourceTypesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ResourceType[]",
+        bodyModel: model.ResourceType,
+        type: "Array<model.ResourceType>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -238,7 +240,7 @@ export class ResourceSearchClient {
    */
   public listAllResourceTypes(
     request: requests.ListResourceTypesRequest
-  ): AsyncIterableIterator<models.ResourceType> {
+  ): AsyncIterableIterator<model.ResourceType> {
     return paginateRecords(request, req => this.listResourceTypes(req));
   }
 
@@ -294,7 +296,7 @@ export class ResourceSearchClient {
       bodyContent: common.ObjectSerializer.serialize(
         searchResourcesRequest.searchDetails,
         "SearchDetails",
-        models.SearchDetails.getJsonObj
+        model.SearchDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -306,7 +308,8 @@ export class ResourceSearchClient {
         responseObject: <responses.SearchResourcesResponse>{},
         body: await response.json(),
         bodyKey: "resourceSummaryCollection",
-        bodyModel: "model.ResourceSummaryCollection",
+        bodyModel: model.ResourceSummaryCollection,
+        type: "model.ResourceSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),

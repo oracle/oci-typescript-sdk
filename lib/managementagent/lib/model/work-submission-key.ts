@@ -30,4 +30,9 @@ export namespace WorkSubmissionKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkSubmissionKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

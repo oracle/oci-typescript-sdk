@@ -51,4 +51,17 @@ export namespace FunctionTaskDetails {
     return jsonObj;
   }
   export const kind = "function";
+  export function getDeserializedJsonObj(
+    obj: FunctionTaskDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TaskDetails.getDeserializedJsonObj(obj) as FunctionTaskDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

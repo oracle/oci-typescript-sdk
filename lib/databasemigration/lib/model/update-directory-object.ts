@@ -40,4 +40,9 @@ export namespace UpdateDirectoryObject {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDirectoryObject): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -36,4 +36,18 @@ export namespace MultipleTransferDevices {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MultipleTransferDevices): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "transferDeviceObjects": obj.transferDeviceObjects
+          ? obj.transferDeviceObjects.map(item => {
+              return model.TransferDeviceSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -52,4 +52,9 @@ export namespace CreateConnectDescriptor {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateConnectDescriptor): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

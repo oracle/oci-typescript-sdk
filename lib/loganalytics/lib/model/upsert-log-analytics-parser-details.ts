@@ -152,4 +152,24 @@ export namespace UpsertLogAnalyticsParserDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpsertLogAnalyticsParserDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fieldMaps": obj.fieldMaps
+          ? obj.fieldMaps.map(item => {
+              return model.LogAnalyticsParserField.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "parserFunctions": obj.parserFunctions
+          ? obj.parserFunctions.map(item => {
+              return model.LogAnalyticsParserFunction.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

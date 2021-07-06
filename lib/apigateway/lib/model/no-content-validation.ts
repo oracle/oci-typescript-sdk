@@ -34,4 +34,17 @@ export namespace NoContentValidation {
     return jsonObj;
   }
   export const validationType = "NONE";
+  export function getDeserializedJsonObj(
+    obj: NoContentValidation,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ContentValidation.getDeserializedJsonObj(obj) as NoContentValidation)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

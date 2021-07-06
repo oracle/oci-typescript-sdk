@@ -46,4 +46,19 @@ export namespace DatabaseUpgradeWithDatabaseSoftwareImageDetails {
     return jsonObj;
   }
   export const source = "DB_SOFTWARE_IMAGE";
+  export function getDeserializedJsonObj(
+    obj: DatabaseUpgradeWithDatabaseSoftwareImageDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DatabaseUpgradeSourceBase.getDeserializedJsonObj(
+            obj
+          ) as DatabaseUpgradeWithDatabaseSoftwareImageDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

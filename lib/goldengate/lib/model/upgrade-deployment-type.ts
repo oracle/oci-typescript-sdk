@@ -24,7 +24,10 @@ export enum UpgradeDeploymentType {
 }
 
 export namespace UpgradeDeploymentType {
-  export function getJsonObj(obj: UpgradeDeploymentType): object {
-    return { obj };
+  export function getJsonObj(obj: UpgradeDeploymentType): UpgradeDeploymentType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: UpgradeDeploymentType): UpgradeDeploymentType {
+    return obj;
   }
 }

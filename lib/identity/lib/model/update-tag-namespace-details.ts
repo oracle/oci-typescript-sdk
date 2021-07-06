@@ -47,4 +47,9 @@ export namespace UpdateTagNamespaceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateTagNamespaceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

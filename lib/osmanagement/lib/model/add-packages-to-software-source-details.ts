@@ -32,4 +32,9 @@ export namespace AddPackagesToSoftwareSourceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddPackagesToSoftwareSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

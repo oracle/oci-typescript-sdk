@@ -35,4 +35,14 @@ export namespace SortOper {
     return jsonObj;
   }
   export const modelType = "SORT_OPERATOR";
+  export function getDeserializedJsonObj(obj: SortOper, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as SortOper)),
+      ...{
+        "sortKey": obj.sortKey ? model.SortKey.getDeserializedJsonObj(obj.sortKey) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

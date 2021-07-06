@@ -39,4 +39,9 @@ export namespace NodePoolPlacementConfigDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NodePoolPlacementConfigDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

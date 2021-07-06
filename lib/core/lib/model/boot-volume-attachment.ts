@@ -99,4 +99,9 @@ export namespace BootVolumeAttachment {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BootVolumeAttachment): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -37,4 +37,9 @@ export namespace PublishResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublishResult): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -35,4 +35,9 @@ export namespace CertificateExtensions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CertificateExtensions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

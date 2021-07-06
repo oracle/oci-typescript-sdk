@@ -98,4 +98,9 @@ export namespace PatchSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PatchSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -45,4 +45,19 @@ export namespace MonthlyFrequencyDetails {
     return jsonObj;
   }
   export const modelType = "MONTHLY";
+  export function getDeserializedJsonObj(
+    obj: MonthlyFrequencyDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractFrequencyDetails.getDeserializedJsonObj(obj) as MonthlyFrequencyDetails)),
+      ...{
+        "time": obj.time ? model.Time.getDeserializedJsonObj(obj.time) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -38,4 +38,9 @@ export namespace QuickPickSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QuickPickSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

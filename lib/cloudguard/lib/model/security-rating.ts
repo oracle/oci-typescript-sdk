@@ -32,7 +32,10 @@ export enum SecurityRating {
 }
 
 export namespace SecurityRating {
-  export function getJsonObj(obj: SecurityRating): object {
-    return { obj };
+  export function getJsonObj(obj: SecurityRating): SecurityRating {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: SecurityRating): SecurityRating {
+    return obj;
   }
 }

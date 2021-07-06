@@ -206,4 +206,9 @@ export namespace PublicIp {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublicIp): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

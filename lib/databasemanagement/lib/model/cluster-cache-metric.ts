@@ -44,4 +44,18 @@ export namespace ClusterCacheMetric {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ClusterCacheMetric): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "clusterCacheMetrics": obj.clusterCacheMetrics
+          ? obj.clusterCacheMetrics.map(item => {
+              return model.TimeSeriesMetricDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

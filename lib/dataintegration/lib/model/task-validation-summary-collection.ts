@@ -39,4 +39,18 @@ export namespace TaskValidationSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TaskValidationSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.TaskValidationSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

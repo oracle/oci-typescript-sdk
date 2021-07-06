@@ -66,4 +66,9 @@ export namespace UpdateInstanceShapeConfigDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateInstanceShapeConfigDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

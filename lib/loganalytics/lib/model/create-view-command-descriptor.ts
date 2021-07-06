@@ -35,4 +35,19 @@ export namespace CreateViewCommandDescriptor {
     return jsonObj;
   }
   export const name = "CREATE_VIEW";
+  export function getDeserializedJsonObj(
+    obj: CreateViewCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as CreateViewCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

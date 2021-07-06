@@ -44,4 +44,18 @@ export namespace RuleCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RuleCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.RuleSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

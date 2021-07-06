@@ -45,4 +45,25 @@ export namespace NetworkEndpointDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NetworkEndpointDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("networkEndpointType" in obj && obj.networkEndpointType) {
+      switch (obj.networkEndpointType) {
+        case "PRIVATE":
+          return model.PrivateEndpointDetails.getDeserializedJsonObj(
+            <model.PrivateEndpointDetails>(<object>jsonObj),
+            true
+          );
+        case "PUBLIC":
+          return model.PublicEndpointDetails.getDeserializedJsonObj(
+            <model.PublicEndpointDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.networkEndpointType);
+      }
+    }
+    return jsonObj;
+  }
 }

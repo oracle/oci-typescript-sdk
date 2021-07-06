@@ -53,4 +53,16 @@ export namespace Joiner {
     return jsonObj;
   }
   export const modelType = "JOINER_OPERATOR";
+  export function getDeserializedJsonObj(obj: Joiner, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as Joiner)),
+      ...{
+        "joinCondition": obj.joinCondition
+          ? model.Expression.getDeserializedJsonObj(obj.joinCondition)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

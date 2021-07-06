@@ -117,4 +117,16 @@ export namespace PluggableDatabaseSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PluggableDatabaseSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "connectionStrings": obj.connectionStrings
+          ? model.PluggableDatabaseConnectionStrings.getDeserializedJsonObj(obj.connectionStrings)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -32,4 +32,11 @@ export namespace ChangeCloudExadataInfrastructureCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeCloudExadataInfrastructureCompartmentDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

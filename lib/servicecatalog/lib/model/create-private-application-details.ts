@@ -69,4 +69,16 @@ export namespace CreatePrivateApplicationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePrivateApplicationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "packageDetails": obj.packageDetails
+          ? model.CreatePrivateApplicationPackage.getDeserializedJsonObj(obj.packageDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

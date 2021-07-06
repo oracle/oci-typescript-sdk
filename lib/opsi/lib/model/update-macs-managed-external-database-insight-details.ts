@@ -42,4 +42,19 @@ export namespace UpdateMacsManagedExternalDatabaseInsightDetails {
     return jsonObj;
   }
   export const entitySource = "MACS_MANAGED_EXTERNAL_DATABASE";
+  export function getDeserializedJsonObj(
+    obj: UpdateMacsManagedExternalDatabaseInsightDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateDatabaseInsightDetails.getDeserializedJsonObj(
+            obj
+          ) as UpdateMacsManagedExternalDatabaseInsightDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

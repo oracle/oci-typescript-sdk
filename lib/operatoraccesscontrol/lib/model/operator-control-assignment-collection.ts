@@ -43,4 +43,18 @@ export namespace OperatorControlAssignmentCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OperatorControlAssignmentCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.OperatorControlAssignmentSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -45,4 +45,9 @@ export namespace ApproveAccessRequestDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApproveAccessRequestDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

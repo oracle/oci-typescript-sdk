@@ -36,7 +36,10 @@ export enum ConditionOperatorName {
 }
 
 export namespace ConditionOperatorName {
-  export function getJsonObj(obj: ConditionOperatorName): object {
-    return { obj };
+  export function getJsonObj(obj: ConditionOperatorName): ConditionOperatorName {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ConditionOperatorName): ConditionOperatorName {
+    return obj;
   }
 }

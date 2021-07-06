@@ -67,4 +67,25 @@ export namespace CreateBackupDestinationDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateBackupDestinationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "NFS":
+          return model.CreateNFSBackupDestinationDetails.getDeserializedJsonObj(
+            <model.CreateNFSBackupDestinationDetails>(<object>jsonObj),
+            true
+          );
+        case "RECOVERY_APPLIANCE":
+          return model.CreateRecoveryApplianceBackupDestinationDetails.getDeserializedJsonObj(
+            <model.CreateRecoveryApplianceBackupDestinationDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

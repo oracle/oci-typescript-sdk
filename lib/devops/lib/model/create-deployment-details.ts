@@ -65,4 +65,30 @@ export namespace CreateDeploymentDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDeploymentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("deploymentType" in obj && obj.deploymentType) {
+      switch (obj.deploymentType) {
+        case "PIPELINE_REDEPLOYMENT":
+          return model.CreateDeployPipelineRedeploymentDetails.getDeserializedJsonObj(
+            <model.CreateDeployPipelineRedeploymentDetails>(<object>jsonObj),
+            true
+          );
+        case "PIPELINE_DEPLOYMENT":
+          return model.CreateDeployPipelineDeploymentDetails.getDeserializedJsonObj(
+            <model.CreateDeployPipelineDeploymentDetails>(<object>jsonObj),
+            true
+          );
+        case "SINGLE_STAGE_DEPLOYMENT":
+          return model.CreateSingleDeployStageDeploymentDetails.getDeserializedJsonObj(
+            <model.CreateSingleDeployStageDeploymentDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.deploymentType);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -51,4 +51,23 @@ export namespace CreateNFSBackupDestinationDetails {
     return jsonObj;
   }
   export const type = "NFS";
+  export function getDeserializedJsonObj(
+    obj: CreateNFSBackupDestinationDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateBackupDestinationDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateNFSBackupDestinationDetails)),
+      ...{
+        "mountTypeDetails": obj.mountTypeDetails
+          ? model.MountTypeDetails.getDeserializedJsonObj(obj.mountTypeDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

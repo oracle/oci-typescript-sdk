@@ -83,4 +83,9 @@ export namespace UnifiedAgentConfigurationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UnifiedAgentConfigurationSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

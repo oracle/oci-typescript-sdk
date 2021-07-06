@@ -37,7 +37,10 @@ export enum JobLifecycleStates {
 }
 
 export namespace JobLifecycleStates {
-  export function getJsonObj(obj: JobLifecycleStates): object {
-    return { obj };
+  export function getJsonObj(obj: JobLifecycleStates): JobLifecycleStates {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: JobLifecycleStates): JobLifecycleStates {
+    return obj;
   }
 }

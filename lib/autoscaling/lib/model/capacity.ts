@@ -60,4 +60,9 @@ export namespace Capacity {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Capacity): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

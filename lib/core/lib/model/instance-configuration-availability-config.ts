@@ -50,4 +50,9 @@ export namespace InstanceConfigurationAvailabilityConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceConfigurationAvailabilityConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

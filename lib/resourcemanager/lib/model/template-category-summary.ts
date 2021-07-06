@@ -39,4 +39,9 @@ export namespace TemplateCategorySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TemplateCategorySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

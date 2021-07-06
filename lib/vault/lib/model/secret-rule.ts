@@ -37,4 +37,25 @@ export namespace SecretRule {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SecretRule): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("ruleType" in obj && obj.ruleType) {
+      switch (obj.ruleType) {
+        case "SECRET_EXPIRY_RULE":
+          return model.SecretExpiryRule.getDeserializedJsonObj(
+            <model.SecretExpiryRule>(<object>jsonObj),
+            true
+          );
+        case "SECRET_REUSE_RULE":
+          return model.SecretReuseRule.getDeserializedJsonObj(
+            <model.SecretReuseRule>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.ruleType);
+      }
+    }
+    return jsonObj;
+  }
 }

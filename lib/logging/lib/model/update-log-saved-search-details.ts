@@ -57,4 +57,9 @@ export namespace UpdateLogSavedSearchDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateLogSavedSearchDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

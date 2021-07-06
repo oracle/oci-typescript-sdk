@@ -133,4 +133,9 @@ export namespace ZoneSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ZoneSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

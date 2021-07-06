@@ -80,4 +80,9 @@ export namespace RunLogSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RunLogSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

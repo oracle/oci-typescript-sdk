@@ -77,4 +77,9 @@ export namespace CreateEsxiHostDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateEsxiHostDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -31,7 +31,12 @@ export enum ExtractPerformanceProfile {
 }
 
 export namespace ExtractPerformanceProfile {
-  export function getJsonObj(obj: ExtractPerformanceProfile): object {
-    return { obj };
+  export function getJsonObj(obj: ExtractPerformanceProfile): ExtractPerformanceProfile {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: ExtractPerformanceProfile
+  ): ExtractPerformanceProfile {
+    return obj;
   }
 }

@@ -39,4 +39,20 @@ export namespace KeyStoreTypeDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KeyStoreTypeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "ORACLE_KEY_VAULT":
+          return model.KeyStoreTypeFromOracleKeyVaultDetails.getDeserializedJsonObj(
+            <model.KeyStoreTypeFromOracleKeyVaultDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

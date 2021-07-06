@@ -50,4 +50,19 @@ export namespace InstanceAgentCommandSourceViaTextDetails {
     return jsonObj;
   }
   export const sourceType = "TEXT";
+  export function getDeserializedJsonObj(
+    obj: InstanceAgentCommandSourceViaTextDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.InstanceAgentCommandSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as InstanceAgentCommandSourceViaTextDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

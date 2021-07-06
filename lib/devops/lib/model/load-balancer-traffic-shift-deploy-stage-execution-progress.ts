@@ -39,4 +39,19 @@ export namespace LoadBalancerTrafficShiftDeployStageExecutionProgress {
     return jsonObj;
   }
   export const deployStageType = "LOAD_BALANCER_TRAFFIC_SHIFT";
+  export function getDeserializedJsonObj(
+    obj: LoadBalancerTrafficShiftDeployStageExecutionProgress,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageExecutionProgress.getDeserializedJsonObj(
+            obj
+          ) as LoadBalancerTrafficShiftDeployStageExecutionProgress)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -78,4 +78,19 @@ export namespace HostCpuHardwareConfiguration {
     return jsonObj;
   }
   export const metricName = "HOST_CPU_HARDWARE_CONFIGURATION";
+  export function getDeserializedJsonObj(
+    obj: HostCpuHardwareConfiguration,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.HostConfigurationMetricGroup.getDeserializedJsonObj(
+            obj
+          ) as HostCpuHardwareConfiguration)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

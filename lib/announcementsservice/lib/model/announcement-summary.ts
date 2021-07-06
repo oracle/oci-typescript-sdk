@@ -32,4 +32,17 @@ export namespace AnnouncementSummary {
     return jsonObj;
   }
   export const type = "AnnouncementSummary";
+  export function getDeserializedJsonObj(
+    obj: AnnouncementSummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.BaseAnnouncement.getDeserializedJsonObj(obj) as AnnouncementSummary)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

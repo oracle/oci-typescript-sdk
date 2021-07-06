@@ -49,4 +49,16 @@ export namespace AutoScalePolicyRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutoScalePolicyRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metric": obj.metric
+          ? model.AutoScalePolicyMetricRule.getDeserializedJsonObj(obj.metric)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

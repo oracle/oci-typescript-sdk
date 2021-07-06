@@ -59,4 +59,9 @@ export namespace InstancePoolInstanceLoadBalancerBackend {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstancePoolInstanceLoadBalancerBackend): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

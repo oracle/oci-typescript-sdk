@@ -153,4 +153,16 @@ export namespace ExternalContainerDatabaseSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExternalContainerDatabaseSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "databaseManagementConfig": obj.databaseManagementConfig
+          ? model.DatabaseManagementConfig.getDeserializedJsonObj(obj.databaseManagementConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

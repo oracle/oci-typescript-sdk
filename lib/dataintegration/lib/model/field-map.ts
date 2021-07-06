@@ -55,4 +55,35 @@ export namespace FieldMap {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FieldMap): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "RULE_BASED_FIELD_MAP":
+          return model.RuleBasedFieldMap.getDeserializedJsonObj(
+            <model.RuleBasedFieldMap>(<object>jsonObj),
+            true
+          );
+        case "DIRECT_FIELD_MAP":
+          return model.DirectFieldMap.getDeserializedJsonObj(
+            <model.DirectFieldMap>(<object>jsonObj),
+            true
+          );
+        case "COMPOSITE_FIELD_MAP":
+          return model.CompositeFieldMap.getDeserializedJsonObj(
+            <model.CompositeFieldMap>(<object>jsonObj),
+            true
+          );
+        case "DIRECT_NAMED_FIELD_MAP":
+          return model.DirectNamedFieldMap.getDeserializedJsonObj(
+            <model.DirectNamedFieldMap>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

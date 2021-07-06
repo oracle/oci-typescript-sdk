@@ -47,4 +47,16 @@ export namespace ImportKeyVersionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ImportKeyVersionDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "wrappedImportKey": obj.wrappedImportKey
+          ? model.WrappedImportKey.getDeserializedJsonObj(obj.wrappedImportKey)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

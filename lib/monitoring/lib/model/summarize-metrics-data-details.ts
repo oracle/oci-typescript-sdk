@@ -93,4 +93,9 @@ export namespace SummarizeMetricsDataDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SummarizeMetricsDataDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

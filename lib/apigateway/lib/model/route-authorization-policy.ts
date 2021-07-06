@@ -53,4 +53,30 @@ export namespace RouteAuthorizationPolicy {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RouteAuthorizationPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "ANY_OF":
+          return model.AnyOfRouteAuthorizationPolicy.getDeserializedJsonObj(
+            <model.AnyOfRouteAuthorizationPolicy>(<object>jsonObj),
+            true
+          );
+        case "ANONYMOUS":
+          return model.AnonymousRouteAuthorizationPolicy.getDeserializedJsonObj(
+            <model.AnonymousRouteAuthorizationPolicy>(<object>jsonObj),
+            true
+          );
+        case "AUTHENTICATION_ONLY":
+          return model.AuthenticationOnlyRouteAuthorizationPolicy.getDeserializedJsonObj(
+            <model.AuthenticationOnlyRouteAuthorizationPolicy>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -85,4 +85,27 @@ export namespace CreateJobDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateJobDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resultLocation": obj.resultLocation
+          ? model.JobExecutionResultLocation.getDeserializedJsonObj(obj.resultLocation)
+          : undefined
+      }
+    };
+
+    if ("jobType" in obj && obj.jobType) {
+      switch (obj.jobType) {
+        case "SQL":
+          return model.CreateSqlJobDetails.getDeserializedJsonObj(
+            <model.CreateSqlJobDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.jobType);
+      }
+    }
+    return jsonObj;
+  }
 }

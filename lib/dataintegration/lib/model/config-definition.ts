@@ -67,4 +67,23 @@ export namespace ConfigDefinition {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfigDefinition): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "configParameterDefinitions": obj.configParameterDefinitions
+          ? common.mapContainer(
+              obj.configParameterDefinitions,
+              model.ConfigParameterDefinition.getDeserializedJsonObj
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

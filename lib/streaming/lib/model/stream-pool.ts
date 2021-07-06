@@ -112,4 +112,23 @@ export namespace StreamPool {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StreamPool): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "kafkaSettings": obj.kafkaSettings
+          ? model.KafkaSettings.getDeserializedJsonObj(obj.kafkaSettings)
+          : undefined,
+        "customEncryptionKey": obj.customEncryptionKey
+          ? model.CustomEncryptionKey.getDeserializedJsonObj(obj.customEncryptionKey)
+          : undefined,
+
+        "privateEndpointSettings": obj.privateEndpointSettings
+          ? model.PrivateEndpointSettings.getDeserializedJsonObj(obj.privateEndpointSettings)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

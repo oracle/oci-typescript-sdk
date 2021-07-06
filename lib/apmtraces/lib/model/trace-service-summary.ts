@@ -43,4 +43,9 @@ export namespace TraceServiceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TraceServiceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -56,4 +56,26 @@ export namespace CreateStandardTaskDetails {
     return jsonObj;
   }
   export const kind = "STANDARD";
+  export function getDeserializedJsonObj(
+    obj: CreateStandardTaskDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateScheduledTaskDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateStandardTaskDetails)),
+      ...{
+        "schedules": obj.schedules
+          ? obj.schedules.map(item => {
+              return model.Schedule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "action": obj.action ? model.Action.getDeserializedJsonObj(obj.action) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

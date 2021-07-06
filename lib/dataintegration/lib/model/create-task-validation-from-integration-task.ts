@@ -42,4 +42,21 @@ export namespace CreateTaskValidationFromIntegrationTask {
     return jsonObj;
   }
   export const modelType = "INTEGRATION_TASK";
+  export function getDeserializedJsonObj(
+    obj: CreateTaskValidationFromIntegrationTask,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateTaskValidationDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateTaskValidationFromIntegrationTask)),
+      ...{
+        "dataFlow": obj.dataFlow ? model.DataFlow.getDeserializedJsonObj(obj.dataFlow) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

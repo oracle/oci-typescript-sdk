@@ -309,4 +309,24 @@ export namespace DbSystem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbSystem): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "iormConfigCache": obj.iormConfigCache
+          ? model.ExadataIormConfig.getDeserializedJsonObj(obj.iormConfigCache)
+          : undefined,
+
+        "dbSystemOptions": obj.dbSystemOptions
+          ? model.DbSystemOptions.getDeserializedJsonObj(obj.dbSystemOptions)
+          : undefined,
+
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,9 @@ export namespace ExportContent {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExportContent): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

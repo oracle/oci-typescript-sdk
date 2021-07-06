@@ -54,4 +54,9 @@ export namespace TunnelConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TunnelConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

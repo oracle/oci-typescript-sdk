@@ -102,4 +102,18 @@ export namespace LogAnalyticsConfigWorkRequest {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsConfigWorkRequest): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "payload": obj.payload
+          ? obj.payload.map(item => {
+              return model.LogAnalyticsConfigWorkRequestPayload.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

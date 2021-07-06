@@ -66,4 +66,9 @@ export namespace TargetResponderRecipeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TargetResponderRecipeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

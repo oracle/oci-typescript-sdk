@@ -73,4 +73,16 @@ export namespace CreateTemplateDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTemplateDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "templateConfigSource": obj.templateConfigSource
+          ? model.CreateTemplateConfigSourceDetails.getDeserializedJsonObj(obj.templateConfigSource)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

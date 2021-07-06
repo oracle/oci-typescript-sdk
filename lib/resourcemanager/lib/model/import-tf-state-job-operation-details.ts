@@ -41,4 +41,19 @@ export namespace ImportTfStateJobOperationDetails {
     return jsonObj;
   }
   export const operation = "IMPORT_TF_STATE";
+  export function getDeserializedJsonObj(
+    obj: ImportTfStateJobOperationDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.JobOperationDetails.getDeserializedJsonObj(
+            obj
+          ) as ImportTfStateJobOperationDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

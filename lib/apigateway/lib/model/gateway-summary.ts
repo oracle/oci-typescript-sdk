@@ -108,4 +108,9 @@ export namespace GatewaySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GatewaySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

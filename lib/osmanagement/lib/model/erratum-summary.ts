@@ -60,4 +60,9 @@ export namespace ErratumSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ErratumSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

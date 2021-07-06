@@ -117,4 +117,9 @@ export namespace AccessRuleCriteria {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AccessRuleCriteria): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

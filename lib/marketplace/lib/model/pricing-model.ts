@@ -42,4 +42,9 @@ export namespace PricingModel {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PricingModel): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

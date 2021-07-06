@@ -60,4 +60,16 @@ export namespace UpdateBlockchainPlatformDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateBlockchainPlatformDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicas": obj.replicas
+          ? model.ReplicaDetails.getDeserializedJsonObj(obj.replicas)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

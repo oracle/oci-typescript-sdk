@@ -32,7 +32,10 @@ export enum HttpProbeProtocol {
 }
 
 export namespace HttpProbeProtocol {
-  export function getJsonObj(obj: HttpProbeProtocol): object {
-    return { obj };
+  export function getJsonObj(obj: HttpProbeProtocol): HttpProbeProtocol {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: HttpProbeProtocol): HttpProbeProtocol {
+    return obj;
   }
 }

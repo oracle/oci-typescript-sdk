@@ -36,4 +36,9 @@ export namespace WorkloadType {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkloadType): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

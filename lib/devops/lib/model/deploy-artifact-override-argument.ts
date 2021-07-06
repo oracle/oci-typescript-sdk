@@ -38,4 +38,9 @@ export namespace DeployArtifactOverrideArgument {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployArtifactOverrideArgument): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

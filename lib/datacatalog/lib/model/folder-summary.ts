@@ -87,4 +87,9 @@ export namespace FolderSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FolderSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

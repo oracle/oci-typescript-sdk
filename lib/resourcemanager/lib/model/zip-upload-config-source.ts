@@ -36,4 +36,17 @@ export namespace ZipUploadConfigSource {
     return jsonObj;
   }
   export const configSourceType = "ZIP_UPLOAD";
+  export function getDeserializedJsonObj(
+    obj: ZipUploadConfigSource,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ConfigSource.getDeserializedJsonObj(obj) as ZipUploadConfigSource)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

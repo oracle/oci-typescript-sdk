@@ -41,4 +41,14 @@ export namespace Shape {
     return jsonObj;
   }
   export const modelType = "SHAPE";
+  export function getDeserializedJsonObj(obj: Shape, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.TypedObject.getDeserializedJsonObj(obj) as Shape)),
+      ...{
+        "type": obj.type ? model.BaseType.getDeserializedJsonObj(obj.type) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

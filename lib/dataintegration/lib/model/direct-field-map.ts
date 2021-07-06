@@ -59,4 +59,19 @@ export namespace DirectFieldMap {
     return jsonObj;
   }
   export const modelType = "DIRECT_FIELD_MAP";
+  export function getDeserializedJsonObj(obj: DirectFieldMap, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.FieldMap.getDeserializedJsonObj(obj) as DirectFieldMap)),
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+        "configValues": obj.configValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.configValues)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

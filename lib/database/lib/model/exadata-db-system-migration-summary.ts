@@ -40,4 +40,9 @@ export namespace ExadataDbSystemMigrationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExadataDbSystemMigrationSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

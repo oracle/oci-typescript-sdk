@@ -110,4 +110,30 @@ export namespace DatabaseInsight {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseInsight): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("entitySource" in obj && obj.entitySource) {
+      switch (obj.entitySource) {
+        case "EM_MANAGED_EXTERNAL_DATABASE":
+          return model.EmManagedExternalDatabaseInsight.getDeserializedJsonObj(
+            <model.EmManagedExternalDatabaseInsight>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_EXTERNAL_DATABASE":
+          return model.MacsManagedExternalDatabaseInsight.getDeserializedJsonObj(
+            <model.MacsManagedExternalDatabaseInsight>(<object>jsonObj),
+            true
+          );
+        case "AUTONOMOUS_DATABASE":
+          return model.AutonomousDatabaseInsight.getDeserializedJsonObj(
+            <model.AutonomousDatabaseInsight>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.entitySource);
+      }
+    }
+    return jsonObj;
+  }
 }

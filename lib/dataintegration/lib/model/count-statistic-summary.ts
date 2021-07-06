@@ -49,4 +49,9 @@ export namespace CountStatisticSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CountStatisticSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -92,4 +92,27 @@ export namespace Action {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Action): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("actionType" in obj && obj.actionType) {
+      switch (obj.actionType) {
+        case "OSS":
+          return model.StreamingServiceAction.getDeserializedJsonObj(
+            <model.StreamingServiceAction>(<object>jsonObj),
+            true
+          );
+        case "ONS":
+          return model.NotificationServiceAction.getDeserializedJsonObj(
+            <model.NotificationServiceAction>(<object>jsonObj),
+            true
+          );
+        case "FAAS":
+          return model.FaaSAction.getDeserializedJsonObj(<model.FaaSAction>(<object>jsonObj), true);
+        default:
+          throw Error("Unknown value for: " + obj.actionType);
+      }
+    }
+    return jsonObj;
+  }
 }

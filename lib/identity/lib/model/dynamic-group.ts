@@ -106,4 +106,9 @@ export namespace DynamicGroup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DynamicGroup): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

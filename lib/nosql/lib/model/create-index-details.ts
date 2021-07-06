@@ -63,4 +63,18 @@ export namespace CreateIndexDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateIndexDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "keys": obj.keys
+          ? obj.keys.map(item => {
+              return model.IndexKey.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

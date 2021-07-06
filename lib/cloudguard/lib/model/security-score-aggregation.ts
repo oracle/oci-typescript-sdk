@@ -38,4 +38,9 @@ export namespace SecurityScoreAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SecurityScoreAggregation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

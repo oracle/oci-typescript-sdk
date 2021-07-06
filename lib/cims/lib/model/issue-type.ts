@@ -34,4 +34,9 @@ export namespace IssueType {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IssueType): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

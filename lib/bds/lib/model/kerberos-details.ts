@@ -37,4 +37,9 @@ export namespace KerberosDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KerberosDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

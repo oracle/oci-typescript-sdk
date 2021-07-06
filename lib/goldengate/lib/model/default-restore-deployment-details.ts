@@ -37,4 +37,19 @@ export namespace DefaultRestoreDeploymentDetails {
     return jsonObj;
   }
   export const type = "DEFAULT";
+  export function getDeserializedJsonObj(
+    obj: DefaultRestoreDeploymentDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.RestoreDeploymentDetails.getDeserializedJsonObj(
+            obj
+          ) as DefaultRestoreDeploymentDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

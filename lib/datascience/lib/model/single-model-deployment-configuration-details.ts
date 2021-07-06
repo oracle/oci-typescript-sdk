@@ -46,4 +46,23 @@ export namespace SingleModelDeploymentConfigurationDetails {
     return jsonObj;
   }
   export const deploymentType = "SINGLE_MODEL";
+  export function getDeserializedJsonObj(
+    obj: SingleModelDeploymentConfigurationDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ModelDeploymentConfigurationDetails.getDeserializedJsonObj(
+            obj
+          ) as SingleModelDeploymentConfigurationDetails)),
+      ...{
+        "modelConfigurationDetails": obj.modelConfigurationDetails
+          ? model.ModelConfigurationDetails.getDeserializedJsonObj(obj.modelConfigurationDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

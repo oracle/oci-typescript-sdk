@@ -41,4 +41,17 @@ export namespace BottomCommandDescriptor {
     return jsonObj;
   }
   export const name = "BOTTOM";
+  export function getDeserializedJsonObj(
+    obj: BottomCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as BottomCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

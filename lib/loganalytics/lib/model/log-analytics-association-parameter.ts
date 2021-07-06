@@ -73,4 +73,9 @@ export namespace LogAnalyticsAssociationParameter {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsAssociationParameter): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

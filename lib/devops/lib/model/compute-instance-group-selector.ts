@@ -43,4 +43,25 @@ export namespace ComputeInstanceGroupSelector {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ComputeInstanceGroupSelector): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("selectorType" in obj && obj.selectorType) {
+      switch (obj.selectorType) {
+        case "INSTANCE_IDS":
+          return model.ComputeInstanceGroupByIdsSelector.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupByIdsSelector>(<object>jsonObj),
+            true
+          );
+        case "INSTANCE_QUERY":
+          return model.ComputeInstanceGroupByQuerySelector.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupByQuerySelector>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.selectorType);
+      }
+    }
+    return jsonObj;
+  }
 }

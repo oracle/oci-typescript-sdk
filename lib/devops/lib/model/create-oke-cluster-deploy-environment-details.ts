@@ -44,4 +44,19 @@ export namespace CreateOkeClusterDeployEnvironmentDetails {
     return jsonObj;
   }
   export const deployEnvironmentType = "OKE_CLUSTER";
+  export function getDeserializedJsonObj(
+    obj: CreateOkeClusterDeployEnvironmentDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDeployEnvironmentDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateOkeClusterDeployEnvironmentDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

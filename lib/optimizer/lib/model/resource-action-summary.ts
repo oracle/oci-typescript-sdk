@@ -128,4 +128,14 @@ export namespace ResourceActionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceActionSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "action": obj.action ? model.Action.getDeserializedJsonObj(obj.action) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

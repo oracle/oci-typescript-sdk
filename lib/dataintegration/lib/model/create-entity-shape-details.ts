@@ -38,4 +38,20 @@ export namespace CreateEntityShapeDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateEntityShapeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "FILE_ENTITY":
+          return model.CreateEntityShapeFromFile.getDeserializedJsonObj(
+            <model.CreateEntityShapeFromFile>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

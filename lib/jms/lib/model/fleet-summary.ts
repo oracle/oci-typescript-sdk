@@ -99,4 +99,9 @@ export namespace FleetSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FleetSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

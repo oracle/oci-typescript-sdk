@@ -55,4 +55,37 @@ export namespace DataEntitySummary {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataEntitySummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "FILE_ENTITY":
+          return model.DataEntitySummaryFromFile.getDeserializedJsonObj(
+            <model.DataEntitySummaryFromFile>(<object>jsonObj),
+            true
+          );
+        case "TABLE_ENTITY":
+          return model.DataEntitySummaryFromTable.getDeserializedJsonObj(
+            <model.DataEntitySummaryFromTable>(<object>jsonObj),
+            true
+          );
+        case "VIEW_ENTITY":
+          return model.DataEntitySummaryFromView.getDeserializedJsonObj(
+            <model.DataEntitySummaryFromView>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

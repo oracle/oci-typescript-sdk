@@ -15,7 +15,7 @@ in your tenancy. For more information, see [Overview of Events](/iaas/Content/Ev
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { EventsWaiter } from "./events-waiter";
@@ -171,7 +171,7 @@ export class EventsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeRuleCompartmentRequest.changeRuleCompartmentDetails,
         "ChangeRuleCompartmentDetails",
-        models.ChangeRuleCompartmentDetails.getJsonObj
+        model.ChangeRuleCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -231,7 +231,7 @@ export class EventsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createRuleRequest.createRuleDetails,
         "CreateRuleDetails",
-        models.CreateRuleDetails.getJsonObj
+        model.CreateRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -243,7 +243,8 @@ export class EventsClient {
         responseObject: <responses.CreateRuleResponse>{},
         body: await response.json(),
         bodyKey: "rule",
-        bodyModel: "model.Rule",
+        bodyModel: model.Rule,
+        type: "model.Rule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -362,7 +363,8 @@ export class EventsClient {
         responseObject: <responses.GetRuleResponse>{},
         body: await response.json(),
         bodyKey: "rule",
-        bodyModel: "model.Rule",
+        bodyModel: model.Rule,
+        type: "model.Rule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -432,7 +434,8 @@ export class EventsClient {
         responseObject: <responses.ListRulesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "RuleSummary[]",
+        bodyModel: model.RuleSummary,
+        type: "Array<model.RuleSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -462,7 +465,7 @@ export class EventsClient {
    */
   public listAllRules(
     request: requests.ListRulesRequest
-  ): AsyncIterableIterator<models.RuleSummary> {
+  ): AsyncIterableIterator<model.RuleSummary> {
     return paginateRecords(request, req => this.listRules(req));
   }
 
@@ -515,7 +518,7 @@ export class EventsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateRuleRequest.updateRuleDetails,
         "UpdateRuleDetails",
-        models.UpdateRuleDetails.getJsonObj
+        model.UpdateRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -527,7 +530,8 @@ export class EventsClient {
         responseObject: <responses.UpdateRuleResponse>{},
         body: await response.json(),
         bodyKey: "rule",
-        bodyModel: "model.Rule",
+        bodyModel: model.Rule,
+        type: "model.Rule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

@@ -70,4 +70,9 @@ export namespace Service {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Service): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

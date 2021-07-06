@@ -36,7 +36,10 @@ export enum OperatorActionCategories {
 }
 
 export namespace OperatorActionCategories {
-  export function getJsonObj(obj: OperatorActionCategories): object {
-    return { obj };
+  export function getJsonObj(obj: OperatorActionCategories): OperatorActionCategories {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: OperatorActionCategories): OperatorActionCategories {
+    return obj;
   }
 }

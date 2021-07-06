@@ -35,4 +35,18 @@ export namespace UpdateDomainRecordsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDomainRecordsDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.RecordDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -33,4 +33,9 @@ export namespace StartMigrationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StartMigrationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

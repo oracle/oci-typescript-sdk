@@ -54,4 +54,9 @@ export namespace CreateOnDemandPingProbeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateOnDemandPingProbeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

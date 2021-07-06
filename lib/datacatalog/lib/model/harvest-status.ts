@@ -39,7 +39,10 @@ export enum HarvestStatus {
 }
 
 export namespace HarvestStatus {
-  export function getJsonObj(obj: HarvestStatus): object {
-    return { obj };
+  export function getJsonObj(obj: HarvestStatus): HarvestStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: HarvestStatus): HarvestStatus {
+    return obj;
   }
 }

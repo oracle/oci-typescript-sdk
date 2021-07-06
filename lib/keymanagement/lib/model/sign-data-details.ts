@@ -72,4 +72,9 @@ export namespace SignDataDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SignDataDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

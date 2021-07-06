@@ -88,4 +88,18 @@ export namespace RequestSummarizedInstallationUsageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RequestSummarizedInstallationUsageDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fields": obj.fields
+          ? obj.fields.map(item => {
+              return model.SummarizeInstallationUsageFields.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

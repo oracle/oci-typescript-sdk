@@ -90,4 +90,9 @@ export namespace TagNamespace {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TagNamespace): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

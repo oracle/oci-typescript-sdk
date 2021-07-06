@@ -82,4 +82,9 @@ export namespace SenderSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SenderSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

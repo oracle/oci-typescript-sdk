@@ -47,4 +47,18 @@ export namespace Category {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Category): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.Parameter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

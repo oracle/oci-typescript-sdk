@@ -81,4 +81,9 @@ export namespace BdsInstanceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BdsInstanceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

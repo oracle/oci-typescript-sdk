@@ -38,4 +38,16 @@ export namespace UploadCredentialsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UploadCredentialsDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "connectionDetail": obj.connectionDetail
+          ? model.UpdateConnectionDetails.getDeserializedJsonObj(obj.connectionDetail)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

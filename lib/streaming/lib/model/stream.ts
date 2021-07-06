@@ -103,4 +103,9 @@ export namespace Stream {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Stream): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

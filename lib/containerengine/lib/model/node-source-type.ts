@@ -31,7 +31,10 @@ export enum NodeSourceType {
 }
 
 export namespace NodeSourceType {
-  export function getJsonObj(obj: NodeSourceType): object {
-    return { obj };
+  export function getJsonObj(obj: NodeSourceType): NodeSourceType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: NodeSourceType): NodeSourceType {
+    return obj;
   }
 }

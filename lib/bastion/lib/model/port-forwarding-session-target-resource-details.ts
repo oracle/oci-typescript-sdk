@@ -51,4 +51,19 @@ export namespace PortForwardingSessionTargetResourceDetails {
     return jsonObj;
   }
   export const sessionType = "PORT_FORWARDING";
+  export function getDeserializedJsonObj(
+    obj: PortForwardingSessionTargetResourceDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TargetResourceDetails.getDeserializedJsonObj(
+            obj
+          ) as PortForwardingSessionTargetResourceDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

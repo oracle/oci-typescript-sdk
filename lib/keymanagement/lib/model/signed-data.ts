@@ -67,4 +67,9 @@ export namespace SignedData {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SignedData): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

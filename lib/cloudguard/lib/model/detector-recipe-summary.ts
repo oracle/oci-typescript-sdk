@@ -100,4 +100,18 @@ export namespace DetectorRecipeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectorRecipeSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "detectorRules": obj.detectorRules
+          ? obj.detectorRules.map(item => {
+              return model.DetectorRecipeDetectorRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

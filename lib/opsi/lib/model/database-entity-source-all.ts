@@ -33,7 +33,10 @@ export enum DatabaseEntitySourceAll {
 }
 
 export namespace DatabaseEntitySourceAll {
-  export function getJsonObj(obj: DatabaseEntitySourceAll): object {
-    return { obj };
+  export function getJsonObj(obj: DatabaseEntitySourceAll): DatabaseEntitySourceAll {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DatabaseEntitySourceAll): DatabaseEntitySourceAll {
+    return obj;
   }
 }

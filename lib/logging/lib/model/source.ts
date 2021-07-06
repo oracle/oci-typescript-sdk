@@ -35,4 +35,17 @@ export namespace Source {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Source): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("sourceType" in obj && obj.sourceType) {
+      switch (obj.sourceType) {
+        case "OCISERVICE":
+          return model.OciService.getDeserializedJsonObj(<model.OciService>(<object>jsonObj), true);
+        default:
+          throw Error("Unknown value for: " + obj.sourceType);
+      }
+    }
+    return jsonObj;
+  }
 }

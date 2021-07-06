@@ -119,4 +119,26 @@ export namespace CreateMigrationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateMigrationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "discoveryDetails": obj.discoveryDetails
+          ? model.DiscoveryDetails.getDeserializedJsonObj(obj.discoveryDetails)
+          : undefined,
+
+        "serviceConfig": obj.serviceConfig
+          ? common.mapContainer(obj.serviceConfig, model.ConfigurationField.getDeserializedJsonObj)
+          : undefined,
+        "applicationConfig": obj.applicationConfig
+          ? common.mapContainer(
+              obj.applicationConfig,
+              model.ConfigurationField.getDeserializedJsonObj
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

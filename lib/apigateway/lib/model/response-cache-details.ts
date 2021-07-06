@@ -44,4 +44,22 @@ export namespace ResponseCacheDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponseCacheDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "EXTERNAL_RESP_CACHE":
+          return model.ExternalRespCache.getDeserializedJsonObj(
+            <model.ExternalRespCache>(<object>jsonObj),
+            true
+          );
+        case "NONE":
+          return model.NoCache.getDeserializedJsonObj(<model.NoCache>(<object>jsonObj), true);
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

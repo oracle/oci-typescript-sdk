@@ -38,4 +38,9 @@ export namespace Time {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Time): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

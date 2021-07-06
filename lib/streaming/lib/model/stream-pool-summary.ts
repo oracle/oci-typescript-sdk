@@ -84,4 +84,9 @@ export namespace StreamPoolSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StreamPoolSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

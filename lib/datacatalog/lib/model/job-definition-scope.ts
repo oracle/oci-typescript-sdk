@@ -50,4 +50,9 @@ export namespace JobDefinitionScope {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobDefinitionScope): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

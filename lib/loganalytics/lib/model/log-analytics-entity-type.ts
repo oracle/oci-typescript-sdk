@@ -97,4 +97,18 @@ export namespace LogAnalyticsEntityType {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsEntityType): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "properties": obj.properties
+          ? obj.properties.map(item => {
+              return model.EntityTypeProperty.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

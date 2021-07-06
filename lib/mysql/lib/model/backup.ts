@@ -154,4 +154,16 @@ export namespace Backup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Backup): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbSystemSnapshot": obj.dbSystemSnapshot
+          ? model.DbSystemSnapshot.getDeserializedJsonObj(obj.dbSystemSnapshot)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

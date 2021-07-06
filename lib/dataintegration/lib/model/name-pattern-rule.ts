@@ -81,4 +81,14 @@ export namespace NamePatternRule {
     return jsonObj;
   }
   export const modelType = "NAME_PATTERN_RULE";
+  export function getDeserializedJsonObj(obj: NamePatternRule, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ProjectionRule.getDeserializedJsonObj(obj) as NamePatternRule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

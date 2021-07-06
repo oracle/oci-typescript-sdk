@@ -64,4 +64,9 @@ export namespace UpdateAgentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateAgentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -28,7 +28,10 @@ export enum PricingCurrencyEnum {
 }
 
 export namespace PricingCurrencyEnum {
-  export function getJsonObj(obj: PricingCurrencyEnum): object {
-    return { obj };
+  export function getJsonObj(obj: PricingCurrencyEnum): PricingCurrencyEnum {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: PricingCurrencyEnum): PricingCurrencyEnum {
+    return obj;
   }
 }

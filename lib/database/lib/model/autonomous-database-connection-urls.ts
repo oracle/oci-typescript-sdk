@@ -46,4 +46,9 @@ export namespace AutonomousDatabaseConnectionUrls {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousDatabaseConnectionUrls): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

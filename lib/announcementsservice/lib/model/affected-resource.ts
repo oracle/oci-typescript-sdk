@@ -52,4 +52,18 @@ export namespace AffectedResource {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AffectedResource): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "additionalProperties": obj.additionalProperties
+          ? obj.additionalProperties.map(item => {
+              return model.Property.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -16,7 +16,7 @@ data in Oracle Database and Oracle Applications..
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { BdsWaiter } from "./bds-waiter";
@@ -172,7 +172,7 @@ export class BdsClient {
       bodyContent: common.ObjectSerializer.serialize(
         addAutoScalingConfigurationRequest.addAutoScalingConfigurationDetails,
         "AddAutoScalingConfigurationDetails",
-        models.AddAutoScalingConfigurationDetails.getJsonObj
+        model.AddAutoScalingConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -241,7 +241,7 @@ export class BdsClient {
       bodyContent: common.ObjectSerializer.serialize(
         addBlockStorageRequest.addBlockStorageDetails,
         "AddBlockStorageDetails",
-        models.AddBlockStorageDetails.getJsonObj
+        model.AddBlockStorageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -310,7 +310,7 @@ export class BdsClient {
       bodyContent: common.ObjectSerializer.serialize(
         addCloudSqlRequest.addCloudSqlDetails,
         "AddCloudSqlDetails",
-        models.AddCloudSqlDetails.getJsonObj
+        model.AddCloudSqlDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -379,7 +379,7 @@ export class BdsClient {
       bodyContent: common.ObjectSerializer.serialize(
         addWorkerNodesRequest.addWorkerNodesDetails,
         "AddWorkerNodesDetails",
-        models.AddWorkerNodesDetails.getJsonObj
+        model.AddWorkerNodesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -447,7 +447,7 @@ export class BdsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeBdsInstanceCompartmentRequest.changeBdsInstanceCompartmentDetails,
         "ChangeBdsInstanceCompartmentDetails",
-        models.ChangeBdsInstanceCompartmentDetails.getJsonObj
+        model.ChangeBdsInstanceCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -517,7 +517,7 @@ export class BdsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeShapeRequest.changeShapeDetails,
         "ChangeShapeDetails",
-        models.ChangeShapeDetails.getJsonObj
+        model.ChangeShapeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -582,7 +582,7 @@ export class BdsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createBdsInstanceRequest.createBdsInstanceDetails,
         "CreateBdsInstanceDetails",
-        models.CreateBdsInstanceDetails.getJsonObj
+        model.CreateBdsInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -717,7 +717,8 @@ export class BdsClient {
         responseObject: <responses.GetAutoScalingConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "autoScalingConfiguration",
-        bodyModel: "model.AutoScalingConfiguration",
+        bodyModel: model.AutoScalingConfiguration,
+        type: "model.AutoScalingConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -780,7 +781,8 @@ export class BdsClient {
         responseObject: <responses.GetBdsInstanceResponse>{},
         body: await response.json(),
         bodyKey: "bdsInstance",
-        bodyModel: "model.BdsInstance",
+        bodyModel: model.BdsInstance,
+        type: "model.BdsInstance",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -843,7 +845,8 @@ export class BdsClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -916,7 +919,8 @@ export class BdsClient {
         responseObject: <responses.ListAutoScalingConfigurationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutoScalingConfigurationSummary[]",
+        bodyModel: model.AutoScalingConfigurationSummary,
+        type: "Array<model.AutoScalingConfigurationSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -946,7 +950,7 @@ export class BdsClient {
    */
   public listAllAutoScalingConfigurations(
     request: requests.ListAutoScalingConfigurationsRequest
-  ): AsyncIterableIterator<models.AutoScalingConfigurationSummary> {
+  ): AsyncIterableIterator<model.AutoScalingConfigurationSummary> {
     return paginateRecords(request, req => this.listAutoScalingConfigurations(req));
   }
 
@@ -1011,7 +1015,8 @@ export class BdsClient {
         responseObject: <responses.ListBdsInstancesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "BdsInstanceSummary[]",
+        bodyModel: model.BdsInstanceSummary,
+        type: "Array<model.BdsInstanceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1041,7 +1046,7 @@ export class BdsClient {
    */
   public listAllBdsInstances(
     request: requests.ListBdsInstancesRequest
-  ): AsyncIterableIterator<models.BdsInstanceSummary> {
+  ): AsyncIterableIterator<model.BdsInstanceSummary> {
     return paginateRecords(request, req => this.listBdsInstances(req));
   }
 
@@ -1105,7 +1110,8 @@ export class BdsClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1135,7 +1141,7 @@ export class BdsClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -1199,7 +1205,8 @@ export class BdsClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1229,7 +1236,7 @@ export class BdsClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -1293,7 +1300,8 @@ export class BdsClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequest[]",
+        bodyModel: model.WorkRequest,
+        type: "Array<model.WorkRequest>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1323,7 +1331,7 @@ export class BdsClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequest> {
+  ): AsyncIterableIterator<model.WorkRequest> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -1381,7 +1389,7 @@ export class BdsClient {
       bodyContent: common.ObjectSerializer.serialize(
         removeAutoScalingConfigurationRequest.removeAutoScalingConfigurationDetails,
         "RemoveAutoScalingConfigurationDetails",
-        models.RemoveAutoScalingConfigurationDetails.getJsonObj
+        model.RemoveAutoScalingConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1449,7 +1457,7 @@ export class BdsClient {
       bodyContent: common.ObjectSerializer.serialize(
         removeCloudSqlRequest.removeCloudSqlDetails,
         "RemoveCloudSqlDetails",
-        models.RemoveCloudSqlDetails.getJsonObj
+        model.RemoveCloudSqlDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1517,7 +1525,7 @@ export class BdsClient {
       bodyContent: common.ObjectSerializer.serialize(
         restartNodeRequest.restartNodeDetails,
         "RestartNodeDetails",
-        models.RestartNodeDetails.getJsonObj
+        model.RestartNodeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1588,7 +1596,7 @@ export class BdsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateAutoScalingConfigurationRequest.updateAutoScalingConfigurationDetails,
         "UpdateAutoScalingConfigurationDetails",
-        models.UpdateAutoScalingConfigurationDetails.getJsonObj
+        model.UpdateAutoScalingConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1654,7 +1662,7 @@ export class BdsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateBdsInstanceRequest.updateBdsInstanceDetails,
         "UpdateBdsInstanceDetails",
-        models.UpdateBdsInstanceDetails.getJsonObj
+        model.UpdateBdsInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

@@ -40,4 +40,14 @@ export namespace Resource {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Resource): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "item": obj.item ? model.Item.getDeserializedJsonObj(obj.item) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

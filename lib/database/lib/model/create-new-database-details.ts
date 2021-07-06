@@ -41,4 +41,21 @@ export namespace CreateNewDatabaseDetails {
     return jsonObj;
   }
   export const source = "NONE";
+  export function getDeserializedJsonObj(
+    obj: CreateNewDatabaseDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDatabaseBase.getDeserializedJsonObj(obj) as CreateNewDatabaseDetails)),
+      ...{
+        "database": obj.database
+          ? model.CreateDatabaseDetails.getDeserializedJsonObj(obj.database)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

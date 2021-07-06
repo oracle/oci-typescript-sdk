@@ -24,7 +24,14 @@ export enum NetworkLoadBalancersPolicySummary {
 }
 
 export namespace NetworkLoadBalancersPolicySummary {
-  export function getJsonObj(obj: NetworkLoadBalancersPolicySummary): object {
-    return { obj };
+  export function getJsonObj(
+    obj: NetworkLoadBalancersPolicySummary
+  ): NetworkLoadBalancersPolicySummary {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: NetworkLoadBalancersPolicySummary
+  ): NetworkLoadBalancersPolicySummary {
+    return obj;
   }
 }

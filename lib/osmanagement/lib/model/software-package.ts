@@ -99,4 +99,28 @@ export namespace SoftwarePackage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SoftwarePackage): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dependencies": obj.dependencies
+          ? obj.dependencies.map(item => {
+              return model.SoftwarePackageDependency.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "files": obj.files
+          ? obj.files.map(item => {
+              return model.SoftwarePackageFile.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "softwareSources": obj.softwareSources
+          ? obj.softwareSources.map(item => {
+              return model.SoftwareSourceId.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

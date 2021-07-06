@@ -65,4 +65,9 @@ export namespace UpdateCpeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateCpeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

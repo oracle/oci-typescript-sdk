@@ -29,7 +29,10 @@ export enum ResponderActivityType {
 }
 
 export namespace ResponderActivityType {
-  export function getJsonObj(obj: ResponderActivityType): object {
-    return { obj };
+  export function getJsonObj(obj: ResponderActivityType): ResponderActivityType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ResponderActivityType): ResponderActivityType {
+    return obj;
   }
 }

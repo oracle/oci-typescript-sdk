@@ -39,4 +39,19 @@ export namespace ComputeInstanceGroupDeployStageExecutionProgress {
     return jsonObj;
   }
   export const deployStageType = "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceGroupDeployStageExecutionProgress,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageExecutionProgress.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceGroupDeployStageExecutionProgress)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

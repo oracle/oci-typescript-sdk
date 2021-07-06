@@ -50,4 +50,12 @@ export namespace Intersect {
     return jsonObj;
   }
   export const modelType = "INTERSECT_OPERATOR";
+  export function getDeserializedJsonObj(obj: Intersect, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as Intersect)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

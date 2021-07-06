@@ -41,4 +41,20 @@ export namespace UpdateNetworkSecurityGroupSecurityRulesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: UpdateNetworkSecurityGroupSecurityRulesDetails
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "securityRules": obj.securityRules
+          ? obj.securityRules.map(item => {
+              return model.UpdateSecurityRuleDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

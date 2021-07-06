@@ -39,4 +39,18 @@ export namespace ReportTypeCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReportTypeCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ReportTypeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

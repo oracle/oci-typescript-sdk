@@ -34,4 +34,9 @@ export namespace FacetedSearchStringFilterRequest {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FacetedSearchStringFilterRequest): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

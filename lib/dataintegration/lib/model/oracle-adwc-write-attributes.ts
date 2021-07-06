@@ -58,4 +58,19 @@ export namespace OracleAdwcWriteAttributes {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OracleAdwcWriteAttributes): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "stagingDataAsset": obj.stagingDataAsset
+          ? model.DataAsset.getDeserializedJsonObj(obj.stagingDataAsset)
+          : undefined,
+        "stagingConnection": obj.stagingConnection
+          ? model.Connection.getDeserializedJsonObj(obj.stagingConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

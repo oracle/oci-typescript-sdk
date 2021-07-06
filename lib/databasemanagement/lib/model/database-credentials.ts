@@ -48,4 +48,9 @@ export namespace DatabaseCredentials {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseCredentials): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

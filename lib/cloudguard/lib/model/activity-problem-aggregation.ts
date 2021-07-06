@@ -46,4 +46,19 @@ export namespace ActivityProblemAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ActivityProblemAggregation): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "politicalLocation": obj.politicalLocation
+          ? model.PoliticalLocation.getDeserializedJsonObj(obj.politicalLocation)
+          : undefined,
+        "geographicalLocation": obj.geographicalLocation
+          ? model.GeographicalLocation.getDeserializedJsonObj(obj.geographicalLocation)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

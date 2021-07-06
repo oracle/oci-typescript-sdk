@@ -39,4 +39,18 @@ export namespace NetworkLoadBalancerCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NetworkLoadBalancerCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.NetworkLoadBalancerSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

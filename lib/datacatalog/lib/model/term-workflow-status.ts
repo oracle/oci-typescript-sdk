@@ -38,7 +38,10 @@ export enum TermWorkflowStatus {
 }
 
 export namespace TermWorkflowStatus {
-  export function getJsonObj(obj: TermWorkflowStatus): object {
-    return { obj };
+  export function getJsonObj(obj: TermWorkflowStatus): TermWorkflowStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: TermWorkflowStatus): TermWorkflowStatus {
+    return obj;
   }
 }

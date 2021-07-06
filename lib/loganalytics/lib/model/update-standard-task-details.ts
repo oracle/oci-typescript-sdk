@@ -39,4 +39,21 @@ export namespace UpdateStandardTaskDetails {
     return jsonObj;
   }
   export const kind = "STANDARD";
+  export function getDeserializedJsonObj(
+    obj: UpdateStandardTaskDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateScheduledTaskDetails.getDeserializedJsonObj(
+            obj
+          ) as UpdateStandardTaskDetails)),
+      ...{
+        "action": obj.action ? model.Action.getDeserializedJsonObj(obj.action) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -31,4 +31,12 @@ export namespace FlowPort {
     return jsonObj;
   }
   export const modelType = "FLOW_PORT";
+  export function getDeserializedJsonObj(obj: FlowPort, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.TypedObject.getDeserializedJsonObj(obj) as FlowPort)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

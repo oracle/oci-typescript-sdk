@@ -73,4 +73,9 @@ export namespace UpdateBackupDestinationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateBackupDestinationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

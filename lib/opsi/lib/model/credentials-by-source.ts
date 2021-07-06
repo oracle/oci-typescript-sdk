@@ -35,4 +35,17 @@ export namespace CredentialsBySource {
     return jsonObj;
   }
   export const credentialType = "CREDENTIALS_BY_SOURCE";
+  export function getDeserializedJsonObj(
+    obj: CredentialsBySource,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CredentialDetails.getDeserializedJsonObj(obj) as CredentialsBySource)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

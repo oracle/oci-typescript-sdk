@@ -57,4 +57,18 @@ export namespace NodePoolOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NodePoolOptions): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sources": obj.sources
+          ? obj.sources.map(item => {
+              return model.NodeSourceOption.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

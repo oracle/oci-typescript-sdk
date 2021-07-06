@@ -27,7 +27,10 @@ export enum ParameterScope {
 }
 
 export namespace ParameterScope {
-  export function getJsonObj(obj: ParameterScope): object {
-    return { obj };
+  export function getJsonObj(obj: ParameterScope): ParameterScope {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ParameterScope): ParameterScope {
+    return obj;
   }
 }

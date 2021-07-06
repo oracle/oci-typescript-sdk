@@ -33,4 +33,9 @@ export namespace DetectLanguageKeyPhrasesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectLanguageKeyPhrasesDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

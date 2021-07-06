@@ -38,4 +38,19 @@ export namespace AttachServiceDeterminedVolumeDetails {
     return jsonObj;
   }
   export const type = "service_determined";
+  export function getDeserializedJsonObj(
+    obj: AttachServiceDeterminedVolumeDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AttachVolumeDetails.getDeserializedJsonObj(
+            obj
+          ) as AttachServiceDeterminedVolumeDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

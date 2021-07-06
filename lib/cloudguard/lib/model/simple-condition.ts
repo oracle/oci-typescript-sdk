@@ -48,4 +48,12 @@ export namespace SimpleCondition {
     return jsonObj;
   }
   export const kind = "SIMPLE";
+  export function getDeserializedJsonObj(obj: SimpleCondition, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Condition.getDeserializedJsonObj(obj) as SimpleCondition)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

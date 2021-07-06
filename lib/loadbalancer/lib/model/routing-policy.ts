@@ -65,4 +65,18 @@ export namespace RoutingPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RoutingPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "rules": obj.rules
+          ? obj.rules.map(item => {
+              return model.RoutingRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

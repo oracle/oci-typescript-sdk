@@ -32,4 +32,9 @@ export namespace RemovePackagesFromSoftwareSourceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RemovePackagesFromSoftwareSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

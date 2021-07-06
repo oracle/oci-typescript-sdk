@@ -34,4 +34,9 @@ export namespace KeyVersionReplicaDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KeyVersionReplicaDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

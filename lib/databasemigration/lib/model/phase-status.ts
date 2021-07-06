@@ -47,4 +47,9 @@ export namespace PhaseStatus {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PhaseStatus): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

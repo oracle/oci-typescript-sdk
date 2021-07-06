@@ -57,4 +57,9 @@ export namespace CreateSnapshotDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSnapshotDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -63,4 +63,16 @@ export namespace UpdateLogDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateLogDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configuration": obj.configuration
+          ? model.UpdateConfigurationDetails.getDeserializedJsonObj(obj.configuration)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

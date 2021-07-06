@@ -35,4 +35,17 @@ export namespace RegexCommandDescriptor {
     return jsonObj;
   }
   export const name = "REGEX";
+  export function getDeserializedJsonObj(
+    obj: RegexCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as RegexCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

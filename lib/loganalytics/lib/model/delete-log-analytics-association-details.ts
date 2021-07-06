@@ -46,4 +46,18 @@ export namespace DeleteLogAnalyticsAssociationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeleteLogAnalyticsAssociationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DeleteLogAnalyticsAssociation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -93,4 +93,9 @@ export namespace SecretVersion {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SecretVersion): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

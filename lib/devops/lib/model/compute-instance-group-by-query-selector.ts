@@ -47,4 +47,19 @@ export namespace ComputeInstanceGroupByQuerySelector {
     return jsonObj;
   }
   export const selectorType = "INSTANCE_QUERY";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceGroupByQuerySelector,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ComputeInstanceGroupSelector.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceGroupByQuerySelector)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -63,4 +63,18 @@ export namespace MonitorResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MonitorResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resultDataSet": obj.resultDataSet
+          ? obj.resultDataSet.map(item => {
+              return model.MonitorResultData.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

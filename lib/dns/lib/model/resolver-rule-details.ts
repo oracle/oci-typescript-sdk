@@ -55,4 +55,20 @@ export namespace ResolverRuleDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResolverRuleDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("action" in obj && obj.action) {
+      switch (obj.action) {
+        case "FORWARD":
+          return model.ResolverForwardRuleDetails.getDeserializedJsonObj(
+            <model.ResolverForwardRuleDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.action);
+      }
+    }
+    return jsonObj;
+  }
 }

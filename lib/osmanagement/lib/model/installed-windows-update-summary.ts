@@ -43,4 +43,9 @@ export namespace InstalledWindowsUpdateSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstalledWindowsUpdateSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

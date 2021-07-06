@@ -87,4 +87,9 @@ export namespace StackSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StackSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

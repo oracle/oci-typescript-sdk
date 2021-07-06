@@ -59,4 +59,20 @@ export namespace ExecutionSchedule {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExecutionSchedule): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "cron":
+          return model.CronExecutionSchedule.getDeserializedJsonObj(
+            <model.CronExecutionSchedule>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

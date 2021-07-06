@@ -103,4 +103,14 @@ export namespace PrivateApplication {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PrivateApplication): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "logo": obj.logo ? model.UploadData.getDeserializedJsonObj(obj.logo) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

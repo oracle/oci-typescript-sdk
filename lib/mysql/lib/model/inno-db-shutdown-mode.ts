@@ -37,7 +37,10 @@ export enum InnoDbShutdownMode {
 }
 
 export namespace InnoDbShutdownMode {
-  export function getJsonObj(obj: InnoDbShutdownMode): object {
-    return { obj };
+  export function getJsonObj(obj: InnoDbShutdownMode): InnoDbShutdownMode {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: InnoDbShutdownMode): InnoDbShutdownMode {
+    return obj;
   }
 }

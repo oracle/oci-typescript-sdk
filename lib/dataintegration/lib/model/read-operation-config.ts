@@ -68,4 +68,35 @@ export namespace ReadOperationConfig {
     return jsonObj;
   }
   export const modelType = "READ_OPERATION_CONFIG";
+  export function getDeserializedJsonObj(
+    obj: ReadOperationConfig,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractDataOperationConfig.getDeserializedJsonObj(obj) as ReadOperationConfig)),
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+        "operations": obj.operations
+          ? obj.operations.map(item => {
+              return model.PushDownOperation.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "dataFormat": obj.dataFormat
+          ? model.DataFormat.getDeserializedJsonObj(obj.dataFormat)
+          : undefined,
+        "partitionConfig": obj.partitionConfig
+          ? model.PartitionConfig.getDeserializedJsonObj(obj.partitionConfig)
+          : undefined,
+        "readAttribute": obj.readAttribute
+          ? model.AbstractReadAttribute.getDeserializedJsonObj(obj.readAttribute)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

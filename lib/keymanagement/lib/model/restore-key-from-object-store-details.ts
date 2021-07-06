@@ -33,4 +33,16 @@ export namespace RestoreKeyFromObjectStoreDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RestoreKeyFromObjectStoreDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backupLocation": obj.backupLocation
+          ? model.BackupLocation.getDeserializedJsonObj(obj.backupLocation)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -47,4 +47,9 @@ export namespace ReplicaDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReplicaDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

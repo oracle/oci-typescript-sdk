@@ -37,4 +37,9 @@ export namespace CreateCustomEndpointDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateCustomEndpointDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

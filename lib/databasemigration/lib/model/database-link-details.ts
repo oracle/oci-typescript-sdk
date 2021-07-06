@@ -32,4 +32,9 @@ export namespace DatabaseLinkDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseLinkDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -123,4 +123,9 @@ export namespace Backup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Backup): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

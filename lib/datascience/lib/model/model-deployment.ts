@@ -98,4 +98,21 @@ export namespace ModelDeployment {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ModelDeployment): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "modelDeploymentConfigurationDetails": obj.modelDeploymentConfigurationDetails
+          ? model.ModelDeploymentConfigurationDetails.getDeserializedJsonObj(
+              obj.modelDeploymentConfigurationDetails
+            )
+          : undefined,
+        "categoryLogDetails": obj.categoryLogDetails
+          ? model.CategoryLogDetails.getDeserializedJsonObj(obj.categoryLogDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

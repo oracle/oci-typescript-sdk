@@ -33,4 +33,9 @@ export namespace DatabaseInsights {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseInsights): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

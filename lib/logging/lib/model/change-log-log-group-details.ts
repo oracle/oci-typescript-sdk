@@ -30,4 +30,9 @@ export namespace ChangeLogLogGroupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeLogLogGroupDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

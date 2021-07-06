@@ -137,4 +137,9 @@ export namespace ByoipRange {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ByoipRange): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

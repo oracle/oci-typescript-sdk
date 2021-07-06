@@ -49,4 +49,19 @@ export namespace InstanceConfigurationVolumeSourceFromVolumeDetails {
     return jsonObj;
   }
   export const type = "volume";
+  export function getDeserializedJsonObj(
+    obj: InstanceConfigurationVolumeSourceFromVolumeDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.InstanceConfigurationVolumeSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as InstanceConfigurationVolumeSourceFromVolumeDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

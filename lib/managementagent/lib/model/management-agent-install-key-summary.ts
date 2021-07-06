@@ -66,4 +66,9 @@ export namespace ManagementAgentInstallKeySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagementAgentInstallKeySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

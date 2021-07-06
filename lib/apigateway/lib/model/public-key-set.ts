@@ -46,4 +46,25 @@ export namespace PublicKeySet {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublicKeySet): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "STATIC_KEYS":
+          return model.StaticPublicKeySet.getDeserializedJsonObj(
+            <model.StaticPublicKeySet>(<object>jsonObj),
+            true
+          );
+        case "REMOTE_JWKS":
+          return model.RemoteJsonWebKeySet.getDeserializedJsonObj(
+            <model.RemoteJsonWebKeySet>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

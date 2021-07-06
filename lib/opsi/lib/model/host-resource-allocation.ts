@@ -46,4 +46,19 @@ export namespace HostResourceAllocation {
     return jsonObj;
   }
   export const metricName = "HOST_RESOURCE_ALLOCATION";
+  export function getDeserializedJsonObj(
+    obj: HostResourceAllocation,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.HostConfigurationMetricGroup.getDeserializedJsonObj(
+            obj
+          ) as HostResourceAllocation)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

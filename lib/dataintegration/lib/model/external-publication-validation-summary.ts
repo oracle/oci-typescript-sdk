@@ -50,4 +50,9 @@ export namespace ExternalPublicationValidationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExternalPublicationValidationSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

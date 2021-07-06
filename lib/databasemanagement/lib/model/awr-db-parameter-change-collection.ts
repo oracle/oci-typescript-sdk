@@ -50,4 +50,23 @@ export namespace AwrDbParameterChangeCollection {
     return jsonObj;
   }
   export const awrResultType = "AWRDB_DB_PARAMETER_CHANGE";
+  export function getDeserializedJsonObj(
+    obj: AwrDbParameterChangeCollection,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AwrQueryResult.getDeserializedJsonObj(obj) as AwrDbParameterChangeCollection)),
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AwrDbParameterChangeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

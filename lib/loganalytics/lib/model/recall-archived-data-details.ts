@@ -44,4 +44,9 @@ export namespace RecallArchivedDataDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RecallArchivedDataDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -38,4 +38,20 @@ export namespace PartitionConfig {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PartitionConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "KEYRANGEPARTITIONCONFIG":
+          return model.KeyRangePartitionConfig.getDeserializedJsonObj(
+            <model.KeyRangePartitionConfig>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

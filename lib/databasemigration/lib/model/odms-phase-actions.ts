@@ -29,7 +29,10 @@ export enum OdmsPhaseActions {
 }
 
 export namespace OdmsPhaseActions {
-  export function getJsonObj(obj: OdmsPhaseActions): object {
-    return { obj };
+  export function getJsonObj(obj: OdmsPhaseActions): OdmsPhaseActions {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: OdmsPhaseActions): OdmsPhaseActions {
+    return obj;
   }
 }

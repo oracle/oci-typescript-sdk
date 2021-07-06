@@ -72,4 +72,17 @@ export namespace ImportKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ImportKeyDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "keyShape": obj.keyShape ? model.KeyShape.getDeserializedJsonObj(obj.keyShape) : undefined,
+        "wrappedImportKey": obj.wrappedImportKey
+          ? model.WrappedImportKey.getDeserializedJsonObj(obj.wrappedImportKey)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

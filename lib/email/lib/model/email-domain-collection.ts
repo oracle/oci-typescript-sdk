@@ -45,4 +45,18 @@ export namespace EmailDomainCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EmailDomainCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.EmailDomainSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

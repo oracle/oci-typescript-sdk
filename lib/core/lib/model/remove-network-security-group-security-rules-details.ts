@@ -33,4 +33,11 @@ export namespace RemoveNetworkSecurityGroupSecurityRulesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: RemoveNetworkSecurityGroupSecurityRulesDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

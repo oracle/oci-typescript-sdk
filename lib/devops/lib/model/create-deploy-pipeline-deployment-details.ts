@@ -48,4 +48,28 @@ export namespace CreateDeployPipelineDeploymentDetails {
     return jsonObj;
   }
   export const deploymentType = "PIPELINE_DEPLOYMENT";
+  export function getDeserializedJsonObj(
+    obj: CreateDeployPipelineDeploymentDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDeploymentDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateDeployPipelineDeploymentDetails)),
+      ...{
+        "deploymentArguments": obj.deploymentArguments
+          ? model.DeploymentArgumentCollection.getDeserializedJsonObj(obj.deploymentArguments)
+          : undefined,
+        "deployArtifactOverrideArguments": obj.deployArtifactOverrideArguments
+          ? model.DeployArtifactOverrideArgumentCollection.getDeserializedJsonObj(
+              obj.deployArtifactOverrideArguments
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

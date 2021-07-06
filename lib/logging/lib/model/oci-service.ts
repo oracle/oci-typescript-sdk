@@ -48,4 +48,12 @@ export namespace OciService {
     return jsonObj;
   }
   export const sourceType = "OCISERVICE";
+  export function getDeserializedJsonObj(obj: OciService, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Source.getDeserializedJsonObj(obj) as OciService)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

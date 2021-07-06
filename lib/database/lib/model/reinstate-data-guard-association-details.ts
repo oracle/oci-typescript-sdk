@@ -32,4 +32,9 @@ export namespace ReinstateDataGuardAssociationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReinstateDataGuardAssociationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

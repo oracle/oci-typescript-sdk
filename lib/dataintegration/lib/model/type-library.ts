@@ -72,4 +72,20 @@ export namespace TypeLibrary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TypeLibrary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "types": obj.types
+          ? common.mapContainer(obj.types, model.DerivedType.getDeserializedJsonObj)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -82,4 +82,16 @@ export namespace ObjectMetadata {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ObjectMetadata): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "aggregator": obj.aggregator
+          ? model.AggregatorSummary.getDeserializedJsonObj(obj.aggregator)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -99,4 +99,20 @@ export namespace Repository {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Repository): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("repositoryType" in obj && obj.repositoryType) {
+      switch (obj.repositoryType) {
+        case "GENERIC":
+          return model.GenericRepository.getDeserializedJsonObj(
+            <model.GenericRepository>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.repositoryType);
+      }
+    }
+    return jsonObj;
+  }
 }

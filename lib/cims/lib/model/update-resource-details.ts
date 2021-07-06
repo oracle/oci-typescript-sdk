@@ -35,4 +35,14 @@ export namespace UpdateResourceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateResourceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "item": obj.item ? model.UpdateItemDetails.getDeserializedJsonObj(obj.item) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

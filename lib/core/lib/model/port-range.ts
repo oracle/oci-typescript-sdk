@@ -39,4 +39,9 @@ export namespace PortRange {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PortRange): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

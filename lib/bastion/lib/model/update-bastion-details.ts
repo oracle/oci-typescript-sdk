@@ -51,4 +51,9 @@ export namespace UpdateBastionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateBastionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

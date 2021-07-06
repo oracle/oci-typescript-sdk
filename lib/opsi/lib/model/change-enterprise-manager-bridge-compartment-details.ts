@@ -34,4 +34,11 @@ export namespace ChangeEnterpriseManagerBridgeCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeEnterpriseManagerBridgeCompartmentDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -105,4 +105,9 @@ export namespace SqlStatistics {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlStatistics): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

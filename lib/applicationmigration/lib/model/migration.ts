@@ -129,4 +129,22 @@ export namespace Migration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Migration): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "serviceConfig": obj.serviceConfig
+          ? common.mapContainer(obj.serviceConfig, model.ConfigurationField.getDeserializedJsonObj)
+          : undefined,
+        "applicationConfig": obj.applicationConfig
+          ? common.mapContainer(
+              obj.applicationConfig,
+              model.ConfigurationField.getDeserializedJsonObj
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

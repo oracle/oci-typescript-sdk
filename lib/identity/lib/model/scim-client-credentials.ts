@@ -35,4 +35,9 @@ export namespace ScimClientCredentials {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScimClientCredentials): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

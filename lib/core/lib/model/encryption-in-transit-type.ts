@@ -37,7 +37,10 @@ export enum EncryptionInTransitType {
 }
 
 export namespace EncryptionInTransitType {
-  export function getJsonObj(obj: EncryptionInTransitType): object {
-    return { obj };
+  export function getJsonObj(obj: EncryptionInTransitType): EncryptionInTransitType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: EncryptionInTransitType): EncryptionInTransitType {
+    return obj;
   }
 }

@@ -40,4 +40,18 @@ export namespace SupportedVmwareSoftwareVersionCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SupportedVmwareSoftwareVersionCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SupportedVmwareSoftwareVersionSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

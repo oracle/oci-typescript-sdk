@@ -54,4 +54,19 @@ export namespace DatabaseConnectionCredentailsByName {
     return jsonObj;
   }
   export const credentialType = "NAME_REFERENCE";
+  export function getDeserializedJsonObj(
+    obj: DatabaseConnectionCredentailsByName,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DatabaseConnectionCredentials.getDeserializedJsonObj(
+            obj
+          ) as DatabaseConnectionCredentailsByName)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -50,4 +50,19 @@ export namespace HostNetworkActivitySummary {
     return jsonObj;
   }
   export const metricName = "HOST_NETWORK_ACTIVITY_SUMMARY";
+  export function getDeserializedJsonObj(
+    obj: HostNetworkActivitySummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.HostPerformanceMetricGroup.getDeserializedJsonObj(
+            obj
+          ) as HostNetworkActivitySummary)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

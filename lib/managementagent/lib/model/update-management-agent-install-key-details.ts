@@ -34,4 +34,9 @@ export namespace UpdateManagementAgentInstallKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateManagementAgentInstallKeyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -59,4 +59,18 @@ export namespace UpdateResponderRecipeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateResponderRecipeDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "responderRules": obj.responderRules
+          ? obj.responderRules.map(item => {
+              return model.UpdateResponderRecipeResponderRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

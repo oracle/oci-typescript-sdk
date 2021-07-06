@@ -102,4 +102,9 @@ export namespace ConsoleHistory {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConsoleHistory): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

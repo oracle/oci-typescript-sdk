@@ -53,4 +53,19 @@ export namespace ManagedSshSessionTargetResourceDetails {
     return jsonObj;
   }
   export const sessionType = "MANAGED_SSH";
+  export function getDeserializedJsonObj(
+    obj: ManagedSshSessionTargetResourceDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TargetResourceDetails.getDeserializedJsonObj(
+            obj
+          ) as ManagedSshSessionTargetResourceDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

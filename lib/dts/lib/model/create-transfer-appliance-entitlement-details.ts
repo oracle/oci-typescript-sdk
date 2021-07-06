@@ -43,4 +43,9 @@ export namespace CreateTransferApplianceEntitlementDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTransferApplianceEntitlementDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

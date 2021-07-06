@@ -33,4 +33,9 @@ export namespace CreateIdpGroupMappingDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateIdpGroupMappingDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

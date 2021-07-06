@@ -64,4 +64,16 @@ export namespace ConfigParameterDefinition {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfigParameterDefinition): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parameterType": obj.parameterType
+          ? model.BaseType.getDeserializedJsonObj(obj.parameterType)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

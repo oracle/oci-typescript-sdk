@@ -111,4 +111,18 @@ export namespace LogAnalyticsLabelView {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsLabelView): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "aliases": obj.aliases
+          ? obj.aliases.map(item => {
+              return model.LogAnalyticsLabelAlias.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

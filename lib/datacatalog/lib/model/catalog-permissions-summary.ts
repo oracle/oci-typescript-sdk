@@ -34,4 +34,9 @@ export namespace CatalogPermissionsSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CatalogPermissionsSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { OdaWaiter } from "./oda-waiter";
@@ -170,7 +170,7 @@ export class OdaClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeOdaInstanceCompartmentRequest.changeOdaInstanceCompartmentDetails,
         "ChangeOdaInstanceCompartmentDetails",
-        models.ChangeOdaInstanceCompartmentDetails.getJsonObj
+        model.ChangeOdaInstanceCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -238,7 +238,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       bodyContent: common.ObjectSerializer.serialize(
         createOdaInstanceRequest.createOdaInstanceDetails,
         "CreateOdaInstanceDetails",
-        models.CreateOdaInstanceDetails.getJsonObj
+        model.CreateOdaInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -250,7 +250,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
         responseObject: <responses.CreateOdaInstanceResponse>{},
         body: await response.json(),
         bodyKey: "odaInstance",
-        bodyModel: "model.OdaInstance",
+        bodyModel: model.OdaInstance,
+        type: "model.OdaInstance",
         responseHeaders: [
           {
             value: response.headers.get("Location"),
@@ -385,7 +386,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
         responseObject: <responses.GetOdaInstanceResponse>{},
         body: await response.json(),
         bodyKey: "odaInstance",
-        bodyModel: "model.OdaInstance",
+        bodyModel: model.OdaInstance,
+        type: "model.OdaInstance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -452,7 +454,8 @@ You can use this operation to monitor the status of jobs that you
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -527,7 +530,8 @@ If the `opc-next-page` header appears in the response, then
         responseObject: <responses.ListOdaInstancesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "OdaInstanceSummary[]",
+        bodyModel: model.OdaInstanceSummary,
+        type: "Array<model.OdaInstanceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -557,7 +561,7 @@ If the `opc-next-page` header appears in the response, then
    */
   public listAllOdaInstances(
     request: requests.ListOdaInstancesRequest
-  ): AsyncIterableIterator<models.OdaInstanceSummary> {
+  ): AsyncIterableIterator<model.OdaInstanceSummary> {
     return paginateRecords(request, req => this.listOdaInstances(req));
   }
 
@@ -625,7 +629,8 @@ If the `opc-next-page` header appears in the response, then
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -655,7 +660,7 @@ If the `opc-next-page` header appears in the response, then
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -723,7 +728,8 @@ If the `opc-next-page` header appears in the response, then
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -753,7 +759,7 @@ If the `opc-next-page` header appears in the response, then
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -821,7 +827,8 @@ If the `opc-next-page` header appears in the response, then
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -851,7 +858,7 @@ If the `opc-next-page` header appears in the response, then
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -1032,7 +1039,7 @@ If the `opc-next-page` header appears in the response, then
       bodyContent: common.ObjectSerializer.serialize(
         updateOdaInstanceRequest.updateOdaInstanceDetails,
         "UpdateOdaInstanceDetails",
-        models.UpdateOdaInstanceDetails.getJsonObj
+        model.UpdateOdaInstanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1044,7 +1051,8 @@ If the `opc-next-page` header appears in the response, then
         responseObject: <responses.UpdateOdaInstanceResponse>{},
         body: await response.json(),
         bodyKey: "odaInstance",
-        bodyModel: "model.OdaInstance",
+        bodyModel: model.OdaInstance,
+        type: "model.OdaInstance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

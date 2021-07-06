@@ -39,4 +39,18 @@ export namespace DomainGovernanceCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DomainGovernanceCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DomainGovernanceSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -125,4 +125,18 @@ export namespace CreateIPSecConnectionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateIPSecConnectionDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tunnelConfiguration": obj.tunnelConfiguration
+          ? obj.tunnelConfiguration.map(item => {
+              return model.CreateIPSecConnectionTunnelDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

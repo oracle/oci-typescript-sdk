@@ -37,4 +37,9 @@ export namespace ScheduleVaultDeletionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScheduleVaultDeletionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

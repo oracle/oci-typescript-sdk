@@ -43,4 +43,9 @@ export namespace DetectedLanguage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectedLanguage): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

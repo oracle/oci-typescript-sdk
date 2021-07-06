@@ -68,4 +68,27 @@ export namespace UpdateGoldenGateHub {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateGoldenGateHub): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "restAdminCredentials": obj.restAdminCredentials
+          ? model.UpdateAdminCredentials.getDeserializedJsonObj(obj.restAdminCredentials)
+          : undefined,
+        "sourceDbAdminCredentials": obj.sourceDbAdminCredentials
+          ? model.UpdateAdminCredentials.getDeserializedJsonObj(obj.sourceDbAdminCredentials)
+          : undefined,
+        "sourceContainerDbAdminCredentials": obj.sourceContainerDbAdminCredentials
+          ? model.UpdateAdminCredentials.getDeserializedJsonObj(
+              obj.sourceContainerDbAdminCredentials
+            )
+          : undefined,
+        "targetDbAdminCredentials": obj.targetDbAdminCredentials
+          ? model.UpdateAdminCredentials.getDeserializedJsonObj(obj.targetDbAdminCredentials)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,9 @@ export namespace FacetedSearchSortRequest {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FacetedSearchSortRequest): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

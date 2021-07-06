@@ -39,4 +39,18 @@ export namespace DeployStageCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployStageCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DeployStageSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

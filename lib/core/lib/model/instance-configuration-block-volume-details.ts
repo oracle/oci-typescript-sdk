@@ -50,4 +50,19 @@ export namespace InstanceConfigurationBlockVolumeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceConfigurationBlockVolumeDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "attachDetails": obj.attachDetails
+          ? model.InstanceConfigurationAttachVolumeDetails.getDeserializedJsonObj(obj.attachDetails)
+          : undefined,
+        "createDetails": obj.createDetails
+          ? model.InstanceConfigurationCreateVolumeDetails.getDeserializedJsonObj(obj.createDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

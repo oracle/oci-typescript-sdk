@@ -44,4 +44,18 @@ export namespace PublicIpPoolCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublicIpPoolCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.PublicIpPoolSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

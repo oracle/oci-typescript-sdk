@@ -46,4 +46,17 @@ export namespace IcsDiscoveryDetails {
     return jsonObj;
   }
   export const type = "ICS";
+  export function getDeserializedJsonObj(
+    obj: IcsDiscoveryDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DiscoveryDetails.getDeserializedJsonObj(obj) as IcsDiscoveryDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

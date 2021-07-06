@@ -62,4 +62,16 @@ export namespace CreateTagDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTagDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "validator": obj.validator
+          ? model.BaseTagDefinitionValidator.getDeserializedJsonObj(obj.validator)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -40,4 +40,18 @@ export namespace RRSet {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RRSet): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.Record.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

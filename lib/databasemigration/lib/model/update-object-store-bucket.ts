@@ -37,4 +37,9 @@ export namespace UpdateObjectStoreBucket {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateObjectStoreBucket): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -61,4 +61,16 @@ export namespace UpdateDeployArtifactDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDeployArtifactDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "deployArtifactSource": obj.deployArtifactSource
+          ? model.DeployArtifactSource.getDeserializedJsonObj(obj.deployArtifactSource)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

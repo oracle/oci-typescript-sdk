@@ -162,4 +162,9 @@ export namespace WafLog {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WafLog): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

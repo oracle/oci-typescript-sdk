@@ -31,7 +31,10 @@ export enum QueryOperationType {
 }
 
 export namespace QueryOperationType {
-  export function getJsonObj(obj: QueryOperationType): object {
-    return { obj };
+  export function getJsonObj(obj: QueryOperationType): QueryOperationType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: QueryOperationType): QueryOperationType {
+    return obj;
   }
 }

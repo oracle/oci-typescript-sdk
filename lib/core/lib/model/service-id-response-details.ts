@@ -37,4 +37,9 @@ export namespace ServiceIdResponseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ServiceIdResponseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

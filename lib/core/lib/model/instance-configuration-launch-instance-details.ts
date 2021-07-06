@@ -287,4 +287,57 @@ export namespace InstanceConfigurationLaunchInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceConfigurationLaunchInstanceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "createVnicDetails": obj.createVnicDetails
+          ? model.InstanceConfigurationCreateVnicDetails.getDeserializedJsonObj(
+              obj.createVnicDetails
+            )
+          : undefined,
+
+        "shapeConfig": obj.shapeConfig
+          ? model.InstanceConfigurationLaunchInstanceShapeConfigDetails.getDeserializedJsonObj(
+              obj.shapeConfig
+            )
+          : undefined,
+        "platformConfig": obj.platformConfig
+          ? model.InstanceConfigurationLaunchInstancePlatformConfig.getDeserializedJsonObj(
+              obj.platformConfig
+            )
+          : undefined,
+        "sourceDetails": obj.sourceDetails
+          ? model.InstanceConfigurationInstanceSourceDetails.getDeserializedJsonObj(
+              obj.sourceDetails
+            )
+          : undefined,
+
+        "launchOptions": obj.launchOptions
+          ? model.InstanceConfigurationLaunchOptions.getDeserializedJsonObj(obj.launchOptions)
+          : undefined,
+        "agentConfig": obj.agentConfig
+          ? model.InstanceConfigurationLaunchInstanceAgentConfigDetails.getDeserializedJsonObj(
+              obj.agentConfig
+            )
+          : undefined,
+
+        "instanceOptions": obj.instanceOptions
+          ? model.InstanceConfigurationInstanceOptions.getDeserializedJsonObj(obj.instanceOptions)
+          : undefined,
+        "availabilityConfig": obj.availabilityConfig
+          ? model.InstanceConfigurationAvailabilityConfig.getDeserializedJsonObj(
+              obj.availabilityConfig
+            )
+          : undefined,
+        "preemptibleInstanceConfig": obj.preemptibleInstanceConfig
+          ? model.PreemptibleInstanceConfigDetails.getDeserializedJsonObj(
+              obj.preemptibleInstanceConfig
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

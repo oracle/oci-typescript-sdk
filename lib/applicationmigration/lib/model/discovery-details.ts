@@ -67,4 +67,45 @@ export namespace DiscoveryDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DiscoveryDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "OIC":
+          return model.OicDiscoveryDetails.getDeserializedJsonObj(
+            <model.OicDiscoveryDetails>(<object>jsonObj),
+            true
+          );
+        case "PCS":
+          return model.PcsDiscoveryDetails.getDeserializedJsonObj(
+            <model.PcsDiscoveryDetails>(<object>jsonObj),
+            true
+          );
+        case "ICS":
+          return model.IcsDiscoveryDetails.getDeserializedJsonObj(
+            <model.IcsDiscoveryDetails>(<object>jsonObj),
+            true
+          );
+        case "OAC":
+          return model.OacDiscoveryDetails.getDeserializedJsonObj(
+            <model.OacDiscoveryDetails>(<object>jsonObj),
+            true
+          );
+        case "JCS":
+          return model.JcsDiscoveryDetails.getDeserializedJsonObj(
+            <model.JcsDiscoveryDetails>(<object>jsonObj),
+            true
+          );
+        case "SOACS":
+          return model.SoacsDiscoveryDetails.getDeserializedJsonObj(
+            <model.SoacsDiscoveryDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

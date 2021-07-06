@@ -29,7 +29,10 @@ export enum ResponderModeTypes {
 }
 
 export namespace ResponderModeTypes {
-  export function getJsonObj(obj: ResponderModeTypes): object {
-    return { obj };
+  export function getJsonObj(obj: ResponderModeTypes): ResponderModeTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ResponderModeTypes): ResponderModeTypes {
+    return obj;
   }
 }

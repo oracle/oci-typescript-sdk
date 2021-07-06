@@ -55,4 +55,9 @@ export namespace MetricExtraction {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MetricExtraction): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -162,4 +162,103 @@ export namespace DeployStageExecutionProgress {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployStageExecutionProgress): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "deployStagePredecessors": obj.deployStagePredecessors
+          ? model.DeployStagePredecessorCollection.getDeserializedJsonObj(
+              obj.deployStagePredecessors
+            )
+          : undefined,
+        "deployStageExecutionProgressDetails": obj.deployStageExecutionProgressDetails
+          ? obj.deployStageExecutionProgressDetails.map(item => {
+              return model.DeployStageExecutionProgressDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    if ("deployStageType" in obj && obj.deployStageType) {
+      switch (obj.deployStageType) {
+        case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_TRAFFIC_SHIFT":
+          return model.ComputeInstanceGroupBlueGreenTrafficShiftDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupBlueGreenTrafficShiftDeployStageExecutionProgress>(
+              (<object>jsonObj)
+            ),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_CANARY_DEPLOYMENT":
+          return model.ComputeInstanceGroupCanaryDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupCanaryDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT":
+          return model.ComputeInstanceGroupDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        case "LOAD_BALANCER_TRAFFIC_SHIFT":
+          return model.LoadBalancerTrafficShiftDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.LoadBalancerTrafficShiftDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        case "WAIT":
+          return model.WaitDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.WaitDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_CANARY_TRAFFIC_SHIFT":
+          return model.ComputeInstanceGroupCanaryTrafficShiftDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupCanaryTrafficShiftDeployStageExecutionProgress>(
+              (<object>jsonObj)
+            ),
+            true
+          );
+        case "RUN_VALIDATION_TEST_ON_COMPUTE_INSTANCE":
+          return model.RunValidationTestOnComputeInstanceDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.RunValidationTestOnComputeInstanceDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        case "MANUAL_APPROVAL":
+          return model.ManualApprovalDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.ManualApprovalDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        case "RUN_DEPLOYMENT_PIPELINE":
+          return model.RunPipelineDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.RunPipelineDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        case "OKE_DEPLOYMENT":
+          return model.OkeDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.OkeDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        case "DEPLOY_FUNCTION":
+          return model.FunctionDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.FunctionDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        case "INVOKE_FUNCTION":
+          return model.InvokeFunctionDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.InvokeFunctionDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_CANARY_APPROVAL":
+          return model.ComputeInstanceGroupCanaryApprovalDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupCanaryApprovalDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_DEPLOYMENT":
+          return model.ComputeInstanceGroupBlueGreenDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupBlueGreenDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.deployStageType);
+      }
+    }
+    return jsonObj;
+  }
 }

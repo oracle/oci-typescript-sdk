@@ -141,4 +141,27 @@ export namespace BdsInstance {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BdsInstance): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "networkConfig": obj.networkConfig
+          ? model.NetworkConfig.getDeserializedJsonObj(obj.networkConfig)
+          : undefined,
+        "clusterDetails": obj.clusterDetails
+          ? model.ClusterDetails.getDeserializedJsonObj(obj.clusterDetails)
+          : undefined,
+        "nodes": obj.nodes
+          ? obj.nodes.map(item => {
+              return model.Node.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "cloudSqlDetails": obj.cloudSqlDetails
+          ? model.CloudSqlDetails.getDeserializedJsonObj(obj.cloudSqlDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

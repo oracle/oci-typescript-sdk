@@ -34,4 +34,9 @@ export namespace RevokeAccessRequestDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RevokeAccessRequestDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -121,4 +121,18 @@ export namespace UpdateManagementDashboardDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateManagementDashboardDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tiles": obj.tiles
+          ? obj.tiles.map(item => {
+              return model.ManagementDashboardTileDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

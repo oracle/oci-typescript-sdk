@@ -39,4 +39,18 @@ export namespace BlockchainPlatformCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BlockchainPlatformCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.BlockchainPlatformSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

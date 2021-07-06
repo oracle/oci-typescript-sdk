@@ -48,4 +48,9 @@ export namespace AvailableSoftwareSourceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AvailableSoftwareSourceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

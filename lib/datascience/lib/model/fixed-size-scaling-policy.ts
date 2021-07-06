@@ -37,4 +37,17 @@ export namespace FixedSizeScalingPolicy {
     return jsonObj;
   }
   export const policyType = "FIXED_SIZE";
+  export function getDeserializedJsonObj(
+    obj: FixedSizeScalingPolicy,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ScalingPolicy.getDeserializedJsonObj(obj) as FixedSizeScalingPolicy)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -55,4 +55,19 @@ export namespace CreateInvokeFunctionDeployStageDetails {
     return jsonObj;
   }
   export const deployStageType = "INVOKE_FUNCTION";
+  export function getDeserializedJsonObj(
+    obj: CreateInvokeFunctionDeployStageDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDeployStageDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateInvokeFunctionDeployStageDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

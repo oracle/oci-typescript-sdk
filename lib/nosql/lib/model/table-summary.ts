@@ -103,4 +103,16 @@ export namespace TableSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TableSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tableLimits": obj.tableLimits
+          ? model.TableLimits.getDeserializedJsonObj(obj.tableLimits)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

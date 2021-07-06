@@ -67,4 +67,18 @@ export namespace OperatorAction {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OperatorAction): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "properties": obj.properties
+          ? obj.properties.map(item => {
+              return model.OperatorActionProperties.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

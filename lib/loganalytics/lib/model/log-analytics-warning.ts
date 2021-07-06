@@ -134,4 +134,9 @@ export namespace LogAnalyticsWarning {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsWarning): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

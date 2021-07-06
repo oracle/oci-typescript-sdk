@@ -39,4 +39,19 @@ export namespace RunValidationTestOnComputeInstanceDeployStageExecutionProgress 
     return jsonObj;
   }
   export const deployStageType = "RUN_VALIDATION_TEST_ON_COMPUTE_INSTANCE";
+  export function getDeserializedJsonObj(
+    obj: RunValidationTestOnComputeInstanceDeployStageExecutionProgress,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageExecutionProgress.getDeserializedJsonObj(
+            obj
+          ) as RunValidationTestOnComputeInstanceDeployStageExecutionProgress)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

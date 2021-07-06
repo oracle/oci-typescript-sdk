@@ -44,4 +44,18 @@ export namespace TermRelationshipCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TermRelationshipCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.TermRelationshipSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

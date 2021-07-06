@@ -71,4 +71,9 @@ export namespace UpdatePrivateIpDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdatePrivateIpDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

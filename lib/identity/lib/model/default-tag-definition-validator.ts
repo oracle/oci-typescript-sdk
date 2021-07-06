@@ -39,4 +39,19 @@ export namespace DefaultTagDefinitionValidator {
     return jsonObj;
   }
   export const validatorType = "DEFAULT";
+  export function getDeserializedJsonObj(
+    obj: DefaultTagDefinitionValidator,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.BaseTagDefinitionValidator.getDeserializedJsonObj(
+            obj
+          ) as DefaultTagDefinitionValidator)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

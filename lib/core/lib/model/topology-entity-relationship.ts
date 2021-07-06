@@ -62,4 +62,30 @@ export namespace TopologyEntityRelationship {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TopologyEntityRelationship): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "ROUTES_TO":
+          return model.TopologyRoutesToEntityRelationship.getDeserializedJsonObj(
+            <model.TopologyRoutesToEntityRelationship>(<object>jsonObj),
+            true
+          );
+        case "ASSOCIATED_WITH":
+          return model.TopologyAssociatedWithEntityRelationship.getDeserializedJsonObj(
+            <model.TopologyAssociatedWithEntityRelationship>(<object>jsonObj),
+            true
+          );
+        case "CONTAINS":
+          return model.TopologyContainsEntityRelationship.getDeserializedJsonObj(
+            <model.TopologyContainsEntityRelationship>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -70,4 +70,9 @@ export namespace CreateWorkspaceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateWorkspaceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

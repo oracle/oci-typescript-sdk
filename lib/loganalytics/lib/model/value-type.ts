@@ -36,7 +36,10 @@ export enum ValueType {
 }
 
 export namespace ValueType {
-  export function getJsonObj(obj: ValueType): object {
-    return { obj };
+  export function getJsonObj(obj: ValueType): ValueType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ValueType): ValueType {
+    return obj;
   }
 }

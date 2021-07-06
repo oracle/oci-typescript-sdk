@@ -48,4 +48,25 @@ export namespace UnifiedAgentLoggingSource {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UnifiedAgentLoggingSource): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("sourceType" in obj && obj.sourceType) {
+      switch (obj.sourceType) {
+        case "WINDOWS_EVENT_LOG":
+          return model.UnifiedAgentWindowsEventSource.getDeserializedJsonObj(
+            <model.UnifiedAgentWindowsEventSource>(<object>jsonObj),
+            true
+          );
+        case "LOG_TAIL":
+          return model.UnifiedAgentTailLogSource.getDeserializedJsonObj(
+            <model.UnifiedAgentTailLogSource>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.sourceType);
+      }
+    }
+    return jsonObj;
+  }
 }

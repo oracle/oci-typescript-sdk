@@ -55,4 +55,9 @@ export namespace ConnectionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConnectionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

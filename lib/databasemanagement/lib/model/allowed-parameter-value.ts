@@ -41,4 +41,9 @@ export namespace AllowedParameterValue {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AllowedParameterValue): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

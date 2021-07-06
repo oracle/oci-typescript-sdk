@@ -41,4 +41,9 @@ export namespace UpdateConnectHarnessDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateConnectHarnessDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

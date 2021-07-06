@@ -37,4 +37,16 @@ export namespace Aggregator {
     return jsonObj;
   }
   export const modelType = "AGGREGATOR_OPERATOR";
+  export function getDeserializedJsonObj(obj: Aggregator, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as Aggregator)),
+      ...{
+        "groupByColumns": obj.groupByColumns
+          ? model.DynamicProxyField.getDeserializedJsonObj(obj.groupByColumns)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

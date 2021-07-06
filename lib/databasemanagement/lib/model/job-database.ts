@@ -37,4 +37,9 @@ export namespace JobDatabase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobDatabase): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

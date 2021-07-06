@@ -54,4 +54,9 @@ export namespace BulkApplyResourceAction {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BulkApplyResourceAction): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

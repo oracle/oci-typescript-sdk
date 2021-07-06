@@ -110,6 +110,12 @@ export interface OceInstance {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * SERVICE data.
    * Example: `{\"service\": {\"IDCS\": \"value\"}}`
    *
@@ -168,6 +174,18 @@ export namespace OceInstance {
       ...{
         "identityStripe": obj.identityStripe
           ? model.IdentityStripeDetails.getJsonObj(obj.identityStripe)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
+  export function getDeserializedJsonObj(obj: OceInstance): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "identityStripe": obj.identityStripe
+          ? model.IdentityStripeDetails.getDeserializedJsonObj(obj.identityStripe)
           : undefined
       }
     };

@@ -53,4 +53,9 @@ export namespace ChildDatabase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChildDatabase): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -73,4 +73,9 @@ export namespace CreateSdkDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSdkDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

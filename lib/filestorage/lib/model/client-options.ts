@@ -100,4 +100,9 @@ export namespace ClientOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ClientOptions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -59,4 +59,9 @@ export namespace UpdateApiDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateApiDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

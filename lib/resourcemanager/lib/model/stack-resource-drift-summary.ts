@@ -95,4 +95,9 @@ export namespace StackResourceDriftSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StackResourceDriftSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

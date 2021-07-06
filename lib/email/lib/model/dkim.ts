@@ -143,4 +143,9 @@ export namespace Dkim {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Dkim): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

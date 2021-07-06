@@ -68,4 +68,16 @@ export namespace CreateConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateConfigurationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "variables": obj.variables
+          ? model.ConfigurationVariables.getDeserializedJsonObj(obj.variables)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

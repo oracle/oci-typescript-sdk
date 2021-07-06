@@ -81,4 +81,24 @@ export namespace CreateSecurityListDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSecurityListDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "egressSecurityRules": obj.egressSecurityRules
+          ? obj.egressSecurityRules.map(item => {
+              return model.EgressSecurityRule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "ingressSecurityRules": obj.ingressSecurityRules
+          ? obj.ingressSecurityRules.map(item => {
+              return model.IngressSecurityRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

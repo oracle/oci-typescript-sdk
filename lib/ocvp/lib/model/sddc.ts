@@ -444,4 +444,18 @@ export namespace Sddc {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Sddc): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "hcxOnPremLicenses": obj.hcxOnPremLicenses
+          ? obj.hcxOnPremLicenses.map(item => {
+              return model.HcxLicenseSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

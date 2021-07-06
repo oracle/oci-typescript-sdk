@@ -67,4 +67,18 @@ export namespace ManagementAgentPluginSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagementAgentPluginSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "supportedPlatformTypes": obj.supportedPlatformTypes
+          ? obj.supportedPlatformTypes.map(item => {
+              return model.PlatformTypes.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

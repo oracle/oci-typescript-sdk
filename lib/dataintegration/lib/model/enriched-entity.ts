@@ -34,4 +34,17 @@ export namespace EnrichedEntity {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EnrichedEntity): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "entity": obj.entity ? model.DataEntity.getDeserializedJsonObj(obj.entity) : undefined,
+        "dataFormat": obj.dataFormat
+          ? model.DataFormat.getDeserializedJsonObj(obj.dataFormat)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -88,4 +88,9 @@ export namespace BackendSetHealth {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BackendSetHealth): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

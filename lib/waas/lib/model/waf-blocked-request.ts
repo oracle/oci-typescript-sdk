@@ -55,4 +55,9 @@ export namespace WafBlockedRequest {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WafBlockedRequest): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

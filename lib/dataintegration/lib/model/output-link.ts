@@ -36,4 +36,12 @@ export namespace OutputLink {
     return jsonObj;
   }
   export const modelType = "OUTPUT_LINK";
+  export function getDeserializedJsonObj(obj: OutputLink, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.FlowPortLink.getDeserializedJsonObj(obj) as OutputLink)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

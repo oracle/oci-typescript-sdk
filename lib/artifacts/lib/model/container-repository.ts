@@ -100,4 +100,16 @@ export namespace ContainerRepository {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ContainerRepository): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "readme": obj.readme
+          ? model.ContainerRepositoryReadme.getDeserializedJsonObj(obj.readme)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

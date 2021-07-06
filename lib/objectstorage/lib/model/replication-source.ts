@@ -41,4 +41,9 @@ export namespace ReplicationSource {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ReplicationSource): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

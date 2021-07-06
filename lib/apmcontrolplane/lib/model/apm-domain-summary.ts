@@ -72,4 +72,9 @@ export namespace ApmDomainSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApmDomainSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

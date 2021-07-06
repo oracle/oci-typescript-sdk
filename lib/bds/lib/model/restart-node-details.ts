@@ -33,4 +33,9 @@ export namespace RestartNodeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RestartNodeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

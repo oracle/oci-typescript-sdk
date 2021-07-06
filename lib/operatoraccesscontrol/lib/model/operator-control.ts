@@ -113,4 +113,9 @@ export namespace OperatorControl {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OperatorControl): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -50,4 +50,9 @@ export namespace DbVersionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbVersionSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

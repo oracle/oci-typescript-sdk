@@ -108,4 +108,29 @@ export namespace Erratum {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Erratum): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "affectedInstances": obj.affectedInstances
+          ? obj.affectedInstances.map(item => {
+              return model.Id.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "softwareSources": obj.softwareSources
+          ? obj.softwareSources.map(item => {
+              return model.Id.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "packages": obj.packages
+          ? obj.packages.map(item => {
+              return model.SoftwarePackageSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

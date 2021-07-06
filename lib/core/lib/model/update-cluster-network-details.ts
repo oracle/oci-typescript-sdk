@@ -67,4 +67,18 @@ export namespace UpdateClusterNetworkDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateClusterNetworkDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "instancePools": obj.instancePools
+          ? obj.instancePools.map(item => {
+              return model.UpdateClusterNetworkInstancePoolDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

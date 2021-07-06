@@ -31,7 +31,10 @@ export enum StorageDataType {
 }
 
 export namespace StorageDataType {
-  export function getJsonObj(obj: StorageDataType): object {
-    return { obj };
+  export function getJsonObj(obj: StorageDataType): StorageDataType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: StorageDataType): StorageDataType {
+    return obj;
   }
 }

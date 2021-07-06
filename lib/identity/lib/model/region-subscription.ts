@@ -66,4 +66,9 @@ export namespace RegionSubscription {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RegionSubscription): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

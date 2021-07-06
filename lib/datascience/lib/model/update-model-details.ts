@@ -50,4 +50,9 @@ export namespace UpdateModelDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateModelDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

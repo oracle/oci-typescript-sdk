@@ -24,7 +24,10 @@ export enum StopDeploymentType {
 }
 
 export namespace StopDeploymentType {
-  export function getJsonObj(obj: StopDeploymentType): object {
-    return { obj };
+  export function getJsonObj(obj: StopDeploymentType): StopDeploymentType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: StopDeploymentType): StopDeploymentType {
+    return obj;
   }
 }

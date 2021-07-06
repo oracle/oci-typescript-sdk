@@ -39,4 +39,19 @@ export namespace CreateDbSystemSourceFromNoneDetails {
     return jsonObj;
   }
   export const sourceType = "NONE";
+  export function getDeserializedJsonObj(
+    obj: CreateDbSystemSourceFromNoneDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDbSystemSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateDbSystemSourceFromNoneDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

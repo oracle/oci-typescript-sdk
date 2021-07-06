@@ -100,4 +100,16 @@ export namespace CreateRuleDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateRuleDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "actions": obj.actions
+          ? model.ActionDetailsList.getDeserializedJsonObj(obj.actions)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

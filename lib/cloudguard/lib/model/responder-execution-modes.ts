@@ -30,7 +30,10 @@ export enum ResponderExecutionModes {
 }
 
 export namespace ResponderExecutionModes {
-  export function getJsonObj(obj: ResponderExecutionModes): object {
-    return { obj };
+  export function getJsonObj(obj: ResponderExecutionModes): ResponderExecutionModes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ResponderExecutionModes): ResponderExecutionModes {
+    return obj;
   }
 }

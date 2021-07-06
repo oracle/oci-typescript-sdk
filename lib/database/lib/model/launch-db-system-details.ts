@@ -79,4 +79,25 @@ export namespace LaunchDbSystemDetails {
     return jsonObj;
   }
   export const source = "NONE";
+  export function getDeserializedJsonObj(
+    obj: LaunchDbSystemDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.LaunchDbSystemBase.getDeserializedJsonObj(obj) as LaunchDbSystemDetails)),
+      ...{
+        "dbHome": obj.dbHome
+          ? model.CreateDbHomeDetails.getDeserializedJsonObj(obj.dbHome)
+          : undefined,
+
+        "maintenanceWindowDetails": obj.maintenanceWindowDetails
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindowDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

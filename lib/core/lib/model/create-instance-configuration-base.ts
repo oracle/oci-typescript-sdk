@@ -78,4 +78,25 @@ export namespace CreateInstanceConfigurationBase {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateInstanceConfigurationBase): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("source" in obj && obj.source) {
+      switch (obj.source) {
+        case "NONE":
+          return model.CreateInstanceConfigurationDetails.getDeserializedJsonObj(
+            <model.CreateInstanceConfigurationDetails>(<object>jsonObj),
+            true
+          );
+        case "INSTANCE":
+          return model.CreateInstanceConfigurationFromInstanceDetails.getDeserializedJsonObj(
+            <model.CreateInstanceConfigurationFromInstanceDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.source);
+      }
+    }
+    return jsonObj;
+  }
 }

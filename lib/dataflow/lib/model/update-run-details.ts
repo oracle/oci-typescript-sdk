@@ -41,4 +41,9 @@ export namespace UpdateRunDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateRunDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

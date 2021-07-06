@@ -55,4 +55,9 @@ export namespace UpdateLoadBalancerDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateLoadBalancerDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

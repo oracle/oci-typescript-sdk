@@ -71,4 +71,25 @@ export namespace InstanceConfigurationAttachVolumeDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceConfigurationAttachVolumeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "iscsi":
+          return model.InstanceConfigurationIscsiAttachVolumeDetails.getDeserializedJsonObj(
+            <model.InstanceConfigurationIscsiAttachVolumeDetails>(<object>jsonObj),
+            true
+          );
+        case "paravirtualized":
+          return model.InstanceConfigurationParavirtualizedAttachVolumeDetails.getDeserializedJsonObj(
+            <model.InstanceConfigurationParavirtualizedAttachVolumeDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

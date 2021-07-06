@@ -88,4 +88,9 @@ export namespace CustomerSecretKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CustomerSecretKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

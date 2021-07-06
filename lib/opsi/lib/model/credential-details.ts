@@ -47,4 +47,20 @@ export namespace CredentialDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CredentialDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("credentialType" in obj && obj.credentialType) {
+      switch (obj.credentialType) {
+        case "CREDENTIALS_BY_SOURCE":
+          return model.CredentialsBySource.getDeserializedJsonObj(
+            <model.CredentialsBySource>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.credentialType);
+      }
+    }
+    return jsonObj;
+  }
 }

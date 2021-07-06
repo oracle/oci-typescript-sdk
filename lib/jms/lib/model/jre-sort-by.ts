@@ -29,7 +29,10 @@ export enum JreSortBy {
 }
 
 export namespace JreSortBy {
-  export function getJsonObj(obj: JreSortBy): object {
-    return { obj };
+  export function getJsonObj(obj: JreSortBy): JreSortBy {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: JreSortBy): JreSortBy {
+    return obj;
   }
 }

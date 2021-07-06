@@ -39,4 +39,18 @@ export namespace PublicVantagePointCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublicVantagePointCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.PublicVantagePointSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

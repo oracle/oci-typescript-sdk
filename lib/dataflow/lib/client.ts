@@ -14,7 +14,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { DataFlowWaiter } from "./dataflow-waiter";
@@ -171,7 +171,7 @@ export class DataFlowClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeApplicationCompartmentRequest.changeApplicationCompartmentDetails,
         "ChangeApplicationCompartmentDetails",
-        models.ChangeApplicationCompartmentDetails.getJsonObj
+        model.ChangeApplicationCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -234,7 +234,7 @@ export class DataFlowClient {
       bodyContent: common.ObjectSerializer.serialize(
         changePrivateEndpointCompartmentRequest.changePrivateEndpointCompartmentDetails,
         "ChangePrivateEndpointCompartmentDetails",
-        models.ChangePrivateEndpointCompartmentDetails.getJsonObj
+        model.ChangePrivateEndpointCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -305,7 +305,7 @@ export class DataFlowClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeRunCompartmentRequest.changeRunCompartmentDetails,
         "ChangeRunCompartmentDetails",
-        models.ChangeRunCompartmentDetails.getJsonObj
+        model.ChangeRunCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -365,7 +365,7 @@ export class DataFlowClient {
       bodyContent: common.ObjectSerializer.serialize(
         createApplicationRequest.createApplicationDetails,
         "CreateApplicationDetails",
-        models.CreateApplicationDetails.getJsonObj
+        model.CreateApplicationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -377,7 +377,8 @@ export class DataFlowClient {
         responseObject: <responses.CreateApplicationResponse>{},
         body: await response.json(),
         bodyKey: "application",
-        bodyModel: "model.Application",
+        bodyModel: model.Application,
+        type: "model.Application",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -433,7 +434,7 @@ export class DataFlowClient {
       bodyContent: common.ObjectSerializer.serialize(
         createPrivateEndpointRequest.createPrivateEndpointDetails,
         "CreatePrivateEndpointDetails",
-        models.CreatePrivateEndpointDetails.getJsonObj
+        model.CreatePrivateEndpointDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -445,7 +446,8 @@ export class DataFlowClient {
         responseObject: <responses.CreatePrivateEndpointResponse>{},
         body: await response.json(),
         bodyKey: "privateEndpoint",
-        bodyModel: "model.PrivateEndpoint",
+        bodyModel: model.PrivateEndpoint,
+        type: "model.PrivateEndpoint",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -511,7 +513,7 @@ export class DataFlowClient {
       bodyContent: common.ObjectSerializer.serialize(
         createRunRequest.createRunDetails,
         "CreateRunDetails",
-        models.CreateRunDetails.getJsonObj
+        model.CreateRunDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -523,7 +525,8 @@ export class DataFlowClient {
         responseObject: <responses.CreateRunResponse>{},
         body: await response.json(),
         bodyKey: "run",
-        bodyModel: "model.Run",
+        bodyModel: model.Run,
+        type: "model.Run",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -764,7 +767,8 @@ export class DataFlowClient {
         responseObject: <responses.GetApplicationResponse>{},
         body: await response.json(),
         bodyKey: "application",
-        bodyModel: "model.Application",
+        bodyModel: model.Application,
+        type: "model.Application",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -828,7 +832,8 @@ export class DataFlowClient {
         responseObject: <responses.GetPrivateEndpointResponse>{},
         body: await response.json(),
         bodyKey: "privateEndpoint",
-        bodyModel: "model.PrivateEndpoint",
+        bodyModel: model.PrivateEndpoint,
+        type: "model.PrivateEndpoint",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -890,7 +895,8 @@ export class DataFlowClient {
         responseObject: <responses.GetRunResponse>{},
         body: await response.json(),
         bodyKey: "run",
-        bodyModel: "model.Run",
+        bodyModel: model.Run,
+        type: "model.Run",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1043,7 +1049,8 @@ export class DataFlowClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1110,7 +1117,8 @@ export class DataFlowClient {
         responseObject: <responses.ListApplicationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ApplicationSummary[]",
+        bodyModel: model.ApplicationSummary,
+        type: "Array<model.ApplicationSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -1145,7 +1153,7 @@ export class DataFlowClient {
    */
   public listAllApplications(
     request: requests.ListApplicationsRequest
-  ): AsyncIterableIterator<models.ApplicationSummary> {
+  ): AsyncIterableIterator<model.ApplicationSummary> {
     return paginateRecords(request, req => this.listApplications(req));
   }
 
@@ -1212,7 +1220,8 @@ export class DataFlowClient {
         responseObject: <responses.ListPrivateEndpointsResponse>{},
         body: await response.json(),
         bodyKey: "privateEndpointCollection",
-        bodyModel: "model.PrivateEndpointCollection",
+        bodyModel: model.PrivateEndpointCollection,
+        type: "model.PrivateEndpointCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -1284,7 +1293,8 @@ export class DataFlowClient {
         responseObject: <responses.ListRunLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "RunLogSummary[]",
+        bodyModel: model.RunLogSummary,
+        type: "Array<model.RunLogSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1319,7 +1329,7 @@ export class DataFlowClient {
    */
   public listAllRunLogs(
     request: requests.ListRunLogsRequest
-  ): AsyncIterableIterator<models.RunLogSummary> {
+  ): AsyncIterableIterator<model.RunLogSummary> {
     return paginateRecords(request, req => this.listRunLogs(req));
   }
 
@@ -1388,7 +1398,8 @@ export class DataFlowClient {
         responseObject: <responses.ListRunsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "RunSummary[]",
+        bodyModel: model.RunSummary,
+        type: "Array<model.RunSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -1421,7 +1432,7 @@ export class DataFlowClient {
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllRuns(request: requests.ListRunsRequest): AsyncIterableIterator<models.RunSummary> {
+  public listAllRuns(request: requests.ListRunsRequest): AsyncIterableIterator<model.RunSummary> {
     return paginateRecords(request, req => this.listRuns(req));
   }
 
@@ -1483,7 +1494,8 @@ export class DataFlowClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -1555,7 +1567,8 @@ export class DataFlowClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogCollection",
-        bodyModel: "model.WorkRequestLogCollection",
+        bodyModel: model.WorkRequestLogCollection,
+        type: "model.WorkRequestLogCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -1626,7 +1639,8 @@ export class DataFlowClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-prev-page"),
@@ -1689,7 +1703,7 @@ export class DataFlowClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateApplicationRequest.updateApplicationDetails,
         "UpdateApplicationDetails",
-        models.UpdateApplicationDetails.getJsonObj
+        model.UpdateApplicationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1701,7 +1715,8 @@ export class DataFlowClient {
         responseObject: <responses.UpdateApplicationResponse>{},
         body: await response.json(),
         bodyKey: "application",
-        bodyModel: "model.Application",
+        bodyModel: model.Application,
+        type: "model.Application",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1761,7 +1776,7 @@ export class DataFlowClient {
       bodyContent: common.ObjectSerializer.serialize(
         updatePrivateEndpointRequest.updatePrivateEndpointDetails,
         "UpdatePrivateEndpointDetails",
-        models.UpdatePrivateEndpointDetails.getJsonObj
+        model.UpdatePrivateEndpointDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1828,7 +1843,7 @@ export class DataFlowClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateRunRequest.updateRunDetails,
         "UpdateRunDetails",
-        models.UpdateRunDetails.getJsonObj
+        model.UpdateRunDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1840,7 +1855,8 @@ export class DataFlowClient {
         responseObject: <responses.UpdateRunResponse>{},
         body: await response.json(),
         bodyKey: "run",
-        bodyModel: "model.Run",
+        bodyModel: model.Run,
+        type: "model.Run",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

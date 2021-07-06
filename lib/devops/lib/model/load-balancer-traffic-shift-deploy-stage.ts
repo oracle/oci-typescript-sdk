@@ -74,4 +74,34 @@ export namespace LoadBalancerTrafficShiftDeployStage {
     return jsonObj;
   }
   export const deployStageType = "LOAD_BALANCER_TRAFFIC_SHIFT";
+  export function getDeserializedJsonObj(
+    obj: LoadBalancerTrafficShiftDeployStage,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStage.getDeserializedJsonObj(obj) as LoadBalancerTrafficShiftDeployStage)),
+      ...{
+        "blueBackendIps": obj.blueBackendIps
+          ? model.BackendSetIpCollection.getDeserializedJsonObj(obj.blueBackendIps)
+          : undefined,
+        "greenBackendIps": obj.greenBackendIps
+          ? model.BackendSetIpCollection.getDeserializedJsonObj(obj.greenBackendIps)
+          : undefined,
+
+        "rolloutPolicy": obj.rolloutPolicy
+          ? model.LoadBalancerTrafficShiftRolloutPolicy.getDeserializedJsonObj(obj.rolloutPolicy)
+          : undefined,
+        "loadBalancerConfig": obj.loadBalancerConfig
+          ? model.LoadBalancerConfig.getDeserializedJsonObj(obj.loadBalancerConfig)
+          : undefined,
+        "rollbackPolicy": obj.rollbackPolicy
+          ? model.DeployStageRollbackPolicy.getDeserializedJsonObj(obj.rollbackPolicy)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

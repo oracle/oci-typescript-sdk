@@ -56,4 +56,17 @@ export namespace DhcpSearchDomainOption {
     return jsonObj;
   }
   export const type = "SearchDomain";
+  export function getDeserializedJsonObj(
+    obj: DhcpSearchDomainOption,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DhcpOption.getDeserializedJsonObj(obj) as DhcpSearchDomainOption)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

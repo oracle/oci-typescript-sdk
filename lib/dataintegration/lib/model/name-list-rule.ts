@@ -81,4 +81,14 @@ export namespace NameListRule {
     return jsonObj;
   }
   export const modelType = "NAME_LIST_RULE";
+  export function getDeserializedJsonObj(obj: NameListRule, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ProjectionRule.getDeserializedJsonObj(obj) as NameListRule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

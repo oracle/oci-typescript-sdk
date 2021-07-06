@@ -97,4 +97,59 @@ export namespace CreateDeployStageDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDeployStageDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "deployStagePredecessorCollection": obj.deployStagePredecessorCollection
+          ? model.DeployStagePredecessorCollection.getDeserializedJsonObj(
+              obj.deployStagePredecessorCollection
+            )
+          : undefined
+      }
+    };
+
+    if ("deployStageType" in obj && obj.deployStageType) {
+      switch (obj.deployStageType) {
+        case "MANUAL_APPROVAL":
+          return model.CreateManualApprovalDeployStageDetails.getDeserializedJsonObj(
+            <model.CreateManualApprovalDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "WAIT":
+          return model.CreateWaitDeployStageDetails.getDeserializedJsonObj(
+            <model.CreateWaitDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "OKE_DEPLOYMENT":
+          return model.CreateOkeDeployStageDetails.getDeserializedJsonObj(
+            <model.CreateOkeDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "LOAD_BALANCER_TRAFFIC_SHIFT":
+          return model.CreateLoadBalancerTrafficShiftDeployStageDetails.getDeserializedJsonObj(
+            <model.CreateLoadBalancerTrafficShiftDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT":
+          return model.CreateComputeInstanceGroupDeployStageDetails.getDeserializedJsonObj(
+            <model.CreateComputeInstanceGroupDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "INVOKE_FUNCTION":
+          return model.CreateInvokeFunctionDeployStageDetails.getDeserializedJsonObj(
+            <model.CreateInvokeFunctionDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "DEPLOY_FUNCTION":
+          return model.CreateFunctionDeployStageDetails.getDeserializedJsonObj(
+            <model.CreateFunctionDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.deployStageType);
+      }
+    }
+    return jsonObj;
+  }
 }

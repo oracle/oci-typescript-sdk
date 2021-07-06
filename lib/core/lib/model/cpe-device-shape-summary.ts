@@ -47,4 +47,16 @@ export namespace CpeDeviceShapeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CpeDeviceShapeSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "cpeDeviceInfo": obj.cpeDeviceInfo
+          ? model.CpeDeviceInfo.getDeserializedJsonObj(obj.cpeDeviceInfo)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

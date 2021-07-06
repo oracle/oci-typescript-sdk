@@ -46,4 +46,9 @@ export namespace SecurityScoreTrendAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SecurityScoreTrendAggregation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

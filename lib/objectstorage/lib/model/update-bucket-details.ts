@@ -113,4 +113,9 @@ export namespace UpdateBucketDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateBucketDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

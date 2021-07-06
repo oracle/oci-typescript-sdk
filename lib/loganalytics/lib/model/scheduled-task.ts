@@ -158,4 +158,30 @@ export namespace ScheduledTask {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScheduledTask): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "schedules": obj.schedules
+          ? obj.schedules.map(item => {
+              return model.Schedule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "action": obj.action ? model.Action.getDeserializedJsonObj(obj.action) : undefined
+      }
+    };
+
+    if ("kind" in obj && obj.kind) {
+      switch (obj.kind) {
+        case "STANDARD":
+          return model.StandardTask.getDeserializedJsonObj(
+            <model.StandardTask>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.kind);
+      }
+    }
+    return jsonObj;
+  }
 }

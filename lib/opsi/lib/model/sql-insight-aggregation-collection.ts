@@ -57,4 +57,24 @@ export namespace SqlInsightAggregationCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlInsightAggregationCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "inventory": obj.inventory
+          ? model.SqlInventory.getDeserializedJsonObj(obj.inventory)
+          : undefined,
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SqlInsightAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "thresholds": obj.thresholds
+          ? model.SqlInsightThresholds.getDeserializedJsonObj(obj.thresholds)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

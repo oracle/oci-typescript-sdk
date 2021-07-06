@@ -62,4 +62,9 @@ export namespace CreateInternetGatewayDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateInternetGatewayDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

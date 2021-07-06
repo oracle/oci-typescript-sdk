@@ -36,4 +36,17 @@ export namespace FreeTextSearchDetails {
     return jsonObj;
   }
   export const type = "FreeText";
+  export function getDeserializedJsonObj(
+    obj: FreeTextSearchDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SearchDetails.getDeserializedJsonObj(obj) as FreeTextSearchDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

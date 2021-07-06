@@ -24,7 +24,10 @@ export enum SortOrders {
 }
 
 export namespace SortOrders {
-  export function getJsonObj(obj: SortOrders): object {
-    return { obj };
+  export function getJsonObj(obj: SortOrders): SortOrders {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: SortOrders): SortOrders {
+    return obj;
   }
 }

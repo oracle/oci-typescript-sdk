@@ -50,4 +50,9 @@ export namespace NetworkSecurityGroupVnic {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NetworkSecurityGroupVnic): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

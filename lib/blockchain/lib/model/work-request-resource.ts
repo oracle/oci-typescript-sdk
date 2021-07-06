@@ -72,4 +72,18 @@ export namespace WorkRequestResource {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkRequestResource): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "subTypeDetails": obj.subTypeDetails
+          ? obj.subTypeDetails.map(item => {
+              return model.WorkRequestResourceSubTypeDetail.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

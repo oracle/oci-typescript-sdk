@@ -71,4 +71,9 @@ export namespace CreateDrgRouteTableDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDrgRouteTableDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

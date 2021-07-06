@@ -77,4 +77,19 @@ export namespace DBExternalProperties {
     return jsonObj;
   }
   export const metricName = "DB_EXTERNAL_PROPERTIES";
+  export function getDeserializedJsonObj(
+    obj: DBExternalProperties,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DatabaseConfigurationMetricGroup.getDeserializedJsonObj(
+            obj
+          ) as DBExternalProperties)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

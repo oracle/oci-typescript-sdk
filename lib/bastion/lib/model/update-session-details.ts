@@ -30,4 +30,9 @@ export namespace UpdateSessionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateSessionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

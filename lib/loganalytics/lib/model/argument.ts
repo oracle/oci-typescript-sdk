@@ -39,4 +39,25 @@ export namespace Argument {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Argument): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "LITERAL":
+          return model.LiteralArgument.getDeserializedJsonObj(
+            <model.LiteralArgument>(<object>jsonObj),
+            true
+          );
+        case "FIELD":
+          return model.FieldArgument.getDeserializedJsonObj(
+            <model.FieldArgument>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

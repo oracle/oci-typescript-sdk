@@ -33,4 +33,9 @@ export namespace DetectLanguageEntitiesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectLanguageEntitiesDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

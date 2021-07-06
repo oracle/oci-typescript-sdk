@@ -25,7 +25,10 @@ export enum OperatorType {
 }
 
 export namespace OperatorType {
-  export function getJsonObj(obj: OperatorType): object {
-    return { obj };
+  export function getJsonObj(obj: OperatorType): OperatorType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: OperatorType): OperatorType {
+    return obj;
   }
 }

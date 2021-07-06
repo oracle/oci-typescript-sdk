@@ -66,4 +66,9 @@ export namespace AddressListSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddressListSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

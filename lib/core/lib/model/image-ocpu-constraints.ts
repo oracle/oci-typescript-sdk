@@ -39,4 +39,9 @@ export namespace ImageOcpuConstraints {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ImageOcpuConstraints): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

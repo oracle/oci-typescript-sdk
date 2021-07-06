@@ -31,6 +31,7 @@ export import DomainGovernanceClient = client.DomainGovernanceClient;
 export import DomainGovernanceWaiter = domaingovernance_waiter.DomainGovernanceWaiter;
 export import LinkClient = client.LinkClient;
 export import LinkWaiter = link_waiter.LinkWaiter;
+export import OrdersClient = client.OrdersClient;
 export import RecipientInvitationClient = client.RecipientInvitationClient;
 export import RecipientInvitationWaiter = recipientinvitation_waiter.RecipientInvitationWaiter;
 export import SenderInvitationClient = client.SenderInvitationClient;

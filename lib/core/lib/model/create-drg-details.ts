@@ -54,4 +54,9 @@ export namespace CreateDrgDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDrgDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

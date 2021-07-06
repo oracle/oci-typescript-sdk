@@ -62,4 +62,16 @@ export namespace CreateFolderDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateFolderDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "registryMetadata": obj.registryMetadata
+          ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

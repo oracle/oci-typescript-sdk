@@ -37,4 +37,9 @@ export namespace ChangeLocalPeeringGatewayCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ChangeLocalPeeringGatewayCompartmentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

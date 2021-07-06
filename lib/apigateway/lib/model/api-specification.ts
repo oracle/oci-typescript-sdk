@@ -50,4 +50,24 @@ export namespace ApiSpecification {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApiSpecification): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "requestPolicies": obj.requestPolicies
+          ? model.ApiSpecificationRequestPolicies.getDeserializedJsonObj(obj.requestPolicies)
+          : undefined,
+        "loggingPolicies": obj.loggingPolicies
+          ? model.ApiSpecificationLoggingPolicies.getDeserializedJsonObj(obj.loggingPolicies)
+          : undefined,
+        "routes": obj.routes
+          ? obj.routes.map(item => {
+              return model.ApiSpecificationRoute.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

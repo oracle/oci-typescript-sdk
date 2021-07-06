@@ -48,4 +48,9 @@ export namespace UpdateApmDomainDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateApmDomainDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

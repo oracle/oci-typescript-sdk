@@ -30,4 +30,9 @@ export namespace SkipBulkResponderExecutionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SkipBulkResponderExecutionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

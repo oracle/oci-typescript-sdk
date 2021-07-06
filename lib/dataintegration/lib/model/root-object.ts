@@ -48,4 +48,16 @@ export namespace RootObject {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RootObject): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

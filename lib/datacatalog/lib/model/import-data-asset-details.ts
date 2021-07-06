@@ -30,4 +30,9 @@ export namespace ImportDataAssetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ImportDataAssetDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

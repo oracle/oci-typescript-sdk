@@ -164,4 +164,16 @@ export namespace AlarmSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AlarmSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "suppression": obj.suppression
+          ? model.Suppression.getDeserializedJsonObj(obj.suppression)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

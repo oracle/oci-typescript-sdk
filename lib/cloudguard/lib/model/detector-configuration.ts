@@ -55,4 +55,18 @@ export namespace DetectorConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectorConfiguration): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "values": obj.values
+          ? obj.values.map(item => {
+              return model.ConfigValue.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

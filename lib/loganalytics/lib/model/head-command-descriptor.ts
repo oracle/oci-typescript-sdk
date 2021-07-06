@@ -41,4 +41,17 @@ export namespace HeadCommandDescriptor {
     return jsonObj;
   }
   export const name = "HEAD";
+  export function getDeserializedJsonObj(
+    obj: HeadCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as HeadCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

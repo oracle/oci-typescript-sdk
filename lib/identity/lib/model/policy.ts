@@ -116,4 +116,9 @@ export namespace Policy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Policy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -104,4 +104,9 @@ export namespace CreateIPSecTunnelBgpSessionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateIPSecTunnelBgpSessionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

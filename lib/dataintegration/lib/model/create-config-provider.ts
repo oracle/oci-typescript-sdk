@@ -37,4 +37,16 @@ export namespace CreateConfigProvider {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateConfigProvider): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "bindings": obj.bindings
+          ? common.mapContainer(obj.bindings, model.ParameterValue.getDeserializedJsonObj)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

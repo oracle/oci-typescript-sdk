@@ -55,4 +55,35 @@ export namespace RuleCondition {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RuleCondition): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("attributeName" in obj && obj.attributeName) {
+      switch (obj.attributeName) {
+        case "SOURCE_VCN_ID":
+          return model.SourceVcnIdCondition.getDeserializedJsonObj(
+            <model.SourceVcnIdCondition>(<object>jsonObj),
+            true
+          );
+        case "SOURCE_IP_ADDRESS":
+          return model.SourceIpAddressCondition.getDeserializedJsonObj(
+            <model.SourceIpAddressCondition>(<object>jsonObj),
+            true
+          );
+        case "PATH":
+          return model.PathMatchCondition.getDeserializedJsonObj(
+            <model.PathMatchCondition>(<object>jsonObj),
+            true
+          );
+        case "SOURCE_VCN_IP_ADDRESS":
+          return model.SourceVcnIpAddressCondition.getDeserializedJsonObj(
+            <model.SourceVcnIpAddressCondition>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.attributeName);
+      }
+    }
+    return jsonObj;
+  }
 }

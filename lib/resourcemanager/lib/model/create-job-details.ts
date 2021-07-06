@@ -73,4 +73,19 @@ export namespace CreateJobDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateJobDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "jobOperationDetails": obj.jobOperationDetails
+          ? model.CreateJobOperationDetails.getDeserializedJsonObj(obj.jobOperationDetails)
+          : undefined,
+        "applyJobPlanResolution": obj.applyJobPlanResolution
+          ? model.ApplyJobPlanResolution.getDeserializedJsonObj(obj.applyJobPlanResolution)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

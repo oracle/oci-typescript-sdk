@@ -46,4 +46,16 @@ export namespace CreatePeerDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePeerDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ocpuAllocationParam": obj.ocpuAllocationParam
+          ? model.OcpuAllocationNumberParam.getDeserializedJsonObj(obj.ocpuAllocationParam)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

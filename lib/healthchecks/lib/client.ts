@@ -16,7 +16,7 @@ For more information, see
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -149,7 +149,7 @@ export class HealthChecksClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeHttpMonitorCompartmentRequest.changeHttpMonitorCompartmentDetails,
         "ChangeHttpMonitorCompartmentDetails",
-        models.ChangeHttpMonitorCompartmentDetails.getJsonObj
+        model.ChangeHttpMonitorCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -214,7 +214,7 @@ export class HealthChecksClient {
       bodyContent: common.ObjectSerializer.serialize(
         changePingMonitorCompartmentRequest.changePingMonitorCompartmentDetails,
         "ChangePingMonitorCompartmentDetails",
-        models.ChangePingMonitorCompartmentDetails.getJsonObj
+        model.ChangePingMonitorCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -276,7 +276,7 @@ export class HealthChecksClient {
       bodyContent: common.ObjectSerializer.serialize(
         createHttpMonitorRequest.createHttpMonitorDetails,
         "CreateHttpMonitorDetails",
-        models.CreateHttpMonitorDetails.getJsonObj
+        model.CreateHttpMonitorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -288,7 +288,8 @@ export class HealthChecksClient {
         responseObject: <responses.CreateHttpMonitorResponse>{},
         body: await response.json(),
         bodyKey: "httpMonitor",
-        bodyModel: "model.HttpMonitor",
+        bodyModel: model.HttpMonitor,
+        type: "model.HttpMonitor",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -352,7 +353,7 @@ export class HealthChecksClient {
       bodyContent: common.ObjectSerializer.serialize(
         createOnDemandHttpProbeRequest.createOnDemandHttpProbeDetails,
         "CreateOnDemandHttpProbeDetails",
-        models.CreateOnDemandHttpProbeDetails.getJsonObj
+        model.CreateOnDemandHttpProbeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -364,7 +365,8 @@ export class HealthChecksClient {
         responseObject: <responses.CreateOnDemandHttpProbeResponse>{},
         body: await response.json(),
         bodyKey: "httpProbe",
-        bodyModel: "model.HttpProbe",
+        bodyModel: model.HttpProbe,
+        type: "model.HttpProbe",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -423,7 +425,7 @@ export class HealthChecksClient {
       bodyContent: common.ObjectSerializer.serialize(
         createOnDemandPingProbeRequest.createOnDemandPingProbeDetails,
         "CreateOnDemandPingProbeDetails",
-        models.CreateOnDemandPingProbeDetails.getJsonObj
+        model.CreateOnDemandPingProbeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -435,7 +437,8 @@ export class HealthChecksClient {
         responseObject: <responses.CreateOnDemandPingProbeResponse>{},
         body: await response.json(),
         bodyKey: "pingProbe",
-        bodyModel: "model.PingProbe",
+        bodyModel: model.PingProbe,
+        type: "model.PingProbe",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -493,7 +496,7 @@ export class HealthChecksClient {
       bodyContent: common.ObjectSerializer.serialize(
         createPingMonitorRequest.createPingMonitorDetails,
         "CreatePingMonitorDetails",
-        models.CreatePingMonitorDetails.getJsonObj
+        model.CreatePingMonitorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -505,7 +508,8 @@ export class HealthChecksClient {
         responseObject: <responses.CreatePingMonitorResponse>{},
         body: await response.json(),
         bodyKey: "pingMonitor",
-        bodyModel: "model.PingMonitor",
+        bodyModel: model.PingMonitor,
+        type: "model.PingMonitor",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -691,7 +695,8 @@ export class HealthChecksClient {
         responseObject: <responses.GetHttpMonitorResponse>{},
         body: await response.json(),
         bodyKey: "httpMonitor",
-        bodyModel: "model.HttpMonitor",
+        bodyModel: model.HttpMonitor,
+        type: "model.HttpMonitor",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -756,7 +761,8 @@ export class HealthChecksClient {
         responseObject: <responses.GetPingMonitorResponse>{},
         body: await response.json(),
         bodyKey: "pingMonitor",
-        bodyModel: "model.PingMonitor",
+        bodyModel: model.PingMonitor,
+        type: "model.PingMonitor",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -826,7 +832,8 @@ export class HealthChecksClient {
         responseObject: <responses.ListHealthChecksVantagePointsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "HealthChecksVantagePointSummary[]",
+        bodyModel: model.HealthChecksVantagePointSummary,
+        type: "Array<model.HealthChecksVantagePointSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -856,7 +863,7 @@ export class HealthChecksClient {
    */
   public listAllHealthChecksVantagePoints(
     request: requests.ListHealthChecksVantagePointsRequest
-  ): AsyncIterableIterator<models.HealthChecksVantagePointSummary> {
+  ): AsyncIterableIterator<model.HealthChecksVantagePointSummary> {
     return paginateRecords(request, req => this.listHealthChecksVantagePoints(req));
   }
 
@@ -921,7 +928,8 @@ export class HealthChecksClient {
         responseObject: <responses.ListHttpMonitorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "HttpMonitorSummary[]",
+        bodyModel: model.HttpMonitorSummary,
+        type: "Array<model.HttpMonitorSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -951,7 +959,7 @@ export class HealthChecksClient {
    */
   public listAllHttpMonitors(
     request: requests.ListHttpMonitorsRequest
-  ): AsyncIterableIterator<models.HttpMonitorSummary> {
+  ): AsyncIterableIterator<model.HttpMonitorSummary> {
     return paginateRecords(request, req => this.listHttpMonitors(req));
   }
 
@@ -1020,7 +1028,8 @@ export class HealthChecksClient {
         responseObject: <responses.ListHttpProbeResultsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "HttpProbeResultSummary[]",
+        bodyModel: model.HttpProbeResultSummary,
+        type: "Array<model.HttpProbeResultSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1050,7 +1059,7 @@ export class HealthChecksClient {
    */
   public listAllHttpProbeResults(
     request: requests.ListHttpProbeResultsRequest
-  ): AsyncIterableIterator<models.HttpProbeResultSummary> {
+  ): AsyncIterableIterator<model.HttpProbeResultSummary> {
     return paginateRecords(request, req => this.listHttpProbeResults(req));
   }
 
@@ -1118,7 +1127,8 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
         responseObject: <responses.ListPingMonitorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PingMonitorSummary[]",
+        bodyModel: model.PingMonitorSummary,
+        type: "Array<model.PingMonitorSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1148,7 +1158,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
    */
   public listAllPingMonitors(
     request: requests.ListPingMonitorsRequest
-  ): AsyncIterableIterator<models.PingMonitorSummary> {
+  ): AsyncIterableIterator<model.PingMonitorSummary> {
     return paginateRecords(request, req => this.listPingMonitors(req));
   }
 
@@ -1221,7 +1231,8 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
         responseObject: <responses.ListPingProbeResultsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PingProbeResultSummary[]",
+        bodyModel: model.PingProbeResultSummary,
+        type: "Array<model.PingProbeResultSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1251,7 +1262,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
    */
   public listAllPingProbeResults(
     request: requests.ListPingProbeResultsRequest
-  ): AsyncIterableIterator<models.PingProbeResultSummary> {
+  ): AsyncIterableIterator<model.PingProbeResultSummary> {
     return paginateRecords(request, req => this.listPingProbeResults(req));
   }
 
@@ -1306,7 +1317,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       bodyContent: common.ObjectSerializer.serialize(
         updateHttpMonitorRequest.updateHttpMonitorDetails,
         "UpdateHttpMonitorDetails",
-        models.UpdateHttpMonitorDetails.getJsonObj
+        model.UpdateHttpMonitorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1318,7 +1329,8 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
         responseObject: <responses.UpdateHttpMonitorResponse>{},
         body: await response.json(),
         bodyKey: "httpMonitor",
-        bodyModel: "model.HttpMonitor",
+        bodyModel: model.HttpMonitor,
+        type: "model.HttpMonitor",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1378,7 +1390,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       bodyContent: common.ObjectSerializer.serialize(
         updatePingMonitorRequest.updatePingMonitorDetails,
         "UpdatePingMonitorDetails",
-        models.UpdatePingMonitorDetails.getJsonObj
+        model.UpdatePingMonitorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1390,7 +1402,8 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
         responseObject: <responses.UpdatePingMonitorResponse>{},
         body: await response.json(),
         bodyKey: "pingMonitor",
-        bodyModel: "model.PingMonitor",
+        bodyModel: model.PingMonitor,
+        type: "model.PingMonitor",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

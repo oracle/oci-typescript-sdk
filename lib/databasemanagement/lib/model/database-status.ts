@@ -33,7 +33,10 @@ export enum DatabaseStatus {
 }
 
 export namespace DatabaseStatus {
-  export function getJsonObj(obj: DatabaseStatus): object {
-    return { obj };
+  export function getJsonObj(obj: DatabaseStatus): DatabaseStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DatabaseStatus): DatabaseStatus {
+    return obj;
   }
 }

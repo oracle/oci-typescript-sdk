@@ -39,4 +39,17 @@ export namespace PemEncodedPublicKey {
     return jsonObj;
   }
   export const format = "PEM";
+  export function getDeserializedJsonObj(
+    obj: PemEncodedPublicKey,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.StaticPublicKey.getDeserializedJsonObj(obj) as PemEncodedPublicKey)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

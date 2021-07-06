@@ -78,4 +78,48 @@ export namespace ProjectionRule {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProjectionRule): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "configValues": obj.configValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.configValues)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "RENAME_RULE":
+          return model.RenameRule.getDeserializedJsonObj(<model.RenameRule>(<object>jsonObj), true);
+        case "TYPE_LIST_RULE":
+          return model.TypeListRule.getDeserializedJsonObj(
+            <model.TypeListRule>(<object>jsonObj),
+            true
+          );
+        case "TYPED_NAME_PATTERN_RULE":
+          return model.TypedNamePatternRule.getDeserializedJsonObj(
+            <model.TypedNamePatternRule>(<object>jsonObj),
+            true
+          );
+        case "NAME_PATTERN_RULE":
+          return model.NamePatternRule.getDeserializedJsonObj(
+            <model.NamePatternRule>(<object>jsonObj),
+            true
+          );
+        case "NAME_LIST_RULE":
+          return model.NameListRule.getDeserializedJsonObj(
+            <model.NameListRule>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

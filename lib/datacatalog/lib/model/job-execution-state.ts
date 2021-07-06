@@ -42,7 +42,10 @@ export enum JobExecutionState {
 }
 
 export namespace JobExecutionState {
-  export function getJsonObj(obj: JobExecutionState): object {
-    return { obj };
+  export function getJsonObj(obj: JobExecutionState): JobExecutionState {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: JobExecutionState): JobExecutionState {
+    return obj;
   }
 }

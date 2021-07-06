@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { DomainWaiter } from "./domain-waiter";
 import { DomainGovernanceWaiter } from "./domaingovernance-waiter";
@@ -169,7 +169,7 @@ export class DomainClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDomainRequest.createDomainDetails,
         "CreateDomainDetails",
-        models.CreateDomainDetails.getJsonObj
+        model.CreateDomainDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -181,7 +181,8 @@ export class DomainClient {
         responseObject: <responses.CreateDomainResponse>{},
         body: await response.json(),
         bodyKey: "domain",
-        bodyModel: "model.Domain",
+        bodyModel: model.Domain,
+        type: "model.Domain",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -305,7 +306,8 @@ export class DomainClient {
         responseObject: <responses.GetDomainResponse>{},
         body: await response.json(),
         bodyKey: "domain",
-        bodyModel: "model.Domain",
+        bodyModel: model.Domain,
+        type: "model.Domain",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -377,7 +379,8 @@ export class DomainClient {
         responseObject: <responses.ListDomainsResponse>{},
         body: await response.json(),
         bodyKey: "domainCollection",
-        bodyModel: "model.DomainCollection",
+        bodyModel: model.DomainCollection,
+        type: "model.DomainCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -434,7 +437,7 @@ export class DomainClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDomainRequest.updateDomainDetails,
         "UpdateDomainDetails",
-        models.UpdateDomainDetails.getJsonObj
+        model.UpdateDomainDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -446,7 +449,8 @@ export class DomainClient {
         responseObject: <responses.UpdateDomainResponse>{},
         body: await response.json(),
         bodyKey: "domain",
-        bodyModel: "model.Domain",
+        bodyModel: model.Domain,
+        type: "model.Domain",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -610,7 +614,7 @@ export class DomainGovernanceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDomainGovernanceRequest.createDomainGovernanceDetails,
         "CreateDomainGovernanceDetails",
-        models.CreateDomainGovernanceDetails.getJsonObj
+        model.CreateDomainGovernanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -622,7 +626,8 @@ export class DomainGovernanceClient {
         responseObject: <responses.CreateDomainGovernanceResponse>{},
         body: await response.json(),
         bodyKey: "domainGovernance",
-        bodyModel: "model.DomainGovernance",
+        bodyModel: model.DomainGovernance,
+        type: "model.DomainGovernance",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -743,7 +748,8 @@ export class DomainGovernanceClient {
         responseObject: <responses.GetDomainGovernanceResponse>{},
         body: await response.json(),
         bodyKey: "domainGovernance",
-        bodyModel: "model.DomainGovernance",
+        bodyModel: model.DomainGovernance,
+        type: "model.DomainGovernance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -816,7 +822,8 @@ export class DomainGovernanceClient {
         responseObject: <responses.ListDomainGovernancesResponse>{},
         body: await response.json(),
         bodyKey: "domainGovernanceCollection",
-        bodyModel: "model.DomainGovernanceCollection",
+        bodyModel: model.DomainGovernanceCollection,
+        type: "model.DomainGovernanceCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -874,7 +881,7 @@ export class DomainGovernanceClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDomainGovernanceRequest.updateDomainGovernanceDetails,
         "UpdateDomainGovernanceDetails",
-        models.UpdateDomainGovernanceDetails.getJsonObj
+        model.UpdateDomainGovernanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -886,7 +893,8 @@ export class DomainGovernanceClient {
         responseObject: <responses.UpdateDomainGovernanceResponse>{},
         body: await response.json(),
         bodyKey: "domainGovernance",
-        bodyModel: "model.DomainGovernance",
+        bodyModel: model.DomainGovernance,
+        type: "model.DomainGovernance",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1113,7 +1121,8 @@ export class LinkClient {
         responseObject: <responses.GetLinkResponse>{},
         body: await response.json(),
         bodyKey: "link",
-        bodyModel: "model.Link",
+        bodyModel: model.Link,
+        type: "model.Link",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1181,13 +1190,224 @@ export class LinkClient {
         responseObject: <responses.ListLinksResponse>{},
         body: await response.json(),
         bodyKey: "linkCollection",
-        bodyModel: "model.LinkCollection",
+        bodyModel: model.LinkCollection,
+        type: "model.LinkCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum OrdersApiKeys {}
+
+export class OrdersClient {
+  protected static serviceEndpointTemplate =
+    "https://organizations.{region}.oci.{secondLevelDomain}";
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
+
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20200801";
+    if (this.logger) this.logger.info(`OrdersClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      OrdersClient.serviceEndpointTemplate,
+      region
+    );
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      OrdersClient.serviceEndpointTemplate,
+      regionId
+    );
+  }
+
+  /**
+   * Triggers an order activation workflow on behalf of the tenant given by compartment id in the body.
+   * @param ActivateOrderRequest
+   * @return ActivateOrderResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ActivateOrder.ts.html |here} to see how to use ActivateOrder API.
+   */
+  public async activateOrder(
+    activateOrderRequest: requests.ActivateOrderRequest
+  ): Promise<responses.ActivateOrderResponse> {
+    if (this.logger) this.logger.debug("Calling operation OrdersClient#activateOrder.");
+    const pathParams = {
+      "{activationToken}": activateOrderRequest.activationToken
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": activateOrderRequest.opcRetryToken,
+      "opc-request-id": activateOrderRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      activateOrderRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/orders/{activationToken}/actions/activate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        activateOrderRequest.activateOrderDetails,
+        "ActivateOrderDetails",
+        model.ActivateOrderDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ActivateOrderResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the Order Details given by the order id in the JWT
+   *
+   * @param GetOrderRequest
+   * @return GetOrderResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetOrder.ts.html |here} to see how to use GetOrder API.
+   */
+  public async getOrder(
+    getOrderRequest: requests.GetOrderRequest
+  ): Promise<responses.GetOrderResponse> {
+    if (this.logger) this.logger.debug("Calling operation OrdersClient#getOrder.");
+    const pathParams = {
+      "{activationToken}": getOrderRequest.activationToken
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOrderRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getOrderRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/orders/{activationToken}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOrderResponse>{},
+        body: await response.json(),
+        bodyKey: "order",
+        bodyModel: model.Order,
+        type: "model.Order",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1417,7 +1637,8 @@ export class RecipientInvitationClient {
         responseObject: <responses.GetRecipientInvitationResponse>{},
         body: await response.json(),
         bodyKey: "recipientInvitation",
-        bodyModel: "model.RecipientInvitation",
+        bodyModel: model.RecipientInvitation,
+        type: "model.RecipientInvitation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1483,7 +1704,8 @@ export class RecipientInvitationClient {
         responseObject: <responses.IgnoreRecipientInvitationResponse>{},
         body: await response.json(),
         bodyKey: "recipientInvitation",
-        bodyModel: "model.RecipientInvitation",
+        bodyModel: model.RecipientInvitation,
+        type: "model.RecipientInvitation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1552,7 +1774,8 @@ export class RecipientInvitationClient {
         responseObject: <responses.ListRecipientInvitationsResponse>{},
         body: await response.json(),
         bodyKey: "recipientInvitationCollection",
-        bodyModel: "model.RecipientInvitationCollection",
+        bodyModel: model.RecipientInvitationCollection,
+        type: "model.RecipientInvitationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1610,7 +1833,7 @@ export class RecipientInvitationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateRecipientInvitationRequest.updateRecipientInvitationDetails,
         "UpdateRecipientInvitationDetails",
-        models.UpdateRecipientInvitationDetails.getJsonObj
+        model.UpdateRecipientInvitationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1622,7 +1845,8 @@ export class RecipientInvitationClient {
         responseObject: <responses.UpdateRecipientInvitationResponse>{},
         body: await response.json(),
         bodyKey: "recipientInvitation",
-        bodyModel: "model.RecipientInvitation",
+        bodyModel: model.RecipientInvitation,
+        type: "model.RecipientInvitation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1849,7 +2073,7 @@ export class SenderInvitationClient {
       bodyContent: common.ObjectSerializer.serialize(
         createSenderInvitationRequest.createSenderInvitationDetails,
         "CreateSenderInvitationDetails",
-        models.CreateSenderInvitationDetails.getJsonObj
+        model.CreateSenderInvitationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1861,7 +2085,8 @@ export class SenderInvitationClient {
         responseObject: <responses.CreateSenderInvitationResponse>{},
         body: await response.json(),
         bodyKey: "senderInvitation",
-        bodyModel: "model.SenderInvitation",
+        bodyModel: model.SenderInvitation,
+        type: "model.SenderInvitation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1930,7 +2155,8 @@ export class SenderInvitationClient {
         responseObject: <responses.GetSenderInvitationResponse>{},
         body: await response.json(),
         bodyKey: "senderInvitation",
-        bodyModel: "model.SenderInvitation",
+        bodyModel: model.SenderInvitation,
+        type: "model.SenderInvitation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2003,7 +2229,8 @@ export class SenderInvitationClient {
         responseObject: <responses.ListSenderInvitationsResponse>{},
         body: await response.json(),
         bodyKey: "senderInvitationCollection",
-        bodyModel: "model.SenderInvitationCollection",
+        bodyModel: model.SenderInvitationCollection,
+        type: "model.SenderInvitationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2061,7 +2288,7 @@ export class SenderInvitationClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateSenderInvitationRequest.updateSenderInvitationDetails,
         "UpdateSenderInvitationDetails",
-        models.UpdateSenderInvitationDetails.getJsonObj
+        model.UpdateSenderInvitationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2073,7 +2300,8 @@ export class SenderInvitationClient {
         responseObject: <responses.UpdateSenderInvitationResponse>{},
         body: await response.json(),
         bodyKey: "senderInvitation",
-        bodyModel: "model.SenderInvitation",
+        bodyModel: model.SenderInvitation,
+        type: "model.SenderInvitation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2244,7 +2472,8 @@ export class WorkRequestClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2313,7 +2542,8 @@ export class WorkRequestClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2381,7 +2611,8 @@ export class WorkRequestClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogEntryCollection",
-        bodyModel: "model.WorkRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2448,7 +2679,8 @@ export class WorkRequestClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

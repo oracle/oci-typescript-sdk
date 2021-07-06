@@ -81,4 +81,16 @@ export namespace HttpRedirectSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HttpRedirectSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "target": obj.target
+          ? model.HttpRedirectTarget.getDeserializedJsonObj(obj.target)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

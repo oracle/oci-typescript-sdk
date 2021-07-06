@@ -48,4 +48,19 @@ export namespace IpsecTunnelDrgAttachmentNetworkDetails {
     return jsonObj;
   }
   export const type = "IPSEC_TUNNEL";
+  export function getDeserializedJsonObj(
+    obj: IpsecTunnelDrgAttachmentNetworkDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DrgAttachmentNetworkDetails.getDeserializedJsonObj(
+            obj
+          ) as IpsecTunnelDrgAttachmentNetworkDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

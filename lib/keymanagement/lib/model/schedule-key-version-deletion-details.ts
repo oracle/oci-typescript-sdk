@@ -35,4 +35,9 @@ export namespace ScheduleKeyVersionDeletionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScheduleKeyVersionDeletionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

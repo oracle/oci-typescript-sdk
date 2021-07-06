@@ -24,7 +24,10 @@ export enum SummarizeJreUsageFields {
 }
 
 export namespace SummarizeJreUsageFields {
-  export function getJsonObj(obj: SummarizeJreUsageFields): object {
-    return { obj };
+  export function getJsonObj(obj: SummarizeJreUsageFields): SummarizeJreUsageFields {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: SummarizeJreUsageFields): SummarizeJreUsageFields {
+    return obj;
   }
 }

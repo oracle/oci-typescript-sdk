@@ -30,4 +30,9 @@ export namespace UnifiedAgentLoggingDestination {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UnifiedAgentLoggingDestination): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

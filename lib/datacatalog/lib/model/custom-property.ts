@@ -141,4 +141,18 @@ export namespace CustomProperty {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CustomProperty): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "scope": obj.scope
+          ? obj.scope.map(item => {
+              return model.CustomPropertyTypeUsage.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

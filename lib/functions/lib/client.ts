@@ -14,7 +14,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { FunctionsManagementWaiter } from "./functionsmanagement-waiter";
@@ -281,7 +281,7 @@ export class FunctionsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeApplicationCompartmentRequest.changeApplicationCompartmentDetails,
         "ChangeApplicationCompartmentDetails",
-        models.ChangeApplicationCompartmentDetails.getJsonObj
+        model.ChangeApplicationCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -340,7 +340,7 @@ export class FunctionsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         createApplicationRequest.createApplicationDetails,
         "CreateApplicationDetails",
-        models.CreateApplicationDetails.getJsonObj
+        model.CreateApplicationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -352,7 +352,8 @@ export class FunctionsManagementClient {
         responseObject: <responses.CreateApplicationResponse>{},
         body: await response.json(),
         bodyKey: "application",
-        bodyModel: "model.Application",
+        bodyModel: model.Application,
+        type: "model.Application",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -407,7 +408,7 @@ export class FunctionsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         createFunctionRequest.createFunctionDetails,
         "CreateFunctionDetails",
-        models.CreateFunctionDetails.getJsonObj
+        model.CreateFunctionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -419,7 +420,8 @@ export class FunctionsManagementClient {
         responseObject: <responses.CreateFunctionResponse>{},
         body: await response.json(),
         bodyKey: "function",
-        bodyModel: "model.Function",
+        bodyModel: model.Function,
+        type: "model.Function",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -597,7 +599,8 @@ export class FunctionsManagementClient {
         responseObject: <responses.GetApplicationResponse>{},
         body: await response.json(),
         bodyKey: "application",
-        bodyModel: "model.Application",
+        bodyModel: model.Application,
+        type: "model.Application",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -660,7 +663,8 @@ export class FunctionsManagementClient {
         responseObject: <responses.GetFunctionResponse>{},
         body: await response.json(),
         bodyKey: "function",
-        bodyModel: "model.Function",
+        bodyModel: model.Function,
+        type: "model.Function",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -731,7 +735,8 @@ export class FunctionsManagementClient {
         responseObject: <responses.ListApplicationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ApplicationSummary[]",
+        bodyModel: model.ApplicationSummary,
+        type: "Array<model.ApplicationSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -761,7 +766,7 @@ export class FunctionsManagementClient {
    */
   public listAllApplications(
     request: requests.ListApplicationsRequest
-  ): AsyncIterableIterator<models.ApplicationSummary> {
+  ): AsyncIterableIterator<model.ApplicationSummary> {
     return paginateRecords(request, req => this.listApplications(req));
   }
 
@@ -827,7 +832,8 @@ export class FunctionsManagementClient {
         responseObject: <responses.ListFunctionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "FunctionSummary[]",
+        bodyModel: model.FunctionSummary,
+        type: "Array<model.FunctionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -857,7 +863,7 @@ export class FunctionsManagementClient {
    */
   public listAllFunctions(
     request: requests.ListFunctionsRequest
-  ): AsyncIterableIterator<models.FunctionSummary> {
+  ): AsyncIterableIterator<model.FunctionSummary> {
     return paginateRecords(request, req => this.listFunctions(req));
   }
 
@@ -910,7 +916,7 @@ export class FunctionsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateApplicationRequest.updateApplicationDetails,
         "UpdateApplicationDetails",
-        models.UpdateApplicationDetails.getJsonObj
+        model.UpdateApplicationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -922,7 +928,8 @@ export class FunctionsManagementClient {
         responseObject: <responses.UpdateApplicationResponse>{},
         body: await response.json(),
         bodyKey: "application",
-        bodyModel: "model.Application",
+        bodyModel: model.Application,
+        type: "model.Application",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -980,7 +987,7 @@ export class FunctionsManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateFunctionRequest.updateFunctionDetails,
         "UpdateFunctionDetails",
-        models.UpdateFunctionDetails.getJsonObj
+        model.UpdateFunctionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -992,7 +999,8 @@ export class FunctionsManagementClient {
         responseObject: <responses.UpdateFunctionResponse>{},
         body: await response.json(),
         bodyKey: "function",
-        bodyModel: "model.Function",
+        bodyModel: model.Function,
+        type: "model.Function",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

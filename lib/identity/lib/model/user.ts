@@ -175,4 +175,16 @@ export namespace User {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: User): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "capabilities": obj.capabilities
+          ? model.UserCapabilities.getDeserializedJsonObj(obj.capabilities)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

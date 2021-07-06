@@ -76,4 +76,9 @@ export namespace PatchObjectMetadata {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PatchObjectMetadata): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

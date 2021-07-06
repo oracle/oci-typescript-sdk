@@ -47,4 +47,23 @@ export namespace CreateMigratedDynectZoneDetails {
     return jsonObj;
   }
   export const migrationSource = "DYNECT";
+  export function getDeserializedJsonObj(
+    obj: CreateMigratedDynectZoneDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateZoneBaseDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateMigratedDynectZoneDetails)),
+      ...{
+        "dynectMigrationDetails": obj.dynectMigrationDetails
+          ? model.DynectMigrationDetails.getDeserializedJsonObj(obj.dynectMigrationDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

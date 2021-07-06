@@ -39,4 +39,19 @@ export namespace ComputeInstanceGroupCanaryDeployStageExecutionProgress {
     return jsonObj;
   }
   export const deployStageType = "COMPUTE_INSTANCE_GROUP_CANARY_DEPLOYMENT";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceGroupCanaryDeployStageExecutionProgress,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageExecutionProgress.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceGroupCanaryDeployStageExecutionProgress)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -47,4 +47,23 @@ export namespace AwrDbWaitEventCollection {
     return jsonObj;
   }
   export const awrResultType = "AWRDB_EVENT_SET";
+  export function getDeserializedJsonObj(
+    obj: AwrDbWaitEventCollection,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AwrQueryResult.getDeserializedJsonObj(obj) as AwrDbWaitEventCollection)),
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.AwrDbWaitEventSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

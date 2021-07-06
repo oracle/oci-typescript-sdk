@@ -25,7 +25,10 @@ export enum ProblemDimension {
 }
 
 export namespace ProblemDimension {
-  export function getJsonObj(obj: ProblemDimension): object {
-    return { obj };
+  export function getJsonObj(obj: ProblemDimension): ProblemDimension {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ProblemDimension): ProblemDimension {
+    return obj;
   }
 }

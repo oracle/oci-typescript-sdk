@@ -85,4 +85,35 @@ export namespace CreateDataFlowDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDataFlowDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "nodes": obj.nodes
+          ? obj.nodes.map(item => {
+              return model.FlowNode.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.Parameter.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "flowConfigValues": obj.flowConfigValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.flowConfigValues)
+          : undefined,
+
+        "registryMetadata": obj.registryMetadata
+          ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

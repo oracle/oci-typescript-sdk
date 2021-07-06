@@ -73,4 +73,21 @@ export namespace BackendSetSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BackendSetSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backends": obj.backends
+          ? obj.backends.map(item => {
+              return model.Backend.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "healthChecker": obj.healthChecker
+          ? model.HealthChecker.getDeserializedJsonObj(obj.healthChecker)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

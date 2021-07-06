@@ -69,4 +69,16 @@ export namespace UpdateTemplateDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateTemplateDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "templateConfigSource": obj.templateConfigSource
+          ? model.UpdateTemplateConfigSourceDetails.getDeserializedJsonObj(obj.templateConfigSource)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

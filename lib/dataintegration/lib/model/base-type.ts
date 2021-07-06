@@ -72,4 +72,46 @@ export namespace BaseType {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BaseType): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "CONFIGURED_TYPE":
+          return model.ConfiguredType.getDeserializedJsonObj(
+            <model.ConfiguredType>(<object>jsonObj),
+            true
+          );
+        case "JAVA_TYPE":
+          return model.JavaType.getDeserializedJsonObj(<model.JavaType>(<object>jsonObj), true);
+        case "DYNAMIC_TYPE":
+          return model.DynamicType.getDeserializedJsonObj(
+            <model.DynamicType>(<object>jsonObj),
+            true
+          );
+        case "DERIVED_TYPE":
+          return model.DerivedType.getDeserializedJsonObj(
+            <model.DerivedType>(<object>jsonObj),
+            true
+          );
+        case "DATA_TYPE":
+          return model.DataType.getDeserializedJsonObj(<model.DataType>(<object>jsonObj), true);
+        case "COMPOSITE_TYPE":
+          return model.CompositeType.getDeserializedJsonObj(
+            <model.CompositeType>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

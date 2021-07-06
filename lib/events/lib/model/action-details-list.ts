@@ -42,4 +42,18 @@ export namespace ActionDetailsList {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ActionDetailsList): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "actions": obj.actions
+          ? obj.actions.map(item => {
+              return model.ActionDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

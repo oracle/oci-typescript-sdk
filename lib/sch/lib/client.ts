@@ -16,7 +16,7 @@ For more information about Service Connector Hub, see
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { ServiceConnectorWaiter } from "./serviceconnector-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -247,7 +247,7 @@ When provided, If-Match is checked against ETag values of the resource.
       bodyContent: common.ObjectSerializer.serialize(
         changeServiceConnectorCompartmentRequest.changeServiceConnectorCompartmentDetails,
         "ChangeServiceConnectorCompartmentDetails",
-        models.ChangeServiceConnectorCompartmentDetails.getJsonObj
+        model.ChangeServiceConnectorCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -330,7 +330,7 @@ After you send your request, the new service connector's state is temporarily
       bodyContent: common.ObjectSerializer.serialize(
         createServiceConnectorRequest.createServiceConnectorDetails,
         "CreateServiceConnectorDetails",
-        models.CreateServiceConnectorDetails.getJsonObj
+        model.CreateServiceConnectorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -539,7 +539,8 @@ After you send your request, the service connector's state is temporarily
         responseObject: <responses.GetServiceConnectorResponse>{},
         body: await response.json(),
         bodyKey: "serviceConnector",
-        bodyModel: "model.ServiceConnector",
+        bodyModel: model.ServiceConnector,
+        type: "model.ServiceConnector",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -603,7 +604,8 @@ After you send your request, the service connector's state is temporarily
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -674,7 +676,8 @@ After you send your request, the service connector's state is temporarily
         responseObject: <responses.ListServiceConnectorsResponse>{},
         body: await response.json(),
         bodyKey: "serviceConnectorCollection",
-        bodyModel: "model.ServiceConnectorCollection",
+        bodyModel: model.ServiceConnectorCollection,
+        type: "model.ServiceConnectorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -747,7 +750,8 @@ After you send your request, the service connector's state is temporarily
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -820,7 +824,8 @@ After you send your request, the service connector's state is temporarily
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogEntryCollection",
-        bodyModel: "model.WorkRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -892,7 +897,8 @@ After you send your request, the service connector's state is temporarily
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -960,7 +966,7 @@ After you send your request, the service connector's state is temporarily
       bodyContent: common.ObjectSerializer.serialize(
         updateServiceConnectorRequest.updateServiceConnectorDetails,
         "UpdateServiceConnectorDetails",
-        models.UpdateServiceConnectorDetails.getJsonObj
+        model.UpdateServiceConnectorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

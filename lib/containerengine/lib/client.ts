@@ -16,7 +16,7 @@ and manage cloud-native applications. For more information, see
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { ContainerEngineWaiter } from "./containerengine-waiter";
@@ -171,7 +171,7 @@ export class ContainerEngineClient {
       bodyContent: common.ObjectSerializer.serialize(
         clusterMigrateToNativeVcnRequest.clusterMigrateToNativeVcnDetails,
         "ClusterMigrateToNativeVcnDetails",
-        models.ClusterMigrateToNativeVcnDetails.getJsonObj
+        model.ClusterMigrateToNativeVcnDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -235,7 +235,7 @@ export class ContainerEngineClient {
       bodyContent: common.ObjectSerializer.serialize(
         createClusterRequest.createClusterDetails,
         "CreateClusterDetails",
-        models.CreateClusterDetails.getJsonObj
+        model.CreateClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -300,7 +300,7 @@ export class ContainerEngineClient {
       bodyContent: common.ObjectSerializer.serialize(
         createKubeconfigRequest.createClusterKubeconfigContentDetails,
         "CreateClusterKubeconfigContentDetails",
-        models.CreateClusterKubeconfigContentDetails.getJsonObj
+        model.CreateClusterKubeconfigContentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -363,7 +363,7 @@ export class ContainerEngineClient {
       bodyContent: common.ObjectSerializer.serialize(
         createNodePoolRequest.createNodePoolDetails,
         "CreateNodePoolDetails",
-        models.CreateNodePoolDetails.getJsonObj
+        model.CreateNodePoolDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -614,7 +614,8 @@ export class ContainerEngineClient {
         responseObject: <responses.GetClusterResponse>{},
         body: await response.json(),
         bodyKey: "cluster",
-        bodyModel: "model.Cluster",
+        bodyModel: model.Cluster,
+        type: "model.Cluster",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -680,7 +681,8 @@ export class ContainerEngineClient {
         responseObject: <responses.GetClusterMigrateToNativeVcnStatusResponse>{},
         body: await response.json(),
         bodyKey: "clusterMigrateToNativeVcnStatus",
-        bodyModel: "model.ClusterMigrateToNativeVcnStatus",
+        bodyModel: model.ClusterMigrateToNativeVcnStatus,
+        type: "model.ClusterMigrateToNativeVcnStatus",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -746,7 +748,8 @@ export class ContainerEngineClient {
         responseObject: <responses.GetClusterOptionsResponse>{},
         body: await response.json(),
         bodyKey: "clusterOptions",
-        bodyModel: "model.ClusterOptions",
+        bodyModel: model.ClusterOptions,
+        type: "model.ClusterOptions",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -804,7 +807,8 @@ export class ContainerEngineClient {
         responseObject: <responses.GetNodePoolResponse>{},
         body: await response.json(),
         bodyKey: "nodePool",
-        bodyModel: "model.NodePool",
+        bodyModel: model.NodePool,
+        type: "model.NodePool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -870,7 +874,8 @@ export class ContainerEngineClient {
         responseObject: <responses.GetNodePoolOptionsResponse>{},
         body: await response.json(),
         bodyKey: "nodePoolOptions",
-        bodyModel: "model.NodePoolOptions",
+        bodyModel: model.NodePoolOptions,
+        type: "model.NodePoolOptions",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -928,7 +933,8 @@ export class ContainerEngineClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1002,7 +1008,8 @@ export class ContainerEngineClient {
         responseObject: <responses.ListClustersResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ClusterSummary[]",
+        bodyModel: model.ClusterSummary,
+        type: "Array<model.ClusterSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1032,7 +1039,7 @@ export class ContainerEngineClient {
    */
   public listAllClusters(
     request: requests.ListClustersRequest
-  ): AsyncIterableIterator<models.ClusterSummary> {
+  ): AsyncIterableIterator<model.ClusterSummary> {
     return paginateRecords(request, req => this.listClusters(req));
   }
 
@@ -1096,7 +1103,8 @@ export class ContainerEngineClient {
         responseObject: <responses.ListNodePoolsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "NodePoolSummary[]",
+        bodyModel: model.NodePoolSummary,
+        type: "Array<model.NodePoolSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1126,7 +1134,7 @@ export class ContainerEngineClient {
    */
   public listAllNodePools(
     request: requests.ListNodePoolsRequest
-  ): AsyncIterableIterator<models.NodePoolSummary> {
+  ): AsyncIterableIterator<model.NodePoolSummary> {
     return paginateRecords(request, req => this.listNodePools(req));
   }
 
@@ -1187,7 +1195,8 @@ export class ContainerEngineClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1248,7 +1257,8 @@ export class ContainerEngineClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1314,7 +1324,8 @@ export class ContainerEngineClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1344,7 +1355,7 @@ export class ContainerEngineClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -1396,7 +1407,7 @@ export class ContainerEngineClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateClusterRequest.updateClusterDetails,
         "UpdateClusterDetails",
-        models.UpdateClusterDetails.getJsonObj
+        model.UpdateClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1463,7 +1474,7 @@ export class ContainerEngineClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateClusterEndpointConfigRequest.updateClusterEndpointConfigDetails,
         "UpdateClusterEndpointConfigDetails",
-        models.UpdateClusterEndpointConfigDetails.getJsonObj
+        model.UpdateClusterEndpointConfigDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1529,7 +1540,7 @@ export class ContainerEngineClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateNodePoolRequest.updateNodePoolDetails,
         "UpdateNodePoolDetails",
-        models.UpdateNodePoolDetails.getJsonObj
+        model.UpdateNodePoolDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

@@ -33,7 +33,10 @@ export enum UpdateTypes {
 }
 
 export namespace UpdateTypes {
-  export function getJsonObj(obj: UpdateTypes): object {
-    return { obj };
+  export function getJsonObj(obj: UpdateTypes): UpdateTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: UpdateTypes): UpdateTypes {
+    return obj;
   }
 }

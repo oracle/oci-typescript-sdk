@@ -35,4 +35,9 @@ export namespace MonitorScriptParameter {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MonitorScriptParameter): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

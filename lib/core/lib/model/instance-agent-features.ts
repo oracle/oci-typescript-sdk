@@ -41,4 +41,9 @@ export namespace InstanceAgentFeatures {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceAgentFeatures): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

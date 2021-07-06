@@ -64,4 +64,9 @@ export namespace CreateByoipRangeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateByoipRangeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -48,4 +48,25 @@ export namespace ComputeInstanceGroupRolloutPolicy {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ComputeInstanceGroupRolloutPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("policyType" in obj && obj.policyType) {
+      switch (obj.policyType) {
+        case "COMPUTE_INSTANCE_GROUP_LINEAR_ROLLOUT_POLICY_BY_PERCENTAGE":
+          return model.ComputeInstanceGroupLinearRolloutPolicyByPercentage.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupLinearRolloutPolicyByPercentage>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_LINEAR_ROLLOUT_POLICY_BY_COUNT":
+          return model.ComputeInstanceGroupLinearRolloutPolicyByCount.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupLinearRolloutPolicyByCount>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.policyType);
+      }
+    }
+    return jsonObj;
+  }
 }

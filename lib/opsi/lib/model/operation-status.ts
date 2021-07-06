@@ -36,7 +36,10 @@ export enum OperationStatus {
 }
 
 export namespace OperationStatus {
-  export function getJsonObj(obj: OperationStatus): object {
-    return { obj };
+  export function getJsonObj(obj: OperationStatus): OperationStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: OperationStatus): OperationStatus {
+    return obj;
   }
 }

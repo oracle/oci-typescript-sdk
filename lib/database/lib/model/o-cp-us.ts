@@ -44,4 +44,16 @@ export namespace OCPUs {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OCPUs): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "byWorkloadType": obj.byWorkloadType
+          ? model.WorkloadType.getDeserializedJsonObj(obj.byWorkloadType)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

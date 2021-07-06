@@ -69,4 +69,14 @@ export namespace CreateKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateKeyDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "keyShape": obj.keyShape ? model.KeyShape.getDeserializedJsonObj(obj.keyShape) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

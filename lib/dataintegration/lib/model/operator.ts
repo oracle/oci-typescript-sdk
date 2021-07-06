@@ -131,4 +131,84 @@ export namespace Operator {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Operator): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "inputPorts": obj.inputPorts
+          ? obj.inputPorts.map(item => {
+              return model.InputPort.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "outputPorts": obj.outputPorts
+          ? obj.outputPorts.map(item => {
+              return model.OutputPort.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.Parameter.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "opConfigValues": obj.opConfigValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.opConfigValues)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "JOINER_OPERATOR":
+          return model.Joiner.getDeserializedJsonObj(<model.Joiner>(<object>jsonObj), true);
+        case "TASK_OPERATOR":
+          return model.TaskOperator.getDeserializedJsonObj(
+            <model.TaskOperator>(<object>jsonObj),
+            true
+          );
+        case "AGGREGATOR_OPERATOR":
+          return model.Aggregator.getDeserializedJsonObj(<model.Aggregator>(<object>jsonObj), true);
+        case "SORT_OPERATOR":
+          return model.SortOper.getDeserializedJsonObj(<model.SortOper>(<object>jsonObj), true);
+        case "PROJECTION_OPERATOR":
+          return model.Projection.getDeserializedJsonObj(<model.Projection>(<object>jsonObj), true);
+        case "END_OPERATOR":
+          return model.EndOperator.getDeserializedJsonObj(
+            <model.EndOperator>(<object>jsonObj),
+            true
+          );
+        case "SOURCE_OPERATOR":
+          return model.Source.getDeserializedJsonObj(<model.Source>(<object>jsonObj), true);
+        case "UNION_OPERATOR":
+          return model.Union.getDeserializedJsonObj(<model.Union>(<object>jsonObj), true);
+        case "INTERSECT_OPERATOR":
+          return model.Intersect.getDeserializedJsonObj(<model.Intersect>(<object>jsonObj), true);
+        case "TARGET_OPERATOR":
+          return model.Target.getDeserializedJsonObj(<model.Target>(<object>jsonObj), true);
+        case "DISTINCT_OPERATOR":
+          return model.Distinct.getDeserializedJsonObj(<model.Distinct>(<object>jsonObj), true);
+        case "FILTER_OPERATOR":
+          return model.Filter.getDeserializedJsonObj(<model.Filter>(<object>jsonObj), true);
+        case "START_OPERATOR":
+          return model.StartOperator.getDeserializedJsonObj(
+            <model.StartOperator>(<object>jsonObj),
+            true
+          );
+        case "MERGE_OPERATOR":
+          return model.MergeOperator.getDeserializedJsonObj(
+            <model.MergeOperator>(<object>jsonObj),
+            true
+          );
+        case "MINUS_OPERATOR":
+          return model.Minus.getDeserializedJsonObj(<model.Minus>(<object>jsonObj), true);
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -59,4 +59,9 @@ export namespace LogAnalyticsMetaSourceType {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsMetaSourceType): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -66,4 +66,9 @@ export namespace ProblemHistorySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProblemHistorySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

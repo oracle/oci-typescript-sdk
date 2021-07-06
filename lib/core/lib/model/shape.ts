@@ -143,4 +143,27 @@ export namespace Shape {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Shape): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ocpuOptions": obj.ocpuOptions
+          ? model.ShapeOcpuOptions.getDeserializedJsonObj(obj.ocpuOptions)
+          : undefined,
+        "memoryOptions": obj.memoryOptions
+          ? model.ShapeMemoryOptions.getDeserializedJsonObj(obj.memoryOptions)
+          : undefined,
+        "networkingBandwidthOptions": obj.networkingBandwidthOptions
+          ? model.ShapeNetworkingBandwidthOptions.getDeserializedJsonObj(
+              obj.networkingBandwidthOptions
+            )
+          : undefined,
+        "maxVnicAttachmentOptions": obj.maxVnicAttachmentOptions
+          ? model.ShapeMaxVnicAttachmentOptions.getDeserializedJsonObj(obj.maxVnicAttachmentOptions)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

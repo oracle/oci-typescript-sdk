@@ -78,4 +78,26 @@ export namespace MacsManagedExternalDatabaseInsight {
     return jsonObj;
   }
   export const entitySource = "MACS_MANAGED_EXTERNAL_DATABASE";
+  export function getDeserializedJsonObj(
+    obj: MacsManagedExternalDatabaseInsight,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DatabaseInsight.getDeserializedJsonObj(
+            obj
+          ) as MacsManagedExternalDatabaseInsight)),
+      ...{
+        "connectionDetails": obj.connectionDetails
+          ? model.ConnectionDetails.getDeserializedJsonObj(obj.connectionDetails)
+          : undefined,
+        "connectionCredentialDetails": obj.connectionCredentialDetails
+          ? model.CredentialDetails.getDeserializedJsonObj(obj.connectionCredentialDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

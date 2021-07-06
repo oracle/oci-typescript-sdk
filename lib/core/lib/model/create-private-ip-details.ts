@@ -88,4 +88,9 @@ export namespace CreatePrivateIpDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePrivateIpDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

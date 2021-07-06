@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { LoggingManagementWaiter } from "./loggingmanagement-waiter";
@@ -169,7 +169,7 @@ export class LoggingManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeLogGroupCompartmentRequest.changeLogGroupCompartmentDetails,
         "ChangeLogGroupCompartmentDetails",
-        models.ChangeLogGroupCompartmentDetails.getJsonObj
+        model.ChangeLogGroupCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -238,7 +238,7 @@ export class LoggingManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeLogLogGroupRequest.changeLogLogGroupDetails,
         "ChangeLogLogGroupDetails",
-        models.ChangeLogLogGroupDetails.getJsonObj
+        model.ChangeLogLogGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -310,7 +310,7 @@ export class LoggingManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeLogSavedSearchCompartmentRequest.changeLogSavedSearchCompartmentDetails,
         "ChangeLogSavedSearchCompartmentDetails",
-        models.ChangeLogSavedSearchCompartmentDetails.getJsonObj
+        model.ChangeLogSavedSearchCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -378,7 +378,7 @@ export class LoggingManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeUnifiedAgentConfigurationCompartmentRequest.changeUnifiedAgentConfigurationCompartmentDetails,
         "ChangeUnifiedAgentConfigurationCompartmentDetails",
-        models.ChangeUnifiedAgentConfigurationCompartmentDetails.getJsonObj
+        model.ChangeUnifiedAgentConfigurationCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -446,7 +446,7 @@ export class LoggingManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         createLogRequest.createLogDetails,
         "CreateLogDetails",
-        models.CreateLogDetails.getJsonObj
+        model.CreateLogDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -512,7 +512,7 @@ export class LoggingManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         createLogGroupRequest.createLogGroupDetails,
         "CreateLogGroupDetails",
-        models.CreateLogGroupDetails.getJsonObj
+        model.CreateLogGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -578,7 +578,7 @@ export class LoggingManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         createLogSavedSearchRequest.createLogSavedSearchDetails,
         "CreateLogSavedSearchDetails",
-        models.CreateLogSavedSearchDetails.getJsonObj
+        model.CreateLogSavedSearchDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -590,7 +590,8 @@ export class LoggingManagementClient {
         responseObject: <responses.CreateLogSavedSearchResponse>{},
         body: await response.json(),
         bodyKey: "logSavedSearch",
-        bodyModel: "model.LogSavedSearch",
+        bodyModel: model.LogSavedSearch,
+        type: "model.LogSavedSearch",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -648,7 +649,7 @@ export class LoggingManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         createUnifiedAgentConfigurationRequest.createUnifiedAgentConfigurationDetails,
         "CreateUnifiedAgentConfigurationDetails",
-        models.CreateUnifiedAgentConfigurationDetails.getJsonObj
+        model.CreateUnifiedAgentConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1028,7 +1029,8 @@ export class LoggingManagementClient {
         responseObject: <responses.GetLogResponse>{},
         body: await response.json(),
         bodyKey: "log",
-        bodyModel: "model.Log",
+        bodyModel: model.Log,
+        type: "model.Log",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1091,7 +1093,8 @@ export class LoggingManagementClient {
         responseObject: <responses.GetLogGroupResponse>{},
         body: await response.json(),
         bodyKey: "logGroup",
-        bodyModel: "model.LogGroup",
+        bodyModel: model.LogGroup,
+        type: "model.LogGroup",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1157,7 +1160,8 @@ export class LoggingManagementClient {
         responseObject: <responses.GetLogIncludedSearchResponse>{},
         body: await response.json(),
         bodyKey: "logIncludedSearch",
-        bodyModel: "model.LogIncludedSearch",
+        bodyModel: model.LogIncludedSearch,
+        type: "model.LogIncludedSearch",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1221,7 +1225,8 @@ export class LoggingManagementClient {
         responseObject: <responses.GetLogSavedSearchResponse>{},
         body: await response.json(),
         bodyKey: "logSavedSearch",
-        bodyModel: "model.LogSavedSearch",
+        bodyModel: model.LogSavedSearch,
+        type: "model.LogSavedSearch",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1286,7 +1291,8 @@ export class LoggingManagementClient {
         responseObject: <responses.GetUnifiedAgentConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "unifiedAgentConfiguration",
-        bodyModel: "model.UnifiedAgentConfiguration",
+        bodyModel: model.UnifiedAgentConfiguration,
+        type: "model.UnifiedAgentConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1349,7 +1355,8 @@ export class LoggingManagementClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1423,7 +1430,8 @@ export class LoggingManagementClient {
         responseObject: <responses.ListLogGroupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "LogGroupSummary[]",
+        bodyModel: model.LogGroupSummary,
+        type: "Array<model.LogGroupSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1458,7 +1466,7 @@ export class LoggingManagementClient {
    */
   public listAllLogGroups(
     request: requests.ListLogGroupsRequest
-  ): AsyncIterableIterator<models.LogGroupSummary> {
+  ): AsyncIterableIterator<model.LogGroupSummary> {
     return paginateRecords(request, req => this.listLogGroups(req));
   }
 
@@ -1524,7 +1532,8 @@ export class LoggingManagementClient {
         responseObject: <responses.ListLogIncludedSearchesResponse>{},
         body: await response.json(),
         bodyKey: "logIncludedSearchSummaryCollection",
-        bodyModel: "model.LogIncludedSearchSummaryCollection",
+        bodyModel: model.LogIncludedSearchSummaryCollection,
+        type: "model.LogIncludedSearchSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1600,7 +1609,8 @@ export class LoggingManagementClient {
         responseObject: <responses.ListLogSavedSearchesResponse>{},
         body: await response.json(),
         bodyKey: "logSavedSearchSummaryCollection",
-        bodyModel: "model.LogSavedSearchSummaryCollection",
+        bodyModel: model.LogSavedSearchSummaryCollection,
+        type: "model.LogSavedSearchSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1678,7 +1688,8 @@ export class LoggingManagementClient {
         responseObject: <responses.ListLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "LogSummary[]",
+        bodyModel: model.LogSummary,
+        type: "Array<model.LogSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1711,7 +1722,7 @@ export class LoggingManagementClient {
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllLogs(request: requests.ListLogsRequest): AsyncIterableIterator<models.LogSummary> {
+  public listAllLogs(request: requests.ListLogsRequest): AsyncIterableIterator<model.LogSummary> {
     return paginateRecords(request, req => this.listLogs(req));
   }
 
@@ -1767,7 +1778,8 @@ export class LoggingManagementClient {
         responseObject: <responses.ListServicesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ServiceSummary[]",
+        bodyModel: model.ServiceSummary,
+        type: "Array<model.ServiceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1847,7 +1859,8 @@ export class LoggingManagementClient {
         responseObject: <responses.ListUnifiedAgentConfigurationsResponse>{},
         body: await response.json(),
         bodyKey: "unifiedAgentConfigurationCollection",
-        bodyModel: "model.UnifiedAgentConfigurationCollection",
+        bodyModel: model.UnifiedAgentConfigurationCollection,
+        type: "model.UnifiedAgentConfigurationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1920,7 +1933,8 @@ export class LoggingManagementClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1950,7 +1964,7 @@ export class LoggingManagementClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -2013,7 +2027,8 @@ export class LoggingManagementClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLog[]",
+        bodyModel: model.WorkRequestLog,
+        type: "Array<model.WorkRequestLog>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2043,7 +2058,7 @@ export class LoggingManagementClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLog> {
+  ): AsyncIterableIterator<model.WorkRequestLog> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -2109,7 +2124,8 @@ export class LoggingManagementClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2144,7 +2160,7 @@ export class LoggingManagementClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -2199,7 +2215,7 @@ export class LoggingManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateLogRequest.updateLogDetails,
         "UpdateLogDetails",
-        models.UpdateLogDetails.getJsonObj
+        model.UpdateLogDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2267,7 +2283,7 @@ export class LoggingManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateLogGroupRequest.updateLogGroupDetails,
         "UpdateLogGroupDetails",
-        models.UpdateLogGroupDetails.getJsonObj
+        model.UpdateLogGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2335,7 +2351,7 @@ export class LoggingManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateLogSavedSearchRequest.updateLogSavedSearchDetails,
         "UpdateLogSavedSearchDetails",
-        models.UpdateLogSavedSearchDetails.getJsonObj
+        model.UpdateLogSavedSearchDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2347,7 +2363,8 @@ export class LoggingManagementClient {
         responseObject: <responses.UpdateLogSavedSearchResponse>{},
         body: await response.json(),
         bodyKey: "logSavedSearch",
-        bodyModel: "model.LogSavedSearch",
+        bodyModel: model.LogSavedSearch,
+        type: "model.LogSavedSearch",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2410,7 +2427,7 @@ export class LoggingManagementClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateUnifiedAgentConfigurationRequest.updateUnifiedAgentConfigurationDetails,
         "UpdateUnifiedAgentConfigurationDetails",
-        models.UpdateUnifiedAgentConfigurationDetails.getJsonObj
+        model.UpdateUnifiedAgentConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

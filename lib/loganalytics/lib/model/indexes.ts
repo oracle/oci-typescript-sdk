@@ -35,4 +35,9 @@ export namespace Indexes {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Indexes): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

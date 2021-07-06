@@ -66,4 +66,9 @@ export namespace UpdateImageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateImageDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

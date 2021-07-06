@@ -33,7 +33,10 @@ export enum SavedSearchTypes {
 }
 
 export namespace SavedSearchTypes {
-  export function getJsonObj(obj: SavedSearchTypes): object {
-    return { obj };
+  export function getJsonObj(obj: SavedSearchTypes): SavedSearchTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: SavedSearchTypes): SavedSearchTypes {
+    return obj;
   }
 }

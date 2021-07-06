@@ -100,4 +100,29 @@ export namespace CreateConnectionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateConnectionDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "connectDescriptor": obj.connectDescriptor
+          ? model.CreateConnectDescriptor.getDeserializedJsonObj(obj.connectDescriptor)
+          : undefined,
+
+        "sshDetails": obj.sshDetails
+          ? model.CreateSshDetails.getDeserializedJsonObj(obj.sshDetails)
+          : undefined,
+        "adminCredentials": obj.adminCredentials
+          ? model.CreateAdminCredentials.getDeserializedJsonObj(obj.adminCredentials)
+          : undefined,
+        "privateEndpoint": obj.privateEndpoint
+          ? model.CreatePrivateEndpoint.getDeserializedJsonObj(obj.privateEndpoint)
+          : undefined,
+        "vaultDetails": obj.vaultDetails
+          ? model.CreateVaultDetails.getDeserializedJsonObj(obj.vaultDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

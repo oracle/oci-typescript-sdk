@@ -37,4 +37,9 @@ export namespace AwrDbWaitEventBucketSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AwrDbWaitEventBucketSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -120,4 +120,23 @@ export namespace Term {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Term): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "associatedObjects": obj.associatedObjects
+          ? obj.associatedObjects.map(item => {
+              return model.TermAssociatedObject.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertyGetUsage.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -52,4 +52,18 @@ export namespace CreatePathRouteSetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePathRouteSetDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pathRoutes": obj.pathRoutes
+          ? obj.pathRoutes.map(item => {
+              return model.PathRoute.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

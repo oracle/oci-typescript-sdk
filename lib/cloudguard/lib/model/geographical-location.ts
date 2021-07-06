@@ -34,4 +34,9 @@ export namespace GeographicalLocation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GeographicalLocation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

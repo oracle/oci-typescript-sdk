@@ -30,4 +30,9 @@ export namespace ValidationResponse {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ValidationResponse): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

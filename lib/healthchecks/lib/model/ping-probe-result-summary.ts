@@ -133,4 +133,17 @@ export namespace PingProbeResultSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PingProbeResultSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "connection": obj.connection
+          ? model.Connection.getDeserializedJsonObj(obj.connection)
+          : undefined,
+        "dns": obj.dns ? model.DNS.getDeserializedJsonObj(obj.dns) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

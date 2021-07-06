@@ -108,4 +108,9 @@ export namespace PrivateEndpointSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PrivateEndpointSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

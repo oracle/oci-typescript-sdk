@@ -31,4 +31,9 @@ export namespace FullyQualifiedScope {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FullyQualifiedScope): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -78,4 +78,22 @@ export namespace EfdRegexResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EfdRegexResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "matchResult": obj.matchResult
+          ? model.RegexMatchResult.getDeserializedJsonObj(obj.matchResult)
+          : undefined,
+
+        "violations": obj.violations
+          ? obj.violations.map(item => {
+              return model.Violation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

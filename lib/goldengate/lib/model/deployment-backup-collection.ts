@@ -42,4 +42,18 @@ export namespace DeploymentBackupCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeploymentBackupCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DeploymentBackupSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

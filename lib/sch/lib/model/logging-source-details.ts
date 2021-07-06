@@ -47,4 +47,23 @@ export namespace LoggingSourceDetails {
     return jsonObj;
   }
   export const kind = "logging";
+  export function getDeserializedJsonObj(
+    obj: LoggingSourceDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SourceDetails.getDeserializedJsonObj(obj) as LoggingSourceDetails)),
+      ...{
+        "logSources": obj.logSources
+          ? obj.logSources.map(item => {
+              return model.LogSource.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

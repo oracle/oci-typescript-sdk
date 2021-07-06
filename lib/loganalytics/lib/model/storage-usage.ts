@@ -39,4 +39,9 @@ export namespace StorageUsage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StorageUsage): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

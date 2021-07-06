@@ -51,4 +51,21 @@ export namespace DataAssetSummaryFromJdbc {
     return jsonObj;
   }
   export const modelType = "GENERIC_JDBC_DATA_ASSET";
+  export function getDeserializedJsonObj(
+    obj: DataAssetSummaryFromJdbc,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DataAssetSummary.getDeserializedJsonObj(obj) as DataAssetSummaryFromJdbc)),
+      ...{
+        "defaultConnection": obj.defaultConnection
+          ? model.ConnectionSummaryFromJdbc.getDeserializedJsonObj(obj.defaultConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

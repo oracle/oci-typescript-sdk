@@ -84,4 +84,9 @@ export namespace SenderInvitationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SenderInvitationSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -96,4 +96,18 @@ export namespace WorkRequestSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkRequestSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resources": obj.resources
+          ? obj.resources.map(item => {
+              return model.WorkRequestResource.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

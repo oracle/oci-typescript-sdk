@@ -92,4 +92,30 @@ export namespace DatabaseConfigurationSummary {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseConfigurationSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("entitySource" in obj && obj.entitySource) {
+      switch (obj.entitySource) {
+        case "EM_MANAGED_EXTERNAL_DATABASE":
+          return model.EmManagedExternalDatabaseConfigurationSummary.getDeserializedJsonObj(
+            <model.EmManagedExternalDatabaseConfigurationSummary>(<object>jsonObj),
+            true
+          );
+        case "AUTONOMOUS_DATABASE":
+          return model.AutonomousDatabaseConfigurationSummary.getDeserializedJsonObj(
+            <model.AutonomousDatabaseConfigurationSummary>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_EXTERNAL_DATABASE":
+          return model.MacsManagedExternalDatabaseConfigurationSummary.getDeserializedJsonObj(
+            <model.MacsManagedExternalDatabaseConfigurationSummary>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.entitySource);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -44,4 +44,18 @@ export namespace ByoipAllocatedRangeCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ByoipAllocatedRangeCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ByoipAllocatedRangeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

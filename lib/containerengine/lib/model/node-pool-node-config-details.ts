@@ -58,4 +58,18 @@ export namespace NodePoolNodeConfigDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NodePoolNodeConfigDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "placementConfigs": obj.placementConfigs
+          ? obj.placementConfigs.map(item => {
+              return model.NodePoolPlacementConfigDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

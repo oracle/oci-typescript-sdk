@@ -138,4 +138,16 @@ export namespace ExternalDatabaseBase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExternalDatabaseBase): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "databaseManagementConfig": obj.databaseManagementConfig
+          ? model.DatabaseManagementConfig.getDeserializedJsonObj(obj.databaseManagementConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -41,4 +41,17 @@ export namespace LogRuleTaskDetails {
     return jsonObj;
   }
   export const kind = "logRule";
+  export function getDeserializedJsonObj(
+    obj: LogRuleTaskDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TaskDetails.getDeserializedJsonObj(obj) as LogRuleTaskDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -97,4 +97,9 @@ export namespace NotificationTopicSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NotificationTopicSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

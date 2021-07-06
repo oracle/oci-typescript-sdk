@@ -69,4 +69,9 @@ export namespace CreatePatternDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePatternDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

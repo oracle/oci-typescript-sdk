@@ -141,4 +141,25 @@ export namespace IntegrationInstanceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IntegrationInstanceSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customEndpoint": obj.customEndpoint
+          ? model.CustomEndpointDetails.getDeserializedJsonObj(obj.customEndpoint)
+          : undefined,
+        "alternateCustomEndpoints": obj.alternateCustomEndpoints
+          ? obj.alternateCustomEndpoints.map(item => {
+              return model.CustomEndpointDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getDeserializedJsonObj(obj.networkEndpointDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

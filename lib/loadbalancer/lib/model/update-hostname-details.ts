@@ -39,4 +39,9 @@ export namespace UpdateHostnameDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateHostnameDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -49,4 +49,9 @@ export namespace QueryResultRow {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryResultRow): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

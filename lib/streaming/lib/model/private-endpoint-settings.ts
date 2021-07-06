@@ -42,4 +42,9 @@ export namespace PrivateEndpointSettings {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PrivateEndpointSettings): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

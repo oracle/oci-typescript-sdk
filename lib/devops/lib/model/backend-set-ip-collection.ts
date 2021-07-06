@@ -30,4 +30,9 @@ export namespace BackendSetIpCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BackendSetIpCollection): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

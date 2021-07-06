@@ -158,4 +158,18 @@ export namespace UpdateApplicationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateApplicationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.ApplicationParameter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

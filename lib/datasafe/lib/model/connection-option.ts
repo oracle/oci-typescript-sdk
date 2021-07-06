@@ -40,4 +40,25 @@ export namespace ConnectionOption {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConnectionOption): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("connectionType" in obj && obj.connectionType) {
+      switch (obj.connectionType) {
+        case "PRIVATE_ENDPOINT":
+          return model.PrivateEndpoint.getDeserializedJsonObj(
+            <model.PrivateEndpoint>(<object>jsonObj),
+            true
+          );
+        case "ONPREM_CONNECTOR":
+          return model.OnPremiseConnector.getDeserializedJsonObj(
+            <model.OnPremiseConnector>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.connectionType);
+      }
+    }
+    return jsonObj;
+  }
 }

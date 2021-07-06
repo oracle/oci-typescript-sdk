@@ -42,4 +42,16 @@ export namespace Query {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Query): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "queryDefinition": obj.queryDefinition
+          ? model.QueryDefinition.getDeserializedJsonObj(obj.queryDefinition)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

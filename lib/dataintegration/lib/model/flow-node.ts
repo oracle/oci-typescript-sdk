@@ -100,4 +100,34 @@ export namespace FlowNode {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FlowNode): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "inputLinks": obj.inputLinks
+          ? obj.inputLinks.map(item => {
+              return model.InputLink.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "outputLinks": obj.outputLinks
+          ? obj.outputLinks.map(item => {
+              return model.OutputLink.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "operator": obj.operator ? model.Operator.getDeserializedJsonObj(obj.operator) : undefined,
+        "uiProperties": obj.uiProperties
+          ? model.UIProperties.getDeserializedJsonObj(obj.uiProperties)
+          : undefined,
+        "configProviderDelegate": obj.configProviderDelegate
+          ? model.ConfigProvider.getDeserializedJsonObj(obj.configProviderDelegate)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

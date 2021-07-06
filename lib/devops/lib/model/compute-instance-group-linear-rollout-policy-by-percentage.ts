@@ -44,4 +44,19 @@ export namespace ComputeInstanceGroupLinearRolloutPolicyByPercentage {
     return jsonObj;
   }
   export const policyType = "COMPUTE_INSTANCE_GROUP_LINEAR_ROLLOUT_POLICY_BY_PERCENTAGE";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceGroupLinearRolloutPolicyByPercentage,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ComputeInstanceGroupRolloutPolicy.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceGroupLinearRolloutPolicyByPercentage)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

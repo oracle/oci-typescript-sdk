@@ -68,4 +68,18 @@ export namespace RequestAuthenticationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RequestAuthenticationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "authHeaders": obj.authHeaders
+          ? obj.authHeaders.map(item => {
+              return model.Header.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

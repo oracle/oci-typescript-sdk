@@ -40,4 +40,9 @@ export namespace LoadBalancerShape {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LoadBalancerShape): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

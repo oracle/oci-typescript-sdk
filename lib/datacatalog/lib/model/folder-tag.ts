@@ -68,4 +68,9 @@ export namespace FolderTag {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FolderTag): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

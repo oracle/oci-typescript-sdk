@@ -53,4 +53,9 @@ export namespace LaunchInstanceAvailabilityConfigDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LaunchInstanceAvailabilityConfigDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

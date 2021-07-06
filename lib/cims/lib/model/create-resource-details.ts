@@ -43,4 +43,14 @@ export namespace CreateResourceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateResourceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "item": obj.item ? model.CreateItemDetails.getDeserializedJsonObj(obj.item) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

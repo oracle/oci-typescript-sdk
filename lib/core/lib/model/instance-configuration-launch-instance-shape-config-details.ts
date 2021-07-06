@@ -72,4 +72,11 @@ export namespace InstanceConfigurationLaunchInstanceShapeConfigDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: InstanceConfigurationLaunchInstanceShapeConfigDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

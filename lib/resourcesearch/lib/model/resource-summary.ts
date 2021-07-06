@@ -89,4 +89,16 @@ export namespace ResourceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "searchContext": obj.searchContext
+          ? model.SearchContext.getDeserializedJsonObj(obj.searchContext)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

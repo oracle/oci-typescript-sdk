@@ -33,4 +33,9 @@ export namespace QueryResultsGroupedBySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryResultsGroupedBySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

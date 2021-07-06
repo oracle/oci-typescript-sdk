@@ -37,4 +37,9 @@ export namespace KeyPhrase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KeyPhrase): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

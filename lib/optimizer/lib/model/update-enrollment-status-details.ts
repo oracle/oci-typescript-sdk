@@ -31,4 +31,9 @@ export namespace UpdateEnrollmentStatusDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateEnrollmentStatusDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

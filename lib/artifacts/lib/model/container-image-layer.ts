@@ -40,4 +40,9 @@ export namespace ContainerImageLayer {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ContainerImageLayer): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

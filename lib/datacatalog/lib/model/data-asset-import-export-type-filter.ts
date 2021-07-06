@@ -26,7 +26,14 @@ export enum DataAssetImportExportTypeFilter {
 }
 
 export namespace DataAssetImportExportTypeFilter {
-  export function getJsonObj(obj: DataAssetImportExportTypeFilter): object {
-    return { obj };
+  export function getJsonObj(
+    obj: DataAssetImportExportTypeFilter
+  ): DataAssetImportExportTypeFilter {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: DataAssetImportExportTypeFilter
+  ): DataAssetImportExportTypeFilter {
+    return obj;
   }
 }

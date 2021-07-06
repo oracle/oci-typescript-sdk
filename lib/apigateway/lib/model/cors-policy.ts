@@ -67,4 +67,9 @@ export namespace CorsPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CorsPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

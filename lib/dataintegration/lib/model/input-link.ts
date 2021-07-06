@@ -43,4 +43,14 @@ export namespace InputLink {
     return jsonObj;
   }
   export const modelType = "INPUT_LINK";
+  export function getDeserializedJsonObj(obj: InputLink, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.FlowPortLink.getDeserializedJsonObj(obj) as InputLink)),
+      ...{
+        "fieldMap": obj.fieldMap ? model.FieldMap.getDeserializedJsonObj(obj.fieldMap) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

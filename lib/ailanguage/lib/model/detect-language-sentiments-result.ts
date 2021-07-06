@@ -42,4 +42,18 @@ export namespace DetectLanguageSentimentsResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectLanguageSentimentsResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "aspects": obj.aspects
+          ? obj.aspects.map(item => {
+              return model.SentimentAspect.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

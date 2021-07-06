@@ -43,4 +43,19 @@ export namespace InstanceSourceViaBootVolumeDetails {
     return jsonObj;
   }
   export const sourceType = "bootVolume";
+  export function getDeserializedJsonObj(
+    obj: InstanceSourceViaBootVolumeDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.InstanceSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as InstanceSourceViaBootVolumeDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -73,4 +73,23 @@ export namespace SqlPlanInsightAggregationCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlPlanInsightAggregationCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "insights": obj.insights
+          ? obj.insights.map(item => {
+              return model.SqlPlanInsights.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SqlPlanInsightAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

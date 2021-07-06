@@ -49,4 +49,19 @@ export namespace UpdateResolverVnicEndpointDetails {
     return jsonObj;
   }
   export const endpointType = "VNIC";
+  export function getDeserializedJsonObj(
+    obj: UpdateResolverVnicEndpointDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateResolverEndpointDetails.getDeserializedJsonObj(
+            obj
+          ) as UpdateResolverVnicEndpointDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

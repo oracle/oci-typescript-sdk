@@ -34,7 +34,10 @@ export enum ActionTypes {
 }
 
 export namespace ActionTypes {
-  export function getJsonObj(obj: ActionTypes): object {
-    return { obj };
+  export function getJsonObj(obj: ActionTypes): ActionTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ActionTypes): ActionTypes {
+    return obj;
   }
 }

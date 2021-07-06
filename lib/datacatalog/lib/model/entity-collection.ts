@@ -44,4 +44,18 @@ export namespace EntityCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EntityCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.EntitySummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

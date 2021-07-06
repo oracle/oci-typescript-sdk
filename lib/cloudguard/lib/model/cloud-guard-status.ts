@@ -29,7 +29,10 @@ export enum CloudGuardStatus {
 }
 
 export namespace CloudGuardStatus {
-  export function getJsonObj(obj: CloudGuardStatus): object {
-    return { obj };
+  export function getJsonObj(obj: CloudGuardStatus): CloudGuardStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: CloudGuardStatus): CloudGuardStatus {
+    return obj;
   }
 }

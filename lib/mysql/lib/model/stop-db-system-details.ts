@@ -32,4 +32,9 @@ export namespace StopDbSystemDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StopDbSystemDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

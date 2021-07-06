@@ -54,4 +54,9 @@ export namespace CaptureConsoleHistoryDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CaptureConsoleHistoryDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

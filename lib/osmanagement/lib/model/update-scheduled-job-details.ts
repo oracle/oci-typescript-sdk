@@ -91,4 +91,18 @@ export namespace UpdateScheduledJobDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateScheduledJobDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "packageNames": obj.packageNames
+          ? obj.packageNames.map(item => {
+              return model.PackageName.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

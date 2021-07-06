@@ -57,4 +57,18 @@ export namespace OutputPort {
     return jsonObj;
   }
   export const modelType = "OUTPUT_PORT";
+  export function getDeserializedJsonObj(obj: OutputPort, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.TypedObject.getDeserializedJsonObj(obj) as OutputPort)),
+      ...{
+        "fields": obj.fields
+          ? obj.fields.map(item => {
+              return model.TypedObject.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

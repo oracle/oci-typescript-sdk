@@ -79,4 +79,9 @@ export namespace Metastore {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Metastore): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

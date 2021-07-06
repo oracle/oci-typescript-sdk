@@ -34,4 +34,9 @@ export namespace DbSystemPlacement {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbSystemPlacement): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

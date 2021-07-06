@@ -56,4 +56,9 @@ export namespace UpdatePrivateApplicationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdatePrivateApplicationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

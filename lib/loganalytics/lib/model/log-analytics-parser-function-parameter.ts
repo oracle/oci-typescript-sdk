@@ -59,4 +59,18 @@ export namespace LogAnalyticsParserFunctionParameter {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsParserFunctionParameter): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parserMetaPluginParameter": obj.parserMetaPluginParameter
+          ? model.LogAnalyticsParserMetaPluginParameter.getDeserializedJsonObj(
+              obj.parserMetaPluginParameter
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

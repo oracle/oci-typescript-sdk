@@ -28,4 +28,9 @@ export namespace CreateSwiftPasswordDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSwiftPasswordDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

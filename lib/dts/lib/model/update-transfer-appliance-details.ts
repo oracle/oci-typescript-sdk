@@ -40,4 +40,16 @@ export namespace UpdateTransferApplianceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateTransferApplianceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customerShippingAddress": obj.customerShippingAddress
+          ? model.ShippingAddress.getDeserializedJsonObj(obj.customerShippingAddress)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

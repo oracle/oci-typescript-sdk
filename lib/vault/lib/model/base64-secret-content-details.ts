@@ -38,4 +38,17 @@ export namespace Base64SecretContentDetails {
     return jsonObj;
   }
   export const contentType = "BASE64";
+  export function getDeserializedJsonObj(
+    obj: Base64SecretContentDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SecretContentDetails.getDeserializedJsonObj(obj) as Base64SecretContentDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -52,4 +52,23 @@ export namespace BulkEditTagsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BulkEditTagsDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resources": obj.resources
+          ? obj.resources.map(item => {
+              return model.BulkEditResource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "bulkEditOperations": obj.bulkEditOperations
+          ? obj.bulkEditOperations.map(item => {
+              return model.BulkEditOperationDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

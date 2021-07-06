@@ -147,4 +147,26 @@ export namespace ManagedInstance {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagedInstance): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentSoftwareSource": obj.parentSoftwareSource
+          ? model.SoftwareSourceId.getDeserializedJsonObj(obj.parentSoftwareSource)
+          : undefined,
+        "childSoftwareSources": obj.childSoftwareSources
+          ? obj.childSoftwareSources.map(item => {
+              return model.SoftwareSourceId.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "managedInstanceGroups": obj.managedInstanceGroups
+          ? obj.managedInstanceGroups.map(item => {
+              return model.Id.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

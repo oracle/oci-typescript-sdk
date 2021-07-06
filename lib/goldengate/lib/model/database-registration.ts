@@ -146,4 +146,9 @@ export namespace DatabaseRegistration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseRegistration): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

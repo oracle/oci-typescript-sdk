@@ -31,7 +31,10 @@ export enum ScheduleTypes {
 }
 
 export namespace ScheduleTypes {
-  export function getJsonObj(obj: ScheduleTypes): object {
-    return { obj };
+  export function getJsonObj(obj: ScheduleTypes): ScheduleTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ScheduleTypes): ScheduleTypes {
+    return obj;
   }
 }

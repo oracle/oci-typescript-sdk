@@ -46,4 +46,9 @@ export namespace UpdateWorkspaceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateWorkspaceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

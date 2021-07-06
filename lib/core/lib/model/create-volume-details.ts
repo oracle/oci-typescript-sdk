@@ -133,4 +133,22 @@ export namespace CreateVolumeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateVolumeDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.VolumeSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "blockVolumeReplicas": obj.blockVolumeReplicas
+          ? obj.blockVolumeReplicas.map(item => {
+              return model.BlockVolumeReplicaDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

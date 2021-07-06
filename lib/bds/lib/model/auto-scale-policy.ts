@@ -56,4 +56,18 @@ export namespace AutoScalePolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutoScalePolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "rules": obj.rules
+          ? obj.rules.map(item => {
+              return model.AutoScalePolicyRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

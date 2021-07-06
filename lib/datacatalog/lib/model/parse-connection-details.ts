@@ -38,4 +38,16 @@ export namespace ParseConnectionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ParseConnectionDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "connectionDetail": obj.connectionDetail
+          ? model.Connection.getDeserializedJsonObj(obj.connectionDetail)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -35,4 +35,9 @@ export namespace FilterQueryParameterPolicyItem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FilterQueryParameterPolicyItem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

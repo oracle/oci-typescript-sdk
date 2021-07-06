@@ -56,4 +56,9 @@ export namespace PrivateApplicationPackageSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PrivateApplicationPackageSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

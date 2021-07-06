@@ -43,4 +43,9 @@ export namespace OggDeployment {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OggDeployment): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

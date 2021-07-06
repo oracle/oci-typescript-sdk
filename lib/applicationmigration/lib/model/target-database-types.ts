@@ -33,7 +33,10 @@ export enum TargetDatabaseTypes {
 }
 
 export namespace TargetDatabaseTypes {
-  export function getJsonObj(obj: TargetDatabaseTypes): object {
-    return { obj };
+  export function getJsonObj(obj: TargetDatabaseTypes): TargetDatabaseTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: TargetDatabaseTypes): TargetDatabaseTypes {
+    return obj;
   }
 }

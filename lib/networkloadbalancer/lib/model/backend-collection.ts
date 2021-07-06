@@ -39,4 +39,18 @@ export namespace BackendCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BackendCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.BackendSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

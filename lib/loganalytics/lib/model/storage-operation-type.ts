@@ -35,7 +35,10 @@ export enum StorageOperationType {
 }
 
 export namespace StorageOperationType {
-  export function getJsonObj(obj: StorageOperationType): object {
-    return { obj };
+  export function getJsonObj(obj: StorageOperationType): StorageOperationType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: StorageOperationType): StorageOperationType {
+    return obj;
   }
 }

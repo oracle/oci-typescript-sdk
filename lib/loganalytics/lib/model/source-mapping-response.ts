@@ -40,4 +40,18 @@ export namespace SourceMappingResponse {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SourceMappingResponse): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parsedResponse": obj.parsedResponse
+          ? obj.parsedResponse.map(item => {
+              return model.ParsedContent.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

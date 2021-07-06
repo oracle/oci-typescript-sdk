@@ -71,4 +71,9 @@ export namespace SqlText {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlText): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

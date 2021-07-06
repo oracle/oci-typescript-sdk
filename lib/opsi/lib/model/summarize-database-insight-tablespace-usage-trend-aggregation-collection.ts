@@ -64,4 +64,20 @@ export namespace SummarizeDatabaseInsightTablespaceUsageTrendAggregationCollecti
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: SummarizeDatabaseInsightTablespaceUsageTrendAggregationCollection
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.TablespaceUsageTrendAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

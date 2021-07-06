@@ -65,4 +65,9 @@ export namespace AppCatalogListing {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AppCatalogListing): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

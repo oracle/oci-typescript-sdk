@@ -31,7 +31,10 @@ export enum ProblemType {
 }
 
 export namespace ProblemType {
-  export function getJsonObj(obj: ProblemType): object {
-    return { obj };
+  export function getJsonObj(obj: ProblemType): ProblemType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ProblemType): ProblemType {
+    return obj;
   }
 }

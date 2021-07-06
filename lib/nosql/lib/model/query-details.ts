@@ -69,4 +69,9 @@ export namespace QueryDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

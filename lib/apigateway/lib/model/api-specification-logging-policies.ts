@@ -40,4 +40,19 @@ export namespace ApiSpecificationLoggingPolicies {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApiSpecificationLoggingPolicies): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "accessLog": obj.accessLog
+          ? model.AccessLogPolicy.getDeserializedJsonObj(obj.accessLog)
+          : undefined,
+        "executionLog": obj.executionLog
+          ? model.ExecutionLogPolicy.getDeserializedJsonObj(obj.executionLog)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -34,4 +34,9 @@ export namespace GlossaryPermissionsSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GlossaryPermissionsSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

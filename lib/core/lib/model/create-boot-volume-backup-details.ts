@@ -63,4 +63,9 @@ export namespace CreateBootVolumeBackupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateBootVolumeBackupDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

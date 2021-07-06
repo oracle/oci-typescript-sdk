@@ -307,4 +307,9 @@ export namespace ConfigurationVariables {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfigurationVariables): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

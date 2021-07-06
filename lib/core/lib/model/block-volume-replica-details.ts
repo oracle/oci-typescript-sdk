@@ -44,4 +44,9 @@ export namespace BlockVolumeReplicaDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BlockVolumeReplicaDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -43,4 +43,9 @@ export namespace PartitionReservation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PartitionReservation): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

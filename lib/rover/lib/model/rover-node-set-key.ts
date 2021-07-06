@@ -30,4 +30,9 @@ export namespace RoverNodeSetKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RoverNodeSetKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

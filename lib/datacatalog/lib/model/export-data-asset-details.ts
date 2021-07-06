@@ -39,4 +39,18 @@ export namespace ExportDataAssetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExportDataAssetDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "exportScope": obj.exportScope
+          ? obj.exportScope.map(item => {
+              return model.DataAssetExportScope.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

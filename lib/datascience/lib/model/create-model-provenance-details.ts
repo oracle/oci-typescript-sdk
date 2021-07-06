@@ -48,4 +48,9 @@ export namespace CreateModelProvenanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateModelProvenanceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

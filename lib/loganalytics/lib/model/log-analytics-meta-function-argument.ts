@@ -83,4 +83,9 @@ export namespace LogAnalyticsMetaFunctionArgument {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsMetaFunctionArgument): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -34,4 +34,9 @@ export namespace TypeCustomPropertyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TypeCustomPropertyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

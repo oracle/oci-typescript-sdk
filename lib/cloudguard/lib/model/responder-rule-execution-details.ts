@@ -41,4 +41,21 @@ export namespace ResponderRuleExecutionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponderRuleExecutionDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "condition": obj.condition
+          ? model.Condition.getDeserializedJsonObj(obj.condition)
+          : undefined,
+        "configurations": obj.configurations
+          ? obj.configurations.map(item => {
+              return model.ResponderConfiguration.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

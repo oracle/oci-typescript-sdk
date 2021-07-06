@@ -113,4 +113,59 @@ export namespace DataAssetSummary {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataAssetSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "nativeTypeSystem": obj.nativeTypeSystem
+          ? model.TypeSystem.getDeserializedJsonObj(obj.nativeTypeSystem)
+          : undefined,
+
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "MYSQL_DATA_ASSET":
+          return model.DataAssetSummaryFromMySQL.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_DATA_ASSET":
+          return model.DataAssetSummaryFromAtp.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromAtp>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_DATA_ASSET":
+          return model.DataAssetSummaryFromAdwc.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC_DATA_ASSET":
+          return model.DataAssetSummaryFromJdbc.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
+          return model.DataAssetSummaryFromObjectStorage.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromObjectStorage>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_DATA_ASSET":
+          return model.DataAssetSummaryFromOracle.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromOracle>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -66,4 +66,9 @@ export namespace KeyShape {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KeyShape): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

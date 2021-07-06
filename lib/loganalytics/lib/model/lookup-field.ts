@@ -56,4 +56,9 @@ export namespace LookupField {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LookupField): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

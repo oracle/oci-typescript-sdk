@@ -37,4 +37,9 @@ export namespace Dimension {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Dimension): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

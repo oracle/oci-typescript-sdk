@@ -77,4 +77,9 @@ export namespace CreateAutonomousVmClusterDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateAutonomousVmClusterDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

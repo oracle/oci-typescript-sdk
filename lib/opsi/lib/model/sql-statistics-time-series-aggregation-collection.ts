@@ -65,4 +65,20 @@ export namespace SqlStatisticsTimeSeriesAggregationCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: SqlStatisticsTimeSeriesAggregationCollection
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SqlStatisticsTimeSeriesAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

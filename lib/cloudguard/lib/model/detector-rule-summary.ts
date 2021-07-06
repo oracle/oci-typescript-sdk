@@ -111,4 +111,21 @@ export namespace DetectorRuleSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectorRuleSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "candidateResponderRules": obj.candidateResponderRules
+          ? obj.candidateResponderRules.map(item => {
+              return model.CandidateResponderRule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "detectorDetails": obj.detectorDetails
+          ? model.DetectorDetails.getDeserializedJsonObj(obj.detectorDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

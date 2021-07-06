@@ -36,7 +36,12 @@ export enum ModelDeploymentLifecycleState {
 }
 
 export namespace ModelDeploymentLifecycleState {
-  export function getJsonObj(obj: ModelDeploymentLifecycleState): object {
-    return { obj };
+  export function getJsonObj(obj: ModelDeploymentLifecycleState): ModelDeploymentLifecycleState {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: ModelDeploymentLifecycleState
+  ): ModelDeploymentLifecycleState {
+    return obj;
   }
 }

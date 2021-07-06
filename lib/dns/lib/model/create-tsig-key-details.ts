@@ -69,4 +69,9 @@ export namespace CreateTsigKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTsigKeyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

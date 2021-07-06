@@ -71,4 +71,27 @@ export namespace UpdateDataAssetFromOracle {
     return jsonObj;
   }
   export const modelType = "ORACLE_DATA_ASSET";
+  export function getDeserializedJsonObj(
+    obj: UpdateDataAssetFromOracle,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateDataAssetDetails.getDeserializedJsonObj(obj) as UpdateDataAssetFromOracle)),
+      ...{
+        "walletSecret": obj.walletSecret
+          ? model.SensitiveAttribute.getDeserializedJsonObj(obj.walletSecret)
+          : undefined,
+        "walletPasswordSecret": obj.walletPasswordSecret
+          ? model.SensitiveAttribute.getDeserializedJsonObj(obj.walletPasswordSecret)
+          : undefined,
+        "defaultConnection": obj.defaultConnection
+          ? model.UpdateConnectionFromOracle.getDeserializedJsonObj(obj.defaultConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

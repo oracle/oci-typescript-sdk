@@ -40,4 +40,9 @@ export namespace UpdateTagDefaultDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateTagDefaultDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

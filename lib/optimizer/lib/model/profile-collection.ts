@@ -40,4 +40,18 @@ export namespace ProfileCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProfileCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ProfileSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

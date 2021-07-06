@@ -139,4 +139,16 @@ export namespace Vault {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Vault): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicaDetails": obj.replicaDetails
+          ? model.VaultReplicaDetails.getDeserializedJsonObj(obj.replicaDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

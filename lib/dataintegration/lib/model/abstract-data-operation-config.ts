@@ -43,4 +43,25 @@ export namespace AbstractDataOperationConfig {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AbstractDataOperationConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "WRITE_OPERATION_CONFIG":
+          return model.WriteOperationConfig.getDeserializedJsonObj(
+            <model.WriteOperationConfig>(<object>jsonObj),
+            true
+          );
+        case "READ_OPERATION_CONFIG":
+          return model.ReadOperationConfig.getDeserializedJsonObj(
+            <model.ReadOperationConfig>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

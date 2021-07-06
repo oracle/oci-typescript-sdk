@@ -82,4 +82,16 @@ export namespace CreateDeploymentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDeploymentDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "specification": obj.specification
+          ? model.ApiSpecification.getDeserializedJsonObj(obj.specification)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

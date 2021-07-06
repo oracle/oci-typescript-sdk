@@ -44,4 +44,19 @@ export namespace QueryDefinition {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryDefinition): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "reportQuery": obj.reportQuery
+          ? model.ReportQuery.getDeserializedJsonObj(obj.reportQuery)
+          : undefined,
+        "costAnalysisUI": obj.costAnalysisUI
+          ? model.CostAnalysisUI.getDeserializedJsonObj(obj.costAnalysisUI)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

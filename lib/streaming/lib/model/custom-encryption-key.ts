@@ -48,4 +48,9 @@ export namespace CustomEncryptionKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CustomEncryptionKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

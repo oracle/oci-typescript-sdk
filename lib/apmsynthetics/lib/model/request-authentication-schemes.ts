@@ -25,7 +25,12 @@ export enum RequestAuthenticationSchemes {
 }
 
 export namespace RequestAuthenticationSchemes {
-  export function getJsonObj(obj: RequestAuthenticationSchemes): object {
-    return { obj };
+  export function getJsonObj(obj: RequestAuthenticationSchemes): RequestAuthenticationSchemes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: RequestAuthenticationSchemes
+  ): RequestAuthenticationSchemes {
+    return obj;
   }
 }

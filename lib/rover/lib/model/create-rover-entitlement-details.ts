@@ -79,4 +79,9 @@ export namespace CreateRoverEntitlementDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateRoverEntitlementDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

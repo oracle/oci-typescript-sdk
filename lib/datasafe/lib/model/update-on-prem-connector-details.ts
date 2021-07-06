@@ -48,4 +48,9 @@ export namespace UpdateOnPremConnectorDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateOnPremConnectorDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

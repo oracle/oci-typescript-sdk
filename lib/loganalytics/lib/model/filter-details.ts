@@ -51,4 +51,18 @@ export namespace FilterDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FilterDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "filters": obj.filters
+          ? obj.filters.map(item => {
+              return model.Filter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

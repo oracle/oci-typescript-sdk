@@ -93,4 +93,9 @@ export namespace UpdateVnicDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateVnicDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

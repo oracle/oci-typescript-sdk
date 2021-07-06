@@ -36,4 +36,16 @@ export namespace KeyAttribute {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KeyAttribute): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "attribute": obj.attribute
+          ? model.ShapeField.getDeserializedJsonObj(obj.attribute)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

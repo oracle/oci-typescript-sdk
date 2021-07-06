@@ -171,4 +171,9 @@ export namespace DataGuardAssociationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataGuardAssociationSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

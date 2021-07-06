@@ -67,4 +67,25 @@ export namespace HostResourceStatistics {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HostResourceStatistics): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("resourceName" in obj && obj.resourceName) {
+      switch (obj.resourceName) {
+        case "HOST_MEMORY_STATISTICS":
+          return model.HostMemoryStatistics.getDeserializedJsonObj(
+            <model.HostMemoryStatistics>(<object>jsonObj),
+            true
+          );
+        case "HOST_CPU_STATISTICS":
+          return model.HostCpuStatistics.getDeserializedJsonObj(
+            <model.HostCpuStatistics>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.resourceName);
+      }
+    }
+    return jsonObj;
+  }
 }

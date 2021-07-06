@@ -48,4 +48,18 @@ export namespace SteeringPolicyPriorityRuleCase {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SteeringPolicyPriorityRuleCase): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "answerData": obj.answerData
+          ? obj.answerData.map(item => {
+              return model.SteeringPolicyPriorityAnswerData.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

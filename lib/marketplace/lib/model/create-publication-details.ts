@@ -82,4 +82,22 @@ export namespace CreatePublicationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePublicationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "supportContacts": obj.supportContacts
+          ? obj.supportContacts.map(item => {
+              return model.SupportContact.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "packageDetails": obj.packageDetails
+          ? model.CreatePublicationPackage.getDeserializedJsonObj(obj.packageDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -44,4 +44,18 @@ export namespace VersionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VersionSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "versions": obj.versions
+          ? obj.versions.map(item => {
+              return model.Version.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

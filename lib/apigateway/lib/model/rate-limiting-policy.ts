@@ -47,4 +47,9 @@ export namespace RateLimitingPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RateLimitingPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

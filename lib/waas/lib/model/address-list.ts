@@ -71,4 +71,9 @@ export namespace AddressList {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddressList): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,18 @@ export namespace PipelineSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PipelineSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.PipelineSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

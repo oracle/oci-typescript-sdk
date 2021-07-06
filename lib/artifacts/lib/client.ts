@@ -15,7 +15,7 @@ Use this API to manage resources such as container images and repositories.
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { ArtifactsWaiter } from "./artifacts-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -172,7 +172,7 @@ export class ArtifactsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeContainerRepositoryCompartmentRequest.changeContainerRepositoryCompartmentDetails,
         "ChangeContainerRepositoryCompartmentDetails",
-        models.ChangeContainerRepositoryCompartmentDetails.getJsonObj
+        model.ChangeContainerRepositoryCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -238,7 +238,7 @@ export class ArtifactsClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeRepositoryCompartmentRequest.changeRepositoryCompartmentDetails,
         "ChangeRepositoryCompartmentDetails",
-        models.ChangeRepositoryCompartmentDetails.getJsonObj
+        model.ChangeRepositoryCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -299,7 +299,7 @@ export class ArtifactsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createContainerImageSignatureRequest.createContainerImageSignatureDetails,
         "CreateContainerImageSignatureDetails",
-        models.CreateContainerImageSignatureDetails.getJsonObj
+        model.CreateContainerImageSignatureDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -311,7 +311,8 @@ export class ArtifactsClient {
         responseObject: <responses.CreateContainerImageSignatureResponse>{},
         body: await response.json(),
         bodyKey: "containerImageSignature",
-        bodyModel: "model.ContainerImageSignature",
+        bodyModel: model.ContainerImageSignature,
+        type: "model.ContainerImageSignature",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -367,7 +368,7 @@ export class ArtifactsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createContainerRepositoryRequest.createContainerRepositoryDetails,
         "CreateContainerRepositoryDetails",
-        models.CreateContainerRepositoryDetails.getJsonObj
+        model.CreateContainerRepositoryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -379,7 +380,8 @@ export class ArtifactsClient {
         responseObject: <responses.CreateContainerRepositoryResponse>{},
         body: await response.json(),
         bodyKey: "containerRepository",
-        bodyModel: "model.ContainerRepository",
+        bodyModel: model.ContainerRepository,
+        type: "model.ContainerRepository",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -434,7 +436,7 @@ export class ArtifactsClient {
       bodyContent: common.ObjectSerializer.serialize(
         createRepositoryRequest.createRepositoryDetails,
         "CreateRepositoryDetails",
-        models.CreateRepositoryDetails.getJsonObj
+        model.CreateRepositoryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -446,7 +448,8 @@ export class ArtifactsClient {
         responseObject: <responses.CreateRepositoryResponse>{},
         body: await response.json(),
         bodyKey: "repository",
-        bodyModel: "model.Repository",
+        bodyModel: model.Repository,
+        type: "model.Repository",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -851,7 +854,8 @@ export class ArtifactsClient {
         responseObject: <responses.GetContainerConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "containerConfiguration",
-        bodyModel: "model.ContainerConfiguration",
+        bodyModel: model.ContainerConfiguration,
+        type: "model.ContainerConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -914,7 +918,8 @@ export class ArtifactsClient {
         responseObject: <responses.GetContainerImageResponse>{},
         body: await response.json(),
         bodyKey: "containerImage",
-        bodyModel: "model.ContainerImage",
+        bodyModel: model.ContainerImage,
+        type: "model.ContainerImage",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -978,7 +983,8 @@ export class ArtifactsClient {
         responseObject: <responses.GetContainerImageSignatureResponse>{},
         body: await response.json(),
         bodyKey: "containerImageSignature",
-        bodyModel: "model.ContainerImageSignature",
+        bodyModel: model.ContainerImageSignature,
+        type: "model.ContainerImageSignature",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1041,7 +1047,8 @@ export class ArtifactsClient {
         responseObject: <responses.GetContainerRepositoryResponse>{},
         body: await response.json(),
         bodyKey: "containerRepository",
-        bodyModel: "model.ContainerRepository",
+        bodyModel: model.ContainerRepository,
+        type: "model.ContainerRepository",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1104,7 +1111,8 @@ export class ArtifactsClient {
         responseObject: <responses.GetGenericArtifactResponse>{},
         body: await response.json(),
         bodyKey: "genericArtifact",
-        bodyModel: "model.GenericArtifact",
+        bodyModel: model.GenericArtifact,
+        type: "model.GenericArtifact",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1170,7 +1178,8 @@ export class ArtifactsClient {
         responseObject: <responses.GetGenericArtifactByPathResponse>{},
         body: await response.json(),
         bodyKey: "genericArtifact",
-        bodyModel: "model.GenericArtifact",
+        bodyModel: model.GenericArtifact,
+        type: "model.GenericArtifact",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1233,7 +1242,8 @@ export class ArtifactsClient {
         responseObject: <responses.GetRepositoryResponse>{},
         body: await response.json(),
         bodyKey: "repository",
-        bodyModel: "model.Repository",
+        bodyModel: model.Repository,
+        type: "model.Repository",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1310,7 +1320,8 @@ export class ArtifactsClient {
         responseObject: <responses.ListContainerImageSignaturesResponse>{},
         body: await response.json(),
         bodyKey: "containerImageSignatureCollection",
-        bodyModel: "model.ContainerImageSignatureCollection",
+        bodyModel: model.ContainerImageSignatureCollection,
+        type: "model.ContainerImageSignatureCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1385,7 +1396,8 @@ export class ArtifactsClient {
         responseObject: <responses.ListContainerImagesResponse>{},
         body: await response.json(),
         bodyKey: "containerImageCollection",
-        bodyModel: "model.ContainerImageCollection",
+        bodyModel: model.ContainerImageCollection,
+        type: "model.ContainerImageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1458,7 +1470,8 @@ export class ArtifactsClient {
         responseObject: <responses.ListContainerRepositoriesResponse>{},
         body: await response.json(),
         bodyKey: "containerRepositoryCollection",
-        bodyModel: "model.ContainerRepositoryCollection",
+        bodyModel: model.ContainerRepositoryCollection,
+        type: "model.ContainerRepositoryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1532,7 +1545,8 @@ export class ArtifactsClient {
         responseObject: <responses.ListGenericArtifactsResponse>{},
         body: await response.json(),
         bodyKey: "genericArtifactCollection",
-        bodyModel: "model.GenericArtifactCollection",
+        bodyModel: model.GenericArtifactCollection,
+        type: "model.GenericArtifactCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1603,7 +1617,8 @@ export class ArtifactsClient {
         responseObject: <responses.ListRepositoriesResponse>{},
         body: await response.json(),
         bodyKey: "repositoryCollection",
-        bodyModel: "model.RepositoryCollection",
+        bodyModel: model.RepositoryCollection,
+        type: "model.RepositoryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1661,7 +1676,7 @@ export class ArtifactsClient {
       bodyContent: common.ObjectSerializer.serialize(
         removeContainerVersionRequest.removeContainerVersionDetails,
         "RemoveContainerVersionDetails",
-        models.RemoveContainerVersionDetails.getJsonObj
+        model.RemoveContainerVersionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1673,7 +1688,8 @@ export class ArtifactsClient {
         responseObject: <responses.RemoveContainerVersionResponse>{},
         body: await response.json(),
         bodyKey: "containerImage",
-        bodyModel: "model.ContainerImage",
+        bodyModel: model.ContainerImage,
+        type: "model.ContainerImage",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1731,7 +1747,7 @@ export class ArtifactsClient {
       bodyContent: common.ObjectSerializer.serialize(
         restoreContainerImageRequest.restoreContainerImageDetails,
         "RestoreContainerImageDetails",
-        models.RestoreContainerImageDetails.getJsonObj
+        model.RestoreContainerImageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1743,7 +1759,8 @@ export class ArtifactsClient {
         responseObject: <responses.RestoreContainerImageResponse>{},
         body: await response.json(),
         bodyKey: "containerImage",
-        bodyModel: "model.ContainerImage",
+        bodyModel: model.ContainerImage,
+        type: "model.ContainerImage",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1801,7 +1818,7 @@ export class ArtifactsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateContainerConfigurationRequest.updateContainerConfigurationDetails,
         "UpdateContainerConfigurationDetails",
-        models.UpdateContainerConfigurationDetails.getJsonObj
+        model.UpdateContainerConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1813,7 +1830,8 @@ export class ArtifactsClient {
         responseObject: <responses.UpdateContainerConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "containerConfiguration",
-        bodyModel: "model.ContainerConfiguration",
+        bodyModel: model.ContainerConfiguration,
+        type: "model.ContainerConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1871,7 +1889,7 @@ export class ArtifactsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateContainerRepositoryRequest.updateContainerRepositoryDetails,
         "UpdateContainerRepositoryDetails",
-        models.UpdateContainerRepositoryDetails.getJsonObj
+        model.UpdateContainerRepositoryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1883,7 +1901,8 @@ export class ArtifactsClient {
         responseObject: <responses.UpdateContainerRepositoryResponse>{},
         body: await response.json(),
         bodyKey: "containerRepository",
-        bodyModel: "model.ContainerRepository",
+        bodyModel: model.ContainerRepository,
+        type: "model.ContainerRepository",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1940,7 +1959,7 @@ export class ArtifactsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateGenericArtifactRequest.updateGenericArtifactDetails,
         "UpdateGenericArtifactDetails",
-        models.UpdateGenericArtifactDetails.getJsonObj
+        model.UpdateGenericArtifactDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1952,7 +1971,8 @@ export class ArtifactsClient {
         responseObject: <responses.UpdateGenericArtifactResponse>{},
         body: await response.json(),
         bodyKey: "genericArtifact",
-        bodyModel: "model.GenericArtifact",
+        bodyModel: model.GenericArtifact,
+        type: "model.GenericArtifact",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2012,7 +2032,7 @@ export class ArtifactsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateGenericArtifactByPathRequest.updateGenericArtifactByPathDetails,
         "UpdateGenericArtifactByPathDetails",
-        models.UpdateGenericArtifactByPathDetails.getJsonObj
+        model.UpdateGenericArtifactByPathDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2024,7 +2044,8 @@ export class ArtifactsClient {
         responseObject: <responses.UpdateGenericArtifactByPathResponse>{},
         body: await response.json(),
         bodyKey: "genericArtifact",
-        bodyModel: "model.GenericArtifact",
+        bodyModel: model.GenericArtifact,
+        type: "model.GenericArtifact",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2081,7 +2102,7 @@ export class ArtifactsClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateRepositoryRequest.updateRepositoryDetails,
         "UpdateRepositoryDetails",
-        models.UpdateRepositoryDetails.getJsonObj
+        model.UpdateRepositoryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2093,7 +2114,8 @@ export class ArtifactsClient {
         responseObject: <responses.UpdateRepositoryResponse>{},
         body: await response.json(),
         bodyKey: "repository",
-        bodyModel: "model.Repository",
+        bodyModel: model.Repository,
+        type: "model.Repository",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

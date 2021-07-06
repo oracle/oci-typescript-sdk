@@ -72,4 +72,9 @@ export namespace CreateContainerImageSignatureDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateContainerImageSignatureDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

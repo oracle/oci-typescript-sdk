@@ -58,4 +58,9 @@ export namespace CreateViewDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateViewDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

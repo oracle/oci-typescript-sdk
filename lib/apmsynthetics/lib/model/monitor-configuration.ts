@@ -58,4 +58,35 @@ export namespace MonitorConfiguration {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MonitorConfiguration): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("configType" in obj && obj.configType) {
+      switch (obj.configType) {
+        case "SCRIPTED_REST_CONFIG":
+          return model.ScriptedRestMonitorConfiguration.getDeserializedJsonObj(
+            <model.ScriptedRestMonitorConfiguration>(<object>jsonObj),
+            true
+          );
+        case "SCRIPTED_BROWSER_CONFIG":
+          return model.ScriptedBrowserMonitorConfiguration.getDeserializedJsonObj(
+            <model.ScriptedBrowserMonitorConfiguration>(<object>jsonObj),
+            true
+          );
+        case "REST_CONFIG":
+          return model.RestMonitorConfiguration.getDeserializedJsonObj(
+            <model.RestMonitorConfiguration>(<object>jsonObj),
+            true
+          );
+        case "BROWSER_CONFIG":
+          return model.BrowserMonitorConfiguration.getDeserializedJsonObj(
+            <model.BrowserMonitorConfiguration>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.configType);
+      }
+    }
+    return jsonObj;
+  }
 }

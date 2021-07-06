@@ -34,4 +34,19 @@ export namespace DefaultStopDeploymentDetails {
     return jsonObj;
   }
   export const type = "DEFAULT";
+  export function getDeserializedJsonObj(
+    obj: DefaultStopDeploymentDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.StopDeploymentDetails.getDeserializedJsonObj(
+            obj
+          ) as DefaultStopDeploymentDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -170,4 +170,25 @@ export namespace NetworkLoadBalancer {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NetworkLoadBalancer): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ipAddresses": obj.ipAddresses
+          ? obj.ipAddresses.map(item => {
+              return model.IpAddress.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "listeners": obj.listeners
+          ? common.mapContainer(obj.listeners, model.Listener.getDeserializedJsonObj)
+          : undefined,
+        "backendSets": obj.backendSets
+          ? common.mapContainer(obj.backendSets, model.BackendSet.getDeserializedJsonObj)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

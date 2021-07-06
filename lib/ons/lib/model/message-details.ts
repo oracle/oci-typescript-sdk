@@ -39,4 +39,9 @@ export namespace MessageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MessageDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

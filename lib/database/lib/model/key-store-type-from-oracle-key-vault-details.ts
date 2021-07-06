@@ -54,4 +54,19 @@ export namespace KeyStoreTypeFromOracleKeyVaultDetails {
     return jsonObj;
   }
   export const type = "ORACLE_KEY_VAULT";
+  export function getDeserializedJsonObj(
+    obj: KeyStoreTypeFromOracleKeyVaultDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.KeyStoreTypeDetails.getDeserializedJsonObj(
+            obj
+          ) as KeyStoreTypeFromOracleKeyVaultDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

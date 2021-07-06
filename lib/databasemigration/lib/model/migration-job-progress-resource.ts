@@ -51,4 +51,18 @@ export namespace MigrationJobProgressResource {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MigrationJobProgressResource): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "phases": obj.phases
+          ? obj.phases.map(item => {
+              return model.PhaseStatus.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -90,4 +90,18 @@ export namespace CreateAnalyticsInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateAnalyticsInstanceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "capacity": obj.capacity ? model.Capacity.getDeserializedJsonObj(obj.capacity) : undefined,
+
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getDeserializedJsonObj(obj.networkEndpointDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

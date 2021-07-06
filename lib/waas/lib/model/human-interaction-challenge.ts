@@ -81,4 +81,19 @@ export namespace HumanInteractionChallenge {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HumanInteractionChallenge): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "setHttpHeader": obj.setHttpHeader
+          ? model.Header.getDeserializedJsonObj(obj.setHttpHeader)
+          : undefined,
+        "challengeSettings": obj.challengeSettings
+          ? model.BlockChallengeSettings.getDeserializedJsonObj(obj.challengeSettings)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

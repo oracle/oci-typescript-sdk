@@ -48,4 +48,18 @@ export namespace FieldSummaryReport {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FieldSummaryReport): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "usageDetails": obj.usageDetails
+          ? obj.usageDetails.map(item => {
+              return model.UsageStatusItem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

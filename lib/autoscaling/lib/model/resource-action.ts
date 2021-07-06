@@ -44,4 +44,20 @@ export namespace ResourceAction {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceAction): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("actionType" in obj && obj.actionType) {
+      switch (obj.actionType) {
+        case "power":
+          return model.ResourcePowerAction.getDeserializedJsonObj(
+            <model.ResourcePowerAction>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.actionType);
+      }
+    }
+    return jsonObj;
+  }
 }

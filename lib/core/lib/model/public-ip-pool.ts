@@ -90,4 +90,9 @@ export namespace PublicIpPool {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublicIpPool): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -99,4 +99,9 @@ export namespace AlertRule {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AlertRule): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -55,4 +55,19 @@ export namespace UpdateClusterDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateClusterDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "options": obj.options
+          ? model.UpdateClusterOptionsDetails.getDeserializedJsonObj(obj.options)
+          : undefined,
+        "imagePolicyConfig": obj.imagePolicyConfig
+          ? model.UpdateImagePolicyConfigDetails.getDeserializedJsonObj(obj.imagePolicyConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

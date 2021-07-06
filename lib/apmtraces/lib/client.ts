@@ -14,7 +14,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -152,7 +152,8 @@ export class QueryClient {
         responseObject: <responses.ListQuickPicksResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "QuickPickSummary[]",
+        bodyModel: model.QuickPickSummary,
+        type: "Array<model.QuickPickSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -187,7 +188,7 @@ export class QueryClient {
    */
   public listAllQuickPicks(
     request: requests.ListQuickPicksRequest
-  ): AsyncIterableIterator<models.QuickPickSummary> {
+  ): AsyncIterableIterator<model.QuickPickSummary> {
     return paginateRecords(request, req => this.listQuickPicks(req));
   }
 
@@ -244,7 +245,7 @@ export class QueryClient {
       bodyContent: common.ObjectSerializer.serialize(
         queryRequest.queryDetails,
         "QueryDetails",
-        models.QueryDetails.getJsonObj
+        model.QueryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -256,7 +257,8 @@ export class QueryClient {
         responseObject: <responses.QueryResponse>{},
         body: await response.json(),
         bodyKey: "queryResultResponse",
-        bodyModel: "model.QueryResultResponse",
+        bodyModel: model.QueryResultResponse,
+        type: "model.QueryResultResponse",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -327,7 +329,7 @@ export class QueryClient {
       bodyContent: common.ObjectSerializer.serialize(
         queryOldRequest.queryDetails,
         "QueryDetails",
-        models.QueryDetails.getJsonObj
+        model.QueryDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -339,7 +341,8 @@ export class QueryClient {
         responseObject: <responses.QueryOldResponse>{},
         body: await response.json(),
         bodyKey: "queryResultResponse",
-        bodyModel: "model.QueryResultResponse",
+        bodyModel: model.QueryResultResponse,
+        type: "model.QueryResultResponse",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -494,7 +497,8 @@ export class TraceClient {
         responseObject: <responses.GetSpanResponse>{},
         body: await response.json(),
         bodyKey: "span",
-        bodyModel: "model.Span",
+        bodyModel: model.Span,
+        type: "model.Span",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -555,7 +559,8 @@ export class TraceClient {
         responseObject: <responses.GetTraceResponse>{},
         body: await response.json(),
         bodyKey: "trace",
-        bodyModel: "model.Trace",
+        bodyModel: model.Trace,
+        type: "model.Trace",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

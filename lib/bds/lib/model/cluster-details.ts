@@ -79,4 +79,9 @@ export namespace ClusterDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ClusterDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

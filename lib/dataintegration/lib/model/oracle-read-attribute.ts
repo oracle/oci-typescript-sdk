@@ -38,4 +38,17 @@ export namespace OracleReadAttribute {
     return jsonObj;
   }
   export const modelType = "ORACLEREADATTRIBUTE";
+  export function getDeserializedJsonObj(
+    obj: OracleReadAttribute,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractReadAttribute.getDeserializedJsonObj(obj) as OracleReadAttribute)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

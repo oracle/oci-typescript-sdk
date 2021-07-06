@@ -33,4 +33,9 @@ export namespace EnterpriseManagerBridges {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EnterpriseManagerBridges): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

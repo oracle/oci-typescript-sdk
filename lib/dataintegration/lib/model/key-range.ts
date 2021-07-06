@@ -36,4 +36,14 @@ export namespace KeyRange {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KeyRange): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "key": obj.key ? model.ShapeField.getDeserializedJsonObj(obj.key) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

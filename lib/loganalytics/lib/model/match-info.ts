@@ -39,4 +39,9 @@ export namespace MatchInfo {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MatchInfo): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

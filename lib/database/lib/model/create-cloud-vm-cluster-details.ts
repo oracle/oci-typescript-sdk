@@ -152,4 +152,9 @@ export namespace CreateCloudVmClusterDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateCloudVmClusterDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

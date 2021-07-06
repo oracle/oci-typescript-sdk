@@ -162,4 +162,14 @@ export namespace Deployment {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Deployment): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "oggData": obj.oggData ? model.OggDeployment.getDeserializedJsonObj(obj.oggData) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

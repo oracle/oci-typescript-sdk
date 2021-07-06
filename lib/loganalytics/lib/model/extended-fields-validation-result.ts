@@ -40,4 +40,18 @@ export namespace ExtendedFieldsValidationResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExtendedFieldsValidationResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.EfdRegexResult.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

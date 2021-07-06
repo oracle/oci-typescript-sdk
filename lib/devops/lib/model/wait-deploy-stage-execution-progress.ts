@@ -36,4 +36,19 @@ export namespace WaitDeployStageExecutionProgress {
     return jsonObj;
   }
   export const deployStageType = "WAIT";
+  export function getDeserializedJsonObj(
+    obj: WaitDeployStageExecutionProgress,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageExecutionProgress.getDeserializedJsonObj(
+            obj
+          ) as WaitDeployStageExecutionProgress)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

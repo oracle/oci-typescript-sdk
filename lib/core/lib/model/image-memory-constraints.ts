@@ -39,4 +39,9 @@ export namespace ImageMemoryConstraints {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ImageMemoryConstraints): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

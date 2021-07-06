@@ -46,4 +46,9 @@ export namespace CrossConnectPortSpeedShape {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CrossConnectPortSpeedShape): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

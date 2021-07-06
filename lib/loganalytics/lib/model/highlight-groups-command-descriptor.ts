@@ -70,4 +70,25 @@ export namespace HighlightGroupsCommandDescriptor {
     return jsonObj;
   }
   export const name = "HIGHLIGHT_GROUPS";
+  export function getDeserializedJsonObj(
+    obj: HighlightGroupsCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as HighlightGroupsCommandDescriptor)),
+      ...{
+        "subQueries": obj.subQueries
+          ? obj.subQueries.map(item => {
+              return model.ParseQueryOutput.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

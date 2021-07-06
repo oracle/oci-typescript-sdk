@@ -62,4 +62,24 @@ export namespace ParserTestResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ParserTestResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "entries": obj.entries
+          ? obj.entries.map(item => {
+              return model.AbstractParserTestResultLogEntry.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "lines": obj.lines
+          ? obj.lines.map(item => {
+              return model.AbstractParserTestResultLogLine.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

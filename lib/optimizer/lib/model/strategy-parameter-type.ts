@@ -31,7 +31,10 @@ export enum StrategyParameterType {
 }
 
 export namespace StrategyParameterType {
-  export function getJsonObj(obj: StrategyParameterType): object {
-    return { obj };
+  export function getJsonObj(obj: StrategyParameterType): StrategyParameterType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: StrategyParameterType): StrategyParameterType {
+    return obj;
   }
 }

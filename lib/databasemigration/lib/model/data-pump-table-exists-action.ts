@@ -32,7 +32,12 @@ export enum DataPumpTableExistsAction {
 }
 
 export namespace DataPumpTableExistsAction {
-  export function getJsonObj(obj: DataPumpTableExistsAction): object {
-    return { obj };
+  export function getJsonObj(obj: DataPumpTableExistsAction): DataPumpTableExistsAction {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: DataPumpTableExistsAction
+  ): DataPumpTableExistsAction {
+    return obj;
   }
 }

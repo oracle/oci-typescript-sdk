@@ -44,4 +44,9 @@ export namespace DbSystemOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbSystemOptions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

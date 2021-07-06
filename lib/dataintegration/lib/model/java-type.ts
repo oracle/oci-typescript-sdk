@@ -41,4 +41,16 @@ export namespace JavaType {
     return jsonObj;
   }
   export const modelType = "JAVA_TYPE";
+  export function getDeserializedJsonObj(obj: JavaType, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.BaseType.getDeserializedJsonObj(obj) as JavaType)),
+      ...{
+        "configDefinition": obj.configDefinition
+          ? model.ConfigDefinition.getDeserializedJsonObj(obj.configDefinition)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

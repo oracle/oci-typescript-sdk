@@ -14,7 +14,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { DataScienceWaiter } from "./datascience-waiter";
@@ -174,7 +174,8 @@ export class DataScienceClient {
         responseObject: <responses.ActivateModelResponse>{},
         body: await response.json(),
         bodyKey: "model",
-        bodyModel: "model.Model",
+        bodyModel: model.Model,
+        type: "model.Model",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -413,7 +414,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeModelCompartmentRequest.changeModelCompartmentDetails,
         "ChangeModelCompartmentDetails",
-        models.ChangeModelCompartmentDetails.getJsonObj
+        model.ChangeModelCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -476,7 +477,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeModelDeploymentCompartmentRequest.changeModelDeploymentCompartmentDetails,
         "ChangeModelDeploymentCompartmentDetails",
-        models.ChangeModelDeploymentCompartmentDetails.getJsonObj
+        model.ChangeModelDeploymentCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -539,7 +540,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeNotebookSessionCompartmentRequest.changeNotebookSessionCompartmentDetails,
         "ChangeNotebookSessionCompartmentDetails",
-        models.ChangeNotebookSessionCompartmentDetails.getJsonObj
+        model.ChangeNotebookSessionCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -602,7 +603,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeProjectCompartmentRequest.changeProjectCompartmentDetails,
         "ChangeProjectCompartmentDetails",
-        models.ChangeProjectCompartmentDetails.getJsonObj
+        model.ChangeProjectCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -661,7 +662,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createModelRequest.createModelDetails,
         "CreateModelDetails",
-        models.CreateModelDetails.getJsonObj
+        model.CreateModelDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -673,7 +674,8 @@ export class DataScienceClient {
         responseObject: <responses.CreateModelResponse>{},
         body: await response.json(),
         bodyKey: "model",
-        bodyModel: "model.Model",
+        bodyModel: model.Model,
+        type: "model.Model",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -793,7 +795,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createModelDeploymentRequest.createModelDeploymentDetails,
         "CreateModelDeploymentDetails",
-        models.CreateModelDeploymentDetails.getJsonObj
+        model.CreateModelDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -805,7 +807,8 @@ export class DataScienceClient {
         responseObject: <responses.CreateModelDeploymentResponse>{},
         body: await response.json(),
         bodyKey: "modelDeployment",
-        bodyModel: "model.ModelDeployment",
+        bodyModel: model.ModelDeployment,
+        type: "model.ModelDeployment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -873,7 +876,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createModelProvenanceRequest.createModelProvenanceDetails,
         "CreateModelProvenanceDetails",
-        models.CreateModelProvenanceDetails.getJsonObj
+        model.CreateModelProvenanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -885,7 +888,8 @@ export class DataScienceClient {
         responseObject: <responses.CreateModelProvenanceResponse>{},
         body: await response.json(),
         bodyKey: "modelProvenance",
-        bodyModel: "model.ModelProvenance",
+        bodyModel: model.ModelProvenance,
+        type: "model.ModelProvenance",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -941,7 +945,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createNotebookSessionRequest.createNotebookSessionDetails,
         "CreateNotebookSessionDetails",
-        models.CreateNotebookSessionDetails.getJsonObj
+        model.CreateNotebookSessionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -953,7 +957,8 @@ export class DataScienceClient {
         responseObject: <responses.CreateNotebookSessionResponse>{},
         body: await response.json(),
         bodyKey: "notebookSession",
-        bodyModel: "model.NotebookSession",
+        bodyModel: model.NotebookSession,
+        type: "model.NotebookSession",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1018,7 +1023,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createProjectRequest.createProjectDetails,
         "CreateProjectDetails",
-        models.CreateProjectDetails.getJsonObj
+        model.CreateProjectDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1030,7 +1035,8 @@ export class DataScienceClient {
         responseObject: <responses.CreateProjectResponse>{},
         body: await response.json(),
         bodyKey: "project",
-        bodyModel: "model.Project",
+        bodyModel: model.Project,
+        type: "model.Project",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1094,7 +1100,8 @@ export class DataScienceClient {
         responseObject: <responses.DeactivateModelResponse>{},
         body: await response.json(),
         bodyKey: "model",
-        bodyModel: "model.Model",
+        bodyModel: model.Model,
+        type: "model.Model",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1522,7 +1529,8 @@ export class DataScienceClient {
         responseObject: <responses.GetModelResponse>{},
         body: await response.json(),
         bodyKey: "model",
-        bodyModel: "model.Model",
+        bodyModel: model.Model,
+        type: "model.Model",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1671,7 +1679,8 @@ export class DataScienceClient {
         responseObject: <responses.GetModelDeploymentResponse>{},
         body: await response.json(),
         bodyKey: "modelDeployment",
-        bodyModel: "model.ModelDeployment",
+        bodyModel: model.ModelDeployment,
+        type: "model.ModelDeployment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1734,7 +1743,8 @@ export class DataScienceClient {
         responseObject: <responses.GetModelProvenanceResponse>{},
         body: await response.json(),
         bodyKey: "modelProvenance",
-        bodyModel: "model.ModelProvenance",
+        bodyModel: model.ModelProvenance,
+        type: "model.ModelProvenance",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1797,7 +1807,8 @@ export class DataScienceClient {
         responseObject: <responses.GetNotebookSessionResponse>{},
         body: await response.json(),
         bodyKey: "notebookSession",
-        bodyModel: "model.NotebookSession",
+        bodyModel: model.NotebookSession,
+        type: "model.NotebookSession",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1860,7 +1871,8 @@ export class DataScienceClient {
         responseObject: <responses.GetProjectResponse>{},
         body: await response.json(),
         bodyKey: "project",
-        bodyModel: "model.Project",
+        bodyModel: model.Project,
+        type: "model.Project",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1923,7 +1935,8 @@ export class DataScienceClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2074,7 +2087,8 @@ export class DataScienceClient {
         responseObject: <responses.ListModelDeploymentShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ModelDeploymentShapeSummary[]",
+        bodyModel: model.ModelDeploymentShapeSummary,
+        type: "Array<model.ModelDeploymentShapeSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2109,7 +2123,7 @@ export class DataScienceClient {
    */
   public listAllModelDeploymentShapes(
     request: requests.ListModelDeploymentShapesRequest
-  ): AsyncIterableIterator<models.ModelDeploymentShapeSummary> {
+  ): AsyncIterableIterator<model.ModelDeploymentShapeSummary> {
     return paginateRecords(request, req => this.listModelDeploymentShapes(req));
   }
 
@@ -2177,7 +2191,8 @@ export class DataScienceClient {
         responseObject: <responses.ListModelDeploymentsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ModelDeploymentSummary[]",
+        bodyModel: model.ModelDeploymentSummary,
+        type: "Array<model.ModelDeploymentSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2212,7 +2227,7 @@ export class DataScienceClient {
    */
   public listAllModelDeployments(
     request: requests.ListModelDeploymentsRequest
-  ): AsyncIterableIterator<models.ModelDeploymentSummary> {
+  ): AsyncIterableIterator<model.ModelDeploymentSummary> {
     return paginateRecords(request, req => this.listModelDeployments(req));
   }
 
@@ -2279,7 +2294,8 @@ export class DataScienceClient {
         responseObject: <responses.ListModelsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ModelSummary[]",
+        bodyModel: model.ModelSummary,
+        type: "Array<model.ModelSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2314,7 +2330,7 @@ export class DataScienceClient {
    */
   public listAllModels(
     request: requests.ListModelsRequest
-  ): AsyncIterableIterator<models.ModelSummary> {
+  ): AsyncIterableIterator<model.ModelSummary> {
     return paginateRecords(request, req => this.listModels(req));
   }
 
@@ -2375,7 +2391,8 @@ export class DataScienceClient {
         responseObject: <responses.ListNotebookSessionShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "NotebookSessionShapeSummary[]",
+        bodyModel: model.NotebookSessionShapeSummary,
+        type: "Array<model.NotebookSessionShapeSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2410,7 +2427,7 @@ export class DataScienceClient {
    */
   public listAllNotebookSessionShapes(
     request: requests.ListNotebookSessionShapesRequest
-  ): AsyncIterableIterator<models.NotebookSessionShapeSummary> {
+  ): AsyncIterableIterator<model.NotebookSessionShapeSummary> {
     return paginateRecords(request, req => this.listNotebookSessionShapes(req));
   }
 
@@ -2477,7 +2494,8 @@ export class DataScienceClient {
         responseObject: <responses.ListNotebookSessionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "NotebookSessionSummary[]",
+        bodyModel: model.NotebookSessionSummary,
+        type: "Array<model.NotebookSessionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2512,7 +2530,7 @@ export class DataScienceClient {
    */
   public listAllNotebookSessions(
     request: requests.ListNotebookSessionsRequest
-  ): AsyncIterableIterator<models.NotebookSessionSummary> {
+  ): AsyncIterableIterator<model.NotebookSessionSummary> {
     return paginateRecords(request, req => this.listNotebookSessions(req));
   }
 
@@ -2578,7 +2596,8 @@ export class DataScienceClient {
         responseObject: <responses.ListProjectsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ProjectSummary[]",
+        bodyModel: model.ProjectSummary,
+        type: "Array<model.ProjectSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2613,7 +2632,7 @@ export class DataScienceClient {
    */
   public listAllProjects(
     request: requests.ListProjectsRequest
-  ): AsyncIterableIterator<models.ProjectSummary> {
+  ): AsyncIterableIterator<model.ProjectSummary> {
     return paginateRecords(request, req => this.listProjects(req));
   }
 
@@ -2672,7 +2691,8 @@ export class DataScienceClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2730,7 +2750,8 @@ export class DataScienceClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2795,7 +2816,8 @@ export class DataScienceClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2830,7 +2852,7 @@ export class DataScienceClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -2882,7 +2904,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateModelRequest.updateModelDetails,
         "UpdateModelDetails",
-        models.UpdateModelDetails.getJsonObj
+        model.UpdateModelDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2894,7 +2916,8 @@ export class DataScienceClient {
         responseObject: <responses.UpdateModelResponse>{},
         body: await response.json(),
         bodyKey: "model",
-        bodyModel: "model.Model",
+        bodyModel: model.Model,
+        type: "model.Model",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2956,7 +2979,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateModelDeploymentRequest.updateModelDeploymentDetails,
         "UpdateModelDeploymentDetails",
-        models.UpdateModelDeploymentDetails.getJsonObj
+        model.UpdateModelDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3023,7 +3046,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateModelProvenanceRequest.updateModelProvenanceDetails,
         "UpdateModelProvenanceDetails",
-        models.UpdateModelProvenanceDetails.getJsonObj
+        model.UpdateModelProvenanceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3035,7 +3058,8 @@ export class DataScienceClient {
         responseObject: <responses.UpdateModelProvenanceResponse>{},
         body: await response.json(),
         bodyKey: "modelProvenance",
-        bodyModel: "model.ModelProvenance",
+        bodyModel: model.ModelProvenance,
+        type: "model.ModelProvenance",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3096,7 +3120,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateNotebookSessionRequest.updateNotebookSessionDetails,
         "UpdateNotebookSessionDetails",
-        models.UpdateNotebookSessionDetails.getJsonObj
+        model.UpdateNotebookSessionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3108,7 +3132,8 @@ export class DataScienceClient {
         responseObject: <responses.UpdateNotebookSessionResponse>{},
         body: await response.json(),
         bodyKey: "notebookSession",
-        bodyModel: "model.NotebookSession",
+        bodyModel: model.NotebookSession,
+        type: "model.NotebookSession",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3165,7 +3190,7 @@ export class DataScienceClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateProjectRequest.updateProjectDetails,
         "UpdateProjectDetails",
-        models.UpdateProjectDetails.getJsonObj
+        model.UpdateProjectDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3177,7 +3202,8 @@ export class DataScienceClient {
         responseObject: <responses.UpdateProjectResponse>{},
         body: await response.json(),
         bodyKey: "project",
-        bodyModel: "model.Project",
+        bodyModel: model.Project,
+        type: "model.Project",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

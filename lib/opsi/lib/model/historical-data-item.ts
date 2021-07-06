@@ -38,4 +38,9 @@ export namespace HistoricalDataItem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HistoricalDataItem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

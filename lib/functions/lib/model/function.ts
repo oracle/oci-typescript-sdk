@@ -143,4 +143,16 @@ export namespace Function {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Function): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "traceConfig": obj.traceConfig
+          ? model.FunctionTraceConfig.getDeserializedJsonObj(obj.traceConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

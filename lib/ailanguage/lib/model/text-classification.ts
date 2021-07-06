@@ -37,4 +37,9 @@ export namespace TextClassification {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TextClassification): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

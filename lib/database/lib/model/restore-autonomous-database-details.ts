@@ -42,4 +42,9 @@ export namespace RestoreAutonomousDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RestoreAutonomousDatabaseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

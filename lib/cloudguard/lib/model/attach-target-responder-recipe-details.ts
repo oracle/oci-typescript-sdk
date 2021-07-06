@@ -30,4 +30,9 @@ export namespace AttachTargetResponderRecipeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AttachTargetResponderRecipeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,20 @@ export namespace UpgradeDeploymentDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpgradeDeploymentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "CURRENT_RELEASE":
+          return model.UpgradeDeploymentCurrentReleaseDetails.getDeserializedJsonObj(
+            <model.UpgradeDeploymentCurrentReleaseDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -52,4 +52,9 @@ export namespace AnalyticsClusterSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AnalyticsClusterSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

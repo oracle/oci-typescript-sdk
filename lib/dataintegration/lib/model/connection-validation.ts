@@ -72,4 +72,24 @@ export namespace ConnectionValidation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConnectionValidation): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "validationMessage": obj.validationMessage
+          ? model.Message.getDeserializedJsonObj(obj.validationMessage)
+          : undefined,
+
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

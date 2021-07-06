@@ -39,4 +39,18 @@ export namespace ResponderActivityCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponderActivityCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ResponderActivitySummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

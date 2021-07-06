@@ -70,4 +70,9 @@ export namespace SqlInsightThresholds {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlInsightThresholds): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

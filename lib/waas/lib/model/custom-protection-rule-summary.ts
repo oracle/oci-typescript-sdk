@@ -66,4 +66,9 @@ export namespace CustomProtectionRuleSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CustomProtectionRuleSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -96,4 +96,9 @@ export namespace NetworkLoadBalancerHealth {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: NetworkLoadBalancerHealth): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

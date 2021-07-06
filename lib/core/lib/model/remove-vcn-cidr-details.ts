@@ -36,4 +36,9 @@ export namespace RemoveVcnCidrDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RemoveVcnCidrDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

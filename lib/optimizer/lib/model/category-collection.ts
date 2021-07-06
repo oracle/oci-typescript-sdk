@@ -40,4 +40,18 @@ export namespace CategoryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CategoryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.CategorySummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

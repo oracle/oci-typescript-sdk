@@ -39,4 +39,18 @@ export namespace SecurityScoreTrendAggregationCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SecurityScoreTrendAggregationCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SecurityScoreTrendAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

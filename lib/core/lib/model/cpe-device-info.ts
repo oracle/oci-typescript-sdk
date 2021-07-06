@@ -39,4 +39,9 @@ export namespace CpeDeviceInfo {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CpeDeviceInfo): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

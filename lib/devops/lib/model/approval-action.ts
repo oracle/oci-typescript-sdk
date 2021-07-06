@@ -44,4 +44,9 @@ export namespace ApprovalAction {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApprovalAction): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

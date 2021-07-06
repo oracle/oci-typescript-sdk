@@ -79,4 +79,9 @@ export namespace ManagedInstanceUsage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagedInstanceUsage): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

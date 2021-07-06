@@ -41,4 +41,19 @@ export namespace KeyRangePartitionConfig {
     return jsonObj;
   }
   export const modelType = "KEYRANGEPARTITIONCONFIG";
+  export function getDeserializedJsonObj(
+    obj: KeyRangePartitionConfig,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.PartitionConfig.getDeserializedJsonObj(obj) as KeyRangePartitionConfig)),
+      ...{
+        "keyRange": obj.keyRange ? model.KeyRange.getDeserializedJsonObj(obj.keyRange) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

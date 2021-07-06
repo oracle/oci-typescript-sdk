@@ -42,17 +42,22 @@ export interface CreateEnterpriseManagerBridgeDetails {
    * Example: `{\"bar-key\": \"value\"}`
    *
    */
-  "freeformTags": { [key: string]: string };
+  "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
    */
-  "definedTags": { [key: string]: { [key: string]: any } };
+  "definedTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace CreateEnterpriseManagerBridgeDetails {
   export function getJsonObj(obj: CreateEnterpriseManagerBridgeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
+  export function getDeserializedJsonObj(obj: CreateEnterpriseManagerBridgeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;

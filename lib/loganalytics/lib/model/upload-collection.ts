@@ -40,4 +40,18 @@ export namespace UploadCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UploadCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.UploadSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -38,4 +38,9 @@ export namespace UpdateBulkProblemStatusDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateBulkProblemStatusDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

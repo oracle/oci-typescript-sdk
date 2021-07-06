@@ -38,4 +38,16 @@ export namespace QuerySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QuerySummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "queryDefinition": obj.queryDefinition
+          ? model.QueryDefinition.getDeserializedJsonObj(obj.queryDefinition)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

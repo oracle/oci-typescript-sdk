@@ -68,4 +68,9 @@ export namespace EntityTagSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EntityTagSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

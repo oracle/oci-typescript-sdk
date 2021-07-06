@@ -37,4 +37,9 @@ export namespace ConnectionAliasSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConnectionAliasSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

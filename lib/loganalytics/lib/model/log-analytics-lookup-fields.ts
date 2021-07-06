@@ -56,4 +56,9 @@ export namespace LogAnalyticsLookupFields {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsLookupFields): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

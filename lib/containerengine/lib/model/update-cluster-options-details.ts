@@ -40,4 +40,16 @@ export namespace UpdateClusterOptionsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateClusterOptionsDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "admissionControllerOptions": obj.admissionControllerOptions
+          ? model.AdmissionControllerOptions.getDeserializedJsonObj(obj.admissionControllerOptions)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

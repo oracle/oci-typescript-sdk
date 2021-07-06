@@ -43,4 +43,21 @@ export namespace CreateDatabaseFromBackup {
     return jsonObj;
   }
   export const source = "DB_BACKUP";
+  export function getDeserializedJsonObj(
+    obj: CreateDatabaseFromBackup,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDatabaseBase.getDeserializedJsonObj(obj) as CreateDatabaseFromBackup)),
+      ...{
+        "database": obj.database
+          ? model.CreateDatabaseFromBackupDetails.getDeserializedJsonObj(obj.database)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

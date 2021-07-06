@@ -33,7 +33,10 @@ export enum BastionLifecycleState {
 }
 
 export namespace BastionLifecycleState {
-  export function getJsonObj(obj: BastionLifecycleState): object {
-    return { obj };
+  export function getJsonObj(obj: BastionLifecycleState): BastionLifecycleState {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: BastionLifecycleState): BastionLifecycleState {
+    return obj;
   }
 }

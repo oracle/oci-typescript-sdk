@@ -31,7 +31,10 @@ export enum PricingStrategyEnum {
 }
 
 export namespace PricingStrategyEnum {
-  export function getJsonObj(obj: PricingStrategyEnum): object {
-    return { obj };
+  export function getJsonObj(obj: PricingStrategyEnum): PricingStrategyEnum {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: PricingStrategyEnum): PricingStrategyEnum {
+    return obj;
   }
 }

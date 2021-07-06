@@ -67,4 +67,9 @@ export namespace CreateDeploymentBackupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDeploymentBackupDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

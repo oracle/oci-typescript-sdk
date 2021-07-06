@@ -119,4 +119,9 @@ export namespace Certificate {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Certificate): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

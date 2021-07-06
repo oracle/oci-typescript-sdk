@@ -51,4 +51,9 @@ export namespace UserCapabilities {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UserCapabilities): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

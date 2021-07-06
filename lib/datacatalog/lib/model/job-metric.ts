@@ -97,4 +97,9 @@ export namespace JobMetric {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobMetric): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

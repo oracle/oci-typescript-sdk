@@ -50,4 +50,17 @@ export namespace SourceVcnIpAddressCondition {
     return jsonObj;
   }
   export const attributeName = "SOURCE_VCN_IP_ADDRESS";
+  export function getDeserializedJsonObj(
+    obj: SourceVcnIpAddressCondition,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.RuleCondition.getDeserializedJsonObj(obj) as SourceVcnIpAddressCondition)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

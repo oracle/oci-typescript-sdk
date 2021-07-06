@@ -56,4 +56,20 @@ export namespace ClusterCreateOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ClusterCreateOptions): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "kubernetesNetworkConfig": obj.kubernetesNetworkConfig
+          ? model.KubernetesNetworkConfig.getDeserializedJsonObj(obj.kubernetesNetworkConfig)
+          : undefined,
+        "addOns": obj.addOns ? model.AddOnOptions.getDeserializedJsonObj(obj.addOns) : undefined,
+        "admissionControllerOptions": obj.admissionControllerOptions
+          ? model.AdmissionControllerOptions.getDeserializedJsonObj(obj.admissionControllerOptions)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

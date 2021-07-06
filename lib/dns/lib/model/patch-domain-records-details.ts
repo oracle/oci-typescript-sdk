@@ -35,4 +35,18 @@ export namespace PatchDomainRecordsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PatchDomainRecordsDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.RecordOperation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

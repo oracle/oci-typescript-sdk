@@ -146,4 +146,70 @@ export namespace WafConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WafConfig): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "accessRules": obj.accessRules
+          ? obj.accessRules.map(item => {
+              return model.AccessRule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "addressRateLimiting": obj.addressRateLimiting
+          ? model.AddressRateLimiting.getDeserializedJsonObj(obj.addressRateLimiting)
+          : undefined,
+        "captchas": obj.captchas
+          ? obj.captchas.map(item => {
+              return model.Captcha.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "deviceFingerprintChallenge": obj.deviceFingerprintChallenge
+          ? model.DeviceFingerprintChallenge.getDeserializedJsonObj(obj.deviceFingerprintChallenge)
+          : undefined,
+        "goodBots": obj.goodBots
+          ? obj.goodBots.map(item => {
+              return model.GoodBot.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "humanInteractionChallenge": obj.humanInteractionChallenge
+          ? model.HumanInteractionChallenge.getDeserializedJsonObj(obj.humanInteractionChallenge)
+          : undefined,
+        "jsChallenge": obj.jsChallenge
+          ? model.JsChallenge.getDeserializedJsonObj(obj.jsChallenge)
+          : undefined,
+
+        "cachingRules": obj.cachingRules
+          ? obj.cachingRules.map(item => {
+              return model.CachingRule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "customProtectionRules": obj.customProtectionRules
+          ? obj.customProtectionRules.map(item => {
+              return model.CustomProtectionRuleSetting.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "protectionRules": obj.protectionRules
+          ? obj.protectionRules.map(item => {
+              return model.ProtectionRule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "protectionSettings": obj.protectionSettings
+          ? model.ProtectionSettings.getDeserializedJsonObj(obj.protectionSettings)
+          : undefined,
+        "threatFeeds": obj.threatFeeds
+          ? obj.threatFeeds.map(item => {
+              return model.ThreatFeed.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "whitelists": obj.whitelists
+          ? obj.whitelists.map(item => {
+              return model.Whitelist.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

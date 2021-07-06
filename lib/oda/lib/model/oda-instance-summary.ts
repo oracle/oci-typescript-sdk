@@ -122,4 +122,9 @@ export namespace OdaInstanceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OdaInstanceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

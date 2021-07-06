@@ -38,4 +38,20 @@ export namespace ApprovalPolicy {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApprovalPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("approvalPolicyType" in obj && obj.approvalPolicyType) {
+      switch (obj.approvalPolicyType) {
+        case "COUNT_BASED_APPROVAL":
+          return model.CountBasedApprovalPolicy.getDeserializedJsonObj(
+            <model.CountBasedApprovalPolicy>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.approvalPolicyType);
+      }
+    }
+    return jsonObj;
+  }
 }

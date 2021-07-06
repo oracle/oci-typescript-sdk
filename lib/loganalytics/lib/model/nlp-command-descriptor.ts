@@ -35,4 +35,17 @@ export namespace NlpCommandDescriptor {
     return jsonObj;
   }
   export const name = "NLP";
+  export function getDeserializedJsonObj(
+    obj: NlpCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as NlpCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

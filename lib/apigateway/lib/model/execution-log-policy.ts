@@ -60,4 +60,9 @@ export namespace ExecutionLogPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExecutionLogPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

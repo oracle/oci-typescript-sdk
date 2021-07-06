@@ -45,4 +45,14 @@ export namespace InputField {
     return jsonObj;
   }
   export const modelType = "INPUT_FIELD";
+  export function getDeserializedJsonObj(obj: InputField, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.TypedObject.getDeserializedJsonObj(obj) as InputField)),
+      ...{
+        "type": obj.type ? model.BaseType.getDeserializedJsonObj(obj.type) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

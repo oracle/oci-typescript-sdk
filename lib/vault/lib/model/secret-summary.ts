@@ -107,4 +107,9 @@ export namespace SecretSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SecretSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

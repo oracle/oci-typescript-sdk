@@ -103,4 +103,9 @@ export namespace SnapshotSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SnapshotSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -49,4 +49,9 @@ export namespace ProcessRecommendationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProcessRecommendationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

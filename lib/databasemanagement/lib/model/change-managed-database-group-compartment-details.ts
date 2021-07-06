@@ -35,4 +35,11 @@ export namespace ChangeManagedDatabaseGroupCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeManagedDatabaseGroupCompartmentDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

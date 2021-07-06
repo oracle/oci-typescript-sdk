@@ -32,4 +32,9 @@ export namespace RestartDbSystemDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RestartDbSystemDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -34,4 +34,16 @@ export namespace UpdateCustomTableDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateCustomTableDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "savedCustomTable": obj.savedCustomTable
+          ? model.SavedCustomTable.getDeserializedJsonObj(obj.savedCustomTable)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

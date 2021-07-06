@@ -34,4 +34,9 @@ export namespace JobDefinitionPermissionsSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobDefinitionPermissionsSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

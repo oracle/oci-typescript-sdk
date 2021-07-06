@@ -29,7 +29,10 @@ export enum TargetType {
 }
 
 export namespace TargetType {
-  export function getJsonObj(obj: TargetType): object {
-    return { obj };
+  export function getJsonObj(obj: TargetType): TargetType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: TargetType): TargetType {
+    return obj;
   }
 }

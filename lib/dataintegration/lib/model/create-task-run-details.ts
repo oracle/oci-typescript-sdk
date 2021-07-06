@@ -63,4 +63,20 @@ export namespace CreateTaskRunDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateTaskRunDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configProvider": obj.configProvider
+          ? model.CreateConfigProvider.getDeserializedJsonObj(obj.configProvider)
+          : undefined,
+
+        "registryMetadata": obj.registryMetadata
+          ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -74,4 +74,9 @@ export namespace ObjectVersionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ObjectVersionSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

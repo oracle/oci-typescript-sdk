@@ -52,4 +52,9 @@ export namespace WorkRequestResourceSubTypeDetail {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkRequestResourceSubTypeDetail): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

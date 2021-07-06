@@ -24,4 +24,9 @@ export namespace TransferAppliancePublicKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TransferAppliancePublicKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

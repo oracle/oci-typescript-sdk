@@ -43,4 +43,9 @@ export namespace TransferPackageSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TransferPackageSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

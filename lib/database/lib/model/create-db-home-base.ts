@@ -98,4 +98,40 @@ export namespace CreateDbHomeBase {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDbHomeBase): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("source" in obj && obj.source) {
+      switch (obj.source) {
+        case "DATABASE":
+          return model.CreateDbHomeWithDbSystemIdFromDatabaseDetails.getDeserializedJsonObj(
+            <model.CreateDbHomeWithDbSystemIdFromDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "DB_BACKUP":
+          return model.CreateDbHomeWithDbSystemIdFromBackupDetails.getDeserializedJsonObj(
+            <model.CreateDbHomeWithDbSystemIdFromBackupDetails>(<object>jsonObj),
+            true
+          );
+        case "VM_CLUSTER_BACKUP":
+          return model.CreateDbHomeWithVmClusterIdFromBackupDetails.getDeserializedJsonObj(
+            <model.CreateDbHomeWithVmClusterIdFromBackupDetails>(<object>jsonObj),
+            true
+          );
+        case "NONE":
+          return model.CreateDbHomeWithDbSystemIdDetails.getDeserializedJsonObj(
+            <model.CreateDbHomeWithDbSystemIdDetails>(<object>jsonObj),
+            true
+          );
+        case "VM_CLUSTER_NEW":
+          return model.CreateDbHomeWithVmClusterIdDetails.getDeserializedJsonObj(
+            <model.CreateDbHomeWithVmClusterIdDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.source);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -41,4 +41,18 @@ export namespace MigrationPhaseCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MigrationPhaseCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.MigrationPhaseSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

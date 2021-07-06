@@ -78,4 +78,19 @@ export namespace CreateComputeImageCapabilitySchemaDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateComputeImageCapabilitySchemaDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "schemaData": obj.schemaData
+          ? common.mapContainer(
+              obj.schemaData,
+              model.ImageCapabilitySchemaDescriptor.getDeserializedJsonObj
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

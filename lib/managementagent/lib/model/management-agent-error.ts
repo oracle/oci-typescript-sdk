@@ -34,4 +34,9 @@ export namespace ManagementAgentError {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagementAgentError): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

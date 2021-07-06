@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
@@ -144,7 +144,7 @@ export class LoggingClient {
       bodyContent: common.ObjectSerializer.serialize(
         putLogsRequest.putLogsDetails,
         "PutLogsDetails",
-        models.PutLogsDetails.getJsonObj
+        model.PutLogsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

@@ -30,4 +30,9 @@ export namespace GenerateOnPremConnectorConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GenerateOnPremConnectorConfigurationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -41,4 +41,19 @@ export namespace DailyFrequencyDetails {
     return jsonObj;
   }
   export const modelType = "DAILY";
+  export function getDeserializedJsonObj(
+    obj: DailyFrequencyDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractFrequencyDetails.getDeserializedJsonObj(obj) as DailyFrequencyDetails)),
+      ...{
+        "time": obj.time ? model.Time.getDeserializedJsonObj(obj.time) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

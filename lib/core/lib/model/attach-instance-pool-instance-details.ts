@@ -36,4 +36,9 @@ export namespace AttachInstancePoolInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AttachInstancePoolInstanceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

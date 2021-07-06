@@ -80,4 +80,17 @@ export namespace ExtendHttpResponseHeaderValueRule {
     return jsonObj;
   }
   export const action = "EXTEND_HTTP_RESPONSE_HEADER_VALUE";
+  export function getDeserializedJsonObj(
+    obj: ExtendHttpResponseHeaderValueRule,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.Rule.getDeserializedJsonObj(obj) as ExtendHttpResponseHeaderValueRule)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

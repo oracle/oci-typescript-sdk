@@ -65,4 +65,9 @@ export namespace AppCatalogSubscription {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AppCatalogSubscription): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

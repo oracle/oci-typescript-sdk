@@ -50,4 +50,9 @@ export namespace PublicationPackageSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublicationPackageSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

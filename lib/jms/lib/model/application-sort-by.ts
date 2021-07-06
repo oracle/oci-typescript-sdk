@@ -27,7 +27,10 @@ export enum ApplicationSortBy {
 }
 
 export namespace ApplicationSortBy {
-  export function getJsonObj(obj: ApplicationSortBy): object {
-    return { obj };
+  export function getJsonObj(obj: ApplicationSortBy): ApplicationSortBy {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ApplicationSortBy): ApplicationSortBy {
+    return obj;
   }
 }

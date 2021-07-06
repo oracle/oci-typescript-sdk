@@ -36,4 +36,16 @@ export namespace ConditionGroup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConditionGroup): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "condition": obj.condition
+          ? model.Condition.getDeserializedJsonObj(obj.condition)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

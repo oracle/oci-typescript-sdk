@@ -51,4 +51,14 @@ export namespace DeleteRowResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeleteRowResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "usage": obj.usage ? model.RequestUsage.getDeserializedJsonObj(obj.usage) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

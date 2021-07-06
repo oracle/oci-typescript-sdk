@@ -63,4 +63,35 @@ export namespace SourceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "IMPORT":
+          return model.ImportSourceDetails.getDeserializedJsonObj(
+            <model.ImportSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "OCC":
+          return model.OccSourceDetails.getDeserializedJsonObj(
+            <model.OccSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "INTERNAL_COMPUTE":
+          return model.InternalSourceDetails.getDeserializedJsonObj(
+            <model.InternalSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "OCIC":
+          return model.OcicSourceDetails.getDeserializedJsonObj(
+            <model.OcicSourceDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

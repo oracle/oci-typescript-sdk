@@ -42,4 +42,9 @@ export namespace CreateReplicat {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateReplicat): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

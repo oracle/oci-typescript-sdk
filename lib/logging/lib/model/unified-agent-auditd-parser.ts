@@ -33,4 +33,17 @@ export namespace UnifiedAgentAuditdParser {
     return jsonObj;
   }
   export const parserType = "AUDITD";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentAuditdParser,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentParser.getDeserializedJsonObj(obj) as UnifiedAgentAuditdParser)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

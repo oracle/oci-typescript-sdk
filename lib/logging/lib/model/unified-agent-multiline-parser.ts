@@ -36,4 +36,17 @@ export namespace UnifiedAgentMultilineParser {
     return jsonObj;
   }
   export const parserType = "MULTILINE";
+  export function getDeserializedJsonObj(
+    obj: UnifiedAgentMultilineParser,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UnifiedAgentParser.getDeserializedJsonObj(obj) as UnifiedAgentMultilineParser)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

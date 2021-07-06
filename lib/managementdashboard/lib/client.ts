@@ -15,7 +15,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { DashxApisWaiter } from "./dashxapis-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -171,7 +171,7 @@ export class DashxApisClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeManagementDashboardsCompartmentRequest.changeManagementDashboardsCompartmentDetails,
         "ChangeManagementDashboardsCompartmentDetails",
-        models.ChangeManagementDashboardsCompartmentDetails.getJsonObj
+        model.ChangeManagementDashboardsCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -243,7 +243,7 @@ export class DashxApisClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeManagementSavedSearchesCompartmentRequest.changeManagementSavedSearchesCompartmentDetails,
         "ChangeManagementSavedSearchesCompartmentDetails",
-        models.ChangeManagementSavedSearchesCompartmentDetails.getJsonObj
+        model.ChangeManagementSavedSearchesCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -313,7 +313,7 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
       bodyContent: common.ObjectSerializer.serialize(
         createManagementDashboardRequest.createManagementDashboardDetails,
         "CreateManagementDashboardDetails",
-        models.CreateManagementDashboardDetails.getJsonObj
+        model.CreateManagementDashboardDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -325,7 +325,8 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
         responseObject: <responses.CreateManagementDashboardResponse>{},
         body: await response.json(),
         bodyKey: "managementDashboard",
-        bodyModel: "model.ManagementDashboard",
+        bodyModel: model.ManagementDashboard,
+        type: "model.ManagementDashboard",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -391,7 +392,7 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
       bodyContent: common.ObjectSerializer.serialize(
         createManagementSavedSearchRequest.createManagementSavedSearchDetails,
         "CreateManagementSavedSearchDetails",
-        models.CreateManagementSavedSearchDetails.getJsonObj
+        model.CreateManagementSavedSearchDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -403,7 +404,8 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
         responseObject: <responses.CreateManagementSavedSearchResponse>{},
         body: await response.json(),
         bodyKey: "managementSavedSearch",
-        bodyModel: "model.ManagementSavedSearch",
+        bodyModel: model.ManagementSavedSearch,
+        type: "model.ManagementSavedSearch",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -596,7 +598,8 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
         responseObject: <responses.ExportDashboardResponse>{},
         body: await response.json(),
         bodyKey: "managementDashboardExportDetails",
-        bodyModel: "model.ManagementDashboardExportDetails",
+        bodyModel: model.ManagementDashboardExportDetails,
+        type: "model.ManagementDashboardExportDetails",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -660,7 +663,8 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
         responseObject: <responses.GetManagementDashboardResponse>{},
         body: await response.json(),
         bodyKey: "managementDashboard",
-        bodyModel: "model.ManagementDashboard",
+        bodyModel: model.ManagementDashboard,
+        type: "model.ManagementDashboard",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -730,7 +734,8 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
         responseObject: <responses.GetManagementSavedSearchResponse>{},
         body: await response.json(),
         bodyKey: "managementSavedSearch",
-        bodyModel: "model.ManagementSavedSearch",
+        bodyModel: model.ManagementSavedSearch,
+        type: "model.ManagementSavedSearch",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -794,7 +799,7 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
       bodyContent: common.ObjectSerializer.serialize(
         importDashboardRequest.managementDashboardImportDetails,
         "ManagementDashboardImportDetails",
-        models.ManagementDashboardImportDetails.getJsonObj
+        model.ManagementDashboardImportDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -872,7 +877,8 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
         responseObject: <responses.ListManagementDashboardsResponse>{},
         body: await response.json(),
         bodyKey: "managementDashboardCollection",
-        bodyModel: "model.ManagementDashboardCollection",
+        bodyModel: model.ManagementDashboardCollection,
+        type: "model.ManagementDashboardCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -941,7 +947,8 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
         responseObject: <responses.ListManagementSavedSearchesResponse>{},
         body: await response.json(),
         bodyKey: "managementSavedSearchCollection",
-        bodyModel: "model.ManagementSavedSearchCollection",
+        bodyModel: model.ManagementSavedSearchCollection,
+        type: "model.ManagementSavedSearchCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1001,7 +1008,7 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
       bodyContent: common.ObjectSerializer.serialize(
         updateManagementDashboardRequest.updateManagementDashboardDetails,
         "UpdateManagementDashboardDetails",
-        models.UpdateManagementDashboardDetails.getJsonObj
+        model.UpdateManagementDashboardDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1013,7 +1020,8 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
         responseObject: <responses.UpdateManagementDashboardResponse>{},
         body: await response.json(),
         bodyKey: "managementDashboard",
-        bodyModel: "model.ManagementDashboard",
+        bodyModel: model.ManagementDashboard,
+        type: "model.ManagementDashboard",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1078,7 +1086,7 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
       bodyContent: common.ObjectSerializer.serialize(
         updateManagementSavedSearchRequest.updateManagementSavedSearchDetails,
         "UpdateManagementSavedSearchDetails",
-        models.UpdateManagementSavedSearchDetails.getJsonObj
+        model.UpdateManagementSavedSearchDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1090,7 +1098,8 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
         responseObject: <responses.UpdateManagementSavedSearchResponse>{},
         body: await response.json(),
         bodyKey: "managementSavedSearch",
-        bodyModel: "model.ManagementSavedSearch",
+        bodyModel: model.ManagementSavedSearch,
+        type: "model.ManagementSavedSearch",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

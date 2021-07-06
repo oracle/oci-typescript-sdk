@@ -37,4 +37,9 @@ export namespace BootVolumeKmsKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BootVolumeKmsKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

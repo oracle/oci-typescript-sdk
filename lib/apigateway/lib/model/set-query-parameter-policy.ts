@@ -44,4 +44,18 @@ export namespace SetQueryParameterPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SetQueryParameterPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SetQueryParameterPolicyItem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

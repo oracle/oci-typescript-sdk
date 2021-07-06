@@ -35,4 +35,17 @@ export namespace EvalCommandDescriptor {
     return jsonObj;
   }
   export const name = "EVAL";
+  export function getDeserializedJsonObj(
+    obj: EvalCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as EvalCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

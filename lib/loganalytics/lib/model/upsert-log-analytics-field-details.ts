@@ -48,4 +48,9 @@ export namespace UpsertLogAnalyticsFieldDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpsertLogAnalyticsFieldDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -75,4 +75,11 @@ export namespace SummarizeDatabaseInsightResourceUsageAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: SummarizeDatabaseInsightResourceUsageAggregation
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

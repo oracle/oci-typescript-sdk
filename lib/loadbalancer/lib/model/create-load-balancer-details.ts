@@ -172,4 +172,48 @@ export namespace CreateLoadBalancerDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateLoadBalancerDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "shapeDetails": obj.shapeDetails
+          ? model.ShapeDetails.getDeserializedJsonObj(obj.shapeDetails)
+          : undefined,
+
+        "reservedIps": obj.reservedIps
+          ? obj.reservedIps.map(item => {
+              return model.ReservedIP.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "listeners": obj.listeners
+          ? common.mapContainer(obj.listeners, model.ListenerDetails.getDeserializedJsonObj)
+          : undefined,
+        "hostnames": obj.hostnames
+          ? common.mapContainer(obj.hostnames, model.HostnameDetails.getDeserializedJsonObj)
+          : undefined,
+        "backendSets": obj.backendSets
+          ? common.mapContainer(obj.backendSets, model.BackendSetDetails.getDeserializedJsonObj)
+          : undefined,
+
+        "certificates": obj.certificates
+          ? common.mapContainer(obj.certificates, model.CertificateDetails.getDeserializedJsonObj)
+          : undefined,
+        "sslCipherSuites": obj.sslCipherSuites
+          ? common.mapContainer(
+              obj.sslCipherSuites,
+              model.SSLCipherSuiteDetails.getDeserializedJsonObj
+            )
+          : undefined,
+        "pathRouteSets": obj.pathRouteSets
+          ? common.mapContainer(obj.pathRouteSets, model.PathRouteSetDetails.getDeserializedJsonObj)
+          : undefined,
+
+        "ruleSets": obj.ruleSets
+          ? common.mapContainer(obj.ruleSets, model.RuleSetDetails.getDeserializedJsonObj)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

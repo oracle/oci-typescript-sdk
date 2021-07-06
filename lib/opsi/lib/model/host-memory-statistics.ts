@@ -63,4 +63,19 @@ export namespace HostMemoryStatistics {
     return jsonObj;
   }
   export const resourceName = "HOST_MEMORY_STATISTICS";
+  export function getDeserializedJsonObj(
+    obj: HostMemoryStatistics,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.HostResourceStatistics.getDeserializedJsonObj(obj) as HostMemoryStatistics)),
+      ...{
+        "load": obj.load ? model.SummaryStatistics.getDeserializedJsonObj(obj.load) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

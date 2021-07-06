@@ -66,4 +66,9 @@ export namespace RoverWorkload {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RoverWorkload): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

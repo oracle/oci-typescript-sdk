@@ -66,4 +66,16 @@ export namespace UpdateTaskRunDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateTaskRunDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "registryMetadata": obj.registryMetadata
+          ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

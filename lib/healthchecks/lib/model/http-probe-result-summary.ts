@@ -181,4 +181,17 @@ export namespace HttpProbeResultSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HttpProbeResultSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "connection": obj.connection
+          ? model.TcpConnection.getDeserializedJsonObj(obj.connection)
+          : undefined,
+        "dns": obj.dns ? model.DNS.getDeserializedJsonObj(obj.dns) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

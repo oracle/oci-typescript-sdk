@@ -62,4 +62,9 @@ export namespace CreateManagedListDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateManagedListDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

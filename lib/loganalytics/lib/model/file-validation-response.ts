@@ -48,4 +48,18 @@ export namespace FileValidationResponse {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FileValidationResponse): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "files": obj.files
+          ? obj.files.map(item => {
+              return model.UploadFileStatus.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

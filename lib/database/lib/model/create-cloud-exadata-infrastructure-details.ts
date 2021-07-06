@@ -76,4 +76,16 @@ export namespace CreateCloudExadataInfrastructureDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateCloudExadataInfrastructureDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

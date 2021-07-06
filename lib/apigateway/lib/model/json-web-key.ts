@@ -94,4 +94,18 @@ export namespace JsonWebKey {
     return jsonObj;
   }
   export const format = "JSON_WEB_KEY";
+  export function getDeserializedJsonObj(obj: JsonWebKey, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.StaticPublicKey.getDeserializedJsonObj(obj) as JsonWebKey)),
+      ...{
+        "keyOps": (obj as any)["key_ops"]
+      }
+    };
+
+    delete (jsonObj as any)["key_ops"];
+
+    return jsonObj;
+  }
 }

@@ -127,4 +127,18 @@ export namespace Node {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Node): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "attachedBlockVolumes": obj.attachedBlockVolumes
+          ? obj.attachedBlockVolumes.map(item => {
+              return model.VolumeAttachmentDetail.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

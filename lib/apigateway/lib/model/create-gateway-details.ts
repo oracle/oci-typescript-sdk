@@ -88,4 +88,16 @@ export namespace CreateGatewayDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateGatewayDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "responseCacheDetails": obj.responseCacheDetails
+          ? model.ResponseCacheDetails.getDeserializedJsonObj(obj.responseCacheDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

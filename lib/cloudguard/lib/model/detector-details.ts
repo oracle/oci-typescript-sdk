@@ -57,4 +57,21 @@ export namespace DetectorDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectorDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configurations": obj.configurations
+          ? obj.configurations.map(item => {
+              return model.DetectorConfiguration.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "condition": obj.condition
+          ? model.Condition.getDeserializedJsonObj(obj.condition)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

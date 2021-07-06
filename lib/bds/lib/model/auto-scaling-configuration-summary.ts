@@ -61,4 +61,14 @@ export namespace AutoScalingConfigurationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutoScalingConfigurationSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "policy": obj.policy ? model.AutoScalePolicy.getDeserializedJsonObj(obj.policy) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

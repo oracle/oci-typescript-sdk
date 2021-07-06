@@ -54,4 +54,19 @@ export namespace ApplyJobOperationDetailsSummary {
     return jsonObj;
   }
   export const operation = "APPLY";
+  export function getDeserializedJsonObj(
+    obj: ApplyJobOperationDetailsSummary,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.JobOperationDetailsSummary.getDeserializedJsonObj(
+            obj
+          ) as ApplyJobOperationDetailsSummary)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

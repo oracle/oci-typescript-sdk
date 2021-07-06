@@ -29,7 +29,10 @@ export enum ThresholdType {
 }
 
 export namespace ThresholdType {
-  export function getJsonObj(obj: ThresholdType): object {
-    return { obj };
+  export function getJsonObj(obj: ThresholdType): ThresholdType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ThresholdType): ThresholdType {
+    return obj;
   }
 }

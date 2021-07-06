@@ -36,4 +36,18 @@ export namespace OriginGroup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OriginGroup): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "origins": obj.origins
+          ? obj.origins.map(item => {
+              return model.OriginGroupOrigins.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

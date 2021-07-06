@@ -141,4 +141,18 @@ export namespace SoftwareSource {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SoftwareSource): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "associatedManagedInstances": obj.associatedManagedInstances
+          ? obj.associatedManagedInstances.map(item => {
+              return model.Id.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

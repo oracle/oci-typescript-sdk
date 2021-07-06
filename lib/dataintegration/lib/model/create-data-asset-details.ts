@@ -104,4 +104,52 @@ export namespace CreateDataAssetDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDataAssetDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "registryMetadata": obj.registryMetadata
+          ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "GENERIC_JDBC_DATA_ASSET":
+          return model.CreateDataAssetFromJdbc.getDeserializedJsonObj(
+            <model.CreateDataAssetFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_DATA_ASSET":
+          return model.CreateDataAssetFromMySQL.getDeserializedJsonObj(
+            <model.CreateDataAssetFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_DATA_ASSET":
+          return model.CreateDataAssetFromOracle.getDeserializedJsonObj(
+            <model.CreateDataAssetFromOracle>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_DATA_ASSET":
+          return model.CreateDataAssetFromAdwc.getDeserializedJsonObj(
+            <model.CreateDataAssetFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_DATA_ASSET":
+          return model.CreateDataAssetFromAtp.getDeserializedJsonObj(
+            <model.CreateDataAssetFromAtp>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
+          return model.CreateDataAssetFromObjectStorage.getDeserializedJsonObj(
+            <model.CreateDataAssetFromObjectStorage>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

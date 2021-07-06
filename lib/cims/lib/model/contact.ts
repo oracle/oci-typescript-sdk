@@ -55,4 +55,9 @@ export namespace Contact {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Contact): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { MarketplaceWaiter } from "./marketplace-waiter";
@@ -168,7 +168,7 @@ export class MarketplaceClient {
       bodyContent: common.ObjectSerializer.serialize(
         changePublicationCompartmentRequest.changePublicationCompartmentDetails,
         "ChangePublicationCompartmentDetails",
-        models.ChangePublicationCompartmentDetails.getJsonObj
+        model.ChangePublicationCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -230,7 +230,7 @@ export class MarketplaceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createAcceptedAgreementRequest.createAcceptedAgreementDetails,
         "CreateAcceptedAgreementDetails",
-        models.CreateAcceptedAgreementDetails.getJsonObj
+        model.CreateAcceptedAgreementDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -242,7 +242,8 @@ export class MarketplaceClient {
         responseObject: <responses.CreateAcceptedAgreementResponse>{},
         body: await response.json(),
         bodyKey: "acceptedAgreement",
-        bodyModel: "model.AcceptedAgreement",
+        bodyModel: model.AcceptedAgreement,
+        type: "model.AcceptedAgreement",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -297,7 +298,7 @@ export class MarketplaceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createPublicationRequest.createPublicationDetails,
         "CreatePublicationDetails",
-        models.CreatePublicationDetails.getJsonObj
+        model.CreatePublicationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -309,7 +310,8 @@ export class MarketplaceClient {
         responseObject: <responses.CreatePublicationResponse>{},
         body: await response.json(),
         bodyKey: "publication",
-        bodyModel: "model.Publication",
+        bodyModel: model.Publication,
+        type: "model.Publication",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -491,7 +493,8 @@ export class MarketplaceClient {
         responseObject: <responses.GetAcceptedAgreementResponse>{},
         body: await response.json(),
         bodyKey: "acceptedAgreement",
-        bodyModel: "model.AcceptedAgreement",
+        bodyModel: model.AcceptedAgreement,
+        type: "model.AcceptedAgreement",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -560,7 +563,8 @@ export class MarketplaceClient {
         responseObject: <responses.GetAgreementResponse>{},
         body: await response.json(),
         bodyKey: "agreement",
-        bodyModel: "model.Agreement",
+        bodyModel: model.Agreement,
+        type: "model.Agreement",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -635,7 +639,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.GetListingResponse>{},
         body: await response.json(),
         bodyKey: "listing",
-        bodyModel: "model.Listing",
+        bodyModel: model.Listing,
+        type: "model.Listing",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -715,7 +720,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.GetPackageResponse>{},
         body: await response.json(),
         bodyKey: "listingPackage",
-        bodyModel: "model.ListingPackage",
+        bodyModel: model.ListingPackage,
+        type: "model.ListingPackage",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -778,7 +784,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.GetPublicationResponse>{},
         body: await response.json(),
         bodyKey: "publication",
-        bodyModel: "model.Publication",
+        bodyModel: model.Publication,
+        type: "model.Publication",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -843,7 +850,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.GetPublicationPackageResponse>{},
         body: await response.json(),
         bodyKey: "publicationPackage",
-        bodyModel: "model.PublicationPackage",
+        bodyModel: model.PublicationPackage,
+        type: "model.PublicationPackage",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -917,7 +925,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.ListAcceptedAgreementsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AcceptedAgreementSummary[]",
+        bodyModel: model.AcceptedAgreementSummary,
+        type: "Array<model.AcceptedAgreementSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -947,7 +956,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    */
   public listAllAcceptedAgreements(
     request: requests.ListAcceptedAgreementsRequest
-  ): AsyncIterableIterator<models.AcceptedAgreementSummary> {
+  ): AsyncIterableIterator<model.AcceptedAgreementSummary> {
     return paginateRecords(request, req => this.listAcceptedAgreements(req));
   }
 
@@ -1011,7 +1020,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.ListAgreementsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AgreementSummary[]",
+        bodyModel: model.AgreementSummary,
+        type: "Array<model.AgreementSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1041,7 +1051,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    */
   public listAllAgreements(
     request: requests.ListAgreementsRequest
-  ): AsyncIterableIterator<models.AgreementSummary> {
+  ): AsyncIterableIterator<model.AgreementSummary> {
     return paginateRecords(request, req => this.listAgreements(req));
   }
 
@@ -1103,7 +1113,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.ListCategoriesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CategorySummary[]",
+        bodyModel: model.CategorySummary,
+        type: "Array<model.CategorySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1133,7 +1144,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    */
   public listAllCategories(
     request: requests.ListCategoriesRequest
-  ): AsyncIterableIterator<models.CategorySummary> {
+  ): AsyncIterableIterator<model.CategorySummary> {
     return paginateRecords(request, req => this.listCategories(req));
   }
 
@@ -1219,7 +1230,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.ListListingsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ListingSummary[]",
+        bodyModel: model.ListingSummary,
+        type: "Array<model.ListingSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1249,7 +1261,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    */
   public listAllListings(
     request: requests.ListListingsRequest
-  ): AsyncIterableIterator<models.ListingSummary> {
+  ): AsyncIterableIterator<model.ListingSummary> {
     return paginateRecords(request, req => this.listListings(req));
   }
 
@@ -1329,7 +1341,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.ListPackagesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ListingPackageSummary[]",
+        bodyModel: model.ListingPackageSummary,
+        type: "Array<model.ListingPackageSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1359,7 +1372,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    */
   public listAllPackages(
     request: requests.ListPackagesRequest
-  ): AsyncIterableIterator<models.ListingPackageSummary> {
+  ): AsyncIterableIterator<model.ListingPackageSummary> {
     return paginateRecords(request, req => this.listPackages(req));
   }
 
@@ -1425,7 +1438,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.ListPublicationPackagesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PublicationPackageSummary[]",
+        bodyModel: model.PublicationPackageSummary,
+        type: "Array<model.PublicationPackageSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1455,7 +1469,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    */
   public listAllPublicationPackages(
     request: requests.ListPublicationPackagesRequest
-  ): AsyncIterableIterator<models.PublicationPackageSummary> {
+  ): AsyncIterableIterator<model.PublicationPackageSummary> {
     return paginateRecords(request, req => this.listPublicationPackages(req));
   }
 
@@ -1521,7 +1535,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.ListPublicationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PublicationSummary[]",
+        bodyModel: model.PublicationSummary,
+        type: "Array<model.PublicationSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1551,7 +1566,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    */
   public listAllPublications(
     request: requests.ListPublicationsRequest
-  ): AsyncIterableIterator<models.PublicationSummary> {
+  ): AsyncIterableIterator<model.PublicationSummary> {
     return paginateRecords(request, req => this.listPublications(req));
   }
 
@@ -1613,7 +1628,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.ListPublishersResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PublisherSummary[]",
+        bodyModel: model.PublisherSummary,
+        type: "Array<model.PublisherSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1643,7 +1659,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    */
   public listAllPublishers(
     request: requests.ListPublishersRequest
-  ): AsyncIterableIterator<models.PublisherSummary> {
+  ): AsyncIterableIterator<model.PublisherSummary> {
     return paginateRecords(request, req => this.listPublishers(req));
   }
 
@@ -1702,7 +1718,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.ListReportTypesResponse>{},
         body: await response.json(),
         bodyKey: "reportTypeCollection",
-        bodyModel: "model.ReportTypeCollection",
+        bodyModel: model.ReportTypeCollection,
+        type: "model.ReportTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1768,7 +1785,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.ListReportsResponse>{},
         body: await response.json(),
         bodyKey: "reportCollection",
-        bodyModel: "model.ReportCollection",
+        bodyModel: model.ReportCollection,
+        type: "model.ReportCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1833,7 +1851,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.ListTaxesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "TaxSummary[]",
+        bodyModel: model.TaxSummary,
+        type: "Array<model.TaxSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1893,7 +1912,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       bodyContent: common.ObjectSerializer.serialize(
         updateAcceptedAgreementRequest.updateAcceptedAgreementDetails,
         "UpdateAcceptedAgreementDetails",
-        models.UpdateAcceptedAgreementDetails.getJsonObj
+        model.UpdateAcceptedAgreementDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1905,7 +1924,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.UpdateAcceptedAgreementResponse>{},
         body: await response.json(),
         bodyKey: "acceptedAgreement",
-        bodyModel: "model.AcceptedAgreement",
+        bodyModel: model.AcceptedAgreement,
+        type: "model.AcceptedAgreement",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1963,7 +1983,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       bodyContent: common.ObjectSerializer.serialize(
         updatePublicationRequest.updatePublicationDetails,
         "UpdatePublicationDetails",
-        models.UpdatePublicationDetails.getJsonObj
+        model.UpdatePublicationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1975,7 +1995,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         responseObject: <responses.UpdatePublicationResponse>{},
         body: await response.json(),
         bodyKey: "publication",
-        bodyModel: "model.Publication",
+        bodyModel: model.Publication,
+        type: "model.Publication",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

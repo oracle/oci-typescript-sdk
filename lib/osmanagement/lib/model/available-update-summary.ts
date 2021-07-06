@@ -83,4 +83,24 @@ export namespace AvailableUpdateSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AvailableUpdateSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "errata": obj.errata
+          ? obj.errata.map(item => {
+              return model.Id.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "softwareSources": obj.softwareSources
+          ? obj.softwareSources.map(item => {
+              return model.SoftwareSourceId.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

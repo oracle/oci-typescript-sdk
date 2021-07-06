@@ -49,4 +49,9 @@ export namespace IcmpOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IcmpOptions): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

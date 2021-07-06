@@ -73,4 +73,34 @@ export namespace BackendSetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BackendSetDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backends": obj.backends
+          ? obj.backends.map(item => {
+              return model.BackendDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "healthChecker": obj.healthChecker
+          ? model.HealthCheckerDetails.getDeserializedJsonObj(obj.healthChecker)
+          : undefined,
+        "sslConfiguration": obj.sslConfiguration
+          ? model.SSLConfigurationDetails.getDeserializedJsonObj(obj.sslConfiguration)
+          : undefined,
+        "sessionPersistenceConfiguration": obj.sessionPersistenceConfiguration
+          ? model.SessionPersistenceConfigurationDetails.getDeserializedJsonObj(
+              obj.sessionPersistenceConfiguration
+            )
+          : undefined,
+        "lbCookieSessionPersistenceConfiguration": obj.lbCookieSessionPersistenceConfiguration
+          ? model.LBCookieSessionPersistenceConfigurationDetails.getDeserializedJsonObj(
+              obj.lbCookieSessionPersistenceConfiguration
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

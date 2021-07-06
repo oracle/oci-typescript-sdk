@@ -45,4 +45,19 @@ export namespace DynamicInputField {
     return jsonObj;
   }
   export const modelType = "DYNAMIC_INPUT_FIELD";
+  export function getDeserializedJsonObj(
+    obj: DynamicInputField,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TypedObject.getDeserializedJsonObj(obj) as DynamicInputField)),
+      ...{
+        "type": obj.type ? model.BaseType.getDeserializedJsonObj(obj.type) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

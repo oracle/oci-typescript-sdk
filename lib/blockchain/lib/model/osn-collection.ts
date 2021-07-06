@@ -39,4 +39,18 @@ export namespace OsnCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OsnCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.OsnSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

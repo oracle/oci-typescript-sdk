@@ -108,4 +108,52 @@ export namespace UpdateDataAssetDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDataAssetDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "registryMetadata": obj.registryMetadata
+          ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
+          : undefined
+      }
+    };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "ORACLE_ATP_DATA_ASSET":
+          return model.UpdateDataAssetFromAtp.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromAtp>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_DATA_ASSET":
+          return model.UpdateDataAssetFromAdwc.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC_DATA_ASSET":
+          return model.UpdateDataAssetFromJdbc.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
+          return model.UpdateDataAssetFromObjectStorage.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromObjectStorage>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_DATA_ASSET":
+          return model.UpdateDataAssetFromMySQL.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_DATA_ASSET":
+          return model.UpdateDataAssetFromOracle.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromOracle>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

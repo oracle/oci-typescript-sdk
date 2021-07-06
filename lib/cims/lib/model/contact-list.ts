@@ -39,4 +39,18 @@ export namespace ContactList {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ContactList): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "contactList": obj.contactList
+          ? obj.contactList.map(item => {
+              return model.Contact.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

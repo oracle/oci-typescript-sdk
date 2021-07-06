@@ -39,4 +39,18 @@ export namespace TaskRunSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TaskRunSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.TaskRunSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -33,7 +33,12 @@ export enum OperatorActionLifecycleStates {
 }
 
 export namespace OperatorActionLifecycleStates {
-  export function getJsonObj(obj: OperatorActionLifecycleStates): object {
-    return { obj };
+  export function getJsonObj(obj: OperatorActionLifecycleStates): OperatorActionLifecycleStates {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: OperatorActionLifecycleStates
+  ): OperatorActionLifecycleStates {
+    return obj;
   }
 }

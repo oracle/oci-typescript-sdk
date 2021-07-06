@@ -58,4 +58,18 @@ export namespace HeaderValidationRequestPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HeaderValidationRequestPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "headers": obj.headers
+          ? obj.headers.map(item => {
+              return model.HeaderValidationItem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

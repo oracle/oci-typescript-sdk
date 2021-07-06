@@ -47,4 +47,19 @@ export namespace TopologyAssociatedWithEntityRelationship {
     return jsonObj;
   }
   export const type = "ASSOCIATED_WITH";
+  export function getDeserializedJsonObj(
+    obj: TopologyAssociatedWithEntityRelationship,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TopologyEntityRelationship.getDeserializedJsonObj(
+            obj
+          ) as TopologyAssociatedWithEntityRelationship)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

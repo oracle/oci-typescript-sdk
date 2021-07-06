@@ -158,4 +158,24 @@ export namespace Zone {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Zone): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "externalMasters": obj.externalMasters
+          ? obj.externalMasters.map(item => {
+              return model.ExternalMaster.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "nameservers": obj.nameservers
+          ? obj.nameservers.map(item => {
+              return model.Nameserver.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -31,4 +31,9 @@ export namespace TargetCompartments {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TargetCompartments): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

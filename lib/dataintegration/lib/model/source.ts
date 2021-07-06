@@ -60,4 +60,24 @@ export namespace Source {
     return jsonObj;
   }
   export const modelType = "SOURCE_OPERATOR";
+  export function getDeserializedJsonObj(obj: Source, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as Source)),
+      ...{
+        "entity": obj.entity ? model.DataEntity.getDeserializedJsonObj(obj.entity) : undefined,
+
+        "schemaDriftConfig": obj.schemaDriftConfig
+          ? model.SchemaDriftConfig.getDeserializedJsonObj(obj.schemaDriftConfig)
+          : undefined,
+        "fixedDataShape": obj.fixedDataShape
+          ? model.Shape.getDeserializedJsonObj(obj.fixedDataShape)
+          : undefined,
+        "readOperationConfig": obj.readOperationConfig
+          ? model.ReadOperationConfig.getDeserializedJsonObj(obj.readOperationConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

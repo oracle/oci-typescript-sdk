@@ -53,4 +53,9 @@ export namespace SearchTermSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SearchTermSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

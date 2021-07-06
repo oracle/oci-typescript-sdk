@@ -46,4 +46,17 @@ export namespace PrivateEndpointDetails {
     return jsonObj;
   }
   export const networkEndpointType = "PRIVATE";
+  export function getDeserializedJsonObj(
+    obj: PrivateEndpointDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.NetworkEndpointDetails.getDeserializedJsonObj(obj) as PrivateEndpointDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

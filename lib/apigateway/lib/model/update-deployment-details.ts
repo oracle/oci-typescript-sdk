@@ -63,4 +63,16 @@ export namespace UpdateDeploymentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDeploymentDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "specification": obj.specification
+          ? model.ApiSpecification.getDeserializedJsonObj(obj.specification)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

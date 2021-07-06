@@ -83,4 +83,20 @@ export namespace SummarizeDatabaseInsightResourceCapacityTrendAggregationCollect
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: SummarizeDatabaseInsightResourceCapacityTrendAggregationCollection
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "capacityData": obj.capacityData
+          ? obj.capacityData.map(item => {
+              return model.ResourceCapacityTrendAggregation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

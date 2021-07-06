@@ -37,4 +37,16 @@ export namespace Filter {
     return jsonObj;
   }
   export const modelType = "FILTER_OPERATOR";
+  export function getDeserializedJsonObj(obj: Filter, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as Filter)),
+      ...{
+        "filterCondition": obj.filterCondition
+          ? model.Expression.getDeserializedJsonObj(obj.filterCondition)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

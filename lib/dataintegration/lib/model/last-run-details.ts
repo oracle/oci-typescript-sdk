@@ -68,4 +68,16 @@ export namespace LastRunDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LastRunDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

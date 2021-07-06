@@ -44,4 +44,21 @@ export namespace StreamingSourceDetails {
     return jsonObj;
   }
   export const kind = "streaming";
+  export function getDeserializedJsonObj(
+    obj: StreamingSourceDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.SourceDetails.getDeserializedJsonObj(obj) as StreamingSourceDetails)),
+      ...{
+        "cursor": obj.cursor
+          ? model.StreamingCursorDetails.getDeserializedJsonObj(obj.cursor)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

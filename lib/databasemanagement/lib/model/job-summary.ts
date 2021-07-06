@@ -85,4 +85,9 @@ export namespace JobSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -43,4 +43,20 @@ export namespace ApiSpecificationRequestPolicies {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApiSpecificationRequestPolicies): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "authentication": obj.authentication
+          ? model.AuthenticationPolicy.getDeserializedJsonObj(obj.authentication)
+          : undefined,
+        "rateLimiting": obj.rateLimiting
+          ? model.RateLimitingPolicy.getDeserializedJsonObj(obj.rateLimiting)
+          : undefined,
+        "cors": obj.cors ? model.CorsPolicy.getDeserializedJsonObj(obj.cors) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

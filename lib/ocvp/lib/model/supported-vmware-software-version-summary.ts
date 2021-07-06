@@ -38,4 +38,9 @@ export namespace SupportedVmwareSoftwareVersionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SupportedVmwareSoftwareVersionSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

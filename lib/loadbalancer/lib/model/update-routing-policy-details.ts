@@ -50,4 +50,18 @@ export namespace UpdateRoutingPolicyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateRoutingPolicyDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "rules": obj.rules
+          ? obj.rules.map(item => {
+              return model.RoutingRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

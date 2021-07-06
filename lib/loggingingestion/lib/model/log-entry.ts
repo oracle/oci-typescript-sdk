@@ -44,4 +44,9 @@ export namespace LogEntry {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogEntry): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

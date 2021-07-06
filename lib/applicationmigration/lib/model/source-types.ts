@@ -36,7 +36,10 @@ export enum SourceTypes {
 }
 
 export namespace SourceTypes {
-  export function getJsonObj(obj: SourceTypes): object {
-    return { obj };
+  export function getJsonObj(obj: SourceTypes): SourceTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: SourceTypes): SourceTypes {
+    return obj;
   }
 }

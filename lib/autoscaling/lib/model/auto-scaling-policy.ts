@@ -82,4 +82,30 @@ export namespace AutoScalingPolicy {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutoScalingPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "capacity": obj.capacity ? model.Capacity.getDeserializedJsonObj(obj.capacity) : undefined
+      }
+    };
+
+    if ("policyType" in obj && obj.policyType) {
+      switch (obj.policyType) {
+        case "scheduled":
+          return model.ScheduledPolicy.getDeserializedJsonObj(
+            <model.ScheduledPolicy>(<object>jsonObj),
+            true
+          );
+        case "threshold":
+          return model.ThresholdPolicy.getDeserializedJsonObj(
+            <model.ThresholdPolicy>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.policyType);
+      }
+    }
+    return jsonObj;
+  }
 }

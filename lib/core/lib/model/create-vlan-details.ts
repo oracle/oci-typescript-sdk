@@ -96,4 +96,9 @@ export namespace CreateVlanDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateVlanDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

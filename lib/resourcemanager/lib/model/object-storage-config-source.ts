@@ -53,4 +53,17 @@ export namespace ObjectStorageConfigSource {
     return jsonObj;
   }
   export const configSourceType = "OBJECT_STORAGE_CONFIG_SOURCE";
+  export function getDeserializedJsonObj(
+    obj: ObjectStorageConfigSource,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ConfigSource.getDeserializedJsonObj(obj) as ObjectStorageConfigSource)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

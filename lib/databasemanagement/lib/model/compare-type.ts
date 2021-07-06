@@ -34,7 +34,10 @@ export enum CompareType {
 }
 
 export namespace CompareType {
-  export function getJsonObj(obj: CompareType): object {
-    return { obj };
+  export function getJsonObj(obj: CompareType): CompareType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: CompareType): CompareType {
+    return obj;
   }
 }

@@ -34,4 +34,9 @@ export namespace UpdateProblemStatusDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateProblemStatusDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

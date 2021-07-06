@@ -53,4 +53,21 @@ export namespace ConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConfigurationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dataAsset": obj.dataAsset
+          ? model.DataAsset.getDeserializedJsonObj(obj.dataAsset)
+          : undefined,
+        "connection": obj.connection
+          ? model.Connection.getDeserializedJsonObj(obj.connection)
+          : undefined,
+
+        "schema": obj.schema ? model.Schema.getDeserializedJsonObj(obj.schema) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

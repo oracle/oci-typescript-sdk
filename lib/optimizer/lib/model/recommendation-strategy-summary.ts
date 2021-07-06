@@ -44,4 +44,18 @@ export namespace RecommendationStrategySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RecommendationStrategySummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "strategies": obj.strategies
+          ? obj.strategies.map(item => {
+              return model.Strategy.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

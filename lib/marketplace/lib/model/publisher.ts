@@ -73,4 +73,19 @@ export namespace Publisher {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Publisher): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "logo": obj.logo ? model.UploadData.getDeserializedJsonObj(obj.logo) : undefined,
+        "links": obj.links
+          ? obj.links.map(item => {
+              return model.Link.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

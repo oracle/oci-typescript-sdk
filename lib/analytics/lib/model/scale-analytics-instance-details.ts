@@ -34,4 +34,14 @@ export namespace ScaleAnalyticsInstanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScaleAnalyticsInstanceDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "capacity": obj.capacity ? model.Capacity.getDeserializedJsonObj(obj.capacity) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

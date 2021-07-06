@@ -35,7 +35,14 @@ export enum AnalyticsClusterMemoryEstimateStatus {
 }
 
 export namespace AnalyticsClusterMemoryEstimateStatus {
-  export function getJsonObj(obj: AnalyticsClusterMemoryEstimateStatus): object {
-    return { obj };
+  export function getJsonObj(
+    obj: AnalyticsClusterMemoryEstimateStatus
+  ): AnalyticsClusterMemoryEstimateStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: AnalyticsClusterMemoryEstimateStatus
+  ): AnalyticsClusterMemoryEstimateStatus {
+    return obj;
   }
 }

@@ -49,4 +49,9 @@ export namespace ApiValidationResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApiValidationResult): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

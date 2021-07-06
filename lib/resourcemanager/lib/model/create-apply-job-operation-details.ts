@@ -53,4 +53,19 @@ export namespace CreateApplyJobOperationDetails {
     return jsonObj;
   }
   export const operation = "APPLY";
+  export function getDeserializedJsonObj(
+    obj: CreateApplyJobOperationDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateJobOperationDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateApplyJobOperationDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

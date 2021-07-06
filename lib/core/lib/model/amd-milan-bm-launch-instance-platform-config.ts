@@ -58,4 +58,19 @@ export namespace AmdMilanBmLaunchInstancePlatformConfig {
     return jsonObj;
   }
   export const type = "AMD_MILAN_BM";
+  export function getDeserializedJsonObj(
+    obj: AmdMilanBmLaunchInstancePlatformConfig,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.LaunchInstancePlatformConfig.getDeserializedJsonObj(
+            obj
+          ) as AmdMilanBmLaunchInstancePlatformConfig)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

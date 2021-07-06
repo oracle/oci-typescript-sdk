@@ -63,4 +63,9 @@ export namespace RecalledData {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RecalledData): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

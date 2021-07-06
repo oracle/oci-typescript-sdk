@@ -42,4 +42,11 @@ export namespace ComputeCapacityReservationInstanceShapeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ComputeCapacityReservationInstanceShapeSummary
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

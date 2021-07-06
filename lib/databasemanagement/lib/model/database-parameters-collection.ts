@@ -60,4 +60,18 @@ export namespace DatabaseParametersCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseParametersCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DatabaseParameterSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

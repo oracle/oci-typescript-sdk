@@ -41,4 +41,9 @@ export namespace InstancePoolPlacementSecondaryVnicSubnet {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstancePoolPlacementSecondaryVnicSubnet): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

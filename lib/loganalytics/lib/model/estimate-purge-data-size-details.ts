@@ -48,4 +48,9 @@ export namespace EstimatePurgeDataSizeDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EstimatePurgeDataSizeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

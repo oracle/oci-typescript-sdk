@@ -46,4 +46,14 @@ export namespace HostEntities {
     return jsonObj;
   }
   export const metricName = "HOST_ENTITIES";
+  export function getDeserializedJsonObj(obj: HostEntities, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.HostConfigurationMetricGroup.getDeserializedJsonObj(obj) as HostEntities)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

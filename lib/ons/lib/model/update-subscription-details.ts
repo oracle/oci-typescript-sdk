@@ -54,4 +54,16 @@ export namespace UpdateSubscriptionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateSubscriptionDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "deliveryPolicy": obj.deliveryPolicy
+          ? model.DeliveryPolicy.getDeserializedJsonObj(obj.deliveryPolicy)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,9 @@ export namespace EncryptionDomainConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EncryptionDomainConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

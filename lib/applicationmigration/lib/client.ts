@@ -17,7 +17,7 @@ instances, to Oracle Cloud Infrastructure. For more information, see
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { ApplicationMigrationWaiter } from "./applicationmigration-waiter";
@@ -237,7 +237,7 @@ When you cancel a work request, the state of the work request changes to cancell
       bodyContent: common.ObjectSerializer.serialize(
         changeMigrationCompartmentRequest.changeMigrationCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -307,7 +307,7 @@ When you cancel a work request, the state of the work request changes to cancell
       bodyContent: common.ObjectSerializer.serialize(
         changeSourceCompartmentRequest.changeSourceCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -393,7 +393,7 @@ To track the progress of this operation, you can monitor the status of the Creat
       bodyContent: common.ObjectSerializer.serialize(
         createMigrationRequest.createMigrationDetails,
         "CreateMigrationDetails",
-        models.CreateMigrationDetails.getJsonObj
+        model.CreateMigrationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -405,7 +405,8 @@ To track the progress of this operation, you can monitor the status of the Creat
         responseObject: <responses.CreateMigrationResponse>{},
         body: await response.json(),
         bodyKey: "migration",
-        bodyModel: "model.Migration",
+        bodyModel: model.Migration,
+        type: "model.Migration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -483,7 +484,7 @@ Ensure that the state of the source has changed to <code>ACTIVE</code>, before y
       bodyContent: common.ObjectSerializer.serialize(
         createSourceRequest.createSourceDetails,
         "CreateSourceDetails",
-        models.CreateSourceDetails.getJsonObj
+        model.CreateSourceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -495,7 +496,8 @@ Ensure that the state of the source has changed to <code>ACTIVE</code>, before y
         responseObject: <responses.CreateSourceResponse>{},
         body: await response.json(),
         bodyKey: "source",
-        bodyModel: "model.Source",
+        bodyModel: model.Source,
+        type: "model.Source",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -698,7 +700,8 @@ Before deleting a source, you must delete all the migrations associated with the
         responseObject: <responses.GetMigrationResponse>{},
         body: await response.json(),
         bodyKey: "migration",
-        bodyModel: "model.Migration",
+        bodyModel: model.Migration,
+        type: "model.Migration",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -762,7 +765,8 @@ Before deleting a source, you must delete all the migrations associated with the
         responseObject: <responses.GetSourceResponse>{},
         body: await response.json(),
         bodyKey: "source",
-        bodyModel: "model.Source",
+        bodyModel: model.Source,
+        type: "model.Source",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -826,7 +830,8 @@ Before deleting a source, you must delete all the migrations associated with the
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -898,7 +903,8 @@ Before deleting a source, you must delete all the migrations associated with the
         responseObject: <responses.ListMigrationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "MigrationSummary[]",
+        bodyModel: model.MigrationSummary,
+        type: "Array<model.MigrationSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -928,7 +934,7 @@ Before deleting a source, you must delete all the migrations associated with the
    */
   public listAllMigrations(
     request: requests.ListMigrationsRequest
-  ): AsyncIterableIterator<models.MigrationSummary> {
+  ): AsyncIterableIterator<model.MigrationSummary> {
     return paginateRecords(request, req => this.listMigrations(req));
   }
 
@@ -997,7 +1003,8 @@ Before deleting a source, you must delete all the migrations associated with the
         responseObject: <responses.ListSourceApplicationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SourceApplicationSummary[]",
+        bodyModel: model.SourceApplicationSummary,
+        type: "Array<model.SourceApplicationSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1027,7 +1034,7 @@ Before deleting a source, you must delete all the migrations associated with the
    */
   public listAllSourceApplications(
     request: requests.ListSourceApplicationsRequest
-  ): AsyncIterableIterator<models.SourceApplicationSummary> {
+  ): AsyncIterableIterator<model.SourceApplicationSummary> {
     return paginateRecords(request, req => this.listSourceApplications(req));
   }
 
@@ -1096,7 +1103,8 @@ Before deleting a source, you must delete all the migrations associated with the
         responseObject: <responses.ListSourcesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SourceSummary[]",
+        bodyModel: model.SourceSummary,
+        type: "Array<model.SourceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1126,7 +1134,7 @@ Before deleting a source, you must delete all the migrations associated with the
    */
   public listAllSources(
     request: requests.ListSourcesRequest
-  ): AsyncIterableIterator<models.SourceSummary> {
+  ): AsyncIterableIterator<model.SourceSummary> {
     return paginateRecords(request, req => this.listSources(req));
   }
 
@@ -1190,7 +1198,8 @@ Before deleting a source, you must delete all the migrations associated with the
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1220,7 +1229,7 @@ Before deleting a source, you must delete all the migrations associated with the
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -1284,7 +1293,8 @@ Before deleting a source, you must delete all the migrations associated with the
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1314,7 +1324,7 @@ Before deleting a source, you must delete all the migrations associated with the
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -1377,7 +1387,8 @@ Before deleting a source, you must delete all the migrations associated with the
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1407,7 +1418,7 @@ Before deleting a source, you must delete all the migrations associated with the
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -1564,7 +1575,7 @@ When the migration has been updated, the state of the migration changes to <code
       bodyContent: common.ObjectSerializer.serialize(
         updateMigrationRequest.updateMigrationDetails,
         "UpdateMigrationDetails",
-        models.UpdateMigrationDetails.getJsonObj
+        model.UpdateMigrationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1635,7 +1646,7 @@ When the migration has been updated, the state of the migration changes to <code
       bodyContent: common.ObjectSerializer.serialize(
         updateSourceRequest.updateSourceDetails,
         "UpdateSourceDetails",
-        models.UpdateSourceDetails.getJsonObj
+        model.UpdateSourceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

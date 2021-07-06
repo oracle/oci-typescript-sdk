@@ -156,4 +156,30 @@ export namespace Migration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Migration): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dataTransferMediumDetails": obj.dataTransferMediumDetails
+          ? model.DataTransferMediumDetails.getDeserializedJsonObj(obj.dataTransferMediumDetails)
+          : undefined,
+        "datapumpSettings": obj.datapumpSettings
+          ? model.DataPumpSettings.getDeserializedJsonObj(obj.datapumpSettings)
+          : undefined,
+        "excludeObjects": obj.excludeObjects
+          ? obj.excludeObjects.map(item => {
+              return model.DatabaseObject.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "goldenGateDetails": obj.goldenGateDetails
+          ? model.GoldenGateDetails.getDeserializedJsonObj(obj.goldenGateDetails)
+          : undefined,
+        "vaultDetails": obj.vaultDetails
+          ? model.VaultDetails.getDeserializedJsonObj(obj.vaultDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

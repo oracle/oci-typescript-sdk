@@ -34,7 +34,22 @@ export namespace ObjectSerializer {
     return JSON.stringify(data);
   }
 
-  export function deserialize<T>(data: any, type?: string): T {
+  export function deserialize<T>(data: any, type?: any, bodyModel?: any): T {
+    if (typeof bodyModel === "object") {
+      if (isList(type)) {
+        return data.map((item: object) => {
+          return bodyModel.getDeserializedJsonObj(item);
+        });
+      } else if (isMap(type)) {
+        const obj: { [k: string]: any } = {};
+        Object.keys(data).forEach((key: string | number) => {
+          obj[key] = bodyModel.getDeserializedJsonObj(data[key]);
+        });
+        return obj as T;
+      } else {
+        return bodyModel.getDeserializedJsonObj(data);
+      }
+    }
     return data;
   }
 

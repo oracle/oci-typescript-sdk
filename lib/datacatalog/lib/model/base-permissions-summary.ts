@@ -30,4 +30,9 @@ export namespace BasePermissionsSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BasePermissionsSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -30,7 +30,10 @@ export enum AvailabilityStatus {
 }
 
 export namespace AvailabilityStatus {
-  export function getJsonObj(obj: AvailabilityStatus): object {
-    return { obj };
+  export function getJsonObj(obj: AvailabilityStatus): AvailabilityStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: AvailabilityStatus): AvailabilityStatus {
+    return obj;
   }
 }

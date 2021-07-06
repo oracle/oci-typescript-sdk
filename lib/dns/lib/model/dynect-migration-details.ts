@@ -49,4 +49,9 @@ export namespace DynectMigrationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DynectMigrationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

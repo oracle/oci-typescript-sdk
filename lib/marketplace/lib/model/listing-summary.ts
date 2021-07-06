@@ -102,4 +102,29 @@ export namespace ListingSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ListingSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "icon": obj.icon ? model.UploadData.getDeserializedJsonObj(obj.icon) : undefined,
+
+        "regions": obj.regions
+          ? obj.regions.map(item => {
+              return model.Region.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "publisher": obj.publisher
+          ? model.PublisherSummary.getDeserializedJsonObj(obj.publisher)
+          : undefined,
+        "supportedOperatingSystems": obj.supportedOperatingSystems
+          ? obj.supportedOperatingSystems.map(item => {
+              return model.OperatingSystem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

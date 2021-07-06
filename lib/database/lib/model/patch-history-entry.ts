@@ -75,4 +75,9 @@ export namespace PatchHistoryEntry {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PatchHistoryEntry): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -126,4 +126,24 @@ export namespace ContainerImage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ContainerImage): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "layers": obj.layers
+          ? obj.layers.map(item => {
+              return model.ContainerImageLayer.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "versions": obj.versions
+          ? obj.versions.map(item => {
+              return model.ContainerVersion.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

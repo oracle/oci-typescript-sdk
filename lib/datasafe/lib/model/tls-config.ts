@@ -65,4 +65,9 @@ export namespace TlsConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TlsConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

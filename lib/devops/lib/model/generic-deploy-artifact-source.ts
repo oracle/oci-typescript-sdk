@@ -46,4 +46,17 @@ export namespace GenericDeployArtifactSource {
     return jsonObj;
   }
   export const deployArtifactSourceType = "GENERIC_ARTIFACT";
+  export function getDeserializedJsonObj(
+    obj: GenericDeployArtifactSource,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployArtifactSource.getDeserializedJsonObj(obj) as GenericDeployArtifactSource)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -243,4 +243,18 @@ export namespace UpdateAutonomousDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateAutonomousDatabaseDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

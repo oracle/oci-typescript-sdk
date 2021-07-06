@@ -61,4 +61,9 @@ export namespace IdentityProviderGroupSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IdentityProviderGroupSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -42,4 +42,20 @@ export namespace BulkDeleteVirtualCircuitPublicPrefixesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: BulkDeleteVirtualCircuitPublicPrefixesDetails
+  ): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "publicPrefixes": obj.publicPrefixes
+          ? obj.publicPrefixes.map(item => {
+              return model.DeleteVirtualCircuitPublicPrefixDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -109,4 +109,9 @@ export namespace StorageWorkRequestSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StorageWorkRequestSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

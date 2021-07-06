@@ -35,4 +35,9 @@ export namespace ShippingAddress {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ShippingAddress): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

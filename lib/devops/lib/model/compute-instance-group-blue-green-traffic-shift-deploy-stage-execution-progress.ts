@@ -39,4 +39,19 @@ export namespace ComputeInstanceGroupBlueGreenTrafficShiftDeployStageExecutionPr
     return jsonObj;
   }
   export const deployStageType = "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_TRAFFIC_SHIFT";
+  export function getDeserializedJsonObj(
+    obj: ComputeInstanceGroupBlueGreenTrafficShiftDeployStageExecutionProgress,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DeployStageExecutionProgress.getDeserializedJsonObj(
+            obj
+          ) as ComputeInstanceGroupBlueGreenTrafficShiftDeployStageExecutionProgress)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

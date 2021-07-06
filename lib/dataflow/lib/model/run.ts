@@ -251,4 +251,18 @@ export namespace Run {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Run): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.ApplicationParameter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

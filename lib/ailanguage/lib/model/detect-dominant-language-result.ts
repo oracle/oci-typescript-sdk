@@ -46,4 +46,18 @@ export namespace DetectDominantLanguageResult {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectDominantLanguageResult): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "languages": obj.languages
+          ? obj.languages.map(item => {
+              return model.DetectedLanguage.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

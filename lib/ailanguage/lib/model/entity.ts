@@ -53,4 +53,9 @@ export namespace Entity {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Entity): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

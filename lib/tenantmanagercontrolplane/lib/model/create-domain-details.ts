@@ -54,4 +54,9 @@ export namespace CreateDomainDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDomainDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

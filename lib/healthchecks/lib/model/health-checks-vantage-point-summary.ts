@@ -71,4 +71,19 @@ export namespace HealthChecksVantagePointSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HealthChecksVantagePointSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "geo": obj.geo ? model.Geolocation.getDeserializedJsonObj(obj.geo) : undefined,
+        "routing": obj.routing
+          ? obj.routing.map(item => {
+              return model.Routing.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

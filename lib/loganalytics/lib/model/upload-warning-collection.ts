@@ -40,4 +40,18 @@ export namespace UploadWarningCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UploadWarningCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.UploadWarningSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

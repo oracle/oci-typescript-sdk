@@ -162,4 +162,23 @@ export namespace CreateSteeringPolicyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateSteeringPolicyDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "answers": obj.answers
+          ? obj.answers.map(item => {
+              return model.SteeringPolicyAnswer.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "rules": obj.rules
+          ? obj.rules.map(item => {
+              return model.SteeringPolicyRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

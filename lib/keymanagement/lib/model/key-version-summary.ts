@@ -93,4 +93,9 @@ export namespace KeyVersionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: KeyVersionSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

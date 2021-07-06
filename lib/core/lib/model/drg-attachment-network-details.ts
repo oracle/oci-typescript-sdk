@@ -61,4 +61,35 @@ export namespace DrgAttachmentNetworkDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DrgAttachmentNetworkDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "VCN":
+          return model.VcnDrgAttachmentNetworkDetails.getDeserializedJsonObj(
+            <model.VcnDrgAttachmentNetworkDetails>(<object>jsonObj),
+            true
+          );
+        case "IPSEC_TUNNEL":
+          return model.IpsecTunnelDrgAttachmentNetworkDetails.getDeserializedJsonObj(
+            <model.IpsecTunnelDrgAttachmentNetworkDetails>(<object>jsonObj),
+            true
+          );
+        case "VIRTUAL_CIRCUIT":
+          return model.VirtualCircuitDrgAttachmentNetworkDetails.getDeserializedJsonObj(
+            <model.VirtualCircuitDrgAttachmentNetworkDetails>(<object>jsonObj),
+            true
+          );
+        case "REMOTE_PEERING_CONNECTION":
+          return model.RemotePeeringConnectionDrgAttachmentNetworkDetails.getDeserializedJsonObj(
+            <model.RemotePeeringConnectionDrgAttachmentNetworkDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

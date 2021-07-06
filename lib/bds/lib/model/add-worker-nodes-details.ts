@@ -37,4 +37,9 @@ export namespace AddWorkerNodesDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddWorkerNodesDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

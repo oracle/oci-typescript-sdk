@@ -33,4 +33,9 @@ export namespace RemoveAutoScalingConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RemoveAutoScalingConfigurationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

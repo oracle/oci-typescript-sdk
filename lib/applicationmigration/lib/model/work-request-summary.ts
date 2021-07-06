@@ -68,4 +68,9 @@ export namespace WorkRequestSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkRequestSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

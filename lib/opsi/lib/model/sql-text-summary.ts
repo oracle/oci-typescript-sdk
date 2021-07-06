@@ -47,4 +47,9 @@ export namespace SqlTextSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlTextSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

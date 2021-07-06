@@ -119,4 +119,23 @@ export namespace DataAsset {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataAsset): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertyGetUsage.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "dataSelectorPatterns": obj.dataSelectorPatterns
+          ? obj.dataSelectorPatterns.map(item => {
+              return model.PatternSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

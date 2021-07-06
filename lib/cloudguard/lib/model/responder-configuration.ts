@@ -38,4 +38,9 @@ export namespace ResponderConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponderConfiguration): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

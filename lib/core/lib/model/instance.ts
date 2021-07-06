@@ -271,4 +271,42 @@ export namespace Instance {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Instance): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "launchOptions": obj.launchOptions
+          ? model.LaunchOptions.getDeserializedJsonObj(obj.launchOptions)
+          : undefined,
+        "instanceOptions": obj.instanceOptions
+          ? model.InstanceOptions.getDeserializedJsonObj(obj.instanceOptions)
+          : undefined,
+        "availabilityConfig": obj.availabilityConfig
+          ? model.InstanceAvailabilityConfig.getDeserializedJsonObj(obj.availabilityConfig)
+          : undefined,
+        "preemptibleInstanceConfig": obj.preemptibleInstanceConfig
+          ? model.PreemptibleInstanceConfigDetails.getDeserializedJsonObj(
+              obj.preemptibleInstanceConfig
+            )
+          : undefined,
+
+        "shapeConfig": obj.shapeConfig
+          ? model.InstanceShapeConfig.getDeserializedJsonObj(obj.shapeConfig)
+          : undefined,
+        "sourceDetails": obj.sourceDetails
+          ? model.InstanceSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "agentConfig": obj.agentConfig
+          ? model.InstanceAgentConfig.getDeserializedJsonObj(obj.agentConfig)
+          : undefined,
+
+        "platformConfig": obj.platformConfig
+          ? model.PlatformConfig.getDeserializedJsonObj(obj.platformConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

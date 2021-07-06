@@ -56,4 +56,18 @@ export namespace AlarmHistoryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AlarmHistoryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "entries": obj.entries
+          ? obj.entries.map(item => {
+              return model.AlarmHistoryEntry.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

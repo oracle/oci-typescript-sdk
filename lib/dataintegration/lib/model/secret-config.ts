@@ -38,4 +38,20 @@ export namespace SecretConfig {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SecretConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("modelType" in obj && obj.modelType) {
+      switch (obj.modelType) {
+        case "OCI_VAULT_SECRET_CONFIG":
+          return model.OciVaultSecretConfig.getDeserializedJsonObj(
+            <model.OciVaultSecretConfig>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.modelType);
+      }
+    }
+    return jsonObj;
+  }
 }

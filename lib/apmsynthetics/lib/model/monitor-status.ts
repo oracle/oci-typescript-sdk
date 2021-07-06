@@ -30,7 +30,10 @@ export enum MonitorStatus {
 }
 
 export namespace MonitorStatus {
-  export function getJsonObj(obj: MonitorStatus): object {
-    return { obj };
+  export function getJsonObj(obj: MonitorStatus): MonitorStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: MonitorStatus): MonitorStatus {
+    return obj;
   }
 }

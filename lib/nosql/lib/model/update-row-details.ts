@@ -85,4 +85,9 @@ export namespace UpdateRowDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateRowDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

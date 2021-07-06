@@ -42,4 +42,9 @@ export namespace SourceApplicationInfo {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SourceApplicationInfo): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

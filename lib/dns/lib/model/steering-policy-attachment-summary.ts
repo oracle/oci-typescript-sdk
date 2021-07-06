@@ -88,4 +88,9 @@ export namespace SteeringPolicyAttachmentSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SteeringPolicyAttachmentSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -46,4 +46,18 @@ export namespace UpdateImagePolicyConfigDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateImagePolicyConfigDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "keyDetails": obj.keyDetails
+          ? obj.keyDetails.map(item => {
+              return model.KeyDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

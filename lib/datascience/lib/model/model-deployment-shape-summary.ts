@@ -43,4 +43,9 @@ export namespace ModelDeploymentShapeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ModelDeploymentShapeSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

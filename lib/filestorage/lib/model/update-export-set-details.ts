@@ -61,4 +61,9 @@ export namespace UpdateExportSetDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateExportSetDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

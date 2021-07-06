@@ -31,4 +31,12 @@ export namespace PrimaryKey {
     return jsonObj;
   }
   export const modelType = "PRIMARY_KEY";
+  export function getDeserializedJsonObj(obj: PrimaryKey, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.UniqueKey.getDeserializedJsonObj(obj) as PrimaryKey)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

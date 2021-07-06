@@ -39,4 +39,18 @@ export namespace DetectorRecipeCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectorRecipeCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DetectorRecipeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

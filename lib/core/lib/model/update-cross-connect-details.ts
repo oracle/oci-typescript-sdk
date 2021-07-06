@@ -69,4 +69,9 @@ export namespace UpdateCrossConnectDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateCrossConnectDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

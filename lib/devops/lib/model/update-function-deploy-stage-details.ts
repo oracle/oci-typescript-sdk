@@ -57,4 +57,19 @@ export namespace UpdateFunctionDeployStageDetails {
     return jsonObj;
   }
   export const deployStageType = "DEPLOY_FUNCTION";
+  export function getDeserializedJsonObj(
+    obj: UpdateFunctionDeployStageDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpdateDeployStageDetails.getDeserializedJsonObj(
+            obj
+          ) as UpdateFunctionDeployStageDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

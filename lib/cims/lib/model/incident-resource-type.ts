@@ -55,4 +55,18 @@ export namespace IncidentResourceType {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IncidentResourceType): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "serviceCategoryList": obj.serviceCategoryList
+          ? obj.serviceCategoryList.map(item => {
+              return model.ServiceCategory.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

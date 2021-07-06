@@ -67,4 +67,34 @@ export namespace Topology {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Topology): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "relationships": obj.relationships
+          ? obj.relationships.map(item => {
+              return model.TopologyEntityRelationship.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "VCN":
+          return model.VcnTopology.getDeserializedJsonObj(
+            <model.VcnTopology>(<object>jsonObj),
+            true
+          );
+        case "NETWORKING":
+          return model.NetworkingTopology.getDeserializedJsonObj(
+            <model.NetworkingTopology>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

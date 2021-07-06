@@ -63,4 +63,18 @@ export namespace QueryParameterValidationRequestPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryParameterValidationRequestPolicy): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.QueryParameterValidationItem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -178,4 +178,21 @@ export namespace RoverNode {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RoverNode): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customerShippingAddress": obj.customerShippingAddress
+          ? model.ShippingAddress.getDeserializedJsonObj(obj.customerShippingAddress)
+          : undefined,
+        "nodeWorkloads": obj.nodeWorkloads
+          ? obj.nodeWorkloads.map(item => {
+              return model.RoverWorkload.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

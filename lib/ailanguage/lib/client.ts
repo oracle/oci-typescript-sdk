@@ -16,7 +16,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
@@ -142,7 +142,7 @@ export class AIServiceLanguageClient {
       bodyContent: common.ObjectSerializer.serialize(
         detectDominantLanguageRequest.detectDominantLanguageDetails,
         "DetectDominantLanguageDetails",
-        models.DetectDominantLanguageDetails.getJsonObj
+        model.DetectDominantLanguageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -154,7 +154,8 @@ export class AIServiceLanguageClient {
         responseObject: <responses.DetectDominantLanguageResponse>{},
         body: await response.json(),
         bodyKey: "detectDominantLanguageResult",
-        bodyModel: "model.DetectDominantLanguageResult",
+        bodyModel: model.DetectDominantLanguageResult,
+        type: "model.DetectDominantLanguageResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -207,7 +208,7 @@ export class AIServiceLanguageClient {
       bodyContent: common.ObjectSerializer.serialize(
         detectLanguageEntitiesRequest.detectLanguageEntitiesDetails,
         "DetectLanguageEntitiesDetails",
-        models.DetectLanguageEntitiesDetails.getJsonObj
+        model.DetectLanguageEntitiesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -219,7 +220,8 @@ export class AIServiceLanguageClient {
         responseObject: <responses.DetectLanguageEntitiesResponse>{},
         body: await response.json(),
         bodyKey: "detectLanguageEntitiesResult",
-        bodyModel: "model.DetectLanguageEntitiesResult",
+        bodyModel: model.DetectLanguageEntitiesResult,
+        type: "model.DetectLanguageEntitiesResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -269,7 +271,7 @@ export class AIServiceLanguageClient {
       bodyContent: common.ObjectSerializer.serialize(
         detectLanguageKeyPhrasesRequest.detectLanguageKeyPhrasesDetails,
         "DetectLanguageKeyPhrasesDetails",
-        models.DetectLanguageKeyPhrasesDetails.getJsonObj
+        model.DetectLanguageKeyPhrasesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -281,7 +283,8 @@ export class AIServiceLanguageClient {
         responseObject: <responses.DetectLanguageKeyPhrasesResponse>{},
         body: await response.json(),
         bodyKey: "detectLanguageKeyPhrasesResult",
-        bodyModel: "model.DetectLanguageKeyPhrasesResult",
+        bodyModel: model.DetectLanguageKeyPhrasesResult,
+        type: "model.DetectLanguageKeyPhrasesResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -331,7 +334,7 @@ export class AIServiceLanguageClient {
       bodyContent: common.ObjectSerializer.serialize(
         detectLanguageSentimentsRequest.detectLanguageSentimentsDetails,
         "DetectLanguageSentimentsDetails",
-        models.DetectLanguageSentimentsDetails.getJsonObj
+        model.DetectLanguageSentimentsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -343,7 +346,8 @@ export class AIServiceLanguageClient {
         responseObject: <responses.DetectLanguageSentimentsResponse>{},
         body: await response.json(),
         bodyKey: "detectLanguageSentimentsResult",
-        bodyModel: "model.DetectLanguageSentimentsResult",
+        bodyModel: model.DetectLanguageSentimentsResult,
+        type: "model.DetectLanguageSentimentsResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -395,7 +399,7 @@ export class AIServiceLanguageClient {
       bodyContent: common.ObjectSerializer.serialize(
         detectLanguageTextClassificationRequest.detectLanguageTextClassificationDetails,
         "DetectLanguageTextClassificationDetails",
-        models.DetectLanguageTextClassificationDetails.getJsonObj
+        model.DetectLanguageTextClassificationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -407,7 +411,8 @@ export class AIServiceLanguageClient {
         responseObject: <responses.DetectLanguageTextClassificationResponse>{},
         body: await response.json(),
         bodyKey: "detectLanguageTextClassificationResult",
-        bodyModel: "model.DetectLanguageTextClassificationResult",
+        bodyModel: model.DetectLanguageTextClassificationResult,
+        type: "model.DetectLanguageTextClassificationResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

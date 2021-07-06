@@ -43,4 +43,19 @@ export namespace OracleFunctionBackend {
     return jsonObj;
   }
   export const type = "ORACLE_FUNCTIONS_BACKEND";
+  export function getDeserializedJsonObj(
+    obj: OracleFunctionBackend,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ApiSpecificationRouteBackend.getDeserializedJsonObj(
+            obj
+          ) as OracleFunctionBackend)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -55,4 +55,9 @@ export namespace UpdateCertificateDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateCertificateDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

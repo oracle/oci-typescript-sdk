@@ -47,4 +47,19 @@ export namespace ModelConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ModelConfigurationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "instanceConfiguration": obj.instanceConfiguration
+          ? model.InstanceConfiguration.getDeserializedJsonObj(obj.instanceConfiguration)
+          : undefined,
+        "scalingPolicy": obj.scalingPolicy
+          ? model.ScalingPolicy.getDeserializedJsonObj(obj.scalingPolicy)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

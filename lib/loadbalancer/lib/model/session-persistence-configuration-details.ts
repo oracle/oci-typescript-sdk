@@ -64,4 +64,9 @@ export namespace SessionPersistenceConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SessionPersistenceConfigurationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

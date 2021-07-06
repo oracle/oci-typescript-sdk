@@ -160,4 +160,9 @@ export namespace AccessRequest {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AccessRequest): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

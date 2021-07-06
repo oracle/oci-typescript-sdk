@@ -62,4 +62,9 @@ export namespace ResponderActivitySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponderActivitySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -33,4 +33,9 @@ export namespace DeleteVirtualCircuitPublicPrefixDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeleteVirtualCircuitPublicPrefixDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

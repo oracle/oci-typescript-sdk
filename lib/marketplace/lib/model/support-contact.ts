@@ -42,4 +42,9 @@ export namespace SupportContact {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SupportContact): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

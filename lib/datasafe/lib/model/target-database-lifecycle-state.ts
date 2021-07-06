@@ -38,7 +38,12 @@ export enum TargetDatabaseLifecycleState {
 }
 
 export namespace TargetDatabaseLifecycleState {
-  export function getJsonObj(obj: TargetDatabaseLifecycleState): object {
-    return { obj };
+  export function getJsonObj(obj: TargetDatabaseLifecycleState): TargetDatabaseLifecycleState {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: TargetDatabaseLifecycleState
+  ): TargetDatabaseLifecycleState {
+    return obj;
   }
 }

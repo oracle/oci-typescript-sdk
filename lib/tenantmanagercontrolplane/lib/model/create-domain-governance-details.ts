@@ -58,4 +58,9 @@ export namespace CreateDomainGovernanceDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDomainGovernanceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

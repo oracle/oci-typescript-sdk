@@ -80,4 +80,9 @@ export namespace ExportSetSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExportSetSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

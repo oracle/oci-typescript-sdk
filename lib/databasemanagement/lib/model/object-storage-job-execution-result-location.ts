@@ -50,4 +50,19 @@ export namespace ObjectStorageJobExecutionResultLocation {
     return jsonObj;
   }
   export const type = "OBJECT_STORAGE";
+  export function getDeserializedJsonObj(
+    obj: ObjectStorageJobExecutionResultLocation,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.JobExecutionResultLocation.getDeserializedJsonObj(
+            obj
+          ) as ObjectStorageJobExecutionResultLocation)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

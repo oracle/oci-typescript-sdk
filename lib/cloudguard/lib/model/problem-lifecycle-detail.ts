@@ -30,7 +30,10 @@ export enum ProblemLifecycleDetail {
 }
 
 export namespace ProblemLifecycleDetail {
-  export function getJsonObj(obj: ProblemLifecycleDetail): object {
-    return { obj };
+  export function getJsonObj(obj: ProblemLifecycleDetail): ProblemLifecycleDetail {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ProblemLifecycleDetail): ProblemLifecycleDetail {
+    return obj;
   }
 }

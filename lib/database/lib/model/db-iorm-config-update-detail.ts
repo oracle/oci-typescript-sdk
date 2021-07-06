@@ -38,4 +38,9 @@ export namespace DbIormConfigUpdateDetail {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DbIormConfigUpdateDetail): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

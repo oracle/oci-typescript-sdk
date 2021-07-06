@@ -39,4 +39,18 @@ export namespace SenderInvitationCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SenderInvitationCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.SenderInvitationSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -112,4 +112,9 @@ export namespace Ipv6 {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Ipv6): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

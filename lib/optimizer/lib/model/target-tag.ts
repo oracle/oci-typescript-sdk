@@ -43,4 +43,9 @@ export namespace TargetTag {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TargetTag): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

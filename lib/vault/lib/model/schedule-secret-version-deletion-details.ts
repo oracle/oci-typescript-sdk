@@ -32,4 +32,9 @@ export namespace ScheduleSecretVersionDeletionDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScheduleSecretVersionDeletionDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

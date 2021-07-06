@@ -50,4 +50,25 @@ export namespace TaskDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TaskDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("kind" in obj && obj.kind) {
+      switch (obj.kind) {
+        case "function":
+          return model.FunctionTaskDetails.getDeserializedJsonObj(
+            <model.FunctionTaskDetails>(<object>jsonObj),
+            true
+          );
+        case "logRule":
+          return model.LogRuleTaskDetails.getDeserializedJsonObj(
+            <model.LogRuleTaskDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.kind);
+      }
+    }
+    return jsonObj;
+  }
 }

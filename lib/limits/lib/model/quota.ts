@@ -90,4 +90,9 @@ export namespace Quota {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Quota): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { IdentityWaiter } from "./identity-waiter";
@@ -168,7 +168,7 @@ export class IdentityClient {
       bodyContent: common.ObjectSerializer.serialize(
         activateMfaTotpDeviceRequest.mfaTotpToken,
         "MfaTotpToken",
-        models.MfaTotpToken.getJsonObj
+        model.MfaTotpToken.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -180,7 +180,8 @@ export class IdentityClient {
         responseObject: <responses.ActivateMfaTotpDeviceResponse>{},
         body: await response.json(),
         bodyKey: "mfaTotpDeviceSummary",
-        bodyModel: "model.MfaTotpDeviceSummary",
+        bodyModel: model.MfaTotpDeviceSummary,
+        type: "model.MfaTotpDeviceSummary",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -238,7 +239,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       bodyContent: common.ObjectSerializer.serialize(
         addUserToGroupRequest.addUserToGroupDetails,
         "AddUserToGroupDetails",
-        models.AddUserToGroupDetails.getJsonObj
+        model.AddUserToGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -250,7 +251,8 @@ After you send your request, the new object's `lifecycleState` will temporarily 
         responseObject: <responses.AddUserToGroupResponse>{},
         body: await response.json(),
         bodyKey: "userGroupMembership",
-        bodyModel: "model.UserGroupMembership",
+        bodyModel: model.UserGroupMembership,
+        type: "model.UserGroupMembership",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -317,7 +319,8 @@ After you send your request, the new object's `lifecycleState` will temporarily 
         responseObject: <responses.AssembleEffectiveTagSetResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "TagDefaultSummary[]",
+        bodyModel: model.TagDefaultSummary,
+        type: "Array<model.TagDefaultSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -379,7 +382,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       bodyContent: common.ObjectSerializer.serialize(
         bulkDeleteResourcesRequest.bulkDeleteResourcesDetails,
         "BulkDeleteResourcesDetails",
-        models.BulkDeleteResourcesDetails.getJsonObj
+        model.BulkDeleteResourcesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -464,7 +467,7 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
       bodyContent: common.ObjectSerializer.serialize(
         bulkDeleteTagsRequest.bulkDeleteTagsDetails,
         "BulkDeleteTagsDetails",
-        models.BulkDeleteTagsDetails.getJsonObj
+        model.BulkDeleteTagsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -542,7 +545,7 @@ The edits can include a combination of operations and tag sets.
       bodyContent: common.ObjectSerializer.serialize(
         bulkEditTagsRequest.bulkEditTagsDetails,
         "BulkEditTagsDetails",
-        models.BulkEditTagsDetails.getJsonObj
+        model.BulkEditTagsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -613,7 +616,7 @@ The edits can include a combination of operations and tag sets.
       bodyContent: common.ObjectSerializer.serialize(
         bulkMoveResourcesRequest.bulkMoveResourcesDetails,
         "BulkMoveResourcesDetails",
-        models.BulkMoveResourcesDetails.getJsonObj
+        model.BulkMoveResourcesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -767,7 +770,7 @@ Moving a tag namespace moves all the tag key definitions contained in the tag na
       bodyContent: common.ObjectSerializer.serialize(
         changeTagNamespaceCompartmentRequest.changeTagNamespaceCompartmentDetail,
         "ChangeTagNamespaceCompartmentDetail",
-        models.ChangeTagNamespaceCompartmentDetail.getJsonObj
+        model.ChangeTagNamespaceCompartmentDetail.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -837,7 +840,7 @@ Every user has permission to create an auth token for *their own user ID*. An ad
       bodyContent: common.ObjectSerializer.serialize(
         createAuthTokenRequest.createAuthTokenDetails,
         "CreateAuthTokenDetails",
-        models.CreateAuthTokenDetails.getJsonObj
+        model.CreateAuthTokenDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -849,7 +852,8 @@ Every user has permission to create an auth token for *their own user ID*. An ad
         responseObject: <responses.CreateAuthTokenResponse>{},
         body: await response.json(),
         bodyKey: "authToken",
-        bodyModel: "model.AuthToken",
+        bodyModel: model.AuthToken,
+        type: "model.AuthToken",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -922,7 +926,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       bodyContent: common.ObjectSerializer.serialize(
         createCompartmentRequest.createCompartmentDetails,
         "CreateCompartmentDetails",
-        models.CreateCompartmentDetails.getJsonObj
+        model.CreateCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -934,7 +938,8 @@ After you send your request, the new object's `lifecycleState` will temporarily 
         responseObject: <responses.CreateCompartmentResponse>{},
         body: await response.json(),
         bodyKey: "compartment",
-        bodyModel: "model.Compartment",
+        bodyModel: model.Compartment,
+        type: "model.Compartment",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1001,7 +1006,7 @@ Every user has permission to create a secret key for *their own user ID*. An adm
       bodyContent: common.ObjectSerializer.serialize(
         createCustomerSecretKeyRequest.createCustomerSecretKeyDetails,
         "CreateCustomerSecretKeyDetails",
-        models.CreateCustomerSecretKeyDetails.getJsonObj
+        model.CreateCustomerSecretKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1013,7 +1018,8 @@ Every user has permission to create a secret key for *their own user ID*. An adm
         responseObject: <responses.CreateCustomerSecretKeyResponse>{},
         body: await response.json(),
         bodyKey: "customerSecretKey",
-        bodyModel: "model.CustomerSecretKey",
+        bodyModel: model.CustomerSecretKey,
+        type: "model.CustomerSecretKey",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1085,7 +1091,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       bodyContent: common.ObjectSerializer.serialize(
         createDynamicGroupRequest.createDynamicGroupDetails,
         "CreateDynamicGroupDetails",
-        models.CreateDynamicGroupDetails.getJsonObj
+        model.CreateDynamicGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1097,7 +1103,8 @@ After you send your request, the new object's `lifecycleState` will temporarily 
         responseObject: <responses.CreateDynamicGroupResponse>{},
         body: await response.json(),
         bodyKey: "dynamicGroup",
-        bodyModel: "model.DynamicGroup",
+        bodyModel: model.DynamicGroup,
+        type: "model.DynamicGroup",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1172,7 +1179,7 @@ After creating the group, you need to put users in it and write policies for it.
       bodyContent: common.ObjectSerializer.serialize(
         createGroupRequest.createGroupDetails,
         "CreateGroupDetails",
-        models.CreateGroupDetails.getJsonObj
+        model.CreateGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1184,7 +1191,8 @@ After creating the group, you need to put users in it and write policies for it.
         responseObject: <responses.CreateGroupResponse>{},
         body: await response.json(),
         bodyKey: "group",
-        bodyModel: "model.Group",
+        bodyModel: model.Group,
+        type: "model.Group",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1256,7 +1264,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
       bodyContent: common.ObjectSerializer.serialize(
         createIdentityProviderRequest.createIdentityProviderDetails,
         "CreateIdentityProviderDetails",
-        models.CreateIdentityProviderDetails.getJsonObj
+        model.CreateIdentityProviderDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1268,7 +1276,8 @@ After you send your request, the new object's `lifecycleState` will temporarily
         responseObject: <responses.CreateIdentityProviderResponse>{},
         body: await response.json(),
         bodyKey: "identityProvider",
-        bodyModel: "model.IdentityProvider",
+        bodyModel: model.IdentityProvider,
+        type: "model.IdentityProvider",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1326,7 +1335,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
       bodyContent: common.ObjectSerializer.serialize(
         createIdpGroupMappingRequest.createIdpGroupMappingDetails,
         "CreateIdpGroupMappingDetails",
-        models.CreateIdpGroupMappingDetails.getJsonObj
+        model.CreateIdpGroupMappingDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1338,7 +1347,8 @@ After you send your request, the new object's `lifecycleState` will temporarily
         responseObject: <responses.CreateIdpGroupMappingResponse>{},
         body: await response.json(),
         bodyKey: "idpGroupMapping",
-        bodyModel: "model.IdpGroupMapping",
+        bodyModel: model.IdpGroupMapping,
+        type: "model.IdpGroupMapping",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1402,7 +1412,8 @@ After you send your request, the new object's `lifecycleState` will temporarily
         responseObject: <responses.CreateMfaTotpDeviceResponse>{},
         body: await response.json(),
         bodyKey: "mfaTotpDevice",
-        bodyModel: "model.MfaTotpDevice",
+        bodyModel: model.MfaTotpDevice,
+        type: "model.MfaTotpDevice",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1477,7 +1488,7 @@ After your network resource is created, you can use it in policy to restrict acc
       bodyContent: common.ObjectSerializer.serialize(
         createNetworkSourceRequest.createNetworkSourceDetails,
         "CreateNetworkSourceDetails",
-        models.CreateNetworkSourceDetails.getJsonObj
+        model.CreateNetworkSourceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1489,7 +1500,8 @@ After your network resource is created, you can use it in policy to restrict acc
         responseObject: <responses.CreateNetworkSourceResponse>{},
         body: await response.json(),
         bodyKey: "networkSources",
-        bodyModel: "model.NetworkSources",
+        bodyModel: model.NetworkSources,
+        type: "model.NetworkSources",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1547,7 +1559,7 @@ After your network resource is created, you can use it in policy to restrict acc
       bodyContent: common.ObjectSerializer.serialize(
         createOAuthClientCredentialRequest.createOAuth2ClientCredentialDetails,
         "CreateOAuth2ClientCredentialDetails",
-        models.CreateOAuth2ClientCredentialDetails.getJsonObj
+        model.CreateOAuth2ClientCredentialDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1559,7 +1571,8 @@ After your network resource is created, you can use it in policy to restrict acc
         responseObject: <responses.CreateOAuthClientCredentialResponse>{},
         body: await response.json(),
         bodyKey: "oAuth2ClientCredential",
-        bodyModel: "model.OAuth2ClientCredential",
+        bodyModel: model.OAuth2ClientCredential,
+        type: "model.OAuth2ClientCredential",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1633,7 +1646,8 @@ Use this operation after creating a new user, or if a user forgets their passwor
         responseObject: <responses.CreateOrResetUIPasswordResponse>{},
         body: await response.json(),
         bodyKey: "uIPassword",
-        bodyModel: "model.UIPassword",
+        bodyModel: model.UIPassword,
+        type: "model.UIPassword",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1704,7 +1718,7 @@ New policies take effect typically within 10 seconds.
       bodyContent: common.ObjectSerializer.serialize(
         createPolicyRequest.createPolicyDetails,
         "CreatePolicyDetails",
-        models.CreatePolicyDetails.getJsonObj
+        model.CreatePolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1716,7 +1730,8 @@ New policies take effect typically within 10 seconds.
         responseObject: <responses.CreatePolicyResponse>{},
         body: await response.json(),
         bodyKey: "policy",
-        bodyModel: "model.Policy",
+        bodyModel: model.Policy,
+        type: "model.Policy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1774,7 +1789,7 @@ New policies take effect typically within 10 seconds.
       bodyContent: common.ObjectSerializer.serialize(
         createRegionSubscriptionRequest.createRegionSubscriptionDetails,
         "CreateRegionSubscriptionDetails",
-        models.CreateRegionSubscriptionDetails.getJsonObj
+        model.CreateRegionSubscriptionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1786,7 +1801,8 @@ New policies take effect typically within 10 seconds.
         responseObject: <responses.CreateRegionSubscriptionResponse>{},
         body: await response.json(),
         bodyKey: "regionSubscription",
-        bodyModel: "model.RegionSubscription",
+        bodyModel: model.RegionSubscription,
+        type: "model.RegionSubscription",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1841,7 +1857,7 @@ New policies take effect typically within 10 seconds.
       bodyContent: common.ObjectSerializer.serialize(
         createSmtpCredentialRequest.createSmtpCredentialDetails,
         "CreateSmtpCredentialDetails",
-        models.CreateSmtpCredentialDetails.getJsonObj
+        model.CreateSmtpCredentialDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1853,7 +1869,8 @@ New policies take effect typically within 10 seconds.
         responseObject: <responses.CreateSmtpCredentialResponse>{},
         body: await response.json(),
         bodyKey: "smtpCredential",
-        bodyModel: "model.SmtpCredential",
+        bodyModel: model.SmtpCredential,
+        type: "model.SmtpCredential",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1921,7 +1938,7 @@ Every user has permission to create a Swift password for *their own user ID*. An
       bodyContent: common.ObjectSerializer.serialize(
         createSwiftPasswordRequest.createSwiftPasswordDetails,
         "CreateSwiftPasswordDetails",
-        models.CreateSwiftPasswordDetails.getJsonObj
+        model.CreateSwiftPasswordDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1933,7 +1950,8 @@ Every user has permission to create a Swift password for *their own user ID*. An
         responseObject: <responses.CreateSwiftPasswordResponse>{},
         body: await response.json(),
         bodyKey: "swiftPassword",
-        bodyModel: "model.SwiftPassword",
+        bodyModel: model.SwiftPassword,
+        type: "model.SwiftPassword",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2011,7 +2029,7 @@ The tag must have a value type, which is specified with a validator. Tags can us
       bodyContent: common.ObjectSerializer.serialize(
         createTagRequest.createTagDetails,
         "CreateTagDetails",
-        models.CreateTagDetails.getJsonObj
+        model.CreateTagDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2023,7 +2041,8 @@ The tag must have a value type, which is specified with a validator. Tags can us
         responseObject: <responses.CreateTagResponse>{},
         body: await response.json(),
         bodyKey: "tag",
-        bodyModel: "model.Tag",
+        bodyModel: model.Tag,
+        type: "model.Tag",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2086,7 +2105,7 @@ If you specify that a value is required, a value is set during resource creation
       bodyContent: common.ObjectSerializer.serialize(
         createTagDefaultRequest.createTagDefaultDetails,
         "CreateTagDefaultDetails",
-        models.CreateTagDefaultDetails.getJsonObj
+        model.CreateTagDefaultDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2098,7 +2117,8 @@ If you specify that a value is required, a value is set during resource creation
         responseObject: <responses.CreateTagDefaultResponse>{},
         body: await response.json(),
         bodyKey: "tagDefault",
-        bodyModel: "model.TagDefault",
+        bodyModel: model.TagDefault,
+        type: "model.TagDefault",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2166,7 +2186,7 @@ You must also specify a *description* for the namespace.
       bodyContent: common.ObjectSerializer.serialize(
         createTagNamespaceRequest.createTagNamespaceDetails,
         "CreateTagNamespaceDetails",
-        models.CreateTagNamespaceDetails.getJsonObj
+        model.CreateTagNamespaceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2178,7 +2198,8 @@ You must also specify a *description* for the namespace.
         responseObject: <responses.CreateTagNamespaceResponse>{},
         body: await response.json(),
         bodyKey: "tagNamespace",
-        bodyModel: "model.TagNamespace",
+        bodyModel: model.TagNamespace,
+        type: "model.TagNamespace",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2262,7 +2283,7 @@ A new user has no permissions until you place the user in one or more groups (se
       bodyContent: common.ObjectSerializer.serialize(
         createUserRequest.createUserDetails,
         "CreateUserDetails",
-        models.CreateUserDetails.getJsonObj
+        model.CreateUserDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2274,7 +2295,8 @@ A new user has no permissions until you place the user in one or more groups (se
         responseObject: <responses.CreateUserResponse>{},
         body: await response.json(),
         bodyKey: "user",
-        bodyModel: "model.User",
+        bodyModel: model.User,
+        type: "model.User",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3400,7 +3422,8 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
         responseObject: <responses.GenerateTotpSeedResponse>{},
         body: await response.json(),
         bodyKey: "mfaTotpDevice",
-        bodyModel: "model.MfaTotpDevice",
+        bodyModel: model.MfaTotpDevice,
+        type: "model.MfaTotpDevice",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3464,7 +3487,8 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
         responseObject: <responses.GetAuthenticationPolicyResponse>{},
         body: await response.json(),
         bodyKey: "authenticationPolicy",
-        bodyModel: "model.AuthenticationPolicy",
+        bodyModel: model.AuthenticationPolicy,
+        type: "model.AuthenticationPolicy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3534,7 +3558,8 @@ This operation does not return a list of all the resources inside the compartmen
         responseObject: <responses.GetCompartmentResponse>{},
         body: await response.json(),
         bodyKey: "compartment",
-        bodyModel: "model.Compartment",
+        bodyModel: model.Compartment,
+        type: "model.Compartment",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3597,7 +3622,8 @@ This operation does not return a list of all the resources inside the compartmen
         responseObject: <responses.GetDynamicGroupResponse>{},
         body: await response.json(),
         bodyKey: "dynamicGroup",
-        bodyModel: "model.DynamicGroup",
+        bodyModel: model.DynamicGroup,
+        type: "model.DynamicGroup",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3664,7 +3690,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetGroupResponse>{},
         body: await response.json(),
         bodyKey: "group",
-        bodyModel: "model.Group",
+        bodyModel: model.Group,
+        type: "model.Group",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3726,7 +3753,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetIdentityProviderResponse>{},
         body: await response.json(),
         bodyKey: "identityProvider",
-        bodyModel: "model.IdentityProvider",
+        bodyModel: model.IdentityProvider,
+        type: "model.IdentityProvider",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3789,7 +3817,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetIdpGroupMappingResponse>{},
         body: await response.json(),
         bodyKey: "idpGroupMapping",
-        bodyModel: "model.IdpGroupMapping",
+        bodyModel: model.IdpGroupMapping,
+        type: "model.IdpGroupMapping",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3853,7 +3882,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetMfaTotpDeviceResponse>{},
         body: await response.json(),
         bodyKey: "mfaTotpDeviceSummary",
-        bodyModel: "model.MfaTotpDeviceSummary",
+        bodyModel: model.MfaTotpDeviceSummary,
+        type: "model.MfaTotpDeviceSummary",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3916,7 +3946,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetNetworkSourceResponse>{},
         body: await response.json(),
         bodyKey: "networkSources",
-        bodyModel: "model.NetworkSources",
+        bodyModel: model.NetworkSources,
+        type: "model.NetworkSources",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3978,7 +4009,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetPolicyResponse>{},
         body: await response.json(),
         bodyKey: "policy",
-        bodyModel: "model.Policy",
+        bodyModel: model.Policy,
+        type: "model.Policy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4039,7 +4071,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetTagResponse>{},
         body: await response.json(),
         bodyKey: "tag",
-        bodyModel: "model.Tag",
+        bodyModel: model.Tag,
+        type: "model.Tag",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4102,7 +4135,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetTagDefaultResponse>{},
         body: await response.json(),
         bodyKey: "tagDefault",
-        bodyModel: "model.TagDefault",
+        bodyModel: model.TagDefault,
+        type: "model.TagDefault",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4165,7 +4199,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetTagNamespaceResponse>{},
         body: await response.json(),
         bodyKey: "tagNamespace",
-        bodyModel: "model.TagNamespace",
+        bodyModel: model.TagNamespace,
+        type: "model.TagNamespace",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4224,7 +4259,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetTaggingWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "taggingWorkRequest",
-        bodyModel: "model.TaggingWorkRequest",
+        bodyModel: model.TaggingWorkRequest,
+        type: "model.TaggingWorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4286,7 +4322,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetTenancyResponse>{},
         body: await response.json(),
         bodyKey: "tenancy",
-        bodyModel: "model.Tenancy",
+        bodyModel: model.Tenancy,
+        type: "model.Tenancy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4343,7 +4380,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetUserResponse>{},
         body: await response.json(),
         bodyKey: "user",
-        bodyModel: "model.User",
+        bodyModel: model.User,
+        type: "model.User",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4405,7 +4443,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetUserGroupMembershipResponse>{},
         body: await response.json(),
         bodyKey: "userGroupMembership",
-        bodyModel: "model.UserGroupMembership",
+        bodyModel: model.UserGroupMembership,
+        type: "model.UserGroupMembership",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4470,7 +4509,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetUserUIPasswordInformationResponse>{},
         body: await response.json(),
         bodyKey: "uIPasswordInformation",
-        bodyModel: "model.UIPasswordInformation",
+        bodyModel: model.UIPasswordInformation,
+        type: "model.UIPasswordInformation",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4534,7 +4574,8 @@ This operation does not return a list of all the users in the group. To do that,
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4600,7 +4641,8 @@ Every user has permission to use this API call for *their own user ID*.  An admi
         responseObject: <responses.ListApiKeysResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ApiKey[]",
+        bodyModel: model.ApiKey,
+        type: "Array<model.ApiKey>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4664,7 +4706,8 @@ Every user has permission to use this API call for *their own user ID*.  An admi
         responseObject: <responses.ListAuthTokensResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AuthToken[]",
+        bodyModel: model.AuthToken,
+        type: "Array<model.AuthToken>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4731,7 +4774,8 @@ Every user has permission to use this API call for *their own user ID*.  An admi
         responseObject: <responses.ListAvailabilityDomainsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AvailabilityDomain[]",
+        bodyModel: model.AvailabilityDomain,
+        type: "Array<model.AvailabilityDomain>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4803,7 +4847,8 @@ Every user has permission to use this API call for *their own user ID*.  An admi
         responseObject: <responses.ListBulkActionResourceTypesResponse>{},
         body: await response.json(),
         bodyKey: "bulkActionResourceTypeCollection",
-        bodyModel: "model.BulkActionResourceTypeCollection",
+        bodyModel: model.BulkActionResourceTypeCollection,
+        type: "model.BulkActionResourceTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4868,7 +4913,8 @@ Every user has permission to use this API call for *their own user ID*.  An admi
         responseObject: <responses.ListBulkEditTagsResourceTypesResponse>{},
         body: await response.json(),
         bodyKey: "bulkEditTagsResourceTypeCollection",
-        bodyModel: "model.BulkEditTagsResourceTypeCollection",
+        bodyModel: model.BulkEditTagsResourceTypeCollection,
+        type: "model.BulkEditTagsResourceTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4956,7 +5002,8 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
         responseObject: <responses.ListCompartmentsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Compartment[]",
+        bodyModel: model.Compartment,
+        type: "Array<model.Compartment>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4986,7 +5033,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    */
   public listAllCompartments(
     request: requests.ListCompartmentsRequest
-  ): AsyncIterableIterator<models.Compartment> {
+  ): AsyncIterableIterator<model.Compartment> {
     return paginateRecords(request, req => this.listCompartments(req));
   }
 
@@ -5047,7 +5094,8 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
         responseObject: <responses.ListCostTrackingTagsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Tag[]",
+        bodyModel: model.Tag,
+        type: "Array<model.Tag>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5077,7 +5125,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    */
   public listAllCostTrackingTags(
     request: requests.ListCostTrackingTagsRequest
-  ): AsyncIterableIterator<models.Tag> {
+  ): AsyncIterableIterator<model.Tag> {
     return paginateRecords(request, req => this.listCostTrackingTags(req));
   }
 
@@ -5136,7 +5184,8 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
         responseObject: <responses.ListCustomerSecretKeysResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CustomerSecretKeySummary[]",
+        bodyModel: model.CustomerSecretKeySummary,
+        type: "Array<model.CustomerSecretKeySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5207,7 +5256,8 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
         responseObject: <responses.ListDynamicGroupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DynamicGroup[]",
+        bodyModel: model.DynamicGroup,
+        type: "Array<model.DynamicGroup>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5237,7 +5287,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    */
   public listAllDynamicGroups(
     request: requests.ListDynamicGroupsRequest
-  ): AsyncIterableIterator<models.DynamicGroup> {
+  ): AsyncIterableIterator<model.DynamicGroup> {
     return paginateRecords(request, req => this.listDynamicGroups(req));
   }
 
@@ -5298,7 +5348,8 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
         responseObject: <responses.ListFaultDomainsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "FaultDomain[]",
+        bodyModel: model.FaultDomain,
+        type: "Array<model.FaultDomain>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5364,7 +5415,8 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
         responseObject: <responses.ListGroupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Group[]",
+        bodyModel: model.Group,
+        type: "Array<model.Group>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5392,7 +5444,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllGroups(request: requests.ListGroupsRequest): AsyncIterableIterator<models.Group> {
+  public listAllGroups(request: requests.ListGroupsRequest): AsyncIterableIterator<model.Group> {
     return paginateRecords(request, req => this.listGroups(req));
   }
 
@@ -5455,7 +5507,8 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
         responseObject: <responses.ListIdentityProviderGroupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "IdentityProviderGroupSummary[]",
+        bodyModel: model.IdentityProviderGroupSummary,
+        type: "Array<model.IdentityProviderGroupSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5485,7 +5538,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    */
   public listAllIdentityProviderGroups(
     request: requests.ListIdentityProviderGroupsRequest
-  ): AsyncIterableIterator<models.IdentityProviderGroupSummary> {
+  ): AsyncIterableIterator<model.IdentityProviderGroupSummary> {
     return paginateRecords(request, req => this.listIdentityProviderGroups(req));
   }
 
@@ -5553,7 +5606,8 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
         responseObject: <responses.ListIdentityProvidersResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "IdentityProvider[]",
+        bodyModel: model.IdentityProvider,
+        type: "Array<model.IdentityProvider>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5583,7 +5637,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    */
   public listAllIdentityProviders(
     request: requests.ListIdentityProvidersRequest
-  ): AsyncIterableIterator<models.IdentityProvider> {
+  ): AsyncIterableIterator<model.IdentityProvider> {
     return paginateRecords(request, req => this.listIdentityProviders(req));
   }
 
@@ -5644,7 +5698,8 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
         responseObject: <responses.ListIdpGroupMappingsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "IdpGroupMapping[]",
+        bodyModel: model.IdpGroupMapping,
+        type: "Array<model.IdpGroupMapping>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5674,7 +5729,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    */
   public listAllIdpGroupMappings(
     request: requests.ListIdpGroupMappingsRequest
-  ): AsyncIterableIterator<models.IdpGroupMapping> {
+  ): AsyncIterableIterator<model.IdpGroupMapping> {
     return paginateRecords(request, req => this.listIdpGroupMappings(req));
   }
 
@@ -5738,7 +5793,8 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
         responseObject: <responses.ListMfaTotpDevicesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "MfaTotpDeviceSummary[]",
+        bodyModel: model.MfaTotpDeviceSummary,
+        type: "Array<model.MfaTotpDeviceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5768,7 +5824,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    */
   public listAllMfaTotpDevices(
     request: requests.ListMfaTotpDevicesRequest
-  ): AsyncIterableIterator<models.MfaTotpDeviceSummary> {
+  ): AsyncIterableIterator<model.MfaTotpDeviceSummary> {
     return paginateRecords(request, req => this.listMfaTotpDevices(req));
   }
 
@@ -5834,7 +5890,8 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
         responseObject: <responses.ListNetworkSourcesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "NetworkSourcesSummary[]",
+        bodyModel: model.NetworkSourcesSummary,
+        type: "Array<model.NetworkSourcesSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5864,7 +5921,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    */
   public listAllNetworkSources(
     request: requests.ListNetworkSourcesRequest
-  ): AsyncIterableIterator<models.NetworkSourcesSummary> {
+  ): AsyncIterableIterator<model.NetworkSourcesSummary> {
     return paginateRecords(request, req => this.listNetworkSources(req));
   }
 
@@ -5927,7 +5984,8 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
         responseObject: <responses.ListOAuthClientCredentialsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "OAuth2ClientCredentialSummary[]",
+        bodyModel: model.OAuth2ClientCredentialSummary,
+        type: "Array<model.OAuth2ClientCredentialSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5957,7 +6015,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    */
   public listAllOAuthClientCredentials(
     request: requests.ListOAuthClientCredentialsRequest
-  ): AsyncIterableIterator<models.OAuth2ClientCredentialSummary> {
+  ): AsyncIterableIterator<model.OAuth2ClientCredentialSummary> {
     return paginateRecords(request, req => this.listOAuthClientCredentials(req));
   }
 
@@ -6025,7 +6083,8 @@ To determine which policies apply to a particular group or compartment, you must
         responseObject: <responses.ListPoliciesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Policy[]",
+        bodyModel: model.Policy,
+        type: "Array<model.Policy>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6055,7 +6114,7 @@ To determine which policies apply to a particular group or compartment, you must
    */
   public listAllPolicies(
     request: requests.ListPoliciesRequest
-  ): AsyncIterableIterator<models.Policy> {
+  ): AsyncIterableIterator<model.Policy> {
     return paginateRecords(request, req => this.listPolicies(req));
   }
 
@@ -6112,7 +6171,8 @@ To determine which policies apply to a particular group or compartment, you must
         responseObject: <responses.ListRegionSubscriptionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "RegionSubscription[]",
+        bodyModel: model.RegionSubscription,
+        type: "Array<model.RegionSubscription>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6167,7 +6227,8 @@ To determine which policies apply to a particular group or compartment, you must
         responseObject: <responses.ListRegionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "Region[]",
+        bodyModel: model.Region,
+        type: "Array<model.Region>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6226,7 +6287,8 @@ To determine which policies apply to a particular group or compartment, you must
         responseObject: <responses.ListSmtpCredentialsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SmtpCredentialSummary[]",
+        bodyModel: model.SmtpCredentialSummary,
+        type: "Array<model.SmtpCredentialSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6292,7 +6354,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.ListSwiftPasswordsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SwiftPassword[]",
+        bodyModel: model.SwiftPassword,
+        type: "Array<model.SwiftPassword>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6360,7 +6423,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.ListTagDefaultsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "TagDefaultSummary[]",
+        bodyModel: model.TagDefaultSummary,
+        type: "Array<model.TagDefaultSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6390,7 +6454,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    */
   public listAllTagDefaults(
     request: requests.ListTagDefaultsRequest
-  ): AsyncIterableIterator<models.TagDefaultSummary> {
+  ): AsyncIterableIterator<model.TagDefaultSummary> {
     return paginateRecords(request, req => this.listTagDefaults(req));
   }
 
@@ -6452,7 +6516,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.ListTagNamespacesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "TagNamespaceSummary[]",
+        bodyModel: model.TagNamespaceSummary,
+        type: "Array<model.TagNamespaceSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6482,7 +6547,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    */
   public listAllTagNamespaces(
     request: requests.ListTagNamespacesRequest
-  ): AsyncIterableIterator<models.TagNamespaceSummary> {
+  ): AsyncIterableIterator<model.TagNamespaceSummary> {
     return paginateRecords(request, req => this.listTagNamespaces(req));
   }
 
@@ -6544,7 +6609,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.ListTaggingWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "TaggingWorkRequestErrorSummary[]",
+        bodyModel: model.TaggingWorkRequestErrorSummary,
+        type: "Array<model.TaggingWorkRequestErrorSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6579,7 +6645,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    */
   public listAllTaggingWorkRequestErrors(
     request: requests.ListTaggingWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.TaggingWorkRequestErrorSummary> {
+  ): AsyncIterableIterator<model.TaggingWorkRequestErrorSummary> {
     return paginateRecords(request, req => this.listTaggingWorkRequestErrors(req));
   }
 
@@ -6641,7 +6707,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.ListTaggingWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "TaggingWorkRequestLogSummary[]",
+        bodyModel: model.TaggingWorkRequestLogSummary,
+        type: "Array<model.TaggingWorkRequestLogSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6676,7 +6743,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    */
   public listAllTaggingWorkRequestLogs(
     request: requests.ListTaggingWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.TaggingWorkRequestLogSummary> {
+  ): AsyncIterableIterator<model.TaggingWorkRequestLogSummary> {
     return paginateRecords(request, req => this.listTaggingWorkRequestLogs(req));
   }
 
@@ -6737,7 +6804,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.ListTaggingWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "TaggingWorkRequestSummary[]",
+        bodyModel: model.TaggingWorkRequestSummary,
+        type: "Array<model.TaggingWorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6767,7 +6835,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    */
   public listAllTaggingWorkRequests(
     request: requests.ListTaggingWorkRequestsRequest
-  ): AsyncIterableIterator<models.TaggingWorkRequestSummary> {
+  ): AsyncIterableIterator<model.TaggingWorkRequestSummary> {
     return paginateRecords(request, req => this.listTaggingWorkRequests(req));
   }
 
@@ -6829,7 +6897,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.ListTagsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "TagSummary[]",
+        bodyModel: model.TagSummary,
+        type: "Array<model.TagSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6857,7 +6926,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllTags(request: requests.ListTagsRequest): AsyncIterableIterator<models.TagSummary> {
+  public listAllTags(request: requests.ListTagsRequest): AsyncIterableIterator<model.TagSummary> {
     return paginateRecords(request, req => this.listTags(req));
   }
 
@@ -6929,7 +6998,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.ListUserGroupMembershipsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "UserGroupMembership[]",
+        bodyModel: model.UserGroupMembership,
+        type: "Array<model.UserGroupMembership>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6959,7 +7029,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    */
   public listAllUserGroupMemberships(
     request: requests.ListUserGroupMembershipsRequest
-  ): AsyncIterableIterator<models.UserGroupMembership> {
+  ): AsyncIterableIterator<model.UserGroupMembership> {
     return paginateRecords(request, req => this.listUserGroupMemberships(req));
   }
 
@@ -7027,7 +7097,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.ListUsersResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "User[]",
+        bodyModel: model.User,
+        type: "Array<model.User>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7055,7 +7126,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    *
    * @param request a request which can be sent to the service operation
    */
-  public listAllUsers(request: requests.ListUsersRequest): AsyncIterableIterator<models.User> {
+  public listAllUsers(request: requests.ListUsersRequest): AsyncIterableIterator<model.User> {
     return paginateRecords(request, req => this.listUsers(req));
   }
 
@@ -7116,7 +7187,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestSummary[]",
+        bodyModel: model.WorkRequestSummary,
+        type: "Array<model.WorkRequestSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7146,7 +7218,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequestSummary> {
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -7207,7 +7279,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       bodyContent: common.ObjectSerializer.serialize(
         moveCompartmentRequest.moveCompartmentDetails,
         "MoveCompartmentDetails",
-        models.MoveCompartmentDetails.getJsonObj
+        model.MoveCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7281,7 +7353,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.RecoverCompartmentResponse>{},
         body: await response.json(),
         bodyKey: "compartment",
-        bodyModel: "model.Compartment",
+        bodyModel: model.Compartment,
+        type: "model.Compartment",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7399,7 +7472,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.ResetIdpScimClientResponse>{},
         body: await response.json(),
         bodyKey: "scimClientCredentials",
-        bodyModel: "model.ScimClientCredentials",
+        bodyModel: model.ScimClientCredentials,
+        type: "model.ScimClientCredentials",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7452,7 +7526,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       bodyContent: common.ObjectSerializer.serialize(
         updateAuthTokenRequest.updateAuthTokenDetails,
         "UpdateAuthTokenDetails",
-        models.UpdateAuthTokenDetails.getJsonObj
+        model.UpdateAuthTokenDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7464,7 +7538,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.UpdateAuthTokenResponse>{},
         body: await response.json(),
         bodyKey: "authToken",
-        bodyModel: "model.AuthToken",
+        bodyModel: model.AuthToken,
+        type: "model.AuthToken",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7522,7 +7597,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       bodyContent: common.ObjectSerializer.serialize(
         updateAuthenticationPolicyRequest.updateAuthenticationPolicyDetails,
         "UpdateAuthenticationPolicyDetails",
-        models.UpdateAuthenticationPolicyDetails.getJsonObj
+        model.UpdateAuthenticationPolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7534,7 +7609,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.UpdateAuthenticationPolicyResponse>{},
         body: await response.json(),
         bodyKey: "authenticationPolicy",
-        bodyModel: "model.AuthenticationPolicy",
+        bodyModel: model.AuthenticationPolicy,
+        type: "model.AuthenticationPolicy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7590,7 +7666,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       bodyContent: common.ObjectSerializer.serialize(
         updateCompartmentRequest.updateCompartmentDetails,
         "UpdateCompartmentDetails",
-        models.UpdateCompartmentDetails.getJsonObj
+        model.UpdateCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7602,7 +7678,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.UpdateCompartmentResponse>{},
         body: await response.json(),
         bodyKey: "compartment",
-        bodyModel: "model.Compartment",
+        bodyModel: model.Compartment,
+        type: "model.Compartment",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7660,7 +7737,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       bodyContent: common.ObjectSerializer.serialize(
         updateCustomerSecretKeyRequest.updateCustomerSecretKeyDetails,
         "UpdateCustomerSecretKeyDetails",
-        models.UpdateCustomerSecretKeyDetails.getJsonObj
+        model.UpdateCustomerSecretKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7672,7 +7749,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.UpdateCustomerSecretKeyResponse>{},
         body: await response.json(),
         bodyKey: "customerSecretKeySummary",
-        bodyModel: "model.CustomerSecretKeySummary",
+        bodyModel: model.CustomerSecretKeySummary,
+        type: "model.CustomerSecretKeySummary",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7728,7 +7806,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       bodyContent: common.ObjectSerializer.serialize(
         updateDynamicGroupRequest.updateDynamicGroupDetails,
         "UpdateDynamicGroupDetails",
-        models.UpdateDynamicGroupDetails.getJsonObj
+        model.UpdateDynamicGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7740,7 +7818,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.UpdateDynamicGroupResponse>{},
         body: await response.json(),
         bodyKey: "dynamicGroup",
-        bodyModel: "model.DynamicGroup",
+        bodyModel: model.DynamicGroup,
+        type: "model.DynamicGroup",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7796,7 +7875,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       bodyContent: common.ObjectSerializer.serialize(
         updateGroupRequest.updateGroupDetails,
         "UpdateGroupDetails",
-        models.UpdateGroupDetails.getJsonObj
+        model.UpdateGroupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7808,7 +7887,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.UpdateGroupResponse>{},
         body: await response.json(),
         bodyKey: "group",
-        bodyModel: "model.Group",
+        bodyModel: model.Group,
+        type: "model.Group",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7864,7 +7944,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       bodyContent: common.ObjectSerializer.serialize(
         updateIdentityProviderRequest.updateIdentityProviderDetails,
         "UpdateIdentityProviderDetails",
-        models.UpdateIdentityProviderDetails.getJsonObj
+        model.UpdateIdentityProviderDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7876,7 +7956,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.UpdateIdentityProviderResponse>{},
         body: await response.json(),
         bodyKey: "identityProvider",
-        bodyModel: "model.IdentityProvider",
+        bodyModel: model.IdentityProvider,
+        type: "model.IdentityProvider",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7933,7 +8014,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       bodyContent: common.ObjectSerializer.serialize(
         updateIdpGroupMappingRequest.updateIdpGroupMappingDetails,
         "UpdateIdpGroupMappingDetails",
-        models.UpdateIdpGroupMappingDetails.getJsonObj
+        model.UpdateIdpGroupMappingDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -7945,7 +8026,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.UpdateIdpGroupMappingResponse>{},
         body: await response.json(),
         bodyKey: "idpGroupMapping",
-        bodyModel: "model.IdpGroupMapping",
+        bodyModel: model.IdpGroupMapping,
+        type: "model.IdpGroupMapping",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8001,7 +8083,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       bodyContent: common.ObjectSerializer.serialize(
         updateNetworkSourceRequest.updateNetworkSourceDetails,
         "UpdateNetworkSourceDetails",
-        models.UpdateNetworkSourceDetails.getJsonObj
+        model.UpdateNetworkSourceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8013,7 +8095,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.UpdateNetworkSourceResponse>{},
         body: await response.json(),
         bodyKey: "networkSources",
-        bodyModel: "model.NetworkSources",
+        bodyModel: model.NetworkSources,
+        type: "model.NetworkSources",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8072,7 +8155,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       bodyContent: common.ObjectSerializer.serialize(
         updateOAuthClientCredentialRequest.updateOAuth2ClientCredentialDetails,
         "UpdateOAuth2ClientCredentialDetails",
-        models.UpdateOAuth2ClientCredentialDetails.getJsonObj
+        model.UpdateOAuth2ClientCredentialDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8084,7 +8167,8 @@ Lists the Swift passwords for the specified user. The returned object contains t
         responseObject: <responses.UpdateOAuthClientCredentialResponse>{},
         body: await response.json(),
         bodyKey: "oAuth2ClientCredential",
-        bodyModel: "model.OAuth2ClientCredential",
+        bodyModel: model.OAuth2ClientCredential,
+        type: "model.OAuth2ClientCredential",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8143,7 +8227,7 @@ Policy changes take effect typically within 10 seconds.
       bodyContent: common.ObjectSerializer.serialize(
         updatePolicyRequest.updatePolicyDetails,
         "UpdatePolicyDetails",
-        models.UpdatePolicyDetails.getJsonObj
+        model.UpdatePolicyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8155,7 +8239,8 @@ Policy changes take effect typically within 10 seconds.
         responseObject: <responses.UpdatePolicyResponse>{},
         body: await response.json(),
         bodyKey: "policy",
-        bodyModel: "model.Policy",
+        bodyModel: model.Policy,
+        type: "model.Policy",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8213,7 +8298,7 @@ Policy changes take effect typically within 10 seconds.
       bodyContent: common.ObjectSerializer.serialize(
         updateSmtpCredentialRequest.updateSmtpCredentialDetails,
         "UpdateSmtpCredentialDetails",
-        models.UpdateSmtpCredentialDetails.getJsonObj
+        model.UpdateSmtpCredentialDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8225,7 +8310,8 @@ Policy changes take effect typically within 10 seconds.
         responseObject: <responses.UpdateSmtpCredentialResponse>{},
         body: await response.json(),
         bodyKey: "smtpCredentialSummary",
-        bodyModel: "model.SmtpCredentialSummary",
+        bodyModel: model.SmtpCredentialSummary,
+        type: "model.SmtpCredentialSummary",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8285,7 +8371,7 @@ Updates the specified Swift password's description.
       bodyContent: common.ObjectSerializer.serialize(
         updateSwiftPasswordRequest.updateSwiftPasswordDetails,
         "UpdateSwiftPasswordDetails",
-        models.UpdateSwiftPasswordDetails.getJsonObj
+        model.UpdateSwiftPasswordDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8297,7 +8383,8 @@ Updates the specified Swift password's description.
         responseObject: <responses.UpdateSwiftPasswordResponse>{},
         body: await response.json(),
         bodyKey: "swiftPassword",
-        bodyModel: "model.SwiftPassword",
+        bodyModel: model.SwiftPassword,
+        type: "model.SwiftPassword",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8364,7 +8451,7 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       bodyContent: common.ObjectSerializer.serialize(
         updateTagRequest.updateTagDetails,
         "UpdateTagDetails",
-        models.UpdateTagDetails.getJsonObj
+        model.UpdateTagDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8376,7 +8463,8 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
         responseObject: <responses.UpdateTagResponse>{},
         body: await response.json(),
         bodyKey: "tag",
-        bodyModel: "model.Tag",
+        bodyModel: model.Tag,
+        type: "model.Tag",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8439,7 +8527,7 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       bodyContent: common.ObjectSerializer.serialize(
         updateTagDefaultRequest.updateTagDefaultDetails,
         "UpdateTagDefaultDetails",
-        models.UpdateTagDefaultDetails.getJsonObj
+        model.UpdateTagDefaultDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8451,7 +8539,8 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
         responseObject: <responses.UpdateTagDefaultResponse>{},
         body: await response.json(),
         bodyKey: "tagDefault",
-        bodyModel: "model.TagDefault",
+        bodyModel: model.TagDefault,
+        type: "model.TagDefault",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8515,7 +8604,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
       bodyContent: common.ObjectSerializer.serialize(
         updateTagNamespaceRequest.updateTagNamespaceDetails,
         "UpdateTagNamespaceDetails",
-        models.UpdateTagNamespaceDetails.getJsonObj
+        model.UpdateTagNamespaceDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8527,7 +8616,8 @@ You can't add a namespace with the same name as a retired namespace in the same 
         responseObject: <responses.UpdateTagNamespaceResponse>{},
         body: await response.json(),
         bodyKey: "tagNamespace",
-        bodyModel: "model.TagNamespace",
+        bodyModel: model.TagNamespace,
+        type: "model.TagNamespace",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8578,7 +8668,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
       bodyContent: common.ObjectSerializer.serialize(
         updateUserRequest.updateUserDetails,
         "UpdateUserDetails",
-        models.UpdateUserDetails.getJsonObj
+        model.UpdateUserDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8590,7 +8680,8 @@ You can't add a namespace with the same name as a retired namespace in the same 
         responseObject: <responses.UpdateUserResponse>{},
         body: await response.json(),
         bodyKey: "user",
-        bodyModel: "model.User",
+        bodyModel: model.User,
+        type: "model.User",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8647,7 +8738,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
       bodyContent: common.ObjectSerializer.serialize(
         updateUserCapabilitiesRequest.updateUserCapabilitiesDetails,
         "UpdateUserCapabilitiesDetails",
-        models.UpdateUserCapabilitiesDetails.getJsonObj
+        model.UpdateUserCapabilitiesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8659,7 +8750,8 @@ You can't add a namespace with the same name as a retired namespace in the same 
         responseObject: <responses.UpdateUserCapabilitiesResponse>{},
         body: await response.json(),
         bodyKey: "user",
-        bodyModel: "model.User",
+        bodyModel: model.User,
+        type: "model.User",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8716,7 +8808,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
       bodyContent: common.ObjectSerializer.serialize(
         updateUserStateRequest.updateStateDetails,
         "UpdateStateDetails",
-        models.UpdateStateDetails.getJsonObj
+        model.UpdateStateDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8728,7 +8820,8 @@ You can't add a namespace with the same name as a retired namespace in the same 
         responseObject: <responses.UpdateUserStateResponse>{},
         body: await response.json(),
         bodyKey: "user",
-        bodyModel: "model.User",
+        bodyModel: model.User,
+        type: "model.User",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8799,7 +8892,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       bodyContent: common.ObjectSerializer.serialize(
         uploadApiKeyRequest.createApiKeyDetails,
         "CreateApiKeyDetails",
-        models.CreateApiKeyDetails.getJsonObj
+        model.CreateApiKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -8811,7 +8904,8 @@ After you send your request, the new object's `lifecycleState` will temporarily 
         responseObject: <responses.UploadApiKeyResponse>{},
         body: await response.json(),
         bodyKey: "apiKey",
-        bodyModel: "model.ApiKey",
+        bodyModel: model.ApiKey,
+        type: "model.ApiKey",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

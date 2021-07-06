@@ -29,7 +29,10 @@ export enum DetectorEnum {
 }
 
 export namespace DetectorEnum {
-  export function getJsonObj(obj: DetectorEnum): object {
-    return { obj };
+  export function getJsonObj(obj: DetectorEnum): DetectorEnum {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DetectorEnum): DetectorEnum {
+    return obj;
   }
 }

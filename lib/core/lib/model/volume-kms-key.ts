@@ -37,4 +37,9 @@ export namespace VolumeKmsKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: VolumeKmsKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

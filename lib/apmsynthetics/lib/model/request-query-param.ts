@@ -35,4 +35,9 @@ export namespace RequestQueryParam {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RequestQueryParam): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

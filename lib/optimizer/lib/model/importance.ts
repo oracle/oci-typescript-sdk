@@ -32,7 +32,10 @@ export enum Importance {
 }
 
 export namespace Importance {
-  export function getJsonObj(obj: Importance): object {
-    return { obj };
+  export function getJsonObj(obj: Importance): Importance {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: Importance): Importance {
+    return obj;
   }
 }

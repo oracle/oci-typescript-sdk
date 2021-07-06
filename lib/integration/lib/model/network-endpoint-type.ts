@@ -29,7 +29,10 @@ export enum NetworkEndpointType {
 }
 
 export namespace NetworkEndpointType {
-  export function getJsonObj(obj: NetworkEndpointType): object {
-    return { obj };
+  export function getJsonObj(obj: NetworkEndpointType): NetworkEndpointType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: NetworkEndpointType): NetworkEndpointType {
+    return obj;
   }
 }

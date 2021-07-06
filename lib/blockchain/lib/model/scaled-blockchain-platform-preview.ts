@@ -103,4 +103,44 @@ export namespace ScaledBlockchainPlatformPreview {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ScaledBlockchainPlatformPreview): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "componentDetails": obj.componentDetails
+          ? model.BlockchainPlatformComponentDetails.getDeserializedJsonObj(obj.componentDetails)
+          : undefined,
+        "replicas": obj.replicas
+          ? model.ReplicaDetails.getDeserializedJsonObj(obj.replicas)
+          : undefined,
+        "componentDetailsPostScaling": obj.componentDetailsPostScaling
+          ? model.BlockchainPlatformComponentDetails.getDeserializedJsonObj(
+              obj.componentDetailsPostScaling
+            )
+          : undefined,
+        "replicasPostScaling": obj.replicasPostScaling
+          ? model.ReplicaDetails.getDeserializedJsonObj(obj.replicasPostScaling)
+          : undefined,
+        "hostOcpuUtilizationInfo": obj.hostOcpuUtilizationInfo
+          ? obj.hostOcpuUtilizationInfo.map(item => {
+              return model.OcpuUtilizationInfo.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "hostOcpuUtilizationInfoPostScaling": obj.hostOcpuUtilizationInfoPostScaling
+          ? obj.hostOcpuUtilizationInfoPostScaling.map(item => {
+              return model.OcpuUtilizationInfo.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "meteringPreview": obj.meteringPreview
+          ? model.ScaledPlatformMeteringPreview.getDeserializedJsonObj(obj.meteringPreview)
+          : undefined,
+        "scalePayload": obj.scalePayload
+          ? model.ScaleBlockchainPlatformDetails.getDeserializedJsonObj(obj.scalePayload)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

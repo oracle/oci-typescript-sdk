@@ -48,4 +48,30 @@ export namespace HeaderManipulationAction {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: HeaderManipulationAction): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("action" in obj && obj.action) {
+      switch (obj.action) {
+        case "EXTEND_HTTP_RESPONSE_HEADER":
+          return model.ExtendHttpResponseHeaderAction.getDeserializedJsonObj(
+            <model.ExtendHttpResponseHeaderAction>(<object>jsonObj),
+            true
+          );
+        case "ADD_HTTP_RESPONSE_HEADER":
+          return model.AddHttpResponseHeaderAction.getDeserializedJsonObj(
+            <model.AddHttpResponseHeaderAction>(<object>jsonObj),
+            true
+          );
+        case "REMOVE_HTTP_RESPONSE_HEADER":
+          return model.RemoveHttpResponseHeaderAction.getDeserializedJsonObj(
+            <model.RemoveHttpResponseHeaderAction>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.action);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -182,4 +182,9 @@ export namespace RedirectUri {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RedirectUri): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

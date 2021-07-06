@@ -101,4 +101,35 @@ export namespace DependentObject {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DependentObject): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "dependentObjectMetadata": obj.dependentObjectMetadata
+          ? obj.dependentObjectMetadata.map(item => {
+              return model.PatchObjectMetadata.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "publishedObjectMetadata": obj.publishedObjectMetadata
+          ? common.mapContainer(
+              obj.publishedObjectMetadata,
+              model.PatchObjectMetadata.getDeserializedJsonObj
+            )
+          : undefined,
+        "sourceApplicationInfo": obj.sourceApplicationInfo
+          ? model.SourceApplicationInfo.getDeserializedJsonObj(obj.sourceApplicationInfo)
+          : undefined,
+
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

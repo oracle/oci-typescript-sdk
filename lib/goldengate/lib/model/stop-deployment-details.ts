@@ -39,4 +39,20 @@ export namespace StopDeploymentDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StopDeploymentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "DEFAULT":
+          return model.DefaultStopDeploymentDetails.getDeserializedJsonObj(
+            <model.DefaultStopDeploymentDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

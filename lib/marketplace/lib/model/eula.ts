@@ -35,4 +35,20 @@ export namespace Eula {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Eula): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("eulaType" in obj && obj.eulaType) {
+      switch (obj.eulaType) {
+        case "TEXT":
+          return model.TextBasedEula.getDeserializedJsonObj(
+            <model.TextBasedEula>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.eulaType);
+      }
+    }
+    return jsonObj;
+  }
 }

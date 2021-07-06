@@ -43,4 +43,9 @@ export namespace WrappedImportKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WrappedImportKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -47,4 +47,9 @@ export namespace TcpConnection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TcpConnection): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

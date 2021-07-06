@@ -150,4 +150,9 @@ export namespace Vcn {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Vcn): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

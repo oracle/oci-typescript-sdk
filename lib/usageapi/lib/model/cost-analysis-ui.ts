@@ -45,4 +45,9 @@ export namespace CostAnalysisUI {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CostAnalysisUI): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

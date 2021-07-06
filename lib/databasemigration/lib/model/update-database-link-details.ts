@@ -32,4 +32,9 @@ export namespace UpdateDatabaseLinkDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateDatabaseLinkDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

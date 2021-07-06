@@ -48,4 +48,9 @@ export namespace BackoffRetryPolicy {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BackoffRetryPolicy): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

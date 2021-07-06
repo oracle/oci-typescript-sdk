@@ -31,7 +31,10 @@ export enum AlertType {
 }
 
 export namespace AlertType {
-  export function getJsonObj(obj: AlertType): object {
-    return { obj };
+  export function getJsonObj(obj: AlertType): AlertType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: AlertType): AlertType {
+    return obj;
   }
 }

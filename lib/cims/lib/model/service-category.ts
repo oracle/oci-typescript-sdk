@@ -67,4 +67,18 @@ export namespace ServiceCategory {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ServiceCategory): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "issueTypeList": obj.issueTypeList
+          ? obj.issueTypeList.map(item => {
+              return model.IssueType.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -72,4 +72,9 @@ export namespace BucketSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BucketSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

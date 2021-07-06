@@ -37,4 +37,9 @@ export namespace ResourceInsightProjectedUtilizationItem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResourceInsightProjectedUtilizationItem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

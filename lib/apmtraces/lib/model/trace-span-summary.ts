@@ -130,4 +130,18 @@ export namespace TraceSpanSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TraceSpanSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "serviceSummaries": obj.serviceSummaries
+          ? obj.serviceSummaries.map(item => {
+              return model.TraceServiceSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -78,4 +78,20 @@ export namespace PublicationSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: PublicationSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "icon": obj.icon ? model.UploadData.getDeserializedJsonObj(obj.icon) : undefined,
+
+        "supportedOperatingSystems": obj.supportedOperatingSystems
+          ? obj.supportedOperatingSystems.map(item => {
+              return model.OperatingSystem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

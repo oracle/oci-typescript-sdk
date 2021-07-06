@@ -45,4 +45,19 @@ export namespace UdpOptions {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UdpOptions): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "destinationPortRange": obj.destinationPortRange
+          ? model.PortRange.getDeserializedJsonObj(obj.destinationPortRange)
+          : undefined,
+        "sourcePortRange": obj.sourcePortRange
+          ? model.PortRange.getDeserializedJsonObj(obj.sourcePortRange)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

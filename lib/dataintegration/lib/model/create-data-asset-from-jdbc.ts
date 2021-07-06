@@ -51,4 +51,21 @@ export namespace CreateDataAssetFromJdbc {
     return jsonObj;
   }
   export const modelType = "GENERIC_JDBC_DATA_ASSET";
+  export function getDeserializedJsonObj(
+    obj: CreateDataAssetFromJdbc,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDataAssetDetails.getDeserializedJsonObj(obj) as CreateDataAssetFromJdbc)),
+      ...{
+        "defaultConnection": obj.defaultConnection
+          ? model.CreateConnectionFromJdbc.getDeserializedJsonObj(obj.defaultConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -45,4 +45,18 @@ export namespace DkimCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DkimCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DkimSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

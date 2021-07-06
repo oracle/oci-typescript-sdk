@@ -32,4 +32,9 @@ export namespace ActivateExadataInfrastructureDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ActivateExadataInfrastructureDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

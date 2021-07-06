@@ -77,4 +77,9 @@ export namespace WrappingKey {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WrappingKey): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -267,4 +267,49 @@ export namespace CreateAutonomousDatabaseBase {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateAutonomousDatabaseBase): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    if ("source" in obj && obj.source) {
+      switch (obj.source) {
+        case "DATABASE":
+          return model.CreateAutonomousDatabaseCloneDetails.getDeserializedJsonObj(
+            <model.CreateAutonomousDatabaseCloneDetails>(<object>jsonObj),
+            true
+          );
+        case "CLONE_TO_REFRESHABLE":
+          return model.CreateRefreshableAutonomousDatabaseCloneDetails.getDeserializedJsonObj(
+            <model.CreateRefreshableAutonomousDatabaseCloneDetails>(<object>jsonObj),
+            true
+          );
+        case "BACKUP_FROM_ID":
+          return model.CreateAutonomousDatabaseFromBackupDetails.getDeserializedJsonObj(
+            <model.CreateAutonomousDatabaseFromBackupDetails>(<object>jsonObj),
+            true
+          );
+        case "BACKUP_FROM_TIMESTAMP":
+          return model.CreateAutonomousDatabaseFromBackupTimestampDetails.getDeserializedJsonObj(
+            <model.CreateAutonomousDatabaseFromBackupTimestampDetails>(<object>jsonObj),
+            true
+          );
+        case "NONE":
+          return model.CreateAutonomousDatabaseDetails.getDeserializedJsonObj(
+            <model.CreateAutonomousDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.source);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -55,4 +55,18 @@ export namespace Schema {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Schema): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "columns": obj.columns
+          ? obj.columns.map(item => {
+              return model.Column.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -14,7 +14,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { GoldenGateWaiter } from "./goldengate-waiter";
@@ -173,7 +173,7 @@ export class GoldenGateClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeDatabaseRegistrationCompartmentRequest.changeDatabaseRegistrationCompartmentDetails,
         "ChangeDatabaseRegistrationCompartmentDetails",
-        models.ChangeDatabaseRegistrationCompartmentDetails.getJsonObj
+        model.ChangeDatabaseRegistrationCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -242,7 +242,7 @@ export class GoldenGateClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeDeploymentBackupCompartmentRequest.changeDeploymentBackupCompartmentDetails,
         "ChangeDeploymentBackupCompartmentDetails",
-        models.ChangeDeploymentBackupCompartmentDetails.getJsonObj
+        model.ChangeDeploymentBackupCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -306,7 +306,7 @@ export class GoldenGateClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeDeploymentCompartmentRequest.changeDeploymentCompartmentDetails,
         "ChangeDeploymentCompartmentDetails",
-        models.ChangeDeploymentCompartmentDetails.getJsonObj
+        model.ChangeDeploymentCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -372,7 +372,7 @@ export class GoldenGateClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDatabaseRegistrationRequest.createDatabaseRegistrationDetails,
         "CreateDatabaseRegistrationDetails",
-        models.CreateDatabaseRegistrationDetails.getJsonObj
+        model.CreateDatabaseRegistrationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -384,7 +384,8 @@ export class GoldenGateClient {
         responseObject: <responses.CreateDatabaseRegistrationResponse>{},
         body: await response.json(),
         bodyKey: "databaseRegistration",
-        bodyModel: "model.DatabaseRegistration",
+        bodyModel: model.DatabaseRegistration,
+        type: "model.DatabaseRegistration",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -445,7 +446,7 @@ export class GoldenGateClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDeploymentRequest.createDeploymentDetails,
         "CreateDeploymentDetails",
-        models.CreateDeploymentDetails.getJsonObj
+        model.CreateDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -457,7 +458,8 @@ export class GoldenGateClient {
         responseObject: <responses.CreateDeploymentResponse>{},
         body: await response.json(),
         bodyKey: "deployment",
-        bodyModel: "model.Deployment",
+        bodyModel: model.Deployment,
+        type: "model.Deployment",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -518,7 +520,7 @@ export class GoldenGateClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDeploymentBackupRequest.createDeploymentBackupDetails,
         "CreateDeploymentBackupDetails",
-        models.CreateDeploymentBackupDetails.getJsonObj
+        model.CreateDeploymentBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -780,7 +782,8 @@ export class GoldenGateClient {
         responseObject: <responses.GetDatabaseRegistrationResponse>{},
         body: await response.json(),
         bodyKey: "databaseRegistration",
-        bodyModel: "model.DatabaseRegistration",
+        bodyModel: model.DatabaseRegistration,
+        type: "model.DatabaseRegistration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -844,7 +847,8 @@ export class GoldenGateClient {
         responseObject: <responses.GetDeploymentResponse>{},
         body: await response.json(),
         bodyKey: "deployment",
-        bodyModel: "model.Deployment",
+        bodyModel: model.Deployment,
+        type: "model.Deployment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -908,7 +912,8 @@ export class GoldenGateClient {
         responseObject: <responses.GetDeploymentBackupResponse>{},
         body: await response.json(),
         bodyKey: "deploymentBackup",
-        bodyModel: "model.DeploymentBackup",
+        bodyModel: model.DeploymentBackup,
+        type: "model.DeploymentBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -972,7 +977,8 @@ export class GoldenGateClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1043,7 +1049,8 @@ export class GoldenGateClient {
         responseObject: <responses.ListDatabaseRegistrationsResponse>{},
         body: await response.json(),
         bodyKey: "databaseRegistrationCollection",
-        bodyModel: "model.DatabaseRegistrationCollection",
+        bodyModel: model.DatabaseRegistrationCollection,
+        type: "model.DatabaseRegistrationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1114,7 +1121,8 @@ export class GoldenGateClient {
         responseObject: <responses.ListDeploymentBackupsResponse>{},
         body: await response.json(),
         bodyKey: "deploymentBackupCollection",
-        bodyModel: "model.DeploymentBackupCollection",
+        bodyModel: model.DeploymentBackupCollection,
+        type: "model.DeploymentBackupCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1184,7 +1192,8 @@ export class GoldenGateClient {
         responseObject: <responses.ListDeploymentsResponse>{},
         body: await response.json(),
         bodyKey: "deploymentCollection",
-        bodyModel: "model.DeploymentCollection",
+        bodyModel: model.DeploymentCollection,
+        type: "model.DeploymentCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1251,7 +1260,8 @@ export class GoldenGateClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestError[]",
+        bodyModel: model.WorkRequestError,
+        type: "Array<model.WorkRequestError>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1281,7 +1291,7 @@ export class GoldenGateClient {
    */
   public listAllWorkRequestErrors(
     request: requests.ListWorkRequestErrorsRequest
-  ): AsyncIterableIterator<models.WorkRequestError> {
+  ): AsyncIterableIterator<model.WorkRequestError> {
     return paginateRecords(request, req => this.listWorkRequestErrors(req));
   }
 
@@ -1343,7 +1353,8 @@ export class GoldenGateClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequestLogEntry[]",
+        bodyModel: model.WorkRequestLogEntry,
+        type: "Array<model.WorkRequestLogEntry>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1373,7 +1384,7 @@ export class GoldenGateClient {
    */
   public listAllWorkRequestLogs(
     request: requests.ListWorkRequestLogsRequest
-  ): AsyncIterableIterator<models.WorkRequestLogEntry> {
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
     return paginateRecords(request, req => this.listWorkRequestLogs(req));
   }
 
@@ -1434,7 +1445,8 @@ export class GoldenGateClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "WorkRequest[]",
+        bodyModel: model.WorkRequest,
+        type: "Array<model.WorkRequest>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1464,7 +1476,7 @@ export class GoldenGateClient {
    */
   public listAllWorkRequests(
     request: requests.ListWorkRequestsRequest
-  ): AsyncIterableIterator<models.WorkRequest> {
+  ): AsyncIterableIterator<model.WorkRequest> {
     return paginateRecords(request, req => this.listWorkRequests(req));
   }
 
@@ -1517,7 +1529,7 @@ export class GoldenGateClient {
       bodyContent: common.ObjectSerializer.serialize(
         restoreDeploymentRequest.restoreDeploymentDetails,
         "RestoreDeploymentDetails",
-        models.RestoreDeploymentDetails.getJsonObj
+        model.RestoreDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1585,7 +1597,7 @@ export class GoldenGateClient {
       bodyContent: common.ObjectSerializer.serialize(
         startDeploymentRequest.startDeploymentDetails,
         "StartDeploymentDetails",
-        models.StartDeploymentDetails.getJsonObj
+        model.StartDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1653,7 +1665,7 @@ export class GoldenGateClient {
       bodyContent: common.ObjectSerializer.serialize(
         stopDeploymentRequest.stopDeploymentDetails,
         "StopDeploymentDetails",
-        models.StopDeploymentDetails.getJsonObj
+        model.StopDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1721,7 +1733,7 @@ export class GoldenGateClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDatabaseRegistrationRequest.updateDatabaseRegistrationDetails,
         "UpdateDatabaseRegistrationDetails",
-        models.UpdateDatabaseRegistrationDetails.getJsonObj
+        model.UpdateDatabaseRegistrationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1788,7 +1800,7 @@ export class GoldenGateClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDeploymentRequest.updateDeploymentDetails,
         "UpdateDeploymentDetails",
-        models.UpdateDeploymentDetails.getJsonObj
+        model.UpdateDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1856,7 +1868,7 @@ export class GoldenGateClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDeploymentBackupRequest.updateDeploymentBackupDetails,
         "UpdateDeploymentBackupDetails",
-        models.UpdateDeploymentBackupDetails.getJsonObj
+        model.UpdateDeploymentBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1868,7 +1880,8 @@ export class GoldenGateClient {
         responseObject: <responses.UpdateDeploymentBackupResponse>{},
         body: await response.json(),
         bodyKey: "deploymentBackup",
-        bodyModel: "model.DeploymentBackup",
+        bodyModel: model.DeploymentBackup,
+        type: "model.DeploymentBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1927,7 +1940,7 @@ export class GoldenGateClient {
       bodyContent: common.ObjectSerializer.serialize(
         upgradeDeploymentRequest.upgradeDeploymentDetails,
         "UpgradeDeploymentDetails",
-        models.UpgradeDeploymentDetails.getJsonObj
+        model.UpgradeDeploymentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

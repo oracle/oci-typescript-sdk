@@ -137,4 +137,59 @@ export namespace DeployStage {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeployStage): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "deployStagePredecessorCollection": obj.deployStagePredecessorCollection
+          ? model.DeployStagePredecessorCollection.getDeserializedJsonObj(
+              obj.deployStagePredecessorCollection
+            )
+          : undefined
+      }
+    };
+
+    if ("deployStageType" in obj && obj.deployStageType) {
+      switch (obj.deployStageType) {
+        case "LOAD_BALANCER_TRAFFIC_SHIFT":
+          return model.LoadBalancerTrafficShiftDeployStage.getDeserializedJsonObj(
+            <model.LoadBalancerTrafficShiftDeployStage>(<object>jsonObj),
+            true
+          );
+        case "INVOKE_FUNCTION":
+          return model.InvokeFunctionDeployStage.getDeserializedJsonObj(
+            <model.InvokeFunctionDeployStage>(<object>jsonObj),
+            true
+          );
+        case "WAIT":
+          return model.WaitDeployStage.getDeserializedJsonObj(
+            <model.WaitDeployStage>(<object>jsonObj),
+            true
+          );
+        case "OKE_DEPLOYMENT":
+          return model.OkeDeployStage.getDeserializedJsonObj(
+            <model.OkeDeployStage>(<object>jsonObj),
+            true
+          );
+        case "MANUAL_APPROVAL":
+          return model.ManualApprovalDeployStage.getDeserializedJsonObj(
+            <model.ManualApprovalDeployStage>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT":
+          return model.ComputeInstanceGroupDeployStage.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupDeployStage>(<object>jsonObj),
+            true
+          );
+        case "DEPLOY_FUNCTION":
+          return model.FunctionDeployStage.getDeserializedJsonObj(
+            <model.FunctionDeployStage>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.deployStageType);
+      }
+    }
+    return jsonObj;
+  }
 }

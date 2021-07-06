@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { JavaManagementServiceWaiter } from "./javamanagementservice-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -170,7 +170,7 @@ export class JavaManagementServiceClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeFleetCompartmentRequest.changeFleetCompartmentDetails,
         "ChangeFleetCompartmentDetails",
-        models.ChangeFleetCompartmentDetails.getJsonObj
+        model.ChangeFleetCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -236,7 +236,7 @@ export class JavaManagementServiceClient {
       bodyContent: common.ObjectSerializer.serialize(
         createFleetRequest.createFleetDetails,
         "CreateFleetDetails",
-        models.CreateFleetDetails.getJsonObj
+        model.CreateFleetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -370,7 +370,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.GetFleetResponse>{},
         body: await response.json(),
         bodyKey: "fleet",
-        bodyModel: "model.Fleet",
+        bodyModel: model.Fleet,
+        type: "model.Fleet",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -436,7 +437,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.GetFleetAgentConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "fleetAgentConfiguration",
-        bodyModel: "model.FleetAgentConfiguration",
+        bodyModel: model.FleetAgentConfiguration,
+        type: "model.FleetAgentConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -500,7 +502,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -571,7 +574,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.ListFleetsResponse>{},
         body: await response.json(),
         bodyKey: "fleetCollection",
-        bodyModel: "model.FleetCollection",
+        bodyModel: model.FleetCollection,
+        type: "model.FleetCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -639,7 +643,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -707,7 +712,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogEntryCollection",
-        bodyModel: "model.WorkRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -775,7 +781,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestCollection",
-        bodyModel: "model.WorkRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -837,7 +844,7 @@ export class JavaManagementServiceClient {
       bodyContent: common.ObjectSerializer.serialize(
         requestSummarizedApplicationUsageRequest.requestSummarizedApplicationUsageDetails,
         "RequestSummarizedApplicationUsageDetails",
-        models.RequestSummarizedApplicationUsageDetails.getJsonObj
+        model.RequestSummarizedApplicationUsageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -849,7 +856,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.RequestSummarizedApplicationUsageResponse>{},
         body: await response.json(),
         bodyKey: "applicationUsageCollection",
-        bodyModel: "model.ApplicationUsageCollection",
+        bodyModel: model.ApplicationUsageCollection,
+        type: "model.ApplicationUsageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -911,7 +919,7 @@ export class JavaManagementServiceClient {
       bodyContent: common.ObjectSerializer.serialize(
         requestSummarizedInstallationUsageRequest.requestSummarizedInstallationUsageDetails,
         "RequestSummarizedInstallationUsageDetails",
-        models.RequestSummarizedInstallationUsageDetails.getJsonObj
+        model.RequestSummarizedInstallationUsageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -923,7 +931,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.RequestSummarizedInstallationUsageResponse>{},
         body: await response.json(),
         bodyKey: "installationUsageCollection",
-        bodyModel: "model.InstallationUsageCollection",
+        bodyModel: model.InstallationUsageCollection,
+        type: "model.InstallationUsageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -983,7 +992,7 @@ export class JavaManagementServiceClient {
       bodyContent: common.ObjectSerializer.serialize(
         requestSummarizedJreUsageRequest.requestSummarizedJreUsageDetails,
         "RequestSummarizedJreUsageDetails",
-        models.RequestSummarizedJreUsageDetails.getJsonObj
+        model.RequestSummarizedJreUsageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -995,7 +1004,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.RequestSummarizedJreUsageResponse>{},
         body: await response.json(),
         bodyKey: "jreUsageCollection",
-        bodyModel: "model.JreUsageCollection",
+        bodyModel: model.JreUsageCollection,
+        type: "model.JreUsageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1057,7 +1067,7 @@ export class JavaManagementServiceClient {
       bodyContent: common.ObjectSerializer.serialize(
         requestSummarizedManagedInstanceUsageRequest.requestSummarizedManagedInstanceUsageDetails,
         "RequestSummarizedManagedInstanceUsageDetails",
-        models.RequestSummarizedManagedInstanceUsageDetails.getJsonObj
+        model.RequestSummarizedManagedInstanceUsageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1069,7 +1079,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.RequestSummarizedManagedInstanceUsageResponse>{},
         body: await response.json(),
         bodyKey: "managedInstanceUsageCollection",
-        bodyModel: "model.ManagedInstanceUsageCollection",
+        bodyModel: model.ManagedInstanceUsageCollection,
+        type: "model.ManagedInstanceUsageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1149,7 +1160,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.SummarizeApplicationUsageResponse>{},
         body: await response.json(),
         bodyKey: "applicationUsageCollection",
-        bodyModel: "model.ApplicationUsageCollection",
+        bodyModel: model.ApplicationUsageCollection,
+        type: "model.ApplicationUsageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1229,7 +1241,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.SummarizeInstallationUsageResponse>{},
         body: await response.json(),
         bodyKey: "installationUsageCollection",
-        bodyModel: "model.InstallationUsageCollection",
+        bodyModel: model.InstallationUsageCollection,
+        type: "model.InstallationUsageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1306,7 +1319,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.SummarizeJreUsageResponse>{},
         body: await response.json(),
         bodyKey: "jreUsageCollection",
-        bodyModel: "model.JreUsageCollection",
+        bodyModel: model.JreUsageCollection,
+        type: "model.JreUsageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1387,7 +1401,8 @@ export class JavaManagementServiceClient {
         responseObject: <responses.SummarizeManagedInstanceUsageResponse>{},
         body: await response.json(),
         bodyKey: "managedInstanceUsageCollection",
-        bodyModel: "model.ManagedInstanceUsageCollection",
+        bodyModel: model.ManagedInstanceUsageCollection,
+        type: "model.ManagedInstanceUsageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1445,7 +1460,7 @@ export class JavaManagementServiceClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateFleetRequest.updateFleetDetails,
         "UpdateFleetDetails",
-        models.UpdateFleetDetails.getJsonObj
+        model.UpdateFleetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1514,7 +1529,7 @@ export class JavaManagementServiceClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateFleetAgentConfigurationRequest.updateFleetAgentConfigurationDetails,
         "UpdateFleetAgentConfigurationDetails",
-        models.UpdateFleetAgentConfigurationDetails.getJsonObj
+        model.UpdateFleetAgentConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,

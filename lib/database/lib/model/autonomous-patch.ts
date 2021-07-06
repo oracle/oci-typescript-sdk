@@ -88,4 +88,9 @@ export namespace AutonomousPatch {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousPatch): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

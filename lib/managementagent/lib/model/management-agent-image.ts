@@ -58,4 +58,9 @@ export namespace ManagementAgentImage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagementAgentImage): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

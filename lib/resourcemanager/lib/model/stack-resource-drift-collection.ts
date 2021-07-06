@@ -44,4 +44,18 @@ export namespace StackResourceDriftCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StackResourceDriftCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.StackResourceDriftSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

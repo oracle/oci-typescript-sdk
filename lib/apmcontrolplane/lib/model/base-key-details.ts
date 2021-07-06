@@ -37,4 +37,9 @@ export namespace BaseKeyDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BaseKeyDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

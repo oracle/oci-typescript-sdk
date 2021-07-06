@@ -41,4 +41,19 @@ export namespace HourlyFrequencyDetails {
     return jsonObj;
   }
   export const modelType = "HOURLY";
+  export function getDeserializedJsonObj(
+    obj: HourlyFrequencyDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractFrequencyDetails.getDeserializedJsonObj(obj) as HourlyFrequencyDetails)),
+      ...{
+        "time": obj.time ? model.Time.getDeserializedJsonObj(obj.time) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

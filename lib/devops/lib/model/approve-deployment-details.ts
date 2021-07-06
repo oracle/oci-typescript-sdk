@@ -43,4 +43,9 @@ export namespace ApproveDeploymentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApproveDeploymentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

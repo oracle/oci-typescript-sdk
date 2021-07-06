@@ -52,4 +52,14 @@ export namespace StandardTask {
     return jsonObj;
   }
   export const kind = "STANDARD";
+  export function getDeserializedJsonObj(obj: StandardTask, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ScheduledTask.getDeserializedJsonObj(obj) as StandardTask)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

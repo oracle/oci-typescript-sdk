@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -148,7 +148,8 @@ export class AnnouncementClient {
         responseObject: <responses.GetAnnouncementResponse>{},
         body: await response.json(),
         bodyKey: "announcement",
-        bodyModel: "model.Announcement",
+        bodyModel: model.Announcement,
+        type: "model.Announcement",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -208,7 +209,8 @@ export class AnnouncementClient {
         responseObject: <responses.GetAnnouncementUserStatusResponse>{},
         body: await response.json(),
         bodyKey: "announcementUserStatusDetails",
-        bodyModel: "model.AnnouncementUserStatusDetails",
+        bodyModel: model.AnnouncementUserStatusDetails,
+        type: "model.AnnouncementUserStatusDetails",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -276,7 +278,8 @@ export class AnnouncementClient {
         responseObject: <responses.ListAnnouncementsResponse>{},
         body: await response.json(),
         bodyKey: "announcementsCollection",
-        bodyModel: "model.AnnouncementsCollection",
+        bodyModel: model.AnnouncementsCollection,
+        type: "model.AnnouncementsCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -335,7 +338,7 @@ export class AnnouncementClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateAnnouncementUserStatusRequest.statusDetails,
         "AnnouncementUserStatusDetails",
-        models.AnnouncementUserStatusDetails.getJsonObj
+        model.AnnouncementUserStatusDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -487,7 +490,7 @@ export class AnnouncementsPreferencesClient {
       bodyContent: common.ObjectSerializer.serialize(
         createAnnouncementsPreferenceRequest.announcementsPreferenceDetails,
         "CreateAnnouncementsPreferencesDetails",
-        models.CreateAnnouncementsPreferencesDetails.getJsonObj
+        model.CreateAnnouncementsPreferencesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -499,7 +502,8 @@ export class AnnouncementsPreferencesClient {
         responseObject: <responses.CreateAnnouncementsPreferenceResponse>{},
         body: await response.json(),
         bodyKey: "announcementsPreferencesSummary",
-        bodyModel: "model.AnnouncementsPreferencesSummary",
+        bodyModel: model.AnnouncementsPreferencesSummary,
+        type: "model.AnnouncementsPreferencesSummary",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -566,7 +570,8 @@ export class AnnouncementsPreferencesClient {
         responseObject: <responses.GetAnnouncementsPreferenceResponse>{},
         body: await response.json(),
         bodyKey: "announcementsPreferences",
-        bodyModel: "model.AnnouncementsPreferences",
+        bodyModel: model.AnnouncementsPreferences,
+        type: "model.AnnouncementsPreferences",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -630,7 +635,8 @@ export class AnnouncementsPreferencesClient {
         responseObject: <responses.ListAnnouncementsPreferencesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AnnouncementsPreferencesSummary[]",
+        bodyModel: model.AnnouncementsPreferencesSummary,
+        type: "Array<model.AnnouncementsPreferencesSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -660,7 +666,7 @@ export class AnnouncementsPreferencesClient {
    */
   public listAllAnnouncementsPreferences(
     request: requests.ListAnnouncementsPreferencesRequest
-  ): AsyncIterableIterator<models.AnnouncementsPreferencesSummary> {
+  ): AsyncIterableIterator<model.AnnouncementsPreferencesSummary> {
     return paginateRecords(request, req => this.listAnnouncementsPreferences(req));
   }
 
@@ -716,7 +722,7 @@ export class AnnouncementsPreferencesClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateAnnouncementsPreferenceRequest.announcementsPreferenceDetails,
         "UpdateAnnouncementsPreferencesDetails",
-        models.UpdateAnnouncementsPreferencesDetails.getJsonObj
+        model.UpdateAnnouncementsPreferencesDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -728,7 +734,8 @@ export class AnnouncementsPreferencesClient {
         responseObject: <responses.UpdateAnnouncementsPreferenceResponse>{},
         body: await response.json(),
         bodyKey: "announcementsPreferencesSummary",
-        bodyModel: "model.AnnouncementsPreferencesSummary",
+        bodyModel: model.AnnouncementsPreferencesSummary,
+        type: "model.AnnouncementsPreferencesSummary",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

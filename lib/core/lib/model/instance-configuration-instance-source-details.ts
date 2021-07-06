@@ -45,4 +45,25 @@ export namespace InstanceConfigurationInstanceSourceDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceConfigurationInstanceSourceDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("sourceType" in obj && obj.sourceType) {
+      switch (obj.sourceType) {
+        case "image":
+          return model.InstanceConfigurationInstanceSourceViaImageDetails.getDeserializedJsonObj(
+            <model.InstanceConfigurationInstanceSourceViaImageDetails>(<object>jsonObj),
+            true
+          );
+        case "bootVolume":
+          return model.InstanceConfigurationInstanceSourceViaBootVolumeDetails.getDeserializedJsonObj(
+            <model.InstanceConfigurationInstanceSourceViaBootVolumeDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.sourceType);
+      }
+    }
+    return jsonObj;
+  }
 }

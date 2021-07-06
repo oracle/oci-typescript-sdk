@@ -34,4 +34,11 @@ export namespace ChangeNetworkSecurityGroupCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeNetworkSecurityGroupCompartmentDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

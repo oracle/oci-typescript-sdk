@@ -58,4 +58,35 @@ export namespace JobOperationDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobOperationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("operation" in obj && obj.operation) {
+      switch (obj.operation) {
+        case "IMPORT_TF_STATE":
+          return model.ImportTfStateJobOperationDetails.getDeserializedJsonObj(
+            <model.ImportTfStateJobOperationDetails>(<object>jsonObj),
+            true
+          );
+        case "PLAN":
+          return model.PlanJobOperationDetails.getDeserializedJsonObj(
+            <model.PlanJobOperationDetails>(<object>jsonObj),
+            true
+          );
+        case "APPLY":
+          return model.ApplyJobOperationDetails.getDeserializedJsonObj(
+            <model.ApplyJobOperationDetails>(<object>jsonObj),
+            true
+          );
+        case "DESTROY":
+          return model.DestroyJobOperationDetails.getDeserializedJsonObj(
+            <model.DestroyJobOperationDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.operation);
+      }
+    }
+    return jsonObj;
+  }
 }

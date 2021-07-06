@@ -39,4 +39,18 @@ export namespace TargetCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: TargetCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.TargetSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -51,4 +51,25 @@ export namespace CreateThresholdPolicyDetails {
     return jsonObj;
   }
   export const policyType = "threshold";
+  export function getDeserializedJsonObj(
+    obj: CreateThresholdPolicyDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateAutoScalingPolicyDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateThresholdPolicyDetails)),
+      ...{
+        "rules": obj.rules
+          ? obj.rules.map(item => {
+              return model.CreateConditionDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

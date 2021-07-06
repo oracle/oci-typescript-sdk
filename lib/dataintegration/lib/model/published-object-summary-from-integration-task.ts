@@ -77,4 +77,42 @@ export namespace PublishedObjectSummaryFromIntegrationTask {
     return jsonObj;
   }
   export const modelType = "INTEGRATION_TASK";
+  export function getDeserializedJsonObj(
+    obj: PublishedObjectSummaryFromIntegrationTask,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.PublishedObjectSummary.getDeserializedJsonObj(
+            obj
+          ) as PublishedObjectSummaryFromIntegrationTask)),
+      ...{
+        "inputPorts": obj.inputPorts
+          ? obj.inputPorts.map(item => {
+              return model.InputPort.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "outputPorts": obj.outputPorts
+          ? obj.outputPorts.map(item => {
+              return model.OutputPort.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.Parameter.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "opConfigValues": obj.opConfigValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.opConfigValues)
+          : undefined,
+        "configProviderDelegate": obj.configProviderDelegate
+          ? model.ConfigProvider.getDeserializedJsonObj(obj.configProviderDelegate)
+          : undefined,
+        "dataFlow": obj.dataFlow ? model.DataFlow.getDeserializedJsonObj(obj.dataFlow) : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

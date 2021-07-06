@@ -39,4 +39,18 @@ export namespace ConnectionValidationSummaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConnectionValidationSummaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ConnectionValidationSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

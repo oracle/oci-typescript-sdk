@@ -74,4 +74,20 @@ export namespace UpdateAutonomousContainerDatabaseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateAutonomousContainerDatabaseDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindowDetails": obj.maintenanceWindowDetails
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindowDetails)
+          : undefined,
+
+        "backupConfig": obj.backupConfig
+          ? model.AutonomousContainerDatabaseBackupConfig.getDeserializedJsonObj(obj.backupConfig)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

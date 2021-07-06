@@ -33,7 +33,10 @@ export enum ResourceTypes {
 }
 
 export namespace ResourceTypes {
-  export function getJsonObj(obj: ResourceTypes): object {
-    return { obj };
+  export function getJsonObj(obj: ResourceTypes): ResourceTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ResourceTypes): ResourceTypes {
+    return obj;
   }
 }

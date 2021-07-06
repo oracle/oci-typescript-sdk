@@ -37,4 +37,9 @@ export namespace ParseQueryDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ParseQueryDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -47,4 +47,9 @@ export namespace UpdateObjectStorageTierDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateObjectStorageTierDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

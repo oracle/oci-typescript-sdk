@@ -47,4 +47,25 @@ export namespace StreamingCursorDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StreamingCursorDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("kind" in obj && obj.kind) {
+      switch (obj.kind) {
+        case "TRIM_HORIZON":
+          return model.TrimHorizonStreamingCursor.getDeserializedJsonObj(
+            <model.TrimHorizonStreamingCursor>(<object>jsonObj),
+            true
+          );
+        case "LATEST":
+          return model.LatestStreamingCursor.getDeserializedJsonObj(
+            <model.LatestStreamingCursor>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.kind);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -38,4 +38,17 @@ export namespace Configuration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Configuration): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "source": obj.source ? model.Source.getDeserializedJsonObj(obj.source) : undefined,
+        "archiving": obj.archiving
+          ? model.Archiving.getDeserializedJsonObj(obj.archiving)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

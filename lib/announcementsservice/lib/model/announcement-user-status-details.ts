@@ -41,4 +41,9 @@ export namespace AnnouncementUserStatusDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AnnouncementUserStatusDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -52,4 +52,11 @@ export namespace ComputeGlobalImageCapabilitySchemaVersionSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ComputeGlobalImageCapabilitySchemaVersionSummary
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

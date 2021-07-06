@@ -34,7 +34,14 @@ export enum EmBridgeLatestImportProcessingStatus {
 }
 
 export namespace EmBridgeLatestImportProcessingStatus {
-  export function getJsonObj(obj: EmBridgeLatestImportProcessingStatus): object {
-    return { obj };
+  export function getJsonObj(
+    obj: EmBridgeLatestImportProcessingStatus
+  ): EmBridgeLatestImportProcessingStatus {
+    return obj;
+  }
+  export function getDeserializedJsonObj(
+    obj: EmBridgeLatestImportProcessingStatus
+  ): EmBridgeLatestImportProcessingStatus {
+    return obj;
   }
 }

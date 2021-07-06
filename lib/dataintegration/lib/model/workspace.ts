@@ -121,4 +121,9 @@ export namespace Workspace {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Workspace): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

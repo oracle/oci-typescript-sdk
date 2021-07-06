@@ -46,4 +46,9 @@ export namespace Screenshot {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Screenshot): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

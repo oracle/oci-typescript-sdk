@@ -90,4 +90,9 @@ export namespace WorkspaceSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: WorkspaceSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

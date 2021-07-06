@@ -169,4 +169,22 @@ export namespace CreateDbSystemDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateDbSystemDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backupPolicy": obj.backupPolicy
+          ? model.CreateBackupPolicyDetails.getDeserializedJsonObj(obj.backupPolicy)
+          : undefined,
+        "source": obj.source
+          ? model.CreateDbSystemSourceDetails.getDeserializedJsonObj(obj.source)
+          : undefined,
+        "maintenance": obj.maintenance
+          ? model.CreateMaintenanceDetails.getDeserializedJsonObj(obj.maintenance)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

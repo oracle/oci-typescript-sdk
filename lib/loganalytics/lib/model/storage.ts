@@ -39,4 +39,16 @@ export namespace Storage {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Storage): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "archivingConfiguration": obj.archivingConfiguration
+          ? model.ArchivingConfiguration.getDeserializedJsonObj(obj.archivingConfiguration)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -35,4 +35,9 @@ export namespace ParserSummaryReport {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ParserSummaryReport): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

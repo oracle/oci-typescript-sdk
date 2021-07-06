@@ -176,4 +176,27 @@ export namespace RoverCluster {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RoverCluster): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customerShippingAddress": obj.customerShippingAddress
+          ? model.ShippingAddress.getDeserializedJsonObj(obj.customerShippingAddress)
+          : undefined,
+        "nodes": obj.nodes
+          ? obj.nodes.map(item => {
+              return model.RoverNodeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "clusterWorkloads": obj.clusterWorkloads
+          ? obj.clusterWorkloads.map(item => {
+              return model.RoverWorkload.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

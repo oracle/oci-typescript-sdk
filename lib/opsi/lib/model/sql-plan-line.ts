@@ -248,4 +248,9 @@ export namespace SqlPlanLine {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SqlPlanLine): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

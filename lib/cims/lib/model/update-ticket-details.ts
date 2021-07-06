@@ -33,4 +33,9 @@ export namespace UpdateTicketDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateTicketDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

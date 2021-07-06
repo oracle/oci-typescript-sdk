@@ -41,4 +41,20 @@ export namespace UpdateItemDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateItemDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "activity":
+          return model.UpdateActivityItemDetails.getDeserializedJsonObj(
+            <model.UpdateActivityItemDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

@@ -47,4 +47,25 @@ export namespace MultiSearchCommandDescriptor {
     return jsonObj;
   }
   export const name = "MULTI_SEARCH";
+  export function getDeserializedJsonObj(
+    obj: MultiSearchCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as MultiSearchCommandDescriptor)),
+      ...{
+        "subQueries": obj.subQueries
+          ? obj.subQueries.map(item => {
+              return model.ParseQueryOutput.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

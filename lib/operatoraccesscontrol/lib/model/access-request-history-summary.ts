@@ -59,4 +59,9 @@ export namespace AccessRequestHistorySummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AccessRequestHistorySummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,9 @@ export namespace AddBlockStorageDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AddBlockStorageDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

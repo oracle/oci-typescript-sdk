@@ -49,4 +49,17 @@ export namespace TargetResourceTypesSelected {
     return jsonObj;
   }
   export const kind = "TARGETTYPES";
+  export function getDeserializedJsonObj(
+    obj: TargetResourceTypesSelected,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TargetSelected.getDeserializedJsonObj(obj) as TargetResourceTypesSelected)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

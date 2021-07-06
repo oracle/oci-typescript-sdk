@@ -32,7 +32,10 @@ export enum WorkRequestActionType {
 }
 
 export namespace WorkRequestActionType {
-  export function getJsonObj(obj: WorkRequestActionType): object {
-    return { obj };
+  export function getJsonObj(obj: WorkRequestActionType): WorkRequestActionType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: WorkRequestActionType): WorkRequestActionType {
+    return obj;
   }
 }

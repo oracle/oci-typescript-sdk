@@ -30,7 +30,10 @@ export enum TargetResourceType {
 }
 
 export namespace TargetResourceType {
-  export function getJsonObj(obj: TargetResourceType): object {
-    return { obj };
+  export function getJsonObj(obj: TargetResourceType): TargetResourceType {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: TargetResourceType): TargetResourceType {
+    return obj;
   }
 }

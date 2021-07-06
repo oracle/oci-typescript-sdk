@@ -33,4 +33,9 @@ export namespace DetectLanguageSentimentsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DetectLanguageSentimentsDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -71,4 +71,27 @@ export namespace DataAssetSummaryFromOracle {
     return jsonObj;
   }
   export const modelType = "ORACLE_DATA_ASSET";
+  export function getDeserializedJsonObj(
+    obj: DataAssetSummaryFromOracle,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DataAssetSummary.getDeserializedJsonObj(obj) as DataAssetSummaryFromOracle)),
+      ...{
+        "walletSecret": obj.walletSecret
+          ? model.SensitiveAttribute.getDeserializedJsonObj(obj.walletSecret)
+          : undefined,
+        "walletPasswordSecret": obj.walletPasswordSecret
+          ? model.SensitiveAttribute.getDeserializedJsonObj(obj.walletPasswordSecret)
+          : undefined,
+        "defaultConnection": obj.defaultConnection
+          ? model.ConnectionSummaryFromOracle.getDeserializedJsonObj(obj.defaultConnection)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

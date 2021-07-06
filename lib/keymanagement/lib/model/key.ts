@@ -140,4 +140,18 @@ export namespace Key {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Key): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "keyShape": obj.keyShape ? model.KeyShape.getDeserializedJsonObj(obj.keyShape) : undefined,
+
+        "replicaDetails": obj.replicaDetails
+          ? model.KeyReplicaDetails.getDeserializedJsonObj(obj.replicaDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

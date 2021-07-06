@@ -109,4 +109,80 @@ export namespace AwrQueryResult {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AwrQueryResult): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("awrResultType" in obj && obj.awrResultType) {
+      switch (obj.awrResultType) {
+        case "AWRDB_DB_PARAMETER_CHANGE":
+          return model.AwrDbParameterChangeCollection.getDeserializedJsonObj(
+            <model.AwrDbParameterChangeCollection>(<object>jsonObj),
+            true
+          );
+        case "AWRDB_ASH_CPU_USAGE_SET":
+          return model.AwrDbCpuUsageCollection.getDeserializedJsonObj(
+            <model.AwrDbCpuUsageCollection>(<object>jsonObj),
+            true
+          );
+        case "AWRDB_EVENT_HISTOGRAM_SET":
+          return model.AwrDbWaitEventBucketCollection.getDeserializedJsonObj(
+            <model.AwrDbWaitEventBucketCollection>(<object>jsonObj),
+            true
+          );
+        case "AWRDB_DB_PARAMETER_SET":
+          return model.AwrDbParameterCollection.getDeserializedJsonObj(
+            <model.AwrDbParameterCollection>(<object>jsonObj),
+            true
+          );
+        case "AWRDB_SYSSTAT_SET":
+          return model.AwrDbSysstatCollection.getDeserializedJsonObj(
+            <model.AwrDbSysstatCollection>(<object>jsonObj),
+            true
+          );
+        case "AWRDB_TOP_EVENT_SET":
+          return model.AwrDbTopWaitEventCollection.getDeserializedJsonObj(
+            <model.AwrDbTopWaitEventCollection>(<object>jsonObj),
+            true
+          );
+        case "AWRDB_SNAPSHOT_SET":
+          return model.AwrDbSnapshotCollection.getDeserializedJsonObj(
+            <model.AwrDbSnapshotCollection>(<object>jsonObj),
+            true
+          );
+        case "AWRDB_SET":
+          return model.AwrDbCollection.getDeserializedJsonObj(
+            <model.AwrDbCollection>(<object>jsonObj),
+            true
+          );
+        case "AWRDB_SNAPSHOT_RANGE_SET":
+          return model.AwrDbSnapshotRangeCollection.getDeserializedJsonObj(
+            <model.AwrDbSnapshotRangeCollection>(<object>jsonObj),
+            true
+          );
+        case "AWRDB_DB_REPORT":
+          return model.AwrDbReport.getDeserializedJsonObj(
+            <model.AwrDbReport>(<object>jsonObj),
+            true
+          );
+        case "AWRDB_METRICS_SET":
+          return model.AwrDbMetricCollection.getDeserializedJsonObj(
+            <model.AwrDbMetricCollection>(<object>jsonObj),
+            true
+          );
+        case "AWRDB_EVENT_SET":
+          return model.AwrDbWaitEventCollection.getDeserializedJsonObj(
+            <model.AwrDbWaitEventCollection>(<object>jsonObj),
+            true
+          );
+        case "AWRDB_SQL_REPORT":
+          return model.AwrDbSqlReport.getDeserializedJsonObj(
+            <model.AwrDbSqlReport>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.awrResultType);
+      }
+    }
+    return jsonObj;
+  }
 }

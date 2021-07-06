@@ -38,4 +38,9 @@ export namespace CreateServiceCatalogAssociationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateServiceCatalogAssociationDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

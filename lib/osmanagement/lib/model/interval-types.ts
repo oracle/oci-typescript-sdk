@@ -33,7 +33,10 @@ export enum IntervalTypes {
 }
 
 export namespace IntervalTypes {
-  export function getJsonObj(obj: IntervalTypes): object {
-    return { obj };
+  export function getJsonObj(obj: IntervalTypes): IntervalTypes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: IntervalTypes): IntervalTypes {
+    return obj;
   }
 }

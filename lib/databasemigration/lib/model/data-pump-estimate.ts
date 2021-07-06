@@ -30,7 +30,10 @@ export enum DataPumpEstimate {
 }
 
 export namespace DataPumpEstimate {
-  export function getJsonObj(obj: DataPumpEstimate): object {
-    return { obj };
+  export function getJsonObj(obj: DataPumpEstimate): DataPumpEstimate {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: DataPumpEstimate): DataPumpEstimate {
+    return obj;
   }
 }

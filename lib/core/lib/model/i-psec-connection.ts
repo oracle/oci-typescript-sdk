@@ -164,4 +164,9 @@ export namespace IPSecConnection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IPSecConnection): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

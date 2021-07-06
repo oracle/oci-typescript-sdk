@@ -31,4 +31,12 @@ export namespace DerivedType {
     return jsonObj;
   }
   export const modelType = "DERIVED_TYPE";
+  export function getDeserializedJsonObj(obj: DerivedType, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.BaseType.getDeserializedJsonObj(obj) as DerivedType)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

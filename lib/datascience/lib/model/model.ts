@@ -73,4 +73,9 @@ export namespace Model {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Model): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

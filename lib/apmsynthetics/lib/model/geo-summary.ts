@@ -52,4 +52,9 @@ export namespace GeoSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GeoSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

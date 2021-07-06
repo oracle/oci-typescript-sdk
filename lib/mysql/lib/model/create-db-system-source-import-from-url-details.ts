@@ -46,4 +46,19 @@ export namespace CreateDbSystemSourceImportFromUrlDetails {
     return jsonObj;
   }
   export const sourceType = "IMPORTURL";
+  export function getDeserializedJsonObj(
+    obj: CreateDbSystemSourceImportFromUrlDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateDbSystemSourceDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateDbSystemSourceImportFromUrlDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

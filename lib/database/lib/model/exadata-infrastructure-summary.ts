@@ -224,4 +224,22 @@ export namespace ExadataInfrastructureSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExadataInfrastructureSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "contacts": obj.contacts
+          ? obj.contacts.map(item => {
+              return model.ExadataInfrastructureContact.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

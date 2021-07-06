@@ -51,4 +51,12 @@ export namespace EndOperator {
     return jsonObj;
   }
   export const modelType = "END_OPERATOR";
+  export function getDeserializedJsonObj(obj: EndOperator, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Operator.getDeserializedJsonObj(obj) as EndOperator)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

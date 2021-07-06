@@ -57,4 +57,30 @@ export namespace EventStatsCommandDescriptor {
     return jsonObj;
   }
   export const name = "EVENT_STATS";
+  export function getDeserializedJsonObj(
+    obj: EventStatsCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as EventStatsCommandDescriptor)),
+      ...{
+        "groupByFields": obj.groupByFields
+          ? obj.groupByFields.map(item => {
+              return model.AbstractField.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "functions": obj.functions
+          ? obj.functions.map(item => {
+              return model.FunctionField.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -56,4 +56,18 @@ export namespace StructuredType {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StructuredType): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "schema": obj.schema ? model.BaseType.getDeserializedJsonObj(obj.schema) : undefined,
+
+        "configDefinition": obj.configDefinition
+          ? model.ConfigDefinition.getDeserializedJsonObj(obj.configDefinition)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

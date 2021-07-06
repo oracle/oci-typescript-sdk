@@ -44,4 +44,18 @@ export namespace FolderCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FolderCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.FolderSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

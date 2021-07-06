@@ -39,4 +39,19 @@ export namespace UpgradeDeploymentCurrentReleaseDetails {
     return jsonObj;
   }
   export const type = "CURRENT_RELEASE";
+  export function getDeserializedJsonObj(
+    obj: UpgradeDeploymentCurrentReleaseDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.UpgradeDeploymentDetails.getDeserializedJsonObj(
+            obj
+          ) as UpgradeDeploymentCurrentReleaseDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

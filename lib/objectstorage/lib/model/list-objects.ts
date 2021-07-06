@@ -58,4 +58,18 @@ export namespace ListObjects {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ListObjects): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "objects": obj.objects
+          ? obj.objects.map(item => {
+              return model.ObjectSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

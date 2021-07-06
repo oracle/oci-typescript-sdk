@@ -39,4 +39,18 @@ export namespace InstallationUsageCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstallationUsageCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.InstallationUsage.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

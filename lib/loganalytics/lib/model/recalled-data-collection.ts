@@ -40,4 +40,18 @@ export namespace RecalledDataCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RecalledDataCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.RecalledData.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

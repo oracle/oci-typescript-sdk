@@ -38,4 +38,9 @@ export namespace OperatorActionProperties {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: OperatorActionProperties): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

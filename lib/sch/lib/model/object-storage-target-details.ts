@@ -63,4 +63,17 @@ export namespace ObjectStorageTargetDetails {
     return jsonObj;
   }
   export const kind = "objectStorage";
+  export function getDeserializedJsonObj(
+    obj: ObjectStorageTargetDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.TargetDetails.getDeserializedJsonObj(obj) as ObjectStorageTargetDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -13,7 +13,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { CloudGuardWaiter } from "./cloudguard-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
@@ -168,7 +168,7 @@ export class CloudGuardClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeDetectorRecipeCompartmentRequest.changeDetectorRecipeCompartmentDetails,
         "ChangeDetectorRecipeCompartmentDetails",
-        models.ChangeDetectorRecipeCompartmentDetails.getJsonObj
+        model.ChangeDetectorRecipeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -231,7 +231,7 @@ export class CloudGuardClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeManagedListCompartmentRequest.changeManagedListCompartmentDetails,
         "ChangeManagedListCompartmentDetails",
-        models.ChangeManagedListCompartmentDetails.getJsonObj
+        model.ChangeManagedListCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -294,7 +294,7 @@ export class CloudGuardClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeResponderRecipeCompartmentRequest.changeResponderRecipeCompartmentDetails,
         "ChangeResponderRecipeCompartmentDetails",
-        models.ChangeResponderRecipeCompartmentDetails.getJsonObj
+        model.ChangeResponderRecipeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -354,7 +354,7 @@ export class CloudGuardClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDataMaskRuleRequest.createDataMaskRuleDetails,
         "CreateDataMaskRuleDetails",
-        models.CreateDataMaskRuleDetails.getJsonObj
+        model.CreateDataMaskRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -366,7 +366,8 @@ export class CloudGuardClient {
         responseObject: <responses.CreateDataMaskRuleResponse>{},
         body: await response.json(),
         bodyKey: "dataMaskRule",
-        bodyModel: "model.DataMaskRule",
+        bodyModel: model.DataMaskRule,
+        type: "model.DataMaskRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -422,7 +423,7 @@ export class CloudGuardClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDetectorRecipeRequest.createDetectorRecipeDetails,
         "CreateDetectorRecipeDetails",
-        models.CreateDetectorRecipeDetails.getJsonObj
+        model.CreateDetectorRecipeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -434,7 +435,8 @@ export class CloudGuardClient {
         responseObject: <responses.CreateDetectorRecipeResponse>{},
         body: await response.json(),
         bodyKey: "detectorRecipe",
-        bodyModel: "model.DetectorRecipe",
+        bodyModel: model.DetectorRecipe,
+        type: "model.DetectorRecipe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -490,7 +492,7 @@ export class CloudGuardClient {
       bodyContent: common.ObjectSerializer.serialize(
         createManagedListRequest.createManagedListDetails,
         "CreateManagedListDetails",
-        models.CreateManagedListDetails.getJsonObj
+        model.CreateManagedListDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -502,7 +504,8 @@ export class CloudGuardClient {
         responseObject: <responses.CreateManagedListResponse>{},
         body: await response.json(),
         bodyKey: "managedList",
-        bodyModel: "model.ManagedList",
+        bodyModel: model.ManagedList,
+        type: "model.ManagedList",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -558,7 +561,7 @@ export class CloudGuardClient {
       bodyContent: common.ObjectSerializer.serialize(
         createResponderRecipeRequest.createResponderRecipeDetails,
         "CreateResponderRecipeDetails",
-        models.CreateResponderRecipeDetails.getJsonObj
+        model.CreateResponderRecipeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -570,7 +573,8 @@ export class CloudGuardClient {
         responseObject: <responses.CreateResponderRecipeResponse>{},
         body: await response.json(),
         bodyKey: "responderRecipe",
-        bodyModel: "model.ResponderRecipe",
+        bodyModel: model.ResponderRecipe,
+        type: "model.ResponderRecipe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -626,7 +630,7 @@ export class CloudGuardClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTargetRequest.createTargetDetails,
         "CreateTargetDetails",
-        models.CreateTargetDetails.getJsonObj
+        model.CreateTargetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -638,7 +642,8 @@ export class CloudGuardClient {
         responseObject: <responses.CreateTargetResponse>{},
         body: await response.json(),
         bodyKey: "target",
-        bodyModel: "model.Target",
+        bodyModel: model.Target,
+        type: "model.Target",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -697,7 +702,7 @@ export class CloudGuardClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTargetDetectorRecipeRequest.attachTargetDetectorRecipeDetails,
         "AttachTargetDetectorRecipeDetails",
-        models.AttachTargetDetectorRecipeDetails.getJsonObj
+        model.AttachTargetDetectorRecipeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -709,7 +714,8 @@ export class CloudGuardClient {
         responseObject: <responses.CreateTargetDetectorRecipeResponse>{},
         body: await response.json(),
         bodyKey: "targetDetectorRecipe",
-        bodyModel: "model.TargetDetectorRecipe",
+        bodyModel: model.TargetDetectorRecipe,
+        type: "model.TargetDetectorRecipe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -768,7 +774,7 @@ export class CloudGuardClient {
       bodyContent: common.ObjectSerializer.serialize(
         createTargetResponderRecipeRequest.attachTargetResponderRecipeDetails,
         "AttachTargetResponderRecipeDetails",
-        models.AttachTargetResponderRecipeDetails.getJsonObj
+        model.AttachTargetResponderRecipeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -780,7 +786,8 @@ export class CloudGuardClient {
         responseObject: <responses.CreateTargetResponderRecipeResponse>{},
         body: await response.json(),
         bodyKey: "targetResponderRecipe",
-        bodyModel: "model.TargetResponderRecipe",
+        bodyModel: model.TargetResponderRecipe,
+        type: "model.TargetResponderRecipe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1239,7 +1246,7 @@ export class CloudGuardClient {
       bodyContent: common.ObjectSerializer.serialize(
         executeResponderExecutionRequest.executeResponderExecutionDetails,
         "ExecuteResponderExecutionDetails",
-        models.ExecuteResponderExecutionDetails.getJsonObj
+        model.ExecuteResponderExecutionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1311,7 +1318,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetConditionMetadataTypeResponse>{},
         body: await response.json(),
         bodyKey: "conditionMetadataType",
-        bodyModel: "model.ConditionMetadataType",
+        bodyModel: model.ConditionMetadataType,
+        type: "model.ConditionMetadataType",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1374,7 +1382,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "configuration",
-        bodyModel: "model.Configuration",
+        bodyModel: model.Configuration,
+        type: "model.Configuration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1442,7 +1451,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetDataMaskRuleResponse>{},
         body: await response.json(),
         bodyKey: "dataMaskRule",
-        bodyModel: "model.DataMaskRule",
+        bodyModel: model.DataMaskRule,
+        type: "model.DataMaskRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1506,7 +1516,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetDetectorResponse>{},
         body: await response.json(),
         bodyKey: "detector",
-        bodyModel: "model.Detector",
+        bodyModel: model.Detector,
+        type: "model.Detector",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1569,7 +1580,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetDetectorRecipeResponse>{},
         body: await response.json(),
         bodyKey: "detectorRecipe",
-        bodyModel: "model.DetectorRecipe",
+        bodyModel: model.DetectorRecipe,
+        type: "model.DetectorRecipe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1634,7 +1646,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetDetectorRecipeDetectorRuleResponse>{},
         body: await response.json(),
         bodyKey: "detectorRecipeDetectorRule",
-        bodyModel: "model.DetectorRecipeDetectorRule",
+        bodyModel: model.DetectorRecipeDetectorRule,
+        type: "model.DetectorRecipeDetectorRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1699,7 +1712,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetDetectorRuleResponse>{},
         body: await response.json(),
         bodyKey: "detectorRule",
-        bodyModel: "model.DetectorRule",
+        bodyModel: model.DetectorRule,
+        type: "model.DetectorRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1767,7 +1781,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetManagedListResponse>{},
         body: await response.json(),
         bodyKey: "managedList",
-        bodyModel: "model.ManagedList",
+        bodyModel: model.ManagedList,
+        type: "model.ManagedList",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1830,7 +1845,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetProblemResponse>{},
         body: await response.json(),
         bodyKey: "problem",
-        bodyModel: "model.Problem",
+        bodyModel: model.Problem,
+        type: "model.Problem",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1894,7 +1910,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetResponderExecutionResponse>{},
         body: await response.json(),
         bodyKey: "responderExecution",
-        bodyModel: "model.ResponderExecution",
+        bodyModel: model.ResponderExecution,
+        type: "model.ResponderExecution",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1957,7 +1974,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetResponderRecipeResponse>{},
         body: await response.json(),
         bodyKey: "responderRecipe",
-        bodyModel: "model.ResponderRecipe",
+        bodyModel: model.ResponderRecipe,
+        type: "model.ResponderRecipe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2022,7 +2040,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetResponderRecipeResponderRuleResponse>{},
         body: await response.json(),
         bodyKey: "responderRecipeResponderRule",
-        bodyModel: "model.ResponderRecipeResponderRule",
+        bodyModel: model.ResponderRecipeResponderRule,
+        type: "model.ResponderRecipeResponderRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2085,7 +2104,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetResponderRuleResponse>{},
         body: await response.json(),
         bodyKey: "responderRule",
-        bodyModel: "model.ResponderRule",
+        bodyModel: model.ResponderRule,
+        type: "model.ResponderRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2148,7 +2168,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetTargetResponse>{},
         body: await response.json(),
         bodyKey: "target",
-        bodyModel: "model.Target",
+        bodyModel: model.Target,
+        type: "model.Target",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2213,7 +2234,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetTargetDetectorRecipeResponse>{},
         body: await response.json(),
         bodyKey: "targetDetectorRecipe",
-        bodyModel: "model.TargetDetectorRecipe",
+        bodyModel: model.TargetDetectorRecipe,
+        type: "model.TargetDetectorRecipe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2280,7 +2302,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetTargetDetectorRecipeDetectorRuleResponse>{},
         body: await response.json(),
         bodyKey: "targetDetectorRecipeDetectorRule",
-        bodyModel: "model.TargetDetectorRecipeDetectorRule",
+        bodyModel: model.TargetDetectorRecipeDetectorRule,
+        type: "model.TargetDetectorRecipeDetectorRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2345,7 +2368,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetTargetResponderRecipeResponse>{},
         body: await response.json(),
         bodyKey: "targetResponderRecipe",
-        bodyModel: "model.TargetResponderRecipe",
+        bodyModel: model.TargetResponderRecipe,
+        type: "model.TargetResponderRecipe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2415,7 +2439,8 @@ export class CloudGuardClient {
         responseObject: <responses.GetTargetResponderRecipeResponderRuleResponse>{},
         body: await response.json(),
         bodyKey: "targetResponderRecipeResponderRule",
-        bodyModel: "model.TargetResponderRecipeResponderRule",
+        bodyModel: model.TargetResponderRecipeResponderRule,
+        type: "model.TargetResponderRecipeResponderRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2485,7 +2510,8 @@ export class CloudGuardClient {
         responseObject: <responses.ListConditionMetadataTypesResponse>{},
         body: await response.json(),
         bodyKey: "conditionMetadataTypeCollection",
-        bodyModel: "model.ConditionMetadataTypeCollection",
+        bodyModel: model.ConditionMetadataTypeCollection,
+        type: "model.ConditionMetadataTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2560,7 +2586,8 @@ export class CloudGuardClient {
         responseObject: <responses.ListDataMaskRulesResponse>{},
         body: await response.json(),
         bodyKey: "dataMaskRuleCollection",
-        bodyModel: "model.DataMaskRuleCollection",
+        bodyModel: model.DataMaskRuleCollection,
+        type: "model.DataMaskRuleCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2633,7 +2660,8 @@ export class CloudGuardClient {
         responseObject: <responses.ListDetectorRecipeDetectorRulesResponse>{},
         body: await response.json(),
         bodyKey: "detectorRecipeDetectorRuleCollection",
-        bodyModel: "model.DetectorRecipeDetectorRuleCollection",
+        bodyModel: model.DetectorRecipeDetectorRuleCollection,
+        type: "model.DetectorRecipeDetectorRuleCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2720,7 +2748,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
         responseObject: <responses.ListDetectorRecipesResponse>{},
         body: await response.json(),
         bodyKey: "detectorRecipeCollection",
-        bodyModel: "model.DetectorRecipeCollection",
+        bodyModel: model.DetectorRecipeCollection,
+        type: "model.DetectorRecipeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2792,7 +2821,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
         responseObject: <responses.ListDetectorRulesResponse>{},
         body: await response.json(),
         bodyKey: "detectorRuleCollection",
-        bodyModel: "model.DetectorRuleCollection",
+        bodyModel: model.DetectorRuleCollection,
+        type: "model.DetectorRuleCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2861,7 +2891,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
         responseObject: <responses.ListDetectorsResponse>{},
         body: await response.json(),
         bodyKey: "detectorCollection",
-        bodyModel: "model.DetectorCollection",
+        bodyModel: model.DetectorCollection,
+        type: "model.DetectorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2930,7 +2961,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
         responseObject: <responses.ListImpactedResourcesResponse>{},
         body: await response.json(),
         bodyKey: "impactedResourceCollection",
-        bodyModel: "model.ImpactedResourceCollection",
+        bodyModel: model.ImpactedResourceCollection,
+        type: "model.ImpactedResourceCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2998,7 +3030,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
         responseObject: <responses.ListManagedListTypesResponse>{},
         body: await response.json(),
         bodyKey: "managedListTypeCollection",
-        bodyModel: "model.ManagedListTypeCollection",
+        bodyModel: model.ManagedListTypeCollection,
+        type: "model.ManagedListTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3085,7 +3118,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
         responseObject: <responses.ListManagedListsResponse>{},
         body: await response.json(),
         bodyKey: "managedListCollection",
-        bodyModel: "model.ManagedListCollection",
+        bodyModel: model.ManagedListCollection,
+        type: "model.ManagedListCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3153,7 +3187,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
         responseObject: <responses.ListPoliciesResponse>{},
         body: await response.json(),
         bodyKey: "policyCollection",
-        bodyModel: "model.PolicyCollection",
+        bodyModel: model.PolicyCollection,
+        type: "model.PolicyCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3223,7 +3258,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
         responseObject: <responses.ListProblemHistoriesResponse>{},
         body: await response.json(),
         bodyKey: "problemHistoryCollection",
-        bodyModel: "model.ProblemHistoryCollection",
+        bodyModel: model.ProblemHistoryCollection,
+        type: "model.ProblemHistoryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3326,7 +3362,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
         responseObject: <responses.ListProblemsResponse>{},
         body: await response.json(),
         bodyKey: "problemCollection",
-        bodyModel: "model.ProblemCollection",
+        bodyModel: model.ProblemCollection,
+        type: "model.ProblemCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3399,7 +3436,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
         responseObject: <responses.ListRecommendationsResponse>{},
         body: await response.json(),
         bodyKey: "recommendationSummaryCollection",
-        bodyModel: "model.RecommendationSummaryCollection",
+        bodyModel: model.RecommendationSummaryCollection,
+        type: "model.RecommendationSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3468,7 +3506,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
         responseObject: <responses.ListResourceTypesResponse>{},
         body: await response.json(),
         bodyKey: "resourceTypeCollection",
-        bodyModel: "model.ResourceTypeCollection",
+        bodyModel: model.ResourceTypeCollection,
+        type: "model.ResourceTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3538,7 +3577,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
         responseObject: <responses.ListResponderActivitiesResponse>{},
         body: await response.json(),
         bodyKey: "responderActivityCollection",
-        bodyModel: "model.ResponderActivityCollection",
+        bodyModel: model.ResponderActivityCollection,
+        type: "model.ResponderActivityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3622,7 +3662,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
         responseObject: <responses.ListResponderExecutionsResponse>{},
         body: await response.json(),
         bodyKey: "responderExecutionCollection",
-        bodyModel: "model.ResponderExecutionCollection",
+        bodyModel: model.ResponderExecutionCollection,
+        type: "model.ResponderExecutionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3695,7 +3736,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
         responseObject: <responses.ListResponderRecipeResponderRulesResponse>{},
         body: await response.json(),
         bodyKey: "responderRecipeResponderRuleCollection",
-        bodyModel: "model.ResponderRecipeResponderRuleCollection",
+        bodyModel: model.ResponderRecipeResponderRuleCollection,
+        type: "model.ResponderRecipeResponderRuleCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3781,7 +3823,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
         responseObject: <responses.ListResponderRecipesResponse>{},
         body: await response.json(),
         bodyKey: "responderRecipeCollection",
-        bodyModel: "model.ResponderRecipeCollection",
+        bodyModel: model.ResponderRecipeCollection,
+        type: "model.ResponderRecipeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3851,7 +3894,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
         responseObject: <responses.ListResponderRulesResponse>{},
         body: await response.json(),
         bodyKey: "responderRuleCollection",
-        bodyModel: "model.ResponderRuleCollection",
+        bodyModel: model.ResponderRuleCollection,
+        type: "model.ResponderRuleCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3928,7 +3972,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
         responseObject: <responses.ListTargetDetectorRecipeDetectorRulesResponse>{},
         body: await response.json(),
         bodyKey: "targetDetectorRecipeDetectorRuleCollection",
-        bodyModel: "model.TargetDetectorRecipeDetectorRuleCollection",
+        bodyModel: model.TargetDetectorRecipeDetectorRuleCollection,
+        type: "model.TargetDetectorRecipeDetectorRuleCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4000,7 +4045,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
         responseObject: <responses.ListTargetDetectorRecipesResponse>{},
         body: await response.json(),
         bodyKey: "targetDetectorRecipeCollection",
-        bodyModel: "model.TargetDetectorRecipeCollection",
+        bodyModel: model.TargetDetectorRecipeCollection,
+        type: "model.TargetDetectorRecipeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4077,7 +4123,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
         responseObject: <responses.ListTargetResponderRecipeResponderRulesResponse>{},
         body: await response.json(),
         bodyKey: "targetResponderRecipeResponderRuleCollection",
-        bodyModel: "model.TargetResponderRecipeResponderRuleCollection",
+        bodyModel: model.TargetResponderRecipeResponderRuleCollection,
+        type: "model.TargetResponderRecipeResponderRuleCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4149,7 +4196,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
         responseObject: <responses.ListTargetResponderRecipesResponse>{},
         body: await response.json(),
         bodyKey: "targetResponderRecipeCollection",
-        bodyModel: "model.TargetResponderRecipeCollection",
+        bodyModel: model.TargetResponderRecipeCollection,
+        type: "model.TargetResponderRecipeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4234,7 +4282,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
         responseObject: <responses.ListTargetsResponse>{},
         body: await response.json(),
         bodyKey: "targetCollection",
-        bodyModel: "model.TargetCollection",
+        bodyModel: model.TargetCollection,
+        type: "model.TargetCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4300,7 +4349,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
         responseObject: <responses.RequestRiskScoresResponse>{},
         body: await response.json(),
         bodyKey: "riskScoreAggregationCollection",
-        bodyModel: "model.RiskScoreAggregationCollection",
+        bodyModel: model.RiskScoreAggregationCollection,
+        type: "model.RiskScoreAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4372,7 +4422,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
         responseObject: <responses.RequestSecurityScoreSummarizedTrendResponse>{},
         body: await response.json(),
         bodyKey: "securityScoreTrendAggregationCollection",
-        bodyModel: "model.SecurityScoreTrendAggregationCollection",
+        bodyModel: model.SecurityScoreTrendAggregationCollection,
+        type: "model.SecurityScoreTrendAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4438,7 +4489,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
         responseObject: <responses.RequestSecurityScoresResponse>{},
         body: await response.json(),
         bodyKey: "securityScoreAggregationCollection",
-        bodyModel: "model.SecurityScoreAggregationCollection",
+        bodyModel: model.SecurityScoreAggregationCollection,
+        type: "model.SecurityScoreAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4522,7 +4574,8 @@ The compartmentId to be passed with `accessLevel` and `compartmentIdInSubtree` p
         responseObject: <responses.RequestSummarizedActivityProblemsResponse>{},
         body: await response.json(),
         bodyKey: "activityProblemAggregationCollection",
-        bodyModel: "model.ActivityProblemAggregationCollection",
+        bodyModel: model.ActivityProblemAggregationCollection,
+        type: "model.ActivityProblemAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4603,7 +4656,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.RequestSummarizedProblemsResponse>{},
         body: await response.json(),
         bodyKey: "problemAggregationCollection",
-        bodyModel: "model.ProblemAggregationCollection",
+        bodyModel: model.ProblemAggregationCollection,
+        type: "model.ProblemAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4688,7 +4742,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.RequestSummarizedResponderExecutionsResponse>{},
         body: await response.json(),
         bodyKey: "responderExecutionAggregationCollection",
-        bodyModel: "model.ResponderExecutionAggregationCollection",
+        bodyModel: model.ResponderExecutionAggregationCollection,
+        type: "model.ResponderExecutionAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4755,7 +4810,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.RequestSummarizedRiskScoresResponse>{},
         body: await response.json(),
         bodyKey: "riskScoreAggregationCollection",
-        bodyModel: "model.RiskScoreAggregationCollection",
+        bodyModel: model.RiskScoreAggregationCollection,
+        type: "model.RiskScoreAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4822,7 +4878,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.RequestSummarizedSecurityScoresResponse>{},
         body: await response.json(),
         bodyKey: "securityScoreAggregationCollection",
-        bodyModel: "model.SecurityScoreAggregationCollection",
+        bodyModel: model.SecurityScoreAggregationCollection,
+        type: "model.SecurityScoreAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4906,7 +4963,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.RequestSummarizedTrendProblemsResponse>{},
         body: await response.json(),
         bodyKey: "problemTrendAggregationCollection",
-        bodyModel: "model.ProblemTrendAggregationCollection",
+        bodyModel: model.ProblemTrendAggregationCollection,
+        type: "model.ProblemTrendAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4993,7 +5051,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.RequestSummarizedTrendResponderExecutionsResponse>{},
         body: await response.json(),
         bodyKey: "responderExecutionTrendAggregationCollection",
-        bodyModel: "model.ResponderExecutionTrendAggregationCollection",
+        bodyModel: model.ResponderExecutionTrendAggregationCollection,
+        type: "model.ResponderExecutionTrendAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5064,7 +5123,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.RequestSummarizedTrendSecurityScoresResponse>{},
         body: await response.json(),
         bodyKey: "securityScoreTrendAggregationCollection",
-        bodyModel: "model.SecurityScoreTrendAggregationCollection",
+        bodyModel: model.SecurityScoreTrendAggregationCollection,
+        type: "model.SecurityScoreTrendAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5121,7 +5181,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         skipBulkResponderExecutionRequest.skipBulkResponderExecutionDetails,
         "SkipBulkResponderExecutionDetails",
-        models.SkipBulkResponderExecutionDetails.getJsonObj
+        model.SkipBulkResponderExecutionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5244,7 +5304,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         triggerResponderRequest.triggerResponderDetails,
         "TriggerResponderDetails",
-        models.TriggerResponderDetails.getJsonObj
+        model.TriggerResponderDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5305,7 +5365,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateBulkProblemStatusRequest.updateBulkProblemStatusDetails,
         "UpdateBulkProblemStatusDetails",
-        models.UpdateBulkProblemStatusDetails.getJsonObj
+        model.UpdateBulkProblemStatusDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5368,7 +5428,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateConfigurationRequest.updateConfigurationDetails,
         "UpdateConfigurationDetails",
-        models.UpdateConfigurationDetails.getJsonObj
+        model.UpdateConfigurationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5380,7 +5440,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.UpdateConfigurationResponse>{},
         body: await response.json(),
         bodyKey: "configuration",
-        bodyModel: "model.Configuration",
+        bodyModel: model.Configuration,
+        type: "model.Configuration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5437,7 +5498,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateDataMaskRuleRequest.updateDataMaskRuleDetails,
         "UpdateDataMaskRuleDetails",
-        models.UpdateDataMaskRuleDetails.getJsonObj
+        model.UpdateDataMaskRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5449,7 +5510,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.UpdateDataMaskRuleResponse>{},
         body: await response.json(),
         bodyKey: "dataMaskRule",
-        bodyModel: "model.DataMaskRule",
+        bodyModel: model.DataMaskRule,
+        type: "model.DataMaskRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5507,7 +5569,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateDetectorRecipeRequest.updateDetectorRecipeDetails,
         "UpdateDetectorRecipeDetails",
-        models.UpdateDetectorRecipeDetails.getJsonObj
+        model.UpdateDetectorRecipeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5519,7 +5581,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.UpdateDetectorRecipeResponse>{},
         body: await response.json(),
         bodyKey: "detectorRecipe",
-        bodyModel: "model.DetectorRecipe",
+        bodyModel: model.DetectorRecipe,
+        type: "model.DetectorRecipe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5578,7 +5641,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateDetectorRecipeDetectorRuleRequest.updateDetectorRecipeDetectorRuleDetails,
         "UpdateDetectorRecipeDetectorRuleDetails",
-        models.UpdateDetectorRecipeDetectorRuleDetails.getJsonObj
+        model.UpdateDetectorRecipeDetectorRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5590,7 +5653,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.UpdateDetectorRecipeDetectorRuleResponse>{},
         body: await response.json(),
         bodyKey: "detectorRecipeDetectorRule",
-        bodyModel: "model.DetectorRecipeDetectorRule",
+        bodyModel: model.DetectorRecipeDetectorRule,
+        type: "model.DetectorRecipeDetectorRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5648,7 +5712,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateManagedListRequest.updateManagedListDetails,
         "UpdateManagedListDetails",
-        models.UpdateManagedListDetails.getJsonObj
+        model.UpdateManagedListDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5660,7 +5724,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.UpdateManagedListResponse>{},
         body: await response.json(),
         bodyKey: "managedList",
-        bodyModel: "model.ManagedList",
+        bodyModel: model.ManagedList,
+        type: "model.ManagedList",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5719,7 +5784,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateProblemStatusRequest.updateProblemStatusDetails,
         "UpdateProblemStatusDetails",
-        models.UpdateProblemStatusDetails.getJsonObj
+        model.UpdateProblemStatusDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5731,7 +5796,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.UpdateProblemStatusResponse>{},
         body: await response.json(),
         bodyKey: "problem",
-        bodyModel: "model.Problem",
+        bodyModel: model.Problem,
+        type: "model.Problem",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5788,7 +5854,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateResponderRecipeRequest.updateResponderRecipeDetails,
         "UpdateResponderRecipeDetails",
-        models.UpdateResponderRecipeDetails.getJsonObj
+        model.UpdateResponderRecipeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5800,7 +5866,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.UpdateResponderRecipeResponse>{},
         body: await response.json(),
         bodyKey: "responderRecipe",
-        bodyModel: "model.ResponderRecipe",
+        bodyModel: model.ResponderRecipe,
+        type: "model.ResponderRecipe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5859,7 +5926,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateResponderRecipeResponderRuleRequest.updateResponderRecipeResponderRuleDetails,
         "UpdateResponderRecipeResponderRuleDetails",
-        models.UpdateResponderRecipeResponderRuleDetails.getJsonObj
+        model.UpdateResponderRecipeResponderRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5871,7 +5938,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.UpdateResponderRecipeResponderRuleResponse>{},
         body: await response.json(),
         bodyKey: "responderRecipeResponderRule",
-        bodyModel: "model.ResponderRecipeResponderRule",
+        bodyModel: model.ResponderRecipeResponderRule,
+        type: "model.ResponderRecipeResponderRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5928,7 +5996,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateTargetRequest.updateTargetDetails,
         "UpdateTargetDetails",
-        models.UpdateTargetDetails.getJsonObj
+        model.UpdateTargetDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5940,7 +6008,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.UpdateTargetResponse>{},
         body: await response.json(),
         bodyKey: "target",
-        bodyModel: "model.Target",
+        bodyModel: model.Target,
+        type: "model.Target",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5999,7 +6068,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateTargetDetectorRecipeRequest.updateTargetDetectorRecipeDetails,
         "UpdateTargetDetectorRecipeDetails",
-        models.UpdateTargetDetectorRecipeDetails.getJsonObj
+        model.UpdateTargetDetectorRecipeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6011,7 +6080,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.UpdateTargetDetectorRecipeResponse>{},
         body: await response.json(),
         bodyKey: "targetDetectorRecipe",
-        bodyModel: "model.TargetDetectorRecipe",
+        bodyModel: model.TargetDetectorRecipe,
+        type: "model.TargetDetectorRecipe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6075,7 +6145,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateTargetDetectorRecipeDetectorRuleRequest.updateTargetDetectorRecipeDetectorRuleDetails,
         "UpdateTargetDetectorRecipeDetectorRuleDetails",
-        models.UpdateTargetDetectorRecipeDetectorRuleDetails.getJsonObj
+        model.UpdateTargetDetectorRecipeDetectorRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6087,7 +6157,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.UpdateTargetDetectorRecipeDetectorRuleResponse>{},
         body: await response.json(),
         bodyKey: "targetDetectorRecipeDetectorRule",
-        bodyModel: "model.TargetDetectorRecipeDetectorRule",
+        bodyModel: model.TargetDetectorRecipeDetectorRule,
+        type: "model.TargetDetectorRecipeDetectorRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6146,7 +6217,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateTargetResponderRecipeRequest.updateTargetResponderRecipeDetails,
         "UpdateTargetResponderRecipeDetails",
-        models.UpdateTargetResponderRecipeDetails.getJsonObj
+        model.UpdateTargetResponderRecipeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6158,7 +6229,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.UpdateTargetResponderRecipeResponse>{},
         body: await response.json(),
         bodyKey: "targetResponderRecipe",
-        bodyModel: "model.TargetResponderRecipe",
+        bodyModel: model.TargetResponderRecipe,
+        type: "model.TargetResponderRecipe",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6222,7 +6294,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       bodyContent: common.ObjectSerializer.serialize(
         updateTargetResponderRecipeResponderRuleRequest.updateTargetResponderRecipeResponderRuleDetails,
         "UpdateTargetResponderRecipeResponderRuleDetails",
-        models.UpdateTargetResponderRecipeResponderRuleDetails.getJsonObj
+        model.UpdateTargetResponderRecipeResponderRuleDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6234,7 +6306,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         responseObject: <responses.UpdateTargetResponderRecipeResponderRuleResponse>{},
         body: await response.json(),
         bodyKey: "targetResponderRecipeResponderRule",
-        bodyModel: "model.TargetResponderRecipeResponderRule",
+        bodyModel: model.TargetResponderRecipeResponderRule,
+        type: "model.TargetResponderRecipeResponderRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

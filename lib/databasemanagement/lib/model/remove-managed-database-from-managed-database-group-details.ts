@@ -34,4 +34,11 @@ export namespace RemoveManagedDatabaseFromManagedDatabaseGroupDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: RemoveManagedDatabaseFromManagedDatabaseGroupDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

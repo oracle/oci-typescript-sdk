@@ -130,4 +130,9 @@ export namespace BackupSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: BackupSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

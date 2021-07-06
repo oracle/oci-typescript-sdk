@@ -87,4 +87,23 @@ export namespace QueryAggregation {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: QueryAggregation): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "columns": obj.columns
+          ? obj.columns.map(item => {
+              return model.AbstractColumn.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "fields": obj.fields
+          ? obj.fields.map(item => {
+              return model.AbstractColumn.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

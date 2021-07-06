@@ -39,4 +39,20 @@ export namespace StartDeploymentDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StartDeploymentDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("type" in obj && obj.type) {
+      switch (obj.type) {
+        case "DEFAULT":
+          return model.DefaultStartDeploymentDetails.getDeserializedJsonObj(
+            <model.DefaultStartDeploymentDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.type);
+      }
+    }
+    return jsonObj;
+  }
 }

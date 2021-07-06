@@ -32,7 +32,10 @@ export enum LinkEnum {
 }
 
 export namespace LinkEnum {
-  export function getJsonObj(obj: LinkEnum): object {
-    return { obj };
+  export function getJsonObj(obj: LinkEnum): LinkEnum {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: LinkEnum): LinkEnum {
+    return obj;
   }
 }

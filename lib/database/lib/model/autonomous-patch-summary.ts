@@ -96,4 +96,9 @@ export namespace AutonomousPatchSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AutonomousPatchSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

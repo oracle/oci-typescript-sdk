@@ -37,4 +37,17 @@ export namespace RoundRobinLoadBalancingMethod {
     return jsonObj;
   }
   export const method = "ROUND_ROBIN";
+  export function getDeserializedJsonObj(
+    obj: RoundRobinLoadBalancingMethod,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.LoadBalancingMethod.getDeserializedJsonObj(obj) as RoundRobinLoadBalancingMethod)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

@@ -77,4 +77,23 @@ export namespace UpdateResolverDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateResolverDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "attachedViews": obj.attachedViews
+          ? obj.attachedViews.map(item => {
+              return model.AttachedViewDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "rules": obj.rules
+          ? obj.rules.map(item => {
+              return model.ResolverRuleDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

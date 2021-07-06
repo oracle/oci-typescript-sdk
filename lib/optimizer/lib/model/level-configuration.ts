@@ -34,4 +34,9 @@ export namespace LevelConfiguration {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LevelConfiguration): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

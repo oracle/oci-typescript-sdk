@@ -38,4 +38,20 @@ export namespace UpdateChannelTargetDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: UpdateChannelTargetDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("targetType" in obj && obj.targetType) {
+      switch (obj.targetType) {
+        case "DBSYSTEM":
+          return model.UpdateChannelTargetFromDbSystemDetails.getDeserializedJsonObj(
+            <model.UpdateChannelTargetFromDbSystemDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.targetType);
+      }
+    }
+    return jsonObj;
+  }
 }

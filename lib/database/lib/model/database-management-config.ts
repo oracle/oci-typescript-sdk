@@ -66,4 +66,9 @@ export namespace DatabaseManagementConfig {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DatabaseManagementConfig): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

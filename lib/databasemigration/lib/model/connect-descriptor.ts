@@ -47,4 +47,9 @@ export namespace ConnectDescriptor {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConnectDescriptor): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

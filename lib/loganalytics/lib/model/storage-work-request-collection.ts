@@ -42,4 +42,18 @@ export namespace StorageWorkRequestCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: StorageWorkRequestCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.StorageWorkRequestSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

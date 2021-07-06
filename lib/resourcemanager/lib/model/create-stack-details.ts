@@ -83,4 +83,16 @@ export namespace CreateStackDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreateStackDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configSource": obj.configSource
+          ? model.CreateConfigSourceDetails.getDeserializedJsonObj(obj.configSource)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

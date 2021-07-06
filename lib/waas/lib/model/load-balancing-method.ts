@@ -45,4 +45,30 @@ export namespace LoadBalancingMethod {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LoadBalancingMethod): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("method" in obj && obj.method) {
+      switch (obj.method) {
+        case "ROUND_ROBIN":
+          return model.RoundRobinLoadBalancingMethod.getDeserializedJsonObj(
+            <model.RoundRobinLoadBalancingMethod>(<object>jsonObj),
+            true
+          );
+        case "STICKY_COOKIE":
+          return model.StickyCookieLoadBalancingMethod.getDeserializedJsonObj(
+            <model.StickyCookieLoadBalancingMethod>(<object>jsonObj),
+            true
+          );
+        case "IP_HASH":
+          return model.IPHashLoadBalancingMethod.getDeserializedJsonObj(
+            <model.IPHashLoadBalancingMethod>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.method);
+      }
+    }
+    return jsonObj;
+  }
 }

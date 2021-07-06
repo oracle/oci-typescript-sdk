@@ -64,4 +64,18 @@ export namespace LogAnalyticsMetaFunction {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsMetaFunction): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metaFunctionArgument": obj.metaFunctionArgument
+          ? obj.metaFunctionArgument.map(item => {
+              return model.LogAnalyticsMetaFunctionArgument.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

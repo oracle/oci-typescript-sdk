@@ -55,4 +55,9 @@ export namespace AbstractParserTestResultLogEntry {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AbstractParserTestResultLogEntry): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

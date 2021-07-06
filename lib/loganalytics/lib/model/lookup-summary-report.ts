@@ -39,4 +39,9 @@ export namespace LookupSummaryReport {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LookupSummaryReport): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -44,4 +44,18 @@ export namespace GlossaryCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: GlossaryCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.GlossarySummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

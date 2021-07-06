@@ -30,4 +30,11 @@ export namespace ChangeUnifiedAgentConfigurationCompartmentDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(
+    obj: ChangeUnifiedAgentConfigurationCompartmentDetails
+  ): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

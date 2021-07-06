@@ -42,4 +42,18 @@ export namespace IngestDatabaseConfigurationDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IngestDatabaseConfigurationDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DatabaseConfigurationMetricGroup.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

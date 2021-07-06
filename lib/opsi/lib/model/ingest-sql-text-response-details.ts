@@ -35,4 +35,9 @@ export namespace IngestSqlTextResponseDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: IngestSqlTextResponseDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

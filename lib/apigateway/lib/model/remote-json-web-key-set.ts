@@ -55,4 +55,17 @@ export namespace RemoteJsonWebKeySet {
     return jsonObj;
   }
   export const type = "REMOTE_JWKS";
+  export function getDeserializedJsonObj(
+    obj: RemoteJsonWebKeySet,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.PublicKeySet.getDeserializedJsonObj(obj) as RemoteJsonWebKeySet)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

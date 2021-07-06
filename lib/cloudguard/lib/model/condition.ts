@@ -40,4 +40,25 @@ export namespace Condition {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Condition): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("kind" in obj && obj.kind) {
+      switch (obj.kind) {
+        case "SIMPLE":
+          return model.SimpleCondition.getDeserializedJsonObj(
+            <model.SimpleCondition>(<object>jsonObj),
+            true
+          );
+        case "COMPOSITE":
+          return model.CompositeCondition.getDeserializedJsonObj(
+            <model.CompositeCondition>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.kind);
+      }
+    }
+    return jsonObj;
+  }
 }

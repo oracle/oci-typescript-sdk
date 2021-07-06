@@ -130,4 +130,9 @@ export namespace Sdk {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Sdk): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

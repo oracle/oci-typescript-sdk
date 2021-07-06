@@ -104,4 +104,9 @@ export namespace Group {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Group): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

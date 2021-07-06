@@ -124,4 +124,18 @@ export namespace ApiSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ApiSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "validationResults": obj.validationResults
+          ? obj.validationResults.map(item => {
+              return model.ApiValidationResult.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

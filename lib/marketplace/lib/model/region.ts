@@ -47,4 +47,18 @@ export namespace Region {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Region): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "countries": obj.countries
+          ? obj.countries.map(item => {
+              return model.Item.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

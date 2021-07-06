@@ -102,4 +102,16 @@ export namespace JobExecution {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobExecution): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resultDetails": obj.resultDetails
+          ? model.JobExecutionResultDetails.getDeserializedJsonObj(obj.resultDetails)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -44,4 +44,18 @@ export namespace DataAssetTagCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DataAssetTagCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.DataAssetTagSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

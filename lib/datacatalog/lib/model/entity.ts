@@ -169,4 +169,24 @@ export namespace Entity {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Entity): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "objectRelationships": obj.objectRelationships
+          ? obj.objectRelationships.map(item => {
+              return model.ObjectRelationship.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "customPropertyMembers": obj.customPropertyMembers
+          ? obj.customPropertyMembers.map(item => {
+              return model.CustomPropertyGetUsage.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -31,7 +31,10 @@ export enum HostEntitySource {
 }
 
 export namespace HostEntitySource {
-  export function getJsonObj(obj: HostEntitySource): object {
-    return { obj };
+  export function getJsonObj(obj: HostEntitySource): HostEntitySource {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: HostEntitySource): HostEntitySource {
+    return obj;
   }
 }

@@ -56,4 +56,19 @@ export namespace CreateGitlabAccessTokenConfigurationSourceProviderDetails {
     return jsonObj;
   }
   export const configSourceProviderType = "GITLAB_ACCESS_TOKEN";
+  export function getDeserializedJsonObj(
+    obj: CreateGitlabAccessTokenConfigurationSourceProviderDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateConfigurationSourceProviderDetails.getDeserializedJsonObj(
+            obj
+          ) as CreateGitlabAccessTokenConfigurationSourceProviderDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

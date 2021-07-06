@@ -38,4 +38,9 @@ export namespace Detector {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Detector): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

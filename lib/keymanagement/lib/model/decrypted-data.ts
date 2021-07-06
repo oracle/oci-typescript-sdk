@@ -62,4 +62,9 @@ export namespace DecryptedData {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DecryptedData): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

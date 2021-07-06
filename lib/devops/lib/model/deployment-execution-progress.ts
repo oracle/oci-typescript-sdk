@@ -48,4 +48,19 @@ export namespace DeploymentExecutionProgress {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: DeploymentExecutionProgress): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "deployStageExecutionProgress": obj.deployStageExecutionProgress
+          ? common.mapContainer(
+              obj.deployStageExecutionProgress,
+              model.DeployStageExecutionProgress.getDeserializedJsonObj
+            )
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

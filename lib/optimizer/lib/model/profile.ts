@@ -85,4 +85,22 @@ export namespace Profile {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Profile): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "levelsConfiguration": obj.levelsConfiguration
+          ? model.LevelsConfiguration.getDeserializedJsonObj(obj.levelsConfiguration)
+          : undefined,
+        "targetCompartments": obj.targetCompartments
+          ? model.TargetCompartments.getDeserializedJsonObj(obj.targetCompartments)
+          : undefined,
+        "targetTags": obj.targetTags
+          ? model.TargetTags.getDeserializedJsonObj(obj.targetTags)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

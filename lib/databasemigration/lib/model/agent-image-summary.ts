@@ -37,4 +37,9 @@ export namespace AgentImageSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: AgentImageSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

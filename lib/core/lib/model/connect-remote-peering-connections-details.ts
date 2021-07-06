@@ -42,4 +42,9 @@ export namespace ConnectRemotePeeringConnectionsDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ConnectRemotePeeringConnectionsDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

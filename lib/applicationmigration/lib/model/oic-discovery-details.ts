@@ -46,4 +46,17 @@ export namespace OicDiscoveryDetails {
     return jsonObj;
   }
   export const type = "OIC";
+  export function getDeserializedJsonObj(
+    obj: OicDiscoveryDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DiscoveryDetails.getDeserializedJsonObj(obj) as OicDiscoveryDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

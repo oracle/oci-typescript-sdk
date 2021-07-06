@@ -57,4 +57,9 @@ export namespace InstanceAgentPluginConfigDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InstanceAgentPluginConfigDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

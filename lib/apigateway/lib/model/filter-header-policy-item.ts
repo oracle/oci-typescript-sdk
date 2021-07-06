@@ -35,4 +35,9 @@ export namespace FilterHeaderPolicyItem {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: FilterHeaderPolicyItem): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

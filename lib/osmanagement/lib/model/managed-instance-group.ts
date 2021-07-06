@@ -77,4 +77,18 @@ export namespace ManagedInstanceGroup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagedInstanceGroup): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "managedInstances": obj.managedInstances
+          ? obj.managedInstances.map(item => {
+              return model.Id.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

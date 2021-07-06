@@ -41,4 +41,25 @@ export namespace MountTypeDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MountTypeDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("mountType" in obj && obj.mountType) {
+      switch (obj.mountType) {
+        case "SELF_MOUNT":
+          return model.SelfMountDetails.getDeserializedJsonObj(
+            <model.SelfMountDetails>(<object>jsonObj),
+            true
+          );
+        case "AUTOMATED_MOUNT":
+          return model.AutomatedMountDetails.getDeserializedJsonObj(
+            <model.AutomatedMountDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.mountType);
+      }
+    }
+    return jsonObj;
+  }
 }

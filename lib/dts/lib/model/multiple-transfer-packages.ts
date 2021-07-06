@@ -36,4 +36,18 @@ export namespace MultipleTransferPackages {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: MultipleTransferPackages): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "transferPackageObjects": obj.transferPackageObjects
+          ? obj.transferPackageObjects.map(item => {
+              return model.TransferPackageSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -136,4 +136,18 @@ export namespace JobSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: JobSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "executions": obj.executions
+          ? obj.executions.map(item => {
+              return model.JobExecutionSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

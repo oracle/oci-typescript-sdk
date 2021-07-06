@@ -39,4 +39,9 @@ export namespace SourceSummaryReport {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: SourceSummaryReport): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

@@ -39,4 +39,18 @@ export namespace ProjectCollection {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ProjectCollection): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "items": obj.items
+          ? obj.items.map(item => {
+              return model.ProjectSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

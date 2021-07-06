@@ -52,4 +52,9 @@ export namespace RenameObjectDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: RenameObjectDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

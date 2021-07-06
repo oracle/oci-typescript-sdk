@@ -100,4 +100,18 @@ export namespace ResponderRecipeSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ResponderRecipeSummary): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "responderRules": obj.responderRules
+          ? obj.responderRules.map(item => {
+              return model.ResponderRecipeResponderRule.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

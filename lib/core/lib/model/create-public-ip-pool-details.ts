@@ -58,4 +58,9 @@ export namespace CreatePublicIpPoolDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: CreatePublicIpPoolDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

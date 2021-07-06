@@ -101,4 +101,9 @@ export namespace InternetGateway {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: InternetGateway): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

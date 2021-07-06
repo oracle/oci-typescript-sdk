@@ -102,4 +102,9 @@ export namespace Pattern {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: Pattern): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

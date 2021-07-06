@@ -111,4 +111,25 @@ export namespace LogAnalyticsLookup {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: LogAnalyticsLookup): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fields": obj.fields
+          ? obj.fields.map(item => {
+              return model.LookupField.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "referringSources": obj.referringSources
+          ? model.AutoLookups.getDeserializedJsonObj(obj.referringSources)
+          : undefined,
+        "statusSummary": obj.statusSummary
+          ? model.StatusSummary.getDeserializedJsonObj(obj.statusSummary)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

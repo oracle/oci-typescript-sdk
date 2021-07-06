@@ -19,7 +19,7 @@ If a subsequent read request fails to reflect your changes, wait a few minutes a
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { EmailWaiter } from "./email-waiter";
@@ -180,7 +180,7 @@ export class EmailClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeEmailDomainCompartmentRequest.changeEmailDomainCompartmentDetails,
         "ChangeEmailDomainCompartmentDetails",
-        models.ChangeEmailDomainCompartmentDetails.getJsonObj
+        model.ChangeEmailDomainCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -246,7 +246,7 @@ export class EmailClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeSenderCompartmentRequest.changeSenderCompartmentDetails,
         "ChangeSenderCompartmentDetails",
-        models.ChangeSenderCompartmentDetails.getJsonObj
+        model.ChangeSenderCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -310,7 +310,7 @@ export class EmailClient {
       bodyContent: common.ObjectSerializer.serialize(
         createDkimRequest.createDkimDetails,
         "CreateDkimDetails",
-        models.CreateDkimDetails.getJsonObj
+        model.CreateDkimDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -322,7 +322,8 @@ export class EmailClient {
         responseObject: <responses.CreateDkimResponse>{},
         body: await response.json(),
         bodyKey: "dkim",
-        bodyModel: "model.Dkim",
+        bodyModel: model.Dkim,
+        type: "model.Dkim",
         responseHeaders: [
           {
             value: response.headers.get("Content-Location"),
@@ -392,7 +393,7 @@ export class EmailClient {
       bodyContent: common.ObjectSerializer.serialize(
         createEmailDomainRequest.createEmailDomainDetails,
         "CreateEmailDomainDetails",
-        models.CreateEmailDomainDetails.getJsonObj
+        model.CreateEmailDomainDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -404,7 +405,8 @@ export class EmailClient {
         responseObject: <responses.CreateEmailDomainResponse>{},
         body: await response.json(),
         bodyKey: "emailDomain",
-        bodyModel: "model.EmailDomain",
+        bodyModel: model.EmailDomain,
+        type: "model.EmailDomain",
         responseHeaders: [
           {
             value: response.headers.get("Content-Location"),
@@ -473,7 +475,7 @@ export class EmailClient {
       bodyContent: common.ObjectSerializer.serialize(
         createSenderRequest.createSenderDetails,
         "CreateSenderDetails",
-        models.CreateSenderDetails.getJsonObj
+        model.CreateSenderDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -485,7 +487,8 @@ export class EmailClient {
         responseObject: <responses.CreateSenderResponse>{},
         body: await response.json(),
         bodyKey: "sender",
-        bodyModel: "model.Sender",
+        bodyModel: model.Sender,
+        type: "model.Sender",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -543,7 +546,7 @@ export class EmailClient {
       bodyContent: common.ObjectSerializer.serialize(
         createSuppressionRequest.createSuppressionDetails,
         "CreateSuppressionDetails",
-        models.CreateSuppressionDetails.getJsonObj
+        model.CreateSuppressionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -555,7 +558,8 @@ export class EmailClient {
         responseObject: <responses.CreateSuppressionResponse>{},
         body: await response.json(),
         bodyKey: "suppression",
-        bodyModel: "model.Suppression",
+        bodyModel: model.Suppression,
+        type: "model.Suppression",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -856,7 +860,8 @@ export class EmailClient {
         responseObject: <responses.GetDkimResponse>{},
         body: await response.json(),
         bodyKey: "dkim",
-        bodyModel: "model.Dkim",
+        bodyModel: model.Dkim,
+        type: "model.Dkim",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -919,7 +924,8 @@ export class EmailClient {
         responseObject: <responses.GetEmailDomainResponse>{},
         body: await response.json(),
         bodyKey: "emailDomain",
-        bodyModel: "model.EmailDomain",
+        bodyModel: model.EmailDomain,
+        type: "model.EmailDomain",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -982,7 +988,8 @@ export class EmailClient {
         responseObject: <responses.GetSenderResponse>{},
         body: await response.json(),
         bodyKey: "sender",
-        bodyModel: "model.Sender",
+        bodyModel: model.Sender,
+        type: "model.Sender",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1047,7 +1054,8 @@ export class EmailClient {
         responseObject: <responses.GetSuppressionResponse>{},
         body: await response.json(),
         bodyKey: "suppression",
-        bodyModel: "model.Suppression",
+        bodyModel: model.Suppression,
+        type: "model.Suppression",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1105,7 +1113,8 @@ export class EmailClient {
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
         bodyKey: "workRequest",
-        bodyModel: "model.WorkRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1175,7 +1184,8 @@ export class EmailClient {
         responseObject: <responses.ListDkimsResponse>{},
         body: await response.json(),
         bodyKey: "dkimCollection",
-        bodyModel: "model.DkimCollection",
+        bodyModel: model.DkimCollection,
+        type: "model.DkimCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1245,7 +1255,8 @@ export class EmailClient {
         responseObject: <responses.ListEmailDomainsResponse>{},
         body: await response.json(),
         bodyKey: "emailDomainCollection",
-        bodyModel: "model.EmailDomainCollection",
+        bodyModel: model.EmailDomainCollection,
+        type: "model.EmailDomainCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1316,7 +1327,8 @@ export class EmailClient {
         responseObject: <responses.ListSendersResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SenderSummary[]",
+        bodyModel: model.SenderSummary,
+        type: "Array<model.SenderSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1356,7 +1368,7 @@ export class EmailClient {
    */
   public listAllSenders(
     request: requests.ListSendersRequest
-  ): AsyncIterableIterator<models.SenderSummary> {
+  ): AsyncIterableIterator<model.SenderSummary> {
     return paginateRecords(request, req => this.listSenders(req));
   }
 
@@ -1424,7 +1436,8 @@ export class EmailClient {
         responseObject: <responses.ListSuppressionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "SuppressionSummary[]",
+        bodyModel: model.SuppressionSummary,
+        type: "Array<model.SuppressionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1459,7 +1472,7 @@ export class EmailClient {
    */
   public listAllSuppressions(
     request: requests.ListSuppressionsRequest
-  ): AsyncIterableIterator<models.SuppressionSummary> {
+  ): AsyncIterableIterator<model.SuppressionSummary> {
     return paginateRecords(request, req => this.listSuppressions(req));
   }
 
@@ -1521,7 +1534,8 @@ export class EmailClient {
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestErrorCollection",
-        bodyModel: "model.WorkRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1588,7 +1602,8 @@ export class EmailClient {
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestLogEntryCollection",
-        bodyModel: "model.WorkRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -1655,7 +1670,8 @@ export class EmailClient {
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
         bodyKey: "workRequestSummaryCollection",
-        bodyModel: "model.WorkRequestSummaryCollection",
+        bodyModel: model.WorkRequestSummaryCollection,
+        type: "model.WorkRequestSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1712,7 +1728,7 @@ export class EmailClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateDkimRequest.updateDkimDetails,
         "UpdateDkimDetails",
-        models.UpdateDkimDetails.getJsonObj
+        model.UpdateDkimDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1778,7 +1794,7 @@ export class EmailClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateEmailDomainRequest.updateEmailDomainDetails,
         "UpdateEmailDomainDetails",
-        models.UpdateEmailDomainDetails.getJsonObj
+        model.UpdateEmailDomainDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1848,7 +1864,7 @@ export class EmailClient {
       bodyContent: common.ObjectSerializer.serialize(
         updateSenderRequest.updateSenderDetails,
         "UpdateSenderDetails",
-        models.UpdateSenderDetails.getJsonObj
+        model.UpdateSenderDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1860,7 +1876,8 @@ export class EmailClient {
         responseObject: <responses.UpdateSenderResponse>{},
         body: await response.json(),
         bodyKey: "sender",
-        bodyModel: "model.Sender",
+        bodyModel: model.Sender,
+        type: "model.Sender",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

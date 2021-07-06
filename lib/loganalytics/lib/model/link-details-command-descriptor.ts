@@ -35,4 +35,19 @@ export namespace LinkDetailsCommandDescriptor {
     return jsonObj;
   }
   export const name = "LINK_DETAILS";
+  export function getDeserializedJsonObj(
+    obj: LinkDetailsCommandDescriptor,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractCommandDescriptor.getDeserializedJsonObj(
+            obj
+          ) as LinkDetailsCommandDescriptor)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

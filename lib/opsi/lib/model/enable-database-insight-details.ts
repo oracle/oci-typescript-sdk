@@ -41,4 +41,20 @@ export namespace EnableDatabaseInsightDetails {
     }
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: EnableDatabaseInsightDetails): object {
+    const jsonObj = { ...obj, ...{} };
+
+    if ("entitySource" in obj && obj.entitySource) {
+      switch (obj.entitySource) {
+        case "EM_MANAGED_EXTERNAL_DATABASE":
+          return model.EnableEmManagedExternalDatabaseInsightDetails.getDeserializedJsonObj(
+            <model.EnableEmManagedExternalDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
+        default:
+          throw Error("Unknown value for: " + obj.entitySource);
+      }
+    }
+    return jsonObj;
+  }
 }

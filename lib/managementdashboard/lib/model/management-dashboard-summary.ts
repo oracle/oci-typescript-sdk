@@ -100,4 +100,9 @@ export namespace ManagementDashboardSummary {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ManagementDashboardSummary): object {
+    const jsonObj = { ...obj, ...{} };
+
+    return jsonObj;
+  }
 }

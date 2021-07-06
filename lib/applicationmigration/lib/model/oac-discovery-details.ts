@@ -45,4 +45,17 @@ export namespace OacDiscoveryDetails {
     return jsonObj;
   }
   export const type = "OAC";
+  export function getDeserializedJsonObj(
+    obj: OacDiscoveryDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.DiscoveryDetails.getDeserializedJsonObj(obj) as OacDiscoveryDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

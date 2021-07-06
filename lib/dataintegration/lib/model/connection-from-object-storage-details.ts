@@ -53,4 +53,19 @@ export namespace ConnectionFromObjectStorageDetails {
     return jsonObj;
   }
   export const modelType = "ORACLE_OBJECT_STORAGE_CONNECTION";
+  export function getDeserializedJsonObj(
+    obj: ConnectionFromObjectStorageDetails,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.ConnectionDetails.getDeserializedJsonObj(
+            obj
+          ) as ConnectionFromObjectStorageDetails)),
+      ...{}
+    };
+
+    return jsonObj;
+  }
 }

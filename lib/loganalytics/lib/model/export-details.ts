@@ -102,4 +102,22 @@ export namespace ExportDetails {
 
     return jsonObj;
   }
+  export function getDeserializedJsonObj(obj: ExportDetails): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "scopeFilters": obj.scopeFilters
+          ? obj.scopeFilters.map(item => {
+              return model.ScopeFilter.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "timeFilter": obj.timeFilter
+          ? model.TimeRange.getDeserializedJsonObj(obj.timeFilter)
+          : undefined
+      }
+    };
+
+    return jsonObj;
+  }
 }

@@ -14,7 +14,7 @@
 
 import common = require("oci-common");
 import * as requests from "./request";
-import * as models from "./model";
+import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { WorkRequestClient } from "oci-workrequests";
@@ -174,7 +174,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         activateExadataInfrastructureRequest.activateExadataInfrastructureDetails,
         "ActivateExadataInfrastructureDetails",
-        models.ActivateExadataInfrastructureDetails.getJsonObj
+        model.ActivateExadataInfrastructureDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -186,7 +186,8 @@ export class DatabaseClient {
         responseObject: <responses.ActivateExadataInfrastructureResponse>{},
         body: await response.json(),
         bodyKey: "exadataInfrastructure",
-        bodyModel: "model.ExadataInfrastructure",
+        bodyModel: model.ExadataInfrastructure,
+        type: "model.ExadataInfrastructure",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -261,7 +262,8 @@ export class DatabaseClient {
         responseObject: <responses.AddStorageCapacityExadataInfrastructureResponse>{},
         body: await response.json(),
         bodyKey: "exadataInfrastructure",
-        bodyModel: "model.ExadataInfrastructure",
+        bodyModel: model.ExadataInfrastructure,
+        type: "model.ExadataInfrastructure",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -326,7 +328,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         autonomousDatabaseManualRefreshRequest.autonomousDatabaseManualRefreshDetails,
         "AutonomousDatabaseManualRefreshDetails",
-        models.AutonomousDatabaseManualRefreshDetails.getJsonObj
+        model.AutonomousDatabaseManualRefreshDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -338,7 +340,8 @@ export class DatabaseClient {
         responseObject: <responses.AutonomousDatabaseManualRefreshResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabase",
-        bodyModel: "model.AutonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -409,7 +412,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeAutonomousContainerDatabaseCompartmentRequest.changeCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -485,7 +488,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeAutonomousDatabaseCompartmentRequest.changeCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -565,7 +568,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeAutonomousExadataInfrastructureCompartmentRequest.changeCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -640,7 +643,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeAutonomousVmClusterCompartmentRequest.changeAutonomousVmClusterCompartmentDetails,
         "ChangeAutonomousVmClusterCompartmentDetails",
-        models.ChangeAutonomousVmClusterCompartmentDetails.getJsonObj
+        model.ChangeAutonomousVmClusterCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -711,7 +714,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeBackupDestinationCompartmentRequest.changeCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -788,7 +791,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeCloudExadataInfrastructureCompartmentRequest.changeCloudExadataInfrastructureCompartmentDetails,
         "ChangeCloudExadataInfrastructureCompartmentDetails",
-        models.ChangeCloudExadataInfrastructureCompartmentDetails.getJsonObj
+        model.ChangeCloudExadataInfrastructureCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -857,7 +860,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeCloudVmClusterCompartmentRequest.changeCloudVmClusterCompartmentDetails,
         "ChangeCloudVmClusterCompartmentDetails",
-        models.ChangeCloudVmClusterCompartmentDetails.getJsonObj
+        model.ChangeCloudVmClusterCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -929,7 +932,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeDatabaseSoftwareImageCompartmentRequest.changeCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1005,7 +1008,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeDbSystemCompartmentRequest.changeCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1081,7 +1084,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeExadataInfrastructureCompartmentRequest.changeExadataInfrastructureCompartmentDetails,
         "ChangeExadataInfrastructureCompartmentDetails",
-        models.ChangeExadataInfrastructureCompartmentDetails.getJsonObj
+        model.ChangeExadataInfrastructureCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1156,7 +1159,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeExternalContainerDatabaseCompartmentRequest.changeCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1236,7 +1239,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeExternalNonContainerDatabaseCompartmentRequest.changeCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1316,7 +1319,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeExternalPluggableDatabaseCompartmentRequest.changeCompartmentDetails,
         "ChangeCompartmentDetails",
-        models.ChangeCompartmentDetails.getJsonObj
+        model.ChangeCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1392,7 +1395,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeKeyStoreCompartmentRequest.changeKeyStoreCompartmentDetails,
         "ChangeKeyStoreCompartmentDetails",
-        models.ChangeKeyStoreCompartmentDetails.getJsonObj
+        model.ChangeKeyStoreCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1462,7 +1465,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         changeVmClusterCompartmentRequest.changeVmClusterCompartmentDetails,
         "ChangeVmClusterCompartmentDetails",
-        models.ChangeVmClusterCompartmentDetails.getJsonObj
+        model.ChangeVmClusterCompartmentDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1606,7 +1609,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         completeExternalBackupJobRequest.completeExternalBackupJobDetails,
         "CompleteExternalBackupJobDetails",
-        models.CompleteExternalBackupJobDetails.getJsonObj
+        model.CompleteExternalBackupJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1618,7 +1621,8 @@ export class DatabaseClient {
         responseObject: <responses.CompleteExternalBackupJobResponse>{},
         body: await response.json(),
         bodyKey: "externalBackupJob",
-        bodyModel: "model.ExternalBackupJob",
+        bodyModel: model.ExternalBackupJob,
+        type: "model.ExternalBackupJob",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1684,7 +1688,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         configureAutonomousDatabaseVaultKeyRequest.configureAutonomousDatabaseVaultKeyDetails,
         "ConfigureAutonomousDatabaseVaultKeyDetails",
-        models.ConfigureAutonomousDatabaseVaultKeyDetails.getJsonObj
+        model.ConfigureAutonomousDatabaseVaultKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1749,7 +1753,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         createAutonomousContainerDatabaseRequest.createAutonomousContainerDatabaseDetails,
         "CreateAutonomousContainerDatabaseDetails",
-        models.CreateAutonomousContainerDatabaseDetails.getJsonObj
+        model.CreateAutonomousContainerDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1761,7 +1765,8 @@ export class DatabaseClient {
         responseObject: <responses.CreateAutonomousContainerDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousContainerDatabase",
-        bodyModel: "model.AutonomousContainerDatabase",
+        bodyModel: model.AutonomousContainerDatabase,
+        type: "model.AutonomousContainerDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1823,7 +1828,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         createAutonomousDatabaseRequest.createAutonomousDatabaseDetails,
         "CreateAutonomousDatabaseBase",
-        models.CreateAutonomousDatabaseBase.getJsonObj
+        model.CreateAutonomousDatabaseBase.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1835,7 +1840,8 @@ export class DatabaseClient {
         responseObject: <responses.CreateAutonomousDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabase",
-        bodyModel: "model.AutonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1897,7 +1903,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         createAutonomousDatabaseBackupRequest.createAutonomousDatabaseBackupDetails,
         "CreateAutonomousDatabaseBackupDetails",
-        models.CreateAutonomousDatabaseBackupDetails.getJsonObj
+        model.CreateAutonomousDatabaseBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1909,7 +1915,8 @@ export class DatabaseClient {
         responseObject: <responses.CreateAutonomousDatabaseBackupResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabaseBackup",
-        bodyModel: "model.AutonomousDatabaseBackup",
+        bodyModel: model.AutonomousDatabaseBackup,
+        type: "model.AutonomousDatabaseBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1971,7 +1978,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         createAutonomousVmClusterRequest.createAutonomousVmClusterDetails,
         "CreateAutonomousVmClusterDetails",
-        models.CreateAutonomousVmClusterDetails.getJsonObj
+        model.CreateAutonomousVmClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1983,7 +1990,8 @@ export class DatabaseClient {
         responseObject: <responses.CreateAutonomousVmClusterResponse>{},
         body: await response.json(),
         bodyKey: "autonomousVmCluster",
-        bodyModel: "model.AutonomousVmCluster",
+        bodyModel: model.AutonomousVmCluster,
+        type: "model.AutonomousVmCluster",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2043,7 +2051,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         createBackupRequest.createBackupDetails,
         "CreateBackupDetails",
-        models.CreateBackupDetails.getJsonObj
+        model.CreateBackupDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2055,7 +2063,8 @@ export class DatabaseClient {
         responseObject: <responses.CreateBackupResponse>{},
         body: await response.json(),
         bodyKey: "backup",
-        bodyModel: "model.Backup",
+        bodyModel: model.Backup,
+        type: "model.Backup",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2116,7 +2125,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         createBackupDestinationRequest.createBackupDestinationDetails,
         "CreateBackupDestinationDetails",
-        models.CreateBackupDestinationDetails.getJsonObj
+        model.CreateBackupDestinationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2128,7 +2137,8 @@ export class DatabaseClient {
         responseObject: <responses.CreateBackupDestinationResponse>{},
         body: await response.json(),
         bodyKey: "backupDestination",
-        bodyModel: "model.BackupDestination",
+        bodyModel: model.BackupDestination,
+        type: "model.BackupDestination",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2185,7 +2195,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         createCloudExadataInfrastructureRequest.createCloudExadataInfrastructureDetails,
         "CreateCloudExadataInfrastructureDetails",
-        models.CreateCloudExadataInfrastructureDetails.getJsonObj
+        model.CreateCloudExadataInfrastructureDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2197,7 +2207,8 @@ export class DatabaseClient {
         responseObject: <responses.CreateCloudExadataInfrastructureResponse>{},
         body: await response.json(),
         bodyKey: "cloudExadataInfrastructure",
-        bodyModel: "model.CloudExadataInfrastructure",
+        bodyModel: model.CloudExadataInfrastructure,
+        type: "model.CloudExadataInfrastructure",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2258,7 +2269,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         createCloudVmClusterRequest.createCloudVmClusterDetails,
         "CreateCloudVmClusterDetails",
-        models.CreateCloudVmClusterDetails.getJsonObj
+        model.CreateCloudVmClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2270,7 +2281,8 @@ export class DatabaseClient {
         responseObject: <responses.CreateCloudVmClusterResponse>{},
         body: await response.json(),
         bodyKey: "cloudVmCluster",
-        bodyModel: "model.CloudVmCluster",
+        bodyModel: model.CloudVmCluster,
+        type: "model.CloudVmCluster",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2334,7 +2346,7 @@ export class DatabaseClient {
       bodyContent: common.ObjectSerializer.serialize(
         createConsoleConnectionRequest.createConsoleConnectionDetails,
         "CreateConsoleConnectionDetails",
-        models.CreateConsoleConnectionDetails.getJsonObj
+        model.CreateConsoleConnectionDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2346,7 +2358,8 @@ export class DatabaseClient {
         responseObject: <responses.CreateConsoleConnectionResponse>{},
         body: await response.json(),
         bodyKey: "consoleConnection",
-        bodyModel: "model.ConsoleConnection",
+        bodyModel: model.ConsoleConnection,
+        type: "model.ConsoleConnection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2411,7 +2424,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createDataGuardAssociationRequest.createDataGuardAssociationDetails,
         "CreateDataGuardAssociationDetails",
-        models.CreateDataGuardAssociationDetails.getJsonObj
+        model.CreateDataGuardAssociationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2423,7 +2436,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreateDataGuardAssociationResponse>{},
         body: await response.json(),
         bodyKey: "dataGuardAssociation",
-        bodyModel: "model.DataGuardAssociation",
+        bodyModel: model.DataGuardAssociation,
+        type: "model.DataGuardAssociation",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2484,7 +2498,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createDatabaseRequest.createNewDatabaseDetails,
         "CreateDatabaseBase",
-        models.CreateDatabaseBase.getJsonObj
+        model.CreateDatabaseBase.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2496,7 +2510,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreateDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "database",
-        bodyModel: "model.Database",
+        bodyModel: model.Database,
+        type: "model.Database",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2557,7 +2572,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createDatabaseSoftwareImageRequest.createDatabaseSoftwareImageDetails,
         "CreateDatabaseSoftwareImageDetails",
-        models.CreateDatabaseSoftwareImageDetails.getJsonObj
+        model.CreateDatabaseSoftwareImageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2569,7 +2584,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreateDatabaseSoftwareImageResponse>{},
         body: await response.json(),
         bodyKey: "databaseSoftwareImage",
-        bodyModel: "model.DatabaseSoftwareImage",
+        bodyModel: model.DatabaseSoftwareImage,
+        type: "model.DatabaseSoftwareImage",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2629,7 +2645,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createDbHomeRequest.createDbHomeWithDbSystemIdDetails,
         "CreateDbHomeBase",
-        models.CreateDbHomeBase.getJsonObj
+        model.CreateDbHomeBase.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2641,7 +2657,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreateDbHomeResponse>{},
         body: await response.json(),
         bodyKey: "dbHome",
-        bodyModel: "model.DbHome",
+        bodyModel: model.DbHome,
+        type: "model.DbHome",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2704,7 +2721,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createExadataInfrastructureRequest.createExadataInfrastructureDetails,
         "CreateExadataInfrastructureDetails",
-        models.CreateExadataInfrastructureDetails.getJsonObj
+        model.CreateExadataInfrastructureDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2716,7 +2733,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreateExadataInfrastructureResponse>{},
         body: await response.json(),
         bodyKey: "exadataInfrastructure",
-        bodyModel: "model.ExadataInfrastructure",
+        bodyModel: model.ExadataInfrastructure,
+        type: "model.ExadataInfrastructure",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2778,7 +2796,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createExternalBackupJobRequest.createExternalBackupJobDetails,
         "CreateExternalBackupJobDetails",
-        models.CreateExternalBackupJobDetails.getJsonObj
+        model.CreateExternalBackupJobDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2790,7 +2808,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreateExternalBackupJobResponse>{},
         body: await response.json(),
         bodyKey: "externalBackupJob",
-        bodyModel: "model.ExternalBackupJob",
+        bodyModel: model.ExternalBackupJob,
+        type: "model.ExternalBackupJob",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2851,7 +2870,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createExternalContainerDatabaseRequest.createExternalContainerDatabaseDetails,
         "CreateExternalContainerDatabaseDetails",
-        models.CreateExternalContainerDatabaseDetails.getJsonObj
+        model.CreateExternalContainerDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2863,7 +2882,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreateExternalContainerDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "externalContainerDatabase",
-        bodyModel: "model.ExternalContainerDatabase",
+        bodyModel: model.ExternalContainerDatabase,
+        type: "model.ExternalContainerDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2924,7 +2944,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createExternalDatabaseConnectorRequest.createExternalDatabaseConnectorDetails,
         "CreateExternalDatabaseConnectorDetails",
-        models.CreateExternalDatabaseConnectorDetails.getJsonObj
+        model.CreateExternalDatabaseConnectorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -2936,7 +2956,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreateExternalDatabaseConnectorResponse>{},
         body: await response.json(),
         bodyKey: "externalDatabaseConnector",
-        bodyModel: "model.ExternalDatabaseConnector",
+        bodyModel: model.ExternalDatabaseConnector,
+        type: "model.ExternalDatabaseConnector",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2998,7 +3019,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createExternalNonContainerDatabaseRequest.createExternalNonContainerDatabaseDetails,
         "CreateExternalNonContainerDatabaseDetails",
-        models.CreateExternalNonContainerDatabaseDetails.getJsonObj
+        model.CreateExternalNonContainerDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3010,7 +3031,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreateExternalNonContainerDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "externalNonContainerDatabase",
-        bodyModel: "model.ExternalNonContainerDatabase",
+        bodyModel: model.ExternalNonContainerDatabase,
+        type: "model.ExternalNonContainerDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3073,7 +3095,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createExternalPluggableDatabaseRequest.createExternalPluggableDatabaseDetails,
         "CreateExternalPluggableDatabaseDetails",
-        models.CreateExternalPluggableDatabaseDetails.getJsonObj
+        model.CreateExternalPluggableDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3085,7 +3107,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreateExternalPluggableDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "externalPluggableDatabase",
-        bodyModel: "model.ExternalPluggableDatabase",
+        bodyModel: model.ExternalPluggableDatabase,
+        type: "model.ExternalPluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3146,7 +3169,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createKeyStoreRequest.createKeyStoreDetails,
         "CreateKeyStoreDetails",
-        models.CreateKeyStoreDetails.getJsonObj
+        model.CreateKeyStoreDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3158,7 +3181,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreateKeyStoreResponse>{},
         body: await response.json(),
         bodyKey: "keyStore",
-        bodyModel: "model.KeyStore",
+        bodyModel: model.KeyStore,
+        type: "model.KeyStore",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3215,7 +3239,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createPluggableDatabaseRequest.createPluggableDatabaseDetails,
         "CreatePluggableDatabaseDetails",
-        models.CreatePluggableDatabaseDetails.getJsonObj
+        model.CreatePluggableDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3227,7 +3251,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreatePluggableDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "pluggableDatabase",
-        bodyModel: "model.PluggableDatabase",
+        bodyModel: model.PluggableDatabase,
+        type: "model.PluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3288,7 +3313,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createVmClusterRequest.createVmClusterDetails,
         "CreateVmClusterDetails",
-        models.CreateVmClusterDetails.getJsonObj
+        model.CreateVmClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3300,7 +3325,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreateVmClusterResponse>{},
         body: await response.json(),
         bodyKey: "vmCluster",
-        bodyModel: "model.VmCluster",
+        bodyModel: model.VmCluster,
+        type: "model.VmCluster",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3364,7 +3390,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       bodyContent: common.ObjectSerializer.serialize(
         createVmClusterNetworkRequest.vmClusterNetworkDetails,
         "VmClusterNetworkDetails",
-        models.VmClusterNetworkDetails.getJsonObj
+        model.VmClusterNetworkDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -3376,7 +3402,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.CreateVmClusterNetworkResponse>{},
         body: await response.json(),
         bodyKey: "vmClusterNetwork",
-        bodyModel: "model.VmClusterNetwork",
+        bodyModel: model.VmClusterNetwork,
+        type: "model.VmClusterNetwork",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3460,7 +3487,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         responseObject: <responses.DbNodeActionResponse>{},
         body: await response.json(),
         bodyKey: "dbNode",
-        bodyModel: "model.DbNode",
+        bodyModel: model.DbNode,
+        type: "model.DbNode",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -4711,7 +4739,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       bodyContent: common.ObjectSerializer.serialize(
         deregisterAutonomousDatabaseDataSafeRequest.deregisterAutonomousDatabaseDataSafeDetails,
         "DeregisterAutonomousDatabaseDataSafeDetails",
-        models.DeregisterAutonomousDatabaseDataSafeDetails.getJsonObj
+        model.DeregisterAutonomousDatabaseDataSafeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5445,7 +5473,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       bodyContent: common.ObjectSerializer.serialize(
         enableExternalContainerDatabaseDatabaseManagementRequest.enableExternalContainerDatabaseDatabaseManagementDetails,
         "EnableExternalContainerDatabaseDatabaseManagementDetails",
-        models.EnableExternalContainerDatabaseDatabaseManagementDetails.getJsonObj
+        model.EnableExternalContainerDatabaseDatabaseManagementDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5525,7 +5553,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       bodyContent: common.ObjectSerializer.serialize(
         enableExternalNonContainerDatabaseDatabaseManagementRequest.enableExternalNonContainerDatabaseDatabaseManagementDetails,
         "EnableExternalNonContainerDatabaseDatabaseManagementDetails",
-        models.EnableExternalNonContainerDatabaseDatabaseManagementDetails.getJsonObj
+        model.EnableExternalNonContainerDatabaseDatabaseManagementDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5603,7 +5631,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       bodyContent: common.ObjectSerializer.serialize(
         enableExternalNonContainerDatabaseOperationsInsightsRequest.enableExternalNonContainerDatabaseOperationsInsightsDetails,
         "EnableExternalNonContainerDatabaseOperationsInsightsDetails",
-        models.EnableExternalNonContainerDatabaseOperationsInsightsDetails.getJsonObj
+        model.EnableExternalNonContainerDatabaseOperationsInsightsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5683,7 +5711,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       bodyContent: common.ObjectSerializer.serialize(
         enableExternalPluggableDatabaseDatabaseManagementRequest.enableExternalPluggableDatabaseDatabaseManagementDetails,
         "EnableExternalPluggableDatabaseDatabaseManagementDetails",
-        models.EnableExternalPluggableDatabaseDatabaseManagementDetails.getJsonObj
+        model.EnableExternalPluggableDatabaseDatabaseManagementDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5761,7 +5789,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       bodyContent: common.ObjectSerializer.serialize(
         enableExternalPluggableDatabaseOperationsInsightsRequest.enableExternalPluggableDatabaseOperationsInsightsDetails,
         "EnableExternalPluggableDatabaseOperationsInsightsDetails",
-        models.EnableExternalPluggableDatabaseOperationsInsightsDetails.getJsonObj
+        model.EnableExternalPluggableDatabaseOperationsInsightsDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -5842,7 +5870,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
         responseObject: <responses.FailOverAutonomousDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabase",
-        bodyModel: "model.AutonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5922,7 +5951,8 @@ A failover can result in data loss, depending on the protection mode in effect a
         >{},
         body: await response.json(),
         bodyKey: "autonomousContainerDatabaseDataguardAssociation",
-        bodyModel: "model.AutonomousContainerDatabaseDataguardAssociation",
+        bodyModel: model.AutonomousContainerDatabaseDataguardAssociation,
+        type: "model.AutonomousContainerDatabaseDataguardAssociation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5991,7 +6021,7 @@ A failover might result in data loss depending on the protection mode in effect 
       bodyContent: common.ObjectSerializer.serialize(
         failoverDataGuardAssociationRequest.failoverDataGuardAssociationDetails,
         "FailoverDataGuardAssociationDetails",
-        models.FailoverDataGuardAssociationDetails.getJsonObj
+        model.FailoverDataGuardAssociationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6003,7 +6033,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.FailoverDataGuardAssociationResponse>{},
         body: await response.json(),
         bodyKey: "dataGuardAssociation",
-        bodyModel: "model.DataGuardAssociation",
+        bodyModel: model.DataGuardAssociation,
+        type: "model.DataGuardAssociation",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -6067,7 +6098,7 @@ A failover might result in data loss depending on the protection mode in effect 
       bodyContent: common.ObjectSerializer.serialize(
         generateAutonomousDatabaseWalletRequest.generateAutonomousDatabaseWalletDetails,
         "GenerateAutonomousDatabaseWalletDetails",
-        models.GenerateAutonomousDatabaseWalletDetails.getJsonObj
+        model.GenerateAutonomousDatabaseWalletDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6151,7 +6182,7 @@ A failover might result in data loss depending on the protection mode in effect 
       bodyContent: common.ObjectSerializer.serialize(
         generateRecommendedVmClusterNetworkRequest.generateRecommendedNetworkDetails,
         "GenerateRecommendedNetworkDetails",
-        models.GenerateRecommendedNetworkDetails.getJsonObj
+        model.GenerateRecommendedNetworkDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -6163,7 +6194,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GenerateRecommendedVmClusterNetworkResponse>{},
         body: await response.json(),
         bodyKey: "vmClusterNetworkDetails",
-        bodyModel: "model.VmClusterNetworkDetails",
+        bodyModel: model.VmClusterNetworkDetails,
+        type: "model.VmClusterNetworkDetails",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6227,7 +6259,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetAutonomousContainerDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousContainerDatabase",
-        bodyModel: "model.AutonomousContainerDatabase",
+        bodyModel: model.AutonomousContainerDatabase,
+        type: "model.AutonomousContainerDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6297,7 +6330,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetAutonomousContainerDatabaseDataguardAssociationResponse>{},
         body: await response.json(),
         bodyKey: "autonomousContainerDatabaseDataguardAssociation",
-        bodyModel: "model.AutonomousContainerDatabaseDataguardAssociation",
+        bodyModel: model.AutonomousContainerDatabaseDataguardAssociation,
+        type: "model.AutonomousContainerDatabaseDataguardAssociation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6361,7 +6395,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetAutonomousDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabase",
-        bodyModel: "model.AutonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6425,7 +6460,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetAutonomousDatabaseBackupResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabaseBackup",
-        bodyModel: "model.AutonomousDatabaseBackup",
+        bodyModel: model.AutonomousDatabaseBackup,
+        type: "model.AutonomousDatabaseBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6496,7 +6532,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetAutonomousDatabaseDataguardAssociationResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabaseDataguardAssociation",
-        bodyModel: "model.AutonomousDatabaseDataguardAssociation",
+        bodyModel: model.AutonomousDatabaseDataguardAssociation,
+        type: "model.AutonomousDatabaseDataguardAssociation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6559,7 +6596,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetAutonomousDatabaseRegionalWalletResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabaseWallet",
-        bodyModel: "model.AutonomousDatabaseWallet",
+        bodyModel: model.AutonomousDatabaseWallet,
+        type: "model.AutonomousDatabaseWallet",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6619,7 +6657,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetAutonomousDatabaseWalletResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabaseWallet",
-        bodyModel: "model.AutonomousDatabaseWallet",
+        bodyModel: model.AutonomousDatabaseWallet,
+        type: "model.AutonomousDatabaseWallet",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6678,7 +6717,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetAutonomousExadataInfrastructureResponse>{},
         body: await response.json(),
         bodyKey: "autonomousExadataInfrastructure",
-        bodyModel: "model.AutonomousExadataInfrastructure",
+        bodyModel: model.AutonomousExadataInfrastructure,
+        type: "model.AutonomousExadataInfrastructure",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6740,7 +6780,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetAutonomousPatchResponse>{},
         body: await response.json(),
         bodyKey: "autonomousPatch",
-        bodyModel: "model.AutonomousPatch",
+        bodyModel: model.AutonomousPatch,
+        type: "model.AutonomousPatch",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6803,7 +6844,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetAutonomousVmClusterResponse>{},
         body: await response.json(),
         bodyKey: "autonomousVmCluster",
-        bodyModel: "model.AutonomousVmCluster",
+        bodyModel: model.AutonomousVmCluster,
+        type: "model.AutonomousVmCluster",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6865,7 +6907,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetBackupResponse>{},
         body: await response.json(),
         bodyKey: "backup",
-        bodyModel: "model.Backup",
+        bodyModel: model.Backup,
+        type: "model.Backup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6929,7 +6972,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetBackupDestinationResponse>{},
         body: await response.json(),
         bodyKey: "backupDestination",
-        bodyModel: "model.BackupDestination",
+        bodyModel: model.BackupDestination,
+        type: "model.BackupDestination",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6995,7 +7039,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetCloudExadataInfrastructureResponse>{},
         body: await response.json(),
         bodyKey: "cloudExadataInfrastructure",
-        bodyModel: "model.CloudExadataInfrastructure",
+        bodyModel: model.CloudExadataInfrastructure,
+        type: "model.CloudExadataInfrastructure",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7059,7 +7104,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetCloudVmClusterResponse>{},
         body: await response.json(),
         bodyKey: "cloudVmCluster",
-        bodyModel: "model.CloudVmCluster",
+        bodyModel: model.CloudVmCluster,
+        type: "model.CloudVmCluster",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7125,7 +7171,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetCloudVmClusterIormConfigResponse>{},
         body: await response.json(),
         bodyKey: "exadataIormConfig",
-        bodyModel: "model.ExadataIormConfig",
+        bodyModel: model.ExadataIormConfig,
+        type: "model.ExadataIormConfig",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7190,7 +7237,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetCloudVmClusterUpdateResponse>{},
         body: await response.json(),
         bodyKey: "update",
-        bodyModel: "model.Update",
+        bodyModel: model.Update,
+        type: "model.Update",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7251,7 +7299,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetCloudVmClusterUpdateHistoryEntryResponse>{},
         body: await response.json(),
         bodyKey: "updateHistoryEntry",
-        bodyModel: "model.UpdateHistoryEntry",
+        bodyModel: model.UpdateHistoryEntry,
+        type: "model.UpdateHistoryEntry",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7314,7 +7363,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetConsoleConnectionResponse>{},
         body: await response.json(),
         bodyKey: "consoleConnection",
-        bodyModel: "model.ConsoleConnection",
+        bodyModel: model.ConsoleConnection,
+        type: "model.ConsoleConnection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7378,7 +7428,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetDataGuardAssociationResponse>{},
         body: await response.json(),
         bodyKey: "dataGuardAssociation",
-        bodyModel: "model.DataGuardAssociation",
+        bodyModel: model.DataGuardAssociation,
+        type: "model.DataGuardAssociation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7440,7 +7491,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "database",
-        bodyModel: "model.Database",
+        bodyModel: model.Database,
+        type: "model.Database",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7503,7 +7555,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetDatabaseSoftwareImageResponse>{},
         body: await response.json(),
         bodyKey: "databaseSoftwareImage",
-        bodyModel: "model.DatabaseSoftwareImage",
+        bodyModel: model.DatabaseSoftwareImage,
+        type: "model.DatabaseSoftwareImage",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7569,7 +7622,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetDatabaseUpgradeHistoryEntryResponse>{},
         body: await response.json(),
         bodyKey: "databaseUpgradeHistoryEntry",
-        bodyModel: "model.DatabaseUpgradeHistoryEntry",
+        bodyModel: model.DatabaseUpgradeHistoryEntry,
+        type: "model.DatabaseUpgradeHistoryEntry",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7626,7 +7680,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetDbHomeResponse>{},
         body: await response.json(),
         bodyKey: "dbHome",
-        bodyModel: "model.DbHome",
+        bodyModel: model.DbHome,
+        type: "model.DbHome",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7690,7 +7745,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetDbHomePatchResponse>{},
         body: await response.json(),
         bodyKey: "patch",
-        bodyModel: "model.Patch",
+        bodyModel: model.Patch,
+        type: "model.Patch",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7750,7 +7806,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetDbHomePatchHistoryEntryResponse>{},
         body: await response.json(),
         bodyKey: "patchHistoryEntry",
-        bodyModel: "model.PatchHistoryEntry",
+        bodyModel: model.PatchHistoryEntry,
+        type: "model.PatchHistoryEntry",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7812,7 +7869,8 @@ A failover might result in data loss depending on the protection mode in effect 
         responseObject: <responses.GetDbNodeResponse>{},
         body: await response.json(),
         bodyKey: "dbNode",
-        bodyModel: "model.DbNode",
+        bodyModel: model.DbNode,
+        type: "model.DbNode",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7879,7 +7937,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.GetDbSystemResponse>{},
         body: await response.json(),
         bodyKey: "dbSystem",
-        bodyModel: "model.DbSystem",
+        bodyModel: model.DbSystem,
+        type: "model.DbSystem",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -7943,7 +8002,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.GetDbSystemPatchResponse>{},
         body: await response.json(),
         bodyKey: "patch",
-        bodyModel: "model.Patch",
+        bodyModel: model.Patch,
+        type: "model.Patch",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8003,7 +8063,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.GetDbSystemPatchHistoryEntryResponse>{},
         body: await response.json(),
         bodyKey: "patchHistoryEntry",
-        bodyModel: "model.PatchHistoryEntry",
+        bodyModel: model.PatchHistoryEntry,
+        type: "model.PatchHistoryEntry",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8069,7 +8130,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.GetExadataInfrastructureResponse>{},
         body: await response.json(),
         bodyKey: "exadataInfrastructure",
-        bodyModel: "model.ExadataInfrastructure",
+        bodyModel: model.ExadataInfrastructure,
+        type: "model.ExadataInfrastructure",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8135,7 +8197,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.GetExadataInfrastructureOcpusResponse>{},
         body: await response.json(),
         bodyKey: "oCPUs",
-        bodyModel: "model.OCPUs",
+        bodyModel: model.OCPUs,
+        type: "model.OCPUs",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8202,7 +8265,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.GetExadataIormConfigResponse>{},
         body: await response.json(),
         bodyKey: "exadataIormConfig",
-        bodyModel: "model.ExadataIormConfig",
+        bodyModel: model.ExadataIormConfig,
+        type: "model.ExadataIormConfig",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8262,7 +8326,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.GetExternalBackupJobResponse>{},
         body: await response.json(),
         bodyKey: "externalBackupJob",
-        bodyModel: "model.ExternalBackupJob",
+        bodyModel: model.ExternalBackupJob,
+        type: "model.ExternalBackupJob",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8327,7 +8392,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.GetExternalContainerDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "externalContainerDatabase",
-        bodyModel: "model.ExternalContainerDatabase",
+        bodyModel: model.ExternalContainerDatabase,
+        type: "model.ExternalContainerDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8392,7 +8458,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.GetExternalDatabaseConnectorResponse>{},
         body: await response.json(),
         bodyKey: "externalDatabaseConnector",
-        bodyModel: "model.ExternalDatabaseConnector",
+        bodyModel: model.ExternalDatabaseConnector,
+        type: "model.ExternalDatabaseConnector",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8457,7 +8524,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.GetExternalNonContainerDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "externalNonContainerDatabase",
-        bodyModel: "model.ExternalNonContainerDatabase",
+        bodyModel: model.ExternalNonContainerDatabase,
+        type: "model.ExternalNonContainerDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8524,7 +8592,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.GetExternalPluggableDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "externalPluggableDatabase",
-        bodyModel: "model.ExternalPluggableDatabase",
+        bodyModel: model.ExternalPluggableDatabase,
+        type: "model.ExternalPluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8588,7 +8657,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.GetKeyStoreResponse>{},
         body: await response.json(),
         bodyKey: "keyStore",
-        bodyModel: "model.KeyStore",
+        bodyModel: model.KeyStore,
+        type: "model.KeyStore",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8650,7 +8720,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.GetMaintenanceRunResponse>{},
         body: await response.json(),
         bodyKey: "maintenanceRun",
-        bodyModel: "model.MaintenanceRun",
+        bodyModel: model.MaintenanceRun,
+        type: "model.MaintenanceRun",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8712,7 +8783,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.GetPluggableDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "pluggableDatabase",
-        bodyModel: "model.PluggableDatabase",
+        bodyModel: model.PluggableDatabase,
+        type: "model.PluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8776,7 +8848,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.GetVmClusterResponse>{},
         body: await response.json(),
         bodyKey: "vmCluster",
-        bodyModel: "model.VmCluster",
+        bodyModel: model.VmCluster,
+        type: "model.VmCluster",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8843,7 +8916,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.GetVmClusterNetworkResponse>{},
         body: await response.json(),
         bodyKey: "vmClusterNetwork",
-        bodyModel: "model.VmClusterNetwork",
+        bodyModel: model.VmClusterNetwork,
+        type: "model.VmClusterNetwork",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8907,7 +8981,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.GetVmClusterPatchResponse>{},
         body: await response.json(),
         bodyKey: "patch",
-        bodyModel: "model.Patch",
+        bodyModel: model.Patch,
+        type: "model.Patch",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8967,7 +9042,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.GetVmClusterPatchHistoryEntryResponse>{},
         body: await response.json(),
         bodyKey: "patchHistoryEntry",
-        bodyModel: "model.PatchHistoryEntry",
+        bodyModel: model.PatchHistoryEntry,
+        type: "model.PatchHistoryEntry",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9023,7 +9099,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       bodyContent: common.ObjectSerializer.serialize(
         launchAutonomousExadataInfrastructureRequest.launchAutonomousExadataInfrastructureDetails,
         "LaunchAutonomousExadataInfrastructureDetails",
-        models.LaunchAutonomousExadataInfrastructureDetails.getJsonObj
+        model.LaunchAutonomousExadataInfrastructureDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9035,7 +9111,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         responseObject: <responses.LaunchAutonomousExadataInfrastructureResponse>{},
         body: await response.json(),
         bodyKey: "autonomousExadataInfrastructure",
-        bodyModel: "model.AutonomousExadataInfrastructure",
+        bodyModel: model.AutonomousExadataInfrastructure,
+        type: "model.AutonomousExadataInfrastructure",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9105,7 +9182,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       bodyContent: common.ObjectSerializer.serialize(
         launchDbSystemRequest.launchDbSystemDetails,
         "LaunchDbSystemBase",
-        models.LaunchDbSystemBase.getJsonObj
+        model.LaunchDbSystemBase.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -9117,7 +9194,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.LaunchDbSystemResponse>{},
         body: await response.json(),
         bodyKey: "dbSystem",
-        bodyModel: "model.DbSystem",
+        bodyModel: model.DbSystem,
+        type: "model.DbSystem",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -9193,7 +9271,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListAutonomousContainerDatabaseDataguardAssociationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutonomousContainerDatabaseDataguardAssociation[]",
+        bodyModel: model.AutonomousContainerDatabaseDataguardAssociation,
+        type: "Array<model.AutonomousContainerDatabaseDataguardAssociation>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9223,7 +9302,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllAutonomousContainerDatabaseDataguardAssociations(
     request: requests.ListAutonomousContainerDatabaseDataguardAssociationsRequest
-  ): AsyncIterableIterator<models.AutonomousContainerDatabaseDataguardAssociation> {
+  ): AsyncIterableIterator<model.AutonomousContainerDatabaseDataguardAssociation> {
     return paginateRecords(request, req =>
       this.listAutonomousContainerDatabaseDataguardAssociations(req)
     );
@@ -9298,7 +9377,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListAutonomousContainerDatabasesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutonomousContainerDatabaseSummary[]",
+        bodyModel: model.AutonomousContainerDatabaseSummary,
+        type: "Array<model.AutonomousContainerDatabaseSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9328,7 +9408,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllAutonomousContainerDatabases(
     request: requests.ListAutonomousContainerDatabasesRequest
-  ): AsyncIterableIterator<models.AutonomousContainerDatabaseSummary> {
+  ): AsyncIterableIterator<model.AutonomousContainerDatabaseSummary> {
     return paginateRecords(request, req => this.listAutonomousContainerDatabases(req));
   }
 
@@ -9395,7 +9475,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListAutonomousDatabaseBackupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutonomousDatabaseBackupSummary[]",
+        bodyModel: model.AutonomousDatabaseBackupSummary,
+        type: "Array<model.AutonomousDatabaseBackupSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9425,7 +9506,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllAutonomousDatabaseBackups(
     request: requests.ListAutonomousDatabaseBackupsRequest
-  ): AsyncIterableIterator<models.AutonomousDatabaseBackupSummary> {
+  ): AsyncIterableIterator<model.AutonomousDatabaseBackupSummary> {
     return paginateRecords(request, req => this.listAutonomousDatabaseBackups(req));
   }
 
@@ -9494,7 +9575,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListAutonomousDatabaseClonesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutonomousDatabaseSummary[]",
+        bodyModel: model.AutonomousDatabaseSummary,
+        type: "Array<model.AutonomousDatabaseSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9524,7 +9606,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllAutonomousDatabaseClones(
     request: requests.ListAutonomousDatabaseClonesRequest
-  ): AsyncIterableIterator<models.AutonomousDatabaseSummary> {
+  ): AsyncIterableIterator<model.AutonomousDatabaseSummary> {
     return paginateRecords(request, req => this.listAutonomousDatabaseClones(req));
   }
 
@@ -9589,7 +9671,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListAutonomousDatabaseDataguardAssociationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutonomousDatabaseDataguardAssociation[]",
+        bodyModel: model.AutonomousDatabaseDataguardAssociation,
+        type: "Array<model.AutonomousDatabaseDataguardAssociation>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9619,7 +9702,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllAutonomousDatabaseDataguardAssociations(
     request: requests.ListAutonomousDatabaseDataguardAssociationsRequest
-  ): AsyncIterableIterator<models.AutonomousDatabaseDataguardAssociation> {
+  ): AsyncIterableIterator<model.AutonomousDatabaseDataguardAssociation> {
     return paginateRecords(request, req => this.listAutonomousDatabaseDataguardAssociations(req));
   }
 
@@ -9691,7 +9774,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListAutonomousDatabasesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutonomousDatabaseSummary[]",
+        bodyModel: model.AutonomousDatabaseSummary,
+        type: "Array<model.AutonomousDatabaseSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9721,7 +9805,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllAutonomousDatabases(
     request: requests.ListAutonomousDatabasesRequest
-  ): AsyncIterableIterator<models.AutonomousDatabaseSummary> {
+  ): AsyncIterableIterator<model.AutonomousDatabaseSummary> {
     return paginateRecords(request, req => this.listAutonomousDatabases(req));
   }
 
@@ -9786,7 +9870,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListAutonomousDbPreviewVersionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutonomousDbPreviewVersionSummary[]",
+        bodyModel: model.AutonomousDbPreviewVersionSummary,
+        type: "Array<model.AutonomousDbPreviewVersionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9816,7 +9901,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllAutonomousDbPreviewVersions(
     request: requests.ListAutonomousDbPreviewVersionsRequest
-  ): AsyncIterableIterator<models.AutonomousDbPreviewVersionSummary> {
+  ): AsyncIterableIterator<model.AutonomousDbPreviewVersionSummary> {
     return paginateRecords(request, req => this.listAutonomousDbPreviewVersions(req));
   }
 
@@ -9879,7 +9964,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListAutonomousDbVersionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutonomousDbVersionSummary[]",
+        bodyModel: model.AutonomousDbVersionSummary,
+        type: "Array<model.AutonomousDbVersionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9909,7 +9995,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllAutonomousDbVersions(
     request: requests.ListAutonomousDbVersionsRequest
-  ): AsyncIterableIterator<models.AutonomousDbVersionSummary> {
+  ): AsyncIterableIterator<model.AutonomousDbVersionSummary> {
     return paginateRecords(request, req => this.listAutonomousDbVersions(req));
   }
 
@@ -9973,7 +10059,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListAutonomousExadataInfrastructureShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutonomousExadataInfrastructureShapeSummary[]",
+        bodyModel: model.AutonomousExadataInfrastructureShapeSummary,
+        type: "Array<model.AutonomousExadataInfrastructureShapeSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10003,7 +10090,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllAutonomousExadataInfrastructureShapes(
     request: requests.ListAutonomousExadataInfrastructureShapesRequest
-  ): AsyncIterableIterator<models.AutonomousExadataInfrastructureShapeSummary> {
+  ): AsyncIterableIterator<model.AutonomousExadataInfrastructureShapeSummary> {
     return paginateRecords(request, req => this.listAutonomousExadataInfrastructureShapes(req));
   }
 
@@ -10069,7 +10156,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListAutonomousExadataInfrastructuresResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutonomousExadataInfrastructureSummary[]",
+        bodyModel: model.AutonomousExadataInfrastructureSummary,
+        type: "Array<model.AutonomousExadataInfrastructureSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10099,7 +10187,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllAutonomousExadataInfrastructures(
     request: requests.ListAutonomousExadataInfrastructuresRequest
-  ): AsyncIterableIterator<models.AutonomousExadataInfrastructureSummary> {
+  ): AsyncIterableIterator<model.AutonomousExadataInfrastructureSummary> {
     return paginateRecords(request, req => this.listAutonomousExadataInfrastructures(req));
   }
 
@@ -10166,7 +10254,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListAutonomousVmClustersResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutonomousVmClusterSummary[]",
+        bodyModel: model.AutonomousVmClusterSummary,
+        type: "Array<model.AutonomousVmClusterSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10196,7 +10285,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllAutonomousVmClusters(
     request: requests.ListAutonomousVmClustersRequest
-  ): AsyncIterableIterator<models.AutonomousVmClusterSummary> {
+  ): AsyncIterableIterator<model.AutonomousVmClusterSummary> {
     return paginateRecords(request, req => this.listAutonomousVmClusters(req));
   }
 
@@ -10258,7 +10347,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListBackupDestinationResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "BackupDestinationSummary[]",
+        bodyModel: model.BackupDestinationSummary,
+        type: "Array<model.BackupDestinationSummary>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10293,7 +10383,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllBackupDestination(
     request: requests.ListBackupDestinationRequest
-  ): AsyncIterableIterator<models.BackupDestinationSummary> {
+  ): AsyncIterableIterator<model.BackupDestinationSummary> {
     return paginateRecords(request, req => this.listBackupDestination(req));
   }
 
@@ -10354,7 +10444,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListBackupsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "BackupSummary[]",
+        bodyModel: model.BackupSummary,
+        type: "Array<model.BackupSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10384,7 +10475,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllBackups(
     request: requests.ListBackupsRequest
-  ): AsyncIterableIterator<models.BackupSummary> {
+  ): AsyncIterableIterator<model.BackupSummary> {
     return paginateRecords(request, req => this.listBackups(req));
   }
 
@@ -10450,7 +10541,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListCloudExadataInfrastructuresResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CloudExadataInfrastructureSummary[]",
+        bodyModel: model.CloudExadataInfrastructureSummary,
+        type: "Array<model.CloudExadataInfrastructureSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10480,7 +10572,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllCloudExadataInfrastructures(
     request: requests.ListCloudExadataInfrastructuresRequest
-  ): AsyncIterableIterator<models.CloudExadataInfrastructureSummary> {
+  ): AsyncIterableIterator<model.CloudExadataInfrastructureSummary> {
     return paginateRecords(request, req => this.listCloudExadataInfrastructures(req));
   }
 
@@ -10544,7 +10636,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListCloudVmClusterUpdateHistoryEntriesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "UpdateHistoryEntrySummary[]",
+        bodyModel: model.UpdateHistoryEntrySummary,
+        type: "Array<model.UpdateHistoryEntrySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10574,7 +10667,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllCloudVmClusterUpdateHistoryEntries(
     request: requests.ListCloudVmClusterUpdateHistoryEntriesRequest
-  ): AsyncIterableIterator<models.UpdateHistoryEntrySummary> {
+  ): AsyncIterableIterator<model.UpdateHistoryEntrySummary> {
     return paginateRecords(request, req => this.listCloudVmClusterUpdateHistoryEntries(req));
   }
 
@@ -10638,7 +10731,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListCloudVmClusterUpdatesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "UpdateSummary[]",
+        bodyModel: model.UpdateSummary,
+        type: "Array<model.UpdateSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10668,7 +10762,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllCloudVmClusterUpdates(
     request: requests.ListCloudVmClusterUpdatesRequest
-  ): AsyncIterableIterator<models.UpdateSummary> {
+  ): AsyncIterableIterator<model.UpdateSummary> {
     return paginateRecords(request, req => this.listCloudVmClusterUpdates(req));
   }
 
@@ -10734,7 +10828,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListCloudVmClustersResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "CloudVmClusterSummary[]",
+        bodyModel: model.CloudVmClusterSummary,
+        type: "Array<model.CloudVmClusterSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10764,7 +10859,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllCloudVmClusters(
     request: requests.ListCloudVmClustersRequest
-  ): AsyncIterableIterator<models.CloudVmClusterSummary> {
+  ): AsyncIterableIterator<model.CloudVmClusterSummary> {
     return paginateRecords(request, req => this.listCloudVmClusters(req));
   }
 
@@ -10822,7 +10917,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListConsoleConnectionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ConsoleConnectionSummary[]",
+        bodyModel: model.ConsoleConnectionSummary,
+        type: "Array<model.ConsoleConnectionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10891,7 +10987,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListContainerDatabasePatchesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "AutonomousPatchSummary[]",
+        bodyModel: model.AutonomousPatchSummary,
+        type: "Array<model.AutonomousPatchSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10921,7 +11018,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllContainerDatabasePatches(
     request: requests.ListContainerDatabasePatchesRequest
-  ): AsyncIterableIterator<models.AutonomousPatchSummary> {
+  ): AsyncIterableIterator<model.AutonomousPatchSummary> {
     return paginateRecords(request, req => this.listContainerDatabasePatches(req));
   }
 
@@ -10983,7 +11080,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListDataGuardAssociationsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DataGuardAssociationSummary[]",
+        bodyModel: model.DataGuardAssociationSummary,
+        type: "Array<model.DataGuardAssociationSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11013,7 +11111,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllDataGuardAssociations(
     request: requests.ListDataGuardAssociationsRequest
-  ): AsyncIterableIterator<models.DataGuardAssociationSummary> {
+  ): AsyncIterableIterator<model.DataGuardAssociationSummary> {
     return paginateRecords(request, req => this.listDataGuardAssociations(req));
   }
 
@@ -11081,7 +11179,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListDatabaseSoftwareImagesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DatabaseSoftwareImageSummary[]",
+        bodyModel: model.DatabaseSoftwareImageSummary,
+        type: "Array<model.DatabaseSoftwareImageSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11111,7 +11210,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllDatabaseSoftwareImages(
     request: requests.ListDatabaseSoftwareImagesRequest
-  ): AsyncIterableIterator<models.DatabaseSoftwareImageSummary> {
+  ): AsyncIterableIterator<model.DatabaseSoftwareImageSummary> {
     return paginateRecords(request, req => this.listDatabaseSoftwareImages(req));
   }
 
@@ -11178,7 +11277,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListDatabaseUpgradeHistoryEntriesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DatabaseUpgradeHistoryEntrySummary[]",
+        bodyModel: model.DatabaseUpgradeHistoryEntrySummary,
+        type: "Array<model.DatabaseUpgradeHistoryEntrySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11208,7 +11308,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllDatabaseUpgradeHistoryEntries(
     request: requests.ListDatabaseUpgradeHistoryEntriesRequest
-  ): AsyncIterableIterator<models.DatabaseUpgradeHistoryEntrySummary> {
+  ): AsyncIterableIterator<model.DatabaseUpgradeHistoryEntrySummary> {
     return paginateRecords(request, req => this.listDatabaseUpgradeHistoryEntries(req));
   }
 
@@ -11274,7 +11374,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListDatabasesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DatabaseSummary[]",
+        bodyModel: model.DatabaseSummary,
+        type: "Array<model.DatabaseSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11304,7 +11405,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllDatabases(
     request: requests.ListDatabasesRequest
-  ): AsyncIterableIterator<models.DatabaseSummary> {
+  ): AsyncIterableIterator<model.DatabaseSummary> {
     return paginateRecords(request, req => this.listDatabases(req));
   }
 
@@ -11366,7 +11467,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListDbHomePatchHistoryEntriesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PatchHistoryEntrySummary[]",
+        bodyModel: model.PatchHistoryEntrySummary,
+        type: "Array<model.PatchHistoryEntrySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11396,7 +11498,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllDbHomePatchHistoryEntries(
     request: requests.ListDbHomePatchHistoryEntriesRequest
-  ): AsyncIterableIterator<models.PatchHistoryEntrySummary> {
+  ): AsyncIterableIterator<model.PatchHistoryEntrySummary> {
     return paginateRecords(request, req => this.listDbHomePatchHistoryEntries(req));
   }
 
@@ -11457,7 +11559,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListDbHomePatchesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PatchSummary[]",
+        bodyModel: model.PatchSummary,
+        type: "Array<model.PatchSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11487,7 +11590,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllDbHomePatches(
     request: requests.ListDbHomePatchesRequest
-  ): AsyncIterableIterator<models.PatchSummary> {
+  ): AsyncIterableIterator<model.PatchSummary> {
     return paginateRecords(request, req => this.listDbHomePatches(req));
   }
 
@@ -11555,7 +11658,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListDbHomesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DbHomeSummary[]",
+        bodyModel: model.DbHomeSummary,
+        type: "Array<model.DbHomeSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11585,7 +11689,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllDbHomes(
     request: requests.ListDbHomesRequest
-  ): AsyncIterableIterator<models.DbHomeSummary> {
+  ): AsyncIterableIterator<model.DbHomeSummary> {
     return paginateRecords(request, req => this.listDbHomes(req));
   }
 
@@ -11650,7 +11754,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListDbNodesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DbNodeSummary[]",
+        bodyModel: model.DbNodeSummary,
+        type: "Array<model.DbNodeSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11680,7 +11785,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllDbNodes(
     request: requests.ListDbNodesRequest
-  ): AsyncIterableIterator<models.DbNodeSummary> {
+  ): AsyncIterableIterator<model.DbNodeSummary> {
     return paginateRecords(request, req => this.listDbNodes(req));
   }
 
@@ -11742,7 +11847,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListDbSystemPatchHistoryEntriesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PatchHistoryEntrySummary[]",
+        bodyModel: model.PatchHistoryEntrySummary,
+        type: "Array<model.PatchHistoryEntrySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11772,7 +11878,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllDbSystemPatchHistoryEntries(
     request: requests.ListDbSystemPatchHistoryEntriesRequest
-  ): AsyncIterableIterator<models.PatchHistoryEntrySummary> {
+  ): AsyncIterableIterator<model.PatchHistoryEntrySummary> {
     return paginateRecords(request, req => this.listDbSystemPatchHistoryEntries(req));
   }
 
@@ -11833,7 +11939,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListDbSystemPatchesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PatchSummary[]",
+        bodyModel: model.PatchSummary,
+        type: "Array<model.PatchSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11863,7 +11970,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllDbSystemPatches(
     request: requests.ListDbSystemPatchesRequest
-  ): AsyncIterableIterator<models.PatchSummary> {
+  ): AsyncIterableIterator<model.PatchSummary> {
     return paginateRecords(request, req => this.listDbSystemPatches(req));
   }
 
@@ -11923,7 +12030,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         responseObject: <responses.ListDbSystemShapesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DbSystemShapeSummary[]",
+        bodyModel: model.DbSystemShapeSummary,
+        type: "Array<model.DbSystemShapeSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11953,7 +12061,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    */
   public listAllDbSystemShapes(
     request: requests.ListDbSystemShapesRequest
-  ): AsyncIterableIterator<models.DbSystemShapeSummary> {
+  ): AsyncIterableIterator<model.DbSystemShapeSummary> {
     return paginateRecords(request, req => this.listDbSystemShapes(req));
   }
 
@@ -12023,7 +12131,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListDbSystemsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DbSystemSummary[]",
+        bodyModel: model.DbSystemSummary,
+        type: "Array<model.DbSystemSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12053,7 +12162,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllDbSystems(
     request: requests.ListDbSystemsRequest
-  ): AsyncIterableIterator<models.DbSystemSummary> {
+  ): AsyncIterableIterator<model.DbSystemSummary> {
     return paginateRecords(request, req => this.listDbSystems(req));
   }
 
@@ -12117,7 +12226,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListDbVersionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "DbVersionSummary[]",
+        bodyModel: model.DbVersionSummary,
+        type: "Array<model.DbVersionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12147,7 +12257,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllDbVersions(
     request: requests.ListDbVersionsRequest
-  ): AsyncIterableIterator<models.DbVersionSummary> {
+  ): AsyncIterableIterator<model.DbVersionSummary> {
     return paginateRecords(request, req => this.listDbVersions(req));
   }
 
@@ -12214,7 +12324,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListExadataInfrastructuresResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ExadataInfrastructureSummary[]",
+        bodyModel: model.ExadataInfrastructureSummary,
+        type: "Array<model.ExadataInfrastructureSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12244,7 +12355,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllExadataInfrastructures(
     request: requests.ListExadataInfrastructuresRequest
-  ): AsyncIterableIterator<models.ExadataInfrastructureSummary> {
+  ): AsyncIterableIterator<model.ExadataInfrastructureSummary> {
     return paginateRecords(request, req => this.listExadataInfrastructures(req));
   }
 
@@ -12310,7 +12421,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListExternalContainerDatabasesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ExternalContainerDatabaseSummary[]",
+        bodyModel: model.ExternalContainerDatabaseSummary,
+        type: "Array<model.ExternalContainerDatabaseSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12340,7 +12452,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllExternalContainerDatabases(
     request: requests.ListExternalContainerDatabasesRequest
-  ): AsyncIterableIterator<models.ExternalContainerDatabaseSummary> {
+  ): AsyncIterableIterator<model.ExternalContainerDatabaseSummary> {
     return paginateRecords(request, req => this.listExternalContainerDatabases(req));
   }
 
@@ -12407,7 +12519,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListExternalDatabaseConnectorsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ExternalDatabaseConnectorSummary[]",
+        bodyModel: model.ExternalDatabaseConnectorSummary,
+        type: "Array<model.ExternalDatabaseConnectorSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12437,7 +12550,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllExternalDatabaseConnectors(
     request: requests.ListExternalDatabaseConnectorsRequest
-  ): AsyncIterableIterator<models.ExternalDatabaseConnectorSummary> {
+  ): AsyncIterableIterator<model.ExternalDatabaseConnectorSummary> {
     return paginateRecords(request, req => this.listExternalDatabaseConnectors(req));
   }
 
@@ -12503,7 +12616,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListExternalNonContainerDatabasesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ExternalNonContainerDatabaseSummary[]",
+        bodyModel: model.ExternalNonContainerDatabaseSummary,
+        type: "Array<model.ExternalNonContainerDatabaseSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12533,7 +12647,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllExternalNonContainerDatabases(
     request: requests.ListExternalNonContainerDatabasesRequest
-  ): AsyncIterableIterator<models.ExternalNonContainerDatabaseSummary> {
+  ): AsyncIterableIterator<model.ExternalNonContainerDatabaseSummary> {
     return paginateRecords(request, req => this.listExternalNonContainerDatabases(req));
   }
 
@@ -12602,7 +12716,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListExternalPluggableDatabasesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "ExternalPluggableDatabaseSummary[]",
+        bodyModel: model.ExternalPluggableDatabaseSummary,
+        type: "Array<model.ExternalPluggableDatabaseSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12632,7 +12747,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllExternalPluggableDatabases(
     request: requests.ListExternalPluggableDatabasesRequest
-  ): AsyncIterableIterator<models.ExternalPluggableDatabaseSummary> {
+  ): AsyncIterableIterator<model.ExternalPluggableDatabaseSummary> {
     return paginateRecords(request, req => this.listExternalPluggableDatabases(req));
   }
 
@@ -12694,7 +12809,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListFlexComponentsResponse>{},
         body: await response.json(),
         bodyKey: "flexComponentCollection",
-        bodyModel: "model.FlexComponentCollection",
+        bodyModel: model.FlexComponentCollection,
+        type: "model.FlexComponentCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12760,7 +12876,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListGiVersionsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "GiVersionSummary[]",
+        bodyModel: model.GiVersionSummary,
+        type: "Array<model.GiVersionSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12790,7 +12907,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllGiVersions(
     request: requests.ListGiVersionsRequest
-  ): AsyncIterableIterator<models.GiVersionSummary> {
+  ): AsyncIterableIterator<model.GiVersionSummary> {
     return paginateRecords(request, req => this.listGiVersions(req));
   }
 
@@ -12851,7 +12968,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListKeyStoresResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "KeyStoreSummary[]",
+        bodyModel: model.KeyStoreSummary,
+        type: "Array<model.KeyStoreSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12881,7 +12999,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllKeyStores(
     request: requests.ListKeyStoresRequest
-  ): AsyncIterableIterator<models.KeyStoreSummary> {
+  ): AsyncIterableIterator<model.KeyStoreSummary> {
     return paginateRecords(request, req => this.listKeyStores(req));
   }
 
@@ -12948,7 +13066,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListMaintenanceRunsResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "MaintenanceRunSummary[]",
+        bodyModel: model.MaintenanceRunSummary,
+        type: "Array<model.MaintenanceRunSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12978,7 +13097,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllMaintenanceRuns(
     request: requests.ListMaintenanceRunsRequest
-  ): AsyncIterableIterator<models.MaintenanceRunSummary> {
+  ): AsyncIterableIterator<model.MaintenanceRunSummary> {
     return paginateRecords(request, req => this.listMaintenanceRuns(req));
   }
 
@@ -13044,7 +13163,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListPluggableDatabasesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PluggableDatabaseSummary[]",
+        bodyModel: model.PluggableDatabaseSummary,
+        type: "Array<model.PluggableDatabaseSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -13074,7 +13194,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllPluggableDatabases(
     request: requests.ListPluggableDatabasesRequest
-  ): AsyncIterableIterator<models.PluggableDatabaseSummary> {
+  ): AsyncIterableIterator<model.PluggableDatabaseSummary> {
     return paginateRecords(request, req => this.listPluggableDatabases(req));
   }
 
@@ -13141,7 +13261,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListVmClusterNetworksResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VmClusterNetworkSummary[]",
+        bodyModel: model.VmClusterNetworkSummary,
+        type: "Array<model.VmClusterNetworkSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -13171,7 +13292,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllVmClusterNetworks(
     request: requests.ListVmClusterNetworksRequest
-  ): AsyncIterableIterator<models.VmClusterNetworkSummary> {
+  ): AsyncIterableIterator<model.VmClusterNetworkSummary> {
     return paginateRecords(request, req => this.listVmClusterNetworks(req));
   }
 
@@ -13233,7 +13354,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListVmClusterPatchHistoryEntriesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PatchHistoryEntrySummary[]",
+        bodyModel: model.PatchHistoryEntrySummary,
+        type: "Array<model.PatchHistoryEntrySummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -13263,7 +13385,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllVmClusterPatchHistoryEntries(
     request: requests.ListVmClusterPatchHistoryEntriesRequest
-  ): AsyncIterableIterator<models.PatchHistoryEntrySummary> {
+  ): AsyncIterableIterator<model.PatchHistoryEntrySummary> {
     return paginateRecords(request, req => this.listVmClusterPatchHistoryEntries(req));
   }
 
@@ -13324,7 +13446,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListVmClusterPatchesResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "PatchSummary[]",
+        bodyModel: model.PatchSummary,
+        type: "Array<model.PatchSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -13354,7 +13477,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllVmClusterPatches(
     request: requests.ListVmClusterPatchesRequest
-  ): AsyncIterableIterator<models.PatchSummary> {
+  ): AsyncIterableIterator<model.PatchSummary> {
     return paginateRecords(request, req => this.listVmClusterPatches(req));
   }
 
@@ -13421,7 +13544,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ListVmClustersResponse>{},
         body: await response.json(),
         bodyKey: "items",
-        bodyModel: "VmClusterSummary[]",
+        bodyModel: model.VmClusterSummary,
+        type: "Array<model.VmClusterSummary>",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -13451,7 +13575,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    */
   public listAllVmClusters(
     request: requests.ListVmClustersRequest
-  ): AsyncIterableIterator<models.VmClusterSummary> {
+  ): AsyncIterableIterator<model.VmClusterSummary> {
     return paginateRecords(request, req => this.listVmClusters(req));
   }
 
@@ -13505,7 +13629,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         localClonePluggableDatabaseRequest.localClonePluggableDatabaseDetails,
         "LocalClonePluggableDatabaseDetails",
-        models.LocalClonePluggableDatabaseDetails.getJsonObj
+        model.LocalClonePluggableDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13517,7 +13641,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.LocalClonePluggableDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "pluggableDatabase",
-        bodyModel: "model.PluggableDatabase",
+        bodyModel: model.PluggableDatabase,
+        type: "model.PluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -13590,7 +13715,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.MigrateExadataDbSystemResourceModelResponse>{},
         body: await response.json(),
         bodyKey: "exadataDbSystemMigration",
-        bodyModel: "model.ExadataDbSystemMigration",
+        bodyModel: model.ExadataDbSystemMigration,
+        type: "model.ExadataDbSystemMigration",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -13653,7 +13779,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         migrateVaultKeyRequest.migrateVaultKeyDetails,
         "MigrateVaultKeyDetails",
-        models.MigrateVaultKeyDetails.getJsonObj
+        model.MigrateVaultKeyDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13665,7 +13791,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.MigrateVaultKeyResponse>{},
         body: await response.json(),
         bodyKey: "database",
-        bodyModel: "model.Database",
+        bodyModel: model.Database,
+        type: "model.Database",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -13728,7 +13855,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         registerAutonomousDatabaseDataSafeRequest.registerAutonomousDatabaseDataSafeDetails,
         "RegisterAutonomousDatabaseDataSafeDetails",
-        models.RegisterAutonomousDatabaseDataSafeDetails.getJsonObj
+        model.RegisterAutonomousDatabaseDataSafeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13810,7 +13937,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         >{},
         body: await response.json(),
         bodyKey: "autonomousContainerDatabaseDataguardAssociation",
-        bodyModel: "model.AutonomousContainerDatabaseDataguardAssociation",
+        bodyModel: model.AutonomousContainerDatabaseDataguardAssociation,
+        type: "model.AutonomousContainerDatabaseDataguardAssociation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -13875,7 +14003,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         reinstateDataGuardAssociationRequest.reinstateDataGuardAssociationDetails,
         "ReinstateDataGuardAssociationDetails",
-        models.ReinstateDataGuardAssociationDetails.getJsonObj
+        model.ReinstateDataGuardAssociationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13887,7 +14015,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.ReinstateDataGuardAssociationResponse>{},
         body: await response.json(),
         bodyKey: "dataGuardAssociation",
-        bodyModel: "model.DataGuardAssociation",
+        bodyModel: model.DataGuardAssociation,
+        type: "model.DataGuardAssociation",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -13951,7 +14080,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         remoteClonePluggableDatabaseRequest.remoteClonePluggableDatabaseDetails,
         "RemoteClonePluggableDatabaseDetails",
-        models.RemoteClonePluggableDatabaseDetails.getJsonObj
+        model.RemoteClonePluggableDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -13963,7 +14092,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.RemoteClonePluggableDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "pluggableDatabase",
-        bodyModel: "model.PluggableDatabase",
+        bodyModel: model.PluggableDatabase,
+        type: "model.PluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -14035,7 +14165,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.RestartAutonomousContainerDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousContainerDatabase",
-        bodyModel: "model.AutonomousContainerDatabase",
+        bodyModel: model.AutonomousContainerDatabase,
+        type: "model.AutonomousContainerDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -14105,7 +14236,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.RestartAutonomousDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabase",
-        bodyModel: "model.AutonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -14168,7 +14300,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         restoreAutonomousDatabaseRequest.restoreAutonomousDatabaseDetails,
         "RestoreAutonomousDatabaseDetails",
-        models.RestoreAutonomousDatabaseDetails.getJsonObj
+        model.RestoreAutonomousDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14180,7 +14312,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.RestoreAutonomousDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabase",
-        bodyModel: "model.AutonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -14242,7 +14375,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         restoreDatabaseRequest.restoreDatabaseDetails,
         "RestoreDatabaseDetails",
-        models.RestoreDatabaseDetails.getJsonObj
+        model.RestoreDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -14254,7 +14387,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.RestoreDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "database",
-        bodyModel: "model.Database",
+        bodyModel: model.Database,
+        type: "model.Database",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -14328,7 +14462,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.RotateAutonomousContainerDatabaseEncryptionKeyResponse>{},
         body: await response.json(),
         bodyKey: "autonomousContainerDatabase",
-        bodyModel: "model.AutonomousContainerDatabase",
+        bodyModel: model.AutonomousContainerDatabase,
+        type: "model.AutonomousContainerDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -14399,7 +14534,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.RotateAutonomousDatabaseEncryptionKeyResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabase",
-        bodyModel: "model.AutonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -14598,7 +14734,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.RotateVaultKeyResponse>{},
         body: await response.json(),
         bodyKey: "database",
-        bodyModel: "model.Database",
+        bodyModel: model.Database,
+        type: "model.Database",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -14738,7 +14875,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.StartAutonomousDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabase",
-        bodyModel: "model.AutonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -14808,7 +14946,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.StartPluggableDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "pluggableDatabase",
-        bodyModel: "model.PluggableDatabase",
+        bodyModel: model.PluggableDatabase,
+        type: "model.PluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -14878,7 +15017,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.StopAutonomousDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabase",
-        bodyModel: "model.AutonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -14948,7 +15088,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.StopPluggableDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "pluggableDatabase",
-        bodyModel: "model.PluggableDatabase",
+        bodyModel: model.PluggableDatabase,
+        type: "model.PluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -15028,7 +15169,8 @@ A switchover incurs no data loss.
         >{},
         body: await response.json(),
         bodyKey: "autonomousContainerDatabaseDataguardAssociation",
-        bodyModel: "model.AutonomousContainerDatabaseDataguardAssociation",
+        bodyModel: model.AutonomousContainerDatabaseDataguardAssociation,
+        type: "model.AutonomousContainerDatabaseDataguardAssociation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15100,7 +15242,8 @@ A switchover incurs no data loss.
         responseObject: <responses.SwitchoverAutonomousDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabase",
-        bodyModel: "model.AutonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15168,7 +15311,7 @@ A switchover guarantees no data loss.
       bodyContent: common.ObjectSerializer.serialize(
         switchoverDataGuardAssociationRequest.switchoverDataGuardAssociationDetails,
         "SwitchoverDataGuardAssociationDetails",
-        models.SwitchoverDataGuardAssociationDetails.getJsonObj
+        model.SwitchoverDataGuardAssociationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15180,7 +15323,8 @@ A switchover guarantees no data loss.
         responseObject: <responses.SwitchoverDataGuardAssociationResponse>{},
         body: await response.json(),
         bodyKey: "dataGuardAssociation",
-        bodyModel: "model.DataGuardAssociation",
+        bodyModel: model.DataGuardAssociation,
+        type: "model.DataGuardAssociation",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -15434,7 +15578,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateAutonomousContainerDatabaseRequest.updateAutonomousContainerDatabaseDetails,
         "UpdateAutonomousContainerDatabaseDetails",
-        models.UpdateAutonomousContainerDatabaseDetails.getJsonObj
+        model.UpdateAutonomousContainerDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15446,7 +15590,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.UpdateAutonomousContainerDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousContainerDatabase",
-        bodyModel: "model.AutonomousContainerDatabase",
+        bodyModel: model.AutonomousContainerDatabase,
+        type: "model.AutonomousContainerDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15510,7 +15655,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateAutonomousDatabaseRequest.updateAutonomousDatabaseDetails,
         "UpdateAutonomousDatabaseDetails",
-        models.UpdateAutonomousDatabaseDetails.getJsonObj
+        model.UpdateAutonomousDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15522,7 +15667,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.UpdateAutonomousDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "autonomousDatabase",
-        bodyModel: "model.AutonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15583,7 +15729,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateAutonomousDatabaseRegionalWalletRequest.updateAutonomousDatabaseWalletDetails,
         "UpdateAutonomousDatabaseWalletDetails",
-        models.UpdateAutonomousDatabaseWalletDetails.getJsonObj
+        model.UpdateAutonomousDatabaseWalletDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15650,7 +15796,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateAutonomousDatabaseWalletRequest.updateAutonomousDatabaseWalletDetails,
         "UpdateAutonomousDatabaseWalletDetails",
-        models.UpdateAutonomousDatabaseWalletDetails.getJsonObj
+        model.UpdateAutonomousDatabaseWalletDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15717,7 +15863,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateAutonomousExadataInfrastructureRequest.updateAutonomousExadataInfrastructuresDetails,
         "UpdateAutonomousExadataInfrastructureDetails",
-        models.UpdateAutonomousExadataInfrastructureDetails.getJsonObj
+        model.UpdateAutonomousExadataInfrastructureDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15729,7 +15875,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.UpdateAutonomousExadataInfrastructureResponse>{},
         body: await response.json(),
         bodyKey: "autonomousExadataInfrastructure",
-        bodyModel: "model.AutonomousExadataInfrastructure",
+        bodyModel: model.AutonomousExadataInfrastructure,
+        type: "model.AutonomousExadataInfrastructure",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15793,7 +15940,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateAutonomousVmClusterRequest.updateAutonomousVmClusterDetails,
         "UpdateAutonomousVmClusterDetails",
-        models.UpdateAutonomousVmClusterDetails.getJsonObj
+        model.UpdateAutonomousVmClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15805,7 +15952,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.UpdateAutonomousVmClusterResponse>{},
         body: await response.json(),
         bodyKey: "autonomousVmCluster",
-        bodyModel: "model.AutonomousVmCluster",
+        bodyModel: model.AutonomousVmCluster,
+        type: "model.AutonomousVmCluster",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -15870,7 +16018,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateBackupDestinationRequest.updateBackupDestinationDetails,
         "UpdateBackupDestinationDetails",
-        models.UpdateBackupDestinationDetails.getJsonObj
+        model.UpdateBackupDestinationDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15882,7 +16030,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.UpdateBackupDestinationResponse>{},
         body: await response.json(),
         bodyKey: "backupDestination",
-        bodyModel: "model.BackupDestination",
+        bodyModel: model.BackupDestination,
+        type: "model.BackupDestination",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15942,7 +16091,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateCloudExadataInfrastructureRequest.updateCloudExadataInfrastructureDetails,
         "UpdateCloudExadataInfrastructureDetails",
-        models.UpdateCloudExadataInfrastructureDetails.getJsonObj
+        model.UpdateCloudExadataInfrastructureDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -15954,7 +16103,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.UpdateCloudExadataInfrastructureResponse>{},
         body: await response.json(),
         bodyKey: "cloudExadataInfrastructure",
-        bodyModel: "model.CloudExadataInfrastructure",
+        bodyModel: model.CloudExadataInfrastructure,
+        type: "model.CloudExadataInfrastructure",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -16017,7 +16167,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateCloudVmClusterRequest.updateCloudVmClusterDetails,
         "UpdateCloudVmClusterDetails",
-        models.UpdateCloudVmClusterDetails.getJsonObj
+        model.UpdateCloudVmClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16029,7 +16179,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.UpdateCloudVmClusterResponse>{},
         body: await response.json(),
         bodyKey: "cloudVmCluster",
-        bodyModel: "model.CloudVmCluster",
+        bodyModel: model.CloudVmCluster,
+        type: "model.CloudVmCluster",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -16093,7 +16244,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateCloudVmClusterIormConfigRequest.cloudVmClusterIormConfigUpdateDetails,
         "ExadataIormConfigUpdateDetails",
-        models.ExadataIormConfigUpdateDetails.getJsonObj
+        model.ExadataIormConfigUpdateDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16105,7 +16256,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.UpdateCloudVmClusterIormConfigResponse>{},
         body: await response.json(),
         bodyKey: "exadataIormConfig",
-        bodyModel: "model.ExadataIormConfig",
+        bodyModel: model.ExadataIormConfig,
+        type: "model.ExadataIormConfig",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -16167,7 +16319,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateDatabaseRequest.updateDatabaseDetails,
         "UpdateDatabaseDetails",
-        models.UpdateDatabaseDetails.getJsonObj
+        model.UpdateDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16179,7 +16331,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.UpdateDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "database",
-        bodyModel: "model.Database",
+        bodyModel: model.Database,
+        type: "model.Database",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -16241,7 +16394,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateDatabaseSoftwareImageRequest.updateDatabaseSoftwareImageDetails,
         "UpdateDatabaseSoftwareImageDetails",
-        models.UpdateDatabaseSoftwareImageDetails.getJsonObj
+        model.UpdateDatabaseSoftwareImageDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16253,7 +16406,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.UpdateDatabaseSoftwareImageResponse>{},
         body: await response.json(),
         bodyKey: "databaseSoftwareImage",
-        bodyModel: "model.DatabaseSoftwareImage",
+        bodyModel: model.DatabaseSoftwareImage,
+        type: "model.DatabaseSoftwareImage",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16309,7 +16463,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateDbHomeRequest.updateDbHomeDetails,
         "UpdateDbHomeDetails",
-        models.UpdateDbHomeDetails.getJsonObj
+        model.UpdateDbHomeDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16321,7 +16475,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.UpdateDbHomeResponse>{},
         body: await response.json(),
         bodyKey: "dbHome",
-        bodyModel: "model.DbHome",
+        bodyModel: model.DbHome,
+        type: "model.DbHome",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -16387,7 +16542,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateDbSystemRequest.updateDbSystemDetails,
         "UpdateDbSystemDetails",
-        models.UpdateDbSystemDetails.getJsonObj
+        model.UpdateDbSystemDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16399,7 +16554,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.UpdateDbSystemResponse>{},
         body: await response.json(),
         bodyKey: "dbSystem",
-        bodyModel: "model.DbSystem",
+        bodyModel: model.DbSystem,
+        type: "model.DbSystem",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -16464,7 +16620,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       bodyContent: common.ObjectSerializer.serialize(
         updateExadataInfrastructureRequest.updateExadataInfrastructureDetails,
         "UpdateExadataInfrastructureDetails",
-        models.UpdateExadataInfrastructureDetails.getJsonObj
+        model.UpdateExadataInfrastructureDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16476,7 +16632,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         responseObject: <responses.UpdateExadataInfrastructureResponse>{},
         body: await response.json(),
         bodyKey: "exadataInfrastructure",
-        bodyModel: "model.ExadataInfrastructure",
+        bodyModel: model.ExadataInfrastructure,
+        type: "model.ExadataInfrastructure",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -16546,7 +16703,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       bodyContent: common.ObjectSerializer.serialize(
         updateExadataIormConfigRequest.exadataIormConfigUpdateDetails,
         "ExadataIormConfigUpdateDetails",
-        models.ExadataIormConfigUpdateDetails.getJsonObj
+        model.ExadataIormConfigUpdateDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16558,7 +16715,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         responseObject: <responses.UpdateExadataIormConfigResponse>{},
         body: await response.json(),
         bodyKey: "exadataIormConfig",
-        bodyModel: "model.ExadataIormConfig",
+        bodyModel: model.ExadataIormConfig,
+        type: "model.ExadataIormConfig",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -16625,7 +16783,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       bodyContent: common.ObjectSerializer.serialize(
         updateExternalContainerDatabaseRequest.updateExternalContainerDatabaseDetails,
         "UpdateExternalContainerDatabaseDetails",
-        models.UpdateExternalContainerDatabaseDetails.getJsonObj
+        model.UpdateExternalContainerDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16637,7 +16795,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         responseObject: <responses.UpdateExternalContainerDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "externalContainerDatabase",
-        bodyModel: "model.ExternalContainerDatabase",
+        bodyModel: model.ExternalContainerDatabase,
+        type: "model.ExternalContainerDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -16701,7 +16860,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       bodyContent: common.ObjectSerializer.serialize(
         updateExternalDatabaseConnectorRequest.updateExternalDatabaseConnectorDetails,
         "UpdateExternalDatabaseConnectorDetails",
-        models.UpdateExternalDatabaseConnectorDetails.getJsonObj
+        model.UpdateExternalDatabaseConnectorDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16713,7 +16872,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         responseObject: <responses.UpdateExternalDatabaseConnectorResponse>{},
         body: await response.json(),
         bodyKey: "externalDatabaseConnector",
-        bodyModel: "model.ExternalDatabaseConnector",
+        bodyModel: model.ExternalDatabaseConnector,
+        type: "model.ExternalDatabaseConnector",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -16777,7 +16937,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       bodyContent: common.ObjectSerializer.serialize(
         updateExternalNonContainerDatabaseRequest.updateExternalNonContainerDatabaseDetails,
         "UpdateExternalNonContainerDatabaseDetails",
-        models.UpdateExternalNonContainerDatabaseDetails.getJsonObj
+        model.UpdateExternalNonContainerDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16789,7 +16949,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         responseObject: <responses.UpdateExternalNonContainerDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "externalNonContainerDatabase",
-        bodyModel: "model.ExternalNonContainerDatabase",
+        bodyModel: model.ExternalNonContainerDatabase,
+        type: "model.ExternalNonContainerDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -16856,7 +17017,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       bodyContent: common.ObjectSerializer.serialize(
         updateExternalPluggableDatabaseRequest.updateExternalPluggableDatabaseDetails,
         "UpdateExternalPluggableDatabaseDetails",
-        models.UpdateExternalPluggableDatabaseDetails.getJsonObj
+        model.UpdateExternalPluggableDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16868,7 +17029,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         responseObject: <responses.UpdateExternalPluggableDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "externalPluggableDatabase",
-        bodyModel: "model.ExternalPluggableDatabase",
+        bodyModel: model.ExternalPluggableDatabase,
+        type: "model.ExternalPluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -16931,7 +17093,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       bodyContent: common.ObjectSerializer.serialize(
         updateKeyStoreRequest.updateKeyStoreDetails,
         "UpdateKeyStoreDetails",
-        models.UpdateKeyStoreDetails.getJsonObj
+        model.UpdateKeyStoreDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -16943,7 +17105,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         responseObject: <responses.UpdateKeyStoreResponse>{},
         body: await response.json(),
         bodyKey: "keyStore",
-        bodyModel: "model.KeyStore",
+        bodyModel: model.KeyStore,
+        type: "model.KeyStore",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16999,7 +17162,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       bodyContent: common.ObjectSerializer.serialize(
         updateMaintenanceRunRequest.updateMaintenanceRunDetails,
         "UpdateMaintenanceRunDetails",
-        models.UpdateMaintenanceRunDetails.getJsonObj
+        model.UpdateMaintenanceRunDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -17011,7 +17174,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         responseObject: <responses.UpdateMaintenanceRunResponse>{},
         body: await response.json(),
         bodyKey: "maintenanceRun",
-        bodyModel: "model.MaintenanceRun",
+        bodyModel: model.MaintenanceRun,
+        type: "model.MaintenanceRun",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -17067,7 +17231,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       bodyContent: common.ObjectSerializer.serialize(
         updatePluggableDatabaseRequest.updatePluggableDatabaseDetails,
         "UpdatePluggableDatabaseDetails",
-        models.UpdatePluggableDatabaseDetails.getJsonObj
+        model.UpdatePluggableDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -17079,7 +17243,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         responseObject: <responses.UpdatePluggableDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "pluggableDatabase",
-        bodyModel: "model.PluggableDatabase",
+        bodyModel: model.PluggableDatabase,
+        type: "model.PluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -17142,7 +17307,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       bodyContent: common.ObjectSerializer.serialize(
         updateVmClusterRequest.updateVmClusterDetails,
         "UpdateVmClusterDetails",
-        models.UpdateVmClusterDetails.getJsonObj
+        model.UpdateVmClusterDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -17154,7 +17319,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         responseObject: <responses.UpdateVmClusterResponse>{},
         body: await response.json(),
         bodyKey: "vmCluster",
-        bodyModel: "model.VmCluster",
+        bodyModel: model.VmCluster,
+        type: "model.VmCluster",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -17220,7 +17386,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       bodyContent: common.ObjectSerializer.serialize(
         updateVmClusterNetworkRequest.updateVmClusterNetworkDetails,
         "UpdateVmClusterNetworkDetails",
-        models.UpdateVmClusterNetworkDetails.getJsonObj
+        model.UpdateVmClusterNetworkDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -17232,7 +17398,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         responseObject: <responses.UpdateVmClusterNetworkResponse>{},
         body: await response.json(),
         bodyKey: "vmClusterNetwork",
-        bodyModel: "model.VmClusterNetwork",
+        bodyModel: model.VmClusterNetwork,
+        type: "model.VmClusterNetwork",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -17295,7 +17462,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       bodyContent: common.ObjectSerializer.serialize(
         upgradeDatabaseRequest.upgradeDatabaseDetails,
         "UpgradeDatabaseDetails",
-        models.UpgradeDatabaseDetails.getJsonObj
+        model.UpgradeDatabaseDetails.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -17307,7 +17474,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         responseObject: <responses.UpgradeDatabaseResponse>{},
         body: await response.json(),
         bodyKey: "database",
-        bodyModel: "model.Database",
+        bodyModel: model.Database,
+        type: "model.Database",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -17380,7 +17548,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         responseObject: <responses.ValidateVmClusterNetworkResponse>{},
         body: await response.json(),
         bodyKey: "vmClusterNetwork",
-        bodyModel: "model.VmClusterNetwork",
+        bodyModel: model.VmClusterNetwork,
+        type: "model.VmClusterNetwork",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

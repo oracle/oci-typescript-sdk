@@ -26,7 +26,10 @@ export enum ManagedInstanceSortBy {
 }
 
 export namespace ManagedInstanceSortBy {
-  export function getJsonObj(obj: ManagedInstanceSortBy): object {
-    return { obj };
+  export function getJsonObj(obj: ManagedInstanceSortBy): ManagedInstanceSortBy {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: ManagedInstanceSortBy): ManagedInstanceSortBy {
+    return obj;
   }
 }

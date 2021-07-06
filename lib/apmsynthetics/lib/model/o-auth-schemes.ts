@@ -29,7 +29,10 @@ export enum OAuthSchemes {
 }
 
 export namespace OAuthSchemes {
-  export function getJsonObj(obj: OAuthSchemes): object {
-    return { obj };
+  export function getJsonObj(obj: OAuthSchemes): OAuthSchemes {
+    return obj;
+  }
+  export function getDeserializedJsonObj(obj: OAuthSchemes): OAuthSchemes {
+    return obj;
   }
 }
