@@ -13,7 +13,7 @@ const tenancyId = {
 };
 
 (async () => {
-  const identityClient = await new identity.IdentityClient({
+  const identityClient = new identity.IdentityClient({
     authenticationDetailsProvider: provider
   });
   const regions = await identityClient.listRegionSubscriptions(tenancyId);
