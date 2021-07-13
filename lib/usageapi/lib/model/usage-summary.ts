@@ -127,7 +127,7 @@ export interface UsageSummary {
    */
   "overage"?: string;
   /**
-   * is forecasted data
+   * The forecasted data.
    */
   "isForecast"?: boolean;
   /**

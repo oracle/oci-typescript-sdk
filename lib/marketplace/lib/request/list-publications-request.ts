@@ -23,19 +23,19 @@ export interface ListPublicationsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The type of the listing
+   * The type of the listing.
    */
   "listingType": model.ListingType;
   /**
-   * The name of the listing.
+   * The name of the publication.
    */
   "name"?: Array<string>;
   /**
-   * The unique identifier for the listing.
+   * The unique identifier for the publication.
    */
   "publicationId"?: string;
   /**
-   * OS of the listing.
+   * The operating system of the listing.
    */
   "operatingSystems"?: Array<string>;
   /**

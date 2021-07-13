@@ -1,8 +1,6 @@
 /**
  * Big Data Service API
- * API for the Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service
-build on Hadoop, Spark and Data Science distribution, which can be fully integrated with existing enterprise
-data in Oracle Database and Oracle Applications..
+ * REST API for Oracle Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service clusters. Build on Hadoop, Spark and Data Science distributions, which can be fully integrated with existing enterprise data in Oracle Database and Oracle applications.
 
  * OpenAPI spec version: 20190531
  * Contact: rahul.ra.arora@oracle.com
@@ -26,10 +24,7 @@ export interface WorkRequestResource {
    */
   "entityType": string;
   /**
-   * The way in which this resource is affected by the work tracked in the work request.
-   * A resource being created, updated, or deleted will remain in the IN_PROGRESS state until
-   * work is complete for that resource at which point it will transition to CREATED, UPDATED,
-   * or DELETED, respectively.
+   * The way in which this resource is affected by the work tracked in the work request. A resource being created, updated, or deleted remains in the IN_PROGRESS state until work is complete for that resource, at which point it will transition to CREATED, UPDATED, or DELETED, respectively.
    *
    */
   "actionType": model.ActionTypes;
@@ -38,7 +33,7 @@ export interface WorkRequestResource {
    */
   "identifier": string;
   /**
-   * The URI path that the user can do a GET on to access the resource metadata
+   * The URI path that the user can do a GET on to access the resource metadata.
    */
   "entityUri"?: string;
 }

@@ -1,8 +1,6 @@
 /**
  * Big Data Service API
- * API for the Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service
-build on Hadoop, Spark and Data Science distribution, which can be fully integrated with existing enterprise
-data in Oracle Database and Oracle Applications..
+ * REST API for Oracle Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service clusters. Build on Hadoop, Spark and Data Science distributions, which can be fully integrated with existing enterprise data in Oracle Database and Oracle applications.
 
  * OpenAPI spec version: 20190531
  * Contact: rahul.ra.arora@oracle.com
@@ -18,19 +16,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new BDS instance
+ * The information about the new cluster.
  */
 export interface CreateBdsInstanceDetails {
   /**
-   * The OCID of the compartment
+   * The OCID of the compartment.
    */
   "compartmentId": string;
   /**
-   * Name of the BDS instance
+   * Name of the Big Data Service cluster.
    */
   "displayName": string;
   /**
-   * Version of the Hadoop distribution
+   * Version of the Hadoop distribution.
    */
   "clusterVersion": string;
   /**
@@ -38,31 +36,31 @@ export interface CreateBdsInstanceDetails {
    */
   "clusterPublicKey": string;
   /**
-   * Base-64 encoded password for Cloudera Manager admin user
+   * Base-64 encoded password for the cluster (and Cloudera Manager) admin user.
    */
   "clusterAdminPassword": string;
   /**
-   * Boolean flag specifying whether or not the cluster is HA
+   * Boolean flag specifying whether or not the cluster is highly available (HA).
    */
   "isHighAvailability": boolean;
   /**
-   * Boolean flag specifying whether or not the cluster should be setup as secure.
+   * Boolean flag specifying whether or not the cluster should be set up as secure.
    */
   "isSecure": boolean;
   "networkConfig"?: model.NetworkConfig;
   /**
-   * The list of nodes in the BDS instance
+   * The list of nodes in the Big Data Service cluster.
    */
   "nodes": Array<model.CreateNodeDetails>;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Simple key-value pair that is applied without any predefined name, type, or scope.
+   * Exists for cross-compatibility only. For example, `{\"bar-key\": \"value\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * For example, `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

@@ -107,8 +107,6 @@ import * as SteeringPolicyWeightedAnswerData from "./steering-policy-weighted-an
 export import SteeringPolicyWeightedAnswerData = SteeringPolicyWeightedAnswerData.SteeringPolicyWeightedAnswerData;
 import * as SteeringPolicyWeightedRuleCase from "./steering-policy-weighted-rule-case";
 export import SteeringPolicyWeightedRuleCase = SteeringPolicyWeightedRuleCase.SteeringPolicyWeightedRuleCase;
-import * as TSIG from "./t-si-g";
-export import TSIG = TSIG.TSIG;
 import * as TsigKey from "./tsig-key";
 export import TsigKey = TsigKey.TsigKey;
 import * as TsigKeySummary from "./tsig-key-summary";
@@ -141,6 +139,8 @@ import * as Zone from "./zone";
 export import Zone = Zone.Zone;
 import * as ZoneSummary from "./zone-summary";
 export import ZoneSummary = ZoneSummary.ZoneSummary;
+import * as ZoneTransferServer from "./zone-transfer-server";
+export import ZoneTransferServer = ZoneTransferServer.ZoneTransferServer;
 
 import * as CreateMigratedDynectZoneDetails from "./create-migrated-dynect-zone-details";
 export import CreateMigratedDynectZoneDetails = CreateMigratedDynectZoneDetails.CreateMigratedDynectZoneDetails;

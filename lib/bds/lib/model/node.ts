@@ -1,8 +1,6 @@
 /**
  * Big Data Service API
- * API for the Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service
-build on Hadoop, Spark and Data Science distribution, which can be fully integrated with existing enterprise
-data in Oracle Database and Oracle Applications..
+ * REST API for Oracle Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service clusters. Build on Hadoop, Spark and Data Science distributions, which can be fully integrated with existing enterprise data in Oracle Database and Oracle applications.
 
  * OpenAPI spec version: 20190531
  * Contact: rahul.ra.arora@oracle.com
@@ -18,27 +16,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specific info about a node
+ * Details about a node.
  */
 export interface Node {
   /**
-   * The OCID of the underlying compute instance
+   * The OCID of the underlying Oracle Cloud Infrastructure Compute instance.
    */
   "instanceId": string;
   /**
-   * The name of the node
+   * The name of the node.
    */
   "displayName": string;
   /**
-   * The state of the node
+   * The state of the node.
    */
   "lifecycleState": Node.LifecycleState;
   /**
-   * BDS instance node type
+   * Cluster node type.
    */
   "nodeType": Node.NodeType;
   /**
-   * Shape of the node
+   * Shape of the node.
    */
   "shape": string;
   /**
@@ -46,39 +44,39 @@ export interface Node {
    */
   "attachedBlockVolumes"?: Array<model.VolumeAttachmentDetail>;
   /**
-   * The OCID of the subnet in which the node should be created
+   * The OCID of the subnet in which the node is to be created.
    */
   "subnetId": string;
   /**
-   * IP address of the node
+   * IP address of the node.
    */
   "ipAddress": string;
   /**
-   * The fully-qualified hostname (FQDN) of the node
+   * The fully-qualified hostname (FQDN) of the node.
    */
   "hostname"?: string;
   /**
-   * The OCID of the image from which the node was created
+   * The OCID of the image from which the node was created.
    */
   "imageId"?: string;
   /**
-   * The fingerprint of the SSH key used for node access
+   * The fingerprint of the SSH key used for node access.
    */
   "sshFingerprint": string;
   /**
-   * The name of the availability domain the node is running in
+   * The name of the availability domain in which the node is running.
    */
   "availabilityDomain": string;
   /**
-   * The name of the fault domain the node is running in
+   * The name of the fault domain in which the node is running.
    */
   "faultDomain": string;
   /**
-   * The time the node was created. An RFC3339 formatted datetime string
+   * The time the node was created, shown as an RFC 3339 formatted datetime string.
    */
   "timeCreated": Date;
   /**
-   * The time the BDS instance was updated. An RFC3339 formatted datetime string
+   * The time the cluster was updated, shown as an RFC 3339 formatted datetime string.
    */
   "timeUpdated"?: Date;
 }

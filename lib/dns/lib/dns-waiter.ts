@@ -102,16 +102,17 @@ export class DnsWaiter {
    *
    * @param request the request to send
    * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetTsigKeyResponse
+   * @return response returns GetTsigKeyResponse | null (null in case of 404 response)
    */
   public async forTsigKey(
     request: serviceRequests.GetTsigKeyRequest,
     ...targetStates: models.TsigKey.LifecycleState[]
-  ): Promise<serviceResponses.GetTsigKeyResponse> {
-    return genericWaiter(
+  ): Promise<serviceResponses.GetTsigKeyResponse | null> {
+    return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTsigKey(request),
-      response => targetStates.includes(response.tsigKey.lifecycleState!)
+      response => targetStates.includes(response.tsigKey.lifecycleState!),
+      targetStates.includes(models.TsigKey.LifecycleState.Deleted)
     );
   }
 

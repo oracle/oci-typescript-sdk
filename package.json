@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "1.22.1",
+  "version": "1.23.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -100,7 +100,8 @@
     "oci-bastion": "file:lib/bastion",
     "oci-genericartifactscontent": "file:lib/genericartifactscontent",
     "oci-jms": "file:lib/jms",
-    "oci-devops": "file:lib/devops"
+    "oci-devops": "file:lib/devops",
+    "oci-aianomalydetection": "file:lib/aianomalydetection"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

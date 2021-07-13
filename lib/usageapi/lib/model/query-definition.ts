@@ -25,7 +25,7 @@ export interface QueryDefinition {
   "reportQuery": model.ReportQuery;
   "costAnalysisUI": model.CostAnalysisUI;
   /**
-   * the version of saved query. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The saved query version. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version": number;
 }

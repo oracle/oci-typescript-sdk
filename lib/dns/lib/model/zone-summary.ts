@@ -121,6 +121,7 @@ export namespace ZoneSummary {
     Deleted = "DELETED",
     Deleting = "DELETING",
     Failed = "FAILED",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

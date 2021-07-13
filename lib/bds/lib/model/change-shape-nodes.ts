@@ -1,8 +1,6 @@
 /**
  * Big Data Service API
- * API for the Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service
-build on Hadoop, Spark and Data Science distribution, which can be fully integrated with existing enterprise
-data in Oracle Database and Oracle Applications..
+ * REST API for Oracle Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service clusters. Build on Hadoop, Spark and Data Science distributions, which can be fully integrated with existing enterprise data in Oracle Database and Oracle applications.
 
  * OpenAPI spec version: 20190531
  * Contact: rahul.ra.arora@oracle.com
@@ -18,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Inidividual worker nodes groups details
+ * Individual worker nodes groups details.
  */
 export interface ChangeShapeNodes {
   /**
@@ -34,7 +32,7 @@ export interface ChangeShapeNodes {
    */
   "utility"?: string;
   /**
-   * Change shape of cloudsql node to the desired target shape. Only VM_STANDARD shapes are allowed here.
+   * Change shape of the Cloud SQL node to the desired target shape. Only VM_STANDARD shapes are allowed here.
    */
   "cloudsql"?: string;
 }

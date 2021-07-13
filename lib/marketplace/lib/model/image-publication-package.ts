@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A package for image publications.
+ * A publication package for image publications.
  */
 export interface ImagePublicationPackage extends model.PublicationPackage {
   /**
@@ -24,11 +24,11 @@ export interface ImagePublicationPackage extends model.PublicationPackage {
    */
   "appCatalogListingId"?: string;
   /**
-   * The resource version of the listing resource associated with this listing package.
+   * The resource version of the listing resource associated with this publication package.
    */
   "appCatalogListingResourceVersion"?: string;
   /**
-   * The ID of the image corresponding to the package.
+   * The ID of the image that corresponds to the package.
    */
   "imageId"?: string;
 

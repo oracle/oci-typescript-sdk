@@ -11,6 +11,10 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as GetLaunchEligibilityResponse from "./get-launch-eligibility-response";
+export import GetLaunchEligibilityResponse = GetLaunchEligibilityResponse.GetLaunchEligibilityResponse;
+import * as GetThirdPartyPaidListingEligibilityResponse from "./get-third-party-paid-listing-eligibility-response";
+export import GetThirdPartyPaidListingEligibilityResponse = GetThirdPartyPaidListingEligibilityResponse.GetThirdPartyPaidListingEligibilityResponse;
 import * as ChangePublicationCompartmentResponse from "./change-publication-compartment-response";
 export import ChangePublicationCompartmentResponse = ChangePublicationCompartmentResponse.ChangePublicationCompartmentResponse;
 import * as CreateAcceptedAgreementResponse from "./create-accepted-agreement-response";
@@ -55,6 +59,8 @@ import * as ListReportsResponse from "./list-reports-response";
 export import ListReportsResponse = ListReportsResponse.ListReportsResponse;
 import * as ListTaxesResponse from "./list-taxes-response";
 export import ListTaxesResponse = ListTaxesResponse.ListTaxesResponse;
+import * as SearchListingsResponse from "./search-listings-response";
+export import SearchListingsResponse = SearchListingsResponse.SearchListingsResponse;
 import * as UpdateAcceptedAgreementResponse from "./update-accepted-agreement-response";
 export import UpdateAcceptedAgreementResponse = UpdateAcceptedAgreementResponse.UpdateAcceptedAgreementResponse;
 import * as UpdatePublicationResponse from "./update-publication-response";

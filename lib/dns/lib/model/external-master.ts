@@ -18,8 +18,6 @@ import common = require("oci-common");
 
 /**
  * An external master name server used as the source of zone data.
- * May either have a zone-embedded TSIG or reference a TSIG key by OCID,
- * but not both.
  *
  */
 export interface ExternalMaster {
@@ -33,7 +31,6 @@ export interface ExternalMaster {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port"?: number;
-  "tsig"?: model.TSIG;
   /**
    * The OCID of the TSIG key.
    */
@@ -42,22 +39,12 @@ export interface ExternalMaster {
 
 export namespace ExternalMaster {
   export function getJsonObj(obj: ExternalMaster): object {
-    const jsonObj = {
-      ...obj,
-      ...{
-        "tsig": obj.tsig ? model.TSIG.getJsonObj(obj.tsig) : undefined
-      }
-    };
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ExternalMaster): object {
-    const jsonObj = {
-      ...obj,
-      ...{
-        "tsig": obj.tsig ? model.TSIG.getDeserializedJsonObj(obj.tsig) : undefined
-      }
-    };
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface PublisherSummary {
   /**
-   * Unique identifier for the publisher.
+   * The unique identifier for the publisher.
    */
   "id"?: string;
   /**

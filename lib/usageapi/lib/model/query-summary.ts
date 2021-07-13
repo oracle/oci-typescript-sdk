@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Query summery in list request.
+ * Query summery in the list request.
  */
 export interface QuerySummary {
   /**

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An EULA that is provided as text
+ * An end user license agreement that is provided as text.
  */
 export interface TextBasedEula extends model.Eula {
   /**
-   * text of the eula
+   * The text of the end user license agreement.
    */
   "licenseText"?: string;
 

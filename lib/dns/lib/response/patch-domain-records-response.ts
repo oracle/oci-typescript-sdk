@@ -27,14 +27,13 @@ export interface PatchDomainRecordsResponse {
    */
   "opcTotalItems": number;
   /**
-   * Unique Oracle-assigned identifier for the request. If you need
-   * to contact Oracle about a particular request, please provide
-   * the request ID.
+   * Unique Oracle-assigned identifier for the request. If you need to
+   * contact Oracle about a particular request, please provide the request ID.
    *
    */
   "opcRequestId": string;
   /**
-   * The current version of the record collection, ending with a
+   * The current version of the resource, ending with a
    * representation-specific suffix. This value may be used in If-Match
    * and If-None-Match headers for later requests of the same resource.
    *

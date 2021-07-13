@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface CostAnalysisUI {
   /**
-   * the type of graph mode.
+   * The graph type.
    */
   "graph"?: CostAnalysisUI.Graph;
   /**
-   * is cumulative graph.
+   * A cumulative graph.
    */
   "isCumulativeGraph"?: boolean;
 }

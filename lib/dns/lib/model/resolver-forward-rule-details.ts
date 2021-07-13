@@ -23,8 +23,8 @@ export interface ResolverForwardRuleDetails extends model.ResolverRuleDetails {
    */
   "destinationAddresses": Array<string>;
   /**
-   * Name of an endpoint, that is a sub-resource of the resolver, to use as the forwarding interface. The
-   * endpoint must have isForwarding set to true.
+   * Case-insensitive name of an endpoint, that is a sub-resource of the resolver, to use as the forwarding
+   * interface. The endpoint must have isForwarding set to true.
    *
    */
   "sourceEndpointName": string;

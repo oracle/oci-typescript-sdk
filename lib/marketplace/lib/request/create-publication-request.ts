@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreatePublicationRequest extends common.BaseRequest {
   /**
-   * Details of Publication to be created including optional default package.
+   * The details for creating the publication.
    */
   "createPublicationDetails": model.CreatePublicationDetails;
   /**

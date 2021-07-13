@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible values for eula types
+ * Possible values for end user license agreement (EULA) formats.
  **/
 export enum EulaTypeEnum {
   Text = "TEXT"

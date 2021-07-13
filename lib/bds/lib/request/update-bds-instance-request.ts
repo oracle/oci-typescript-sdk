@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateBdsInstanceRequest extends common.BaseRequest {
   /**
-   * The OCID of the BDS instance
+   * The OCID of the cluster.
    */
   "bdsInstanceId": string;
   /**
-   * Details for the to-be-updated BDS instace.
+   * Details for the cluster to be updated.
    */
   "updateBdsInstanceDetails": model.UpdateBdsInstanceDetails;
   /**

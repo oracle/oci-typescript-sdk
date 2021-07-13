@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface PublicationPackage {
   /**
-   * Description of this package.
+   * A description of the package.
    */
   "description"?: string;
   /**
-   * The ID of the listing this package belongs to.
+   * The ID of the listing that the specified package belongs to.
    */
   "listingId": string;
   /**
@@ -35,7 +35,7 @@ export interface PublicationPackage {
    */
   "resourceId"?: string;
   /**
-    * The date and time this listing package was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
+    * The date and time the publication package was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
 * timestamp format.
 * <p>
 Example: `2016-08-25T21:10:29.600Z`

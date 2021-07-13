@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetBdsInstanceRequest extends common.BaseRequest {
   /**
-   * The OCID of the BDS instance
+   * The OCID of the cluster.
    */
   "bdsInstanceId": string;
   /**

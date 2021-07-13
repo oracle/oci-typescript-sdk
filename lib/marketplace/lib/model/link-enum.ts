@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible values for the link type.
+ * Possible values for a link type.
  **/
 export enum LinkEnum {
   Self = "SELF",

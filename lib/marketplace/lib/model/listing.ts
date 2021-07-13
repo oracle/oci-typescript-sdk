@@ -119,11 +119,11 @@ export interface Listing {
    */
   "isFeatured"?: boolean;
   /**
-   * In which catalog the listing should exist.
+   * The publisher category to which the listing belongs. The publisher category informs where the listing appears for use.
    */
   "listingType"?: model.ListingType;
   /**
-   * List of operating systems supported.
+   * List of operating systems supported by the listing.
    */
   "supportedOperatingSystems"?: Array<model.OperatingSystem>;
 }

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for the query to update reportQuery, costAnalysisUI and displayName.
+ * Details for the query to update reportQuery, costAnalysisUI, and displayName.
  */
 export interface UpdateQueryDetails {
   "queryDefinition": model.QueryDefinition;

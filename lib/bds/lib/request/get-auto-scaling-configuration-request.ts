@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface GetAutoScalingConfigurationRequest extends common.BaseRequest {
   /**
-   * The OCID of the BDS instance
+   * The OCID of the cluster.
    */
   "bdsInstanceId": string;
   /**
-   * Unique Oracle-assigned identifier of the autoscaling configuration.
+   * Unique Oracle-assigned identifier of the autoscale configuration.
    */
   "autoScalingConfigurationId": string;
   /**

@@ -1,8 +1,6 @@
 /**
  * Big Data Service API
- * API for the Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service
-build on Hadoop, Spark and Data Science distribution, which can be fully integrated with existing enterprise
-data in Oracle Database and Oracle Applications..
+ * REST API for Oracle Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service clusters. Build on Hadoop, Spark and Data Science distributions, which can be fully integrated with existing enterprise data in Oracle Database and Oracle applications.
 
  * OpenAPI spec version: 20190531
  * Contact: rahul.ra.arora@oracle.com
@@ -18,19 +16,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An autoscaling action is triggered when a performance metric meets or exceeds a threshold
+ * An autoscale action is triggered when a performance metric meets or exceeds a threshold.
  */
 export interface MetricThresholdRule {
   /**
-   * This value is the minimum period of time metric value meets or exceeds threshold value before action is trigger. The value is in minutes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * This value is the minimum period of time the metric value meets or exceeds the threshold value before the action is triggered. The value is in minutes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "durationInMinutes": number;
   /**
-   * The comparison operator to use. Options are greater than (GT), less than (LT).
+   * The comparison operator to use. Options are greater than (GT) or less than (LT).
    */
   "operator": MetricThresholdRule.Operator;
   /**
-   * integer non negative value. 0 < value < 100 Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Integer non-negative value. 0 < value < 100 Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "value": number;
 }

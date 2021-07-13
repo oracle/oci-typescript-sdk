@@ -15,16 +15,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A base object for the properties of the package
+ * A base object for creating a publication package.
  */
 export interface CreatePublicationPackage {
   /**
-   * The version of the package
+   * The package version.
    */
   "packageVersion": string;
   "operatingSystem": model.OperatingSystem;
   /**
-   * End User License Agreeement that a consumer of this listing has to accept
+   * The end user license agreeement (EULA) that consumers of this listing must accept.
    */
   "eula": Array<model.Eula>;
 

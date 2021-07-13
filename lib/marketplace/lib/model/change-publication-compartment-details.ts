@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Contains details indicating to which compartment the Publication should be moved
+ * The model for the parameters needed move a publication from one compartment to another.
  */
 export interface ChangePublicationCompartmentDetails {
   /**
-   * The unique identifier for the compartment to which the Publication should be moved.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where you want to move the publication.
    */
   "compartmentId"?: string;
 }

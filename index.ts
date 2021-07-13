@@ -165,3 +165,4 @@ export import bastion = require("oci-bastion");
 export import genericartifactscontent = require("oci-genericartifactscontent");
 export import jms = require("oci-jms");
 export import devops = require("oci-devops");
+export import aianomalydetection = require("oci-aianomalydetection");

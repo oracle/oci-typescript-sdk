@@ -79,11 +79,11 @@ export interface ListListingsRequest extends common.BaseRequest {
    */
   "isFeatured"?: boolean;
   /**
-   * The type of the listing
+   * The type of the listing.
    */
   "listingTypes"?: Array<model.ListingType>;
   /**
-   * OS of the listing.
+   * The operating system of the listing.
    */
   "operatingSystems"?: Array<string>;
   /**
