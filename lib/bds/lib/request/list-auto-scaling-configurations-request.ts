@@ -23,7 +23,7 @@ export interface ListAutoScalingConfigurationsRequest extends common.BaseRequest
    */
   "compartmentId": string;
   /**
-   * The OCID of the BDS instance
+   * The OCID of the cluster.
    */
   "bdsInstanceId": string;
   /**
@@ -48,7 +48,7 @@ export interface ListAutoScalingConfigurationsRequest extends common.BaseRequest
    */
   "displayName"?: string;
   /**
-   * The state of the autoscaling configuration.
+   * The state of the autoscale configuration.
    */
   "lifecycleState"?: string;
   /**

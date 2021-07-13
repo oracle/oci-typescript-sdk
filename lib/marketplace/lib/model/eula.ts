@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A base object for all types of End User Licenses
+ * A base object for all types of end user license agreements.
  */
 export interface Eula {
   "eulaType": string;

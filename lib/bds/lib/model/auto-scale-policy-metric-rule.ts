@@ -1,8 +1,6 @@
 /**
  * Big Data Service API
- * API for the Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service
-build on Hadoop, Spark and Data Science distribution, which can be fully integrated with existing enterprise
-data in Oracle Database and Oracle Applications..
+ * REST API for Oracle Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service clusters. Build on Hadoop, Spark and Data Science distributions, which can be fully integrated with existing enterprise data in Oracle Database and Oracle applications.
 
  * OpenAPI spec version: 20190531
  * Contact: rahul.ra.arora@oracle.com
@@ -18,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Metric and threshold details for triggering an autoscaling action
+ * Metric and threshold details for triggering an autoscale action.
  */
 export interface AutoScalePolicyMetricRule {
   /**
-   * Allowed value is CPU_UTILIZATION currently
+   * Allowed value is CPU_UTILIZATION.
    */
   "metricType": AutoScalePolicyMetricRule.MetricType;
   "threshold": model.MetricThresholdRule;

@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface SavedCustomTable {
   /**
-   * the name of custom table.
+   * The name of the custom table.
    */
   "displayName": string;
   /**
-   * row groupBy key list.
+   * The row groupBy key list.
    * example:
    *   `[\"tagNamespace\", \"tagKey\", \"tagValue\", \"service\", \"skuName\", \"skuPartNumber\", \"unit\",
    *     \"compartmentName\", \"compartmentPath\", \"compartmentId\", \"platform\", \"region\", \"logicalAd\",
@@ -32,7 +32,7 @@ export interface SavedCustomTable {
    */
   "rowGroupBy"?: Array<string>;
   /**
-   * column groupBy key list.
+   * The column groupBy key list.
    * example:
    *   `[\"tagNamespace\", \"tagKey\", \"tagValue\", \"service\", \"skuName\", \"skuPartNumber\", \"unit\",
    *     \"compartmentName\", \"compartmentPath\", \"compartmentId\", \"platform\", \"region\", \"logicalAd\",
@@ -41,8 +41,8 @@ export interface SavedCustomTable {
    */
   "columnGroupBy"?: Array<string>;
   /**
-   * GroupBy a specific tagKey. Provide tagNamespace and tagKey in tag object. Only support one tag in the list
-   * example:
+   * GroupBy a specific tagKey. Provide the tagNamespace and tagKey in the tag object. Only one tag in the list is supported.
+   * For example:
    *   `[{\"namespace\":\"oracle\", \"key\":\"createdBy\"]`
    *
    */
@@ -52,7 +52,7 @@ export interface SavedCustomTable {
    */
   "compartmentDepth"?: number;
   /**
-   * the version of custom table. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The version of the custom table. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
 }

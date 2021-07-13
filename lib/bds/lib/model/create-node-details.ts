@@ -1,8 +1,6 @@
 /**
  * Big Data Service API
- * API for the Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service
-build on Hadoop, Spark and Data Science distribution, which can be fully integrated with existing enterprise
-data in Oracle Database and Oracle Applications..
+ * REST API for Oracle Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service clusters. Build on Hadoop, Spark and Data Science distributions, which can be fully integrated with existing enterprise data in Oracle Database and Oracle applications.
 
  * OpenAPI spec version: 20190531
  * Contact: rahul.ra.arora@oracle.com
@@ -18,25 +16,25 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new node
+ * The information about the new node.
  */
 export interface CreateNodeDetails {
   /**
-   * BDS instance node type
+   * The Big Data Service cluster node type.
    */
   "nodeType": string;
   /**
-   * Shape of the node
+   * Shape of the node.
    */
   "shape": string;
   /**
-   * The size of block volume in GB that needs to be attached to a given node.
-   * All the necessary details needed for attachment are managed by service itself.
+   * The size of block volume in GB to be attached to a given node. All the
+   * details needed for attaching the block volume are managed by service itself.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockVolumeSizeInGBs": number;
   /**
-   * The OCID of the subnet in which the node should be created
+   * The OCID of the subnet in which the node will be created.
    */
   "subnetId": string;
 }

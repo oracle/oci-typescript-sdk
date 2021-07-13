@@ -91,6 +91,11 @@ export interface ListZonesRequest extends common.BaseRequest {
    * The OCID of the view the resource is associated with.
    */
   "viewId"?: string;
+  /**
+   * Search for zones that are associated with a TSIG key.
+   *
+   */
+  "tsigKeyId"?: string;
 }
 
 export namespace ListZonesRequest {
@@ -104,7 +109,8 @@ export namespace ListZonesRequest {
     Creating = "CREATING",
     Deleted = "DELETED",
     Deleting = "DELETING",
-    Failed = "FAILED"
+    Failed = "FAILED",
+    Updating = "UPDATING"
   }
 
   export enum SortBy {

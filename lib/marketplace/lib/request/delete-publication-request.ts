@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeletePublicationRequest extends common.BaseRequest {
   /**
-   * The unique identifier for the listing.
+   * The unique identifier for the publication.
    */
   "publicationId": string;
   /**

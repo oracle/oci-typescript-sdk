@@ -15,23 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The updated details of the resource
+ * The model for the parameters needed to update a publication.
  */
 export interface UpdatePublicationDetails {
   /**
-   * The name of the listing.
+   * The name of the publication, which is also used in the listing.
    */
   "name"?: string;
   /**
-   * short description of the catalog listing
+   * A short description of the publication to use in the listing.
    */
   "shortDescription"?: string;
   /**
-   * short description of the catalog listing
+   * A long description of the publication to use in the listing.
    */
   "longDescription"?: string;
   /**
-   * Contact information to use to get support from the publisher for the listing.
+   * Contact information for getting support from the publisher for the listing.
    */
   "supportContacts"?: Array<model.SupportContact>;
   /**

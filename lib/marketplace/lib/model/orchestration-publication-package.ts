@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A publication package for orchestration.
+ * A publication package for stack publications.
  */
 export interface OrchestrationPublicationPackage extends model.PublicationPackage {
   /**
-   * Link to the orchestration resource.
+   * A link to the stack resource.
    */
   "resourceLink"?: string;
   /**
-   * List of variables for the orchestration resource.
+   * A list of variables for the stack resource.
    */
   "variables"?: Array<model.OrchestrationVariable>;
 

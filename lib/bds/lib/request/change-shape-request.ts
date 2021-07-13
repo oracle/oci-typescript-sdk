@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ChangeShapeRequest extends common.BaseRequest {
   /**
-   * The OCID of the BDS instance
+   * The OCID of the cluster.
    */
   "bdsInstanceId": string;
   /**
-   * Individual change shape settings per node group. You can change the shape of master, worker, utility and cloudsql nodes.
+   * Individual change shape settings per node type. You can change the shape of master, worker, utility and Cloud SQL nodes.
    */
   "changeShapeDetails": model.ChangeShapeDetails;
   /**
@@ -41,8 +41,8 @@ export interface ChangeShapeRequest extends common.BaseRequest {
   "ifMatch"?: string;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
-   * server error without risk of executing that same action again. Retry tokens expire after 24
-   * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
+   * server error, without risk of executing that same action again. Retry tokens expire after 24
+   * hours but can be invalidated before then due to conflicting operations. For example, if a resource
    * has been deleted and purged from the system, then a retry of the original creation request
    * might be rejected.
    *

@@ -1,8 +1,6 @@
 /**
  * Big Data Service API
- * API for the Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service
-build on Hadoop, Spark and Data Science distribution, which can be fully integrated with existing enterprise
-data in Oracle Database and Oracle Applications..
+ * REST API for Oracle Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service clusters. Build on Hadoop, Spark and Data Science distributions, which can be fully integrated with existing enterprise data in Oracle Database and Oracle applications.
 
  * OpenAPI spec version: 20190531
  * Contact: rahul.ra.arora@oracle.com
@@ -26,49 +24,52 @@ export interface ClusterDetails {
    */
   "bdaVersion"?: string;
   /**
-   * Big Data Manager version installed in the cluster
+   * Big Data Manager version installed in the cluster.
    */
   "bdmVersion"?: string;
   /**
-   * Big Data Service version installed in the cluster
+   * Big Data Service version installed in the cluster.
    */
   "bdsVersion"?: string;
   /**
-   * Oracle Linux version installed in the cluster
+   * Oracle Linux version installed in the cluster.
    */
   "osVersion"?: string;
   /**
-   * Query Server Database version
+   * Cloud SQL query server database version.
    */
   "dbVersion"?: string;
   /**
-   * Cloud SQL cell version
+   * Cloud SQL cell version.
    */
   "bdCellVersion"?: string;
   /**
-   * Big Data SQL version
+   * Big Data SQL version.
    */
   "csqlCellVersion"?: string;
   /**
-   * The time the cluster was created. An RFC3339 formatted datetime string
+   * The time the cluster was created, shown as an RFC 3339 formatted datetime string.
    */
   "timeCreated": Date;
   /**
-   * The time the BDS instance was automatically, or manually refreshed.
-   * An RFC3339 formatted datetime string
+   * The time the cluster was automatically or manually refreshed, shown as an RFC 3339 formatted datetime string.
    *
    */
   "timeRefreshed"?: Date;
   /**
-   * The URL of a Cloudera Manager
+   * The URL of Cloudera Manager
    */
   "clouderaManagerUrl"?: string;
   /**
-   * The URL of a Big Data Manager
+   * The URL of Ambari
+   */
+  "ambariUrl"?: string;
+  /**
+   * The URL of Big Data Manager.
    */
   "bigDataManagerUrl"?: string;
   /**
-   * The URL of a Hue Server
+   * The URL of the Hue server.
    */
   "hueServerUrl"?: string;
 }

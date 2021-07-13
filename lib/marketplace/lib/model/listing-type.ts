@@ -15,7 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * To which catalog a listing belongs
+ * Possible values for the publisher category to which a publication can belong. The publisher category informs where the listing appears for use.
+ *
  **/
 export enum ListingType {
   Community = "COMMUNITY",

@@ -30,6 +30,7 @@ export interface ListingPackageSummary {
    * The specified package's type.
    */
   "packageType"?: model.PackageTypeEnum;
+  "pricing"?: model.PricingModel;
   /**
    * The regions where you can deploy the listing package. (Some packages have restrictions that limit their deployment to United States regions only.)
    *
@@ -54,6 +55,7 @@ export namespace ListingPackageSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "pricing": obj.pricing ? model.PricingModel.getJsonObj(obj.pricing) : undefined,
         "regions": obj.regions
           ? obj.regions.map(item => {
               return model.Region.getJsonObj(item);
@@ -68,6 +70,7 @@ export namespace ListingPackageSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "pricing": obj.pricing ? model.PricingModel.getDeserializedJsonObj(obj.pricing) : undefined,
         "regions": obj.regions
           ? obj.regions.map(item => {
               return model.Region.getDeserializedJsonObj(item);

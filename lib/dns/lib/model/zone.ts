@@ -112,6 +112,11 @@ export interface Zone {
    * The authoritative nameservers for the zone.
    */
   "nameservers": Array<model.Nameserver>;
+  /**
+   * The OCI nameservers that transfer the zone data with external nameservers.
+   *
+   */
+  "zoneTransferServers"?: Array<model.ZoneTransferServer>;
 }
 
 export namespace Zone {
@@ -131,6 +136,7 @@ export namespace Zone {
     Deleted = "DELETED",
     Deleting = "DELETING",
     Failed = "FAILED",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -152,6 +158,11 @@ export namespace Zone {
           ? obj.nameservers.map(item => {
               return model.Nameserver.getJsonObj(item);
             })
+          : undefined,
+        "zoneTransferServers": obj.zoneTransferServers
+          ? obj.zoneTransferServers.map(item => {
+              return model.ZoneTransferServer.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -171,6 +182,11 @@ export namespace Zone {
         "nameservers": obj.nameservers
           ? obj.nameservers.map(item => {
               return model.Nameserver.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "zoneTransferServers": obj.zoneTransferServers
+          ? obj.zoneTransferServers.map(item => {
+              return model.ZoneTransferServer.getDeserializedJsonObj(item);
             })
           : undefined
       }

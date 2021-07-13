@@ -28,8 +28,7 @@ export interface ListSteeringPoliciesResponse {
   "opcTotalItems": number;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to
-   * contact Oracle about a particular request, please provide the request
-   * ID.
+   * contact Oracle about a particular request, please provide the request ID.
    *
    */
   "opcRequestId": string;

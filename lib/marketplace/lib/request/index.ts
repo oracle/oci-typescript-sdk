@@ -11,6 +11,10 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as GetLaunchEligibilityRequest from "./get-launch-eligibility-request";
+export import GetLaunchEligibilityRequest = GetLaunchEligibilityRequest.GetLaunchEligibilityRequest;
+import * as GetThirdPartyPaidListingEligibilityRequest from "./get-third-party-paid-listing-eligibility-request";
+export import GetThirdPartyPaidListingEligibilityRequest = GetThirdPartyPaidListingEligibilityRequest.GetThirdPartyPaidListingEligibilityRequest;
 import * as ChangePublicationCompartmentRequest from "./change-publication-compartment-request";
 export import ChangePublicationCompartmentRequest = ChangePublicationCompartmentRequest.ChangePublicationCompartmentRequest;
 import * as CreateAcceptedAgreementRequest from "./create-accepted-agreement-request";
@@ -55,6 +59,8 @@ import * as ListReportsRequest from "./list-reports-request";
 export import ListReportsRequest = ListReportsRequest.ListReportsRequest;
 import * as ListTaxesRequest from "./list-taxes-request";
 export import ListTaxesRequest = ListTaxesRequest.ListTaxesRequest;
+import * as SearchListingsRequest from "./search-listings-request";
+export import SearchListingsRequest = SearchListingsRequest.SearchListingsRequest;
 import * as UpdateAcceptedAgreementRequest from "./update-accepted-agreement-request";
 export import UpdateAcceptedAgreementRequest = UpdateAcceptedAgreementRequest.UpdateAcceptedAgreementRequest;
 import * as UpdatePublicationRequest from "./update-publication-request";

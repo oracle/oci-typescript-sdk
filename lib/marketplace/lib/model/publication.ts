@@ -15,35 +15,35 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The model for an Oracle Cloud Infrastructure Marketplace Publication
+ * The model for an Oracle Cloud Infrastructure Marketplace publication.
  */
 export interface Publication {
   /**
-   * The state of the listing in its lifecycle
+   * The lifecycle state of the publication.
    */
   "lifecycleState"?: Publication.LifecycleState;
   /**
-   * The Compartment id where the listings exists
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where the publication exists.
    */
   "compartmentId": string;
   /**
-   * The unique identifier for the listing in Marketplace.
+   * The unique identifier for the publication in Marketplace.
    */
   "id": string;
   /**
-   * The name of the listing.
+   * The name of the publication, which is also used in the listing.
    */
   "name": string;
   /**
-   * A short description of the listing.
+   * A short description of the publication to use in the listing.
    */
   "shortDescription"?: string;
   /**
-   * A long description of the listing.
+   * A long description of the publication to use in the listing.
    */
   "longDescription"?: string;
   /**
-   * Contact information to use to get support from the publisher for the listing.
+   * Contact information for getting support from the publisher for the listing.
    */
   "supportContacts"?: Array<model.SupportContact>;
   "icon"?: model.UploadData;
@@ -52,15 +52,15 @@ export interface Publication {
    */
   "packageType"?: model.PackageTypeEnum;
   /**
-   * In which catalog the listing should exist.
+   * The publisher category to which the publication belongs. The publisher category informs where the listing appears for use.
    */
   "listingType": model.ListingType;
   /**
-   * List of operating systems supprted.
+   * The list of operating systems supprted by the listing.
    */
   "supportedOperatingSystems"?: Array<model.OperatingSystem>;
   /**
-    * The date and time this publication was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
+    * The date and time the publication was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
 * timestamp format.
 * <p>
 Example: `2016-08-25T21:10:29.600Z`

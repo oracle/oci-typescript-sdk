@@ -1,8 +1,6 @@
 /**
  * Big Data Service API
- * API for the Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service
-build on Hadoop, Spark and Data Science distribution, which can be fully integrated with existing enterprise
-data in Oracle Database and Oracle Applications..
+ * REST API for Oracle Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service clusters. Build on Hadoop, Spark and Data Science distributions, which can be fully integrated with existing enterprise data in Oracle Database and Oracle applications.
 
  * OpenAPI spec version: 20190531
  * Contact: rahul.ra.arora@oracle.com
@@ -32,17 +30,17 @@ export interface CloudSqlDetails {
    */
   "blockVolumeSizeInGBs"?: number;
   /**
-   * Boolean flag specifying whether or not are Kerberos principals mapped
+   * Boolean flag specifying whether or not Kerberos principals are mapped
    * to database users.
    *
    */
   "isKerberosMappedToDatabaseUsers"?: boolean;
   /**
-   * IP address of the Cloud SQL node
+   * IP address of the Cloud SQL node.
    */
   "ipAddress": string;
   /**
-   * Details about Kerberos principals
+   * Details about the Kerberos principals.
    */
   "kerberosDetails"?: Array<model.KerberosDetails>;
 }

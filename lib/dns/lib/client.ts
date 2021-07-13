@@ -33,7 +33,7 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 export enum DnsApiKeys {}
 
 export class DnsClient {
-  protected static serviceEndpointTemplate = "https://dns.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate = "https://dns.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DnsWaiter;
@@ -139,7 +139,7 @@ export class DnsClient {
 
   /**
    * Moves a resolver into a different compartment along with its protected default view and any endpoints.
-   * Zones in the default view are not moved.
+   * Zones in the default view are not moved. Requires a `PRIVATE` scope query parameter.
    *
    * @param ChangeResolverCompartmentRequest
    * @return ChangeResolverCompartmentResponse
@@ -210,6 +210,7 @@ export class DnsClient {
 
   /**
    * Moves a steering policy into a different compartment.
+   *
    * @param ChangeSteeringPolicyCompartmentRequest
    * @return ChangeSteeringPolicyCompartmentResponse
    * @throws OciError when an error occurs
@@ -275,6 +276,7 @@ export class DnsClient {
 
   /**
    * Moves a TSIG key into a different compartment.
+   *
    * @param ChangeTsigKeyCompartmentRequest
    * @return ChangeTsigKeyCompartmentResponse
    * @throws OciError when an error occurs
@@ -338,7 +340,8 @@ export class DnsClient {
   }
 
   /**
-   * Moves a view into a different compartment. Protected views cannot have their compartment changed.
+   * Moves a view into a different compartment. Protected views cannot have their compartment changed. Requires a
+   * `PRIVATE` scope query parameter.
    *
    * @param ChangeViewCompartmentRequest
    * @return ChangeViewCompartmentResponse
@@ -408,7 +411,9 @@ export class DnsClient {
   }
 
   /**
-   * Moves a zone into a different compartment. Protected zones cannot have their compartment changed.
+   * Moves a zone into a different compartment. Protected zones cannot have their compartment changed. For private
+   * zones, the scope query parameter is required with a value of `PRIVATE`. When the zone name is provided as a
+   * path parameter and `PRIVATE` is used for the scope query parameter then the viewId query parameter is required.
    * <p>
    **Note:** All SteeringPolicyAttachment objects associated with this zone will also be moved into the provided compartment.
    *
@@ -480,7 +485,7 @@ export class DnsClient {
   }
 
   /**
-   * Creates a new resolver endpoint.
+   * Creates a new resolver endpoint. Requires a `PRIVATE` scope query parameter.
    *
    * @param CreateResolverEndpointRequest
    * @return CreateResolverEndpointResponse
@@ -803,7 +808,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Creates a new view in the specified compartment.
+   * Creates a new view in the specified compartment. Requires a `PRIVATE` scope query parameter.
    *
    * @param CreateViewRequest
    * @return CreateViewResponse
@@ -884,9 +889,11 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Creates a new zone in the specified compartment. If the `Content-Type` header for the request is `text/dns`, the
-   * `compartmentId` query parameter is required. Additionally, for `text/dns`, the `scope` and `viewId` query
-   * parameters are required to create a private zone.
+   * Creates a new zone in the specified compartment. For global zones, if the `Content-Type` header for the request
+   * is `text/dns`, the `compartmentId` query parameter is required. `text/dns` for the `Content-Type` header is
+   * not supported for private zones. Query parameter scope with a value of `PRIVATE` is required when creating a
+   * private zone. Private zones must have a zone type of `PRIMARY`. Creating a private zone at or under
+   * `oraclevcn.com` within the default protected view of a VCN-dedicated resolver is not permitted.
    *
    * @param CreateZoneRequest
    * @return CreateZoneResponse
@@ -968,7 +975,10 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Deletes all records at the specified zone and domain.
+   * Deletes all records at the specified zone and domain. For private zones, the scope query parameter is
+   * required with a value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used
+   * for the scope query parameter then the viewId query parameter is required.
+   *
    * @param DeleteDomainRecordsRequest
    * @return DeleteDomainRecordsResponse
    * @throws OciError when an error occurs
@@ -1030,7 +1040,9 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Deletes all records in the specified RRSet.
+   * Deletes all records in the specified RRSet. For private zones, the scope query parameter is required with a
+   * value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used for the scope
+   * query parameter then the viewId query parameter is required.
    *
    * @param DeleteRRSetRequest
    * @return DeleteRRSetResponse
@@ -1095,8 +1107,9 @@ For the purposes of access control, the attachment is automatically placed
 
   /**
    * Deletes the specified resolver endpoint. Note that attempting to delete a resolver endpoint in the
-   * DELETED lifecycle state will result in a 404 to be consistent with other operations of the API.
-   * Resolver endpoints may not be deleted if they are referenced by a resolver rule.
+   * DELETED lifecycle state will result in a `404` response to be consistent with other operations of the API.
+   * Resolver endpoints may not be deleted if they are referenced by a resolver rule. Requires a `PRIVATE` scope
+   * query parameter.
    *
    * @param DeleteResolverEndpointRequest
    * @return DeleteResolverEndpointResponse
@@ -1354,10 +1367,10 @@ For the purposes of access control, the attachment is automatically placed
 
   /**
    * Deletes the specified view. Note that attempting to delete a
-   * view in the DELETED lifecycleState will result in a 404 to be
-   * consistent with other operations of the API. Views can not be
+   * view in the DELETED lifecycleState will result in a `404` response to be
+   * consistent with other operations of the API. Views cannot be
    * deleted if they are referenced by non-deleted zones or resolvers.
-   * Protected views cannot be deleted.
+   * Protected views cannot be deleted. Requires a `PRIVATE` scope query parameter.
    *
    * @param DeleteViewRequest
    * @return DeleteViewResponse
@@ -1422,9 +1435,10 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Deletes the specified zone and all its steering policy attachments.
-   * A `204` response indicates that the zone has been successfully deleted.
-   * Protected zones cannot be deleted.
+   * Deletes the specified zone and all its steering policy attachments. A `204` response indicates that the zone has
+   * been successfully deleted. Protected zones cannot be deleted. For private zones, the scope query parameter is
+   * required with a value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used
+   * for the scope query parameter then the viewId query parameter is required.
    *
    * @param DeleteZoneRequest
    * @return DeleteZoneResponse
@@ -1491,9 +1505,11 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets a list of all records at the specified zone and domain.
-   * The results are sorted by `rtype` in alphabetical order by default. You
-   * can optionally filter and/or sort the results using the listed parameters.
+   * Gets a list of all records at the specified zone and domain. The results are sorted by `rtype` in
+   * alphabetical order by default. You can optionally filter and/or sort the results using the listed parameters.
+   * For private zones, the scope query parameter is required with a value of `PRIVATE`. When the zone name is
+   * provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query
+   * parameter is required.
    *
    * @param GetDomainRecordsRequest
    * @return GetDomainRecordsResponse
@@ -1617,8 +1633,10 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets a list of all records in the specified RRSet. The results are
-   * sorted by `recordHash` by default.
+   * Gets a list of all records in the specified RRSet. The results are sorted by `recordHash` by default. For
+   * private zones, the scope query parameter is required with a value of `PRIVATE`. When the zone name is
+   * provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query
+   * parameter is required.
    *
    * @param GetRRSetRequest
    * @return GetRRSetResponse
@@ -1738,9 +1756,9 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Get information about a specific resolver. Note that attempting to get a
-   * resolver in the DELETED lifecycleState will result in a 404 to be
-   * consistent with other operations of the API.
+   * Gets information about a specific resolver. Note that attempting to get a
+   * resolver in the DELETED lifecycleState will result in a `404` response to be
+   * consistent with other operations of the API. Requires a `PRIVATE` scope query parameter.
    *
    * @param GetResolverRequest
    * @return GetResolverResponse
@@ -1809,8 +1827,9 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Get information about a specific resolver endpoint. Note that attempting to get a resolver endpoint
-   * in the DELETED lifecycle state will result in a 404 to be consistent with other operations of the API.
+   * Gets information about a specific resolver endpoint. Note that attempting to get a resolver endpoint
+   * in the DELETED lifecycle state will result in a `404` response to be consistent with other operations of the
+   * API. Requires a `PRIVATE` scope query parameter.
    *
    * @param GetResolverEndpointRequest
    * @return GetResolverEndpointResponse
@@ -2087,9 +2106,9 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Get information about a specific view. Note that attempting to get a
-   * view in the DELETED lifecycleState will result in a 404 to be
-   * consistent with other operations of the API.
+   * Gets information about a specific view. Note that attempting to get a
+   * view in the DELETED lifecycleState will result in a `404` response to be
+   * consistent with other operations of the API. Requires a `PRIVATE` scope query parameter.
    *
    * @param GetViewRequest
    * @return GetViewResponse
@@ -2158,8 +2177,9 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets information about the specified zone, including its creation date,
-   * zone type, and serial.
+   * Gets information about the specified zone, including its creation date, zone type, and serial. For private
+   * zones, the scope query parameter is required with a value of `PRIVATE`. When the zone name is provided as a
+   * path parameter and `PRIVATE` is used for the scope query parameter then the viewId query parameter is required.
    *
    * @param GetZoneRequest
    * @return GetZoneResponse
@@ -2230,9 +2250,81 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets all records in the specified zone. The results are
-   * sorted by `domain` in alphabetical order by default. For more
-   * information about records, see [Resource Record (RR) TYPEs](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-4).
+   * Gets the requested zone's zone file.
+   *
+   * @param GetZoneContentRequest
+   * @return GetZoneContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetZoneContent.ts.html |here} to see how to use GetZoneContent API.
+   */
+  public async getZoneContent(
+    getZoneContentRequest: requests.GetZoneContentRequest
+  ): Promise<responses.GetZoneContentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getZoneContent.");
+    const pathParams = {
+      "{zoneNameOrId}": getZoneContentRequest.zoneNameOrId
+    };
+
+    const queryParams = {
+      "scope": getZoneContentRequest.scope,
+      "viewId": getZoneContentRequest.viewId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "If-None-Match": getZoneContentRequest.ifNoneMatch,
+      "If-Modified-Since": getZoneContentRequest.ifModifiedSince,
+      "opc-request-id": getZoneContentRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getZoneContentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/zones/{zoneNameOrId}/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetZoneContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets all records in the specified zone. The results are sorted by `domain` in alphabetical order by default.
+   * For more information about records, see [Resource Record (RR) TYPEs](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-4).
+   * For private zones, the scope query parameter is required with a value of `PRIVATE`. When the zone name is
+   * provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query
+   * parameter is required.
    *
    * @param GetZoneRecordsRequest
    * @return GetZoneRecordsResponse
@@ -2359,8 +2451,8 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Gets a list of all endpoints within a resolver. The collection can be filtered by name or lifecycle state.
    * It can be sorted on creation time or name both in ASC or DESC order. Note that when no lifecycleState
-   * query parameter is provided that the collection does not include resolver endpoints in the DELETED
-   * lifecycle state to be consistent with other operations of the API.
+   * query parameter is provided, the collection does not include resolver endpoints in the DELETED
+   * lifecycle state to be consistent with other operations of the API. Requires a `PRIVATE` scope query parameter.
    *
    * @param ListResolverEndpointsRequest
    * @return ListResolverEndpointsResponse
@@ -2461,9 +2553,9 @@ For the purposes of access control, the attachment is automatically placed
    * Gets a list of all resolvers within a compartment. The collection can
    * be filtered by display name, id, or lifecycle state. It can be sorted
    * on creation time or displayName both in ASC or DESC order. Note that
-   * when no lifecycleState query parameter is provided that the collection
+   * when no lifecycleState query parameter is provided, the collection
    * does not include resolvers in the DELETED lifecycleState to be consistent
-   * with other operations of the API.
+   * with other operations of the API. Requires a `PRIVATE` scope query parameter.
    *
    * @param ListResolversRequest
    * @return ListResolversResponse
@@ -2882,9 +2974,9 @@ For the purposes of access control, the attachment is automatically placed
    * Gets a list of all views within a compartment. The collection can
    * be filtered by display name, id, or lifecycle state. It can be sorted
    * on creation time or displayName both in ASC or DESC order. Note that
-   * when no lifecycleState query parameter is provided that the collection
+   * when no lifecycleState query parameter is provided, the collection
    * does not include views in the DELETED lifecycleState to be consistent
-   * with other operations of the API.
+   * with other operations of the API. Requires a `PRIVATE` scope query parameter.
    *
    * @param ListViewsRequest
    * @return ListViewsResponse
@@ -2982,8 +3074,102 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets a list of all zones in the specified compartment. The collection
-   * can be filtered by name, time created, scope, associated view, and zone type.
+   * Gets a list of IP addresses of OCI nameservers for inbound and outbound transfer of zones in the specified
+   * compartment (which must be the root compartment of a tenancy) that transfer zone data with external master or
+   * downstream nameservers.
+   *
+   * @param ListZoneTransferServersRequest
+   * @return ListZoneTransferServersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListZoneTransferServers.ts.html |here} to see how to use ListZoneTransferServers API.
+   */
+  public async listZoneTransferServers(
+    listZoneTransferServersRequest: requests.ListZoneTransferServersRequest
+  ): Promise<responses.ListZoneTransferServersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listZoneTransferServers.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listZoneTransferServersRequest.compartmentId,
+      "scope": listZoneTransferServersRequest.scope,
+      "page": listZoneTransferServersRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listZoneTransferServersRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listZoneTransferServersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/zoneTransferServers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListZoneTransferServersResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ZoneTransferServer,
+        type: "Array<model.ZoneTransferServer>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ZoneTransferServer objects
+   * contained in responses from the listZoneTransferServers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllZoneTransferServers(
+    request: requests.ListZoneTransferServersRequest
+  ): AsyncIterableIterator<model.ZoneTransferServer> {
+    return paginateRecords(request, req => this.listZoneTransferServers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listZoneTransferServers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllZoneTransferServersResponses(
+    request: requests.ListZoneTransferServersRequest
+  ): AsyncIterableIterator<responses.ListZoneTransferServersResponse> {
+    return paginateResponses(request, req => this.listZoneTransferServers(req));
+  }
+
+  /**
+   * Gets a list of all zones in the specified compartment. The collection can be filtered by name, time created,
+   * scope, associated view, and zone type. Filtering by view is only supported for private zones.
    *
    * @param ListZonesRequest
    * @return ListZonesResponse
@@ -3009,7 +3195,8 @@ For the purposes of access control, the attachment is automatically placed
       "sortBy": listZonesRequest.sortBy,
       "sortOrder": listZonesRequest.sortOrder,
       "scope": listZonesRequest.scope,
-      "viewId": listZonesRequest.viewId
+      "viewId": listZonesRequest.viewId,
+      "tsigKeyId": listZonesRequest.tsigKeyId
     };
 
     let headerParams = {
@@ -3090,10 +3277,11 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates records in the specified zone at a domain. You can update
-   * one record or all records for the specified zone depending on the changes
-   * provided in the request body. You can also add or remove records using this
-   * function.
+   * Updates records in the specified zone at a domain. You can update one record or all records for the specified
+   * zone depending on the changes provided in the request body. You can also add or remove records using this
+   * function. For private zones, the scope query parameter is required with a value of `PRIVATE`. When the zone
+   * name is provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId
+   * query parameter is required.
    *
    * @param PatchDomainRecordsRequest
    * @return PatchDomainRecordsResponse
@@ -3180,7 +3368,10 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates records in the specified RRSet.
+   * Updates records in the specified RRSet. For private zones, the scope query parameter is required with a value
+   * of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used for the scope query
+   * parameter then the viewId query parameter is required.
+   *
    * @param PatchRRSetRequest
    * @return PatchRRSetResponse
    * @throws OciError when an error occurs
@@ -3267,10 +3458,11 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates a collection of records in the specified zone. You can update
-   * one record or all records for the specified zone depending on the
-   * changes provided in the request body. You can also add or remove records
-   * using this function.
+   * Updates a collection of records in the specified zone. You can update one record or all records for the
+   * specified zone depending on the changes provided in the request body. You can also add or remove records
+   * using this function. For private zones, the scope query parameter is required with a value of `PRIVATE`. When
+   * the zone name is provided as a path parameter and `PRIVATE` is used for the scope query parameter then the
+   * viewId query parameter is required.
    *
    * @param PatchZoneRecordsRequest
    * @return PatchZoneRecordsResponse
@@ -3356,12 +3548,12 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Replaces records in the specified zone at a domain with the records
-   * specified in the request body. If a specified record does not exist,
-   * it will be created. If the record exists, then it will be updated to
-   * represent the record in the body of the request. If a record in the zone
-   * does not exist in the request body, the record will be removed from the
-   * zone.
+   * Replaces records in the specified zone at a domain with the records specified in the request body. If a
+   * specified record does not exist, it will be created. If the record exists, then it will be updated to
+   * represent the record in the body of the request. If a record in the zone does not exist in the request body,
+   * the record will be removed from the zone. For private zones, the scope query parameter is required with a
+   * value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used for the scope
+   * query parameter then the viewId query parameter is required.
    *
    * @param UpdateDomainRecordsRequest
    * @return UpdateDomainRecordsResponse
@@ -3448,7 +3640,10 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Replaces records in the specified RRSet.
+   * Replaces records in the specified RRSet. For private zones, the scope query parameter is required with a
+   * value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used for the scope
+   * query parameter then the viewId query parameter is required.
+   *
    * @param UpdateRRSetRequest
    * @return UpdateRRSetResponse
    * @throws OciError when an error occurs
@@ -3535,7 +3730,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates the specified resolver with your new information.
+   * Updates the specified resolver with your new information. Requires a `PRIVATE` scope query parameter.
    *
    * @param UpdateResolverRequest
    * @return UpdateResolverResponse
@@ -3614,7 +3809,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates the specified resolver endpoint with your new information.
+   * Updates the specified resolver endpoint with your new information. Requires a `PRIVATE` scope query parameter.
    *
    * @param UpdateResolverEndpointRequest
    * @return UpdateResolverEndpointResponse
@@ -3907,6 +4102,11 @@ For the purposes of access control, the attachment is automatically placed
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -3918,7 +4118,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates the specified view with your new information.
+   * Updates the specified view with your new information. Requires a `PRIVATE` scope query parameter.
    *
    * @param UpdateViewRequest
    * @return UpdateViewResponse
@@ -3997,9 +4197,11 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates the specified secondary zone with your new external master
-   * server information. For more information about secondary zone, see
-   * [Manage DNS Service Zone](https://docs.cloud.oracle.com/iaas/Content/DNS/Tasks/managingdnszones.htm).
+   * Updates the zone with the specified information. Global secondary zones may have their external masters updated.
+   * For more information about secondary zone, see [Manage DNS Service Zone](https://docs.cloud.oracle.com/iaas/Content/DNS/Tasks/managingdnszones.htm).
+   * For private zones, the scope query parameter is required with a value of `PRIVATE`. When the zone name is
+   * provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query
+   * parameter is required.
    *
    * @param UpdateZoneRequest
    * @return UpdateZoneResponse
@@ -4080,11 +4282,12 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Replaces records in the specified zone with the records specified in the
-   * request body. If a specified record does not exist, it will be created.
-   * If the record exists, then it will be updated to represent the record in
-   * the body of the request. If a record in the zone does not exist in the
-   * request body, the record will be removed from the zone.
+   * Replaces records in the specified zone with the records specified in the request body. If a specified record
+   * does not exist, it will be created. If the record exists, then it will be updated to represent the record in
+   * the body of the request. If a record in the zone does not exist in the request body, the record will be
+   * removed from the zone. For private zones, the scope query parameter is required with a value of `PRIVATE`.
+   * When the zone name is provided as a path parameter and `PRIVATE` is used for the scope query parameter then
+   * the viewId query parameter is required.
    *
    * @param UpdateZoneRecordsRequest
    * @return UpdateZoneRecordsResponse

@@ -23,7 +23,7 @@ export interface ListBdsInstancesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The state of the BDS instance.
+   * The state of the cluster.
    */
   "lifecycleState"?: string;
   /**

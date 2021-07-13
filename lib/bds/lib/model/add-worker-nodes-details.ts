@@ -1,8 +1,6 @@
 /**
  * Big Data Service API
- * API for the Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service
-build on Hadoop, Spark and Data Science distribution, which can be fully integrated with existing enterprise
-data in Oracle Database and Oracle Applications..
+ * REST API for Oracle Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service clusters. Build on Hadoop, Spark and Data Science distributions, which can be fully integrated with existing enterprise data in Oracle Database and Oracle applications.
 
  * OpenAPI spec version: 20190531
  * Contact: rahul.ra.arora@oracle.com
@@ -18,15 +16,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about additionaly added nodes
+ * The information about added nodes.
  */
 export interface AddWorkerNodesDetails {
   /**
-   * Base-64 encoded password for Cloudera Manager admin user
+   * Base-64 encoded password for the cluster (and Cloudera Manager) admin user.
    */
   "clusterAdminPassword": string;
   /**
-   * Number of additional worker nodes for the BDS instance Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of additional worker nodes for the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "numberOfWorkerNodes": number;
 }

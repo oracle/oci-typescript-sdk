@@ -34,7 +34,8 @@ In the Networking service, a VLAN is an object within a VCN. You use VLANs to
 */
 export interface Vlan {
   /**
-    * The availability domain of the VLAN.
+    * The VLAN's availability domain. This attribute will be null if this is a regional VLAN
+* rather than an AD-specific VLAN.
 * <p>
 Example: `Uocm:PHX-AD-1`
 * 

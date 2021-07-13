@@ -20,5 +20,6 @@ import * as marketplace_waiter from "./lib/marketplace-waiter";
 export { models };
 export { requests };
 export { responses };
+export import AccountClient = client.AccountClient;
 export import MarketplaceClient = client.MarketplaceClient;
 export import MarketplaceWaiter = marketplace_waiter.MarketplaceWaiter;

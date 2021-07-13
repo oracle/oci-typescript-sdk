@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An object for creating image package
+ * An object for creating an image publication package.
  */
 export interface CreateImagePublicationPackage extends model.CreatePublicationPackage {
   /**
-   * base image id of the listing
+   * The unique identifier for the base image of the publication.
    */
   "imageId"?: string;
 

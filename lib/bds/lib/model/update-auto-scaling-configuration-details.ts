@@ -1,8 +1,6 @@
 /**
  * Big Data Service API
- * API for the Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service
-build on Hadoop, Spark and Data Science distribution, which can be fully integrated with existing enterprise
-data in Oracle Database and Oracle Applications..
+ * REST API for Oracle Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service clusters. Build on Hadoop, Spark and Data Science distributions, which can be fully integrated with existing enterprise data in Oracle Database and Oracle applications.
 
  * OpenAPI spec version: 20190531
  * Contact: rahul.ra.arora@oracle.com
@@ -18,19 +16,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about auto scale configuration capability
+ * The information about the autoscale configuration.
  */
 export interface UpdateAutoScalingConfigurationDetails {
   /**
-   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * A user-friendly name. The name does not have to be unique, and it may be changed. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
-   * Whether the autoscaling configuration is enabled.
+   * Whether the autoscale configuration is enabled.
    */
   "isEnabled"?: boolean;
   /**
-   * Base-64 encoded password for Cloudera Manager admin user
+   * Base-64 encoded password for the cluster (and Cloudera Manager) admin user.
    */
   "clusterAdminPassword"?: string;
   "policy"?: model.AutoScalePolicy;

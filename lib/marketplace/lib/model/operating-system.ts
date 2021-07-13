@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * OS used by the listing.
+ * The operating system used by the listing.
  */
 export interface OperatingSystem {
   /**
-   * name of the operating system
+   * The name of the operating system.
    */
   "name"?: string;
 }

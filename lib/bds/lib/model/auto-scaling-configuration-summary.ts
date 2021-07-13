@@ -1,8 +1,6 @@
 /**
  * Big Data Service API
- * API for the Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service
-build on Hadoop, Spark and Data Science distribution, which can be fully integrated with existing enterprise
-data in Oracle Database and Oracle Applications..
+ * REST API for Oracle Big Data Service. Use this API to build, deploy, and manage fully elastic Big Data Service clusters. Build on Hadoop, Spark and Data Science distributions, which can be fully integrated with existing enterprise data in Oracle Database and Oracle applications.
 
  * OpenAPI spec version: 20190531
  * Contact: rahul.ra.arora@oracle.com
@@ -18,32 +16,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about auto scale configuration.
+ * The information about the autoscale configuration.
  */
 export interface AutoScalingConfigurationSummary {
   /**
-   * The OCID of the autoscaling configuration.
+   * The OCID of the autoscale configuration.
    */
   "id": string;
   /**
-   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * A user-friendly name. The name does not have to be unique, and it may be changed. Avoid entering confidential information.
    */
   "displayName": string;
   /**
-   * The state of the autoscaling configuration
+   * The state of the autoscale configuration.
    */
   "lifecycleState": string;
   /**
-   * A node type that is managed by an autoscaling configuration. The only supported type is WORKER.
+   * A node type that is managed by an autoscale configuration. The only supported type is WORKER.
    */
   "nodeType": string;
   /**
-   * The time the BDS instance was created. An RFC3339 formatted datetime string
+   * The time the cluster was created, shown as an RFC 3339 formatted datetime string.
    */
   "timeCreated": Date;
   /**
-   * The time the autoscale configuration was updated.
-   * An RFC3339 formatted datetime string
+   * The time the autoscale configuration was updated, shown as an RFC 3339 formatted datetime string.
    *
    */
   "timeUpdated": Date;

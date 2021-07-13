@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdatePublicationRequest extends common.BaseRequest {
   /**
-   * The unique identifier for the listing.
+   * The unique identifier for the publication.
    */
   "publicationId": string;
   /**
-   * Details of the Publication which needs to be updated
+   * The details for updating the publication.
    */
   "updatePublicationDetails": model.UpdatePublicationDetails;
   /**

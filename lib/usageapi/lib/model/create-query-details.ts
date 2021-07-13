@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * New query detail with savedRequestSummarizedUsagesDetails, savedCostAnalysisUI and displayName.
+ * New query detail with savedRequestSummarizedUsagesDetails, savedCostAnalysisUI, and displayName.
  */
 export interface CreateQueryDetails {
   /**

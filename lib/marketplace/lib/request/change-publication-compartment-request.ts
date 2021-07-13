@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ChangePublicationCompartmentRequest extends common.BaseRequest {
   /**
-   * The unique identifier for the listing.
+   * The unique identifier for the publication.
    */
   "publicationId": string;
   /**
-   * Request to change the compartment of a given Publication.
+   * The details of the request to change the compartment of a given publication.
    */
   "changePublicationCompartmentDetails": model.ChangePublicationCompartmentDetails;
   /**
