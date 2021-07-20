@@ -10,8 +10,9 @@ import {
   autoDetectContentLengthAndReadBody,
   formatDateToRFC3339
 } from "./helper";
+import { addRetryToken, OPC_RETRY_TOKEN_HEADER } from "./retry-token-header";
 
-interface Params {
+export interface Params {
   [key: string]:
     | string
     | Date
@@ -105,6 +106,9 @@ function computeHeaders(params: RequestParams): Headers {
         headers.append(key, String(value));
       }
     }
+  }
+  if (params.headerParams && OPC_RETRY_TOKEN_HEADER in params.headerParams) {
+    addRetryToken(headers);
   }
   addAdditionalHeaders(headers, params);
   return headers;

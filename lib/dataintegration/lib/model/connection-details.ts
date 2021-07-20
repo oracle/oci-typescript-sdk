@@ -86,9 +86,19 @@ export namespace ConnectionDetails {
             <model.ConnectionFromJdbcDetails>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3_CONNECTION":
+          return model.ConnectionFromAmazonS3Details.getJsonObj(
+            <model.ConnectionFromAmazonS3Details>(<object>jsonObj),
+            true
+          );
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
           return model.ConnectionFromObjectStorageDetails.getJsonObj(
             <model.ConnectionFromObjectStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "BICC_CONNECTION":
+          return model.ConnectionFromBICCDetails.getJsonObj(
+            <model.ConnectionFromBICCDetails>(<object>jsonObj),
             true
           );
         case "MYSQL_CONNECTION":
@@ -147,9 +157,19 @@ export namespace ConnectionDetails {
             <model.ConnectionFromJdbcDetails>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3_CONNECTION":
+          return model.ConnectionFromAmazonS3Details.getDeserializedJsonObj(
+            <model.ConnectionFromAmazonS3Details>(<object>jsonObj),
+            true
+          );
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
           return model.ConnectionFromObjectStorageDetails.getDeserializedJsonObj(
             <model.ConnectionFromObjectStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "BICC_CONNECTION":
+          return model.ConnectionFromBICCDetails.getDeserializedJsonObj(
+            <model.ConnectionFromBICCDetails>(<object>jsonObj),
             true
           );
         case "MYSQL_CONNECTION":

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface RemoteClonePluggableDatabaseRequest extends common.BaseRequest {
   /**
-   * Request to clone a pluggable database remotely.
+   * Request to clone a pluggable database (PDB) to a different database (CDB) from the source PDB.
    */
   "remoteClonePluggableDatabaseDetails": model.RemoteClonePluggableDatabaseDetails;
   /**

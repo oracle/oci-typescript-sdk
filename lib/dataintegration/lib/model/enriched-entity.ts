@@ -18,8 +18,17 @@ import common = require("oci-common");
  * This is used to specify runtime parameters for data entities such as files that need both the data entity and the format.
  */
 export interface EnrichedEntity {
-  "entity"?: model.DataEntityFromTable | model.DataEntityFromView | model.DataEntityFromFile;
+  "entity"?:
+    | model.DataEntityFromTable
+    | model.DataEntityFromDataStore
+    | model.DataEntityFromView
+    | model.DataEntityFromFile;
   "dataFormat"?: model.DataFormat;
+  /**
+   * The model type for the entity which is referenced.
+   */
+  "modelType"?: string;
+  "parentRef"?: model.ParentReference;
 }
 
 export namespace EnrichedEntity {
@@ -28,7 +37,9 @@ export namespace EnrichedEntity {
       ...obj,
       ...{
         "entity": obj.entity ? model.DataEntity.getJsonObj(obj.entity) : undefined,
-        "dataFormat": obj.dataFormat ? model.DataFormat.getJsonObj(obj.dataFormat) : undefined
+        "dataFormat": obj.dataFormat ? model.DataFormat.getJsonObj(obj.dataFormat) : undefined,
+
+        "parentRef": obj.parentRef ? model.ParentReference.getJsonObj(obj.parentRef) : undefined
       }
     };
 
@@ -41,6 +52,10 @@ export namespace EnrichedEntity {
         "entity": obj.entity ? model.DataEntity.getDeserializedJsonObj(obj.entity) : undefined,
         "dataFormat": obj.dataFormat
           ? model.DataFormat.getDeserializedJsonObj(obj.dataFormat)
+          : undefined,
+
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
           : undefined
       }
     };

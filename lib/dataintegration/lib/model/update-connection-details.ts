@@ -86,6 +86,16 @@ export namespace UpdateConnectionDetails {
             <model.UpdateConnectionFromObjectStorage>(<object>jsonObj),
             true
           );
+        case "BICC_CONNECTION":
+          return model.UpdateConnectionFromBICC.getJsonObj(
+            <model.UpdateConnectionFromBICC>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_S3_CONNECTION":
+          return model.UpdateConnectionFromAmazonS3.getJsonObj(
+            <model.UpdateConnectionFromAmazonS3>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ATP_CONNECTION":
           return model.UpdateConnectionFromAtp.getJsonObj(
             <model.UpdateConnectionFromAtp>(<object>jsonObj),
@@ -141,6 +151,16 @@ export namespace UpdateConnectionDetails {
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
           return model.UpdateConnectionFromObjectStorage.getDeserializedJsonObj(
             <model.UpdateConnectionFromObjectStorage>(<object>jsonObj),
+            true
+          );
+        case "BICC_CONNECTION":
+          return model.UpdateConnectionFromBICC.getDeserializedJsonObj(
+            <model.UpdateConnectionFromBICC>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_S3_CONNECTION":
+          return model.UpdateConnectionFromAmazonS3.getDeserializedJsonObj(
+            <model.UpdateConnectionFromAmazonS3>(<object>jsonObj),
             true
           );
         case "ORACLE_ATP_CONNECTION":

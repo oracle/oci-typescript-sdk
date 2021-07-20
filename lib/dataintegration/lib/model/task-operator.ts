@@ -45,6 +45,9 @@ export interface TaskOperator extends model.Operator {
   "task"?:
     | model.TaskFromPipelineTaskDetails
     | model.TaskFromIntegrationTaskDetails
+    | model.TaskFromSQLTaskDetails
+    | model.TaskFromRestTaskDetails
+    | model.TaskFromOCIDataflowTaskDetails
     | model.TaskFromDataLoaderTaskDetails;
   /**
    * The merge condition. The conditions are
@@ -88,6 +91,9 @@ export namespace TaskOperator {
     PipelineTask = "PIPELINE_TASK",
     IntegrationTask = "INTEGRATION_TASK",
     DataLoaderTask = "DATA_LOADER_TASK",
+    SqlTask = "SQL_TASK",
+    OciDataflowTask = "OCI_DATAFLOW_TASK",
+    RestTask = "REST_TASK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

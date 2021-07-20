@@ -22,7 +22,9 @@ export interface ConfigurationDetails {
     | model.DataAssetFromJdbc
     | model.DataAssetFromOracleDetails
     | model.DataAssetFromAdwcDetails
+    | model.DataAssetFromAmazonS3
     | model.DataAssetFromObjectStorageDetails
+    | model.DataAssetFromFusionApp
     | model.DataAssetFromAtpDetails
     | model.DataAssetFromMySQL;
   "connection"?:
@@ -30,8 +32,10 @@ export interface ConfigurationDetails {
     | model.ConnectionFromAdwc
     | model.ConnectionFromAtp
     | model.ConnectionFromOracle
+    | model.ConnectionFromAmazonS3
     | model.ConnectionFromMySQL
-    | model.ConnectionFromJdbc;
+    | model.ConnectionFromJdbc
+    | model.ConnectionFromBICC;
   /**
    * The compartment ID of the object store.
    */

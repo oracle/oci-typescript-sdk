@@ -92,6 +92,16 @@ export namespace UpdateDataAssetDetails {
             <model.UpdateDataAssetFromObjectStorage>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3_DATA_ASSET":
+          return model.UpdateDataAssetFromAmazonS3.getJsonObj(
+            <model.UpdateDataAssetFromAmazonS3>(<object>jsonObj),
+            true
+          );
+        case "FUSION_APP_DATA_ASSET":
+          return model.UpdateDataAssetFromFusionApp.getJsonObj(
+            <model.UpdateDataAssetFromFusionApp>(<object>jsonObj),
+            true
+          );
         case "MYSQL_DATA_ASSET":
           return model.UpdateDataAssetFromMySQL.getJsonObj(
             <model.UpdateDataAssetFromMySQL>(<object>jsonObj),
@@ -138,6 +148,16 @@ export namespace UpdateDataAssetDetails {
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
           return model.UpdateDataAssetFromObjectStorage.getDeserializedJsonObj(
             <model.UpdateDataAssetFromObjectStorage>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_S3_DATA_ASSET":
+          return model.UpdateDataAssetFromAmazonS3.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromAmazonS3>(<object>jsonObj),
+            true
+          );
+        case "FUSION_APP_DATA_ASSET":
+          return model.UpdateDataAssetFromFusionApp.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromFusionApp>(<object>jsonObj),
             true
           );
         case "MYSQL_DATA_ASSET":

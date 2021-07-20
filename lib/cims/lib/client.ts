@@ -44,6 +44,10 @@ export class IncidentClient {
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
     }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
@@ -642,6 +646,10 @@ export class UserClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);

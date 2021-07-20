@@ -10,6 +10,7 @@ import * as helper from "./lib/helper";
 import * as http from "./lib/http";
 import * as serializer from "./lib/object-serializer";
 import * as range from "./lib/range";
+import * as utils from "./lib/utils";
 import { Region } from "./lib/region";
 import { Realm } from "./lib/realm";
 import { EndpointBuilder } from "./lib/endpoint-builder";
@@ -47,7 +48,7 @@ import {
 import { ConfigFileAuthenticationDetailsProvider } from "./lib/auth/config-file-auth";
 import getChunk from "./lib/chunker";
 import { ConfigFileReader } from "./lib/config-file-reader";
-import { Method, composeRequest } from "./lib/request-generator";
+import { Method, composeRequest, Params } from "./lib/request-generator";
 import { composeResponse } from "./lib/response-generator";
 export import AuthenticationDetailsProvider = auth.AuthenticationDetailsProvider;
 export import SimpleAuthenticationDetailsProvider = auth.SimpleAuthenticationDetailsProvider;
@@ -92,6 +93,7 @@ export {
   genericPaginateResponses,
   Method,
   composeRequest,
+  Params,
   composeResponse,
   HttpRequest,
   ConfigFileAuthenticationDetailsProvider,
@@ -107,5 +109,6 @@ export {
   ClientConfiguration,
   Constants,
   CircuitBreaker,
-  getChunk
+  getChunk,
+  utils
 };

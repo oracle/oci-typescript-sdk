@@ -21,7 +21,8 @@ export interface DataFormat {
   "formatAttribute"?:
     | model.AvroFormatAttribute
     | model.JsonFormatAttribute
-    | model.CsvFormatAttribute;
+    | model.CsvFormatAttribute
+    | model.ParquetFormatAttribute;
   /**
    * type
    */

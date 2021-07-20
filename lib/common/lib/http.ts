@@ -9,7 +9,6 @@ import { RequestSigner } from "./signer";
 import { HttpRequest } from "./http-request";
 import { getSignerAndReqBody } from "./helper";
 const Breaker = require("opossum");
-import CircuitBreaker from "./circuit-breaker";
 
 promise.polyfill();
 
@@ -47,13 +46,20 @@ export class FetchHttpClient implements HttpClient {
     });
 
     if (this.circuitBreaker) {
-      // The circuitBreaker library have .fire return as any, we need to cast it to a Promise<Response> to be consistent with
-      // a fetch response type.
-      return (this.circuitBreaker.fire(request) as unknown) as Promise<Response>;
-    } else if (CircuitBreaker.enableDefault) {
-      // else if we opt'd to use a default circuit breaker, an http call by default
-      // will use the default circuit breaker to make the call
-      return CircuitBreaker.defaultCircuit.fire(request);
+      return this.circuitBreaker
+        .fire(request)
+        .then((e: any) => {
+          return e.response ? e.response : e;
+        })
+        .catch((e: any) => {
+          if (e.response) {
+            // If error contains response field, it is an actual server error, return it.
+            return e.response;
+          } else {
+            // These are client side error. Throw exception.
+            throw e;
+          }
+        });
     } else {
       return fetch(
         new Request(req.uri, {

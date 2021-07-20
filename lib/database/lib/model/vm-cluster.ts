@@ -83,8 +83,7 @@ export interface VmCluster {
    */
   "dbNodeStorageSizeInGBs"?: number;
   /**
-   * Size, in terabytes, of the DATA disk group.
-   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Size, in terabytes, of the DATA disk group. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs"?: number;
   /**
@@ -96,6 +95,10 @@ export interface VmCluster {
    * The Oracle Grid Infrastructure software version for the VM cluster.
    */
   "giVersion"?: string;
+  /**
+   * Operating system version of the image.
+   */
+  "systemVersion"?: string;
   /**
    * The public key portion of one or more key pairs used for SSH access to the VM cluster.
    */

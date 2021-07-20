@@ -33,4 +33,14 @@ export interface GetFolderRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * This parameter allows users to specify which view of the object to return. CHILD_COUNT_STATISTICS - This option is used to get statistics on immediate children of the object by their type.
+   */
+  "projection"?: Array<GetFolderRequest.Projection>;
+}
+
+export namespace GetFolderRequest {
+  export enum Projection {
+    ChildCountStatistics = "CHILD_COUNT_STATISTICS"
+  }
 }

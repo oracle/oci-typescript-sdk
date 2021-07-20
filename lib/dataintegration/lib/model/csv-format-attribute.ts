@@ -39,10 +39,6 @@ export interface CsvFormatAttribute extends model.AbstractFormatAttribute {
    */
   "hasHeader"?: boolean;
   /**
-   * Defines whether a file pattern is supported.
-   */
-  "isFilePattern"?: boolean;
-  /**
    * Format for timestamp information.
    */
   "timestampFormat"?: string;

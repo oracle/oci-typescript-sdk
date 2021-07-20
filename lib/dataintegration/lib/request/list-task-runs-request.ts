@@ -34,6 +34,10 @@ export interface ListTaskRunsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
+   * Used to filter by the key of the object.
+   */
+  "key"?: Array<string>;
+  /**
    * Used to filter by the project or the folder object.
    *
    */
@@ -66,6 +70,10 @@ export interface ListTaskRunsRequest extends common.BaseRequest {
    * Specifies the field to sort by. Accepts only one field. By default, when you sort by time fields, results are shown in descending order. All other fields default to ascending order. Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order is by relevance score in descending order).
    */
   "sortBy"?: ListTaskRunsRequest.SortBy;
+  /**
+   * This filter parameter can be used to filter by model specific queryable fields of the object <br><br><B>Examples:-</B><br> <ul> <li><B>?filter=status eq Failed</B> returns all objects that have a status field with value Failed</li> </ul>
+   */
+  "filter"?: Array<string>;
 }
 
 export namespace ListTaskRunsRequest {

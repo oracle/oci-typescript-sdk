@@ -32,14 +32,39 @@ export namespace AbstractWriteAttribute {
             <model.OracleAdwcWriteAttribute>(<object>jsonObj),
             true
           );
+        case "ORACLE_ATP_WRITE_ATTRIBUTE":
+          return model.OracleAtpWriteAttributes.getJsonObj(
+            <model.OracleAtpWriteAttributes>(<object>jsonObj),
+            true
+          );
         case "ORACLEWRITEATTRIBUTE":
           return model.OracleWriteAttribute.getJsonObj(
             <model.OracleWriteAttribute>(<object>jsonObj),
             true
           );
+        case "ORACLE_WRITE_ATTRIBUTE":
+          return model.OracleWriteAttributes.getJsonObj(
+            <model.OracleWriteAttributes>(<object>jsonObj),
+            true
+          );
         case "ORACLEATPWRITEATTRIBUTE":
           return model.OracleAtpWriteAttribute.getJsonObj(
             <model.OracleAtpWriteAttribute>(<object>jsonObj),
+            true
+          );
+        case "OBJECTSTORAGEWRITEATTRIBUTE":
+          return model.ObjectStorageWriteAttribute.getJsonObj(
+            <model.ObjectStorageWriteAttribute>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_WRITE_ATTRIBUTE":
+          return model.OracleAdwcWriteAttributes.getJsonObj(
+            <model.OracleAdwcWriteAttributes>(<object>jsonObj),
+            true
+          );
+        case "OBJECT_STORAGE_WRITE_ATTRIBUTE":
+          return model.ObjectStorageWriteAttributes.getJsonObj(
+            <model.ObjectStorageWriteAttributes>(<object>jsonObj),
             true
           );
         default:
@@ -58,14 +83,39 @@ export namespace AbstractWriteAttribute {
             <model.OracleAdwcWriteAttribute>(<object>jsonObj),
             true
           );
+        case "ORACLE_ATP_WRITE_ATTRIBUTE":
+          return model.OracleAtpWriteAttributes.getDeserializedJsonObj(
+            <model.OracleAtpWriteAttributes>(<object>jsonObj),
+            true
+          );
         case "ORACLEWRITEATTRIBUTE":
           return model.OracleWriteAttribute.getDeserializedJsonObj(
             <model.OracleWriteAttribute>(<object>jsonObj),
             true
           );
+        case "ORACLE_WRITE_ATTRIBUTE":
+          return model.OracleWriteAttributes.getDeserializedJsonObj(
+            <model.OracleWriteAttributes>(<object>jsonObj),
+            true
+          );
         case "ORACLEATPWRITEATTRIBUTE":
           return model.OracleAtpWriteAttribute.getDeserializedJsonObj(
             <model.OracleAtpWriteAttribute>(<object>jsonObj),
+            true
+          );
+        case "OBJECTSTORAGEWRITEATTRIBUTE":
+          return model.ObjectStorageWriteAttribute.getDeserializedJsonObj(
+            <model.ObjectStorageWriteAttribute>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_WRITE_ATTRIBUTE":
+          return model.OracleAdwcWriteAttributes.getDeserializedJsonObj(
+            <model.OracleAdwcWriteAttributes>(<object>jsonObj),
+            true
+          );
+        case "OBJECT_STORAGE_WRITE_ATTRIBUTE":
+          return model.ObjectStorageWriteAttributes.getDeserializedJsonObj(
+            <model.ObjectStorageWriteAttributes>(<object>jsonObj),
             true
           );
         default:

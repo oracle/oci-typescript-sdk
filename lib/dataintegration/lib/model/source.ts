@@ -18,7 +18,11 @@ import common = require("oci-common");
  * The information about the source object.
  */
 export interface Source extends model.Operator {
-  "entity"?: model.DataEntityFromTable | model.DataEntityFromView | model.DataEntityFromFile;
+  "entity"?:
+    | model.DataEntityFromTable
+    | model.DataEntityFromDataStore
+    | model.DataEntityFromView
+    | model.DataEntityFromFile;
   /**
    * Specifies the read access.
    */

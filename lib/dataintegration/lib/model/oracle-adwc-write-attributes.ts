@@ -17,11 +17,8 @@ import common = require("oci-common");
 /**
  * Properties to configure when writing to Oracle Autonomous Data Warehouse Cloud.
  */
-export interface OracleAdwcWriteAttributes {
-  /**
-   * The bucket name for the attribute.
-   */
-  "bucketName"?: string;
+export interface OracleAdwcWriteAttributes extends model.AbstractWriteAttribute {
+  "bucketSchema"?: model.Schema;
   /**
    * The file name for the attribute.
    */
@@ -30,7 +27,9 @@ export interface OracleAdwcWriteAttributes {
     | model.DataAssetFromJdbc
     | model.DataAssetFromOracleDetails
     | model.DataAssetFromAdwcDetails
+    | model.DataAssetFromAmazonS3
     | model.DataAssetFromObjectStorageDetails
+    | model.DataAssetFromFusionApp
     | model.DataAssetFromAtpDetails
     | model.DataAssetFromMySQL;
   "stagingConnection"?:
@@ -38,15 +37,23 @@ export interface OracleAdwcWriteAttributes {
     | model.ConnectionFromAdwc
     | model.ConnectionFromAtp
     | model.ConnectionFromOracle
+    | model.ConnectionFromAmazonS3
     | model.ConnectionFromMySQL
-    | model.ConnectionFromJdbc;
+    | model.ConnectionFromJdbc
+    | model.ConnectionFromBICC;
+
+  "modelType": string;
 }
 
 export namespace OracleAdwcWriteAttributes {
-  export function getJsonObj(obj: OracleAdwcWriteAttributes): object {
+  export function getJsonObj(obj: OracleAdwcWriteAttributes, isParentJsonObj?: boolean): object {
     const jsonObj = {
-      ...obj,
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractWriteAttribute.getJsonObj(obj) as OracleAdwcWriteAttributes)),
       ...{
+        "bucketSchema": obj.bucketSchema ? model.Schema.getJsonObj(obj.bucketSchema) : undefined,
+
         "stagingDataAsset": obj.stagingDataAsset
           ? model.DataAsset.getJsonObj(obj.stagingDataAsset)
           : undefined,
@@ -58,10 +65,20 @@ export namespace OracleAdwcWriteAttributes {
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: OracleAdwcWriteAttributes): object {
+  export const modelType = "ORACLE_ADWC_WRITE_ATTRIBUTE";
+  export function getDeserializedJsonObj(
+    obj: OracleAdwcWriteAttributes,
+    isParentJsonObj?: boolean
+  ): object {
     const jsonObj = {
-      ...obj,
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractWriteAttribute.getDeserializedJsonObj(obj) as OracleAdwcWriteAttributes)),
       ...{
+        "bucketSchema": obj.bucketSchema
+          ? model.Schema.getDeserializedJsonObj(obj.bucketSchema)
+          : undefined,
+
         "stagingDataAsset": obj.stagingDataAsset
           ? model.DataAsset.getDeserializedJsonObj(obj.stagingDataAsset)
           : undefined,

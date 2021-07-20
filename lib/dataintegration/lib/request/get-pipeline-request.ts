@@ -33,4 +33,8 @@ export interface GetPipelineRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Used to expand references of the object. If value is true, then all referenced objects are expanded. If value is false, then shallow objects are returned in place of references. Default is false. <br><br><B>Example:</B><br> <ul> <li><B>?expandReferences=true</B> returns all objects of type data loader task</li> </ul>
+   */
+  "expandReferences"?: string;
 }

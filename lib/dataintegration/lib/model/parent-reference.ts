@@ -22,6 +22,10 @@ export interface ParentReference {
    * Key of the parent object.
    */
   "parent"?: string;
+  /**
+   * Key of the root document object.
+   */
+  "rootDocId"?: string;
 }
 
 export namespace ParentReference {

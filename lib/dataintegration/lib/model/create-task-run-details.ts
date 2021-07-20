@@ -43,6 +43,10 @@ export interface CreateTaskRunDetails {
    * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
+  /**
+   * Optional task schedule key reference.
+   */
+  "taskScheduleKey"?: string;
   "registryMetadata"?: model.RegistryMetadata;
 }
 

@@ -113,6 +113,21 @@ export namespace CreateTaskDetails {
             <model.CreateTaskFromPipelineTask>(<object>jsonObj),
             true
           );
+        case "OCI_DATAFLOW_TASK":
+          return model.CreateTaskFromOCIDataflowTask.getJsonObj(
+            <model.CreateTaskFromOCIDataflowTask>(<object>jsonObj),
+            true
+          );
+        case "SQL_TASK":
+          return model.CreateTaskFromSQLTask.getJsonObj(
+            <model.CreateTaskFromSQLTask>(<object>jsonObj),
+            true
+          );
+        case "REST_TASK":
+          return model.CreateTaskFromRestTask.getJsonObj(
+            <model.CreateTaskFromRestTask>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.modelType);
       }
@@ -169,6 +184,21 @@ export namespace CreateTaskDetails {
         case "PIPELINE_TASK":
           return model.CreateTaskFromPipelineTask.getDeserializedJsonObj(
             <model.CreateTaskFromPipelineTask>(<object>jsonObj),
+            true
+          );
+        case "OCI_DATAFLOW_TASK":
+          return model.CreateTaskFromOCIDataflowTask.getDeserializedJsonObj(
+            <model.CreateTaskFromOCIDataflowTask>(<object>jsonObj),
+            true
+          );
+        case "SQL_TASK":
+          return model.CreateTaskFromSQLTask.getDeserializedJsonObj(
+            <model.CreateTaskFromSQLTask>(<object>jsonObj),
+            true
+          );
+        case "REST_TASK":
+          return model.CreateTaskFromRestTask.getDeserializedJsonObj(
+            <model.CreateTaskFromRestTask>(<object>jsonObj),
             true
           );
         default:

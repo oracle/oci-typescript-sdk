@@ -47,6 +47,10 @@ export class DatabaseClient {
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
     }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
@@ -3204,8 +3208,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Create and start a pluggable database in the specified container database.
-   * If needed call actions/stop to stop the PDB.
+   * Creates and starts a pluggable database in the specified container database.
+   * Use the [StartPluggableDatabase](#/en/database/latest/PluggableDatabase/StartPluggableDatabase] and [StopPluggableDatabase](#/en/database/latest/PluggableDatabase/StopPluggableDatabase] APIs to start and stop the pluggable database.
    *
    * @param CreatePluggableDatabaseRequest
    * @return CreatePluggableDatabaseResponse
@@ -4515,7 +4519,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Delete a pluggable database
+   * Deletes the specified pluggable database.
    * @param DeletePluggableDatabaseRequest
    * @return DeletePluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -5249,6 +5253,85 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadExadataInfrastructureConfigFileResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads the network validation report file for the specified VM cluster network. Applies to Exadata Cloud@Customer instances only.
+   *
+   * @param DownloadValidationReportRequest
+   * @return DownloadValidationReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DownloadValidationReport.ts.html |here} to see how to use DownloadValidationReport API.
+   */
+  public async downloadValidationReport(
+    downloadValidationReportRequest: requests.DownloadValidationReportRequest
+  ): Promise<responses.DownloadValidationReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#downloadValidationReport.");
+    const pathParams = {
+      "{exadataInfrastructureId}": downloadValidationReportRequest.exadataInfrastructureId,
+      "{vmClusterNetworkId}": downloadValidationReportRequest.vmClusterNetworkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": downloadValidationReportRequest.opcRequestId,
+      "opc-retry-token": downloadValidationReportRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      downloadValidationReportRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/exadataInfrastructures/{exadataInfrastructureId}/vmClusterNetworks/{vmClusterNetworkId}/actions/downloadValidationReport",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadValidationReportResponse>{},
 
         body: response.body!,
         bodyKey: "value",
@@ -8743,7 +8826,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   }
 
   /**
-   * Gets information about a specific pluggable database
+   * Gets information about the specified pluggable database.
    * @param GetPluggableDatabaseRequest
    * @return GetPluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -9044,6 +9127,134 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         bodyKey: "patchHistoryEntry",
         bodyModel: model.PatchHistoryEntry,
         type: "model.PatchHistoryEntry",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a specified maintenance update package for a VM cluster. Applies to Exadata Cloud@Customer instances only.
+   *
+   * @param GetVmClusterUpdateRequest
+   * @return GetVmClusterUpdateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterUpdate.ts.html |here} to see how to use GetVmClusterUpdate API.
+   */
+  public async getVmClusterUpdate(
+    getVmClusterUpdateRequest: requests.GetVmClusterUpdateRequest
+  ): Promise<responses.GetVmClusterUpdateResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getVmClusterUpdate.");
+    const pathParams = {
+      "{vmClusterId}": getVmClusterUpdateRequest.vmClusterId,
+      "{updateId}": getVmClusterUpdateRequest.updateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVmClusterUpdateRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getVmClusterUpdateRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vmClusters/{vmClusterId}/updates/{updateId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVmClusterUpdateResponse>{},
+        body: await response.json(),
+        bodyKey: "vmClusterUpdate",
+        bodyModel: model.VmClusterUpdate,
+        type: "model.VmClusterUpdate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the maintenance update history details for the specified update history entry. Applies to Exadata Cloud@Customer instances only.
+   *
+   * @param GetVmClusterUpdateHistoryEntryRequest
+   * @return GetVmClusterUpdateHistoryEntryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterUpdateHistoryEntry.ts.html |here} to see how to use GetVmClusterUpdateHistoryEntry API.
+   */
+  public async getVmClusterUpdateHistoryEntry(
+    getVmClusterUpdateHistoryEntryRequest: requests.GetVmClusterUpdateHistoryEntryRequest
+  ): Promise<responses.GetVmClusterUpdateHistoryEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getVmClusterUpdateHistoryEntry.");
+    const pathParams = {
+      "{vmClusterId}": getVmClusterUpdateHistoryEntryRequest.vmClusterId,
+      "{updateHistoryEntryId}": getVmClusterUpdateHistoryEntryRequest.updateHistoryEntryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVmClusterUpdateHistoryEntryRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getVmClusterUpdateHistoryEntryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vmClusters/{vmClusterId}/updateHistoryEntries/{updateHistoryEntryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVmClusterUpdateHistoryEntryResponse>{},
+        body: await response.json(),
+        bodyKey: "vmClusterUpdateHistoryEntry",
+        bodyModel: model.VmClusterUpdateHistoryEntry,
+        type: "model.VmClusterUpdateHistoryEntry",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -13114,8 +13325,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Gets a list of the pluggable databases based on databaseId or compartmentId specified.
-   * Either one of the query parameters must be provided.
+   * Gets a list of the pluggable databases in a database or compartment. You must provide either a `databaseId` or `compartmentId` value.
    *
    * @param ListPluggableDatabasesRequest
    * @return ListPluggableDatabasesResponse
@@ -13494,6 +13704,197 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Gets the history of the maintenance update actions performed on the specified VM cluster. Applies to Exadata Cloud@Customer instances only.
+   *
+   * @param ListVmClusterUpdateHistoryEntriesRequest
+   * @return ListVmClusterUpdateHistoryEntriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterUpdateHistoryEntries.ts.html |here} to see how to use ListVmClusterUpdateHistoryEntries API.
+   */
+  public async listVmClusterUpdateHistoryEntries(
+    listVmClusterUpdateHistoryEntriesRequest: requests.ListVmClusterUpdateHistoryEntriesRequest
+  ): Promise<responses.ListVmClusterUpdateHistoryEntriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listVmClusterUpdateHistoryEntries.");
+    const pathParams = {
+      "{vmClusterId}": listVmClusterUpdateHistoryEntriesRequest.vmClusterId
+    };
+
+    const queryParams = {
+      "updateType": listVmClusterUpdateHistoryEntriesRequest.updateType,
+      "lifecycleState": listVmClusterUpdateHistoryEntriesRequest.lifecycleState,
+      "limit": listVmClusterUpdateHistoryEntriesRequest.limit,
+      "page": listVmClusterUpdateHistoryEntriesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listVmClusterUpdateHistoryEntriesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listVmClusterUpdateHistoryEntriesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vmClusters/{vmClusterId}/updateHistoryEntries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVmClusterUpdateHistoryEntriesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.VmClusterUpdateHistoryEntrySummary,
+        type: "Array<model.VmClusterUpdateHistoryEntrySummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VmClusterUpdateHistoryEntrySummary objects
+   * contained in responses from the listVmClusterUpdateHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVmClusterUpdateHistoryEntries(
+    request: requests.ListVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<model.VmClusterUpdateHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVmClusterUpdateHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVmClusterUpdateHistoryEntriesResponses(
+    request: requests.ListVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListVmClusterUpdateHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Lists the maintenance updates that can be applied to the specified VM cluster. Applies to Exadata Cloud@Customer instances only.
+   *
+   * @param ListVmClusterUpdatesRequest
+   * @return ListVmClusterUpdatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterUpdates.ts.html |here} to see how to use ListVmClusterUpdates API.
+   */
+  public async listVmClusterUpdates(
+    listVmClusterUpdatesRequest: requests.ListVmClusterUpdatesRequest
+  ): Promise<responses.ListVmClusterUpdatesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listVmClusterUpdates.");
+    const pathParams = {
+      "{vmClusterId}": listVmClusterUpdatesRequest.vmClusterId
+    };
+
+    const queryParams = {
+      "updateType": listVmClusterUpdatesRequest.updateType,
+      "lifecycleState": listVmClusterUpdatesRequest.lifecycleState,
+      "limit": listVmClusterUpdatesRequest.limit,
+      "page": listVmClusterUpdatesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listVmClusterUpdatesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listVmClusterUpdatesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vmClusters/{vmClusterId}/updates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVmClusterUpdatesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.VmClusterUpdateSummary,
+        type: "Array<model.VmClusterUpdateSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VmClusterUpdateSummary objects
+   * contained in responses from the listVmClusterUpdates operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVmClusterUpdates(
+    request: requests.ListVmClusterUpdatesRequest
+  ): AsyncIterableIterator<model.VmClusterUpdateSummary> {
+    return paginateRecords(request, req => this.listVmClusterUpdates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVmClusterUpdates operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVmClusterUpdatesResponses(
+    request: requests.ListVmClusterUpdatesRequest
+  ): AsyncIterableIterator<responses.ListVmClusterUpdatesResponse> {
+    return paginateResponses(request, req => this.listVmClusterUpdates(req));
+  }
+
+  /**
    * Lists the VM clusters in the specified compartment. Applies to Exadata Cloud@Customer instances only.
    * To list the cloud VM clusters in an Exadata Cloud Service instance, use the {@link #listCloudVmClusters(ListCloudVmClustersRequest) listCloudVmClusters} operation.
    *
@@ -13592,7 +13993,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Clone and start a pluggable database on the same CDB. Only a started pluggable database can be cloned.
+   * Clones and starts a pluggable database (PDB) in the same database (CDB) as the source PDB. The source PDB must be in the `READ_WRITE` openMode to perform the clone operation.
+   *
    * @param LocalClonePluggableDatabaseRequest
    * @return LocalClonePluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -14043,7 +14445,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Clone and start a pluggable database on a different CDB. Only a started pluggable database can be cloned.
+   * Clones a pluggable database (PDB) to a different database from the source PDB. The cloned PDB will be started upon completion of the clone operation. The source PDB must be in the `READ_WRITE` openMode when performing the clone.
+   *
    * @param RemoteClonePluggableDatabaseRequest
    * @return RemoteClonePluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -14903,7 +15306,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * start a stopped pluggable database. The openMode of the pluggable database will be READ_WRITE upon completion.
+   * Starts a stopped pluggable database. The `openMode` value of the pluggable database will be `READ_WRITE` upon completion.
    * @param StartPluggableDatabaseRequest
    * @return StartPluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -15045,7 +15448,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * stop a started pluggable database. The openMode of the pluggable database will be MOUNTED upon completion.
+   * Stops a pluggable database. The `openMode` value of the pluggable database will be `MOUNTED` upon completion.
    * @param StopPluggableDatabaseRequest
    * @return StopPluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -16284,6 +16687,84 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Updates the Data Guard association the specified database. This API can be used to change the `protectionMode` and `transportType` of the Data Guard association.
+   *
+   * @param UpdateDataGuardAssociationRequest
+   * @return UpdateDataGuardAssociationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDataGuardAssociation.ts.html |here} to see how to use UpdateDataGuardAssociation API.
+   */
+  public async updateDataGuardAssociation(
+    updateDataGuardAssociationRequest: requests.UpdateDataGuardAssociationRequest
+  ): Promise<responses.UpdateDataGuardAssociationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateDataGuardAssociation.");
+    const pathParams = {
+      "{databaseId}": updateDataGuardAssociationRequest.databaseId,
+      "{dataGuardAssociationId}": updateDataGuardAssociationRequest.dataGuardAssociationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDataGuardAssociationRequest.ifMatch,
+      "opc-request-id": updateDataGuardAssociationRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateDataGuardAssociationRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/dataGuardAssociations/{dataGuardAssociationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDataGuardAssociationRequest.updateDataGuardAssociationDetails,
+        "UpdateDataGuardAssociationDetails",
+        model.UpdateDataGuardAssociationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDataGuardAssociationResponse>{},
+        body: await response.json(),
+        bodyKey: "dataGuardAssociation",
+        bodyModel: model.DataGuardAssociation,
+        type: "model.DataGuardAssociation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Update the specified database based on the request parameters provided.
    *
    * @param UpdateDatabaseRequest
@@ -17197,7 +17678,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   }
 
   /**
-   * Update a pluggable database
+   * Updates the specified pluggable database.
    * @param UpdatePluggableDatabaseRequest
    * @return UpdatePluggableDatabaseResponse
    * @throws OciError when an error occurs

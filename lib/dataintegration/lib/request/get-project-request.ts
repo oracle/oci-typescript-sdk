@@ -33,4 +33,14 @@ export interface GetProjectRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * This parameter allows users to specify which view of the object to return. CHILD_COUNT_STATISTICS - This option is used to get statistics on immediate children of the object by their type.
+   */
+  "projection"?: Array<GetProjectRequest.Projection>;
+}
+
+export namespace GetProjectRequest {
+  export enum Projection {
+    ChildCountStatistics = "CHILD_COUNT_STATISTICS"
+  }
 }

@@ -47,6 +47,7 @@ export interface UpdateVmClusterDetails {
    */
   "sshPublicKeys"?: Array<string>;
   "version"?: model.PatchDetails;
+  "updateDetails"?: model.VmClusterUpdateDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -73,7 +74,10 @@ export namespace UpdateVmClusterDetails {
     const jsonObj = {
       ...obj,
       ...{
-        "version": obj.version ? model.PatchDetails.getJsonObj(obj.version) : undefined
+        "version": obj.version ? model.PatchDetails.getJsonObj(obj.version) : undefined,
+        "updateDetails": obj.updateDetails
+          ? model.VmClusterUpdateDetails.getJsonObj(obj.updateDetails)
+          : undefined
       }
     };
 
@@ -83,7 +87,10 @@ export namespace UpdateVmClusterDetails {
     const jsonObj = {
       ...obj,
       ...{
-        "version": obj.version ? model.PatchDetails.getDeserializedJsonObj(obj.version) : undefined
+        "version": obj.version ? model.PatchDetails.getDeserializedJsonObj(obj.version) : undefined,
+        "updateDetails": obj.updateDetails
+          ? model.VmClusterUpdateDetails.getDeserializedJsonObj(obj.updateDetails)
+          : undefined
       }
     };
 

@@ -18,13 +18,10 @@ import common = require("oci-common");
  * Parameters are created and assigned values that can be configured for each integration task.
  */
 export interface Parameter extends model.TypedObject {
-  "type"?:
-    | model.ConfiguredType
-    | model.JavaType
-    | model.DynamicType
-    | model.DerivedType
-    | model.DataType
-    | model.CompositeType;
+  /**
+   * This can either be a string value referencing the type or a BaseType object.
+   */
+  "type"?: any;
   /**
    * The default value of the parameter.
    */
@@ -69,9 +66,7 @@ export namespace Parameter {
   export function getJsonObj(obj: Parameter, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.TypedObject.getJsonObj(obj) as Parameter)),
-      ...{
-        "type": obj.type ? model.BaseType.getJsonObj(obj.type) : undefined
-      }
+      ...{}
     };
 
     return jsonObj;
@@ -80,9 +75,7 @@ export namespace Parameter {
   export function getDeserializedJsonObj(obj: Parameter, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.TypedObject.getDeserializedJsonObj(obj) as Parameter)),
-      ...{
-        "type": obj.type ? model.BaseType.getDeserializedJsonObj(obj.type) : undefined
-      }
+      ...{}
     };
 
     return jsonObj;

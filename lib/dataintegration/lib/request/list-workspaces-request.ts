@@ -37,7 +37,7 @@ export interface ListWorkspacesRequest extends common.BaseRequest {
   /**
    * The lifecycle state of a resource. When specified, the operation only returns resources that match the given lifecycle state. When not specified, all lifecycle states are processed as a match.
    */
-  "lifecycleState"?: ListWorkspacesRequest.LifecycleState;
+  "lifecycleState"?: string;
   /**
    * Specifies sort order to use, either `ASC` (ascending) or `DESC` (descending).
    */
@@ -56,18 +56,6 @@ export interface ListWorkspacesRequest extends common.BaseRequest {
 }
 
 export namespace ListWorkspacesRequest {
-  export enum LifecycleState {
-    Creating = "CREATING",
-    Active = "ACTIVE",
-    Inactive = "INACTIVE",
-    Updating = "UPDATING",
-    Deleting = "DELETING",
-    Deleted = "DELETED",
-    Stopping = "STOPPING",
-    Stopped = "STOPPED",
-    Failed = "FAILED"
-  }
-
   export enum SortOrder {
     Asc = "ASC",
     Desc = "DESC"

@@ -38,6 +38,10 @@ export interface ConfigParameterValue {
    * Reference to the parameter by its key.
    */
   "parameterValue"?: string;
+  /**
+   * The root object value, used in custom parameters.
+   */
+  "rootObjectValue"?: any;
 }
 
 export namespace ConfigParameterValue {

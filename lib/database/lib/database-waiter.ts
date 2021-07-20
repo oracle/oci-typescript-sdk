@@ -2482,6 +2482,42 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forVmClusterUpdate till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetVmClusterUpdateResponse
+   */
+  public async forVmClusterUpdate(
+    request: serviceRequests.GetVmClusterUpdateRequest,
+    ...targetStates: models.VmClusterUpdate.LifecycleState[]
+  ): Promise<serviceResponses.GetVmClusterUpdateResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getVmClusterUpdate(request),
+      response => targetStates.includes(response.vmClusterUpdate.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forVmClusterUpdateHistoryEntry till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetVmClusterUpdateHistoryEntryResponse
+   */
+  public async forVmClusterUpdateHistoryEntry(
+    request: serviceRequests.GetVmClusterUpdateHistoryEntryRequest,
+    ...targetStates: models.VmClusterUpdateHistoryEntry.LifecycleState[]
+  ): Promise<serviceResponses.GetVmClusterUpdateHistoryEntryResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getVmClusterUpdateHistoryEntry(request),
+      response => targetStates.includes(response.vmClusterUpdateHistoryEntry.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forLaunchAutonomousExadataInfrastructure
    *
    * @param request the request to send
@@ -3406,6 +3442,32 @@ export class DatabaseWaiter {
     );
     return {
       response: updateCloudVmClusterIormConfigResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateDataGuardAssociation
+   *
+   * @param request the request to send
+   * @return response returns UpdateDataGuardAssociationResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateDataGuardAssociation(
+    request: serviceRequests.UpdateDataGuardAssociationRequest
+  ): Promise<{
+    response: serviceResponses.UpdateDataGuardAssociationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateDataGuardAssociationResponse = await this.client.updateDataGuardAssociation(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateDataGuardAssociationResponse.opcWorkRequestId
+    );
+    return {
+      response: updateDataGuardAssociationResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

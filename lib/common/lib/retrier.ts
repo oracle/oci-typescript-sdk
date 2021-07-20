@@ -9,7 +9,8 @@ import {
   MaxAttemptsTerminationStrategy,
   WaiterConfigurationDetails,
   delay,
-  WaitContextImpl
+  WaitContextImpl,
+  ExponentialBackoffDelayStrategyWithJitter
 } from "./waiter";
 import { HttpClient } from "./http";
 import { HttpRequest } from "./http-request";
@@ -17,6 +18,7 @@ import { isReadableStream } from "./helper";
 import { handleErrorBody, handleErrorResponse } from "./helper";
 import { OciError } from "..";
 import { Logger } from "./log";
+import { BooleanString } from "./constants";
 
 /**
  * This class implements the retrier
@@ -38,7 +40,7 @@ export interface RetryConfigurationDetails extends WaiterConfigurationDetails {
   backupBinaryBody: boolean;
 }
 
-class DefaultRetryCondition {
+export class DefaultRetryCondition {
   /**
    * Default retry condition for Retry mechanism
    * NOTE : Retries are not supported for requests that have binary or stream bodies
@@ -55,27 +57,59 @@ class DefaultRetryCondition {
       error.statusCode === 503 ||
       error.statusCode === 504 ||
       error.statusCode == -1 ||
-      isNaN(error.statusCode) ||
+      isNaN(error.statusCode) || // no StatusCode means client side error. These are considered retryable.
       (DefaultRetryCondition.RETRYABLE_SERVICE_ERRORS.has(error.statusCode) &&
         DefaultRetryCondition.RETRYABLE_SERVICE_ERRORS.get(error.statusCode) === error.serviceCode)
     );
   }
 }
 
-const NoRetryConfigurationDetails: RetryConfigurationDetails = {
-  terminationStrategy: new MaxAttemptsTerminationStrategy(1),
-  delayStrategy: new ExponentialBackoffDelayStrategy(30),
+const NO_RETRY_MAXIMUM_NUMBER_OF_ATTEMPTS = 1;
+const NO_RETRY_MAXIMUM_DELAY_IN_SECONDS = 30;
+
+export const NoRetryConfigurationDetails: RetryConfigurationDetails = {
+  terminationStrategy: new MaxAttemptsTerminationStrategy(NO_RETRY_MAXIMUM_NUMBER_OF_ATTEMPTS),
+  delayStrategy: new ExponentialBackoffDelayStrategyWithJitter(NO_RETRY_MAXIMUM_DELAY_IN_SECONDS),
   retryCondition: DefaultRetryCondition.shouldBeRetried,
   backupBinaryBody: false
 };
 
 export class GenericRetrier {
-  private retryConfiguration: RetryConfigurationDetails;
+  private _retryConfiguration: RetryConfigurationDetails;
   private _logger: Logger = (undefined as unknown) as Logger;
+  private static OCI_SDK_DEFAULT_RETRY_ENABLED = "OCI_SDK_DEFAULT_RETRY_ENABLED";
+  private static DEFAULT_RETRY_MAXIMUM_NUMBER_OF_ATTEMPTS = 8;
+  private static DEFAULT_RETRY_MAXIMUM_DELAY_IN_SECONDS = 30;
 
+  private static OPC_CLIENT_RETRIES_HEADER = "opc-client-retries";
   constructor(retryConfiguration: RetryConfiguration) {
     const preferredRetryConfig = { ...NoRetryConfigurationDetails, ...retryConfiguration };
-    this.retryConfiguration = preferredRetryConfig;
+    this._retryConfiguration = preferredRetryConfig;
+  }
+
+  private static DefaultRetryConfiguration: RetryConfigurationDetails =
+    process.env[GenericRetrier.OCI_SDK_DEFAULT_RETRY_ENABLED] === BooleanString.FALSE
+      ? NoRetryConfigurationDetails
+      : {
+          terminationStrategy: new MaxAttemptsTerminationStrategy(
+            GenericRetrier.DEFAULT_RETRY_MAXIMUM_NUMBER_OF_ATTEMPTS
+          ),
+          delayStrategy: new ExponentialBackoffDelayStrategyWithJitter(
+            GenericRetrier.DEFAULT_RETRY_MAXIMUM_DELAY_IN_SECONDS
+          ),
+          retryCondition: DefaultRetryCondition.shouldBeRetried,
+          backupBinaryBody: false
+        };
+
+  static get defaultRetryConfiguration(): RetryConfiguration {
+    return GenericRetrier.DefaultRetryConfiguration;
+  }
+
+  static set defaultRetryConfiguration(retryConfig: RetryConfiguration) {
+    GenericRetrier.DefaultRetryConfiguration = {
+      ...GenericRetrier.DefaultRetryConfiguration,
+      ...retryConfig
+    };
   }
 
   public set logger(logger: Logger) {
@@ -86,6 +120,10 @@ export class GenericRetrier {
     return this.retryConfiguration.backupBinaryBody;
   }
 
+  public get retryConfiguration(): RetryConfigurationDetails {
+    return this._retryConfiguration;
+  }
+
   public static createPreferredRetrier(
     clientRetryConfiguration?: RetryConfiguration,
     requestRetryConfiguration?: RetryConfiguration
@@ -93,7 +131,7 @@ export class GenericRetrier {
     let retryConfigToUse = [requestRetryConfiguration, clientRetryConfiguration, {}].filter(
       configuration => configuration !== null && configuration !== undefined
     )[0];
-    retryConfigToUse = { ...NoRetryConfigurationDetails, ...retryConfigToUse };
+    retryConfigToUse = { ...GenericRetrier.defaultRetryConfiguration, ...retryConfigToUse };
     return new GenericRetrier(retryConfigToUse);
   }
 
@@ -107,9 +145,21 @@ export class GenericRetrier {
     let shouldBeRetried: boolean = true;
     while (true) {
       try {
+        this.addOpcClientRetryHeader(request);
         const response: Response = await httpClient.send(request, excludeBody);
         if (response.status && response.status >= 200 && response.status <= 299) {
           return response;
+        } else if ((response as any).code === "EOPENBREAKER") {
+          // Circuit Breaker is in OPEN state
+          const circuitBreakerError: any = response;
+          const errorObject = new OciError(
+            circuitBreakerError.code,
+            "unknown code",
+            circuitBreakerError.message,
+            "unknown"
+          );
+          shouldBeRetried = this.retryConfiguration.retryCondition(errorObject); // TODO: need retryCondition to accept errorObject coming from Circuit Breaker
+          lastKnownError = errorObject;
         } else {
           const errBody = await handleErrorBody(response);
           const errorObject = handleErrorResponse(response, errBody);
@@ -120,24 +170,42 @@ export class GenericRetrier {
         lastKnownError = new OciError(err.code, "unknown code", err.message, "unknown");
         shouldBeRetried = true;
       }
-      if (
-        !shouldBeRetried ||
-        this.retryConfiguration.terminationStrategy.shouldTerminate(waitContext) ||
-        !GenericRetrier.isRequestRetryable(request)
-      ) {
-        if (this._logger) this._logger.debug("Not retrying the service call...");
+      if (!shouldBeRetried || !GenericRetrier.isRequestRetryable(request)) {
+        console.warn(
+          `Request cannot be retried. Not Retrying. Exception occurred : ${lastKnownError}`
+        );
+        throw lastKnownError;
+      } else if (this.retryConfiguration.terminationStrategy.shouldTerminate(waitContext)) {
+        console.warn(
+          `All retry attempts have exhausted. Total Attempts : ${waitContext.attemptCount +
+            1}. Last exception occurred : ${lastKnownError}`
+        );
         throw lastKnownError;
       }
-      await delay(this.retryConfiguration.delayStrategy.delay(waitContext));
+      const delayTime = this.retryConfiguration.delayStrategy.delay(waitContext);
       waitContext.attemptCount++;
+      console.warn(
+        `Request failed with Exception : ${lastKnownError}\nRetrying request -> Total Attempts : ${waitContext.attemptCount}, Retrying after ${delayTime} seconds...`
+      );
+      await delay(delayTime);
       GenericRetrier.refreshRequest(request);
-      if (this._logger)
-        this._logger.debug("Retrying the service call, attempt : ", waitContext.attemptCount);
     }
   }
 
   private static refreshRequest(request: HttpRequest) {
     request.headers.set("x-date", new Date().toUTCString());
+  }
+
+  private addOpcClientRetryHeader(request: HttpRequest) {
+    const terminationStrategy = this.retryConfiguration.terminationStrategy;
+    const opcClientRetryHeader = request.headers.get(GenericRetrier.OPC_CLIENT_RETRIES_HEADER);
+    if (
+      terminationStrategy instanceof MaxAttemptsTerminationStrategy &&
+      terminationStrategy.maxAttempts > 1 &&
+      (opcClientRetryHeader === undefined || opcClientRetryHeader === null)
+    ) {
+      request.headers.set(GenericRetrier.OPC_CLIENT_RETRIES_HEADER, "true");
+    }
   }
 
   private static isRequestRetryable(request: HttpRequest) {

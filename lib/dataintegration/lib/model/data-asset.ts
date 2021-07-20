@@ -96,9 +96,19 @@ export namespace DataAsset {
             <model.DataAssetFromAdwcDetails>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3_DATA_ASSET":
+          return model.DataAssetFromAmazonS3.getJsonObj(
+            <model.DataAssetFromAmazonS3>(<object>jsonObj),
+            true
+          );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
           return model.DataAssetFromObjectStorageDetails.getJsonObj(
             <model.DataAssetFromObjectStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "FUSION_APP_DATA_ASSET":
+          return model.DataAssetFromFusionApp.getJsonObj(
+            <model.DataAssetFromFusionApp>(<object>jsonObj),
             true
           );
         case "ORACLE_ATP_DATA_ASSET":
@@ -151,9 +161,19 @@ export namespace DataAsset {
             <model.DataAssetFromAdwcDetails>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3_DATA_ASSET":
+          return model.DataAssetFromAmazonS3.getDeserializedJsonObj(
+            <model.DataAssetFromAmazonS3>(<object>jsonObj),
+            true
+          );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
           return model.DataAssetFromObjectStorageDetails.getDeserializedJsonObj(
             <model.DataAssetFromObjectStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "FUSION_APP_DATA_ASSET":
+          return model.DataAssetFromFusionApp.getDeserializedJsonObj(
+            <model.DataAssetFromFusionApp>(<object>jsonObj),
             true
           );
         case "ORACLE_ATP_DATA_ASSET":

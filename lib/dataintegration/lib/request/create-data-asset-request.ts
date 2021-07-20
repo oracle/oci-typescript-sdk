@@ -30,6 +30,8 @@ export interface CreateDataAssetRequest extends common.BaseRequest {
     | model.CreateDataAssetFromMySQL
     | model.CreateDataAssetFromOracle
     | model.CreateDataAssetFromAdwc
+    | model.CreateDataAssetFromAmazonS3
+    | model.CreateDataAssetFromFusionApp
     | model.CreateDataAssetFromAtp
     | model.CreateDataAssetFromObjectStorage;
   /**
