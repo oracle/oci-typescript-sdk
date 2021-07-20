@@ -30,7 +30,9 @@ export interface OracleAdwcWriteAttribute extends model.AbstractWriteAttribute {
     | model.DataAssetFromJdbc
     | model.DataAssetFromOracleDetails
     | model.DataAssetFromAdwcDetails
+    | model.DataAssetFromAmazonS3
     | model.DataAssetFromObjectStorageDetails
+    | model.DataAssetFromFusionApp
     | model.DataAssetFromAtpDetails
     | model.DataAssetFromMySQL;
   "stagingConnection"?:
@@ -38,8 +40,10 @@ export interface OracleAdwcWriteAttribute extends model.AbstractWriteAttribute {
     | model.ConnectionFromAdwc
     | model.ConnectionFromAtp
     | model.ConnectionFromOracle
+    | model.ConnectionFromAmazonS3
     | model.ConnectionFromMySQL
-    | model.ConnectionFromJdbc;
+    | model.ConnectionFromJdbc
+    | model.ConnectionFromBICC;
 
   "modelType": string;
 }

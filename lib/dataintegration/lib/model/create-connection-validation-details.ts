@@ -23,11 +23,15 @@ export interface CreateConnectionValidationDetails {
     | model.CreateDataAssetFromMySQL
     | model.CreateDataAssetFromOracle
     | model.CreateDataAssetFromAdwc
+    | model.CreateDataAssetFromAmazonS3
+    | model.CreateDataAssetFromFusionApp
     | model.CreateDataAssetFromAtp
     | model.CreateDataAssetFromObjectStorage;
   "connection"?:
     | model.CreateConnectionFromMySQL
+    | model.CreateConnectionFromAmazonS3
     | model.CreateConnectionFromJdbc
+    | model.CreateConnectionFromBICC
     | model.CreateConnectionFromAtp
     | model.CreateConnectionFromAdwc
     | model.CreateConnectionFromOracle

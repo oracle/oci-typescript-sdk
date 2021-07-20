@@ -30,7 +30,10 @@ export interface UpdateTaskRequest extends common.BaseRequest {
    * The details needed to update a task.
    */
   "updateTaskDetails":
+    | model.UpdateTaskFromRestTask
     | model.UpdateTaskFromPipelineTask
+    | model.UpdateTaskFromOCIDataflowTask
+    | model.UpdateTaskFromSQLTask
     | model.UpdateTaskFromDataLoaderTask
     | model.UpdateTaskFromIntegrationTask;
   /**

@@ -25,7 +25,7 @@ export interface ScanDetails {
    */
   "hostname": string;
   /**
-   * The SCAN port. Default is 1521. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The SCAN TCPIP port. Default is 1521. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port": number;
   /**

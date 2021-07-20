@@ -46,6 +46,10 @@ export interface UpdateTaskRunDetails {
    * The version of the object that is used to track changes in the object instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectVersion"?: number;
+  /**
+   * Optional task schedule key reference.
+   */
+  "taskScheduleKey"?: string;
   "registryMetadata"?: model.RegistryMetadata;
 }
 

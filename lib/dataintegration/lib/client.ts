@@ -46,6 +46,10 @@ export class DataIntegrationClient {
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
     }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
@@ -1200,6 +1204,77 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Endpoint to create a new schedule
+   * @param CreateScheduleRequest
+   * @return CreateScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateSchedule.ts.html |here} to see how to use CreateSchedule API.
+   */
+  public async createSchedule(
+    createScheduleRequest: requests.CreateScheduleRequest
+  ): Promise<responses.CreateScheduleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createSchedule.");
+    const pathParams = {
+      "{workspaceId}": createScheduleRequest.workspaceId,
+      "{applicationKey}": createScheduleRequest.applicationKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createScheduleRequest.opcRequestId,
+      "opc-retry-token": createScheduleRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createScheduleRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/schedules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createScheduleRequest.createScheduleDetails,
+        "CreateScheduleDetails",
+        model.CreateScheduleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateScheduleResponse>{},
+        body: await response.json(),
+        bodyKey: "schedule",
+        bodyModel: model.Schedule,
+        type: "model.Schedule",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new task ready for performing data integrations. There are specialized types of tasks that include data loader and integration tasks.
    *
    * @param CreateTaskRequest
@@ -1330,6 +1405,78 @@ export class DataIntegrationClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Endpoint to be used create TaskSchedule.
+   * @param CreateTaskScheduleRequest
+   * @return CreateTaskScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateTaskSchedule.ts.html |here} to see how to use CreateTaskSchedule API.
+   */
+  public async createTaskSchedule(
+    createTaskScheduleRequest: requests.CreateTaskScheduleRequest
+  ): Promise<responses.CreateTaskScheduleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#createTaskSchedule.");
+    const pathParams = {
+      "{workspaceId}": createTaskScheduleRequest.workspaceId,
+      "{applicationKey}": createTaskScheduleRequest.applicationKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createTaskScheduleRequest.opcRequestId,
+      "opc-retry-token": createTaskScheduleRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createTaskScheduleRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/taskSchedules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createTaskScheduleRequest.createTaskScheduleDetails,
+        "CreateTaskScheduleDetails",
+        model.CreateTaskScheduleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateTaskScheduleResponse>{},
+        body: await response.json(),
+        bodyKey: "taskSchedule",
+        bodyModel: model.TaskSchedule,
+        type: "model.TaskSchedule",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -2234,6 +2381,64 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Endpoint to delete schedule.
+   * @param DeleteScheduleRequest
+   * @return DeleteScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteSchedule.ts.html |here} to see how to use DeleteSchedule API.
+   */
+  public async deleteSchedule(
+    deleteScheduleRequest: requests.DeleteScheduleRequest
+  ): Promise<responses.DeleteScheduleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteSchedule.");
+    const pathParams = {
+      "{workspaceId}": deleteScheduleRequest.workspaceId,
+      "{applicationKey}": deleteScheduleRequest.applicationKey,
+      "{scheduleKey}": deleteScheduleRequest.scheduleKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteScheduleRequest.ifMatch,
+      "opc-request-id": deleteScheduleRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteScheduleRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/schedules/{scheduleKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteScheduleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a task using the specified identifier.
    * @param DeleteTaskRequest
    * @return DeleteTaskResponse
@@ -2333,6 +2538,66 @@ export class DataIntegrationClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTaskRunResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Endpoint to delete TaskSchedule.
+   * @param DeleteTaskScheduleRequest
+   * @return DeleteTaskScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteTaskSchedule.ts.html |here} to see how to use DeleteTaskSchedule API.
+   */
+  public async deleteTaskSchedule(
+    deleteTaskScheduleRequest: requests.DeleteTaskScheduleRequest
+  ): Promise<responses.DeleteTaskScheduleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#deleteTaskSchedule.");
+    const pathParams = {
+      "{workspaceId}": deleteTaskScheduleRequest.workspaceId,
+      "{applicationKey}": deleteTaskScheduleRequest.applicationKey,
+      "{taskScheduleKey}": deleteTaskScheduleRequest.taskScheduleKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteTaskScheduleRequest.ifMatch,
+      "opc-request-id": deleteTaskScheduleRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteTaskScheduleRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/applications/{applicationKey}/taskSchedules/{taskScheduleKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteTaskScheduleResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2879,7 +3144,9 @@ export class DataIntegrationClient {
       "{dataFlowKey}": getDataFlowRequest.dataFlowKey
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "expandReferences": getDataFlowRequest.expandReferences
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3217,7 +3484,9 @@ export class DataIntegrationClient {
       "{folderKey}": getFolderRequest.folderKey
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "projection": getFolderRequest.projection
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3348,7 +3617,9 @@ export class DataIntegrationClient {
       "{pipelineKey}": getPipelineRequest.pipelineKey
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "expandReferences": getPipelineRequest.expandReferences
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3479,7 +3750,9 @@ export class DataIntegrationClient {
       "{projectKey}": getProjectRequest.projectKey
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "projection": getProjectRequest.projection
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3644,6 +3917,72 @@ export class DataIntegrationClient {
         bodyKey: "reference",
         bodyModel: model.Reference,
         type: "model.Reference",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves schedule by schedule key
+   * @param GetScheduleRequest
+   * @return GetScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetSchedule.ts.html |here} to see how to use GetSchedule API.
+   */
+  public async getSchedule(
+    getScheduleRequest: requests.GetScheduleRequest
+  ): Promise<responses.GetScheduleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getSchedule.");
+    const pathParams = {
+      "{workspaceId}": getScheduleRequest.workspaceId,
+      "{applicationKey}": getScheduleRequest.applicationKey,
+      "{scheduleKey}": getScheduleRequest.scheduleKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getScheduleRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getScheduleRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/schedules/{scheduleKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetScheduleResponse>{},
+        body: await response.json(),
+        bodyKey: "schedule",
+        bodyModel: model.Schedule,
+        type: "model.Schedule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3838,6 +4177,73 @@ export class DataIntegrationClient {
         bodyKey: "taskRun",
         bodyModel: model.TaskRun,
         type: "model.TaskRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Endpoint used to get taskSchedule by its key
+   * @param GetTaskScheduleRequest
+   * @return GetTaskScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetTaskSchedule.ts.html |here} to see how to use GetTaskSchedule API.
+   */
+  public async getTaskSchedule(
+    getTaskScheduleRequest: requests.GetTaskScheduleRequest
+  ): Promise<responses.GetTaskScheduleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getTaskSchedule.");
+    const pathParams = {
+      "{workspaceId}": getTaskScheduleRequest.workspaceId,
+      "{applicationKey}": getTaskScheduleRequest.applicationKey,
+      "{taskScheduleKey}": getTaskScheduleRequest.taskScheduleKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getTaskScheduleRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getTaskScheduleRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/applications/{applicationKey}/taskSchedules/{taskScheduleKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetTaskScheduleResponse>{},
+        body: await response.json(),
+        bodyKey: "taskSchedule",
+        bodyModel: model.TaskSchedule,
+        type: "model.TaskSchedule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5576,6 +5982,91 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Use this endpoint to list schedules.
+   *
+   * @param ListSchedulesRequest
+   * @return ListSchedulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListSchedules.ts.html |here} to see how to use ListSchedules API.
+   */
+  public async listSchedules(
+    listSchedulesRequest: requests.ListSchedulesRequest
+  ): Promise<responses.ListSchedulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listSchedules.");
+    const pathParams = {
+      "{workspaceId}": listSchedulesRequest.workspaceId,
+      "{applicationKey}": listSchedulesRequest.applicationKey
+    };
+
+    const queryParams = {
+      "key": listSchedulesRequest.key,
+      "name": listSchedulesRequest.name,
+      "identifier": listSchedulesRequest.identifier,
+      "type": listSchedulesRequest.type,
+      "page": listSchedulesRequest.page,
+      "limit": listSchedulesRequest.limit,
+      "sortBy": listSchedulesRequest.sortBy,
+      "sortOrder": listSchedulesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSchedulesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listSchedulesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/schedules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSchedulesResponse>{},
+        body: await response.json(),
+        bodyKey: "scheduleSummaryCollection",
+        bodyModel: model.ScheduleSummaryCollection,
+        type: "model.ScheduleSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a list of all the schemas that can be accessed using the specified connection.
    * @param ListSchemasRequest
    * @return ListSchemasResponse
@@ -5782,6 +6273,7 @@ export class DataIntegrationClient {
     };
 
     const queryParams = {
+      "key": listTaskRunsRequest.key,
       "aggregatorKey": listTaskRunsRequest.aggregatorKey,
       "fields": listTaskRunsRequest.fields,
       "name": listTaskRunsRequest.name,
@@ -5789,7 +6281,8 @@ export class DataIntegrationClient {
       "page": listTaskRunsRequest.page,
       "limit": listTaskRunsRequest.limit,
       "sortOrder": listTaskRunsRequest.sortOrder,
-      "sortBy": listTaskRunsRequest.sortBy
+      "sortBy": listTaskRunsRequest.sortBy,
+      "filter": listTaskRunsRequest.filter
     };
 
     let headerParams = {
@@ -5819,6 +6312,93 @@ export class DataIntegrationClient {
         bodyKey: "taskRunSummaryCollection",
         bodyModel: model.TaskRunSummaryCollection,
         type: "model.TaskRunSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This endpoint can be used to get the list of all the TaskSchedule objects.
+   *
+   * @param ListTaskSchedulesRequest
+   * @return ListTaskSchedulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTaskSchedules.ts.html |here} to see how to use ListTaskSchedules API.
+   */
+  public async listTaskSchedules(
+    listTaskSchedulesRequest: requests.ListTaskSchedulesRequest
+  ): Promise<responses.ListTaskSchedulesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#listTaskSchedules.");
+    const pathParams = {
+      "{workspaceId}": listTaskSchedulesRequest.workspaceId,
+      "{applicationKey}": listTaskSchedulesRequest.applicationKey
+    };
+
+    const queryParams = {
+      "key": listTaskSchedulesRequest.key,
+      "name": listTaskSchedulesRequest.name,
+      "identifier": listTaskSchedulesRequest.identifier,
+      "type": listTaskSchedulesRequest.type,
+      "page": listTaskSchedulesRequest.page,
+      "limit": listTaskSchedulesRequest.limit,
+      "sortBy": listTaskSchedulesRequest.sortBy,
+      "sortOrder": listTaskSchedulesRequest.sortOrder,
+      "isEnabled": listTaskSchedulesRequest.isEnabled
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTaskSchedulesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listTaskSchedulesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/taskSchedules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTaskSchedulesResponse>{},
+        body: await response.json(),
+        bodyKey: "taskScheduleSummaryCollection",
+        bodyModel: model.TaskScheduleSummaryCollection,
+        type: "model.TaskScheduleSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7179,6 +7759,78 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Endpoint used to update the schedule
+   * @param UpdateScheduleRequest
+   * @return UpdateScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateSchedule.ts.html |here} to see how to use UpdateSchedule API.
+   */
+  public async updateSchedule(
+    updateScheduleRequest: requests.UpdateScheduleRequest
+  ): Promise<responses.UpdateScheduleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateSchedule.");
+    const pathParams = {
+      "{workspaceId}": updateScheduleRequest.workspaceId,
+      "{applicationKey}": updateScheduleRequest.applicationKey,
+      "{scheduleKey}": updateScheduleRequest.scheduleKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateScheduleRequest.ifMatch,
+      "opc-request-id": updateScheduleRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateScheduleRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/schedules/{scheduleKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateScheduleRequest.updateScheduleDetails,
+        "UpdateScheduleDetails",
+        model.UpdateScheduleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateScheduleResponse>{},
+        body: await response.json(),
+        bodyKey: "schedule",
+        bodyModel: model.Schedule,
+        type: "model.Schedule",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates a specific task. For example, you can update the task description or move the task to a different folder by changing the `aggregatorKey` to a different folder in the registry.
    * @param UpdateTaskRequest
    * @return UpdateTaskResponse
@@ -7310,6 +7962,80 @@ export class DataIntegrationClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Endpoint used to update the TaskSchedule
+   * @param UpdateTaskScheduleRequest
+   * @return UpdateTaskScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateTaskSchedule.ts.html |here} to see how to use UpdateTaskSchedule API.
+   */
+  public async updateTaskSchedule(
+    updateTaskScheduleRequest: requests.UpdateTaskScheduleRequest
+  ): Promise<responses.UpdateTaskScheduleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#updateTaskSchedule.");
+    const pathParams = {
+      "{workspaceId}": updateTaskScheduleRequest.workspaceId,
+      "{applicationKey}": updateTaskScheduleRequest.applicationKey,
+      "{taskScheduleKey}": updateTaskScheduleRequest.taskScheduleKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateTaskScheduleRequest.ifMatch,
+      "opc-request-id": updateTaskScheduleRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateTaskScheduleRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/applications/{applicationKey}/taskSchedules/{taskScheduleKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateTaskScheduleRequest.updateTaskScheduleDetails,
+        "UpdateTaskScheduleDetails",
+        model.UpdateTaskScheduleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateTaskScheduleResponse>{},
+        body: await response.json(),
+        bodyKey: "taskSchedule",
+        bodyModel: model.TaskSchedule,
+        type: "model.TaskSchedule",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

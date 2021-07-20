@@ -5,6 +5,9 @@
  * Utility method to check if environment is node or browser
  */
 
+import CircuitBreaker from "./circuit-breaker";
+import { ClientConfiguration } from "./client-configuration";
+
 export function isBrowser() {
   if (typeof window === "undefined") {
     return false;
@@ -23,4 +26,23 @@ export function checkNotNull(value: string | null, msg: string): string {
     return value;
   }
   throw new Error(msg);
+}
+
+// Utility method to check if circuit breaker should be created
+// This is used when no circuit breaker was created for the client, if not: Check if it was disabled at the client level / global level / environment level in respective order
+// return false means do not create circuit breaker.
+export function isCircuitBreakerSystemEnabled(clientConfiguration: ClientConfiguration): boolean {
+  // Client level check
+  const clientLevelCheck =
+    clientConfiguration &&
+    clientConfiguration.circuitBreaker &&
+    clientConfiguration.circuitBreaker.noCircuit;
+  if (
+    clientLevelCheck ||
+    !CircuitBreaker.EnableGlobalCircuitBreaker ||
+    CircuitBreaker.EnableDefaultCircuitBreaker === "false"
+  ) {
+    return false;
+  }
+  return true;
 }

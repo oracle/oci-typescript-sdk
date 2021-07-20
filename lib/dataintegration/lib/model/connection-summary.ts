@@ -90,6 +90,11 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromJdbc>(<object>jsonObj),
             true
           );
+        case "BICC_CONNECTION":
+          return model.ConnectionSummaryFromBICC.getJsonObj(
+            <model.ConnectionSummaryFromBICC>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ATP_CONNECTION":
           return model.ConnectionSummaryFromAtp.getJsonObj(
             <model.ConnectionSummaryFromAtp>(<object>jsonObj),
@@ -98,6 +103,11 @@ export namespace ConnectionSummary {
         case "ORACLEDB_CONNECTION":
           return model.ConnectionSummaryFromOracle.getJsonObj(
             <model.ConnectionSummaryFromOracle>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_S3_CONNECTION":
+          return model.ConnectionSummaryFromAmazonS3.getJsonObj(
+            <model.ConnectionSummaryFromAmazonS3>(<object>jsonObj),
             true
           );
         case "ORACLE_ADWC_CONNECTION":
@@ -151,6 +161,11 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromJdbc>(<object>jsonObj),
             true
           );
+        case "BICC_CONNECTION":
+          return model.ConnectionSummaryFromBICC.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromBICC>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ATP_CONNECTION":
           return model.ConnectionSummaryFromAtp.getDeserializedJsonObj(
             <model.ConnectionSummaryFromAtp>(<object>jsonObj),
@@ -159,6 +174,11 @@ export namespace ConnectionSummary {
         case "ORACLEDB_CONNECTION":
           return model.ConnectionSummaryFromOracle.getDeserializedJsonObj(
             <model.ConnectionSummaryFromOracle>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_S3_CONNECTION":
+          return model.ConnectionSummaryFromAmazonS3.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromAmazonS3>(<object>jsonObj),
             true
           );
         case "ORACLE_ADWC_CONNECTION":

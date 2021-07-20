@@ -17,21 +17,37 @@ import common = require("oci-common");
 /**
  * Properties to configure reading from an Oracle Database.
  */
-export interface OracleReadAttributes {
+export interface OracleReadAttributes extends model.AbstractReadAttribute {
   /**
    * The fetch size for reading. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "fetchSize"?: number;
+
+  "modelType": string;
 }
 
 export namespace OracleReadAttributes {
-  export function getJsonObj(obj: OracleReadAttributes): object {
-    const jsonObj = { ...obj, ...{} };
+  export function getJsonObj(obj: OracleReadAttributes, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractReadAttribute.getJsonObj(obj) as OracleReadAttributes)),
+      ...{}
+    };
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: OracleReadAttributes): object {
-    const jsonObj = { ...obj, ...{} };
+  export const modelType = "ORACLE_READ_ATTRIBUTE";
+  export function getDeserializedJsonObj(
+    obj: OracleReadAttributes,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractReadAttribute.getDeserializedJsonObj(obj) as OracleReadAttributes)),
+      ...{}
+    };
 
     return jsonObj;
   }

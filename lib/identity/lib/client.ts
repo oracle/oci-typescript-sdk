@@ -45,6 +45,10 @@ export class IdentityClient {
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
     }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
@@ -7073,7 +7077,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "lifecycleState": listUsersRequest.lifecycleState
     };
 
-    let headerParams = {
+    let headerParams: common.Params = {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 

@@ -67,6 +67,7 @@ export interface ObjectMetadata {
    * Specifies whether this object is a favorite or not.
    */
   "isFavorite"?: boolean;
+  "countStatistics"?: model.CountStatistic;
 }
 
 export namespace ObjectMetadata {
@@ -76,6 +77,10 @@ export namespace ObjectMetadata {
       ...{
         "aggregator": obj.aggregator
           ? model.AggregatorSummary.getJsonObj(obj.aggregator)
+          : undefined,
+
+        "countStatistics": obj.countStatistics
+          ? model.CountStatistic.getJsonObj(obj.countStatistics)
           : undefined
       }
     };
@@ -88,6 +93,10 @@ export namespace ObjectMetadata {
       ...{
         "aggregator": obj.aggregator
           ? model.AggregatorSummary.getDeserializedJsonObj(obj.aggregator)
+          : undefined,
+
+        "countStatistics": obj.countStatistics
+          ? model.CountStatistic.getDeserializedJsonObj(obj.countStatistics)
           : undefined
       }
     };

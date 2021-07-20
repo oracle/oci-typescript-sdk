@@ -102,9 +102,24 @@ export namespace UpdateTaskDetails {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "REST_TASK":
+          return model.UpdateTaskFromRestTask.getJsonObj(
+            <model.UpdateTaskFromRestTask>(<object>jsonObj),
+            true
+          );
         case "PIPELINE_TASK":
           return model.UpdateTaskFromPipelineTask.getJsonObj(
             <model.UpdateTaskFromPipelineTask>(<object>jsonObj),
+            true
+          );
+        case "OCI_DATAFLOW_TASK":
+          return model.UpdateTaskFromOCIDataflowTask.getJsonObj(
+            <model.UpdateTaskFromOCIDataflowTask>(<object>jsonObj),
+            true
+          );
+        case "SQL_TASK":
+          return model.UpdateTaskFromSQLTask.getJsonObj(
+            <model.UpdateTaskFromSQLTask>(<object>jsonObj),
             true
           );
         case "DATA_LOADER_TASK":
@@ -160,9 +175,24 @@ export namespace UpdateTaskDetails {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "REST_TASK":
+          return model.UpdateTaskFromRestTask.getDeserializedJsonObj(
+            <model.UpdateTaskFromRestTask>(<object>jsonObj),
+            true
+          );
         case "PIPELINE_TASK":
           return model.UpdateTaskFromPipelineTask.getDeserializedJsonObj(
             <model.UpdateTaskFromPipelineTask>(<object>jsonObj),
+            true
+          );
+        case "OCI_DATAFLOW_TASK":
+          return model.UpdateTaskFromOCIDataflowTask.getDeserializedJsonObj(
+            <model.UpdateTaskFromOCIDataflowTask>(<object>jsonObj),
+            true
+          );
+        case "SQL_TASK":
+          return model.UpdateTaskFromSQLTask.getDeserializedJsonObj(
+            <model.UpdateTaskFromSQLTask>(<object>jsonObj),
             true
           );
         case "DATA_LOADER_TASK":

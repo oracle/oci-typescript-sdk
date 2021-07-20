@@ -53,6 +53,9 @@ export namespace PatchObjectMetadata {
     IntegrationTask = "INTEGRATION_TASK",
     DataLoaderTask = "DATA_LOADER_TASK",
     PipelineTask = "PIPELINE_TASK",
+    SqlTask = "SQL_TASK",
+    OciDataflowTask = "OCI_DATAFLOW_TASK",
+    RestTask = "REST_TASK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

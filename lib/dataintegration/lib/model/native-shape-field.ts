@@ -29,7 +29,7 @@ export interface NativeShapeField {
   /**
    * The type reference.
    */
-  "type"?: string;
+  "type"?: any;
   "configValues"?: model.ConfigValues;
   /**
    * The position of the attribute. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

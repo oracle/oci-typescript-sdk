@@ -33,7 +33,10 @@ export interface ReadOperationConfig extends model.AbstractDataOperationConfig {
   "operations"?: Array<model.PushDownOperation>;
   "dataFormat"?: model.DataFormat;
   "partitionConfig"?: model.KeyRangePartitionConfig;
-  "readAttribute"?: model.OracleReadAttribute;
+  "readAttribute"?:
+    | model.OracleReadAttributes
+    | model.BiccReadAttributes
+    | model.OracleReadAttribute;
   /**
    * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

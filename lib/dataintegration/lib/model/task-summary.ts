@@ -109,6 +109,21 @@ export namespace TaskSummary {
             <model.TaskSummaryFromIntegrationTask>(<object>jsonObj),
             true
           );
+        case "SQL_TASK":
+          return model.TaskSummaryFromSQLTask.getJsonObj(
+            <model.TaskSummaryFromSQLTask>(<object>jsonObj),
+            true
+          );
+        case "OCI_DATAFLOW_TASK":
+          return model.TaskSummaryFromOCIDataflowTask.getJsonObj(
+            <model.TaskSummaryFromOCIDataflowTask>(<object>jsonObj),
+            true
+          );
+        case "REST_TASK":
+          return model.TaskSummaryFromRestTask.getJsonObj(
+            <model.TaskSummaryFromRestTask>(<object>jsonObj),
+            true
+          );
         case "PIPELINE_TASK":
           return model.TaskSummaryFromPipelineTask.getJsonObj(
             <model.TaskSummaryFromPipelineTask>(<object>jsonObj),
@@ -165,6 +180,21 @@ export namespace TaskSummary {
         case "INTEGRATION_TASK":
           return model.TaskSummaryFromIntegrationTask.getDeserializedJsonObj(
             <model.TaskSummaryFromIntegrationTask>(<object>jsonObj),
+            true
+          );
+        case "SQL_TASK":
+          return model.TaskSummaryFromSQLTask.getDeserializedJsonObj(
+            <model.TaskSummaryFromSQLTask>(<object>jsonObj),
+            true
+          );
+        case "OCI_DATAFLOW_TASK":
+          return model.TaskSummaryFromOCIDataflowTask.getDeserializedJsonObj(
+            <model.TaskSummaryFromOCIDataflowTask>(<object>jsonObj),
+            true
+          );
+        case "REST_TASK":
+          return model.TaskSummaryFromRestTask.getDeserializedJsonObj(
+            <model.TaskSummaryFromRestTask>(<object>jsonObj),
             true
           );
         case "PIPELINE_TASK":

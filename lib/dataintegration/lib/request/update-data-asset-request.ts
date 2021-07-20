@@ -34,6 +34,8 @@ export interface UpdateDataAssetRequest extends common.BaseRequest {
     | model.UpdateDataAssetFromAdwc
     | model.UpdateDataAssetFromJdbc
     | model.UpdateDataAssetFromObjectStorage
+    | model.UpdateDataAssetFromAmazonS3
+    | model.UpdateDataAssetFromFusionApp
     | model.UpdateDataAssetFromMySQL
     | model.UpdateDataAssetFromOracle;
   /**

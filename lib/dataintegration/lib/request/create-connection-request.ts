@@ -27,7 +27,9 @@ export interface CreateConnectionRequest extends common.BaseRequest {
    */
   "createConnectionDetails":
     | model.CreateConnectionFromMySQL
+    | model.CreateConnectionFromAmazonS3
     | model.CreateConnectionFromJdbc
+    | model.CreateConnectionFromBICC
     | model.CreateConnectionFromAtp
     | model.CreateConnectionFromAdwc
     | model.CreateConnectionFromOracle

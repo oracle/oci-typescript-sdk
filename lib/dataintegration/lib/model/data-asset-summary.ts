@@ -97,6 +97,11 @@ export namespace DataAssetSummary {
             <model.DataAssetSummaryFromJdbc>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3_DATA_ASSET":
+          return model.DataAssetSummaryFromAmazonS3.getJsonObj(
+            <model.DataAssetSummaryFromAmazonS3>(<object>jsonObj),
+            true
+          );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
           return model.DataAssetSummaryFromObjectStorage.getJsonObj(
             <model.DataAssetSummaryFromObjectStorage>(<object>jsonObj),
@@ -105,6 +110,11 @@ export namespace DataAssetSummary {
         case "ORACLE_DATA_ASSET":
           return model.DataAssetSummaryFromOracle.getJsonObj(
             <model.DataAssetSummaryFromOracle>(<object>jsonObj),
+            true
+          );
+        case "FUSION_APP_DATA_ASSET":
+          return model.DataAssetSummaryFromFusionApp.getJsonObj(
+            <model.DataAssetSummaryFromFusionApp>(<object>jsonObj),
             true
           );
         default:
@@ -152,6 +162,11 @@ export namespace DataAssetSummary {
             <model.DataAssetSummaryFromJdbc>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3_DATA_ASSET":
+          return model.DataAssetSummaryFromAmazonS3.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromAmazonS3>(<object>jsonObj),
+            true
+          );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
           return model.DataAssetSummaryFromObjectStorage.getDeserializedJsonObj(
             <model.DataAssetSummaryFromObjectStorage>(<object>jsonObj),
@@ -160,6 +175,11 @@ export namespace DataAssetSummary {
         case "ORACLE_DATA_ASSET":
           return model.DataAssetSummaryFromOracle.getDeserializedJsonObj(
             <model.DataAssetSummaryFromOracle>(<object>jsonObj),
+            true
+          );
+        case "FUSION_APP_DATA_ASSET":
+          return model.DataAssetSummaryFromFusionApp.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromFusionApp>(<object>jsonObj),
             true
           );
         default:

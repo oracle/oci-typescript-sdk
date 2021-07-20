@@ -18,6 +18,11 @@ import common = require("oci-common");
  * The abstract format attribute.
  */
 export interface AbstractFormatAttribute {
+  /**
+   * Defines whether a file pattern is supported.
+   */
+  "isFilePattern"?: boolean;
+
   "modelType": string;
 }
 
@@ -40,6 +45,11 @@ export namespace AbstractFormatAttribute {
         case "CSV_FORMAT":
           return model.CsvFormatAttribute.getJsonObj(
             <model.CsvFormatAttribute>(<object>jsonObj),
+            true
+          );
+        case "PARQUET_FORMAT":
+          return model.ParquetFormatAttribute.getJsonObj(
+            <model.ParquetFormatAttribute>(<object>jsonObj),
             true
           );
         default:
@@ -66,6 +76,11 @@ export namespace AbstractFormatAttribute {
         case "CSV_FORMAT":
           return model.CsvFormatAttribute.getDeserializedJsonObj(
             <model.CsvFormatAttribute>(<object>jsonObj),
+            true
+          );
+        case "PARQUET_FORMAT":
+          return model.ParquetFormatAttribute.getDeserializedJsonObj(
+            <model.ParquetFormatAttribute>(<object>jsonObj),
             true
           );
         default:

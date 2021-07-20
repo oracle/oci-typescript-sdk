@@ -111,6 +111,11 @@ export namespace Operator {
           return model.Source.getJsonObj(<model.Source>(<object>jsonObj), true);
         case "UNION_OPERATOR":
           return model.Union.getJsonObj(<model.Union>(<object>jsonObj), true);
+        case "EXPRESSION_OPERATOR":
+          return model.ExpressionOperator.getJsonObj(
+            <model.ExpressionOperator>(<object>jsonObj),
+            true
+          );
         case "INTERSECT_OPERATOR":
           return model.Intersect.getJsonObj(<model.Intersect>(<object>jsonObj), true);
         case "TARGET_OPERATOR":
@@ -119,6 +124,8 @@ export namespace Operator {
           return model.Distinct.getJsonObj(<model.Distinct>(<object>jsonObj), true);
         case "FILTER_OPERATOR":
           return model.Filter.getJsonObj(<model.Filter>(<object>jsonObj), true);
+        case "LOOKUP_OPERATOR":
+          return model.Lookup.getJsonObj(<model.Lookup>(<object>jsonObj), true);
         case "START_OPERATOR":
           return model.StartOperator.getJsonObj(<model.StartOperator>(<object>jsonObj), true);
         case "MERGE_OPERATOR":
@@ -185,6 +192,11 @@ export namespace Operator {
           return model.Source.getDeserializedJsonObj(<model.Source>(<object>jsonObj), true);
         case "UNION_OPERATOR":
           return model.Union.getDeserializedJsonObj(<model.Union>(<object>jsonObj), true);
+        case "EXPRESSION_OPERATOR":
+          return model.ExpressionOperator.getDeserializedJsonObj(
+            <model.ExpressionOperator>(<object>jsonObj),
+            true
+          );
         case "INTERSECT_OPERATOR":
           return model.Intersect.getDeserializedJsonObj(<model.Intersect>(<object>jsonObj), true);
         case "TARGET_OPERATOR":
@@ -193,6 +205,8 @@ export namespace Operator {
           return model.Distinct.getDeserializedJsonObj(<model.Distinct>(<object>jsonObj), true);
         case "FILTER_OPERATOR":
           return model.Filter.getDeserializedJsonObj(<model.Filter>(<object>jsonObj), true);
+        case "LOOKUP_OPERATOR":
+          return model.Lookup.getDeserializedJsonObj(<model.Lookup>(<object>jsonObj), true);
         case "START_OPERATOR":
           return model.StartOperator.getDeserializedJsonObj(
             <model.StartOperator>(<object>jsonObj),

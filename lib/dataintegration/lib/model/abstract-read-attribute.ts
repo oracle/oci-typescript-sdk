@@ -27,6 +27,16 @@ export namespace AbstractReadAttribute {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "ORACLE_READ_ATTRIBUTE":
+          return model.OracleReadAttributes.getJsonObj(
+            <model.OracleReadAttributes>(<object>jsonObj),
+            true
+          );
+        case "BICC_READ_ATTRIBUTE":
+          return model.BiccReadAttributes.getJsonObj(
+            <model.BiccReadAttributes>(<object>jsonObj),
+            true
+          );
         case "ORACLEREADATTRIBUTE":
           return model.OracleReadAttribute.getJsonObj(
             <model.OracleReadAttribute>(<object>jsonObj),
@@ -43,6 +53,16 @@ export namespace AbstractReadAttribute {
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "ORACLE_READ_ATTRIBUTE":
+          return model.OracleReadAttributes.getDeserializedJsonObj(
+            <model.OracleReadAttributes>(<object>jsonObj),
+            true
+          );
+        case "BICC_READ_ATTRIBUTE":
+          return model.BiccReadAttributes.getDeserializedJsonObj(
+            <model.BiccReadAttributes>(<object>jsonObj),
+            true
+          );
         case "ORACLEREADATTRIBUTE":
           return model.OracleReadAttribute.getDeserializedJsonObj(
             <model.OracleReadAttribute>(<object>jsonObj),

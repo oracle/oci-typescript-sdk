@@ -66,6 +66,7 @@ export interface Task {
    * A key map. If provided, key is replaced with generated key. This structure provides mapping between user provided key and generated key.
    */
   "keyMap"?: { [key: string]: string };
+  "registryMetadata"?: model.RegistryMetadata;
 
   "modelType": string;
 }
@@ -98,7 +99,11 @@ export namespace Task {
         "configProviderDelegate": obj.configProviderDelegate
           ? model.ConfigProvider.getJsonObj(obj.configProviderDelegate)
           : undefined,
-        "metadata": obj.metadata ? model.ObjectMetadata.getJsonObj(obj.metadata) : undefined
+        "metadata": obj.metadata ? model.ObjectMetadata.getJsonObj(obj.metadata) : undefined,
+
+        "registryMetadata": obj.registryMetadata
+          ? model.RegistryMetadata.getJsonObj(obj.registryMetadata)
+          : undefined
       }
     };
 
@@ -112,6 +117,21 @@ export namespace Task {
         case "INTEGRATION_TASK":
           return model.TaskFromIntegrationTaskDetails.getJsonObj(
             <model.TaskFromIntegrationTaskDetails>(<object>jsonObj),
+            true
+          );
+        case "SQL_TASK":
+          return model.TaskFromSQLTaskDetails.getJsonObj(
+            <model.TaskFromSQLTaskDetails>(<object>jsonObj),
+            true
+          );
+        case "REST_TASK":
+          return model.TaskFromRestTaskDetails.getJsonObj(
+            <model.TaskFromRestTaskDetails>(<object>jsonObj),
+            true
+          );
+        case "OCI_DATAFLOW_TASK":
+          return model.TaskFromOCIDataflowTaskDetails.getJsonObj(
+            <model.TaskFromOCIDataflowTaskDetails>(<object>jsonObj),
             true
           );
         case "DATA_LOADER_TASK":
@@ -156,6 +176,10 @@ export namespace Task {
           : undefined,
         "metadata": obj.metadata
           ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined,
+
+        "registryMetadata": obj.registryMetadata
+          ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
           : undefined
       }
     };
@@ -170,6 +194,21 @@ export namespace Task {
         case "INTEGRATION_TASK":
           return model.TaskFromIntegrationTaskDetails.getDeserializedJsonObj(
             <model.TaskFromIntegrationTaskDetails>(<object>jsonObj),
+            true
+          );
+        case "SQL_TASK":
+          return model.TaskFromSQLTaskDetails.getDeserializedJsonObj(
+            <model.TaskFromSQLTaskDetails>(<object>jsonObj),
+            true
+          );
+        case "REST_TASK":
+          return model.TaskFromRestTaskDetails.getDeserializedJsonObj(
+            <model.TaskFromRestTaskDetails>(<object>jsonObj),
+            true
+          );
+        case "OCI_DATAFLOW_TASK":
+          return model.TaskFromOCIDataflowTaskDetails.getDeserializedJsonObj(
+            <model.TaskFromOCIDataflowTaskDetails>(<object>jsonObj),
             true
           );
         case "DATA_LOADER_TASK":

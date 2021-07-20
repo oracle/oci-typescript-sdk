@@ -3,6 +3,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.0.0 - 2021-07-20
+### Added
+- Support for schedules, schedule tasks, REST tasks, operators, S3, and Fusion Apps in the Data Integration service
+- Support for getting available updates and update histories for VM clusters in the Database service
+- Support for downloading network validation reports for Exadata network resources in the Database service
+- Support for patch and upgrade of Grid Infrastructure (GI), and update of DomU OS software for VM clusters in the Database service
+- Support for updating data guard associations in the Database service
+
+### Breaking Changes
+- Support for retries by default in the SDK. To disable default retries, set the environment variable `OCI_SDK_DEFAULT_RETRY_ENABLED` to `false` or programmatically set the value of `common.GenericRetrier.defaultRetryConfiguration`
+- Support for circuit breaker by default in the SDK. To disable default circuit breaker, set the environment variable `OCI_SDK_DEFAULT_CIRCUITBREAKER_ENABLED` to `false` or programmatically set the value of `common.CircuitBreaker.defaultConfiguration`
+- Removed the property `isFilePattern` from `CsvFormatAttribute` model under the Data Integration service
+- Removed the property `bucketName` from `OracleAtpWriteAttributes` model under the Data Integration service
+- Removed the property `bucketName` from `OracleAdwcWriteAttributes` model under the Data Integration service
+- Changed the data type of  property `type` in `ShapeField` model from `string` to `any` under the Data Integration service
+- Changed the data type of  property `type` in `NativeShapeField` model from `string` to `any` under the Data Integration service
+- Changed the data type of property `lifecycleState` in `ListWorkspacesRequest` from `ListWorkspacesRequest.LifecycleState` to `string` under the Data Integration service
+
 ## 1.23.0 - 2021-07-13
 ### Added
 - Support for the AI Anomaly Detection service

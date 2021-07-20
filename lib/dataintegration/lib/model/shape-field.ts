@@ -21,7 +21,7 @@ export interface ShapeField extends model.TypedObject {
   /**
    * The reference to the type.
    */
-  "type"?: string;
+  "type"?: any;
   /**
    * Labels are keywords or labels that you can add to data assets, dataflows etc. You can define your own labels and use them to categorize content.
    */

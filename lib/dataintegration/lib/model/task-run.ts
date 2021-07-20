@@ -85,6 +85,10 @@ export interface TaskRun {
    */
   "taskKey"?: string;
   /**
+   * The external identifier for the task run.
+   */
+  "externalId"?: string;
+  /**
    * Holds the particular attempt number. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retryAttempt"?: number;
@@ -94,6 +98,10 @@ export interface TaskRun {
    */
   "metrics"?: { [key: string]: number };
   /**
+   * A map of the outputs of the run.
+   */
+  "outputs"?: { [key: string]: model.ParameterValue };
+  /**
    * An array of execution errors from the run.
    */
   "executionErrors"?: Array<string>;
@@ -101,6 +109,10 @@ export interface TaskRun {
    * An array of termination errors from the run.
    */
   "terminationErrors"?: Array<string>;
+  /**
+   * The autorization mode for when the task was executed.
+   */
+  "authMode"?: TaskRun.AuthMode;
   /**
    * The OPC request ID of execution of the task run.
    */
@@ -152,10 +164,24 @@ export namespace TaskRun {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum AuthMode {
+    Obo = "OBO",
+    ResourcePrincipal = "RESOURCE_PRINCIPAL",
+    UserCertificate = "USER_CERTIFICATE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum TaskType {
     IntegrationTask = "INTEGRATION_TASK",
     DataLoaderTask = "DATA_LOADER_TASK",
     PipelineTask = "PIPELINE_TASK",
+    SqlTask = "SQL_TASK",
+    OciDataflowTask = "OCI_DATAFLOW_TASK",
+    RestTask = "REST_TASK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -175,6 +201,10 @@ export namespace TaskRun {
 
         "taskSchedule": obj.taskSchedule
           ? model.TaskSchedule.getJsonObj(obj.taskSchedule)
+          : undefined,
+
+        "outputs": obj.outputs
+          ? common.mapContainer(obj.outputs, model.ParameterValue.getJsonObj)
           : undefined,
 
         "metadata": obj.metadata ? model.ObjectMetadata.getJsonObj(obj.metadata) : undefined
@@ -197,6 +227,10 @@ export namespace TaskRun {
 
         "taskSchedule": obj.taskSchedule
           ? model.TaskSchedule.getDeserializedJsonObj(obj.taskSchedule)
+          : undefined,
+
+        "outputs": obj.outputs
+          ? common.mapContainer(obj.outputs, model.ParameterValue.getDeserializedJsonObj)
           : undefined,
 
         "metadata": obj.metadata

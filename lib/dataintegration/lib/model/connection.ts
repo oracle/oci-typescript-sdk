@@ -105,6 +105,11 @@ export namespace Connection {
             <model.ConnectionFromOracle>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3_CONNECTION":
+          return model.ConnectionFromAmazonS3.getJsonObj(
+            <model.ConnectionFromAmazonS3>(<object>jsonObj),
+            true
+          );
         case "MYSQL_CONNECTION":
           return model.ConnectionFromMySQL.getJsonObj(
             <model.ConnectionFromMySQL>(<object>jsonObj),
@@ -113,6 +118,11 @@ export namespace Connection {
         case "GENERIC_JDBC_CONNECTION":
           return model.ConnectionFromJdbc.getJsonObj(
             <model.ConnectionFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "BICC_CONNECTION":
+          return model.ConnectionFromBICC.getJsonObj(
+            <model.ConnectionFromBICC>(<object>jsonObj),
             true
           );
         default:
@@ -166,6 +176,11 @@ export namespace Connection {
             <model.ConnectionFromOracle>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3_CONNECTION":
+          return model.ConnectionFromAmazonS3.getDeserializedJsonObj(
+            <model.ConnectionFromAmazonS3>(<object>jsonObj),
+            true
+          );
         case "MYSQL_CONNECTION":
           return model.ConnectionFromMySQL.getDeserializedJsonObj(
             <model.ConnectionFromMySQL>(<object>jsonObj),
@@ -174,6 +189,11 @@ export namespace Connection {
         case "GENERIC_JDBC_CONNECTION":
           return model.ConnectionFromJdbc.getDeserializedJsonObj(
             <model.ConnectionFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "BICC_CONNECTION":
+          return model.ConnectionFromBICC.getDeserializedJsonObj(
+            <model.ConnectionFromBICC>(<object>jsonObj),
             true
           );
         default:

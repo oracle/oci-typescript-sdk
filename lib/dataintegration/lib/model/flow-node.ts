@@ -56,10 +56,12 @@ export interface FlowNode {
     | model.EndOperator
     | model.Source
     | model.Union
+    | model.ExpressionOperator
     | model.Intersect
     | model.Target
     | model.Distinct
     | model.Filter
+    | model.Lookup
     | model.StartOperator
     | model.MergeOperator
     | model.Minus;

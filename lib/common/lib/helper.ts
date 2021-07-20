@@ -7,7 +7,6 @@ import { OciError } from "./error";
 import { Range } from "./range";
 import { Readable, PassThrough } from "stream";
 import { addOpcRequestId, addUserAgent } from "./headers";
-import { addRetryToken } from "./retry-token-header";
 import { isEmpty } from "./utils";
 import { RequestParams } from "./request-generator";
 import { RawData, BinaryBody } from "./types";
@@ -211,7 +210,6 @@ export function getSignerAndReqBody(
 export function addAdditionalHeaders(headers: Headers, params: RequestParams) {
   addOpcRequestId(headers);
   addUserAgent(headers);
-  addRetryToken(headers);
 }
 
 export async function autoDetectContentLengthAndReadBody(headers: Headers, params: RequestParams) {

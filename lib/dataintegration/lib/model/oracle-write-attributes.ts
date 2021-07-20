@@ -17,7 +17,7 @@ import common = require("oci-common");
 /**
  * Properties to configure when writing to an Oracle Database.
  */
-export interface OracleWriteAttributes {
+export interface OracleWriteAttributes extends model.AbstractWriteAttribute {
   /**
    * The batch size for writing. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -30,16 +30,32 @@ export interface OracleWriteAttributes {
    * Specifies the isolation level.
    */
   "isolationLevel"?: string;
+
+  "modelType": string;
 }
 
 export namespace OracleWriteAttributes {
-  export function getJsonObj(obj: OracleWriteAttributes): object {
-    const jsonObj = { ...obj, ...{} };
+  export function getJsonObj(obj: OracleWriteAttributes, isParentJsonObj?: boolean): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractWriteAttribute.getJsonObj(obj) as OracleWriteAttributes)),
+      ...{}
+    };
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: OracleWriteAttributes): object {
-    const jsonObj = { ...obj, ...{} };
+  export const modelType = "ORACLE_WRITE_ATTRIBUTE";
+  export function getDeserializedJsonObj(
+    obj: OracleWriteAttributes,
+    isParentJsonObj?: boolean
+  ): object {
+    const jsonObj = {
+      ...(isParentJsonObj
+        ? obj
+        : (model.AbstractWriteAttribute.getDeserializedJsonObj(obj) as OracleWriteAttributes)),
+      ...{}
+    };
 
     return jsonObj;
   }

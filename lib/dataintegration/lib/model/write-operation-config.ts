@@ -35,8 +35,13 @@ export interface WriteOperationConfig extends model.AbstractDataOperationConfig 
   "partitionConfig"?: model.KeyRangePartitionConfig;
   "writeAttribute"?:
     | model.OracleAdwcWriteAttribute
+    | model.OracleAtpWriteAttributes
     | model.OracleWriteAttribute
-    | model.OracleAtpWriteAttribute;
+    | model.OracleWriteAttributes
+    | model.OracleAtpWriteAttribute
+    | model.ObjectStorageWriteAttribute
+    | model.OracleAdwcWriteAttributes
+    | model.ObjectStorageWriteAttributes;
   /**
    * The mode for the write operation.
    */

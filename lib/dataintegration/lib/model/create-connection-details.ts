@@ -77,9 +77,19 @@ export namespace CreateConnectionDetails {
             <model.CreateConnectionFromMySQL>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3_CONNECTION":
+          return model.CreateConnectionFromAmazonS3.getJsonObj(
+            <model.CreateConnectionFromAmazonS3>(<object>jsonObj),
+            true
+          );
         case "GENERIC_JDBC_CONNECTION":
           return model.CreateConnectionFromJdbc.getJsonObj(
             <model.CreateConnectionFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "BICC_CONNECTION":
+          return model.CreateConnectionFromBICC.getJsonObj(
+            <model.CreateConnectionFromBICC>(<object>jsonObj),
             true
           );
         case "ORACLE_ATP_CONNECTION":
@@ -134,9 +144,19 @@ export namespace CreateConnectionDetails {
             <model.CreateConnectionFromMySQL>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3_CONNECTION":
+          return model.CreateConnectionFromAmazonS3.getDeserializedJsonObj(
+            <model.CreateConnectionFromAmazonS3>(<object>jsonObj),
+            true
+          );
         case "GENERIC_JDBC_CONNECTION":
           return model.CreateConnectionFromJdbc.getDeserializedJsonObj(
             <model.CreateConnectionFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "BICC_CONNECTION":
+          return model.CreateConnectionFromBICC.getDeserializedJsonObj(
+            <model.CreateConnectionFromBICC>(<object>jsonObj),
             true
           );
         case "ORACLE_ATP_CONNECTION":

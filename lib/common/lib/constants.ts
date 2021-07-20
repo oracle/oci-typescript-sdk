@@ -7,4 +7,9 @@ const Constants = {
   APPLICATION_JSON: "application/json"
 };
 
+export enum BooleanString {
+  TRUE = "true",
+  FALSE = "false"
+}
+
 export default Constants;

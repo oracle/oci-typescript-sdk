@@ -32,6 +32,22 @@ export interface UpdateDataAssetFromAtp extends model.UpdateDataAssetDetails {
   "credentialFileContent"?: string;
   "walletSecret"?: model.SensitiveAttribute;
   "walletPasswordSecret"?: model.SensitiveAttribute;
+  /**
+   * The Autonomous Data Warehouse instance region Id.
+   */
+  "regionId"?: string;
+  /**
+   * The Autonomous Data Warehouse instance tenancy Id.
+   */
+  "tenancyId"?: string;
+  /**
+   * The Autonomous Data Warehouse instance compartment Id.
+   */
+  "compartmentId"?: string;
+  /**
+   * Tha Autonomous Database Id
+   */
+  "autonomousDbId"?: string;
   "defaultConnection"?: model.UpdateConnectionFromAtp;
 
   "modelType": string;
@@ -50,6 +66,7 @@ export namespace UpdateDataAssetFromAtp {
         "walletPasswordSecret": obj.walletPasswordSecret
           ? model.SensitiveAttribute.getJsonObj(obj.walletPasswordSecret)
           : undefined,
+
         "defaultConnection": obj.defaultConnection
           ? model.UpdateConnectionFromAtp.getJsonObj(obj.defaultConnection)
           : undefined
@@ -74,6 +91,7 @@ export namespace UpdateDataAssetFromAtp {
         "walletPasswordSecret": obj.walletPasswordSecret
           ? model.SensitiveAttribute.getDeserializedJsonObj(obj.walletPasswordSecret)
           : undefined,
+
         "defaultConnection": obj.defaultConnection
           ? model.UpdateConnectionFromAtp.getDeserializedJsonObj(obj.defaultConnection)
           : undefined

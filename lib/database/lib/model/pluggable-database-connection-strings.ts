@@ -21,15 +21,15 @@ import common = require("oci-common");
  */
 export interface PluggableDatabaseConnectionStrings {
   /**
-   * Host name based PDB Connection String.
+   * A host name-based PDB connection string.
    */
   "pdbDefault"?: string;
   /**
-   * IP based PDB Connection String.
+   * An IP-based PDB connection string.
    */
   "pdbIpDefault"?: string;
   /**
-   * All connection strings to use to connect to the Pluggable Database.
+   * All connection strings to use to connect to the pluggable database.
    */
   "allConnectionStrings"?: { [key: string]: string };
 }

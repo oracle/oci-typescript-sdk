@@ -18,7 +18,11 @@ import common = require("oci-common");
  * The information about the target operator. The target operator lets you specify the data entity to store the transformed data.
  */
 export interface Target extends model.Operator {
-  "entity"?: model.DataEntityFromTable | model.DataEntityFromView | model.DataEntityFromFile;
+  "entity"?:
+    | model.DataEntityFromTable
+    | model.DataEntityFromDataStore
+    | model.DataEntityFromView
+    | model.DataEntityFromFile;
   /**
    * Specifies the read access.
    */
