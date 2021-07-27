@@ -15,6 +15,11 @@ describe("Test Request Generator ", () => {
   };
 
   const queryParams = { "imageId": "test" };
+  const definedTagQueryParams = {
+    "imageId": "test",
+    "definedTagEquals": ["namespace1.key.val", "namespace1.key.val2", "namespace2.key.val"],
+    "freeformTagEquals": ["ff1key.val", "ff2key.val"]
+  };
 
   const headerParams = {
     "opc-request-id": "test-request-id",
@@ -172,5 +177,20 @@ describe("Test Request Generator ", () => {
       queryParams: queryParams
     });
     expect(sdkRequest.headers.get("opc-retry-token")).equals("retryToken");
+  });
+
+  it("should create correct url for definedTags query params", async function() {
+    const sdkRequest = await composeRequest({
+      baseEndpoint: "http://test-end-point/20191002",
+      defaultHeaders: {},
+      path: "/testUrl/{testId}/actions",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: definedTagQueryParams
+    });
+    expect(sdkRequest.uri).equals(
+      "http://test-end-point/20191002/testUrl/Test-Id/actions?imageId=test&definedTagEquals=namespace1.key.val&definedTagEquals=namespace1.key.val2&definedTagEquals=namespace2.key.val&freeformTagEquals=ff1key.val&freeformTagEquals=ff2key.val"
+    );
   });
 });

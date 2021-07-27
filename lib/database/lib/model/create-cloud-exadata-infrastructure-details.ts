@@ -61,6 +61,10 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Customer contacts.
+   */
+  "customerContacts"?: Array<model.CustomerContact>;
 }
 
 export namespace CreateCloudExadataInfrastructureDetails {
@@ -70,6 +74,12 @@ export namespace CreateCloudExadataInfrastructureDetails {
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -82,6 +92,12 @@ export namespace CreateCloudExadataInfrastructureDetails {
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

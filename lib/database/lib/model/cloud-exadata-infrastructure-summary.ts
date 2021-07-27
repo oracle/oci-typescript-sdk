@@ -92,6 +92,13 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The list of customer email addresses that receive information from Oracle about the specified OCI Database service resource.
+   * Oracle uses these email addresses to send notifications about planned and unplanned software maintenance updates, information about system hardware, and other information needed by administrators.
+   * Up to 10 email addresses can be added to the customer contacts for a cloud Exadata infrastructure instance.
+   *
+   */
+  "customerContacts"?: Array<model.CustomerContact>;
 }
 
 export namespace CloudExadataInfrastructureSummary {
@@ -116,6 +123,12 @@ export namespace CloudExadataInfrastructureSummary {
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -128,6 +141,12 @@ export namespace CloudExadataInfrastructureSummary {
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

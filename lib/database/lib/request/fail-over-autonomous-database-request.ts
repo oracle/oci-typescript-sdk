@@ -43,4 +43,8 @@ export interface FailOverAutonomousDatabaseRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * The database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Autonomous Data Guard standby database located in a different (remote) region from the source primary Autonomous Database.
+   */
+  "peerDbId"?: string;
 }

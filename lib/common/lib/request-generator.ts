@@ -120,6 +120,10 @@ function stringify(queryParams?: Params): string {
     qs = Object.keys(queryParams)
       .map(function(key) {
         let value = queryParams[key];
+        if (Array.isArray(value)) {
+          let formatter = encoderforArrayFormat();
+          return (value as Array<any>).reduce(formatter(key), []).join("&");
+        }
         // Format Date Object to RFC3339 timestamp string.
         if (Object.prototype.toString.call(value) === "[object Date]" && value instanceof Date) {
           return key + "=" + formatDateToRFC3339(value);
@@ -131,4 +135,14 @@ function stringify(queryParams?: Params): string {
       .join("&");
   }
   return qs;
+}
+
+function encoderforArrayFormat() {
+  return (key: any) => (result: any, value: any) => {
+    if (value === undefined || value === null || value === "") {
+      return result;
+    }
+
+    return [...result, [key, "=", value].join("")];
+  };
 }

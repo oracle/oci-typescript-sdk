@@ -48,6 +48,10 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Customer contacts. Setting this to an empty list removes all customer contact information (email addresses) for the specified OCI Database service resource.
+   */
+  "customerContacts"?: Array<model.CustomerContact>;
 }
 
 export namespace UpdateCloudExadataInfrastructureDetails {
@@ -57,6 +61,12 @@ export namespace UpdateCloudExadataInfrastructureDetails {
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -69,6 +79,12 @@ export namespace UpdateCloudExadataInfrastructureDetails {
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

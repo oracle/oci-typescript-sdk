@@ -11,17 +11,27 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CreateCustomTableResponse from "./create-custom-table-response";
+export import CreateCustomTableResponse = CreateCustomTableResponse.CreateCustomTableResponse;
 import * as CreateQueryResponse from "./create-query-response";
 export import CreateQueryResponse = CreateQueryResponse.CreateQueryResponse;
+import * as DeleteCustomTableResponse from "./delete-custom-table-response";
+export import DeleteCustomTableResponse = DeleteCustomTableResponse.DeleteCustomTableResponse;
 import * as DeleteQueryResponse from "./delete-query-response";
 export import DeleteQueryResponse = DeleteQueryResponse.DeleteQueryResponse;
+import * as GetCustomTableResponse from "./get-custom-table-response";
+export import GetCustomTableResponse = GetCustomTableResponse.GetCustomTableResponse;
 import * as GetQueryResponse from "./get-query-response";
 export import GetQueryResponse = GetQueryResponse.GetQueryResponse;
+import * as ListCustomTablesResponse from "./list-custom-tables-response";
+export import ListCustomTablesResponse = ListCustomTablesResponse.ListCustomTablesResponse;
 import * as ListQueriesResponse from "./list-queries-response";
 export import ListQueriesResponse = ListQueriesResponse.ListQueriesResponse;
 import * as RequestSummarizedConfigurationsResponse from "./request-summarized-configurations-response";
 export import RequestSummarizedConfigurationsResponse = RequestSummarizedConfigurationsResponse.RequestSummarizedConfigurationsResponse;
 import * as RequestSummarizedUsagesResponse from "./request-summarized-usages-response";
 export import RequestSummarizedUsagesResponse = RequestSummarizedUsagesResponse.RequestSummarizedUsagesResponse;
+import * as UpdateCustomTableResponse from "./update-custom-table-response";
+export import UpdateCustomTableResponse = UpdateCustomTableResponse.UpdateCustomTableResponse;
 import * as UpdateQueryResponse from "./update-query-response";
 export import UpdateQueryResponse = UpdateQueryResponse.UpdateQueryResponse;

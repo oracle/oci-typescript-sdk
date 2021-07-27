@@ -338,7 +338,7 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
   "failedDataRecoveryInSeconds"?: number;
   "standbyDb"?: model.AutonomousDatabaseStandbySummary;
   /**
-   * The Data Guard role of the Autonomous Container Database, if Autonomous Data Guard is enabled.
+   * The Data Guard role of the Autonomous Container Database or Autonomous Database, if Autonomous Data Guard is enabled.
    *
    */
   "role"?: AutonomousDatabase.Role;
@@ -355,9 +355,29 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "keyStoreWalletName"?: string;
   /**
+   * The list of regions that support the creation of Autonomous Data Guard standby database.
+   */
+  "supportedRegionsToCloneTo"?: Array<string>;
+  /**
    * Customer Contacts.
    */
   "customerContacts"?: Array<model.CustomerContact>;
+  /**
+   * The date and time that Autonomous Data Guard was enabled for an Autonomous Database where the standby was provisioned in the same region as the primary database.
+   */
+  "timeLocalDataGuardEnabled"?: Date;
+  /**
+   * The Autonomous Data Guard region type of the Autonomous Database. For Autonomous Databases on shared Exadata infrastructure, Data Guard associations have designated primary and standby regions, and these region types do not change when the database changes roles. The standby regions in Data Guard associations can be the same region designated as the primary region, or they can be remote regions. Certain database administrative operations may be available only in the primary region of the Data Guard association, and cannot be performed when the database using the \"primary\" role is operating in a remote Data Guard standby region.```
+   */
+  "dataguardRegionType"?: AutonomousDatabase.DataguardRegionType;
+  /**
+   * The date and time the Autonomous Data Guard role was switched for the Autonomous Database. For databases that have standbys in both the primary Data Guard region and a remote Data Guard standby region, this is the latest timestamp of either the database using the \"primary\" role in the primary Data Guard region, or database located in the remote Data Guard standby region.
+   */
+  "timeDataGuardRoleChanged"?: Date;
+  /**
+   * The list of [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of standby databases located in Autonomous Data Guard remote regions that are associated with the source database. Note that for shared Exadata infrastructure, standby databases located in the same region as the source primary database do not have OCIDs.
+   */
+  "peerDbIds"?: Array<string>;
 }
 
 export namespace AutonomousDatabase {
@@ -492,6 +512,16 @@ export namespace AutonomousDatabase {
     Primary = "PRIMARY",
     Standby = "STANDBY",
     DisabledStandby = "DISABLED_STANDBY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DataguardRegionType {
+    PrimaryDgRegion = "PRIMARY_DG_REGION",
+    RemoteStandbyDgRegion = "REMOTE_STANDBY_DG_REGION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -7077,7 +7077,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "lifecycleState": listUsersRequest.lifecycleState
     };
 
-    let headerParams: common.Params = {
+    let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 

@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The object holds customer email contact for Oracle Autonomous Databases.
+ * Customer contact information that will be used by Oracle to provide notifications needed by database and infrastructure administrators.
  *
  */
 export interface CustomerContact {
   /**
-   * The email address of an Oracle Autonomous Database contact.
+   * The email address used by Oracle to send notifications regarding databases and infrastructure.
    */
   "email"?: string;
 }

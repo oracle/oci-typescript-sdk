@@ -23,7 +23,7 @@ export interface ListHostInsightsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * Optional list of host insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host insight resource.
+   * Optional list of host insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "id"?: Array<string>;
