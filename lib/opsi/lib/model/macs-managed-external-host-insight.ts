@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Host insight resource.
+ * MACS-managed external host insight resource.
  */
 export interface MacsManagedExternalHostInsight extends model.HostInsight {
   /**

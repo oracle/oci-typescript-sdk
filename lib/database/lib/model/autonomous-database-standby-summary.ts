@@ -32,6 +32,10 @@ export interface AutonomousDatabaseStandbySummary {
    * Additional information about the current lifecycle state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * The date and time the Autonomous Data Guard role was switched for the standby Autonomous Database.
+   */
+  "timeDataGuardRoleChanged"?: Date;
 }
 
 export namespace AutonomousDatabaseStandbySummary {

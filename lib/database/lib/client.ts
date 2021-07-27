@@ -5908,7 +5908,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Initiates a failover the specified Autonomous Database to a standby.
+   * Initiates a failover the specified Autonomous Database to a standby. To perform a failover to a standby located in a remote region, specify the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the remote standby using the `peerDbId` parameter.
    *
    * @param FailOverAutonomousDatabaseRequest
    * @return FailOverAutonomousDatabaseResponse
@@ -5924,7 +5924,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "{autonomousDatabaseId}": failOverAutonomousDatabaseRequest.autonomousDatabaseId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "peerDbId": failOverAutonomousDatabaseRequest.peerDbId
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -15600,7 +15602,7 @@ A switchover incurs no data loss.
   }
 
   /**
-   * Initiates a switchover of the specified Autonomous Database to the associated standby database. Applicable only to databases with Autonomous Data Guard enabled.
+   * Initiates a switchover of the specified Autonomous Database to the associated standby database. Applicable only to databases with Autonomous Data Guard enabled. To perform a switchover to a standby located in a remote region, specify the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the remote standby using the `peerDbId` parameter.
    *
    * @param SwitchoverAutonomousDatabaseRequest
    * @return SwitchoverAutonomousDatabaseResponse
@@ -15616,7 +15618,9 @@ A switchover incurs no data loss.
       "{autonomousDatabaseId}": switchoverAutonomousDatabaseRequest.autonomousDatabaseId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "peerDbId": switchoverAutonomousDatabaseRequest.peerDbId
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

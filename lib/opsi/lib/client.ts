@@ -1781,7 +1781,11 @@ export class OperationsInsightsClient {
       "page": listDatabaseConfigurationsRequest.page,
       "sortOrder": listDatabaseConfigurationsRequest.sortOrder,
       "sortBy": listDatabaseConfigurationsRequest.sortBy,
-      "hostName": listDatabaseConfigurationsRequest.hostName
+      "hostName": listDatabaseConfigurationsRequest.hostName,
+      "definedTagEquals": listDatabaseConfigurationsRequest.definedTagEquals,
+      "freeformTagEquals": listDatabaseConfigurationsRequest.freeformTagEquals,
+      "definedTagExists": listDatabaseConfigurationsRequest.definedTagExists,
+      "freeformTagExists": listDatabaseConfigurationsRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -2308,7 +2312,11 @@ export class OperationsInsightsClient {
       "analysisTimeInterval": listSqlSearchesRequest.analysisTimeInterval,
       "timeIntervalStart": listSqlSearchesRequest.timeIntervalStart,
       "timeIntervalEnd": listSqlSearchesRequest.timeIntervalEnd,
-      "page": listSqlSearchesRequest.page
+      "page": listSqlSearchesRequest.page,
+      "definedTagEquals": listSqlSearchesRequest.definedTagEquals,
+      "freeformTagEquals": listSqlSearchesRequest.freeformTagEquals,
+      "definedTagExists": listSqlSearchesRequest.definedTagExists,
+      "freeformTagExists": listSqlSearchesRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -2376,7 +2384,11 @@ export class OperationsInsightsClient {
       "databaseId": listSqlTextsRequest.databaseId,
       "id": listSqlTextsRequest.id,
       "sqlIdentifier": listSqlTextsRequest.sqlIdentifier,
-      "page": listSqlTextsRequest.page
+      "page": listSqlTextsRequest.page,
+      "definedTagEquals": listSqlTextsRequest.definedTagEquals,
+      "freeformTagEquals": listSqlTextsRequest.freeformTagEquals,
+      "definedTagExists": listSqlTextsRequest.definedTagExists,
+      "freeformTagExists": listSqlTextsRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -2667,7 +2679,11 @@ export class OperationsInsightsClient {
       "tablespaceName": summarizeDatabaseInsightResourceCapacityTrendRequest.tablespaceName,
       "hostName": summarizeDatabaseInsightResourceCapacityTrendRequest.hostName,
       "isDatabaseInstanceLevelMetrics":
-        summarizeDatabaseInsightResourceCapacityTrendRequest.isDatabaseInstanceLevelMetrics
+        summarizeDatabaseInsightResourceCapacityTrendRequest.isDatabaseInstanceLevelMetrics,
+      "definedTagEquals": summarizeDatabaseInsightResourceCapacityTrendRequest.definedTagEquals,
+      "freeformTagEquals": summarizeDatabaseInsightResourceCapacityTrendRequest.freeformTagEquals,
+      "definedTagExists": summarizeDatabaseInsightResourceCapacityTrendRequest.definedTagExists,
+      "freeformTagExists": summarizeDatabaseInsightResourceCapacityTrendRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -2753,7 +2769,11 @@ export class OperationsInsightsClient {
       "hostName": summarizeDatabaseInsightResourceForecastTrendRequest.hostName,
       "tablespaceName": summarizeDatabaseInsightResourceForecastTrendRequest.tablespaceName,
       "isDatabaseInstanceLevelMetrics":
-        summarizeDatabaseInsightResourceForecastTrendRequest.isDatabaseInstanceLevelMetrics
+        summarizeDatabaseInsightResourceForecastTrendRequest.isDatabaseInstanceLevelMetrics,
+      "definedTagEquals": summarizeDatabaseInsightResourceForecastTrendRequest.definedTagEquals,
+      "freeformTagEquals": summarizeDatabaseInsightResourceForecastTrendRequest.freeformTagEquals,
+      "definedTagExists": summarizeDatabaseInsightResourceForecastTrendRequest.definedTagExists,
+      "freeformTagExists": summarizeDatabaseInsightResourceForecastTrendRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -2838,7 +2858,11 @@ export class OperationsInsightsClient {
       "sortBy": summarizeDatabaseInsightResourceStatisticsRequest.sortBy,
       "hostName": summarizeDatabaseInsightResourceStatisticsRequest.hostName,
       "isDatabaseInstanceLevelMetrics":
-        summarizeDatabaseInsightResourceStatisticsRequest.isDatabaseInstanceLevelMetrics
+        summarizeDatabaseInsightResourceStatisticsRequest.isDatabaseInstanceLevelMetrics,
+      "definedTagEquals": summarizeDatabaseInsightResourceStatisticsRequest.definedTagEquals,
+      "freeformTagEquals": summarizeDatabaseInsightResourceStatisticsRequest.freeformTagEquals,
+      "definedTagExists": summarizeDatabaseInsightResourceStatisticsRequest.definedTagExists,
+      "freeformTagExists": summarizeDatabaseInsightResourceStatisticsRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -2920,7 +2944,11 @@ export class OperationsInsightsClient {
       "isDatabaseInstanceLevelMetrics":
         summarizeDatabaseInsightResourceUsageRequest.isDatabaseInstanceLevelMetrics,
       "page": summarizeDatabaseInsightResourceUsageRequest.page,
-      "percentile": summarizeDatabaseInsightResourceUsageRequest.percentile
+      "percentile": summarizeDatabaseInsightResourceUsageRequest.percentile,
+      "definedTagEquals": summarizeDatabaseInsightResourceUsageRequest.definedTagEquals,
+      "freeformTagEquals": summarizeDatabaseInsightResourceUsageRequest.freeformTagEquals,
+      "definedTagExists": summarizeDatabaseInsightResourceUsageRequest.definedTagExists,
+      "freeformTagExists": summarizeDatabaseInsightResourceUsageRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -3003,7 +3031,11 @@ export class OperationsInsightsClient {
       "sortBy": summarizeDatabaseInsightResourceUsageTrendRequest.sortBy,
       "hostName": summarizeDatabaseInsightResourceUsageTrendRequest.hostName,
       "isDatabaseInstanceLevelMetrics":
-        summarizeDatabaseInsightResourceUsageTrendRequest.isDatabaseInstanceLevelMetrics
+        summarizeDatabaseInsightResourceUsageTrendRequest.isDatabaseInstanceLevelMetrics,
+      "definedTagEquals": summarizeDatabaseInsightResourceUsageTrendRequest.definedTagEquals,
+      "freeformTagEquals": summarizeDatabaseInsightResourceUsageTrendRequest.freeformTagEquals,
+      "definedTagExists": summarizeDatabaseInsightResourceUsageTrendRequest.definedTagExists,
+      "freeformTagExists": summarizeDatabaseInsightResourceUsageTrendRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -3084,7 +3116,15 @@ export class OperationsInsightsClient {
       "hostName": summarizeDatabaseInsightResourceUtilizationInsightRequest.hostName,
       "isDatabaseInstanceLevelMetrics":
         summarizeDatabaseInsightResourceUtilizationInsightRequest.isDatabaseInstanceLevelMetrics,
-      "page": summarizeDatabaseInsightResourceUtilizationInsightRequest.page
+      "page": summarizeDatabaseInsightResourceUtilizationInsightRequest.page,
+      "definedTagEquals":
+        summarizeDatabaseInsightResourceUtilizationInsightRequest.definedTagEquals,
+      "freeformTagEquals":
+        summarizeDatabaseInsightResourceUtilizationInsightRequest.freeformTagEquals,
+      "definedTagExists":
+        summarizeDatabaseInsightResourceUtilizationInsightRequest.definedTagExists,
+      "freeformTagExists":
+        summarizeDatabaseInsightResourceUtilizationInsightRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -3241,7 +3281,11 @@ export class OperationsInsightsClient {
       "utilizationLevel": summarizeHostInsightResourceCapacityTrendRequest.utilizationLevel,
       "page": summarizeHostInsightResourceCapacityTrendRequest.page,
       "sortOrder": summarizeHostInsightResourceCapacityTrendRequest.sortOrder,
-      "sortBy": summarizeHostInsightResourceCapacityTrendRequest.sortBy
+      "sortBy": summarizeHostInsightResourceCapacityTrendRequest.sortBy,
+      "definedTagEquals": summarizeHostInsightResourceCapacityTrendRequest.definedTagEquals,
+      "freeformTagEquals": summarizeHostInsightResourceCapacityTrendRequest.freeformTagEquals,
+      "definedTagExists": summarizeHostInsightResourceCapacityTrendRequest.definedTagExists,
+      "freeformTagExists": summarizeHostInsightResourceCapacityTrendRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -3321,7 +3365,11 @@ export class OperationsInsightsClient {
       "forecastModel": summarizeHostInsightResourceForecastTrendRequest.forecastModel,
       "utilizationLevel": summarizeHostInsightResourceForecastTrendRequest.utilizationLevel,
       "confidence": summarizeHostInsightResourceForecastTrendRequest.confidence,
-      "page": summarizeHostInsightResourceForecastTrendRequest.page
+      "page": summarizeHostInsightResourceForecastTrendRequest.page,
+      "definedTagEquals": summarizeHostInsightResourceForecastTrendRequest.definedTagEquals,
+      "freeformTagEquals": summarizeHostInsightResourceForecastTrendRequest.freeformTagEquals,
+      "definedTagExists": summarizeHostInsightResourceForecastTrendRequest.definedTagExists,
+      "freeformTagExists": summarizeHostInsightResourceForecastTrendRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -3398,7 +3446,11 @@ export class OperationsInsightsClient {
       "limit": summarizeHostInsightResourceStatisticsRequest.limit,
       "page": summarizeHostInsightResourceStatisticsRequest.page,
       "sortOrder": summarizeHostInsightResourceStatisticsRequest.sortOrder,
-      "sortBy": summarizeHostInsightResourceStatisticsRequest.sortBy
+      "sortBy": summarizeHostInsightResourceStatisticsRequest.sortBy,
+      "definedTagEquals": summarizeHostInsightResourceStatisticsRequest.definedTagEquals,
+      "freeformTagEquals": summarizeHostInsightResourceStatisticsRequest.freeformTagEquals,
+      "definedTagExists": summarizeHostInsightResourceStatisticsRequest.definedTagExists,
+      "freeformTagExists": summarizeHostInsightResourceStatisticsRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -3476,7 +3528,11 @@ export class OperationsInsightsClient {
       "platformType": summarizeHostInsightResourceUsageRequest.platformType,
       "id": summarizeHostInsightResourceUsageRequest.id,
       "page": summarizeHostInsightResourceUsageRequest.page,
-      "percentile": summarizeHostInsightResourceUsageRequest.percentile
+      "percentile": summarizeHostInsightResourceUsageRequest.percentile,
+      "definedTagEquals": summarizeHostInsightResourceUsageRequest.definedTagEquals,
+      "freeformTagEquals": summarizeHostInsightResourceUsageRequest.freeformTagEquals,
+      "definedTagExists": summarizeHostInsightResourceUsageRequest.definedTagExists,
+      "freeformTagExists": summarizeHostInsightResourceUsageRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -3549,7 +3605,11 @@ export class OperationsInsightsClient {
       "id": summarizeHostInsightResourceUsageTrendRequest.id,
       "page": summarizeHostInsightResourceUsageTrendRequest.page,
       "sortOrder": summarizeHostInsightResourceUsageTrendRequest.sortOrder,
-      "sortBy": summarizeHostInsightResourceUsageTrendRequest.sortBy
+      "sortBy": summarizeHostInsightResourceUsageTrendRequest.sortBy,
+      "definedTagEquals": summarizeHostInsightResourceUsageTrendRequest.definedTagEquals,
+      "freeformTagEquals": summarizeHostInsightResourceUsageTrendRequest.freeformTagEquals,
+      "definedTagExists": summarizeHostInsightResourceUsageTrendRequest.definedTagExists,
+      "freeformTagExists": summarizeHostInsightResourceUsageTrendRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -3625,7 +3685,11 @@ export class OperationsInsightsClient {
       "platformType": summarizeHostInsightResourceUtilizationInsightRequest.platformType,
       "id": summarizeHostInsightResourceUtilizationInsightRequest.id,
       "forecastDays": summarizeHostInsightResourceUtilizationInsightRequest.forecastDays,
-      "page": summarizeHostInsightResourceUtilizationInsightRequest.page
+      "page": summarizeHostInsightResourceUtilizationInsightRequest.page,
+      "definedTagEquals": summarizeHostInsightResourceUtilizationInsightRequest.definedTagEquals,
+      "freeformTagEquals": summarizeHostInsightResourceUtilizationInsightRequest.freeformTagEquals,
+      "definedTagExists": summarizeHostInsightResourceUtilizationInsightRequest.definedTagExists,
+      "freeformTagExists": summarizeHostInsightResourceUtilizationInsightRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -3694,7 +3758,11 @@ export class OperationsInsightsClient {
       "analysisTimeInterval": summarizeSqlInsightsRequest.analysisTimeInterval,
       "timeIntervalStart": summarizeSqlInsightsRequest.timeIntervalStart,
       "timeIntervalEnd": summarizeSqlInsightsRequest.timeIntervalEnd,
-      "page": summarizeSqlInsightsRequest.page
+      "page": summarizeSqlInsightsRequest.page,
+      "definedTagEquals": summarizeSqlInsightsRequest.definedTagEquals,
+      "freeformTagEquals": summarizeSqlInsightsRequest.freeformTagEquals,
+      "definedTagExists": summarizeSqlInsightsRequest.definedTagExists,
+      "freeformTagExists": summarizeSqlInsightsRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -3923,7 +3991,11 @@ export class OperationsInsightsClient {
       "page": summarizeSqlStatisticsRequest.page,
       "sortOrder": summarizeSqlStatisticsRequest.sortOrder,
       "sortBy": summarizeSqlStatisticsRequest.sortBy,
-      "category": summarizeSqlStatisticsRequest.category
+      "category": summarizeSqlStatisticsRequest.category,
+      "definedTagEquals": summarizeSqlStatisticsRequest.definedTagEquals,
+      "freeformTagEquals": summarizeSqlStatisticsRequest.freeformTagEquals,
+      "definedTagExists": summarizeSqlStatisticsRequest.definedTagExists,
+      "freeformTagExists": summarizeSqlStatisticsRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -3999,7 +4071,11 @@ export class OperationsInsightsClient {
       "analysisTimeInterval": summarizeSqlStatisticsTimeSeriesRequest.analysisTimeInterval,
       "timeIntervalStart": summarizeSqlStatisticsTimeSeriesRequest.timeIntervalStart,
       "timeIntervalEnd": summarizeSqlStatisticsTimeSeriesRequest.timeIntervalEnd,
-      "page": summarizeSqlStatisticsTimeSeriesRequest.page
+      "page": summarizeSqlStatisticsTimeSeriesRequest.page,
+      "definedTagEquals": summarizeSqlStatisticsTimeSeriesRequest.definedTagEquals,
+      "freeformTagEquals": summarizeSqlStatisticsTimeSeriesRequest.freeformTagEquals,
+      "definedTagExists": summarizeSqlStatisticsTimeSeriesRequest.definedTagExists,
+      "freeformTagExists": summarizeSqlStatisticsTimeSeriesRequest.freeformTagExists
     };
 
     let headerParams = {

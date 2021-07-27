@@ -170,10 +170,14 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "refreshableMode"?: UpdateAutonomousDatabaseDetails.RefreshableMode;
   /**
-   * Indicates whether the Autonomous Database has Data Guard enabled.
+   * If set to `FALSE` and `peerDbId` is specified, the specified remote region peer database is terminated. If set to `FALSE` and `peerDbId` is not specified, the peer database in the region of the source primary database terminated.
    *
    */
   "isDataGuardEnabled"?: boolean;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Autonomous Data Guard standby database located in a different (remote) region from the source primary Autonomous Database.
+   */
+  "peerDbId"?: string;
   /**
    * A valid Oracle Database version for Autonomous Database.
    */

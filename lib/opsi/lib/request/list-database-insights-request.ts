@@ -27,7 +27,7 @@ export interface ListDatabaseInsightsRequest extends common.BaseRequest {
    */
   "enterpriseManagerBridgeId"?: string;
   /**
-   * Optional list of database insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   * Optional list of database insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "id"?: Array<string>;

@@ -277,6 +277,11 @@ export namespace CreateAutonomousDatabaseBase {
             <model.CreateAutonomousDatabaseFromBackupTimestampDetails>(<object>jsonObj),
             true
           );
+        case "CROSS_REGION_DATAGUARD":
+          return model.CreateCrossRegionAutonomousDatabaseDataGuardDetails.getJsonObj(
+            <model.CreateCrossRegionAutonomousDatabaseDataGuardDetails>(<object>jsonObj),
+            true
+          );
         case "NONE":
           return model.CreateAutonomousDatabaseDetails.getJsonObj(
             <model.CreateAutonomousDatabaseDetails>(<object>jsonObj),
@@ -320,6 +325,11 @@ export namespace CreateAutonomousDatabaseBase {
         case "BACKUP_FROM_TIMESTAMP":
           return model.CreateAutonomousDatabaseFromBackupTimestampDetails.getDeserializedJsonObj(
             <model.CreateAutonomousDatabaseFromBackupTimestampDetails>(<object>jsonObj),
+            true
+          );
+        case "CROSS_REGION_DATAGUARD":
+          return model.CreateCrossRegionAutonomousDatabaseDataGuardDetails.getDeserializedJsonObj(
+            <model.CreateCrossRegionAutonomousDatabaseDataGuardDetails>(<object>jsonObj),
             true
           );
         case "NONE":

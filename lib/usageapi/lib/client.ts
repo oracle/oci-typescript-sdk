@@ -109,6 +109,75 @@ export class UsageapiClient {
   }
 
   /**
+   * Returns the created custom table.
+   *
+   * @param CreateCustomTableRequest
+   * @return CreateCustomTableResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/CreateCustomTable.ts.html |here} to see how to use CreateCustomTable API.
+   */
+  public async createCustomTable(
+    createCustomTableRequest: requests.CreateCustomTableRequest
+  ): Promise<responses.CreateCustomTableResponse> {
+    if (this.logger) this.logger.debug("Calling operation UsageapiClient#createCustomTable.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createCustomTableRequest.opcRequestId,
+      "opc-retry-token": createCustomTableRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createCustomTableRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/customTables",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCustomTableRequest.createCustomTableDetails,
+        "CreateCustomTableDetails",
+        model.CreateCustomTableDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCustomTableResponse>{},
+        body: await response.json(),
+        bodyKey: "customTable",
+        bodyModel: model.CustomTable,
+        type: "model.CustomTable",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns the created query.
    *
    * @param CreateQueryRequest
@@ -178,6 +247,63 @@ export class UsageapiClient {
   }
 
   /**
+   * Delete a saved custom table by the OCID.
+   *
+   * @param DeleteCustomTableRequest
+   * @return DeleteCustomTableResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/DeleteCustomTable.ts.html |here} to see how to use DeleteCustomTable API.
+   */
+  public async deleteCustomTable(
+    deleteCustomTableRequest: requests.DeleteCustomTableRequest
+  ): Promise<responses.DeleteCustomTableResponse> {
+    if (this.logger) this.logger.debug("Calling operation UsageapiClient#deleteCustomTable.");
+    const pathParams = {
+      "{customTableId}": deleteCustomTableRequest.customTableId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteCustomTableRequest.opcRequestId,
+      "if-match": deleteCustomTableRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteCustomTableRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/customTables/{customTableId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCustomTableResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete a saved query by the OCID.
    *
    * @param DeleteQueryRequest
@@ -223,6 +349,71 @@ export class UsageapiClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the saved custom table.
+   *
+   * @param GetCustomTableRequest
+   * @return GetCustomTableResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetCustomTable.ts.html |here} to see how to use GetCustomTable API.
+   */
+  public async getCustomTable(
+    getCustomTableRequest: requests.GetCustomTableRequest
+  ): Promise<responses.GetCustomTableResponse> {
+    if (this.logger) this.logger.debug("Calling operation UsageapiClient#getCustomTable.");
+    const pathParams = {
+      "{customTableId}": getCustomTableRequest.customTableId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCustomTableRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getCustomTableRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/customTables/{customTableId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCustomTableResponse>{},
+        body: await response.json(),
+        bodyKey: "customTable",
+        bodyModel: model.CustomTable,
+        type: "model.CustomTable",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -288,6 +479,76 @@ export class UsageapiClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the saved custom table list.
+   *
+   * @param ListCustomTablesRequest
+   * @return ListCustomTablesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListCustomTables.ts.html |here} to see how to use ListCustomTables API.
+   */
+  public async listCustomTables(
+    listCustomTablesRequest: requests.ListCustomTablesRequest
+  ): Promise<responses.ListCustomTablesResponse> {
+    if (this.logger) this.logger.debug("Calling operation UsageapiClient#listCustomTables.");
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listCustomTablesRequest.limit,
+      "page": listCustomTablesRequest.page,
+      "compartmentId": listCustomTablesRequest.compartmentId,
+      "savedReportId": listCustomTablesRequest.savedReportId,
+      "sortBy": listCustomTablesRequest.sortBy,
+      "sortOrder": listCustomTablesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCustomTablesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listCustomTablesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/customTables",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCustomTablesResponse>{},
+        body: await response.json(),
+        bodyKey: "customTableCollection",
+        bodyModel: model.CustomTableCollection,
+        type: "model.CustomTableCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -489,6 +750,77 @@ export class UsageapiClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a saved custom table by table id.
+   *
+   * @param UpdateCustomTableRequest
+   * @return UpdateCustomTableResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/UpdateCustomTable.ts.html |here} to see how to use UpdateCustomTable API.
+   */
+  public async updateCustomTable(
+    updateCustomTableRequest: requests.UpdateCustomTableRequest
+  ): Promise<responses.UpdateCustomTableResponse> {
+    if (this.logger) this.logger.debug("Calling operation UsageapiClient#updateCustomTable.");
+    const pathParams = {
+      "{customTableId}": updateCustomTableRequest.customTableId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCustomTableRequest.opcRequestId,
+      "if-match": updateCustomTableRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateCustomTableRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/customTables/{customTableId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCustomTableRequest.updateCustomTableDetails,
+        "UpdateCustomTableDetails",
+        model.UpdateCustomTableDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCustomTableResponse>{},
+        body: await response.json(),
+        bodyKey: "customTable",
+        bodyModel: model.CustomTable,
+        type: "model.CustomTable",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

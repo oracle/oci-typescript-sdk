@@ -26,6 +26,7 @@ export interface CreateAutonomousDatabaseRequest extends common.BaseRequest {
     | model.CreateRefreshableAutonomousDatabaseCloneDetails
     | model.CreateAutonomousDatabaseFromBackupDetails
     | model.CreateAutonomousDatabaseFromBackupTimestampDetails
+    | model.CreateCrossRegionAutonomousDatabaseDataGuardDetails
     | model.CreateAutonomousDatabaseDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or

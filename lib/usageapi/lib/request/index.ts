@@ -11,17 +11,27 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CreateCustomTableRequest from "./create-custom-table-request";
+export import CreateCustomTableRequest = CreateCustomTableRequest.CreateCustomTableRequest;
 import * as CreateQueryRequest from "./create-query-request";
 export import CreateQueryRequest = CreateQueryRequest.CreateQueryRequest;
+import * as DeleteCustomTableRequest from "./delete-custom-table-request";
+export import DeleteCustomTableRequest = DeleteCustomTableRequest.DeleteCustomTableRequest;
 import * as DeleteQueryRequest from "./delete-query-request";
 export import DeleteQueryRequest = DeleteQueryRequest.DeleteQueryRequest;
+import * as GetCustomTableRequest from "./get-custom-table-request";
+export import GetCustomTableRequest = GetCustomTableRequest.GetCustomTableRequest;
 import * as GetQueryRequest from "./get-query-request";
 export import GetQueryRequest = GetQueryRequest.GetQueryRequest;
+import * as ListCustomTablesRequest from "./list-custom-tables-request";
+export import ListCustomTablesRequest = ListCustomTablesRequest.ListCustomTablesRequest;
 import * as ListQueriesRequest from "./list-queries-request";
 export import ListQueriesRequest = ListQueriesRequest.ListQueriesRequest;
 import * as RequestSummarizedConfigurationsRequest from "./request-summarized-configurations-request";
 export import RequestSummarizedConfigurationsRequest = RequestSummarizedConfigurationsRequest.RequestSummarizedConfigurationsRequest;
 import * as RequestSummarizedUsagesRequest from "./request-summarized-usages-request";
 export import RequestSummarizedUsagesRequest = RequestSummarizedUsagesRequest.RequestSummarizedUsagesRequest;
+import * as UpdateCustomTableRequest from "./update-custom-table-request";
+export import UpdateCustomTableRequest = UpdateCustomTableRequest.UpdateCustomTableRequest;
 import * as UpdateQueryRequest from "./update-query-request";
 export import UpdateQueryRequest = UpdateQueryRequest.UpdateQueryRequest;

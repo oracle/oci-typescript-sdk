@@ -457,6 +457,8 @@ import * as CreateAutonomousDatabaseFromBackupDetails from "./create-autonomous-
 export import CreateAutonomousDatabaseFromBackupDetails = CreateAutonomousDatabaseFromBackupDetails.CreateAutonomousDatabaseFromBackupDetails;
 import * as CreateAutonomousDatabaseFromBackupTimestampDetails from "./create-autonomous-database-from-backup-timestamp-details";
 export import CreateAutonomousDatabaseFromBackupTimestampDetails = CreateAutonomousDatabaseFromBackupTimestampDetails.CreateAutonomousDatabaseFromBackupTimestampDetails;
+import * as CreateCrossRegionAutonomousDatabaseDataGuardDetails from "./create-cross-region-autonomous-database-data-guard-details";
+export import CreateCrossRegionAutonomousDatabaseDataGuardDetails = CreateCrossRegionAutonomousDatabaseDataGuardDetails.CreateCrossRegionAutonomousDatabaseDataGuardDetails;
 import * as CreateDataGuardAssociationToExistingDbSystemDetails from "./create-data-guard-association-to-existing-db-system-details";
 export import CreateDataGuardAssociationToExistingDbSystemDetails = CreateDataGuardAssociationToExistingDbSystemDetails.CreateDataGuardAssociationToExistingDbSystemDetails;
 import * as CreateDataGuardAssociationToExistingVmClusterDetails from "./create-data-guard-association-to-existing-vm-cluster-details";
