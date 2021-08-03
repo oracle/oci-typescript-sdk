@@ -37,6 +37,8 @@ import * as BackupSummary from "./backup-summary";
 export import BackupSummary = BackupSummary.BackupSummary;
 import * as CaCertificate from "./ca-certificate";
 export import CaCertificate = CaCertificate.CaCertificate;
+import * as ChangeBackupCompartmentDetails from "./change-backup-compartment-details";
+export import ChangeBackupCompartmentDetails = ChangeBackupCompartmentDetails.ChangeBackupCompartmentDetails;
 import * as Channel from "./channel";
 export import Channel = Channel.Channel;
 import * as ChannelSource from "./channel-source";

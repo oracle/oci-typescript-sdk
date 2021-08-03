@@ -42,7 +42,14 @@ export interface CreateModelArtifactRequest extends common.BaseRequest {
    */
   "opcRetryToken"?: string;
   /**
-   * The content disposition of the body.
+   * This header allows you to specify a filename during upload. This file name is used to dispose of the file contents
+   * while downloading the file. If this optional field is not populated in the request, then the OCID of the model is used for the file
+   * name when downloading.
+   * Example: `{\"Content-Disposition\": \"attachment\"
+   *            \"filename\"=\"model.tar.gz\"
+   *            \"Content-Length\": \"2347\"
+   *            \"Content-Type\": \"application/gzip\"}`
+   *
    */
   "contentDisposition"?: string;
 }

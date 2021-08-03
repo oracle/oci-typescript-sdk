@@ -27,6 +27,22 @@ export interface CopyVolumeBackupResponse {
    */
   "opcRequestId": string;
   /**
+   * The OCID of the work request. Use [GetWorkRequest](https://docs.cloud.oracle.com/api/#/en/workrequests/20160918/WorkRequest/GetWorkRequest)
+   * with this ID to track the status of the request.
+   *
+   */
+  "opcWorkRequestId": string;
+  /**
+   * Location of the resource.
+   *
+   */
+  "location": string;
+  /**
+   * Location of the resource.
+   *
+   */
+  "contentLocation": string;
+  /**
    * The returned model.VolumeBackup instance.
    */
   "volumeBackup": model.VolumeBackup;

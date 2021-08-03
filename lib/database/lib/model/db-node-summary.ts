@@ -41,6 +41,34 @@ export interface DbNodeSummary {
    */
   "backupVnicId"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the host IP address associated with the database node.
+   * <p>
+   **Note:** Applies only to Exadata Cloud Service.
+   *
+   */
+  "hostIpId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the backup IP address associated with the database node.
+   * <p>
+   **Note:** Applies only to Exadata Cloud Service.
+   *
+   */
+  "backupIpId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the second VNIC.
+   * <p>
+   **Note:** Applies only to Exadata Cloud Service.
+   *
+   */
+  "vnic2Id"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the second backup VNIC.
+   * <p>
+   **Note:** Applies only to Exadata Cloud Service.
+   *
+   */
+  "backupVnic2Id"?: string;
+  /**
    * The current state of the database node.
    */
   "lifecycleState": DbNodeSummary.LifecycleState;

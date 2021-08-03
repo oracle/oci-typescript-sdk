@@ -624,6 +624,21 @@ export class BlockstorageClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
           }
         ]
       });
@@ -686,6 +701,94 @@ export class BlockstorageClient {
         bodyKey: "volumeBackup",
         bodyModel: model.VolumeBackup,
         type: "model.VolumeBackup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a volume group backup copy in specified region. For general information about volume group backups,
+   * see [Overview of Block Volume Service Backups](https://docs.cloud.oracle.com/Content/Block/Concepts/blockvolumebackups.htm)
+   *
+   * @param CopyVolumeGroupBackupRequest
+   * @return CopyVolumeGroupBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CopyVolumeGroupBackup.ts.html |here} to see how to use CopyVolumeGroupBackup API.
+   */
+  public async copyVolumeGroupBackup(
+    copyVolumeGroupBackupRequest: requests.CopyVolumeGroupBackupRequest
+  ): Promise<responses.CopyVolumeGroupBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#copyVolumeGroupBackup.");
+    const pathParams = {
+      "{volumeGroupBackupId}": copyVolumeGroupBackupRequest.volumeGroupBackupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": copyVolumeGroupBackupRequest.opcRetryToken,
+      "opc-request-id": copyVolumeGroupBackupRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      copyVolumeGroupBackupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/volumeGroupBackups/{volumeGroupBackupId}/actions/copy",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        copyVolumeGroupBackupRequest.copyVolumeGroupBackupDetails,
+        "CopyVolumeGroupBackupDetails",
+        model.CopyVolumeGroupBackupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CopyVolumeGroupBackupResponse>{},
+        body: await response.json(),
+        bodyKey: "volumeGroupBackup",
+        bodyModel: model.VolumeGroupBackup,
+        type: "model.VolumeGroupBackup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

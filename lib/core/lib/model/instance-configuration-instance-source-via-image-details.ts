@@ -23,7 +23,7 @@ export interface InstanceConfigurationInstanceSourceViaImageDetails
   extends model.InstanceConfigurationInstanceSourceDetails {
   /**
    * The size of the boot volume in GBs. The minimum value is 50 GB and the maximum
-   * value is 16384 GB (16TB).
+   * value is 32,768 GB (32 TB).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "bootVolumeSizeInGBs"?: number;

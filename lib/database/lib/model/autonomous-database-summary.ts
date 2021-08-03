@@ -380,6 +380,12 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    * The list of [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of standby databases located in Autonomous Data Guard remote regions that are associated with the source database. Note that for shared Exadata infrastructure, standby databases located in the same region as the source primary database do not have OCIDs.
    */
   "peerDbIds"?: Array<string>;
+  /**
+   * The maintenance schedule type of the Autonomous Database on shared Exadata infrastructure. The EARLY maintenance schedule of this Autonomous Database
+   * follows a schedule that applies patches prior to the REGULAR schedule.The REGULAR maintenance schedule of this Autonomous Database follows the normal cycle.
+   *
+   */
+  "autonomousMaintenanceScheduleType"?: AutonomousDatabaseSummary.AutonomousMaintenanceScheduleType;
 }
 
 export namespace AutonomousDatabaseSummary {
@@ -524,6 +530,16 @@ export namespace AutonomousDatabaseSummary {
   export enum DataguardRegionType {
     PrimaryDgRegion = "PRIMARY_DG_REGION",
     RemoteStandbyDgRegion = "REMOTE_STANDBY_DG_REGION",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AutonomousMaintenanceScheduleType {
+    Early = "EARLY",
+    Regular = "REGULAR",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

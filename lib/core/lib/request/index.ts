@@ -32,6 +32,8 @@ import * as CopyBootVolumeBackupRequest from "./copy-boot-volume-backup-request"
 export import CopyBootVolumeBackupRequest = CopyBootVolumeBackupRequest.CopyBootVolumeBackupRequest;
 import * as CopyVolumeBackupRequest from "./copy-volume-backup-request";
 export import CopyVolumeBackupRequest = CopyVolumeBackupRequest.CopyVolumeBackupRequest;
+import * as CopyVolumeGroupBackupRequest from "./copy-volume-group-backup-request";
+export import CopyVolumeGroupBackupRequest = CopyVolumeGroupBackupRequest.CopyVolumeGroupBackupRequest;
 import * as CreateBootVolumeRequest from "./create-boot-volume-request";
 export import CreateBootVolumeRequest = CreateBootVolumeRequest.CreateBootVolumeRequest;
 import * as CreateBootVolumeBackupRequest from "./create-boot-volume-backup-request";

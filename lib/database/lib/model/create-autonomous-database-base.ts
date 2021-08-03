@@ -226,6 +226,12 @@ Example: `{\"Department\": \"Finance\"}`
    * Customer Contacts.
    */
   "customerContacts"?: Array<model.CustomerContact>;
+  /**
+   * The maintenance schedule type of the Autonomous Database on shared Exadata infrastructure. The EARLY maintenance schedule of this Autonomous Database
+   * follows a schedule that applies patches prior to the REGULAR schedule.The REGULAR maintenance schedule of this Autonomous Database follows the normal cycle.
+   *
+   */
+  "autonomousMaintenanceScheduleType"?: CreateAutonomousDatabaseBase.AutonomousMaintenanceScheduleType;
 
   "source": string;
 }
@@ -241,6 +247,11 @@ export namespace CreateAutonomousDatabaseBase {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
+  }
+
+  export enum AutonomousMaintenanceScheduleType {
+    Early = "EARLY",
+    Regular = "REGULAR"
   }
 
   export function getJsonObj(obj: CreateAutonomousDatabaseBase): object {
