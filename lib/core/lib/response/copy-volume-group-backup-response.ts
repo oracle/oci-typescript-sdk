@@ -14,7 +14,7 @@
 import * as model from "../model";
 import common = require("oci-common");
 
-export interface CopyBootVolumeBackupResponse {
+export interface CopyVolumeGroupBackupResponse {
   /**
    * For optimistic concurrency control. See `if-match`.
    *
@@ -27,23 +27,7 @@ export interface CopyBootVolumeBackupResponse {
    */
   "opcRequestId": string;
   /**
-   * The OCID of the work request. Use [GetWorkRequest](https://docs.cloud.oracle.com/api/#/en/workrequests/20160918/WorkRequest/GetWorkRequest)
-   * with this ID to track the status of the request.
-   *
+   * The returned model.VolumeGroupBackup instance.
    */
-  "opcWorkRequestId": string;
-  /**
-   * Location of the resource.
-   *
-   */
-  "location": string;
-  /**
-   * Location of the resource.
-   *
-   */
-  "contentLocation": string;
-  /**
-   * The returned model.BootVolumeBackup instance.
-   */
-  "bootVolumeBackup": model.BootVolumeBackup;
+  "volumeGroupBackup": model.VolumeGroupBackup;
 }

@@ -65,16 +65,60 @@ export interface Model {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * An array of custom metadata details for the model.
+   */
+  "customMetadataList"?: Array<model.Metadata>;
+  /**
+   * An array of defined metadata details for the model.
+   */
+  "definedMetadataList"?: Array<model.Metadata>;
+  /**
+   * Input schema file content in String format
+   */
+  "inputSchema"?: string;
+  /**
+   * Output schema file content in String format
+   */
+  "outputSchema"?: string;
 }
 
 export namespace Model {
   export function getJsonObj(obj: Model): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customMetadataList": obj.customMetadataList
+          ? obj.customMetadataList.map(item => {
+              return model.Metadata.getJsonObj(item);
+            })
+          : undefined,
+        "definedMetadataList": obj.definedMetadataList
+          ? obj.definedMetadataList.map(item => {
+              return model.Metadata.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: Model): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "customMetadataList": obj.customMetadataList
+          ? obj.customMetadataList.map(item => {
+              return model.Metadata.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "definedMetadataList": obj.definedMetadataList
+          ? obj.definedMetadataList.map(item => {
+              return model.Metadata.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

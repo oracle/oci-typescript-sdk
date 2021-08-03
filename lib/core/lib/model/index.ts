@@ -206,6 +206,8 @@ import * as CopyBootVolumeBackupDetails from "./copy-boot-volume-backup-details"
 export import CopyBootVolumeBackupDetails = CopyBootVolumeBackupDetails.CopyBootVolumeBackupDetails;
 import * as CopyVolumeBackupDetails from "./copy-volume-backup-details";
 export import CopyVolumeBackupDetails = CopyVolumeBackupDetails.CopyVolumeBackupDetails;
+import * as CopyVolumeGroupBackupDetails from "./copy-volume-group-backup-details";
+export import CopyVolumeGroupBackupDetails = CopyVolumeGroupBackupDetails.CopyVolumeGroupBackupDetails;
 import * as Cpe from "./cpe";
 export import Cpe = Cpe.Cpe;
 import * as CpeDeviceConfigAnswer from "./cpe-device-config-answer";

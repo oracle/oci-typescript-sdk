@@ -23,10 +23,10 @@ export interface UpdateModelDeploymentRequest extends common.BaseRequest {
    */
   "modelDeploymentId": string;
   /**
-   * Details for updating a model deployment. Some of the properties of `modelDeploymentConfigurationDetails` or `CategoryLogDetails` can also be updated with zero down time when
-   * the model deployment's lifecycle state is ACTIVE i.e `instanceShapeName` can be updated along with `modelId`, similarly `logId` can be updated along with `logGroupId`. But
-   * `instanceShapeName` or `modelId` cannot be updated along with `logId` or `logGroupId`. All of the fields can be updated when the deployment is in the INACTIVE lifecycle state.
-   * Changes will take effect the next time the model deployment is activated.
+   * Details for updating a model deployment. Some of the properties of `modelDeploymentConfigurationDetails` or `CategoryLogDetails` can also be updated with zero down time
+   * when the model deployment\u2019s lifecycle state is ACTIVE or NEEDS_ATTENTION i.e `instanceShapeName`, `instanceCount` and `modelId`, separately `loadBalancerShape` or
+   * `CategoryLogDetails` can also be updated independently. All of the fields can be updated when the deployment is in the INACTIVE lifecycle state. Changes will take effect the next
+   * time the model deployment is activated.
    *
    */
   "updateModelDeploymentDetails": model.UpdateModelDeploymentDetails;

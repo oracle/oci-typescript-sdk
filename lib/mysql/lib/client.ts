@@ -751,6 +751,76 @@ export class DbBackupsClient {
   }
 
   /**
+   * Moves a DB System Backup into a different compartment.
+   * When provided, If-Match is checked against ETag values of the Backup.
+   *
+   * @param ChangeBackupCompartmentRequest
+   * @return ChangeBackupCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ChangeBackupCompartment.ts.html |here} to see how to use ChangeBackupCompartment API.
+   */
+  public async changeBackupCompartment(
+    changeBackupCompartmentRequest: requests.ChangeBackupCompartmentRequest
+  ): Promise<responses.ChangeBackupCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbBackupsClient#changeBackupCompartment.");
+    const pathParams = {
+      "{backupId}": changeBackupCompartmentRequest.backupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeBackupCompartmentRequest.ifMatch,
+      "opc-request-id": changeBackupCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeBackupCompartmentRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeBackupCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/backups/{backupId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeBackupCompartmentRequest.changeBackupCompartmentDetails,
+        "ChangeBackupCompartmentDetails",
+        model.ChangeBackupCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeBackupCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a backup of a DB System.
    *
    * @param CreateBackupRequest

@@ -45,10 +45,14 @@ export class NotificationControlPlaneClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
-    }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
+      if (!clientConfiguration.retryConfiguration) {
+        this._clientConfiguration.retryConfiguration = common.NoRetryConfigurationDetails;
+      }
+    } else {
+      // Disable default retries for the service
+      this._clientConfiguration = {
+        retryConfiguration: common.NoRetryConfigurationDetails
+      };
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -590,10 +594,14 @@ export class NotificationDataPlaneClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
-    }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
+      if (!clientConfiguration.retryConfiguration) {
+        this._clientConfiguration.retryConfiguration = common.NoRetryConfigurationDetails;
+      }
+    } else {
+      // Disable default retries for the service
+      this._clientConfiguration = {
+        retryConfiguration: common.NoRetryConfigurationDetails
+      };
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Model deployments are interactive coding environments for data scientists.
+ * Model deployments are used by data scientists to perform predictions from the model hosted on an HTTP server.
  *
  */
 export interface ModelDeployment {

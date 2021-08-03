@@ -29,6 +29,7 @@ import common = require("oci-common");
 *   - executorShape
 *   - freeformTags
 *   - logsBucketUri
+*   - metastoreId
 *   - numExecutors
 *   - parameters
 *   - sparkVersion
@@ -131,6 +132,11 @@ export interface CreateRunDetails {
    *
    */
   "logsBucketUri"?: string;
+  /**
+   * The OCID of OCI Hive Metastore.
+   *
+   */
+  "metastoreId"?: string;
   /**
    * The number of executor VMs requested.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

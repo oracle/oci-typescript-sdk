@@ -36,6 +36,8 @@ import * as InstanceConfiguration from "./instance-configuration";
 export import InstanceConfiguration = InstanceConfiguration.InstanceConfiguration;
 import * as LogDetails from "./log-details";
 export import LogDetails = LogDetails.LogDetails;
+import * as Metadata from "./metadata";
+export import Metadata = Metadata.Metadata;
 import * as Model from "./model";
 export import Model = Model.Model;
 import * as ModelConfigurationDetails from "./model-configuration-details";

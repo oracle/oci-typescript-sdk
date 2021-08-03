@@ -32,6 +32,8 @@ import * as CopyBootVolumeBackupResponse from "./copy-boot-volume-backup-respons
 export import CopyBootVolumeBackupResponse = CopyBootVolumeBackupResponse.CopyBootVolumeBackupResponse;
 import * as CopyVolumeBackupResponse from "./copy-volume-backup-response";
 export import CopyVolumeBackupResponse = CopyVolumeBackupResponse.CopyVolumeBackupResponse;
+import * as CopyVolumeGroupBackupResponse from "./copy-volume-group-backup-response";
+export import CopyVolumeGroupBackupResponse = CopyVolumeGroupBackupResponse.CopyVolumeGroupBackupResponse;
 import * as CreateBootVolumeResponse from "./create-boot-volume-response";
 export import CreateBootVolumeResponse = CreateBootVolumeResponse.CreateBootVolumeResponse;
 import * as CreateBootVolumeBackupResponse from "./create-boot-volume-backup-response";

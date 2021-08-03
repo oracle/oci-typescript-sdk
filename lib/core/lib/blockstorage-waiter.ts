@@ -31,6 +31,48 @@ export class BlockstorageWaiter {
   ) {}
 
   /**
+   * Waits forCopyBootVolumeBackup
+   *
+   * @param request the request to send
+   * @return response returns CopyBootVolumeBackupResponse, GetWorkRequestResponse tuple
+   */
+  public async forCopyBootVolumeBackup(
+    request: serviceRequests.CopyBootVolumeBackupRequest
+  ): Promise<{
+    response: serviceResponses.CopyBootVolumeBackupResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const copyBootVolumeBackupResponse = await this.client.copyBootVolumeBackup(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      copyBootVolumeBackupResponse.opcWorkRequestId
+    );
+    return { response: copyBootVolumeBackupResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCopyVolumeBackup
+   *
+   * @param request the request to send
+   * @return response returns CopyVolumeBackupResponse, GetWorkRequestResponse tuple
+   */
+  public async forCopyVolumeBackup(
+    request: serviceRequests.CopyVolumeBackupRequest
+  ): Promise<{
+    response: serviceResponses.CopyVolumeBackupResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const copyVolumeBackupResponse = await this.client.copyVolumeBackup(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      copyVolumeBackupResponse.opcWorkRequestId
+    );
+    return { response: copyVolumeBackupResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forBlockVolumeReplica till it reaches any of the provided states
    *
    * @param request the request to send
