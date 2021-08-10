@@ -771,8 +771,13 @@ async function invokeFunctionHelper(client, fnSummary, payload) {
   client.endpoint = fnSummary.invokeEndpoint;
   const functionId = fnSummary.id || "";
 
+  if(payload && (typeof payload === 'object')) {
+    payload  = JSON.stringify(payload)
+  }
+
   const request = {
-    functionId: functionId
+    functionId: functionId,
+    invokeFunctionBody: payload
   };
   const response = await client.invokeFunction(request);
   return response;
