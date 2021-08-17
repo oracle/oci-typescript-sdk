@@ -34,6 +34,10 @@ export interface ManagementAgentPluginDetails {
    * Plugin Version
    */
   "pluginVersion"?: string;
+  /**
+   * flag indicating whether the plugin is in enabled mode or disabled mode.
+   */
+  "isEnabled"?: boolean;
 }
 
 export namespace ManagementAgentPluginDetails {

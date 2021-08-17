@@ -15,24 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Work Submission Identifier
- */
-export interface WorkSubmissionKey {
-  /**
-   * Work Submission Identifier
-   */
-  "workSubmissionKey": string;
+ * Supported groupBy types for Management Agent Plugin.
+ **/
+export enum ManagementAgentPluginGroupBy {
+  PluginName = "pluginName"
 }
 
-export namespace WorkSubmissionKey {
-  export function getJsonObj(obj: WorkSubmissionKey): object {
-    const jsonObj = { ...obj, ...{} };
-
-    return jsonObj;
+export namespace ManagementAgentPluginGroupBy {
+  export function getJsonObj(obj: ManagementAgentPluginGroupBy): ManagementAgentPluginGroupBy {
+    return obj;
   }
-  export function getDeserializedJsonObj(obj: WorkSubmissionKey): object {
-    const jsonObj = { ...obj, ...{} };
-
-    return jsonObj;
+  export function getDeserializedJsonObj(
+    obj: ManagementAgentPluginGroupBy
+  ): ManagementAgentPluginGroupBy {
+    return obj;
   }
 }

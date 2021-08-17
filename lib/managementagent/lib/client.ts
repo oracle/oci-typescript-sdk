@@ -46,10 +46,6 @@ export class ManagementAgentClient {
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
     }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
-    }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
@@ -1035,7 +1031,8 @@ export class ManagementAgentClient {
       "page": listManagementAgentPluginsRequest.page,
       "sortOrder": listManagementAgentPluginsRequest.sortOrder,
       "sortBy": listManagementAgentPluginsRequest.sortBy,
-      "lifecycleState": listManagementAgentPluginsRequest.lifecycleState
+      "lifecycleState": listManagementAgentPluginsRequest.lifecycleState,
+      "platformType": listManagementAgentPluginsRequest.platformType
     };
 
     let headerParams = {
@@ -1131,7 +1128,10 @@ export class ManagementAgentClient {
       "version": listManagementAgentsRequest.version,
       "displayName": listManagementAgentsRequest.displayName,
       "lifecycleState": listManagementAgentsRequest.lifecycleState,
+      "availabilityStatus": listManagementAgentsRequest.availabilityStatus,
+      "hostId": listManagementAgentsRequest.hostId,
       "platformType": listManagementAgentsRequest.platformType,
+      "isCustomerDeployed": listManagementAgentsRequest.isCustomerDeployed,
       "limit": listManagementAgentsRequest.limit,
       "page": listManagementAgentsRequest.page,
       "sortOrder": listManagementAgentsRequest.sortOrder,
@@ -1497,6 +1497,147 @@ export class ManagementAgentClient {
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Gets count of the inventory of agents for a given compartment id, group by, and isPluginDeployed parameters.
+   * Supported groupBy parameters: availabilityStatus, platformType, version
+   *
+   * @param SummarizeManagementAgentCountsRequest
+   * @return SummarizeManagementAgentCountsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/SummarizeManagementAgentCounts.ts.html |here} to see how to use SummarizeManagementAgentCounts API.
+   */
+  public async summarizeManagementAgentCounts(
+    summarizeManagementAgentCountsRequest: requests.SummarizeManagementAgentCountsRequest
+  ): Promise<responses.SummarizeManagementAgentCountsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementAgentClient#summarizeManagementAgentCounts.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeManagementAgentCountsRequest.compartmentId,
+      "groupBy": summarizeManagementAgentCountsRequest.groupBy,
+      "hasPlugins": summarizeManagementAgentCountsRequest.hasPlugins,
+      "page": summarizeManagementAgentCountsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeManagementAgentCountsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeManagementAgentCountsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managementAgentCounts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeManagementAgentCountsResponse>{},
+        body: await response.json(),
+        bodyKey: "managementAgentAggregationCollection",
+        bodyModel: model.ManagementAgentAggregationCollection,
+        type: "model.ManagementAgentAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets count of the inventory of management agent plugins for a given compartment id and group by parameter.
+   * Supported groupBy parameter: pluginName
+   *
+   * @param SummarizeManagementAgentPluginCountsRequest
+   * @return SummarizeManagementAgentPluginCountsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/SummarizeManagementAgentPluginCounts.ts.html |here} to see how to use SummarizeManagementAgentPluginCounts API.
+   */
+  public async summarizeManagementAgentPluginCounts(
+    summarizeManagementAgentPluginCountsRequest: requests.SummarizeManagementAgentPluginCountsRequest
+  ): Promise<responses.SummarizeManagementAgentPluginCountsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ManagementAgentClient#summarizeManagementAgentPluginCounts."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeManagementAgentPluginCountsRequest.compartmentId,
+      "groupBy": summarizeManagementAgentPluginCountsRequest.groupBy,
+      "page": summarizeManagementAgentPluginCountsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeManagementAgentPluginCountsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeManagementAgentPluginCountsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managementAgentPluginCounts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeManagementAgentPluginCountsResponse>{},
+        body: await response.json(),
+        bodyKey: "managementAgentPluginAggregationCollection",
+        bodyModel: model.ManagementAgentPluginAggregationCollection,
+        type: "model.ManagementAgentPluginAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

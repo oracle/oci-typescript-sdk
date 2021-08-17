@@ -46,14 +46,6 @@ export class BdsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
-      if (!clientConfiguration.retryConfiguration) {
-        this._clientConfiguration.retryConfiguration = common.NoRetryConfigurationDetails;
-      }
-    } else {
-      // Disable default retries for the service
-      this._clientConfiguration = {
-        retryConfiguration: common.NoRetryConfigurationDetails
-      };
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);

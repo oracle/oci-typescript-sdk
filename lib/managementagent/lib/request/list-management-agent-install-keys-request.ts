@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListManagementAgentInstallKeysRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment from which the Management Agents to be listed.
+   * The OCID of the compartment to which a request will be scoped.
    */
   "compartmentId": string;
   /**

@@ -47,7 +47,7 @@ export interface ManagementAgentSummary {
    */
   "version": string;
   /**
-   * true if the agent can be upgraded automatically; false if it must be upgraded manually. true is currently unsupported.
+   * true if the agent can be upgraded automatically; false if it must be upgraded manually.
    */
   "isAgentAutoUpgradable"?: boolean;
   /**
@@ -55,9 +55,17 @@ export interface ManagementAgentSummary {
    */
   "timeCreated"?: Date;
   /**
+   * The time the Management Agent was last updated. An RFC3339 formatted datetime string
+   */
+  "timeUpdated"?: Date;
+  /**
    * Management Agent host machine name
    */
   "host"?: string;
+  /**
+   * Host resource ocid
+   */
+  "hostId"?: string;
   /**
    * list of managementAgentPlugins associated with the agent
    */
@@ -82,6 +90,10 @@ export interface ManagementAgentSummary {
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * true, if the agent image is manually downloaded and installed. false, if the agent is deployed as a plugin in Oracle Cloud Agent.
+   */
+  "isCustomerDeployed"?: boolean;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
