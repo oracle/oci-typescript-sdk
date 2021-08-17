@@ -51,6 +51,10 @@ export interface ManagementAgent {
    */
   "host"?: string;
   /**
+   * Host resource ocid
+   */
+  "hostId"?: string;
+  /**
    * Path where Management Agent is installed
    */
   "installPath"?: string;
@@ -63,7 +67,7 @@ export interface ManagementAgent {
    */
   "compartmentId": string;
   /**
-   * true if the agent can be upgraded automatically; false if it must be upgraded manually. true is currently unsupported.
+   * true if the agent can be upgraded automatically; false if it must be upgraded manually.
    */
   "isAgentAutoUpgradable"?: boolean;
   /**
@@ -90,6 +94,10 @@ export interface ManagementAgent {
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * true, if the agent image is manually downloaded and installed. false, if the agent is deployed as a plugin in Oracle Cloud Agent.
+   */
+  "isCustomerDeployed"?: boolean;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`

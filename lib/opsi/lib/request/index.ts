@@ -70,6 +70,8 @@ import * as ListHostInsightsRequest from "./list-host-insights-request";
 export import ListHostInsightsRequest = ListHostInsightsRequest.ListHostInsightsRequest;
 import * as ListHostedEntitiesRequest from "./list-hosted-entities-request";
 export import ListHostedEntitiesRequest = ListHostedEntitiesRequest.ListHostedEntitiesRequest;
+import * as ListImportableAgentEntitiesRequest from "./list-importable-agent-entities-request";
+export import ListImportableAgentEntitiesRequest = ListImportableAgentEntitiesRequest.ListImportableAgentEntitiesRequest;
 import * as ListImportableEnterpriseManagerEntitiesRequest from "./list-importable-enterprise-manager-entities-request";
 export import ListImportableEnterpriseManagerEntitiesRequest = ListImportableEnterpriseManagerEntitiesRequest.ListImportableEnterpriseManagerEntitiesRequest;
 import * as ListSqlPlansRequest from "./list-sql-plans-request";

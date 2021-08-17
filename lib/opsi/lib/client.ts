@@ -48,10 +48,6 @@ export class OperationsInsightsClient {
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
     }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
-    }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
@@ -2128,6 +2124,80 @@ export class OperationsInsightsClient {
         bodyKey: "hostedEntityCollection",
         bodyModel: model.HostedEntityCollection,
         type: "model.HostedEntityCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of agent entities available to add a new hostInsight.  An agent entity is \"available\"
+   * and will be shown if all the following conditions are true:
+   *    1.  The agent OCID is not already being used for an existing hostInsight.
+   *    2.  The agent availabilityStatus = 'ACTIVE'
+   *    3.  The agent lifecycleState = 'ACTIVE'
+   *
+   * @param ListImportableAgentEntitiesRequest
+   * @return ListImportableAgentEntitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListImportableAgentEntities.ts.html |here} to see how to use ListImportableAgentEntities API.
+   */
+  public async listImportableAgentEntities(
+    listImportableAgentEntitiesRequest: requests.ListImportableAgentEntitiesRequest
+  ): Promise<responses.ListImportableAgentEntitiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listImportableAgentEntities.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listImportableAgentEntitiesRequest.compartmentId,
+      "limit": listImportableAgentEntitiesRequest.limit,
+      "page": listImportableAgentEntitiesRequest.page,
+      "sortOrder": listImportableAgentEntitiesRequest.sortOrder,
+      "sortBy": listImportableAgentEntitiesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listImportableAgentEntitiesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listImportableAgentEntitiesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/importableAgentEntities",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListImportableAgentEntitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "importableAgentEntitySummaryCollection",
+        bodyModel: model.ImportableAgentEntitySummaryCollection,
+        type: "model.ImportableAgentEntitySummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

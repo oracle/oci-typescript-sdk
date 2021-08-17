@@ -77,29 +77,13 @@ export const NoRetryConfigurationDetails: RetryConfigurationDetails = {
 export class GenericRetrier {
   private _retryConfiguration: RetryConfigurationDetails;
   private _logger: Logger = (undefined as unknown) as Logger;
-  private static OCI_SDK_DEFAULT_RETRY_ENABLED = "OCI_SDK_DEFAULT_RETRY_ENABLED";
-  private static DEFAULT_RETRY_MAXIMUM_NUMBER_OF_ATTEMPTS = 8;
-  private static DEFAULT_RETRY_MAXIMUM_DELAY_IN_SECONDS = 30;
-
   private static OPC_CLIENT_RETRIES_HEADER = "opc-client-retries";
   constructor(retryConfiguration: RetryConfiguration) {
     const preferredRetryConfig = { ...NoRetryConfigurationDetails, ...retryConfiguration };
     this._retryConfiguration = preferredRetryConfig;
   }
 
-  private static DefaultRetryConfiguration: RetryConfigurationDetails =
-    process.env[GenericRetrier.OCI_SDK_DEFAULT_RETRY_ENABLED] === BooleanString.FALSE
-      ? NoRetryConfigurationDetails
-      : {
-          terminationStrategy: new MaxAttemptsTerminationStrategy(
-            GenericRetrier.DEFAULT_RETRY_MAXIMUM_NUMBER_OF_ATTEMPTS
-          ),
-          delayStrategy: new ExponentialBackoffDelayStrategyWithJitter(
-            GenericRetrier.DEFAULT_RETRY_MAXIMUM_DELAY_IN_SECONDS
-          ),
-          retryCondition: DefaultRetryCondition.shouldBeRetried,
-          backupBinaryBody: false
-        };
+  private static DefaultRetryConfiguration: RetryConfigurationDetails = NoRetryConfigurationDetails;
 
   static get defaultRetryConfiguration(): RetryConfiguration {
     return GenericRetrier.DefaultRetryConfiguration;

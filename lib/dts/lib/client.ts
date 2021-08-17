@@ -51,10 +51,6 @@ export class ApplianceExportJobClient {
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
     }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
-    }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
@@ -583,10 +579,6 @@ export class ShippingVendorsClient {
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
     }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
-    }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
@@ -728,10 +720,6 @@ export class TransferApplianceClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
-    }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -1374,10 +1362,6 @@ export class TransferApplianceEntitlementClient {
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
     }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
-    }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
@@ -1684,10 +1668,6 @@ export class TransferDeviceClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
-    }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -2119,10 +2099,6 @@ export class TransferJobClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
-    }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -2649,10 +2625,6 @@ export class TransferPackageClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
-    }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);

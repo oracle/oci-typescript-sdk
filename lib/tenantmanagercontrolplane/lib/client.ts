@@ -50,10 +50,6 @@ export class DomainClient {
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
     }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
-    }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
@@ -497,10 +493,6 @@ export class DomainGovernanceClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
-    }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -946,10 +938,6 @@ export class LinkClient {
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
     }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
-    }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
@@ -1246,10 +1234,6 @@ export class OrdersClient {
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
     }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
-    }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
 
@@ -1460,10 +1444,6 @@ export class RecipientInvitationClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
-    }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -1909,10 +1889,6 @@ export class SenderInvitationClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
-    }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -2368,10 +2344,6 @@ export class WorkRequestClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
-    }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    if (!this._circuitBreaker && common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!)) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);

@@ -19,17 +19,17 @@ import common = require("oci-common");
  */
 export interface ListManagementAgentsRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment from which the Management Agents to be listed.
+   * The OCID of the compartment to which a request will be scoped.
    */
   "compartmentId": string;
   /**
-   * Filter to return only Management Agents having the particular Plugin installed.
+   * Filter to return only Management Agents having the particular Plugin installed. A special pluginName of 'None' can be provided and this will return only Management Agents having no plugin installed.
    */
-  "pluginName"?: string;
+  "pluginName"?: Array<string>;
   /**
    * Filter to return only Management Agents having the particular agent version.
    */
-  "version"?: string;
+  "version"?: Array<string>;
   /**
    * Filter to return only Management Agents having the particular display name.
    */
@@ -39,9 +39,21 @@ export interface ListManagementAgentsRequest extends common.BaseRequest {
    */
   "lifecycleState"?: model.LifecycleStates;
   /**
-   * Filter to return only Management Agents having the particular platform type.
+   * Filter to return only Management Agents in the particular availability status.
    */
-  "platformType"?: model.PlatformTypes;
+  "availabilityStatus"?: model.AvailabilityStatus;
+  /**
+   * Filter to return only Management Agents having the particular agent host id.
+   */
+  "hostId"?: string;
+  /**
+   * Filter to return only results having the particular platform type.
+   */
+  "platformType"?: Array<model.PlatformTypes>;
+  /**
+   * true, if the agent image is manually downloaded and installed. false, if the agent is deployed as a plugin in Oracle Cloud Agent.
+   */
+  "isCustomerDeployed"?: boolean;
   /**
    * The maximum number of items to return.
    */
@@ -73,6 +85,11 @@ export namespace ListManagementAgentsRequest {
 
   export enum SortBy {
     TimeCreated = "timeCreated",
-    DisplayName = "displayName"
+    DisplayName = "displayName",
+    Host = "host",
+    AvailabilityStatus = "availabilityStatus",
+    PlatformType = "platformType",
+    PluginDisplayNames = "pluginDisplayNames",
+    Version = "version"
   }
 }

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListManagementAgentPluginsRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment from which the Management Agents to be listed.
+   * The OCID of the compartment to which a request will be scoped.
    */
   "compartmentId": string;
   /**
@@ -51,6 +51,10 @@ export interface ListManagementAgentPluginsRequest extends common.BaseRequest {
    * Filter to return only Management Agents in the particular lifecycle state.
    */
   "lifecycleState"?: model.LifecycleStates;
+  /**
+   * Filter to return only results having the particular platform type.
+   */
+  "platformType"?: Array<model.PlatformTypes>;
 }
 
 export namespace ListManagementAgentPluginsRequest {

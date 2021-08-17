@@ -70,6 +70,8 @@ import * as ListHostInsightsResponse from "./list-host-insights-response";
 export import ListHostInsightsResponse = ListHostInsightsResponse.ListHostInsightsResponse;
 import * as ListHostedEntitiesResponse from "./list-hosted-entities-response";
 export import ListHostedEntitiesResponse = ListHostedEntitiesResponse.ListHostedEntitiesResponse;
+import * as ListImportableAgentEntitiesResponse from "./list-importable-agent-entities-response";
+export import ListImportableAgentEntitiesResponse = ListImportableAgentEntitiesResponse.ListImportableAgentEntitiesResponse;
 import * as ListImportableEnterpriseManagerEntitiesResponse from "./list-importable-enterprise-manager-entities-response";
 export import ListImportableEnterpriseManagerEntitiesResponse = ListImportableEnterpriseManagerEntitiesResponse.ListImportableEnterpriseManagerEntitiesResponse;
 import * as ListSqlPlansResponse from "./list-sql-plans-response";

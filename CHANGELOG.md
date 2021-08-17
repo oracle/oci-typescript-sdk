@@ -3,6 +3,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.2.0 - 2021-08-17
+### Added
+- Support for getting management agent hosts which are eligible to create Operations Insights host resources on, in the Operations Insights service
+- Support for getting summarized agent counts and summarized plugin counts in the Management Agent Cloud service
+
+### Breaking changes
+- Removed default retries and default circuit breakers from all the services
+- The model `WorkSubmissionKey` has been removed from the Management Agent Cloud service
+- The data type of property `pluginName` in `ListManagementAgentsRequest` has been changed to `Array<string>` in the Management Agent Cloud service
+- The data type of property `version` in `ListManagementAgentsRequest` has been changed to `Array<string>` in the Management Agent Cloud service
+- The data type of property `platformType` in `ListManagementAgentsRequest` has been changed to `Array<model.PlatformTypes>` in the Management Agent Cloud service
+
 ## 2.1.0 - 2021-08-03
 ### Added
 - Support for manually copying volume group backups across regions in the Block Volume service

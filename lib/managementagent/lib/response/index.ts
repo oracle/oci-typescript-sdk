@@ -45,6 +45,10 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as SummarizeManagementAgentCountsResponse from "./summarize-management-agent-counts-response";
+export import SummarizeManagementAgentCountsResponse = SummarizeManagementAgentCountsResponse.SummarizeManagementAgentCountsResponse;
+import * as SummarizeManagementAgentPluginCountsResponse from "./summarize-management-agent-plugin-counts-response";
+export import SummarizeManagementAgentPluginCountsResponse = SummarizeManagementAgentPluginCountsResponse.SummarizeManagementAgentPluginCountsResponse;
 import * as UpdateManagementAgentResponse from "./update-management-agent-response";
 export import UpdateManagementAgentResponse = UpdateManagementAgentResponse.UpdateManagementAgentResponse;
 import * as UpdateManagementAgentInstallKeyResponse from "./update-management-agent-install-key-response";
