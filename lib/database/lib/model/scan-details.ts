@@ -29,6 +29,14 @@ export interface ScanDetails {
    */
   "port": number;
   /**
+   * The SCAN TCPIP port. Default is 1521. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTcp"?: number;
+  /**
+   * The SCAN TCPIP SSL port. Default is 2484. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTcpSsl"?: number;
+  /**
    * The list of SCAN IP addresses. Three addresses should be provided.
    */
   "ips": Array<string>;

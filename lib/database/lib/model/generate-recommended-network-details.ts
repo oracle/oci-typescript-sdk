@@ -29,6 +29,14 @@ export interface GenerateRecommendedNetworkDetails {
    */
   "displayName": string;
   /**
+   * The SCAN TCPIP port. Default is 1521. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTcp"?: number;
+  /**
+   * The SCAN TCPIP SSL port. Default is 2484. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTcpSsl"?: number;
+  /**
    * List of parameters for generation of the client and backup networks.
    */
   "networks": Array<model.InfoForNetworkGenDetails>;
