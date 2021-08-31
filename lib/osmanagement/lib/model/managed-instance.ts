@@ -87,6 +87,22 @@ export interface ManagedInstance {
    */
   "isRebootRequired"?: boolean;
   /**
+   * OCID of the ONS topic used to send notification to users
+   */
+  "notificationTopicId"?: string;
+  /**
+   * The ksplice effective kernel version
+   */
+  "kspliceEffectiveKernelVersion"?: string;
+  /**
+   * True if user allow data collection for this instance
+   */
+  "isDataCollectionAuthorized"?: boolean;
+  /**
+   * if present, indicates the Managed Instance is an autonomous instance. Holds all the Autonomous specific information
+   */
+  "autonomous"?: model.AutonomousSettings;
+  /**
    * Number of security type updates available to be installed Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "securityUpdatesAvailable"?: number;
@@ -141,6 +157,10 @@ export namespace ManagedInstance {
           ? obj.managedInstanceGroups.map(item => {
               return model.Id.getJsonObj(item);
             })
+          : undefined,
+
+        "autonomous": obj.autonomous
+          ? model.AutonomousSettings.getJsonObj(obj.autonomous)
           : undefined
       }
     };
@@ -163,6 +183,10 @@ export namespace ManagedInstance {
           ? obj.managedInstanceGroups.map(item => {
               return model.Id.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "autonomous": obj.autonomous
+          ? model.AutonomousSettings.getDeserializedJsonObj(obj.autonomous)
           : undefined
       }
     };

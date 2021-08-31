@@ -23,6 +23,10 @@ export interface InstallAllWindowsUpdatesOnManagedInstanceRequest extends common
    */
   "managedInstanceId": string;
   /**
+   * The type of updates to be applied
+   */
+  "updateType"?: model.PackageUpdateTypes;
+  /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;

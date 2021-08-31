@@ -106,6 +106,10 @@ export interface ScheduledJob {
    * The Operating System type of the managed instance.
    */
   "osFamily"?: model.OsFamilies;
+  /**
+   * true, if the schedule job has its update capabilities restricted. (Used to track Autonomous Scheduled Job)
+   */
+  "isRestricted"?: boolean;
 }
 
 export namespace ScheduledJob {

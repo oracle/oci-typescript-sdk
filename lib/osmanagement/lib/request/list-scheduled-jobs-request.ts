@@ -70,6 +70,10 @@ Example: `My new resource`
    * The OS family for which to list resources.
    */
   "osFamily"?: model.OsFamilies;
+  /**
+   * If true, will only filter out restricted Autonomous Linux Scheduled Job
+   */
+  "isRestricted"?: boolean;
 }
 
 export namespace ListScheduledJobsRequest {

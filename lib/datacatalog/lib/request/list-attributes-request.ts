@@ -114,7 +114,7 @@ export interface ListAttributesRequest extends common.BaseRequest {
    */
   "fields"?: Array<ListAttributesRequest.Fields>;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for TIMECREATED is descending. Default order for DISPLAYNAME is ascending. If no value is specified TIMECREATED is default.
+   * The field to sort by. Only one sort order may be provided. Default order for TIMECREATED is descending. Default order for DISPLAYNAME is ascending. Default order for POSITION is ascending. If no value is specified POSITION is default.
    *
    */
   "sortBy"?: ListAttributesRequest.SortBy;
@@ -157,12 +157,14 @@ export namespace ListAttributesRequest {
     DatatypeEntityKey = "datatypeEntityKey",
     ExternalDatatypeEntityKey = "externalDatatypeEntityKey",
     ParentAttributeKey = "parentAttributeKey",
-    ExternalParentAttributeKey = "externalParentAttributeKey"
+    ExternalParentAttributeKey = "externalParentAttributeKey",
+    Position = "position"
   }
 
   export enum SortBy {
     Timecreated = "TIMECREATED",
-    Displayname = "DISPLAYNAME"
+    Displayname = "DISPLAYNAME",
+    Position = "POSITION"
   }
 
   export enum SortOrder {
