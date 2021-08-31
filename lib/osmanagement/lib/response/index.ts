@@ -13,6 +13,22 @@ with Managed instances and Managed instance groups.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as DeleteEventContentResponse from "./delete-event-content-response";
+export import DeleteEventContentResponse = DeleteEventContentResponse.DeleteEventContentResponse;
+import * as GetEventResponse from "./get-event-response";
+export import GetEventResponse = GetEventResponse.GetEventResponse;
+import * as GetEventContentResponse from "./get-event-content-response";
+export import GetEventContentResponse = GetEventContentResponse.GetEventContentResponse;
+import * as GetEventReportResponse from "./get-event-report-response";
+export import GetEventReportResponse = GetEventReportResponse.GetEventReportResponse;
+import * as ListEventsResponse from "./list-events-response";
+export import ListEventsResponse = ListEventsResponse.ListEventsResponse;
+import * as ListRelatedEventsResponse from "./list-related-events-response";
+export import ListRelatedEventsResponse = ListRelatedEventsResponse.ListRelatedEventsResponse;
+import * as UpdateEventResponse from "./update-event-response";
+export import UpdateEventResponse = UpdateEventResponse.UpdateEventResponse;
+import * as UploadEventContentResponse from "./upload-event-content-response";
+export import UploadEventContentResponse = UploadEventContentResponse.UploadEventContentResponse;
 import * as AddPackagesToSoftwareSourceResponse from "./add-packages-to-software-source-response";
 export import AddPackagesToSoftwareSourceResponse = AddPackagesToSoftwareSourceResponse.AddPackagesToSoftwareSourceResponse;
 import * as AttachChildSoftwareSourceToManagedInstanceResponse from "./attach-child-software-source-to-managed-instance-response";
@@ -63,6 +79,8 @@ import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
 import * as InstallAllPackageUpdatesOnManagedInstanceResponse from "./install-all-package-updates-on-managed-instance-response";
 export import InstallAllPackageUpdatesOnManagedInstanceResponse = InstallAllPackageUpdatesOnManagedInstanceResponse.InstallAllPackageUpdatesOnManagedInstanceResponse;
+import * as InstallAllUpdatesOnManagedInstanceGroupResponse from "./install-all-updates-on-managed-instance-group-response";
+export import InstallAllUpdatesOnManagedInstanceGroupResponse = InstallAllUpdatesOnManagedInstanceGroupResponse.InstallAllUpdatesOnManagedInstanceGroupResponse;
 import * as InstallAllWindowsUpdatesOnManagedInstanceResponse from "./install-all-windows-updates-on-managed-instance-response";
 export import InstallAllWindowsUpdatesOnManagedInstanceResponse = InstallAllWindowsUpdatesOnManagedInstanceResponse.InstallAllWindowsUpdatesOnManagedInstanceResponse;
 import * as InstallPackageOnManagedInstanceResponse from "./install-package-on-managed-instance-response";
@@ -117,6 +135,8 @@ import * as SearchSoftwarePackagesResponse from "./search-software-packages-resp
 export import SearchSoftwarePackagesResponse = SearchSoftwarePackagesResponse.SearchSoftwarePackagesResponse;
 import * as SkipNextScheduledJobExecutionResponse from "./skip-next-scheduled-job-execution-response";
 export import SkipNextScheduledJobExecutionResponse = SkipNextScheduledJobExecutionResponse.SkipNextScheduledJobExecutionResponse;
+import * as UpdateManagedInstanceResponse from "./update-managed-instance-response";
+export import UpdateManagedInstanceResponse = UpdateManagedInstanceResponse.UpdateManagedInstanceResponse;
 import * as UpdateManagedInstanceGroupResponse from "./update-managed-instance-group-response";
 export import UpdateManagedInstanceGroupResponse = UpdateManagedInstanceGroupResponse.UpdateManagedInstanceGroupResponse;
 import * as UpdateScheduledJobResponse from "./update-scheduled-job-response";

@@ -23,6 +23,8 @@ export enum PackageUpdateTypes {
   Security = "SECURITY",
   Bugfix = "BUGFIX",
   Enhancement = "ENHANCEMENT",
+  Other = "OTHER",
+  Ksplice = "KSPLICE",
   All = "ALL",
 
   /**

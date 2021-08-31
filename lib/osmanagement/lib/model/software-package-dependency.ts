@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A dependecy for a software package
+ * A dependency for a software package
  */
 export interface SoftwarePackageDependency {
   /**

@@ -13,6 +13,22 @@ with Managed instances and Managed instance groups.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as DeleteEventContentRequest from "./delete-event-content-request";
+export import DeleteEventContentRequest = DeleteEventContentRequest.DeleteEventContentRequest;
+import * as GetEventRequest from "./get-event-request";
+export import GetEventRequest = GetEventRequest.GetEventRequest;
+import * as GetEventContentRequest from "./get-event-content-request";
+export import GetEventContentRequest = GetEventContentRequest.GetEventContentRequest;
+import * as GetEventReportRequest from "./get-event-report-request";
+export import GetEventReportRequest = GetEventReportRequest.GetEventReportRequest;
+import * as ListEventsRequest from "./list-events-request";
+export import ListEventsRequest = ListEventsRequest.ListEventsRequest;
+import * as ListRelatedEventsRequest from "./list-related-events-request";
+export import ListRelatedEventsRequest = ListRelatedEventsRequest.ListRelatedEventsRequest;
+import * as UpdateEventRequest from "./update-event-request";
+export import UpdateEventRequest = UpdateEventRequest.UpdateEventRequest;
+import * as UploadEventContentRequest from "./upload-event-content-request";
+export import UploadEventContentRequest = UploadEventContentRequest.UploadEventContentRequest;
 import * as AddPackagesToSoftwareSourceRequest from "./add-packages-to-software-source-request";
 export import AddPackagesToSoftwareSourceRequest = AddPackagesToSoftwareSourceRequest.AddPackagesToSoftwareSourceRequest;
 import * as AttachChildSoftwareSourceToManagedInstanceRequest from "./attach-child-software-source-to-managed-instance-request";
@@ -63,6 +79,8 @@ import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
 import * as InstallAllPackageUpdatesOnManagedInstanceRequest from "./install-all-package-updates-on-managed-instance-request";
 export import InstallAllPackageUpdatesOnManagedInstanceRequest = InstallAllPackageUpdatesOnManagedInstanceRequest.InstallAllPackageUpdatesOnManagedInstanceRequest;
+import * as InstallAllUpdatesOnManagedInstanceGroupRequest from "./install-all-updates-on-managed-instance-group-request";
+export import InstallAllUpdatesOnManagedInstanceGroupRequest = InstallAllUpdatesOnManagedInstanceGroupRequest.InstallAllUpdatesOnManagedInstanceGroupRequest;
 import * as InstallAllWindowsUpdatesOnManagedInstanceRequest from "./install-all-windows-updates-on-managed-instance-request";
 export import InstallAllWindowsUpdatesOnManagedInstanceRequest = InstallAllWindowsUpdatesOnManagedInstanceRequest.InstallAllWindowsUpdatesOnManagedInstanceRequest;
 import * as InstallPackageOnManagedInstanceRequest from "./install-package-on-managed-instance-request";
@@ -117,6 +135,8 @@ import * as SearchSoftwarePackagesRequest from "./search-software-packages-reque
 export import SearchSoftwarePackagesRequest = SearchSoftwarePackagesRequest.SearchSoftwarePackagesRequest;
 import * as SkipNextScheduledJobExecutionRequest from "./skip-next-scheduled-job-execution-request";
 export import SkipNextScheduledJobExecutionRequest = SkipNextScheduledJobExecutionRequest.SkipNextScheduledJobExecutionRequest;
+import * as UpdateManagedInstanceRequest from "./update-managed-instance-request";
+export import UpdateManagedInstanceRequest = UpdateManagedInstanceRequest.UpdateManagedInstanceRequest;
 import * as UpdateManagedInstanceGroupRequest from "./update-managed-instance-group-request";
 export import UpdateManagedInstanceGroupRequest = UpdateManagedInstanceGroupRequest.UpdateManagedInstanceGroupRequest;
 import * as UpdateScheduledJobRequest from "./update-scheduled-job-request";

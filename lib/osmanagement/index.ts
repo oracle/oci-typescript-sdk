@@ -22,5 +22,6 @@ import * as osmanagement_waiter from "./lib/osmanagement-waiter";
 export { models };
 export { requests };
 export { responses };
+export import EventClient = client.EventClient;
 export import OsManagementClient = client.OsManagementClient;
 export import OsManagementWaiter = osmanagement_waiter.OsManagementWaiter;
