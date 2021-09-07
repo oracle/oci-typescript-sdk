@@ -37,9 +37,4 @@ export interface CreateTemplateRequest extends common.BaseRequest {
    *
    */
   "opcRetryToken"?: string;
-  /**
-   * This is to enable limit/quota support through splat
-   *
-   */
-  "ociSplatGeneratedOcids"?: string;
 }

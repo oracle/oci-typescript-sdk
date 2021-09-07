@@ -33,13 +33,21 @@ export interface ManagementSavedSearchSummary {
    */
   "isOobSavedSearch": boolean;
   /**
+   * OCID of the compartment in which the saved search resides.
+   */
+  "compartmentId": string;
+  /**
    * ID of the service (for example log-analytics) that owns the saved search. Each service has a unique ID.
    */
   "providerId": string;
   /**
-   * OCID of the compartment in which the saved search resides.
+   * Version of the service that owns this saved search.
    */
-  "compartmentId": string;
+  "providerVersion": string;
+  /**
+   * Name of the service (for example, Logging Analytics) that owns the saved search.
+   */
+  "providerName": string;
   /**
    * Description of the saved search.
    */

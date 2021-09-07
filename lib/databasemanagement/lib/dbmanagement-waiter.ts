@@ -27,6 +27,25 @@ export class DbManagementWaiter {
   ) {}
 
   /**
+   * Waits forDbManagementPrivateEndpoint till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDbManagementPrivateEndpointResponse | null (null in case of 404 response)
+   */
+  public async forDbManagementPrivateEndpoint(
+    request: serviceRequests.GetDbManagementPrivateEndpointRequest,
+    ...targetStates: models.LifecycleStates[]
+  ): Promise<serviceResponses.GetDbManagementPrivateEndpointResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDbManagementPrivateEndpoint(request),
+      response => targetStates.includes(response.dbManagementPrivateEndpoint.lifecycleState!),
+      targetStates.includes(models.LifecycleStates.Deleted)
+    );
+  }
+
+  /**
    * Waits forJob till it reaches any of the provided states
    *
    * @param request the request to send
@@ -60,6 +79,22 @@ export class DbManagementWaiter {
       () => this.client.getManagedDatabaseGroup(request),
       response => targetStates.includes(response.managedDatabaseGroup.lifecycleState!),
       targetStates.includes(models.LifecycleStates.Deleted)
+    );
+  }
+
+  /**
+   * Waits forWorkRequest
+   *
+   * @param request the request to send
+   * @return response returns GetWorkRequestResponse
+   */
+  public async forWorkRequest(
+    request: serviceRequests.GetWorkRequestRequest
+  ): Promise<serviceResponses.GetWorkRequestResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getWorkRequest(request),
+      response => (response.workRequest.timeFinished ? true : false)
     );
   }
 }

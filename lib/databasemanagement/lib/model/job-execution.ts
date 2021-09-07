@@ -46,6 +46,22 @@ export interface JobExecution {
    */
   "managedDatabaseName": string;
   /**
+   * The type of Oracle Database installation.
+   */
+  "databaseType"?: model.DatabaseType;
+  /**
+   * The subtype of the Oracle Database. Indicates whether the database is a Container Database, Pluggable Database, or a Non-container Database.
+   */
+  "databaseSubType"?: model.DatabaseSubType;
+  /**
+   * A list of the supported infrastructure that can be used to deploy the database.
+   */
+  "deploymentType"?: model.DeploymentType;
+  /**
+   * Indicates whether the Oracle Database is part of a cluster.
+   */
+  "isCluster"?: boolean;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the parent job.
    */
   "jobId": string;
@@ -76,6 +92,15 @@ export interface JobExecution {
    * The date and time when the job execution completed.
    */
   "timeCompleted"?: Date;
+  /**
+   * The database user name used to execute the SQL job.
+   */
+  "userName"?: string;
+  /**
+   * The SQL text executed as part of the job.
+   */
+  "sqlText"?: string;
+  "scheduleDetails"?: model.JobScheduleDetails;
 }
 
 export namespace JobExecution {
@@ -96,6 +121,10 @@ export namespace JobExecution {
       ...{
         "resultDetails": obj.resultDetails
           ? model.JobExecutionResultDetails.getJsonObj(obj.resultDetails)
+          : undefined,
+
+        "scheduleDetails": obj.scheduleDetails
+          ? model.JobScheduleDetails.getJsonObj(obj.scheduleDetails)
           : undefined
       }
     };
@@ -108,6 +137,10 @@ export namespace JobExecution {
       ...{
         "resultDetails": obj.resultDetails
           ? model.JobExecutionResultDetails.getDeserializedJsonObj(obj.resultDetails)
+          : undefined,
+
+        "scheduleDetails": obj.scheduleDetails
+          ? model.JobScheduleDetails.getDeserializedJsonObj(obj.scheduleDetails)
           : undefined
       }
     };

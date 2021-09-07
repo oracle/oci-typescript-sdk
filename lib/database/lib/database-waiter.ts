@@ -1508,6 +1508,30 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDisableDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns DisableDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forDisableDatabaseManagement(
+    request: serviceRequests.DisableDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.DisableDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const disableDatabaseManagementResponse = await this.client.disableDatabaseManagement(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      disableDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: disableDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forDisableExternalContainerDatabaseDatabaseManagement
    *
    * @param request the request to send
@@ -1659,6 +1683,30 @@ export class DatabaseWaiter {
     );
     return {
       response: enableAutonomousDatabaseOperationsInsightsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forEnableDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns EnableDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forEnableDatabaseManagement(
+    request: serviceRequests.EnableDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.EnableDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const enableDatabaseManagementResponse = await this.client.enableDatabaseManagement(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      enableDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: enableDatabaseManagementResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -2635,6 +2683,30 @@ export class DatabaseWaiter {
       migrateVaultKeyResponse.opcWorkRequestId
     );
     return { response: migrateVaultKeyResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forModifyDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns ModifyDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forModifyDatabaseManagement(
+    request: serviceRequests.ModifyDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.ModifyDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const modifyDatabaseManagementResponse = await this.client.modifyDatabaseManagement(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      modifyDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: modifyDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**

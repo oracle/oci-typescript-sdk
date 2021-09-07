@@ -32,6 +32,10 @@ export interface DatabaseCredentials {
    */
   "password"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the secret containing the user password.
+   */
+  "secretId"?: string;
+  /**
    * The role of the database user. Indicates whether the database user is a normal user or sysdba.
    */
   "role"?: DatabaseCredentials.Role;

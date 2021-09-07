@@ -4835,6 +4835,79 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Disables the Database Management service for the database.
+   *
+   * @param DisableDatabaseManagementRequest
+   * @return DisableDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableDatabaseManagement.ts.html |here} to see how to use DisableDatabaseManagement API.
+   */
+  public async disableDatabaseManagement(
+    disableDatabaseManagementRequest: requests.DisableDatabaseManagementRequest
+  ): Promise<responses.DisableDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#disableDatabaseManagement.");
+    const pathParams = {
+      "{databaseId}": disableDatabaseManagementRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disableDatabaseManagementRequest.opcRetryToken,
+      "opc-request-id": disableDatabaseManagementRequest.opcRequestId,
+      "if-match": disableDatabaseManagementRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      disableDatabaseManagementRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/disableDatabaseManagement",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableDatabaseManagementResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disable Database Management service for the external container database.
    *
    * @param DisableExternalContainerDatabaseDatabaseManagementRequest
@@ -5488,6 +5561,83 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableAutonomousDatabaseOperationsInsightsResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables the Database Management service for an Oracle Database located in Oracle Cloud Infrastructure. This service allows the database to access tools including Metrics and Performance hub. Database Management is enabled at the container database (CDB) level.
+   * @param EnableDatabaseManagementRequest
+   * @return EnableDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableDatabaseManagement.ts.html |here} to see how to use EnableDatabaseManagement API.
+   */
+  public async enableDatabaseManagement(
+    enableDatabaseManagementRequest: requests.EnableDatabaseManagementRequest
+  ): Promise<responses.EnableDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#enableDatabaseManagement.");
+    const pathParams = {
+      "{databaseId}": enableDatabaseManagementRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enableDatabaseManagementRequest.opcRetryToken,
+      "opc-request-id": enableDatabaseManagementRequest.opcRequestId,
+      "if-match": enableDatabaseManagementRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      enableDatabaseManagementRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableDatabaseManagementRequest.enableDatabaseManagementDetails,
+        "EnableDatabaseManagementDetails",
+        model.EnableDatabaseManagementDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableDatabaseManagementResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
@@ -14189,6 +14339,83 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.MigrateVaultKeyResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the Database Management service for the database.
+   * @param ModifyDatabaseManagementRequest
+   * @return ModifyDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ModifyDatabaseManagement.ts.html |here} to see how to use ModifyDatabaseManagement API.
+   */
+  public async modifyDatabaseManagement(
+    modifyDatabaseManagementRequest: requests.ModifyDatabaseManagementRequest
+  ): Promise<responses.ModifyDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#modifyDatabaseManagement.");
+    const pathParams = {
+      "{databaseId}": modifyDatabaseManagementRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": modifyDatabaseManagementRequest.opcRetryToken,
+      "opc-request-id": modifyDatabaseManagementRequest.opcRequestId,
+      "if-match": modifyDatabaseManagementRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      modifyDatabaseManagementRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/modifyDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        modifyDatabaseManagementRequest.modifyDatabaseManagementDetails,
+        "ModifyDatabaseManagementDetails",
+        model.ModifyDatabaseManagementDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ModifyDatabaseManagementResponse>{},
         body: await response.json(),
         bodyKey: "database",
         bodyModel: model.Database,

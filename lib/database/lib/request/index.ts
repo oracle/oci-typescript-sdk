@@ -144,6 +144,8 @@ import * as DeregisterAutonomousDatabaseDataSafeRequest from "./deregister-auton
 export import DeregisterAutonomousDatabaseDataSafeRequest = DeregisterAutonomousDatabaseDataSafeRequest.DeregisterAutonomousDatabaseDataSafeRequest;
 import * as DisableAutonomousDatabaseOperationsInsightsRequest from "./disable-autonomous-database-operations-insights-request";
 export import DisableAutonomousDatabaseOperationsInsightsRequest = DisableAutonomousDatabaseOperationsInsightsRequest.DisableAutonomousDatabaseOperationsInsightsRequest;
+import * as DisableDatabaseManagementRequest from "./disable-database-management-request";
+export import DisableDatabaseManagementRequest = DisableDatabaseManagementRequest.DisableDatabaseManagementRequest;
 import * as DisableExternalContainerDatabaseDatabaseManagementRequest from "./disable-external-container-database-database-management-request";
 export import DisableExternalContainerDatabaseDatabaseManagementRequest = DisableExternalContainerDatabaseDatabaseManagementRequest.DisableExternalContainerDatabaseDatabaseManagementRequest;
 import * as DisableExternalNonContainerDatabaseDatabaseManagementRequest from "./disable-external-non-container-database-database-management-request";
@@ -162,6 +164,8 @@ import * as DownloadVmClusterNetworkConfigFileRequest from "./download-vm-cluste
 export import DownloadVmClusterNetworkConfigFileRequest = DownloadVmClusterNetworkConfigFileRequest.DownloadVmClusterNetworkConfigFileRequest;
 import * as EnableAutonomousDatabaseOperationsInsightsRequest from "./enable-autonomous-database-operations-insights-request";
 export import EnableAutonomousDatabaseOperationsInsightsRequest = EnableAutonomousDatabaseOperationsInsightsRequest.EnableAutonomousDatabaseOperationsInsightsRequest;
+import * as EnableDatabaseManagementRequest from "./enable-database-management-request";
+export import EnableDatabaseManagementRequest = EnableDatabaseManagementRequest.EnableDatabaseManagementRequest;
 import * as EnableExternalContainerDatabaseDatabaseManagementRequest from "./enable-external-container-database-database-management-request";
 export import EnableExternalContainerDatabaseDatabaseManagementRequest = EnableExternalContainerDatabaseDatabaseManagementRequest.EnableExternalContainerDatabaseDatabaseManagementRequest;
 import * as EnableExternalNonContainerDatabaseDatabaseManagementRequest from "./enable-external-non-container-database-database-management-request";
@@ -380,6 +384,8 @@ import * as MigrateExadataDbSystemResourceModelRequest from "./migrate-exadata-d
 export import MigrateExadataDbSystemResourceModelRequest = MigrateExadataDbSystemResourceModelRequest.MigrateExadataDbSystemResourceModelRequest;
 import * as MigrateVaultKeyRequest from "./migrate-vault-key-request";
 export import MigrateVaultKeyRequest = MigrateVaultKeyRequest.MigrateVaultKeyRequest;
+import * as ModifyDatabaseManagementRequest from "./modify-database-management-request";
+export import ModifyDatabaseManagementRequest = ModifyDatabaseManagementRequest.ModifyDatabaseManagementRequest;
 import * as RegisterAutonomousDatabaseDataSafeRequest from "./register-autonomous-database-data-safe-request";
 export import RegisterAutonomousDatabaseDataSafeRequest = RegisterAutonomousDatabaseDataSafeRequest.RegisterAutonomousDatabaseDataSafeRequest;
 import * as ReinstateAutonomousContainerDatabaseDataguardAssociationRequest from "./reinstate-autonomous-container-database-dataguard-association-request";

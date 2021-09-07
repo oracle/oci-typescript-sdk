@@ -1,9 +1,9 @@
 /**
  * Resource Manager API
- * API for the Resource Manager service.
-Use this API to install, configure, and manage resources via the "infrastructure-as-code" model.
+ * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
+Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[Overview of Resource Manager](/iaas/Content/ResourceManager/Concepts/resourcemanager.htm).
+[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -39,6 +39,9 @@ export namespace FailureDetails {
     TerraformConfigVirusFound = "TERRAFORM_CONFIG_VIRUS_FOUND",
     TerraformGitCloneFailure = "TERRAFORM_GIT_CLONE_FAILURE",
     TerraformGitCheckoutFailure = "TERRAFORM_GIT_CHECKOUT_FAILURE",
+    TerraformObjectStorageConfigSourceEmptyBucket = "TERRAFORM_OBJECT_STORAGE_CONFIG_SOURCE_EMPTY_BUCKET",
+    TerraformObjectStorageConfigSourceNoTfFilePresent = "TERRAFORM_OBJECT_STORAGE_CONFIG_SOURCE_NO_TF_FILE_PRESENT",
+    TerraformObjectStorageConfigSourceUnsupportedObjectSize = "TERRAFORM_OBJECT_STORAGE_CONFIG_SOURCE_UNSUPPORTED_OBJECT_SIZE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

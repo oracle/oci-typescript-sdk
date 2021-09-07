@@ -108,6 +108,7 @@ Example: `{\"Department\": \"Finance\"}`
    * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
    */
   "databaseSoftwareImageId"?: string;
+  "databaseManagementConfig"?: model.CloudDatabaseManagementConfig;
 }
 
 export namespace Database {
@@ -138,6 +139,10 @@ export namespace Database {
 
         "connectionStrings": obj.connectionStrings
           ? model.DatabaseConnectionStrings.getJsonObj(obj.connectionStrings)
+          : undefined,
+
+        "databaseManagementConfig": obj.databaseManagementConfig
+          ? model.CloudDatabaseManagementConfig.getJsonObj(obj.databaseManagementConfig)
           : undefined
       }
     };
@@ -154,6 +159,10 @@ export namespace Database {
 
         "connectionStrings": obj.connectionStrings
           ? model.DatabaseConnectionStrings.getDeserializedJsonObj(obj.connectionStrings)
+          : undefined,
+
+        "databaseManagementConfig": obj.databaseManagementConfig
+          ? model.CloudDatabaseManagementConfig.getDeserializedJsonObj(obj.databaseManagementConfig)
           : undefined
       }
     };

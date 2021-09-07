@@ -23,13 +23,13 @@ export interface GetDatabaseHomeMetricsRequest extends common.BaseRequest {
    */
   "managedDatabaseId": string;
   /**
-   * The start time for the time range to retrieve the health metrics of a Managed Database
+   * The start time of the time range to retrieve the health metrics of a Managed Database
    * in UTC in ISO-8601 format, which is \"yyyy-MM-dd'T'hh:mm:ss.sss'Z'\".
    *
    */
   "startTime": string;
   /**
-   * The end time for the time range to retrieve the health metrics of a Managed Database
+   * The end time of the time range to retrieve the health metrics of a Managed Database
    * in UTC in ISO-8601 format, which is \"yyyy-MM-dd'T'hh:mm:ss.sss'Z'\".
    *
    */

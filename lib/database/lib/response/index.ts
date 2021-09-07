@@ -144,6 +144,8 @@ import * as DeregisterAutonomousDatabaseDataSafeResponse from "./deregister-auto
 export import DeregisterAutonomousDatabaseDataSafeResponse = DeregisterAutonomousDatabaseDataSafeResponse.DeregisterAutonomousDatabaseDataSafeResponse;
 import * as DisableAutonomousDatabaseOperationsInsightsResponse from "./disable-autonomous-database-operations-insights-response";
 export import DisableAutonomousDatabaseOperationsInsightsResponse = DisableAutonomousDatabaseOperationsInsightsResponse.DisableAutonomousDatabaseOperationsInsightsResponse;
+import * as DisableDatabaseManagementResponse from "./disable-database-management-response";
+export import DisableDatabaseManagementResponse = DisableDatabaseManagementResponse.DisableDatabaseManagementResponse;
 import * as DisableExternalContainerDatabaseDatabaseManagementResponse from "./disable-external-container-database-database-management-response";
 export import DisableExternalContainerDatabaseDatabaseManagementResponse = DisableExternalContainerDatabaseDatabaseManagementResponse.DisableExternalContainerDatabaseDatabaseManagementResponse;
 import * as DisableExternalNonContainerDatabaseDatabaseManagementResponse from "./disable-external-non-container-database-database-management-response";
@@ -162,6 +164,8 @@ import * as DownloadVmClusterNetworkConfigFileResponse from "./download-vm-clust
 export import DownloadVmClusterNetworkConfigFileResponse = DownloadVmClusterNetworkConfigFileResponse.DownloadVmClusterNetworkConfigFileResponse;
 import * as EnableAutonomousDatabaseOperationsInsightsResponse from "./enable-autonomous-database-operations-insights-response";
 export import EnableAutonomousDatabaseOperationsInsightsResponse = EnableAutonomousDatabaseOperationsInsightsResponse.EnableAutonomousDatabaseOperationsInsightsResponse;
+import * as EnableDatabaseManagementResponse from "./enable-database-management-response";
+export import EnableDatabaseManagementResponse = EnableDatabaseManagementResponse.EnableDatabaseManagementResponse;
 import * as EnableExternalContainerDatabaseDatabaseManagementResponse from "./enable-external-container-database-database-management-response";
 export import EnableExternalContainerDatabaseDatabaseManagementResponse = EnableExternalContainerDatabaseDatabaseManagementResponse.EnableExternalContainerDatabaseDatabaseManagementResponse;
 import * as EnableExternalNonContainerDatabaseDatabaseManagementResponse from "./enable-external-non-container-database-database-management-response";
@@ -380,6 +384,8 @@ import * as MigrateExadataDbSystemResourceModelResponse from "./migrate-exadata-
 export import MigrateExadataDbSystemResourceModelResponse = MigrateExadataDbSystemResourceModelResponse.MigrateExadataDbSystemResourceModelResponse;
 import * as MigrateVaultKeyResponse from "./migrate-vault-key-response";
 export import MigrateVaultKeyResponse = MigrateVaultKeyResponse.MigrateVaultKeyResponse;
+import * as ModifyDatabaseManagementResponse from "./modify-database-management-response";
+export import ModifyDatabaseManagementResponse = ModifyDatabaseManagementResponse.ModifyDatabaseManagementResponse;
 import * as RegisterAutonomousDatabaseDataSafeResponse from "./register-autonomous-database-data-safe-response";
 export import RegisterAutonomousDatabaseDataSafeResponse = RegisterAutonomousDatabaseDataSafeResponse.RegisterAutonomousDatabaseDataSafeResponse;
 import * as ReinstateAutonomousContainerDatabaseDataguardAssociationResponse from "./reinstate-autonomous-container-database-dataguard-association-response";

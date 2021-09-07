@@ -57,6 +57,7 @@ export interface CreateJobDetails {
    */
   "timeout"?: string;
   "resultLocation"?: model.ObjectStorageJobExecutionResultLocation;
+  "scheduleDetails"?: model.JobScheduleDetails;
 
   "jobType": string;
 }
@@ -68,6 +69,9 @@ export namespace CreateJobDetails {
       ...{
         "resultLocation": obj.resultLocation
           ? model.JobExecutionResultLocation.getJsonObj(obj.resultLocation)
+          : undefined,
+        "scheduleDetails": obj.scheduleDetails
+          ? model.JobScheduleDetails.getJsonObj(obj.scheduleDetails)
           : undefined
       }
     };
@@ -91,6 +95,9 @@ export namespace CreateJobDetails {
       ...{
         "resultLocation": obj.resultLocation
           ? model.JobExecutionResultLocation.getDeserializedJsonObj(obj.resultLocation)
+          : undefined,
+        "scheduleDetails": obj.scheduleDetails
+          ? model.JobScheduleDetails.getDeserializedJsonObj(obj.scheduleDetails)
           : undefined
       }
     };

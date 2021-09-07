@@ -181,7 +181,16 @@ export class DashxApisClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeManagementDashboardsCompartmentResponse>{},
+        body: await response.json(),
+        bodyKey: "managementDashboard",
+        bodyModel: model.ManagementDashboard,
+        type: "model.ManagementDashboard",
         responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -253,7 +262,16 @@ export class DashxApisClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeManagementSavedSearchesCompartmentResponse>{},
+        body: await response.json(),
+        bodyKey: "managementSavedSearch",
+        bodyModel: model.ManagementSavedSearch,
+        type: "model.ManagementSavedSearch",
         responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -274,17 +292,15 @@ export class DashxApisClient {
   }
 
   /**
-     * Creates a new dashboard.  Limit for number of saved searches in a dashboard is 20. To get an example of what needs to be passed to CREATE, one can use GET API.
-* oci management-dashboard dashboard get --management-dashboard-id  \"ocid1.managementdashboard.oc1..dashboardId1\" --query data > Create.json
-* <p>
-Modify the Create.json by removing \"id\" attribute and other desired changes, then do
-* oci management-dashboard dashboard create  --from-json file://Create.json
-* 
-     * @param CreateManagementDashboardRequest
-     * @return CreateManagementDashboardResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/CreateManagementDashboard.ts.html |here} to see how to use CreateManagementDashboard API.
-     */
+   * Creates a new dashboard.  Limit for number of saved searches in a dashboard is 20. Here's an example of how you can use CLI to create a dashboard. For information on the details that must be passed to CREATE, you can use the GET API to obtain the Create.json file:
+   * oci management-dashboard dashboard get --management-dashboard-id  \"ocid1.managementdashboard.oc1..dashboardId1\" --query data > Create.json.
+   * You can then modify the Create.json file by removing the\"id\" attribute and making other required changes, and use the oci management-dashboard dashboard create command.
+   *
+   * @param CreateManagementDashboardRequest
+   * @return CreateManagementDashboardResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/CreateManagementDashboard.ts.html |here} to see how to use CreateManagementDashboard API.
+   */
   public async createManagementDashboard(
     createManagementDashboardRequest: requests.CreateManagementDashboardRequest
   ): Promise<responses.CreateManagementDashboardResponse> {
@@ -353,11 +369,10 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
   }
 
   /**
-     * Creates a new saved search. To get an example of what needs to be passed to CREATE, one can use GET API.
-* oci management-dashboard saved-search get --management-saved-search-id ocid1.managementsavedsearch.oc1..savedsearchId1 --query data > Create.json
+     * Creates a new saved search. Here's an example of how you can use CLI to create a saved search. For information on the details that must be passed to CREATE, you can use the GET API to obtain the Create.json file:
 * <p>
-Modify the Create.json by removing \"id\" attribute and other desired changes, then do
-* oci management-dashboard saved-search create  --from-json file://Create.json
+oci management-dashboard saved-search get --management-saved-search-id ocid1.managementsavedsearch.oc1..savedsearchId1 --query data > Create.json.
+* You can then modify the Create.json file by removing the \"id\" attribute and making other required changes, and use the oci management-dashboard saved-search create command.
 * 
      * @param CreateManagementSavedSearchRequest
      * @return CreateManagementSavedSearchResponse
@@ -556,7 +571,7 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
   }
 
   /**
-   * Exports an array of dashboards and their saved searches. Export is designed to work with importDashboard. An example using OCI CLI is $oci management-dashboard dashboard export --query data --export-dashboard-id \"{\\\"dashboardIds\\\":[\\\"ocid1.managementdashboard.oc1..dashboardId1\\\"]}\"  > dashboards.json $oci management-dashboard dashboard import --from-json file://dashboards.json
+   * Exports an array of dashboards and their saved searches. Export is designed to work with importDashboard. Here's an example of how you can use CLI to export a dashboard. $oci management-dashboard dashboard export --query data --export-dashboard-id \"{\\\"dashboardIds\\\":[\\\"ocid1.managementdashboard.oc1..dashboardId1\\\"]}\"  > dashboards.json
    * @param ExportDashboardRequest
    * @return ExportDashboardResponse
    * @throws OciError when an error occurs
@@ -762,15 +777,18 @@ Modify the Create.json by removing \"id\" attribute and other desired changes, t
   }
 
   /**
-   * Imports an array of dashboards and their saved searches. Import is designed to work with exportDashboard. An example using OCI CLI is
-   *     $oci management-dashboard dashboard export --query data --export-dashboard-id \"{\\\"dashboardIds\\\":[\\\"ocid1.managementdashboard.oc1..dashboardId1\\\"]}\"  > dashboards.json
-   *     $oci management-dashboard dashboard import --from-json file://dashboards.json
-   *
-   * @param ImportDashboardRequest
-   * @return ImportDashboardResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ImportDashboard.ts.html |here} to see how to use ImportDashboard API.
-   */
+     * Imports an array of dashboards and their saved searches. Here's an example of how you can use CLI to import a dashboard. For information on the details that must be passed to IMPORT, you can use the EXPORT API to obtain the Import.json file:
+* oci management-dashboard dashboard export --query data --export-dashboard-id \"{\\\"dashboardIds\\\":[\\\"ocid1.managementdashboard.oc1..dashboardId1\\\"]}\"  > Import.json.
+* Note that import API updates the resource if it already exist, and creates a new resource if it does not exist. To import to a different compartment, edit and change the compartmentId to the desired compartment OCID.
+* Here is an example of how you can use CLI to do import:
+* <p>
+oci management-dashboard dashboard import --from-json file://Import.json 
+* 
+     * @param ImportDashboardRequest
+     * @return ImportDashboardResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ImportDashboard.ts.html |here} to see how to use ImportDashboard API.
+     */
   public async importDashboard(
     importDashboardRequest: requests.ImportDashboardRequest
   ): Promise<responses.ImportDashboardResponse> {

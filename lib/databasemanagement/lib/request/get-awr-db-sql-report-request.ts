@@ -25,7 +25,7 @@ export interface GetAwrDbSqlReportRequest extends common.BaseRequest {
   /**
    * The parameter to filter the database by internal ID.
    * Note that the internal ID of the database can be retrieved from the following endpoint:
-   * /managedDatabases/{managedDatabaseId}/awrDbs:
+   * /managedDatabases/{managedDatabaseId}/awrDbs
    *
    */
   "awrDbId": string;

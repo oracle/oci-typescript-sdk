@@ -54,4 +54,12 @@ export interface GetDatabaseFleetHealthMetricsRequest extends common.BaseRequest
    * The filter used to filter the databases in the fleet by a specific Oracle Database subtype.
    */
   "filterByDatabaseSubType"?: string;
+  /**
+   * The filter used to filter the databases in the fleet by a specific Oracle Database deployment type.
+   */
+  "filterByDatabaseDeploymentType"?: string;
+  /**
+   * The filter used to filter the databases in the fleet by a specific Oracle Database version.
+   */
+  "filterByDatabaseVersion"?: string;
 }
