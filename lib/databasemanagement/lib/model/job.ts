@@ -66,6 +66,7 @@ export interface Job {
    */
   "timeout"?: string;
   "resultLocation"?: model.ObjectStorageJobExecutionResultLocation;
+  "scheduleDetails"?: model.JobScheduleDetails;
   /**
    * The error message that is returned if the job submission fails. Null is returned in all other scenarios.
    */
@@ -85,6 +86,7 @@ export interface Job {
 export namespace Job {
   export enum ScheduleType {
     Immediate = "IMMEDIATE",
+    Later = "LATER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -114,6 +116,9 @@ export namespace Job {
 
         "resultLocation": obj.resultLocation
           ? model.JobExecutionResultLocation.getJsonObj(obj.resultLocation)
+          : undefined,
+        "scheduleDetails": obj.scheduleDetails
+          ? model.JobScheduleDetails.getJsonObj(obj.scheduleDetails)
           : undefined
       }
     };
@@ -140,6 +145,9 @@ export namespace Job {
 
         "resultLocation": obj.resultLocation
           ? model.JobExecutionResultLocation.getDeserializedJsonObj(obj.resultLocation)
+          : undefined,
+        "scheduleDetails": obj.scheduleDetails
+          ? model.JobScheduleDetails.getDeserializedJsonObj(obj.scheduleDetails)
           : undefined
       }
     };

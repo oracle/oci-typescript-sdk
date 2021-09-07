@@ -34,6 +34,10 @@ export interface ChildDatabase {
    */
   "compartmentId": string;
   /**
+   * The infrastructure used to deploy the Oracle Database.
+   */
+  "deploymentType"?: model.DeploymentType;
+  /**
    * The type of Oracle Database installation.
    */
   "databaseType"?: model.DatabaseType;

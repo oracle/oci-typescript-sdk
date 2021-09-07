@@ -1,9 +1,9 @@
 /**
  * Resource Manager API
- * API for the Resource Manager service.
-Use this API to install, configure, and manage resources via the "infrastructure-as-code" model.
+ * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
+Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[Overview of Resource Manager](/iaas/Content/ResourceManager/Concepts/resourcemanager.htm).
+[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -39,6 +39,10 @@ export interface TemplateSummary {
    * Brief description of the template.
    */
   "description"?: string;
+  /**
+   * whether the template will work for free tier tenancy.
+   */
+  "isFreeTier"?: boolean;
   /**
    * The date and time at which the template was created.
    * Format is defined by RFC3339.

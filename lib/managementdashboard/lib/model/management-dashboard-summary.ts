@@ -41,6 +41,18 @@ export interface ManagementDashboardSummary {
    */
   "compartmentId": string;
   /**
+   * ID of the service (for example, log-analytics) that owns the dashboard. Each service has a unique ID.
+   */
+  "providerId": string;
+  /**
+   * Name of the service (for example, Logging Analytics) that owns the dashboard.
+   */
+  "providerName": string;
+  /**
+   * Version of the service that owns the dashboard.
+   */
+  "providerVersion": string;
+  /**
    * Determines whether the dashboard is an Out-of-the-Box (OOB) dashboard. Note that OOB dashboards are only provided by Oracle and cannot be modified.
    */
   "isOobDashboard": boolean;

@@ -31,6 +31,8 @@ export interface ListTemplatesRequest extends common.BaseRequest {
   "compartmentId"?: string;
   /**
    * Unique identifier of the template category.
+   * Possible values are `0` (Quick Starts), `1` (Service), `2` (Architecture), and `3` (Private).
+   *
    */
   "templateCategoryId"?: string;
   /**
@@ -38,7 +40,10 @@ export interface ListTemplatesRequest extends common.BaseRequest {
    */
   "templateId"?: string;
   /**
-   * A filter to return only resources that match the specified display name.
+   * A filter to return only resources that match the given display name exactly.
+   * Use this filter to list a resource by name.
+   * Requires `sortBy` set to `DISPLAYNAME`.
+   * Alternatively, when you know the resource OCID, use the related Get operation.
    *
    */
   "displayName"?: string;

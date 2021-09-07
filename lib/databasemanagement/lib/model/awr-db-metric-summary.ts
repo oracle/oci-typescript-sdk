@@ -38,7 +38,7 @@ export interface AwrDbMetricSummary {
    */
   "minValue"?: number;
   /**
-   * The maximum value of the sampling period.v Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum value of the sampling period. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxValue"?: number;
 }

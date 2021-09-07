@@ -16,6 +16,11 @@ import common = require("oci-common");
 
 export interface ChangeManagementDashboardsCompartmentResponse {
   /**
+   * For optimistic concurrency control. See `if-match`.
+   *
+   */
+  "etag": string;
+  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
    *
@@ -26,4 +31,8 @@ export interface ChangeManagementDashboardsCompartmentResponse {
    *
    */
   "opcWorkRequestId": string;
+  /**
+   * The returned model.ManagementDashboard instance.
+   */
+  "managementDashboard": model.ManagementDashboard;
 }

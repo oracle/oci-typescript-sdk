@@ -29,6 +29,22 @@ export interface JobDatabase {
    * The name of the Managed Database.
    */
   "name": string;
+  /**
+   * The type of Oracle Database installation.
+   */
+  "databaseType"?: model.DatabaseType;
+  /**
+   * The subtype of the Oracle Database. Indicates whether the database is a Container Database, Pluggable Database, or a Non-container Database.
+   */
+  "databaseSubType"?: model.DatabaseSubType;
+  /**
+   * A list of the supported infrastructure that can be used to deploy the database.
+   */
+  "deploymentType"?: model.DeploymentType;
+  /**
+   * Indicates whether the Oracle Database is part of a cluster.
+   */
+  "isCluster"?: boolean;
 }
 
 export namespace JobDatabase {

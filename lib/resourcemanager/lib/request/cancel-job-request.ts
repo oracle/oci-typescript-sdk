@@ -35,4 +35,11 @@ export interface CancelJobRequest extends common.BaseRequest {
    *
    */
   "ifMatch"?: string;
+  /**
+   * Indicates whether a forced cancellation is requested for the job while it was running.
+   * A forced cancellation can result in an incorrect state file.
+   * For example, the state file might not reflect the exact state of the provisioned resources.
+   *
+   */
+  "isForced"?: boolean;
 }

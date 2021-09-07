@@ -38,6 +38,14 @@ export interface DatabaseUsageMetrics {
    */
   "databaseSubType"?: model.DatabaseSubType;
   /**
+   * The infrastructure used to deploy the Oracle Database.
+   */
+  "deploymentType"?: model.DeploymentType;
+  /**
+   * The Oracle Database version.
+   */
+  "databaseVersion"?: string;
+  /**
    * The display name of the Managed Database.
    */
   "databaseName"?: string;

@@ -1,9 +1,9 @@
 /**
  * Resource Manager API
- * API for the Resource Manager service.
-Use this API to install, configure, and manage resources via the "infrastructure-as-code" model.
+ * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
+Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[Overview of Resource Manager](/iaas/Content/ResourceManager/Concepts/resourcemanager.htm).
+[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -138,6 +138,9 @@ export class ResourceManagerClient {
    * Indicates the intention to cancel the specified job.
    * Cancellation of the job is not immediate, and may be delayed,
    * or may not happen at all.
+   * You can optionally choose forced cancellation by setting `isForced` to true.
+   * A forced cancellation can result in an incorrect state file.
+   * For example, the state file might not reflect the exact state of the provisioned resources.
    *
    * @param CancelJobRequest
    * @return CancelJobResponse
@@ -152,7 +155,9 @@ export class ResourceManagerClient {
       "{jobId}": cancelJobRequest.jobId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isForced": cancelJobRequest.isForced
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -400,7 +405,7 @@ export class ResourceManagerClient {
   /**
    * Creates a configuration source provider in the specified compartment.
    * For more information, see
-   * [To create a configuration source provider](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingstacksandjobs.htm#CreateConfigurationSourceProvider).
+   * [To create a configuration source provider](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingconfigurationsourceproviders.htm#CreateConfigurationSourceProvider).
    *
    * @param CreateConfigurationSourceProviderRequest
    * @return CreateConfigurationSourceProviderResponse
@@ -546,7 +551,7 @@ export class ResourceManagerClient {
    * You can also create a stack from an existing compartment.
    * You can also upload the Terraform configuration from an Object Storage bucket.
    * For more information, see
-   * [To create a stack](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingstacksandjobs.htm#CreateStack).
+   * [To create a stack](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingstacksandjobs.htm#createstack-all).
    *
    * @param CreateStackRequest
    * @return CreateStackResponse
@@ -620,7 +625,7 @@ export class ResourceManagerClient {
   }
 
   /**
-   * Creates a custom template in the specified compartment.
+   * Creates a private template in the specified compartment.
    *
    * @param CreateTemplateRequest
    * @return CreateTemplateResponse
@@ -638,8 +643,7 @@ export class ResourceManagerClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createTemplateRequest.opcRequestId,
-      "opc-retry-token": createTemplateRequest.opcRetryToken,
-      "oci-splat-generated-ocids": createTemplateRequest.ociSplatGeneratedOcids
+      "opc-retry-token": createTemplateRequest.opcRetryToken
     };
 
     const retrier = GenericRetrier.createPreferredRetrier(
@@ -1057,7 +1061,68 @@ export class ResourceManagerClient {
   }
 
   /**
-   * Returns log entries for the specified job in JSON format.
+   * Returns the Terraform detailed log content for the specified job in plain text. [Learn about Terraform detailed log.](https://www.terraform.io/docs/internals/debugging.html)
+   *
+   * @param GetJobDetailedLogContentRequest
+   * @return GetJobDetailedLogContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobDetailedLogContent.ts.html |here} to see how to use GetJobDetailedLogContent API.
+   */
+  public async getJobDetailedLogContent(
+    getJobDetailedLogContentRequest: requests.GetJobDetailedLogContentRequest
+  ): Promise<responses.GetJobDetailedLogContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#getJobDetailedLogContent.");
+    const pathParams = {
+      "{jobId}": getJobDetailedLogContentRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getJobDetailedLogContentRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getJobDetailedLogContentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/detailedLogContent",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetJobDetailedLogContentResponse>{},
+
+        body: await response.text(),
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns console log entries for the specified job in JSON format.
    *
    * @param GetJobLogsRequest
    * @return GetJobLogsResponse
@@ -1153,8 +1218,7 @@ export class ResourceManagerClient {
   }
 
   /**
-   * Returns raw log file for the specified job in text format.
-   * Returns a maximum of 100,000 log entries.
+   * Returns a raw log file for the specified job. The raw log file contains console log entries in text format. The maximum number of entries in a file is 100,000.
    *
    * @param GetJobLogsContentRequest
    * @return GetJobLogsContentResponse
@@ -2238,6 +2302,7 @@ export class ResourceManagerClient {
 
   /**
    * Lists templates according to the specified filter.
+   * The attributes `compartmentId` and `templateCategoryId` are required unless `templateId` is specified.
    *
    * @param ListTemplatesRequest
    * @return ListTemplatesResponse
@@ -2657,7 +2722,7 @@ export class ResourceManagerClient {
   /**
    * Updates the properties of the specified configuration source provider.
    * For more information, see
-   * [To update a configuration source provider](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingstacksandjobs.htm#UpdateConfigurationSourceProvider).
+   * [To edit a configuration source provider](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingconfigurationsourceproviders.htm#EditConfigurationSourceProvider).
    *
    * @param UpdateConfigurationSourceProviderRequest
    * @return UpdateConfigurationSourceProviderResponse

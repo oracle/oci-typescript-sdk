@@ -1,9 +1,9 @@
 /**
  * Resource Manager API
- * API for the Resource Manager service.
-Use this API to install, configure, and manage resources via the "infrastructure-as-code" model.
+ * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
+Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[Overview of Resource Manager](/iaas/Content/ResourceManager/Concepts/resourcemanager.htm).
+[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -21,7 +21,7 @@ import common = require("oci-common");
 /**
  * The properties that define a configuration source provider.
  * For more information, see
- * [Managing Configuration Source Providers](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingstacksandjobs.htm#ManagingConfigurationSourceProviders).
+ * [Managing Configuration Source Providers](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingconfigurationsourceproviders.htm).
  *
  */
 export interface ConfigurationSourceProvider {
@@ -51,7 +51,7 @@ export interface ConfigurationSourceProvider {
   /**
    * The current lifecycle state of the configuration source provider.
    * For more information about configuration source provider lifecycle states in Resource Manager, see
-   * [Key Concepts](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#CSPStates).
+   * [Key Concepts](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__CSPStates).
    *
    */
   "lifecycleState"?: ConfigurationSourceProvider.LifecycleState;

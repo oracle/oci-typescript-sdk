@@ -53,6 +53,7 @@ export interface JobSummary {
    * The schedule type of the job.
    */
   "scheduleType": string;
+  "scheduleDetails"?: model.JobScheduleDetails;
   /**
    * The type of job.
    */
@@ -81,12 +82,26 @@ export interface JobSummary {
 
 export namespace JobSummary {
   export function getJsonObj(obj: JobSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "scheduleDetails": obj.scheduleDetails
+          ? model.JobScheduleDetails.getJsonObj(obj.scheduleDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: JobSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "scheduleDetails": obj.scheduleDetails
+          ? model.JobScheduleDetails.getDeserializedJsonObj(obj.scheduleDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -1,9 +1,9 @@
 /**
  * Resource Manager API
- * API for the Resource Manager service.
-Use this API to install, configure, and manage resources via the "infrastructure-as-code" model.
+ * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
+Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[Overview of Resource Manager](/iaas/Content/ResourceManager/Concepts/resourcemanager.htm).
+[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -23,6 +23,7 @@ import common = require("oci-common");
  *
  */
 export interface CreateApplyJobOperationDetails extends model.CreateJobOperationDetails {
+  "terraformAdvancedOptions"?: model.TerraformAdvancedOptions;
   /**
    * Specifies the source of the execution plan to apply.
    * Use `AUTO_APPROVED` to run the job without an execution plan.
@@ -47,7 +48,11 @@ export namespace CreateApplyJobOperationDetails {
       ...(isParentJsonObj
         ? obj
         : (model.CreateJobOperationDetails.getJsonObj(obj) as CreateApplyJobOperationDetails)),
-      ...{}
+      ...{
+        "terraformAdvancedOptions": obj.terraformAdvancedOptions
+          ? model.TerraformAdvancedOptions.getJsonObj(obj.terraformAdvancedOptions)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -63,7 +68,11 @@ export namespace CreateApplyJobOperationDetails {
         : (model.CreateJobOperationDetails.getDeserializedJsonObj(
             obj
           ) as CreateApplyJobOperationDetails)),
-      ...{}
+      ...{
+        "terraformAdvancedOptions": obj.terraformAdvancedOptions
+          ? model.TerraformAdvancedOptions.getDeserializedJsonObj(obj.terraformAdvancedOptions)
+          : undefined
+      }
     };
 
     return jsonObj;

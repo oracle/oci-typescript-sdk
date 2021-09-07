@@ -42,6 +42,14 @@ export interface ManagedDatabaseSummary {
    */
   "databaseSubType": model.DatabaseSubType;
   /**
+   * The infrastructure used to deploy the Oracle Database.
+   */
+  "deploymentType"?: model.DeploymentType;
+  /**
+   * The management option used when enabling Database Management.
+   */
+  "managementOption"?: model.ManagementOption;
+  /**
    * Indicates whether the Oracle Database is part of a cluster.
    */
   "isCluster": boolean;

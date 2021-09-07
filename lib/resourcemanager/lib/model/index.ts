@@ -1,9 +1,9 @@
 /**
  * Resource Manager API
- * API for the Resource Manager service.
-Use this API to install, configure, and manage resources via the "infrastructure-as-code" model.
+ * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
+Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[Overview of Resource Manager](/iaas/Content/ResourceManager/Concepts/resourcemanager.htm).
+[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -17,6 +17,8 @@ For more information, see
 
 import * as ApplyJobPlanResolution from "./apply-job-plan-resolution";
 export import ApplyJobPlanResolution = ApplyJobPlanResolution.ApplyJobPlanResolution;
+import * as CancellationDetails from "./cancellation-details";
+export import CancellationDetails = CancellationDetails.CancellationDetails;
 import * as ChangeConfigurationSourceProviderCompartmentDetails from "./change-configuration-source-provider-compartment-details";
 export import ChangeConfigurationSourceProviderCompartmentDetails = ChangeConfigurationSourceProviderCompartmentDetails.ChangeConfigurationSourceProviderCompartmentDetails;
 import * as ChangeStackCompartmentDetails from "./change-stack-compartment-details";
@@ -85,6 +87,8 @@ import * as TemplateSummary from "./template-summary";
 export import TemplateSummary = TemplateSummary.TemplateSummary;
 import * as TemplateSummaryCollection from "./template-summary-collection";
 export import TemplateSummaryCollection = TemplateSummaryCollection.TemplateSummaryCollection;
+import * as TerraformAdvancedOptions from "./terraform-advanced-options";
+export import TerraformAdvancedOptions = TerraformAdvancedOptions.TerraformAdvancedOptions;
 import * as TerraformVersionCollection from "./terraform-version-collection";
 export import TerraformVersionCollection = TerraformVersionCollection.TerraformVersionCollection;
 import * as TerraformVersionSummary from "./terraform-version-summary";

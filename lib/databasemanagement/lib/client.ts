@@ -280,6 +280,73 @@ export class DbManagementClient {
   }
 
   /**
+   * Moves the Database Management private endpoint and its dependent resources to the specified compartment.
+   * @param ChangeDbManagementPrivateEndpointCompartmentRequest
+   * @return ChangeDbManagementPrivateEndpointCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeDbManagementPrivateEndpointCompartment.ts.html |here} to see how to use ChangeDbManagementPrivateEndpointCompartment API.
+   */
+  public async changeDbManagementPrivateEndpointCompartment(
+    changeDbManagementPrivateEndpointCompartmentRequest: requests.ChangeDbManagementPrivateEndpointCompartmentRequest
+  ): Promise<responses.ChangeDbManagementPrivateEndpointCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#changeDbManagementPrivateEndpointCompartment."
+      );
+    const pathParams = {
+      "{dbManagementPrivateEndpointId}":
+        changeDbManagementPrivateEndpointCompartmentRequest.dbManagementPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeDbManagementPrivateEndpointCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeDbManagementPrivateEndpointCompartmentRequest.opcRetryToken,
+      "if-match": changeDbManagementPrivateEndpointCompartmentRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeDbManagementPrivateEndpointCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/dbManagementPrivateEndpoints/{dbManagementPrivateEndpointId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDbManagementPrivateEndpointCompartmentRequest.changeDbManagementPrivateEndpointCompartmentDetails,
+        "ChangeDbManagementPrivateEndpointCompartmentDetails",
+        model.ChangeDbManagementPrivateEndpointCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDbManagementPrivateEndpointCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a job.
    *
    * @param ChangeJobCompartmentRequest
@@ -401,6 +468,86 @@ export class DbManagementClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new Database Management private endpoint.
+   *
+   * @param CreateDbManagementPrivateEndpointRequest
+   * @return CreateDbManagementPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateDbManagementPrivateEndpoint.ts.html |here} to see how to use CreateDbManagementPrivateEndpoint API.
+   */
+  public async createDbManagementPrivateEndpoint(
+    createDbManagementPrivateEndpointRequest: requests.CreateDbManagementPrivateEndpointRequest
+  ): Promise<responses.CreateDbManagementPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createDbManagementPrivateEndpoint.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDbManagementPrivateEndpointRequest.opcRetryToken,
+      "opc-request-id": createDbManagementPrivateEndpointRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createDbManagementPrivateEndpointRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbManagementPrivateEndpoints",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDbManagementPrivateEndpointRequest.createDbManagementPrivateEndpointDetails,
+        "CreateDbManagementPrivateEndpointDetails",
+        model.CreateDbManagementPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDbManagementPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "dbManagementPrivateEndpoint",
+        bodyModel: model.DbManagementPrivateEndpoint,
+        type: "model.DbManagementPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
             dataType: "string"
           }
         ]
@@ -565,6 +712,69 @@ export class DbManagementClient {
   }
 
   /**
+   * Deletes the specified Database Management private endpoint.
+   * @param DeleteDbManagementPrivateEndpointRequest
+   * @return DeleteDbManagementPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteDbManagementPrivateEndpoint.ts.html |here} to see how to use DeleteDbManagementPrivateEndpoint API.
+   */
+  public async deleteDbManagementPrivateEndpoint(
+    deleteDbManagementPrivateEndpointRequest: requests.DeleteDbManagementPrivateEndpointRequest
+  ): Promise<responses.DeleteDbManagementPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteDbManagementPrivateEndpoint.");
+    const pathParams = {
+      "{dbManagementPrivateEndpointId}":
+        deleteDbManagementPrivateEndpointRequest.dbManagementPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteDbManagementPrivateEndpointRequest.opcRequestId,
+      "if-match": deleteDbManagementPrivateEndpointRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteDbManagementPrivateEndpointRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbManagementPrivateEndpoints/{dbManagementPrivateEndpointId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDbManagementPrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the job specified by jobId.
    * @param DeleteJobRequest
    * @return DeleteJobResponse
@@ -680,7 +890,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets the AWR report for the specified Managed Database.
+   * Gets the AWR report for the specific database.
    *
    * @param GetAwrDbReportRequest
    * @return GetAwrDbReportResponse
@@ -751,7 +961,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Get a AWR SQL report for one SQL.
+   * Gets the SQL health check report for one SQL of the specific database.
    *
    * @param GetAwrDbSqlReportRequest
    * @return GetAwrDbSqlReportResponse
@@ -911,7 +1121,10 @@ export class DbManagementClient {
       "compareType": getDatabaseFleetHealthMetricsRequest.compareType,
       "filterByMetricNames": getDatabaseFleetHealthMetricsRequest.filterByMetricNames,
       "filterByDatabaseType": getDatabaseFleetHealthMetricsRequest.filterByDatabaseType,
-      "filterByDatabaseSubType": getDatabaseFleetHealthMetricsRequest.filterByDatabaseSubType
+      "filterByDatabaseSubType": getDatabaseFleetHealthMetricsRequest.filterByDatabaseSubType,
+      "filterByDatabaseDeploymentType":
+        getDatabaseFleetHealthMetricsRequest.filterByDatabaseDeploymentType,
+      "filterByDatabaseVersion": getDatabaseFleetHealthMetricsRequest.filterByDatabaseVersion
     };
 
     let headerParams = {
@@ -1004,6 +1217,72 @@ export class DbManagementClient {
         bodyModel: model.DatabaseHomeMetrics,
         type: "model.DatabaseHomeMetrics",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified Database Management private endpoint.
+   * @param GetDbManagementPrivateEndpointRequest
+   * @return GetDbManagementPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDbManagementPrivateEndpoint.ts.html |here} to see how to use GetDbManagementPrivateEndpoint API.
+   */
+  public async getDbManagementPrivateEndpoint(
+    getDbManagementPrivateEndpointRequest: requests.GetDbManagementPrivateEndpointRequest
+  ): Promise<responses.GetDbManagementPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getDbManagementPrivateEndpoint.");
+    const pathParams = {
+      "{dbManagementPrivateEndpointId}":
+        getDbManagementPrivateEndpointRequest.dbManagementPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDbManagementPrivateEndpointRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getDbManagementPrivateEndpointRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbManagementPrivateEndpoints/{dbManagementPrivateEndpointId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDbManagementPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "dbManagementPrivateEndpoint",
+        bodyModel: model.DbManagementPrivateEndpoint,
+        type: "model.DbManagementPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1333,6 +1612,210 @@ export class DbManagementClient {
   }
 
   /**
+   * Gets a summary of the resource usage metrics like DB Time, CPU, User I/O, Wait, Storage, and Memory
+   * for each Pdb under specified Container database in same compartment as container database.
+   * If comparmentId is provided then for each Pdb under specified compartmentId.
+   *
+   * @param GetPdbMetricsRequest
+   * @return GetPdbMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetPdbMetrics.ts.html |here} to see how to use GetPdbMetrics API.
+   */
+  public async getPdbMetrics(
+    getPdbMetricsRequest: requests.GetPdbMetricsRequest
+  ): Promise<responses.GetPdbMetricsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getPdbMetrics.");
+    const pathParams = {
+      "{managedDatabaseId}": getPdbMetricsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "startTime": getPdbMetricsRequest.startTime,
+      "endTime": getPdbMetricsRequest.endTime,
+      "compartmentId": getPdbMetricsRequest.compartmentId,
+      "compareType": getPdbMetricsRequest.compareType,
+      "filterByMetricNames": getPdbMetricsRequest.filterByMetricNames
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPdbMetricsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getPdbMetricsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/pdbMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPdbMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "pdbMetrics",
+        bodyModel: model.PdbMetrics,
+        type: "model.PdbMetrics",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information of the work request with the given Work Request Id.
+   * @param GetWorkRequestRequest
+   * @return GetWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   */
+  public async getWorkRequest(
+    getWorkRequestRequest: requests.GetWorkRequestRequest
+  ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getWorkRequest.");
+    const pathParams = {
+      "{workRequestId}": getWorkRequestRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getWorkRequestRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getWorkRequestRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetWorkRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of Databases using the specified Database Management private endpoint.
+   * @param ListAssociatedDatabasesRequest
+   * @return ListAssociatedDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAssociatedDatabases.ts.html |here} to see how to use ListAssociatedDatabases API.
+   */
+  public async listAssociatedDatabases(
+    listAssociatedDatabasesRequest: requests.ListAssociatedDatabasesRequest
+  ): Promise<responses.ListAssociatedDatabasesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listAssociatedDatabases.");
+    const pathParams = {
+      "{dbManagementPrivateEndpointId}":
+        listAssociatedDatabasesRequest.dbManagementPrivateEndpointId
+    };
+
+    const queryParams = {
+      "compartmentId": listAssociatedDatabasesRequest.compartmentId,
+      "limit": listAssociatedDatabasesRequest.limit,
+      "page": listAssociatedDatabasesRequest.page,
+      "sortOrder": listAssociatedDatabasesRequest.sortOrder,
+      "sortBy": listAssociatedDatabasesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAssociatedDatabasesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listAssociatedDatabasesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbManagementPrivateEndpoints/{dbManagementPrivateEndpointId}/associatedDatabases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAssociatedDatabasesResponse>{},
+        body: await response.json(),
+        bodyKey: "associatedDatabaseCollection",
+        bodyModel: model.AssociatedDatabaseCollection,
+        type: "model.AssociatedDatabaseCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists AWR snapshots for the specified database in the AWR.
    *
    * @param ListAwrDbSnapshotsRequest
@@ -1552,8 +2035,81 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets the job execution for a specific ID or the list of job executions for a job, Managed Database or Managed Database Group
-   * in a specific compartment. Only one of the parameters, ID, jobId, managedDatabaseId or managedDatabaseGroupId should be provided.
+   * Gets a list of Database Management private endpoints.
+   *
+   * @param ListDbManagementPrivateEndpointsRequest
+   * @return ListDbManagementPrivateEndpointsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListDbManagementPrivateEndpoints.ts.html |here} to see how to use ListDbManagementPrivateEndpoints API.
+   */
+  public async listDbManagementPrivateEndpoints(
+    listDbManagementPrivateEndpointsRequest: requests.ListDbManagementPrivateEndpointsRequest
+  ): Promise<responses.ListDbManagementPrivateEndpointsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listDbManagementPrivateEndpoints.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDbManagementPrivateEndpointsRequest.compartmentId,
+      "name": listDbManagementPrivateEndpointsRequest.name,
+      "vcnId": listDbManagementPrivateEndpointsRequest.vcnId,
+      "lifecycleState": listDbManagementPrivateEndpointsRequest.lifecycleState,
+      "limit": listDbManagementPrivateEndpointsRequest.limit,
+      "page": listDbManagementPrivateEndpointsRequest.page,
+      "sortOrder": listDbManagementPrivateEndpointsRequest.sortOrder,
+      "sortBy": listDbManagementPrivateEndpointsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDbManagementPrivateEndpointsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDbManagementPrivateEndpointsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbManagementPrivateEndpoints",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDbManagementPrivateEndpointsResponse>{},
+        body: await response.json(),
+        bodyKey: "dbManagementPrivateEndpointCollection",
+        bodyModel: model.DbManagementPrivateEndpointCollection,
+        type: "model.DbManagementPrivateEndpointCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the job execution for a specific ID or the list of job executions for a job, job run, Managed Database or Managed Database Group
+   * in a specific compartment. Only one of the parameters, ID, jobId, jobRunId, managedDatabaseId or managedDatabaseGroupId should be provided.
    * If none of these parameters is provided, all the job executions in the compartment are listed. Job executions can also be filtered
    * based on the name and status parameters.
    *
@@ -1579,7 +2135,8 @@ export class DbManagementClient {
       "limit": listJobExecutionsRequest.limit,
       "page": listJobExecutionsRequest.page,
       "sortBy": listJobExecutionsRequest.sortBy,
-      "sortOrder": listJobExecutionsRequest.sortOrder
+      "sortOrder": listJobExecutionsRequest.sortOrder,
+      "jobRunId": listJobExecutionsRequest.jobRunId
     };
 
     let headerParams = {
@@ -1862,8 +2419,11 @@ export class DbManagementClient {
 
   /**
    * Gets the Managed Database for a specific ID or the list of Managed Databases in a specific compartment.
-   * Managed Databases can also be filtered based on the name parameter. Only one of the parameters, ID or name
-   * should be provided. If none of these parameters is provided, all the Managed Databases in the compartment are listed.
+   * Managed Databases can be filtered based on the name parameter. Only one of the parameters, ID or name
+   * should be provided. If neither of these parameters is provided, all the Managed Databases in the compartment
+   * are listed. Managed Databases can also be filtered based on the deployment type and management option.
+   * If the deployment type is not specified or if it is `ONPREMISE`, then the management option is not
+   * considered and Managed Databases with `ADVANCED` management option are listed.
    *
    * @param ListManagedDatabasesRequest
    * @return ListManagedDatabasesResponse
@@ -1881,6 +2441,8 @@ export class DbManagementClient {
       "compartmentId": listManagedDatabasesRequest.compartmentId,
       "id": listManagedDatabasesRequest.id,
       "name": listManagedDatabasesRequest.name,
+      "managementOption": listManagedDatabasesRequest.managementOption,
+      "deploymentType": listManagedDatabasesRequest.deploymentType,
       "page": listManagedDatabasesRequest.page,
       "limit": listManagedDatabasesRequest.limit,
       "sortBy": listManagedDatabasesRequest.sortBy,
@@ -1984,6 +2546,219 @@ export class DbManagementClient {
         bodyKey: "tablespaceCollection",
         bodyModel: model.TablespaceCollection,
         type: "model.TablespaceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a (paginated) list of errors for a given work request.
+   *
+   * @param ListWorkRequestErrorsRequest
+   * @return ListWorkRequestErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   */
+  public async listWorkRequestErrors(
+    listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
+  ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listWorkRequestErrors.");
+    const pathParams = {
+      "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
+    };
+
+    const queryParams = {
+      "page": listWorkRequestErrorsRequest.page,
+      "limit": listWorkRequestErrorsRequest.limit,
+      "sortBy": listWorkRequestErrorsRequest.sortBy,
+      "sortOrder": listWorkRequestErrorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listWorkRequestErrorsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/errors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestErrorsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a (paginated) list of logs for a given work request.
+   *
+   * @param ListWorkRequestLogsRequest
+   * @return ListWorkRequestLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   */
+  public async listWorkRequestLogs(
+    listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
+  ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listWorkRequestLogs.");
+    const pathParams = {
+      "{workRequestId}": listWorkRequestLogsRequest.workRequestId
+    };
+
+    const queryParams = {
+      "page": listWorkRequestLogsRequest.page,
+      "limit": listWorkRequestLogsRequest.limit,
+      "sortBy": listWorkRequestLogsRequest.sortBy,
+      "sortOrder": listWorkRequestLogsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestLogsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listWorkRequestLogsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/logs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestLogsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists all the work requests in the specified compartment.
+   *
+   * @param ListWorkRequestsRequest
+   * @return ListWorkRequestsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   */
+  public async listWorkRequests(
+    listWorkRequestsRequest: requests.ListWorkRequestsRequest
+  ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listWorkRequests.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listWorkRequestsRequest.compartmentId,
+      "resourceId": listWorkRequestsRequest.resourceId,
+      "workRequestId": listWorkRequestsRequest.workRequestId,
+      "status": listWorkRequestsRequest.status,
+      "sortOrder": listWorkRequestsRequest.sortOrder,
+      "sortBy": listWorkRequestsRequest.sortBy,
+      "page": listWorkRequestsRequest.page,
+      "limit": listWorkRequestsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listWorkRequestsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2301,7 +3076,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Summarizes the AWR database parameter change history for one database parameter of the specified Managed Database. One change history record contains
+   * Summarizes the database parameter change history for one database parameter of the specified database in AWR. One change history record contains
    * the previous value, the changed value, and the corresponding time range. If the database parameter value was changed multiple times within the time range, then multiple change history records are created for the same parameter.
    * Note that this API only returns information on change history details for one database parameter.
    * To get a list of all the database parameters whose values were changed during a specified time range, use the following API endpoint:
@@ -2386,21 +3161,23 @@ export class DbManagementClient {
   }
 
   /**
-   * Summarizes the AWR database parameter history for the specified Managed Database. This includes the list of database
-   * parameters, with information on whether the parameter values were modified within the query time range. Note that
-   * each database parameter is only listed once. The returned summary gets all the database parameters, which include:
-   *  -Each parameter whose value was changed during the time range: AwrDbParameterValueOptionalQueryParam (valueChanged =\"Y\")
-   *  -Each parameter whose value was unchanged during the time range: AwrDbParameterValueOptionalQueryParam (valueChanged =\"N\")
-   *  -Each parameter whose value was changed at the system level during the time range: (valueChanged =\"Y\"  and valueModified = \"SYSTEM_MOD\").
-   *  -Each parameter whose value was unchanged during the time range, however, the value is not the default value: (valueChanged =\"N\" and  valueDefault = \"FALSE\")
-   * Note that this API does not return information on the number of times each database parameter has been changed within the time range. To get the database parameter value change history for a specific parameter, use the following API endpoint:
-   * /managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbParameterChanges
-   *
-   * @param SummarizeAwrDbParametersRequest
-   * @return SummarizeAwrDbParametersResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbParameters.ts.html |here} to see how to use SummarizeAwrDbParameters API.
-   */
+     * Summarizes the database parameter history for the specified database in AWR. This includes the list of database
+* parameters, with information on whether the parameter values were modified within the query time range. Note that
+* each database parameter is only listed once. Depending on the optional query parameters, the returned summary gets all the database parameters, which include:
+* <p>
+- Each parameter whose value was changed during the time range:  (valueChanged =\"Y\")
+* - Each parameter whose value was unchanged during the time range:  (valueChanged =\"N\")
+* - Each parameter whose value was changed at the system level during the time range: (valueChanged =\"Y\"  and valueModified = \"SYSTEM_MOD\")
+* - Each parameter whose value was unchanged during the time range, however, the value is not the default value: (valueChanged =\"N\" and  valueDefault = \"FALSE\")
+* <p>
+Note that this API does not return information on the number of times each database parameter has been changed within the time range. To get the database parameter value change history for a specific parameter, use the following API endpoint:
+* /managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbParameterChanges
+* 
+     * @param SummarizeAwrDbParametersRequest
+     * @return SummarizeAwrDbParametersResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbParameters.ts.html |here} to see how to use SummarizeAwrDbParameters API.
+     */
   public async summarizeAwrDbParameters(
     summarizeAwrDbParametersRequest: requests.SummarizeAwrDbParametersRequest
   ): Promise<responses.SummarizeAwrDbParametersResponse> {
@@ -2868,6 +3645,217 @@ export class DbManagementClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the number of job executions grouped by status for a job, Managed Database, or Database Group in a specific compartment. Only one of the parameters, jobId, managedDatabaseId, or managedDatabaseGroupId should be provided.
+   * @param SummarizeJobExecutionsStatusesRequest
+   * @return SummarizeJobExecutionsStatusesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeJobExecutionsStatuses.ts.html |here} to see how to use SummarizeJobExecutionsStatuses API.
+   */
+  public async summarizeJobExecutionsStatuses(
+    summarizeJobExecutionsStatusesRequest: requests.SummarizeJobExecutionsStatusesRequest
+  ): Promise<responses.SummarizeJobExecutionsStatusesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeJobExecutionsStatuses.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeJobExecutionsStatusesRequest.compartmentId,
+      "id": summarizeJobExecutionsStatusesRequest.id,
+      "managedDatabaseGroupId": summarizeJobExecutionsStatusesRequest.managedDatabaseGroupId,
+      "managedDatabaseId": summarizeJobExecutionsStatusesRequest.managedDatabaseId,
+      "startTime": summarizeJobExecutionsStatusesRequest.startTime,
+      "endTime": summarizeJobExecutionsStatusesRequest.endTime,
+      "name": summarizeJobExecutionsStatusesRequest.name,
+      "sortBy": summarizeJobExecutionsStatusesRequest.sortBy,
+      "sortOrder": summarizeJobExecutionsStatusesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeJobExecutionsStatusesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      summarizeJobExecutionsStatusesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobExecutionsStatus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeJobExecutionsStatusesResponse>{},
+        body: await response.json(),
+        bodyKey: "jobExecutionsStatusSummaryCollection",
+        bodyModel: model.JobExecutionsStatusSummaryCollection,
+        type: "model.JobExecutionsStatusSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified Database Management private endpoint.
+   * @param UpdateDbManagementPrivateEndpointRequest
+   * @return UpdateDbManagementPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateDbManagementPrivateEndpoint.ts.html |here} to see how to use UpdateDbManagementPrivateEndpoint API.
+   */
+  public async updateDbManagementPrivateEndpoint(
+    updateDbManagementPrivateEndpointRequest: requests.UpdateDbManagementPrivateEndpointRequest
+  ): Promise<responses.UpdateDbManagementPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateDbManagementPrivateEndpoint.");
+    const pathParams = {
+      "{dbManagementPrivateEndpointId}":
+        updateDbManagementPrivateEndpointRequest.dbManagementPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateDbManagementPrivateEndpointRequest.opcRequestId,
+      "if-match": updateDbManagementPrivateEndpointRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateDbManagementPrivateEndpointRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbManagementPrivateEndpoints/{dbManagementPrivateEndpointId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDbManagementPrivateEndpointRequest.updateDbManagementPrivateEndpointDetails,
+        "UpdateDbManagementPrivateEndpointDetails",
+        model.UpdateDbManagementPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDbManagementPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "dbManagementPrivateEndpoint",
+        bodyModel: model.DbManagementPrivateEndpoint,
+        type: "model.DbManagementPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the details for the recurring scheduled job specified by jobId. Note that non-recurring (one time) jobs cannot be updated.
+   *
+   * @param UpdateJobRequest
+   * @return UpdateJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateJob.ts.html |here} to see how to use UpdateJob API.
+   */
+  public async updateJob(
+    updateJobRequest: requests.UpdateJobRequest
+  ): Promise<responses.UpdateJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateJob.");
+    const pathParams = {
+      "{jobId}": updateJobRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateJobRequest.opcRequestId,
+      "if-match": updateJobRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateJobRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateJobRequest.updateJobDetails,
+        "UpdateJobDetails",
+        model.UpdateJobDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateJobResponse>{},
+        body: await response.json(),
+        bodyKey: "job",
+        bodyModel: model.Job,
+        type: "model.Job",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
