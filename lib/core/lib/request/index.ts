@@ -132,6 +132,8 @@ import * as UpdateVolumeGroupBackupRequest from "./update-volume-group-backup-re
 export import UpdateVolumeGroupBackupRequest = UpdateVolumeGroupBackupRequest.UpdateVolumeGroupBackupRequest;
 import * as UpdateVolumeKmsKeyRequest from "./update-volume-kms-key-request";
 export import UpdateVolumeKmsKeyRequest = UpdateVolumeKmsKeyRequest.UpdateVolumeKmsKeyRequest;
+import * as AcceptShieldedIntegrityPolicyRequest from "./accept-shielded-integrity-policy-request";
+export import AcceptShieldedIntegrityPolicyRequest = AcceptShieldedIntegrityPolicyRequest.AcceptShieldedIntegrityPolicyRequest;
 import * as AddImageShapeCompatibilityEntryRequest from "./add-image-shape-compatibility-entry-request";
 export import AddImageShapeCompatibilityEntryRequest = AddImageShapeCompatibilityEntryRequest.AddImageShapeCompatibilityEntryRequest;
 import * as AttachBootVolumeRequest from "./attach-boot-volume-request";
@@ -216,6 +218,8 @@ import * as GetInstanceRequest from "./get-instance-request";
 export import GetInstanceRequest = GetInstanceRequest.GetInstanceRequest;
 import * as GetInstanceConsoleConnectionRequest from "./get-instance-console-connection-request";
 export import GetInstanceConsoleConnectionRequest = GetInstanceConsoleConnectionRequest.GetInstanceConsoleConnectionRequest;
+import * as GetMeasuredBootReportRequest from "./get-measured-boot-report-request";
+export import GetMeasuredBootReportRequest = GetMeasuredBootReportRequest.GetMeasuredBootReportRequest;
 import * as GetVnicAttachmentRequest from "./get-vnic-attachment-request";
 export import GetVnicAttachmentRequest = GetVnicAttachmentRequest.GetVnicAttachmentRequest;
 import * as GetVolumeAttachmentRequest from "./get-volume-attachment-request";

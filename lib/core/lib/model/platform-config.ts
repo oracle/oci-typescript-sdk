@@ -24,6 +24,22 @@ import common = require("oci-common");
  *
  */
 export interface PlatformConfig {
+  /**
+   * Whether Secure Boot is enabled on the instance.
+   *
+   */
+  "isSecureBootEnabled"?: boolean;
+  /**
+   * Whether the Trusted Platform Module (TPM) is enabled on the instance.
+   *
+   */
+  "isTrustedPlatformModuleEnabled"?: boolean;
+  /**
+   * Whether the Measured Boot feature is enabled on the instance.
+   *
+   */
+  "isMeasuredBootEnabled"?: boolean;
+
   "type": string;
 }
 
@@ -36,6 +52,26 @@ export namespace PlatformConfig {
         case "AMD_MILAN_BM":
           return model.AmdMilanBmPlatformConfig.getJsonObj(
             <model.AmdMilanBmPlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "AMD_ROME_BM":
+          return model.AmdRomeBmPlatformConfig.getJsonObj(
+            <model.AmdRomeBmPlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "INTEL_SKYLAKE_BM":
+          return model.IntelSkylakeBmPlatformConfig.getJsonObj(
+            <model.IntelSkylakeBmPlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "AMD_VM":
+          return model.AmdVmPlatformConfig.getJsonObj(
+            <model.AmdVmPlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "INTEL_VM":
+          return model.IntelVmPlatformConfig.getJsonObj(
+            <model.IntelVmPlatformConfig>(<object>jsonObj),
             true
           );
         default:
@@ -52,6 +88,26 @@ export namespace PlatformConfig {
         case "AMD_MILAN_BM":
           return model.AmdMilanBmPlatformConfig.getDeserializedJsonObj(
             <model.AmdMilanBmPlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "AMD_ROME_BM":
+          return model.AmdRomeBmPlatformConfig.getDeserializedJsonObj(
+            <model.AmdRomeBmPlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "INTEL_SKYLAKE_BM":
+          return model.IntelSkylakeBmPlatformConfig.getDeserializedJsonObj(
+            <model.IntelSkylakeBmPlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "AMD_VM":
+          return model.AmdVmPlatformConfig.getDeserializedJsonObj(
+            <model.AmdVmPlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "INTEL_VM":
+          return model.IntelVmPlatformConfig.getDeserializedJsonObj(
+            <model.IntelVmPlatformConfig>(<object>jsonObj),
             true
           );
         default:

@@ -44,7 +44,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The SSH public key fingerprint for the console connection.
+   * The SSH public key's fingerprint for client authentication to the console connection.
    */
   "fingerprint"?: string;
   /**
@@ -67,6 +67,10 @@ Example: `{\"Department\": \"Finance\"}`
    * The current state of the console connection.
    */
   "lifecycleState"?: InstanceConsoleConnection.LifecycleState;
+  /**
+   * The SSH public key's fingerprint for the console connection service host.
+   */
+  "serviceHostKeyFingerprint"?: string;
   /**
    * The SSH connection string for the SSH tunnel used to
    * connect to the console connection over VNC.

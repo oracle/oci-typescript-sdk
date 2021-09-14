@@ -4436,6 +4436,64 @@ export class ComputeClient {
   }
 
   /**
+   * Accept the changes to the PCR values in the Measured Boot Report.
+   * @param AcceptShieldedIntegrityPolicyRequest
+   * @return AcceptShieldedIntegrityPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AcceptShieldedIntegrityPolicy.ts.html |here} to see how to use AcceptShieldedIntegrityPolicy API.
+   */
+  public async acceptShieldedIntegrityPolicy(
+    acceptShieldedIntegrityPolicyRequest: requests.AcceptShieldedIntegrityPolicyRequest
+  ): Promise<responses.AcceptShieldedIntegrityPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#acceptShieldedIntegrityPolicy.");
+    const pathParams = {
+      "{instanceId}": acceptShieldedIntegrityPolicyRequest.instanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": acceptShieldedIntegrityPolicyRequest.opcRequestId,
+      "if-match": acceptShieldedIntegrityPolicyRequest.ifMatch,
+      "opc-retry-token": acceptShieldedIntegrityPolicyRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      acceptShieldedIntegrityPolicyRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instances/{instanceId}/actions/acceptShieldedIntegrityPolicy",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AcceptShieldedIntegrityPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Adds a shape to the compatible shapes list for the image.
    * @param AddImageShapeCompatibilityEntryRequest
    * @return AddImageShapeCompatibilityEntryResponse
@@ -7256,6 +7314,70 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         bodyModel: model.InstanceConsoleConnection,
         type: "model.InstanceConsoleConnection",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the measured boot report for this Shielded Instance.
+   * @param GetMeasuredBootReportRequest
+   * @return GetMeasuredBootReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetMeasuredBootReport.ts.html |here} to see how to use GetMeasuredBootReport API.
+   */
+  public async getMeasuredBootReport(
+    getMeasuredBootReportRequest: requests.GetMeasuredBootReportRequest
+  ): Promise<responses.GetMeasuredBootReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getMeasuredBootReport.");
+    const pathParams = {
+      "{instanceId}": getMeasuredBootReportRequest.instanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMeasuredBootReportRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getMeasuredBootReportRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instances/{instanceId}/measuredBootReport",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMeasuredBootReportResponse>{},
+        body: await response.json(),
+        bodyKey: "measuredBootReport",
+        bodyModel: model.MeasuredBootReport,
+        type: "model.MeasuredBootReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

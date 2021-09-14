@@ -108,6 +108,7 @@ If the shape does not have any local disks, this field is `null`.
   "memoryOptions"?: model.ShapeMemoryOptions;
   "networkingBandwidthOptions"?: model.ShapeNetworkingBandwidthOptions;
   "maxVnicAttachmentOptions"?: model.ShapeMaxVnicAttachmentOptions;
+  "platformConfigOptions"?: model.ShapePlatformConfigOptions;
 }
 
 export namespace Shape {
@@ -137,6 +138,9 @@ export namespace Shape {
           : undefined,
         "maxVnicAttachmentOptions": obj.maxVnicAttachmentOptions
           ? model.ShapeMaxVnicAttachmentOptions.getJsonObj(obj.maxVnicAttachmentOptions)
+          : undefined,
+        "platformConfigOptions": obj.platformConfigOptions
+          ? model.ShapePlatformConfigOptions.getJsonObj(obj.platformConfigOptions)
           : undefined
       }
     };
@@ -160,6 +164,9 @@ export namespace Shape {
           : undefined,
         "maxVnicAttachmentOptions": obj.maxVnicAttachmentOptions
           ? model.ShapeMaxVnicAttachmentOptions.getDeserializedJsonObj(obj.maxVnicAttachmentOptions)
+          : undefined,
+        "platformConfigOptions": obj.platformConfigOptions
+          ? model.ShapePlatformConfigOptions.getDeserializedJsonObj(obj.platformConfigOptions)
           : undefined
       }
     };

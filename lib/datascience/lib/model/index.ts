@@ -1,6 +1,6 @@
 /**
  * Data Science API
- * Use the Data Science APIs to organize your data science work, access data and computing resources, and build, train, deploy, and manage models on Oracle Cloud.
+ * Use the Data Science API to organize your data science work, access data and computing resources, and build, train, deploy and manage models and model deployments. For more information, see [Data Science](https://docs.oracle.com/iaas/data-science/using/data-science.htm).
 
  * OpenAPI spec version: 20190101
  * 
@@ -14,6 +14,10 @@
 
 import * as CategoryLogDetails from "./category-log-details";
 export import CategoryLogDetails = CategoryLogDetails.CategoryLogDetails;
+import * as ChangeJobCompartmentDetails from "./change-job-compartment-details";
+export import ChangeJobCompartmentDetails = ChangeJobCompartmentDetails.ChangeJobCompartmentDetails;
+import * as ChangeJobRunCompartmentDetails from "./change-job-run-compartment-details";
+export import ChangeJobRunCompartmentDetails = ChangeJobRunCompartmentDetails.ChangeJobRunCompartmentDetails;
 import * as ChangeModelCompartmentDetails from "./change-model-compartment-details";
 export import ChangeModelCompartmentDetails = ChangeModelCompartmentDetails.ChangeModelCompartmentDetails;
 import * as ChangeModelDeploymentCompartmentDetails from "./change-model-deployment-compartment-details";
@@ -22,6 +26,10 @@ import * as ChangeNotebookSessionCompartmentDetails from "./change-notebook-sess
 export import ChangeNotebookSessionCompartmentDetails = ChangeNotebookSessionCompartmentDetails.ChangeNotebookSessionCompartmentDetails;
 import * as ChangeProjectCompartmentDetails from "./change-project-compartment-details";
 export import ChangeProjectCompartmentDetails = ChangeProjectCompartmentDetails.ChangeProjectCompartmentDetails;
+import * as CreateJobDetails from "./create-job-details";
+export import CreateJobDetails = CreateJobDetails.CreateJobDetails;
+import * as CreateJobRunDetails from "./create-job-run-details";
+export import CreateJobRunDetails = CreateJobRunDetails.CreateJobRunDetails;
 import * as CreateModelDeploymentDetails from "./create-model-deployment-details";
 export import CreateModelDeploymentDetails = CreateModelDeploymentDetails.CreateModelDeploymentDetails;
 import * as CreateModelDetails from "./create-model-details";
@@ -34,6 +42,28 @@ import * as CreateProjectDetails from "./create-project-details";
 export import CreateProjectDetails = CreateProjectDetails.CreateProjectDetails;
 import * as InstanceConfiguration from "./instance-configuration";
 export import InstanceConfiguration = InstanceConfiguration.InstanceConfiguration;
+import * as Job from "./job";
+export import Job = Job.Job;
+import * as JobConfigurationDetails from "./job-configuration-details";
+export import JobConfigurationDetails = JobConfigurationDetails.JobConfigurationDetails;
+import * as JobInfrastructureConfigurationDetails from "./job-infrastructure-configuration-details";
+export import JobInfrastructureConfigurationDetails = JobInfrastructureConfigurationDetails.JobInfrastructureConfigurationDetails;
+import * as JobLifecycleState from "./job-lifecycle-state";
+export import JobLifecycleState = JobLifecycleState.JobLifecycleState;
+import * as JobLogConfigurationDetails from "./job-log-configuration-details";
+export import JobLogConfigurationDetails = JobLogConfigurationDetails.JobLogConfigurationDetails;
+import * as JobRun from "./job-run";
+export import JobRun = JobRun.JobRun;
+import * as JobRunLifecycleState from "./job-run-lifecycle-state";
+export import JobRunLifecycleState = JobRunLifecycleState.JobRunLifecycleState;
+import * as JobRunLogDetails from "./job-run-log-details";
+export import JobRunLogDetails = JobRunLogDetails.JobRunLogDetails;
+import * as JobRunSummary from "./job-run-summary";
+export import JobRunSummary = JobRunSummary.JobRunSummary;
+import * as JobShapeSummary from "./job-shape-summary";
+export import JobShapeSummary = JobShapeSummary.JobShapeSummary;
+import * as JobSummary from "./job-summary";
+export import JobSummary = JobSummary.JobSummary;
 import * as LogDetails from "./log-details";
 export import LogDetails = LogDetails.LogDetails;
 import * as Metadata from "./metadata";
@@ -84,6 +114,10 @@ import * as ScalingPolicy from "./scaling-policy";
 export import ScalingPolicy = ScalingPolicy.ScalingPolicy;
 import * as UpdateCategoryLogDetails from "./update-category-log-details";
 export import UpdateCategoryLogDetails = UpdateCategoryLogDetails.UpdateCategoryLogDetails;
+import * as UpdateJobDetails from "./update-job-details";
+export import UpdateJobDetails = UpdateJobDetails.UpdateJobDetails;
+import * as UpdateJobRunDetails from "./update-job-run-details";
+export import UpdateJobRunDetails = UpdateJobRunDetails.UpdateJobRunDetails;
 import * as UpdateModelConfigurationDetails from "./update-model-configuration-details";
 export import UpdateModelConfigurationDetails = UpdateModelConfigurationDetails.UpdateModelConfigurationDetails;
 import * as UpdateModelDeploymentConfigurationDetails from "./update-model-deployment-configuration-details";
@@ -113,9 +147,13 @@ export import WorkRequestStatus = WorkRequestStatus.WorkRequestStatus;
 import * as WorkRequestSummary from "./work-request-summary";
 export import WorkRequestSummary = WorkRequestSummary.WorkRequestSummary;
 
+import * as DefaultJobConfigurationDetails from "./default-job-configuration-details";
+export import DefaultJobConfigurationDetails = DefaultJobConfigurationDetails.DefaultJobConfigurationDetails;
 import * as FixedSizeScalingPolicy from "./fixed-size-scaling-policy";
 export import FixedSizeScalingPolicy = FixedSizeScalingPolicy.FixedSizeScalingPolicy;
 import * as SingleModelDeploymentConfigurationDetails from "./single-model-deployment-configuration-details";
 export import SingleModelDeploymentConfigurationDetails = SingleModelDeploymentConfigurationDetails.SingleModelDeploymentConfigurationDetails;
+import * as StandaloneJobInfrastructureConfigurationDetails from "./standalone-job-infrastructure-configuration-details";
+export import StandaloneJobInfrastructureConfigurationDetails = StandaloneJobInfrastructureConfigurationDetails.StandaloneJobInfrastructureConfigurationDetails;
 import * as UpdateSingleModelDeploymentConfigurationDetails from "./update-single-model-deployment-configuration-details";
 export import UpdateSingleModelDeploymentConfigurationDetails = UpdateSingleModelDeploymentConfigurationDetails.UpdateSingleModelDeploymentConfigurationDetails;

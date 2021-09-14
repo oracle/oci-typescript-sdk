@@ -1,6 +1,6 @@
 /**
  * Data Science API
- * Use the Data Science APIs to organize your data science work, access data and computing resources, and build, train, deploy, and manage models on Oracle Cloud.
+ * Use the Data Science API to organize your data science work, access data and computing resources, and build, train, deploy and manage models and model deployments. For more information, see [Data Science](https://docs.oracle.com/iaas/data-science/using/data-science.htm).
 
  * OpenAPI spec version: 20190101
  * 
@@ -321,6 +321,62 @@ export class DataScienceClient {
   }
 
   /**
+   * Cancels an IN_PROGRESS job run.
+   * @param CancelJobRunRequest
+   * @return CancelJobRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CancelJobRun.ts.html |here} to see how to use CancelJobRun API.
+   */
+  public async cancelJobRun(
+    cancelJobRunRequest: requests.CancelJobRunRequest
+  ): Promise<responses.CancelJobRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#cancelJobRun.");
+    const pathParams = {
+      "{jobRunId}": cancelJobRunRequest.jobRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": cancelJobRunRequest.opcRequestId,
+      "if-match": cancelJobRunRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      cancelJobRunRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobRuns/{jobRunId}/actions/cancelJobRun",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelJobRunResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancels a work request that has not started.
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
@@ -361,6 +417,129 @@ export class DataScienceClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelWorkRequestResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Changes a job's compartment
+   * @param ChangeJobCompartmentRequest
+   * @return ChangeJobCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeJobCompartment.ts.html |here} to see how to use ChangeJobCompartment API.
+   */
+  public async changeJobCompartment(
+    changeJobCompartmentRequest: requests.ChangeJobCompartmentRequest
+  ): Promise<responses.ChangeJobCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#changeJobCompartment.");
+    const pathParams = {
+      "{jobId}": changeJobCompartmentRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeJobCompartmentRequest.ifMatch,
+      "opc-request-id": changeJobCompartmentRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeJobCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeJobCompartmentRequest.changeJobCompartmentDetails,
+        "ChangeJobCompartmentDetails",
+        model.ChangeJobCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeJobCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Changes a job run's compartment
+   * @param ChangeJobRunCompartmentRequest
+   * @return ChangeJobRunCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeJobRunCompartment.ts.html |here} to see how to use ChangeJobRunCompartment API.
+   */
+  public async changeJobRunCompartment(
+    changeJobRunCompartmentRequest: requests.ChangeJobRunCompartmentRequest
+  ): Promise<responses.ChangeJobRunCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeJobRunCompartment.");
+    const pathParams = {
+      "{jobRunId}": changeJobRunCompartmentRequest.jobRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeJobRunCompartmentRequest.ifMatch,
+      "opc-request-id": changeJobRunCompartmentRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeJobRunCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobRuns/{jobRunId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeJobRunCompartmentRequest.changeJobRunCompartmentDetails,
+        "ChangeJobRunCompartmentDetails",
+        model.ChangeJobRunCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeJobRunCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -614,6 +793,206 @@ export class DataScienceClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeProjectCompartmentResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a job.
+   * @param CreateJobRequest
+   * @return CreateJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateJob.ts.html |here} to see how to use CreateJob API.
+   */
+  public async createJob(
+    createJobRequest: requests.CreateJobRequest
+  ): Promise<responses.CreateJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createJob.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createJobRequest.opcRequestId,
+      "opc-retry-token": createJobRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createJobRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createJobRequest.createJobDetails,
+        "CreateJobDetails",
+        model.CreateJobDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateJobResponse>{},
+        body: await response.json(),
+        bodyKey: "job",
+        bodyModel: model.Job,
+        type: "model.Job",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Uploads a job artifact.
+   * @param CreateJobArtifactRequest
+   * @return CreateJobArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateJobArtifact.ts.html |here} to see how to use CreateJobArtifact API.
+   */
+  public async createJobArtifact(
+    createJobArtifactRequest: requests.CreateJobArtifactRequest
+  ): Promise<responses.CreateJobArtifactResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createJobArtifact.");
+    const pathParams = {
+      "{jobId}": createJobArtifactRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": createJobArtifactRequest.opcRequestId,
+      "opc-retry-token": createJobArtifactRequest.opcRetryToken,
+      "content-length": createJobArtifactRequest.contentLength,
+      "content-disposition": createJobArtifactRequest.contentDisposition
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createJobArtifactRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/artifact",
+      method: "POST",
+      bodyContent: createJobArtifactRequest.jobArtifact,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request, true);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateJobArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a job run.
+   * @param CreateJobRunRequest
+   * @return CreateJobRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateJobRun.ts.html |here} to see how to use CreateJobRun API.
+   */
+  public async createJobRun(
+    createJobRunRequest: requests.CreateJobRunRequest
+  ): Promise<responses.CreateJobRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createJobRun.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createJobRunRequest.opcRequestId,
+      "opc-retry-token": createJobRunRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createJobRunRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobRuns",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createJobRunRequest.createJobRunDetails,
+        "CreateJobRunDetails",
+        model.CreateJobRunDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateJobRunResponse>{},
+        body: await response.json(),
+        bodyKey: "jobRun",
+        bodyModel: model.JobRun,
+        type: "model.JobRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1247,6 +1626,125 @@ export class DataScienceClient {
   }
 
   /**
+   * Deletes a job.
+   * @param DeleteJobRequest
+   * @return DeleteJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteJob.ts.html |here} to see how to use DeleteJob API.
+   */
+  public async deleteJob(
+    deleteJobRequest: requests.DeleteJobRequest
+  ): Promise<responses.DeleteJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteJob.");
+    const pathParams = {
+      "{jobId}": deleteJobRequest.jobId
+    };
+
+    const queryParams = {
+      "deleteRelatedJobRuns": deleteJobRequest.deleteRelatedJobRuns
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteJobRequest.ifMatch,
+      "opc-request-id": deleteJobRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteJobRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteJobResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a job run.
+   * @param DeleteJobRunRequest
+   * @return DeleteJobRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteJobRun.ts.html |here} to see how to use DeleteJobRun API.
+   */
+  public async deleteJobRun(
+    deleteJobRunRequest: requests.DeleteJobRunRequest
+  ): Promise<responses.DeleteJobRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteJobRun.");
+    const pathParams = {
+      "{jobRunId}": deleteJobRunRequest.jobRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteJobRunRequest.ifMatch,
+      "opc-request-id": deleteJobRunRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteJobRunRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobRuns/{jobRunId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteJobRunResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified model.
    * @param DeleteModelRequest
    * @return DeleteModelResponse
@@ -1471,6 +1969,218 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a job.
+   * @param GetJobRequest
+   * @return GetJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetJob.ts.html |here} to see how to use GetJob API.
+   */
+  public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getJob.");
+    const pathParams = {
+      "{jobId}": getJobRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getJobRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getJobRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetJobResponse>{},
+        body: await response.json(),
+        bodyKey: "job",
+        bodyModel: model.Job,
+        type: "model.Job",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads job artifact content for specified job.
+   * @param GetJobArtifactContentRequest
+   * @return GetJobArtifactContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetJobArtifactContent.ts.html |here} to see how to use GetJobArtifactContent API.
+   */
+  public async getJobArtifactContent(
+    getJobArtifactContentRequest: requests.GetJobArtifactContentRequest
+  ): Promise<responses.GetJobArtifactContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getJobArtifactContent.");
+    const pathParams = {
+      "{jobId}": getJobArtifactContentRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getJobArtifactContentRequest.opcRequestId,
+      "range": getJobArtifactContentRequest.range
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getJobArtifactContentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/artifact/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetJobArtifactContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a job run.
+   * @param GetJobRunRequest
+   * @return GetJobRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetJobRun.ts.html |here} to see how to use GetJobRun API.
+   */
+  public async getJobRun(
+    getJobRunRequest: requests.GetJobRunRequest
+  ): Promise<responses.GetJobRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getJobRun.");
+    const pathParams = {
+      "{jobRunId}": getJobRunRequest.jobRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getJobRunRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getJobRunRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobRuns/{jobRunId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetJobRunResponse>{},
+        body: await response.json(),
+        bodyKey: "jobRun",
+        bodyModel: model.JobRun,
+        type: "model.JobRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -1963,6 +2673,86 @@ export class DataScienceClient {
   }
 
   /**
+   * Gets job artifact metadata.
+   * @param HeadJobArtifactRequest
+   * @return HeadJobArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/HeadJobArtifact.ts.html |here} to see how to use HeadJobArtifact API.
+   */
+  public async headJobArtifact(
+    headJobArtifactRequest: requests.HeadJobArtifactRequest
+  ): Promise<responses.HeadJobArtifactResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#headJobArtifact.");
+    const pathParams = {
+      "{jobId}": headJobArtifactRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": headJobArtifactRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      headJobArtifactRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/artifact/content",
+      method: "HEAD",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.HeadJobArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets model artifact metadata for specified model.
    * @param HeadModelArtifactRequest
    * @return HeadModelArtifactResponse
@@ -2040,6 +2830,306 @@ export class DataScienceClient {
     } catch (err) {
       throw err;
     }
+  }
+
+  /**
+   * List out job runs.
+   * @param ListJobRunsRequest
+   * @return ListJobRunsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListJobRuns.ts.html |here} to see how to use ListJobRuns API.
+   */
+  public async listJobRuns(
+    listJobRunsRequest: requests.ListJobRunsRequest
+  ): Promise<responses.ListJobRunsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listJobRuns.");
+    const pathParams = {};
+
+    const queryParams = {
+      "id": listJobRunsRequest.id,
+      "jobId": listJobRunsRequest.jobId,
+      "compartmentId": listJobRunsRequest.compartmentId,
+      "createdBy": listJobRunsRequest.createdBy,
+      "displayName": listJobRunsRequest.displayName,
+      "limit": listJobRunsRequest.limit,
+      "page": listJobRunsRequest.page,
+      "sortOrder": listJobRunsRequest.sortOrder,
+      "sortBy": listJobRunsRequest.sortBy,
+      "lifecycleState": listJobRunsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listJobRunsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listJobRunsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobRuns",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListJobRunsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.JobRunSummary,
+        type: "Array<model.JobRunSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.JobRunSummary objects
+   * contained in responses from the listJobRuns operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllJobRuns(
+    request: requests.ListJobRunsRequest
+  ): AsyncIterableIterator<model.JobRunSummary> {
+    return paginateRecords(request, req => this.listJobRuns(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listJobRuns operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllJobRunsResponses(
+    request: requests.ListJobRunsRequest
+  ): AsyncIterableIterator<responses.ListJobRunsResponse> {
+    return paginateResponses(request, req => this.listJobRuns(req));
+  }
+
+  /**
+   * List job shapes available in the specified compartment.
+   * @param ListJobShapesRequest
+   * @return ListJobShapesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListJobShapes.ts.html |here} to see how to use ListJobShapes API.
+   */
+  public async listJobShapes(
+    listJobShapesRequest: requests.ListJobShapesRequest
+  ): Promise<responses.ListJobShapesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listJobShapes.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listJobShapesRequest.compartmentId,
+      "limit": listJobShapesRequest.limit,
+      "page": listJobShapesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listJobShapesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listJobShapesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobShapes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListJobShapesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.JobShapeSummary,
+        type: "Array<model.JobShapeSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.JobShapeSummary objects
+   * contained in responses from the listJobShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllJobShapes(
+    request: requests.ListJobShapesRequest
+  ): AsyncIterableIterator<model.JobShapeSummary> {
+    return paginateRecords(request, req => this.listJobShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listJobShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllJobShapesResponses(
+    request: requests.ListJobShapesRequest
+  ): AsyncIterableIterator<responses.ListJobShapesResponse> {
+    return paginateResponses(request, req => this.listJobShapes(req));
+  }
+
+  /**
+   * List jobs in the specified compartment.
+   * @param ListJobsRequest
+   * @return ListJobsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListJobs.ts.html |here} to see how to use ListJobs API.
+   */
+  public async listJobs(
+    listJobsRequest: requests.ListJobsRequest
+  ): Promise<responses.ListJobsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listJobs.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listJobsRequest.compartmentId,
+      "projectId": listJobsRequest.projectId,
+      "id": listJobsRequest.id,
+      "displayName": listJobsRequest.displayName,
+      "lifecycleState": listJobsRequest.lifecycleState,
+      "createdBy": listJobsRequest.createdBy,
+      "limit": listJobsRequest.limit,
+      "page": listJobsRequest.page,
+      "sortOrder": listJobsRequest.sortOrder,
+      "sortBy": listJobsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listJobsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listJobsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListJobsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.JobSummary,
+        type: "Array<model.JobSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.JobSummary objects
+   * contained in responses from the listJobs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllJobs(request: requests.ListJobsRequest): AsyncIterableIterator<model.JobSummary> {
+    return paginateRecords(request, req => this.listJobs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listJobs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllJobsResponses(
+    request: requests.ListJobsRequest
+  ): AsyncIterableIterator<responses.ListJobsResponse> {
+    return paginateResponses(request, req => this.listJobs(req));
   }
 
   /**
@@ -2866,6 +3956,146 @@ export class DataScienceClient {
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Updates a job.
+   * @param UpdateJobRequest
+   * @return UpdateJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateJob.ts.html |here} to see how to use UpdateJob API.
+   */
+  public async updateJob(
+    updateJobRequest: requests.UpdateJobRequest
+  ): Promise<responses.UpdateJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateJob.");
+    const pathParams = {
+      "{jobId}": updateJobRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateJobRequest.opcRequestId,
+      "if-match": updateJobRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateJobRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateJobRequest.updateJobDetails,
+        "UpdateJobDetails",
+        model.UpdateJobDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateJobResponse>{},
+        body: await response.json(),
+        bodyKey: "job",
+        bodyModel: model.Job,
+        type: "model.Job",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a job run.
+   * @param UpdateJobRunRequest
+   * @return UpdateJobRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateJobRun.ts.html |here} to see how to use UpdateJobRun API.
+   */
+  public async updateJobRun(
+    updateJobRunRequest: requests.UpdateJobRunRequest
+  ): Promise<responses.UpdateJobRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateJobRun.");
+    const pathParams = {
+      "{jobRunId}": updateJobRunRequest.jobRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateJobRunRequest.opcRequestId,
+      "if-match": updateJobRunRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateJobRunRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobRuns/{jobRunId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateJobRunRequest.updateJobRunDetails,
+        "UpdateJobRunDetails",
+        model.UpdateJobRunDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateJobRunResponse>{},
+        body: await response.json(),
+        bodyKey: "jobRun",
+        bodyModel: model.JobRun,
+        type: "model.JobRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
