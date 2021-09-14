@@ -202,7 +202,12 @@ Example: `2016-08-25T21:10:29.600Z`
    *
    */
   "timeMaintenanceRebootDue"?: Date;
-  "platformConfig"?: model.AmdMilanBmPlatformConfig;
+  "platformConfig"?:
+    | model.AmdMilanBmPlatformConfig
+    | model.AmdRomeBmPlatformConfig
+    | model.IntelSkylakeBmPlatformConfig
+    | model.AmdVmPlatformConfig
+    | model.IntelVmPlatformConfig;
 }
 
 export namespace Instance {

@@ -132,6 +132,8 @@ import * as UpdateVolumeGroupBackupResponse from "./update-volume-group-backup-r
 export import UpdateVolumeGroupBackupResponse = UpdateVolumeGroupBackupResponse.UpdateVolumeGroupBackupResponse;
 import * as UpdateVolumeKmsKeyResponse from "./update-volume-kms-key-response";
 export import UpdateVolumeKmsKeyResponse = UpdateVolumeKmsKeyResponse.UpdateVolumeKmsKeyResponse;
+import * as AcceptShieldedIntegrityPolicyResponse from "./accept-shielded-integrity-policy-response";
+export import AcceptShieldedIntegrityPolicyResponse = AcceptShieldedIntegrityPolicyResponse.AcceptShieldedIntegrityPolicyResponse;
 import * as AddImageShapeCompatibilityEntryResponse from "./add-image-shape-compatibility-entry-response";
 export import AddImageShapeCompatibilityEntryResponse = AddImageShapeCompatibilityEntryResponse.AddImageShapeCompatibilityEntryResponse;
 import * as AttachBootVolumeResponse from "./attach-boot-volume-response";
@@ -216,6 +218,8 @@ import * as GetInstanceResponse from "./get-instance-response";
 export import GetInstanceResponse = GetInstanceResponse.GetInstanceResponse;
 import * as GetInstanceConsoleConnectionResponse from "./get-instance-console-connection-response";
 export import GetInstanceConsoleConnectionResponse = GetInstanceConsoleConnectionResponse.GetInstanceConsoleConnectionResponse;
+import * as GetMeasuredBootReportResponse from "./get-measured-boot-report-response";
+export import GetMeasuredBootReportResponse = GetMeasuredBootReportResponse.GetMeasuredBootReportResponse;
 import * as GetVnicAttachmentResponse from "./get-vnic-attachment-response";
 export import GetVnicAttachmentResponse = GetVnicAttachmentResponse.GetVnicAttachmentResponse;
 import * as GetVolumeAttachmentResponse from "./get-volume-attachment-response";

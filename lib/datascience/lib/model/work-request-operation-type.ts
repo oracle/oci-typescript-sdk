@@ -1,6 +1,6 @@
 /**
  * Data Science API
- * Use the Data Science APIs to organize your data science work, access data and computing resources, and build, train, deploy, and manage models on Oracle Cloud.
+ * Use the Data Science API to organize your data science work, access data and computing resources, and build, train, deploy and manage models and model deployments. For more information, see [Data Science](https://docs.oracle.com/iaas/data-science/using/data-science.htm).
 
  * OpenAPI spec version: 20190101
  * 
@@ -30,6 +30,7 @@ export enum WorkRequestOperationType {
   ModelDeploymentUpdate = "MODEL_DEPLOYMENT_UPDATE",
   ProjectDelete = "PROJECT_DELETE",
   WorkrequestCancel = "WORKREQUEST_CANCEL",
+  JobDelete = "JOB_DELETE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

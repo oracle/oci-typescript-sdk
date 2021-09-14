@@ -31,6 +31,22 @@ Each shape only supports certain configurable values. If the values that you pro
 * 
 */
 export interface InstanceConfigurationLaunchInstancePlatformConfig {
+  /**
+   * Whether Secure Boot is enabled on the instance.
+   *
+   */
+  "isSecureBootEnabled"?: boolean;
+  /**
+   * Whether the Trusted Platform Module (TPM) is enabled on the instance.
+   *
+   */
+  "isTrustedPlatformModuleEnabled"?: boolean;
+  /**
+   * Whether the Measured Boot feature is enabled on the instance.
+   *
+   */
+  "isMeasuredBootEnabled"?: boolean;
+
   "type": string;
 }
 
@@ -43,6 +59,28 @@ export namespace InstanceConfigurationLaunchInstancePlatformConfig {
         case "AMD_MILAN_BM":
           return model.InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig.getJsonObj(
             <model.InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "INTEL_VM":
+          return model.InstanceConfigurationIntelVmLaunchInstancePlatformConfig.getJsonObj(
+            <model.InstanceConfigurationIntelVmLaunchInstancePlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "AMD_ROME_BM":
+          return model.InstanceConfigurationAmdRomeBmLaunchInstancePlatformConfig.getJsonObj(
+            <model.InstanceConfigurationAmdRomeBmLaunchInstancePlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "INTEL_SKYLAKE_BM":
+          return model.InstanceConfigurationIntelSkylakeBmLaunchInstancePlatformConfig.getJsonObj(
+            <model.InstanceConfigurationIntelSkylakeBmLaunchInstancePlatformConfig>(
+              (<object>jsonObj)
+            ),
+            true
+          );
+        case "AMD_VM":
+          return model.InstanceConfigurationAmdVmLaunchInstancePlatformConfig.getJsonObj(
+            <model.InstanceConfigurationAmdVmLaunchInstancePlatformConfig>(<object>jsonObj),
             true
           );
         default:
@@ -61,6 +99,28 @@ export namespace InstanceConfigurationLaunchInstancePlatformConfig {
         case "AMD_MILAN_BM":
           return model.InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig.getDeserializedJsonObj(
             <model.InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "INTEL_VM":
+          return model.InstanceConfigurationIntelVmLaunchInstancePlatformConfig.getDeserializedJsonObj(
+            <model.InstanceConfigurationIntelVmLaunchInstancePlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "AMD_ROME_BM":
+          return model.InstanceConfigurationAmdRomeBmLaunchInstancePlatformConfig.getDeserializedJsonObj(
+            <model.InstanceConfigurationAmdRomeBmLaunchInstancePlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "INTEL_SKYLAKE_BM":
+          return model.InstanceConfigurationIntelSkylakeBmLaunchInstancePlatformConfig.getDeserializedJsonObj(
+            <model.InstanceConfigurationIntelSkylakeBmLaunchInstancePlatformConfig>(
+              (<object>jsonObj)
+            ),
+            true
+          );
+        case "AMD_VM":
+          return model.InstanceConfigurationAmdVmLaunchInstancePlatformConfig.getDeserializedJsonObj(
+            <model.InstanceConfigurationAmdVmLaunchInstancePlatformConfig>(<object>jsonObj),
             true
           );
         default:

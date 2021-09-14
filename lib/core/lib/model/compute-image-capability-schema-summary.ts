@@ -48,6 +48,10 @@ export interface ComputeImageCapabilitySchemaSummary {
    */
   "displayName": string;
   /**
+   * A mapping of each capability name to its ImageCapabilityDescriptor.
+   */
+  "schemaData"?: { [key: string]: model.ImageCapabilitySchemaDescriptor };
+  /**
     * The date and time the compute image capability schema was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
@@ -74,12 +78,29 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace ComputeImageCapabilitySchemaSummary {
   export function getJsonObj(obj: ComputeImageCapabilitySchemaSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "schemaData": obj.schemaData
+          ? common.mapContainer(obj.schemaData, model.ImageCapabilitySchemaDescriptor.getJsonObj)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ComputeImageCapabilitySchemaSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "schemaData": obj.schemaData
+          ? common.mapContainer(
+              obj.schemaData,
+              model.ImageCapabilitySchemaDescriptor.getDeserializedJsonObj
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

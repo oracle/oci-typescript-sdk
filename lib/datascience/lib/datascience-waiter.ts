@@ -1,6 +1,6 @@
 /**
  * Data Science API
- * Use the Data Science APIs to organize your data science work, access data and computing resources, and build, train, deploy, and manage models on Oracle Cloud.
+ * Use the Data Science API to organize your data science work, access data and computing resources, and build, train, deploy and manage models and model deployments. For more information, see [Data Science](https://docs.oracle.com/iaas/data-science/using/data-science.htm).
 
  * OpenAPI spec version: 20190101
  * 
@@ -23,6 +23,44 @@ export class DataScienceWaiter {
     private client: DataScienceClient,
     private readonly config?: WaiterConfiguration
   ) {}
+
+  /**
+   * Waits forJob till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetJobResponse | null (null in case of 404 response)
+   */
+  public async forJob(
+    request: serviceRequests.GetJobRequest,
+    ...targetStates: models.JobLifecycleState[]
+  ): Promise<serviceResponses.GetJobResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getJob(request),
+      response => targetStates.includes(response.job.lifecycleState!),
+      targetStates.includes(models.JobLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forJobRun till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetJobRunResponse | null (null in case of 404 response)
+   */
+  public async forJobRun(
+    request: serviceRequests.GetJobRunRequest,
+    ...targetStates: models.JobRunLifecycleState[]
+  ): Promise<serviceResponses.GetJobRunResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getJobRun(request),
+      response => targetStates.includes(response.jobRun.lifecycleState!),
+      targetStates.includes(models.JobRunLifecycleState.Deleted)
+    );
+  }
 
   /**
    * Waits forModel till it reaches any of the provided states

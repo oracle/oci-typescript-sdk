@@ -168,7 +168,12 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
     */
   "shape"?: string;
   "shapeConfig"?: model.InstanceConfigurationLaunchInstanceShapeConfigDetails;
-  "platformConfig"?: model.InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig;
+  "platformConfig"?:
+    | model.InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig
+    | model.InstanceConfigurationIntelVmLaunchInstancePlatformConfig
+    | model.InstanceConfigurationAmdRomeBmLaunchInstancePlatformConfig
+    | model.InstanceConfigurationIntelSkylakeBmLaunchInstancePlatformConfig
+    | model.InstanceConfigurationAmdVmLaunchInstancePlatformConfig;
   "sourceDetails"?:
     | model.InstanceConfigurationInstanceSourceViaImageDetails
     | model.InstanceConfigurationInstanceSourceViaBootVolumeDetails;

@@ -82,7 +82,8 @@ export namespace ListWorkRequestsRequest {
     ModelDeploymentDeactivate = "MODEL_DEPLOYMENT_DEACTIVATE",
     ModelDeploymentUpdate = "MODEL_DEPLOYMENT_UPDATE",
     ProjectDelete = "PROJECT_DELETE",
-    WorkrequestCancel = "WORKREQUEST_CANCEL"
+    WorkrequestCancel = "WORKREQUEST_CANCEL",
+    JobDelete = "JOB_DELETE"
   }
 
   export enum Status {

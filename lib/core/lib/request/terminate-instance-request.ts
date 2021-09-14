@@ -31,7 +31,7 @@ export interface TerminateInstanceRequest extends common.BaseRequest {
   "ifMatch"?: string;
   /**
    * Specifies whether to delete or preserve the boot volume when terminating an instance.
-   * The default value is false.
+   * When set to `true`, the boot volume is preserved. The default value is `false`.
    *
    */
   "preserveBootVolume"?: boolean;
