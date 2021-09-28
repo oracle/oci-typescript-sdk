@@ -766,7 +766,8 @@ export class ApiGatewayClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getApiContentRequest.opcRequestId,
-      "if-match": getApiContentRequest.ifMatch
+      "if-match": getApiContentRequest.ifMatch,
+      "range": getApiContentRequest.range
     };
 
     const retrier = GenericRetrier.createPreferredRetrier(

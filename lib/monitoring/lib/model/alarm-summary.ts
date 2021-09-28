@@ -38,7 +38,6 @@ export interface AlarmSummary {
   "id": string;
   /**
     * A user-friendly name for the alarm. It does not have to be unique, and it's changeable.
-* Avoid entering confidential information.
 * <p>
 This name is sent as the title for notifications related to this alarm.
 * <p>
@@ -65,14 +64,14 @@ Example: `oci_computeagent`
     */
   "namespace": string;
   /**
-    * The Monitoring Query Language (MQL) expression to evaluate for the alarm. The Alarms feature of 
-* the Monitoring service interprets results for each returned time series as Boolean values, 
-* where zero represents false and a non-zero value represents true. A true value means that the trigger 
-* rule condition has been met. The query must specify a metric, statistic, interval, and trigger 
-* rule (threshold or absence). Supported values for interval: `1m`-`60m` (also `1h`). You can optionally 
-* specify dimensions and grouping functions. Supported grouping functions: `grouping()`, `groupBy()`. 
-* For details about Monitoring Query Language (MQL), see [Monitoring Query Language (MQL) Reference](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Reference/mql.htm). 
-* For available dimensions, review the metric definition for the supported service. 
+    * The Monitoring Query Language (MQL) expression to evaluate for the alarm. The Alarms feature of
+* the Monitoring service interprets results for each returned time series as Boolean values,
+* where zero represents false and a non-zero value represents true. A true value means that the trigger
+* rule condition has been met. The query must specify a metric, statistic, interval, and trigger
+* rule (threshold or absence). Supported values for interval depend on the specified time range. More
+* interval values are supported for smaller time ranges. Supported grouping functions: `grouping()`, `groupBy()`.
+* For details about Monitoring Query Language (MQL), see [Monitoring Query Language (MQL) Reference](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Reference/mql.htm).
+* For available dimensions, review the metric definition for the supported service.
 * See [Supported Services](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#SupportedServices).
 * <p>
 Example of threshold alarm:

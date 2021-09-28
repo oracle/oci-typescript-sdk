@@ -50,6 +50,11 @@ Example: `PUBLIC` or `PRIVATE`
    */
   "subnetId": string;
   /**
+   * An array of Network Security Groups OCIDs associated with this API Gateway.
+   *
+   */
+  "networkSecurityGroupIds"?: Array<string>;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the resource.
    *
    */

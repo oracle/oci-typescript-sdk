@@ -219,6 +219,10 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    * Customer Contacts. Setting this to an empty list removes all customer contacts of an Oracle Autonomous Database.
    */
   "customerContacts"?: Array<model.CustomerContact>;
+  /**
+   * Indicates whether the Autonomous Database requires mTLS connections.
+   */
+  "isMtlsConnectionRequired"?: boolean;
 }
 
 export namespace UpdateAutonomousDatabaseDetails {

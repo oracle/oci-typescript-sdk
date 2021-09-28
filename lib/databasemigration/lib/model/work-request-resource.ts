@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * A resource that is created or operated on by an asynchronous operation that is tracked by
  * a work request.
  *

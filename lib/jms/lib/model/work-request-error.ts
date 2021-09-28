@@ -1,6 +1,6 @@
 /**
- * Java Management Service Query API
- * API for the Java Management Service. Use this API to view and manage Fleets.
+ * Java Management Service API
+ * API for the Java Management Service. Use this API to view, create, and manage Fleets.
  * OpenAPI spec version: 20210610
  *
  *
@@ -19,8 +19,8 @@ import common = require("oci-common");
  */
 export interface WorkRequestError {
   /**
-   * A machine-usable code for the error that occured. Error codes are listed on
-   * (https://docs.cloud.oracle.com/Content/API/References/apierrors.htm)
+   * A machine-usable code for the error that occured. Error codes are listed at
+   * [API Errors](https://docs.cloud.oracle.com/Content/API/References/apierrors.htm).
    *
    */
   "code": string;
@@ -29,7 +29,7 @@ export interface WorkRequestError {
    */
   "message": string;
   /**
-   * The date and time the error occured (formatted according to RFC3339).
+   * The date and time the error occured (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    */
   "timestamp": Date;
 }

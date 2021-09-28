@@ -1,6 +1,6 @@
 /**
- * Java Management Service Query API
- * API for the Java Management Service. Use this API to view and manage Fleets.
+ * Java Management Service API
+ * API for the Java Management Service. Use this API to view, create, and manage Fleets.
  * OpenAPI spec version: 20210610
  *
  *
@@ -35,6 +35,7 @@ export interface ManagedInstanceUsage {
    * The hostname of the managed instance (if applicable).
    */
   "hostname"?: string;
+  "operatingSystem"?: model.OperatingSystem;
   /**
    * The approximate count of applications reported by this managed instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -75,12 +76,26 @@ export interface ManagedInstanceUsage {
 
 export namespace ManagedInstanceUsage {
   export function getJsonObj(obj: ManagedInstanceUsage): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "operatingSystem": obj.operatingSystem
+          ? model.OperatingSystem.getJsonObj(obj.operatingSystem)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ManagedInstanceUsage): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "operatingSystem": obj.operatingSystem
+          ? model.OperatingSystem.getDeserializedJsonObj(obj.operatingSystem)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

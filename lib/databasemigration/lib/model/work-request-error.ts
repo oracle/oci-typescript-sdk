@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * An error encountered while executing an operation that is tracked by a work request.
  *
  */

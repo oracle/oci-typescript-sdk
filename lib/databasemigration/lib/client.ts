@@ -130,6 +130,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Aborts a Migration Job (either Evaluation or Migration).
    *
    * @param AbortJobRequest
@@ -197,6 +198,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Used to configure an ODMS Agent Compartment ID.
    *
    * @param ChangeAgentCompartmentRequest
@@ -261,6 +263,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Used to change the Database Connection compartment.
    *
    * @param ChangeConnectionCompartmentRequest
@@ -325,6 +328,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Used to change the Migration compartment.
    *
    * @param ChangeMigrationCompartmentRequest
@@ -389,6 +393,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Clone a configuration from an existing Migration.
    *
    * @param CloneMigrationRequest
@@ -466,6 +471,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Create a Database Connection resource that contains the details to connect to either a Source or Target Database
    * in the migration.
    *
@@ -542,6 +548,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Create a Migration resource that contains all the details to perform the
    * database migration operation, such as source and destination database
    * details, credentials, etc.
@@ -619,6 +626,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Delete the ODMS Agent represented by the specified ODMS Agent ID.
    *
    * @param DeleteAgentRequest
@@ -681,6 +689,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Deletes the Database Connection represented by the specified connection ID.
    *
    * @param DeleteConnectionRequest
@@ -744,6 +753,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Deletes the migration job represented by the given job ID.
    *
    * @param DeleteJobRequest
@@ -801,6 +811,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Deletes the Migration represented by the specified migration ID.
    *
    * @param DeleteMigrationRequest
@@ -864,6 +875,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Start Validate Migration job.
    *
    * @param EvaluateMigrationRequest
@@ -937,6 +949,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Display the ODMS Agent configuration.
    *
    * @param GetAgentRequest
@@ -1002,6 +1015,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Display Database Connection details.
    *
    * @param GetConnectionRequest
@@ -1067,6 +1081,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Get a migration job.
    *
    * @param GetJobRequest
@@ -1130,6 +1145,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Get the migration Job Output content as a String.
    *
    * @param GetJobOutputContentRequest
@@ -1191,6 +1207,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Display Migration details.
    *
    * @param GetMigrationRequest
@@ -1257,6 +1274,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Gets the details of a work request.
    *
    * @param GetWorkRequestRequest
@@ -1317,6 +1335,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Get details of the ODMS Agent Images available to install on-premises.
    *
    * @param ListAgentImagesRequest
@@ -1385,6 +1404,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Display the name of all the existing ODMS Agents in the server.
    *
    * @param ListAgentsRequest
@@ -1456,6 +1476,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * List all Database Connections.
    *
    * @param ListConnectionsRequest
@@ -1528,6 +1549,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * List the Job Outputs
    *
    * @param ListJobOutputsRequest
@@ -1596,6 +1618,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * List all the names of the Migration jobs associated to the specified
    * migration site.
    *
@@ -1668,6 +1691,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * List all Migrations.
    *
    * @param ListMigrationsRequest
@@ -1740,6 +1764,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Gets the errors for a work request.
    *
    * @param ListWorkRequestErrorsRequest
@@ -1812,6 +1837,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Gets the logs for a work request.
    *
    * @param ListWorkRequestLogsRequest
@@ -1884,6 +1910,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Lists the work requests in a compartment or for a specified resource.
    *
    * @param ListWorkRequestsRequest
@@ -1956,6 +1983,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Resume a migration Job.
    *
    * @param ResumeJobRequest
@@ -2028,6 +2056,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Display Migration Phases for a specified migration.
    *
    * @param RetrieveSupportedPhasesRequest
@@ -2089,6 +2118,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Start Migration job.
    *
    * @param StartMigrationRequest
@@ -2166,6 +2196,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Modifies the ODMS Agent represented by the given ODMS Agent ID.
    *
    * @param UpdateAgentRequest
@@ -2238,6 +2269,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Update Database Connection resource details.
    *
    * @param UpdateConnectionRequest
@@ -2306,6 +2338,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Update Migration Job resource details.
    *
    * @param UpdateJobRequest
@@ -2377,6 +2410,7 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Update Migration resource details.
    *
    * @param UpdateMigrationRequest

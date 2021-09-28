@@ -55,6 +55,11 @@ Example: `PUBLIC` or `PRIVATE`
    */
   "subnetId"?: string;
   /**
+   * An array of Network Security Groups OCIDs associated with this API Gateway.
+   *
+   */
+  "networkSecurityGroupIds"?: Array<string>;
+  /**
    * The time this resource was created. An RFC3339 formatted datetime string.
    */
   "timeCreated"?: Date;

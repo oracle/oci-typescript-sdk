@@ -41,7 +41,9 @@ export interface RenameObjectDetails {
    */
   "newObjIfMatchETag"?: string;
   /**
-   * The if-none-match entity tag (ETag) of the new object.
+   * The if-none-match entity tag (ETag) of the new object. The only valid value is '*', which indicates
+   * request should fail if the new object already exists.
+   *
    */
   "newObjIfNoneMatchETag"?: string;
 }

@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * Connect Descriptor details. If a Private Endpoint was specified in the Connection, the host entry should be a valid IP address.
  *
  */

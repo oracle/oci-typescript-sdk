@@ -25,7 +25,7 @@ export interface MetricDataDetails {
   /**
     * The source service or application emitting the metric.
 * <p>
-A valid namespace value starts with an alphabetical character and includes only alphanumeric characters and underscores. The \"oci_\" prefix is reserved. 
+A valid namespace value starts with an alphabetical character and includes only alphanumeric characters and underscores. The \"oci_\" prefix is reserved.
 * Avoid entering confidential information.
 * <p>
 Example: `my_namespace`
@@ -33,7 +33,7 @@ Example: `my_namespace`
     */
   "namespace": string;
   /**
-    * Resource group to assign to the metric. A resource group is a custom string that can be used as a filter. Only one resource group can be applied per metric.
+    * Resource group to assign to the metric. A resource group is a custom string that you can match when retrieving custom metrics. Only one resource group can be applied per metric.
 * A valid resourceGroup value starts with an alphabetical character and includes only alphanumeric characters, periods (.), underscores (_), hyphens (-), and dollar signs ($).
 * Avoid entering confidential information.
 * <p>
@@ -49,7 +49,7 @@ Example: `frontend-fleet`
   /**
     * The name of the metric.
 * <p>
-A valid name value starts with an alphabetical character and includes only alphanumeric characters, dots, underscores, hyphens, and dollar signs. The `oci_` prefix is reserved. 
+A valid name value starts with an alphabetical character and includes only alphanumeric characters, dots, underscores, hyphens, and dollar signs. The `oci_` prefix is reserved.
 * Avoid entering confidential information.
 * <p>
 Example: `my_app.success_rate`
@@ -58,7 +58,7 @@ Example: `my_app.success_rate`
   "name": string;
   /**
     * Qualifiers provided in a metric definition. Available dimensions vary by metric namespace.
-* Each dimension takes the form of a key-value pair. 
+* Each dimension takes the form of a key-value pair.
 * A valid dimension key includes only printable ASCII, excluding periods (.) and spaces. The character limit for a dimension key is 256.
 * A valid dimension value includes only Unicode characters. The character limit for a dimension value is 256.
 * Empty strings are not allowed for keys or values. Avoid entering confidential information.

@@ -1,6 +1,6 @@
 /**
- * Java Management Service Query API
- * API for the Java Management Service. Use this API to view and manage Fleets.
+ * Java Management Service API
+ * API for the Java Management Service. Use this API to view, create, and manage Fleets.
  * OpenAPI spec version: 20210610
  *
  *
@@ -62,7 +62,7 @@ export interface FleetSummary {
    */
   "approximateManagedInstanceCount": number;
   /**
-   * The creation date and time of the Fleet (formatted according to RFC3339).
+   * The creation date and time of the Fleet (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    *
    */
   "timeCreated": Date;

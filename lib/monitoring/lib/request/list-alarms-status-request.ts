@@ -49,7 +49,7 @@ Example: `ocid1.compartment.oc1..exampleuniqueID`
    */
   "page"?: string;
   /**
- * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. 
+ * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
 * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Default: 1000

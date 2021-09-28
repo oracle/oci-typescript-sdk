@@ -332,6 +332,74 @@ export class DataSafeClient {
   }
 
   /**
+     * Moves the specified saved security assessment or future scheduled assessments into a different compartment.
+* <p>
+To start, call first the operation ListSecurityAssessments with filters \"type = save_schedule\". This returns the scheduleAssessmentId. Then, call this changeCompartment with the scheduleAssessmentId.
+* <p>
+The existing saved security assessments created due to the schedule are not moved. However, all new saves will be associated with the new compartment.
+* 
+     * @param ChangeSecurityAssessmentCompartmentRequest
+     * @return ChangeSecurityAssessmentCompartmentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSecurityAssessmentCompartment.ts.html |here} to see how to use ChangeSecurityAssessmentCompartment API.
+     */
+  public async changeSecurityAssessmentCompartment(
+    changeSecurityAssessmentCompartmentRequest: requests.ChangeSecurityAssessmentCompartmentRequest
+  ): Promise<responses.ChangeSecurityAssessmentCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSecurityAssessmentCompartment.");
+    const pathParams = {
+      "{securityAssessmentId}": changeSecurityAssessmentCompartmentRequest.securityAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeSecurityAssessmentCompartmentRequest.opcRequestId,
+      "if-match": changeSecurityAssessmentCompartmentRequest.ifMatch,
+      "opc-retry-token": changeSecurityAssessmentCompartmentRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeSecurityAssessmentCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityAssessments/{securityAssessmentId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSecurityAssessmentCompartmentRequest.changeSecurityAssessmentCompartmentDetails,
+        "ChangeSecurityAssessmentCompartmentDetails",
+        model.ChangeSecurityAssessmentCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSecurityAssessmentCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the Data Safe target database to the specified compartment.
    * @param ChangeTargetDatabaseCompartmentRequest
    * @return ChangeTargetDatabaseCompartmentResponse
@@ -380,6 +448,213 @@ export class DataSafeClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeTargetDatabaseCompartmentResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified saved user assessment or future scheduled assessments into a different compartment.
+   * To start storing scheduled user assessments on a different compartment, first call the operation ListUserAssessments with
+   * the filters \"type = save_schedule\". That call returns the scheduleAssessmentId. Then call
+   * ChangeUserAssessmentCompartment with the scheduleAssessmentId. The existing saved user assessments created per the schedule
+   * are not be moved. However, all new saves will be associated with the new compartment.
+   *
+   * @param ChangeUserAssessmentCompartmentRequest
+   * @return ChangeUserAssessmentCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeUserAssessmentCompartment.ts.html |here} to see how to use ChangeUserAssessmentCompartment API.
+   */
+  public async changeUserAssessmentCompartment(
+    changeUserAssessmentCompartmentRequest: requests.ChangeUserAssessmentCompartmentRequest
+  ): Promise<responses.ChangeUserAssessmentCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeUserAssessmentCompartment.");
+    const pathParams = {
+      "{userAssessmentId}": changeUserAssessmentCompartmentRequest.userAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeUserAssessmentCompartmentRequest.ifMatch,
+      "opc-retry-token": changeUserAssessmentCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeUserAssessmentCompartmentRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      changeUserAssessmentCompartmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeUserAssessmentCompartmentRequest.changeUserAssessmentCompartmentDetails,
+        "ChangeUserAssessmentCompartmentDetails",
+        model.ChangeUserAssessmentCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeUserAssessmentCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Compares two security assessments. For this comparison, a security assessment can be a saved assessment, a latest assessment, or a baseline assessment.
+   * For example, you can compare saved assessment or a latest assessment against a baseline.
+   *
+   * @param CompareSecurityAssessmentRequest
+   * @return CompareSecurityAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CompareSecurityAssessment.ts.html |here} to see how to use CompareSecurityAssessment API.
+   */
+  public async compareSecurityAssessment(
+    compareSecurityAssessmentRequest: requests.CompareSecurityAssessmentRequest
+  ): Promise<responses.CompareSecurityAssessmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#compareSecurityAssessment.");
+    const pathParams = {
+      "{securityAssessmentId}": compareSecurityAssessmentRequest.securityAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": compareSecurityAssessmentRequest.opcRetryToken,
+      "opc-request-id": compareSecurityAssessmentRequest.opcRequestId,
+      "if-match": compareSecurityAssessmentRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      compareSecurityAssessmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityAssessments/{securityAssessmentId}/actions/compare",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        compareSecurityAssessmentRequest.compareSecurityAssessmentDetails,
+        "CompareSecurityAssessmentDetails",
+        model.CompareSecurityAssessmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CompareSecurityAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Compares two user assessments. For this comparison, a user assessment can be a saved, a latest assessment, or a baseline.
+   * As an example, it can be used to compare a user assessment saved or a latest assessment with a baseline.
+   *
+   * @param CompareUserAssessmentRequest
+   * @return CompareUserAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CompareUserAssessment.ts.html |here} to see how to use CompareUserAssessment API.
+   */
+  public async compareUserAssessment(
+    compareUserAssessmentRequest: requests.CompareUserAssessmentRequest
+  ): Promise<responses.CompareUserAssessmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#compareUserAssessment.");
+    const pathParams = {
+      "{userAssessmentId}": compareUserAssessmentRequest.userAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": compareUserAssessmentRequest.opcRetryToken,
+      "opc-request-id": compareUserAssessmentRequest.opcRequestId,
+      "if-match": compareUserAssessmentRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      compareUserAssessmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/actions/compare",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        compareUserAssessmentRequest.compareUserAssessmentDetails,
+        "CompareUserAssessmentDetails",
+        model.CompareUserAssessmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CompareUserAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -554,6 +829,88 @@ export class DataSafeClient {
   }
 
   /**
+   * Creates a new saved security assessment for one or multiple targets in a compartment. When this operation is performed,
+   * it will save the latest assessments in the specified compartment. If a schedule is passed, it will persist the latest assessments,
+   * at the defined date and time, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   *
+   * @param CreateSecurityAssessmentRequest
+   * @return CreateSecurityAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSecurityAssessment.ts.html |here} to see how to use CreateSecurityAssessment API.
+   */
+  public async createSecurityAssessment(
+    createSecurityAssessmentRequest: requests.CreateSecurityAssessmentRequest
+  ): Promise<responses.CreateSecurityAssessmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createSecurityAssessment.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSecurityAssessmentRequest.opcRetryToken,
+      "opc-request-id": createSecurityAssessmentRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createSecurityAssessmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityAssessments",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSecurityAssessmentRequest.createSecurityAssessmentDetails,
+        "CreateSecurityAssessmentDetails",
+        model.CreateSecurityAssessmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSecurityAssessmentResponse>{},
+        body: await response.json(),
+        bodyKey: "securityAssessment",
+        bodyModel: model.SecurityAssessment,
+        type: "model.SecurityAssessment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Registers the specified database with Data Safe and creates a Data Safe target database in the Data Safe Console.
    *
    * @param CreateTargetDatabaseRequest
@@ -602,6 +959,87 @@ export class DataSafeClient {
         bodyKey: "targetDatabase",
         bodyModel: model.TargetDatabase,
         type: "model.TargetDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new saved user assessment for one or multiple targets in a compartment. It saves the latest assessments in the
+   * specified compartment. If a scheduled is passed in, this operation persists the latest assessments that exist at the defined
+   * date and time, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   *
+   * @param CreateUserAssessmentRequest
+   * @return CreateUserAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateUserAssessment.ts.html |here} to see how to use CreateUserAssessment API.
+   */
+  public async createUserAssessment(
+    createUserAssessmentRequest: requests.CreateUserAssessmentRequest
+  ): Promise<responses.CreateUserAssessmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createUserAssessment.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createUserAssessmentRequest.opcRetryToken,
+      "opc-request-id": createUserAssessmentRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      createUserAssessmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createUserAssessmentRequest.createUserAssessmentDetails,
+        "CreateUserAssessmentDetails",
+        model.CreateUserAssessmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateUserAssessmentResponse>{},
+        body: await response.json(),
+        bodyKey: "userAssessment",
+        bodyModel: model.UserAssessment,
+        type: "model.UserAssessment",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -820,6 +1258,72 @@ export class DataSafeClient {
   }
 
   /**
+   * Deletes the specified saved security assessment or schedule. To delete a security assessment schedule,
+   * first call the operation ListSecurityAssessments with filters \"type = save_schedule\".
+   * That operation returns the scheduleAssessmentId. Then, call DeleteSecurityAssessment with the scheduleAssessmentId.
+   * If the assessment being deleted is the baseline for that compartment, then it will impact all baselines in the compartment.
+   *
+   * @param DeleteSecurityAssessmentRequest
+   * @return DeleteSecurityAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSecurityAssessment.ts.html |here} to see how to use DeleteSecurityAssessment API.
+   */
+  public async deleteSecurityAssessment(
+    deleteSecurityAssessmentRequest: requests.DeleteSecurityAssessmentRequest
+  ): Promise<responses.DeleteSecurityAssessmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteSecurityAssessment.");
+    const pathParams = {
+      "{securityAssessmentId}": deleteSecurityAssessmentRequest.securityAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteSecurityAssessmentRequest.opcRequestId,
+      "if-match": deleteSecurityAssessmentRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteSecurityAssessmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityAssessments/{securityAssessmentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSecurityAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deregisters the specified database from Data Safe and removes the target database from the Data Safe Console.
    * @param DeleteTargetDatabaseRequest
    * @return DeleteTargetDatabaseResponse
@@ -881,6 +1385,71 @@ export class DataSafeClient {
   }
 
   /**
+   * Deletes the specified saved user assessment or schedule. To delete a user assessment schedule, first call the operation
+   * ListUserAssessments with filters \"type = save_schedule\".
+   * That call returns the scheduleAssessmentId. Then call DeleteUserAssessment with the scheduleAssessmentId.
+   * If the assessment being deleted is the baseline for that compartment, then it will impact all baselines in the compartment.
+   *
+   * @param DeleteUserAssessmentRequest
+   * @return DeleteUserAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteUserAssessment.ts.html |here} to see how to use DeleteUserAssessment API.
+   */
+  public async deleteUserAssessment(
+    deleteUserAssessmentRequest: requests.DeleteUserAssessmentRequest
+  ): Promise<responses.DeleteUserAssessmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteUserAssessment.");
+    const pathParams = {
+      "{userAssessmentId}": deleteUserAssessmentRequest.userAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteUserAssessmentRequest.ifMatch,
+      "opc-request-id": deleteUserAssessmentRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      deleteUserAssessmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteUserAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Downloads the privilege script to grant/revoke required roles from the Data Safe account on the target database.
    *
    * @param DownloadPrivilegeScriptRequest
@@ -921,6 +1490,164 @@ export class DataSafeClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadPrivilegeScriptResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads the report of the specified security assessment. To download the security assessment report, it needs to be generated first.
+   * Please use GenerateSecurityAssessmentReport to generate a downloadable report in the preferred format (PDF, XLS).
+   *
+   * @param DownloadSecurityAssessmentReportRequest
+   * @return DownloadSecurityAssessmentReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadSecurityAssessmentReport.ts.html |here} to see how to use DownloadSecurityAssessmentReport API.
+   */
+  public async downloadSecurityAssessmentReport(
+    downloadSecurityAssessmentReportRequest: requests.DownloadSecurityAssessmentReportRequest
+  ): Promise<responses.DownloadSecurityAssessmentReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#downloadSecurityAssessmentReport.");
+    const pathParams = {
+      "{securityAssessmentId}": downloadSecurityAssessmentReportRequest.securityAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": downloadSecurityAssessmentReportRequest.ifMatch,
+      "opc-retry-token": downloadSecurityAssessmentReportRequest.opcRetryToken,
+      "opc-request-id": downloadSecurityAssessmentReportRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      downloadSecurityAssessmentReportRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityAssessments/{securityAssessmentId}/actions/downloadReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadSecurityAssessmentReportRequest.downloadSecurityAssessmentReportDetails,
+        "DownloadSecurityAssessmentReportDetails",
+        model.DownloadSecurityAssessmentReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadSecurityAssessmentReportResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads the report of the specified user assessment. To download the user assessment report, it needs to be generated first.
+   * Please use GenerateUserAssessmentReport to generate a downloadable report in the preferred format (PDF, XLS).
+   *
+   * @param DownloadUserAssessmentReportRequest
+   * @return DownloadUserAssessmentReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadUserAssessmentReport.ts.html |here} to see how to use DownloadUserAssessmentReport API.
+   */
+  public async downloadUserAssessmentReport(
+    downloadUserAssessmentReportRequest: requests.DownloadUserAssessmentReportRequest
+  ): Promise<responses.DownloadUserAssessmentReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#downloadUserAssessmentReport.");
+    const pathParams = {
+      "{userAssessmentId}": downloadUserAssessmentReportRequest.userAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": downloadUserAssessmentReportRequest.ifMatch,
+      "opc-retry-token": downloadUserAssessmentReportRequest.opcRetryToken,
+      "opc-request-id": downloadUserAssessmentReportRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      downloadUserAssessmentReportRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/actions/downloadReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadUserAssessmentReportRequest.downloadUserAssessmentReportDetails,
+        "DownloadUserAssessmentReportDetails",
+        model.DownloadUserAssessmentReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadUserAssessmentReportResponse>{},
 
         body: response.body!,
         bodyKey: "value",
@@ -1086,6 +1813,146 @@ export class DataSafeClient {
             value: response.headers.get("last-modified"),
             key: "lastModified",
             dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Generates the report of the specified security assessment. You can get the report in PDF or XLS format.
+   * After generating the report, use DownloadSecurityAssessmentReport to download it in the preferred format.
+   *
+   * @param GenerateSecurityAssessmentReportRequest
+   * @return GenerateSecurityAssessmentReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateSecurityAssessmentReport.ts.html |here} to see how to use GenerateSecurityAssessmentReport API.
+   */
+  public async generateSecurityAssessmentReport(
+    generateSecurityAssessmentReportRequest: requests.GenerateSecurityAssessmentReportRequest
+  ): Promise<responses.GenerateSecurityAssessmentReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateSecurityAssessmentReport.");
+    const pathParams = {
+      "{securityAssessmentId}": generateSecurityAssessmentReportRequest.securityAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": generateSecurityAssessmentReportRequest.ifMatch,
+      "opc-retry-token": generateSecurityAssessmentReportRequest.opcRetryToken,
+      "opc-request-id": generateSecurityAssessmentReportRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      generateSecurityAssessmentReportRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityAssessments/{securityAssessmentId}/actions/generateReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateSecurityAssessmentReportRequest.generateSecurityAssessmentReportDetails,
+        "GenerateSecurityAssessmentReportDetails",
+        model.GenerateSecurityAssessmentReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateSecurityAssessmentReportResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Generates the report of the specified user assessment. The report is available in PDF or XLS format.
+   * After generating the report, use DownloadUserAssessmentReport to download it in the preferred format.
+   *
+   * @param GenerateUserAssessmentReportRequest
+   * @return GenerateUserAssessmentReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateUserAssessmentReport.ts.html |here} to see how to use GenerateUserAssessmentReport API.
+   */
+  public async generateUserAssessmentReport(
+    generateUserAssessmentReportRequest: requests.GenerateUserAssessmentReportRequest
+  ): Promise<responses.GenerateUserAssessmentReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateUserAssessmentReport.");
+    const pathParams = {
+      "{userAssessmentId}": generateUserAssessmentReportRequest.userAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": generateUserAssessmentReportRequest.ifMatch,
+      "opc-retry-token": generateUserAssessmentReportRequest.opcRetryToken,
+      "opc-request-id": generateUserAssessmentReportRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      generateUserAssessmentReportRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/actions/generateReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateUserAssessmentReportRequest.generateUserAssessmentReportDetails,
+        "GenerateUserAssessmentReportDetails",
+        model.GenerateUserAssessmentReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateUserAssessmentReportResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -1291,6 +2158,138 @@ export class DataSafeClient {
   }
 
   /**
+   * Gets the details of the specified security assessment.
+   * @param GetSecurityAssessmentRequest
+   * @return GetSecurityAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityAssessment.ts.html |here} to see how to use GetSecurityAssessment API.
+   */
+  public async getSecurityAssessment(
+    getSecurityAssessmentRequest: requests.GetSecurityAssessmentRequest
+  ): Promise<responses.GetSecurityAssessmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSecurityAssessment.");
+    const pathParams = {
+      "{securityAssessmentId}": getSecurityAssessmentRequest.securityAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSecurityAssessmentRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getSecurityAssessmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityAssessments/{securityAssessmentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSecurityAssessmentResponse>{},
+        body: await response.json(),
+        bodyKey: "securityAssessment",
+        bodyModel: model.SecurityAssessment,
+        type: "model.SecurityAssessment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the comparison report on the security assessments submitted for comparison.
+   * @param GetSecurityAssessmentComparisonRequest
+   * @return GetSecurityAssessmentComparisonResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityAssessmentComparison.ts.html |here} to see how to use GetSecurityAssessmentComparison API.
+   */
+  public async getSecurityAssessmentComparison(
+    getSecurityAssessmentComparisonRequest: requests.GetSecurityAssessmentComparisonRequest
+  ): Promise<responses.GetSecurityAssessmentComparisonResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getSecurityAssessmentComparison.");
+    const pathParams = {
+      "{securityAssessmentId}": getSecurityAssessmentComparisonRequest.securityAssessmentId,
+      "{comparisonSecurityAssessmentId}":
+        getSecurityAssessmentComparisonRequest.comparisonSecurityAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSecurityAssessmentComparisonRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getSecurityAssessmentComparisonRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/securityAssessments/{securityAssessmentId}/comparison/{comparisonSecurityAssessmentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSecurityAssessmentComparisonResponse>{},
+        body: await response.json(),
+        bodyKey: "securityAssessmentComparison",
+        bodyModel: model.SecurityAssessmentComparison,
+        type: "model.SecurityAssessmentComparison",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns the details of the specified Data Safe target database.
    *
    * @param GetTargetDatabaseRequest
@@ -1341,6 +2340,131 @@ export class DataSafeClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a user assessment by identifier.
+   * @param GetUserAssessmentRequest
+   * @return GetUserAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetUserAssessment.ts.html |here} to see how to use GetUserAssessment API.
+   */
+  public async getUserAssessment(
+    getUserAssessmentRequest: requests.GetUserAssessmentRequest
+  ): Promise<responses.GetUserAssessmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getUserAssessment.");
+    const pathParams = {
+      "{userAssessmentId}": getUserAssessmentRequest.userAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getUserAssessmentRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getUserAssessmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetUserAssessmentResponse>{},
+        body: await response.json(),
+        bodyKey: "userAssessment",
+        bodyModel: model.UserAssessment,
+        type: "model.UserAssessment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the comparison report for the user assessments provided.
+   * @param GetUserAssessmentComparisonRequest
+   * @return GetUserAssessmentComparisonResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetUserAssessmentComparison.ts.html |here} to see how to use GetUserAssessmentComparison API.
+   */
+  public async getUserAssessmentComparison(
+    getUserAssessmentComparisonRequest: requests.GetUserAssessmentComparisonRequest
+  ): Promise<responses.GetUserAssessmentComparisonResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getUserAssessmentComparison.");
+    const pathParams = {
+      "{userAssessmentId}": getUserAssessmentComparisonRequest.userAssessmentId,
+      "{comparisonUserAssessmentId}": getUserAssessmentComparisonRequest.comparisonUserAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getUserAssessmentComparisonRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getUserAssessmentComparisonRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/comparison/{comparisonUserAssessmentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetUserAssessmentComparisonResponse>{},
+        body: await response.json(),
+        bodyKey: "userAssessmentComparison",
+        bodyModel: model.UserAssessmentComparison,
+        type: "model.UserAssessmentComparison",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1525,6 +2649,219 @@ export class DataSafeClient {
   }
 
   /**
+   * List all the findings from all the targets in the specified assessment.
+   *
+   * @param ListFindingsRequest
+   * @return ListFindingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListFindings.ts.html |here} to see how to use ListFindings API.
+   */
+  public async listFindings(
+    listFindingsRequest: requests.ListFindingsRequest
+  ): Promise<responses.ListFindingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listFindings.");
+    const pathParams = {
+      "{securityAssessmentId}": listFindingsRequest.securityAssessmentId
+    };
+
+    const queryParams = {
+      "severity": listFindingsRequest.severity,
+      "limit": listFindingsRequest.limit,
+      "page": listFindingsRequest.page,
+      "compartmentIdInSubtree": listFindingsRequest.compartmentIdInSubtree,
+      "accessLevel": listFindingsRequest.accessLevel,
+      "findingKey": listFindingsRequest.findingKey
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listFindingsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listFindingsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityAssessments/{securityAssessmentId}/findings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListFindingsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.FindingSummary,
+        type: "Array<model.FindingSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.FindingSummary objects
+   * contained in responses from the listFindings operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllFindings(
+    request: requests.ListFindingsRequest
+  ): AsyncIterableIterator<model.FindingSummary> {
+    return paginateRecords(request, req => this.listFindings(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listFindings operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllFindingsResponses(
+    request: requests.ListFindingsRequest
+  ): AsyncIterableIterator<responses.ListFindingsResponse> {
+    return paginateResponses(request, req => this.listFindings(req));
+  }
+
+  /**
+   * Gets a list of grants for a particular user in the specified user assessment. A user grant contains details such as the
+   * privilege name, type, category, and depth level. The depth level indicates how deep in the hierarchy of roles granted to
+   * roles a privilege grant is. The userKey in this operation is a system-generated identifier. Perform the operation ListUsers
+   * to get the userKey for a particular user.
+   *
+   * @param ListGrantsRequest
+   * @return ListGrantsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListGrants.ts.html |here} to see how to use ListGrants API.
+   */
+  public async listGrants(
+    listGrantsRequest: requests.ListGrantsRequest
+  ): Promise<responses.ListGrantsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listGrants.");
+    const pathParams = {
+      "{userAssessmentId}": listGrantsRequest.userAssessmentId,
+      "{userKey}": listGrantsRequest.userKey
+    };
+
+    const queryParams = {
+      "grantKey": listGrantsRequest.grantKey,
+      "grantName": listGrantsRequest.grantName,
+      "privilegeType": listGrantsRequest.privilegeType,
+      "privilegeCategory": listGrantsRequest.privilegeCategory,
+      "depthLevel": listGrantsRequest.depthLevel,
+      "depthLevelGreaterThanOrEqualTo": listGrantsRequest.depthLevelGreaterThanOrEqualTo,
+      "depthLevelLessThan": listGrantsRequest.depthLevelLessThan,
+      "limit": listGrantsRequest.limit,
+      "page": listGrantsRequest.page,
+      "sortOrder": listGrantsRequest.sortOrder,
+      "sortBy": listGrantsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listGrantsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listGrantsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/users/{userKey}/grants",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListGrantsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.GrantSummary,
+        type: "Array<model.GrantSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.GrantSummary objects
+   * contained in responses from the listGrants operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllGrants(
+    request: requests.ListGrantsRequest
+  ): AsyncIterableIterator<model.GrantSummary> {
+    return paginateRecords(request, req => this.listGrants(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listGrants operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllGrantsResponses(
+    request: requests.ListGrantsRequest
+  ): AsyncIterableIterator<responses.ListGrantsResponse> {
+    return paginateResponses(request, req => this.listGrants(req));
+  }
+
+  /**
    * Gets a list of on-premises connectors.
    *
    * @param ListOnPremConnectorsRequest
@@ -1621,6 +2958,132 @@ export class DataSafeClient {
     request: requests.ListOnPremConnectorsRequest
   ): AsyncIterableIterator<responses.ListOnPremConnectorsResponse> {
     return paginateResponses(request, req => this.listOnPremConnectors(req));
+  }
+
+  /**
+     * Gets a list of security assessments.
+* <p>
+The ListSecurityAssessments operation returns only the assessments in the specified `compartmentId`.
+* The list does not include any subcompartments of the compartmentId passed.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAssessments on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * @param ListSecurityAssessmentsRequest
+     * @return ListSecurityAssessmentsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityAssessments.ts.html |here} to see how to use ListSecurityAssessments API.
+     */
+  public async listSecurityAssessments(
+    listSecurityAssessmentsRequest: requests.ListSecurityAssessmentsRequest
+  ): Promise<responses.ListSecurityAssessmentsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSecurityAssessments.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSecurityAssessmentsRequest.compartmentId,
+      "compartmentIdInSubtree": listSecurityAssessmentsRequest.compartmentIdInSubtree,
+      "accessLevel": listSecurityAssessmentsRequest.accessLevel,
+      "displayName": listSecurityAssessmentsRequest.displayName,
+      "type": listSecurityAssessmentsRequest.type,
+      "scheduleAssessmentId": listSecurityAssessmentsRequest.scheduleAssessmentId,
+      "isScheduleAssessment": listSecurityAssessmentsRequest.isScheduleAssessment,
+      "triggeredBy": listSecurityAssessmentsRequest.triggeredBy,
+      "targetId": listSecurityAssessmentsRequest.targetId,
+      "sortOrder": listSecurityAssessmentsRequest.sortOrder,
+      "isBaseline": listSecurityAssessmentsRequest.isBaseline,
+      "sortBy": listSecurityAssessmentsRequest.sortBy,
+      "timeCreatedGreaterThanOrEqualTo":
+        listSecurityAssessmentsRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listSecurityAssessmentsRequest.timeCreatedLessThan,
+      "limit": listSecurityAssessmentsRequest.limit,
+      "page": listSecurityAssessmentsRequest.page,
+      "lifecycleState": listSecurityAssessmentsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSecurityAssessmentsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listSecurityAssessmentsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityAssessments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSecurityAssessmentsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.SecurityAssessmentSummary,
+        type: "Array<model.SecurityAssessmentSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SecurityAssessmentSummary objects
+   * contained in responses from the listSecurityAssessments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllSecurityAssessments(
+    request: requests.ListSecurityAssessmentsRequest
+  ): AsyncIterableIterator<model.SecurityAssessmentSummary> {
+    return paginateRecords(request, req => this.listSecurityAssessments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSecurityAssessments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllSecurityAssessmentsResponses(
+    request: requests.ListSecurityAssessmentsRequest
+  ): AsyncIterableIterator<responses.ListSecurityAssessmentsResponse> {
+    return paginateResponses(request, req => this.listSecurityAssessments(req));
   }
 
   /**
@@ -1727,6 +3190,375 @@ export class DataSafeClient {
     request: requests.ListTargetDatabasesRequest
   ): AsyncIterableIterator<responses.ListTargetDatabasesResponse> {
     return paginateResponses(request, req => this.listTargetDatabases(req));
+  }
+
+  /**
+     * Gets a list of aggregated user details from the specified user assessment. This provides information about the overall state
+* of database user security.  For example, the user details include how many users have the DBA role and how many users are in
+* the critical category. This data is especially useful content for dashboards or to support analytics.
+* <p>
+When you perform the ListUserAnalytics operation, if the parameter compartmentIdInSubtree is set to \"true,\" and if the
+* parameter accessLevel is set to ACCESSIBLE, then the operation returns compartments in which the requestor has INSPECT
+* permissions on at least one resource, directly or indirectly (in subcompartments). If the operation is performed at the
+* root compartment. If the requestor does not have access to at least one subcompartment of the compartment specified by
+* compartmentId, then \"Not Authorized\" is returned.
+* <p>
+The parameter compartmentIdInSubtree applies when you perform ListUserAnalytics on the compartmentId passed and when it is
+* set to true, the entire hierarchy of compartments can be returned.
+* <p>
+To use ListUserAnalytics to get a full list of all compartments and subcompartments in the tenancy from the root compartment,
+* set the parameter compartmentIdInSubtree to true and accessLevel to ACCESSIBLE.
+* 
+     * @param ListUserAnalyticsRequest
+     * @return ListUserAnalyticsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListUserAnalytics.ts.html |here} to see how to use ListUserAnalytics API.
+     */
+  public async listUserAnalytics(
+    listUserAnalyticsRequest: requests.ListUserAnalyticsRequest
+  ): Promise<responses.ListUserAnalyticsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listUserAnalytics.");
+    const pathParams = {
+      "{userAssessmentId}": listUserAnalyticsRequest.userAssessmentId
+    };
+
+    const queryParams = {
+      "compartmentIdInSubtree": listUserAnalyticsRequest.compartmentIdInSubtree,
+      "accessLevel": listUserAnalyticsRequest.accessLevel,
+      "limit": listUserAnalyticsRequest.limit,
+      "userCategory": listUserAnalyticsRequest.userCategory,
+      "userKey": listUserAnalyticsRequest.userKey,
+      "accountStatus": listUserAnalyticsRequest.accountStatus,
+      "authenticationType": listUserAnalyticsRequest.authenticationType,
+      "userName": listUserAnalyticsRequest.userName,
+      "targetId": listUserAnalyticsRequest.targetId,
+      "timeLastLoginGreaterThanOrEqualTo":
+        listUserAnalyticsRequest.timeLastLoginGreaterThanOrEqualTo,
+      "timeLastLoginLessThan": listUserAnalyticsRequest.timeLastLoginLessThan,
+      "timeUserCreatedGreaterThanOrEqualTo":
+        listUserAnalyticsRequest.timeUserCreatedGreaterThanOrEqualTo,
+      "timeUserCreatedLessThan": listUserAnalyticsRequest.timeUserCreatedLessThan,
+      "timePasswordLastChangedGreaterThanOrEqualTo":
+        listUserAnalyticsRequest.timePasswordLastChangedGreaterThanOrEqualTo,
+      "timePasswordLastChangedLessThan": listUserAnalyticsRequest.timePasswordLastChangedLessThan,
+      "page": listUserAnalyticsRequest.page,
+      "sortOrder": listUserAnalyticsRequest.sortOrder,
+      "sortBy": listUserAnalyticsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listUserAnalyticsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listUserAnalyticsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/userAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListUserAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.UserAggregation,
+        type: "Array<model.UserAggregation>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.UserAggregation objects
+   * contained in responses from the listUserAnalytics operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllUserAnalytics(
+    request: requests.ListUserAnalyticsRequest
+  ): AsyncIterableIterator<model.UserAggregation> {
+    return paginateRecords(request, req => this.listUserAnalytics(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listUserAnalytics operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllUserAnalyticsResponses(
+    request: requests.ListUserAnalyticsRequest
+  ): AsyncIterableIterator<responses.ListUserAnalyticsResponse> {
+    return paginateResponses(request, req => this.listUserAnalytics(req));
+  }
+
+  /**
+     * Gets a list of user assessments.
+* <p>
+The ListUserAssessments operation returns only the assessments in the specified `compartmentId`.
+* The list does not include any subcompartments of the compartmentId passed.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessments on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * @param ListUserAssessmentsRequest
+     * @return ListUserAssessmentsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListUserAssessments.ts.html |here} to see how to use ListUserAssessments API.
+     */
+  public async listUserAssessments(
+    listUserAssessmentsRequest: requests.ListUserAssessmentsRequest
+  ): Promise<responses.ListUserAssessmentsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listUserAssessments.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listUserAssessmentsRequest.compartmentId,
+      "compartmentIdInSubtree": listUserAssessmentsRequest.compartmentIdInSubtree,
+      "accessLevel": listUserAssessmentsRequest.accessLevel,
+      "displayName": listUserAssessmentsRequest.displayName,
+      "scheduleUserAssessmentId": listUserAssessmentsRequest.scheduleUserAssessmentId,
+      "isScheduleAssessment": listUserAssessmentsRequest.isScheduleAssessment,
+      "isBaseline": listUserAssessmentsRequest.isBaseline,
+      "targetId": listUserAssessmentsRequest.targetId,
+      "type": listUserAssessmentsRequest.type,
+      "triggeredBy": listUserAssessmentsRequest.triggeredBy,
+      "timeCreatedGreaterThanOrEqualTo": listUserAssessmentsRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listUserAssessmentsRequest.timeCreatedLessThan,
+      "limit": listUserAssessmentsRequest.limit,
+      "page": listUserAssessmentsRequest.page,
+      "lifecycleState": listUserAssessmentsRequest.lifecycleState,
+      "sortOrder": listUserAssessmentsRequest.sortOrder,
+      "sortBy": listUserAssessmentsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listUserAssessmentsRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listUserAssessmentsRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListUserAssessmentsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.UserAssessmentSummary,
+        type: "Array<model.UserAssessmentSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.UserAssessmentSummary objects
+   * contained in responses from the listUserAssessments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllUserAssessments(
+    request: requests.ListUserAssessmentsRequest
+  ): AsyncIterableIterator<model.UserAssessmentSummary> {
+    return paginateRecords(request, req => this.listUserAssessments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listUserAssessments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllUserAssessmentsResponses(
+    request: requests.ListUserAssessmentsRequest
+  ): AsyncIterableIterator<responses.ListUserAssessmentsResponse> {
+    return paginateResponses(request, req => this.listUserAssessments(req));
+  }
+
+  /**
+   * Gets a list of users of the specified user assessment. The result contains the database user details for each user, such
+   * as user type, account status, last login time, user creation time, authentication type, user profile, and the date and time
+   * of the latest password change. It also contains the user category derived from these user details as well as privileges
+   * granted to each user.
+   *
+   * @param ListUsersRequest
+   * @return ListUsersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListUsers.ts.html |here} to see how to use ListUsers API.
+   */
+  public async listUsers(
+    listUsersRequest: requests.ListUsersRequest
+  ): Promise<responses.ListUsersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listUsers.");
+    const pathParams = {
+      "{userAssessmentId}": listUsersRequest.userAssessmentId
+    };
+
+    const queryParams = {
+      "limit": listUsersRequest.limit,
+      "compartmentIdInSubtree": listUsersRequest.compartmentIdInSubtree,
+      "accessLevel": listUsersRequest.accessLevel,
+      "userCategory": listUsersRequest.userCategory,
+      "userKey": listUsersRequest.userKey,
+      "accountStatus": listUsersRequest.accountStatus,
+      "authenticationType": listUsersRequest.authenticationType,
+      "userName": listUsersRequest.userName,
+      "targetId": listUsersRequest.targetId,
+      "timeLastLoginGreaterThanOrEqualTo": listUsersRequest.timeLastLoginGreaterThanOrEqualTo,
+      "timeLastLoginLessThan": listUsersRequest.timeLastLoginLessThan,
+      "timeUserCreatedGreaterThanOrEqualTo": listUsersRequest.timeUserCreatedGreaterThanOrEqualTo,
+      "timeUserCreatedLessThan": listUsersRequest.timeUserCreatedLessThan,
+      "timePasswordLastChangedGreaterThanOrEqualTo":
+        listUsersRequest.timePasswordLastChangedGreaterThanOrEqualTo,
+      "timePasswordLastChangedLessThan": listUsersRequest.timePasswordLastChangedLessThan,
+      "page": listUsersRequest.page,
+      "sortOrder": listUsersRequest.sortOrder,
+      "sortBy": listUsersRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listUsersRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listUsersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/users",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListUsersResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.UserSummary,
+        type: "Array<model.UserSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.UserSummary objects
+   * contained in responses from the listUsers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllUsers(
+    request: requests.ListUsersRequest
+  ): AsyncIterableIterator<model.UserSummary> {
+    return paginateRecords(request, req => this.listUsers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listUsers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllUsersResponses(
+    request: requests.ListUsersRequest
+  ): AsyncIterableIterator<responses.ListUsersResponse> {
+    return paginateResponses(request, req => this.listUsers(req));
   }
 
   /**
@@ -2010,6 +3842,412 @@ export class DataSafeClient {
   }
 
   /**
+   * Runs a security assessment, refreshes the latest assessment, and saves it for future reference.
+   * The assessment runs with a securityAssessmentId of type LATEST. Before you start, first call the ListSecurityAssessments operation with filter \"type = latest\" to get the security assessment id for the target's latest assessment.
+   *
+   * @param RefreshSecurityAssessmentRequest
+   * @return RefreshSecurityAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshSecurityAssessment.ts.html |here} to see how to use RefreshSecurityAssessment API.
+   */
+  public async refreshSecurityAssessment(
+    refreshSecurityAssessmentRequest: requests.RefreshSecurityAssessmentRequest
+  ): Promise<responses.RefreshSecurityAssessmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#refreshSecurityAssessment.");
+    const pathParams = {
+      "{securityAssessmentId}": refreshSecurityAssessmentRequest.securityAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": refreshSecurityAssessmentRequest.opcRetryToken,
+      "opc-request-id": refreshSecurityAssessmentRequest.opcRequestId,
+      "if-match": refreshSecurityAssessmentRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      refreshSecurityAssessmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityAssessments/{securityAssessmentId}/actions/refresh",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        refreshSecurityAssessmentRequest.runSecurityAssessmentDetails,
+        "RunSecurityAssessmentDetails",
+        model.RunSecurityAssessmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RefreshSecurityAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Refreshes the latest assessment and saves it for future reference. This operation runs with a userAssessmentId of type LATEST.
+   * Before you start, first call the ListUserAssessments operation with filter \"type = latest\" to get the user assessment ID for
+   * the target's latest assessment.
+   *
+   * @param RefreshUserAssessmentRequest
+   * @return RefreshUserAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshUserAssessment.ts.html |here} to see how to use RefreshUserAssessment API.
+   */
+  public async refreshUserAssessment(
+    refreshUserAssessmentRequest: requests.RefreshUserAssessmentRequest
+  ): Promise<responses.RefreshUserAssessmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#refreshUserAssessment.");
+    const pathParams = {
+      "{userAssessmentId}": refreshUserAssessmentRequest.userAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": refreshUserAssessmentRequest.opcRetryToken,
+      "opc-request-id": refreshUserAssessmentRequest.opcRequestId,
+      "if-match": refreshUserAssessmentRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      refreshUserAssessmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/actions/refresh",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        refreshUserAssessmentRequest.runUserAssessmentDetails,
+        "RunUserAssessmentDetails",
+        model.RunUserAssessmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RefreshUserAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Sets the saved security assessment as the baseline in the compartment where the the specified assessment resides. The security assessment needs to be of type 'SAVED'.
+   * @param SetSecurityAssessmentBaselineRequest
+   * @return SetSecurityAssessmentBaselineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/SetSecurityAssessmentBaseline.ts.html |here} to see how to use SetSecurityAssessmentBaseline API.
+   */
+  public async setSecurityAssessmentBaseline(
+    setSecurityAssessmentBaselineRequest: requests.SetSecurityAssessmentBaselineRequest
+  ): Promise<responses.SetSecurityAssessmentBaselineResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#setSecurityAssessmentBaseline.");
+    const pathParams = {
+      "{securityAssessmentId}": setSecurityAssessmentBaselineRequest.securityAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": setSecurityAssessmentBaselineRequest.ifMatch,
+      "opc-retry-token": setSecurityAssessmentBaselineRequest.opcRetryToken,
+      "opc-request-id": setSecurityAssessmentBaselineRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      setSecurityAssessmentBaselineRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityAssessments/{securityAssessmentId}/actions/setBaseline",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        setSecurityAssessmentBaselineRequest.baseLineDetails,
+        "SecurityAssessmentBaseLineDetails",
+        model.SecurityAssessmentBaseLineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SetSecurityAssessmentBaselineResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Sets the saved user assessment as the baseline in the compartment where the specified assessment resides. The user assessment needs to be of type 'SAVED'.
+   * @param SetUserAssessmentBaselineRequest
+   * @return SetUserAssessmentBaselineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/SetUserAssessmentBaseline.ts.html |here} to see how to use SetUserAssessmentBaseline API.
+   */
+  public async setUserAssessmentBaseline(
+    setUserAssessmentBaselineRequest: requests.SetUserAssessmentBaselineRequest
+  ): Promise<responses.SetUserAssessmentBaselineResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#setUserAssessmentBaseline.");
+    const pathParams = {
+      "{userAssessmentId}": setUserAssessmentBaselineRequest.userAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": setUserAssessmentBaselineRequest.ifMatch,
+      "opc-retry-token": setUserAssessmentBaselineRequest.opcRetryToken,
+      "opc-request-id": setUserAssessmentBaselineRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      setUserAssessmentBaselineRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/actions/setBaseline",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        setUserAssessmentBaselineRequest.baseLineDetails,
+        "UserAssessmentBaseLineDetails",
+        model.UserAssessmentBaseLineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SetUserAssessmentBaselineResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes the baseline setting for the saved security assessment. The saved security assessment is no longer considered a baseline.
+   * Sets the if-match parameter to the value of the etag from a previous GET or POST response for that resource.
+   *
+   * @param UnsetSecurityAssessmentBaselineRequest
+   * @return UnsetSecurityAssessmentBaselineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UnsetSecurityAssessmentBaseline.ts.html |here} to see how to use UnsetSecurityAssessmentBaseline API.
+   */
+  public async unsetSecurityAssessmentBaseline(
+    unsetSecurityAssessmentBaselineRequest: requests.UnsetSecurityAssessmentBaselineRequest
+  ): Promise<responses.UnsetSecurityAssessmentBaselineResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#unsetSecurityAssessmentBaseline.");
+    const pathParams = {
+      "{securityAssessmentId}": unsetSecurityAssessmentBaselineRequest.securityAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": unsetSecurityAssessmentBaselineRequest.ifMatch,
+      "opc-retry-token": unsetSecurityAssessmentBaselineRequest.opcRetryToken,
+      "opc-request-id": unsetSecurityAssessmentBaselineRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      unsetSecurityAssessmentBaselineRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityAssessments/{securityAssessmentId}/actions/unsetBaseline",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UnsetSecurityAssessmentBaselineResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes the baseline setting for the saved user assessment. The saved user assessment is no longer considered a baseline.
+   * Sets the if-match parameter to the value of the etag from a previous GET or POST response for that resource.
+   *
+   * @param UnsetUserAssessmentBaselineRequest
+   * @return UnsetUserAssessmentBaselineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UnsetUserAssessmentBaseline.ts.html |here} to see how to use UnsetUserAssessmentBaseline API.
+   */
+  public async unsetUserAssessmentBaseline(
+    unsetUserAssessmentBaselineRequest: requests.UnsetUserAssessmentBaselineRequest
+  ): Promise<responses.UnsetUserAssessmentBaselineResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#unsetUserAssessmentBaseline.");
+    const pathParams = {
+      "{userAssessmentId}": unsetUserAssessmentBaselineRequest.userAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": unsetUserAssessmentBaselineRequest.ifMatch,
+      "opc-retry-token": unsetUserAssessmentBaselineRequest.opcRetryToken,
+      "opc-request-id": unsetUserAssessmentBaselineRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      unsetUserAssessmentBaselineRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/actions/unsetBaseline",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UnsetUserAssessmentBaselineResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates one or more attributes of the specified Data Safe private endpoint.
    * @param UpdateDataSafePrivateEndpointRequest
    * @return UpdateDataSafePrivateEndpointResponse
@@ -2212,6 +4450,74 @@ export class DataSafeClient {
   }
 
   /**
+   * Updates one or more attributes of the specified security assessment. This operation allows to update the security assessment displayName, description, or schedule.
+   *
+   * @param UpdateSecurityAssessmentRequest
+   * @return UpdateSecurityAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSecurityAssessment.ts.html |here} to see how to use UpdateSecurityAssessment API.
+   */
+  public async updateSecurityAssessment(
+    updateSecurityAssessmentRequest: requests.UpdateSecurityAssessmentRequest
+  ): Promise<responses.UpdateSecurityAssessmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateSecurityAssessment.");
+    const pathParams = {
+      "{securityAssessmentId}": updateSecurityAssessmentRequest.securityAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateSecurityAssessmentRequest.opcRequestId,
+      "if-match": updateSecurityAssessmentRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateSecurityAssessmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityAssessments/{securityAssessmentId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSecurityAssessmentRequest.updateSecurityAssessmentDetails,
+        "UpdateSecurityAssessmentDetails",
+        model.UpdateSecurityAssessmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSecurityAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates one or more attributes of the specified Data Safe target database.
    * @param UpdateTargetDatabaseRequest
    * @return UpdateTargetDatabaseResponse
@@ -2258,6 +4564,73 @@ export class DataSafeClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTargetDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified user assessment. This operation allows to update the user assessment displayName, description, or schedule.
+   *
+   * @param UpdateUserAssessmentRequest
+   * @return UpdateUserAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateUserAssessment.ts.html |here} to see how to use UpdateUserAssessment API.
+   */
+  public async updateUserAssessment(
+    updateUserAssessmentRequest: requests.UpdateUserAssessmentRequest
+  ): Promise<responses.UpdateUserAssessmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateUserAssessment.");
+    const pathParams = {
+      "{userAssessmentId}": updateUserAssessmentRequest.userAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateUserAssessmentRequest.opcRequestId,
+      "if-match": updateUserAssessmentRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updateUserAssessmentRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateUserAssessmentRequest.updateUserAssessmentDetails,
+        "UpdateUserAssessmentDetails",
+        model.UpdateUserAssessmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateUserAssessmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * Optional details for updating a network database link from OCI database to on-premise database.
  *
  */

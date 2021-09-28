@@ -227,6 +227,10 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "customerContacts"?: Array<model.CustomerContact>;
   /**
+   * Indicates whether the Autonomous Database requires mTLS connections.
+   */
+  "isMtlsConnectionRequired"?: boolean;
+  /**
    * The maintenance schedule type of the Autonomous Database on shared Exadata infrastructure. The EARLY maintenance schedule of this Autonomous Database
    * follows a schedule that applies patches prior to the REGULAR schedule.The REGULAR maintenance schedule of this Autonomous Database follows the normal cycle.
    *

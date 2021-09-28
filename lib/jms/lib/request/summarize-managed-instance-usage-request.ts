@@ -58,11 +58,11 @@ export interface SummarizeManagedInstanceUsageRequest extends common.BaseRequest
    */
   "fields"?: Array<model.SummarizeManagedInstanceUsageFields>;
   /**
-   * The start of the time period during which resources are searched (formatted according to RFC3339).
+   * The start of the time period during which resources are searched (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    */
   "timeStart"?: Date;
   /**
-   * The end of the time period during which resources are searched (formatted according to RFC3339).
+   * The end of the time period during which resources are searched (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    */
   "timeEnd"?: Date;
   /**
@@ -81,6 +81,7 @@ export interface SummarizeManagedInstanceUsageRequest extends common.BaseRequest
    * The field to sort managed instance views. Only one sort order may be provided.
    * Default order for _timeFirstSeen_, _timeLastSeen_, approximateJreCount_, _approximateInstallationCount_
    * and _approximateApplicationCount_  is **descending**.
+   * Default order for _osName_ is **ascending**.
    * If no value is specified _timeLastSeen_ is default.
    *
    */
@@ -89,4 +90,8 @@ export interface SummarizeManagedInstanceUsageRequest extends common.BaseRequest
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * The operating system type.
+   */
+  "osFamily"?: Array<model.OsFamily>;
 }

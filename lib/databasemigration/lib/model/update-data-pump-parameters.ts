@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * Optional parameters for Data Pump Export and Import. Refer to [Configuring Optional Initial Load Advanced Settings](https://docs-uat.us.oracle.com/en/cloud/paas/database-migration/dmsus/working-migration-resources.html#GUID-24BD3054-FDF8-48FF-8492-636C1D4B71ED)
  * If an empty object is specified, the stored Data Pump Parameter details will be removed.
  *

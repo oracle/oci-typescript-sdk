@@ -81,6 +81,42 @@ export class DataSafeWaiter {
   }
 
   /**
+   * Waits forSecurityAssessment till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSecurityAssessmentResponse
+   */
+  public async forSecurityAssessment(
+    request: serviceRequests.GetSecurityAssessmentRequest,
+    ...targetStates: models.SecurityAssessmentLifecycleState[]
+  ): Promise<serviceResponses.GetSecurityAssessmentResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getSecurityAssessment(request),
+      response => targetStates.includes(response.securityAssessment.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forSecurityAssessmentComparison till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSecurityAssessmentComparisonResponse
+   */
+  public async forSecurityAssessmentComparison(
+    request: serviceRequests.GetSecurityAssessmentComparisonRequest,
+    ...targetStates: models.SecurityAssessmentComparison.LifecycleState[]
+  ): Promise<serviceResponses.GetSecurityAssessmentComparisonResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getSecurityAssessmentComparison(request),
+      response => targetStates.includes(response.securityAssessmentComparison.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forTargetDatabase till it reaches any of the provided states
    *
    * @param request the request to send
@@ -96,6 +132,42 @@ export class DataSafeWaiter {
       () => this.client.getTargetDatabase(request),
       response => targetStates.includes(response.targetDatabase.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forUserAssessment till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetUserAssessmentResponse
+   */
+  public async forUserAssessment(
+    request: serviceRequests.GetUserAssessmentRequest,
+    ...targetStates: models.UserAssessmentLifecycleState[]
+  ): Promise<serviceResponses.GetUserAssessmentResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getUserAssessment(request),
+      response => targetStates.includes(response.userAssessment.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forUserAssessmentComparison till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetUserAssessmentComparisonResponse
+   */
+  public async forUserAssessmentComparison(
+    request: serviceRequests.GetUserAssessmentComparisonRequest,
+    ...targetStates: models.UserAssessmentComparison.LifecycleState[]
+  ): Promise<serviceResponses.GetUserAssessmentComparisonResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getUserAssessmentComparison(request),
+      response => targetStates.includes(response.userAssessmentComparison.lifecycleState!)
     );
   }
 

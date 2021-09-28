@@ -4,12 +4,33 @@
  */
 
 import { expect } from "chai";
+import { existsSync, readFileSync } from "fs";
 import { Realm } from "../lib/realm";
+import { Region } from "../lib/region";
+import { RegionMetadataSchema } from "../lib/region-metadata-schema";
 
 describe("Test Realm ", () => {
   const realmId = "ocx";
   const secondLevelDomain = "ocx-cloud.com";
   const existingRealmID = "oc1";
+
+  it("all realms from regions.json should be registered", function() {
+    const filePath = __dirname + "/resources/regions.json";
+    expect(existsSync(filePath)).to.be.true;
+    try {
+      const fileContent = readFileSync(filePath, "utf8");
+      const regionMetadata = JSON.parse(fileContent) as RegionMetadataSchema[];
+      expect(regionMetadata && regionMetadata.length > 0 && Array.isArray(regionMetadata)).to.be
+        .true;
+      const regionsList = Region.values();
+      regionMetadata.map(metadata => {
+        expect(RegionMetadataSchema.isValidSchema(metadata)).to.be.true;
+        expect(regionsList.map(e => e.realm.realmId)).to.include(metadata.realmKey);
+      });
+    } catch (error) {
+      throw error;
+    }
+  });
 
   it("should register a Realm sucessfully ", function() {
     const realm = Realm.register(realmId, secondLevelDomain);

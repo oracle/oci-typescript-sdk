@@ -62,11 +62,11 @@ export interface SummarizeApplicationUsageRequest extends common.BaseRequest {
    */
   "fields"?: Array<model.SummarizeApplicationUsageFields>;
   /**
-   * The start of the time period during which resources are searched (formatted according to RFC3339).
+   * The start of the time period during which resources are searched (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    */
   "timeStart"?: Date;
   /**
-   * The end of the time period during which resources are searched (formatted according to RFC3339).
+   * The end of the time period during which resources are searched (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    */
   "timeEnd"?: Date;
   /**
@@ -85,7 +85,7 @@ export interface SummarizeApplicationUsageRequest extends common.BaseRequest {
    * The field to sort application views. Only one sort order may be provided.
    * Default order for _timeFirstSeen_, _timeLastSeen_, _approximateJreCount_, _approximateInstallationCount_
    * and _approximateManagedInstanceCount_  is **descending**.
-   * Default order for _displayName_ is **ascending**.
+   * Default order for _displayName_ and _osName_ is **ascending**.
    * If no value is specified _timeLastSeen_ is default.
    *
    */
@@ -94,4 +94,8 @@ export interface SummarizeApplicationUsageRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * The operating system type.
+   */
+  "osFamily"?: Array<model.OsFamily>;
 }

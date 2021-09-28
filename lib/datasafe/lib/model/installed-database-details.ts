@@ -23,7 +23,7 @@ export interface InstalledDatabaseDetails extends model.DatabaseDetails {
    */
   "instanceId"?: string;
   /**
-   * A List of either the IP Addresses or FQDN names of the database hosts.
+   * The list of database host IP Addresses. Fully qualified domain names can be used if connectionType is 'ONPREM_CONNECTOR'.
    *
    */
   "ipAddresses"?: Array<string>;

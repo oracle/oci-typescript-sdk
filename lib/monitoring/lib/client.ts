@@ -203,8 +203,8 @@ For information about moving resources between compartments, see [Moving Resourc
      * Creates a new alarm in the specified compartment.
 * For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
 * <p>
-This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations. 
-* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests, 
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
      * @param CreateAlarmRequest
@@ -277,8 +277,8 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * Deletes the specified alarm.
 * For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
 * <p>
-This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations. 
-* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests, 
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
      * @param DeleteAlarmRequest
@@ -339,8 +339,8 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * Gets the specified alarm.
 * For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
 * <p>
-This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations. 
-* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests, 
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
      * @param GetAlarmRequest
@@ -409,8 +409,8 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * Get the history of the specified alarm.
 * For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
 * <p>
-This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations. 
-* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests, 
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
      * @param GetAlarmHistoryRequest
@@ -485,8 +485,8 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * Lists the alarms for the specified compartment.
 * For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
 * <p>
-This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations. 
-* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests, 
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
      * @param ListAlarmsRequest
@@ -587,8 +587,8 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * List the status of each alarm in the specified compartment.
 * For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
 * <p>
-This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations. 
-* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests, 
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
      * @param ListAlarmsStatusRequest
@@ -789,18 +789,18 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
 * For more information about publishing metrics, see [Publishing Custom Metrics](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/publishingcustommetrics.htm).
 * For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
 * <p>
-Per-call limits information follows. 
+Per-call limits information follows.
 * <p>
 * Dimensions per metric group*. Maximum: 20. Minimum: 1.
 * * Unique metric streams*. Maximum: 50.
 * * Transactions Per Second (TPS) per-tenancy limit for this operation: 50.
 * <p>
-*A metric group is the combination of a given metric, metric namespace, and tenancy for the purpose of determining limits. 
-* A dimension is a qualifier provided in a metric definition. 
-* A metric stream is an individual set of aggregated data for a metric, typically specific to a resource. 
+*A metric group is the combination of a given metric, metric namespace, and tenancy for the purpose of determining limits.
+* A dimension is a qualifier provided in a metric definition.
+* A metric stream is an individual set of aggregated data for a metric, typically specific to a resource.
 * For more information about metric-related concepts, see [Monitoring Concepts](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#concepts).
 * <p>
-The endpoints for this operation differ from other Monitoring operations. Replace the string `telemetry` with `telemetry-ingestion` in the endpoint, as in the following example: 
+The endpoints for this operation differ from other Monitoring operations. Replace the string `telemetry` with `telemetry-ingestion` in the endpoint, as in the following example:
 * <p>
 https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
 * 
@@ -868,8 +868,8 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
      * Removes any existing suppression for the specified alarm.
 * For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
 * <p>
-This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations. 
-* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests, 
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
      * @param RemoveAlarmSuppressionRequest
@@ -1001,8 +1001,8 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
      * Updates the specified alarm.
 * For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
 * <p>
-This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations. 
-* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests, 
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
      * @param UpdateAlarmRequest

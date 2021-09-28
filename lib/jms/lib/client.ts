@@ -1,6 +1,6 @@
 /**
- * Java Management Service Query API
- * API for the Java Management Service. Use this API to view and manage Fleets.
+ * Java Management Service API
+ * API for the Java Management Service. Use this API to view, create, and manage Fleets.
  * OpenAPI spec version: 20210610
  *
  *
@@ -804,304 +804,6 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * List application usage in a specified Fleet filtered by form parameters.
-   * @param RequestSummarizedApplicationUsageRequest
-   * @return RequestSummarizedApplicationUsageResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestSummarizedApplicationUsage.ts.html |here} to see how to use RequestSummarizedApplicationUsage API.
-   */
-  public async requestSummarizedApplicationUsage(
-    requestSummarizedApplicationUsageRequest: requests.RequestSummarizedApplicationUsageRequest
-  ): Promise<responses.RequestSummarizedApplicationUsageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation JavaManagementServiceClient#requestSummarizedApplicationUsage."
-      );
-    const pathParams = {
-      "{fleetId}": requestSummarizedApplicationUsageRequest.fleetId
-    };
-
-    const queryParams = {
-      "limit": requestSummarizedApplicationUsageRequest.limit,
-      "page": requestSummarizedApplicationUsageRequest.page
-    };
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": requestSummarizedApplicationUsageRequest.opcRequestId
-    };
-
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedApplicationUsageRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/fleets/{fleetId}/actions/summarizeApplicationUsage",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        requestSummarizedApplicationUsageRequest.requestSummarizedApplicationUsageDetails,
-        "RequestSummarizedApplicationUsageDetails",
-        model.RequestSummarizedApplicationUsageDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.RequestSummarizedApplicationUsageResponse>{},
-        body: await response.json(),
-        bodyKey: "applicationUsageCollection",
-        bodyModel: model.ApplicationUsageCollection,
-        type: "model.ApplicationUsageCollection",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-next-page"),
-            key: "opcNextPage",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * List Java installation usage in a specified Fleet filtered by form parameters.
-   * @param RequestSummarizedInstallationUsageRequest
-   * @return RequestSummarizedInstallationUsageResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestSummarizedInstallationUsage.ts.html |here} to see how to use RequestSummarizedInstallationUsage API.
-   */
-  public async requestSummarizedInstallationUsage(
-    requestSummarizedInstallationUsageRequest: requests.RequestSummarizedInstallationUsageRequest
-  ): Promise<responses.RequestSummarizedInstallationUsageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation JavaManagementServiceClient#requestSummarizedInstallationUsage."
-      );
-    const pathParams = {
-      "{fleetId}": requestSummarizedInstallationUsageRequest.fleetId
-    };
-
-    const queryParams = {
-      "limit": requestSummarizedInstallationUsageRequest.limit,
-      "page": requestSummarizedInstallationUsageRequest.page
-    };
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": requestSummarizedInstallationUsageRequest.opcRequestId
-    };
-
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedInstallationUsageRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/fleets/{fleetId}/actions/summarizeInstallationUsage",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        requestSummarizedInstallationUsageRequest.requestSummarizedInstallationUsageDetails,
-        "RequestSummarizedInstallationUsageDetails",
-        model.RequestSummarizedInstallationUsageDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.RequestSummarizedInstallationUsageResponse>{},
-        body: await response.json(),
-        bodyKey: "installationUsageCollection",
-        bodyModel: model.InstallationUsageCollection,
-        type: "model.InstallationUsageCollection",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-next-page"),
-            key: "opcNextPage",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * List Java Runtime usage in a specified Fleet filtered by form parameters.
-   * @param RequestSummarizedJreUsageRequest
-   * @return RequestSummarizedJreUsageResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestSummarizedJreUsage.ts.html |here} to see how to use RequestSummarizedJreUsage API.
-   */
-  public async requestSummarizedJreUsage(
-    requestSummarizedJreUsageRequest: requests.RequestSummarizedJreUsageRequest
-  ): Promise<responses.RequestSummarizedJreUsageResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaManagementServiceClient#requestSummarizedJreUsage.");
-    const pathParams = {
-      "{fleetId}": requestSummarizedJreUsageRequest.fleetId
-    };
-
-    const queryParams = {
-      "limit": requestSummarizedJreUsageRequest.limit,
-      "page": requestSummarizedJreUsageRequest.page
-    };
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": requestSummarizedJreUsageRequest.opcRequestId
-    };
-
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedJreUsageRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/fleets/{fleetId}/actions/summarizeJreUsage",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        requestSummarizedJreUsageRequest.requestSummarizedJreUsageDetails,
-        "RequestSummarizedJreUsageDetails",
-        model.RequestSummarizedJreUsageDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.RequestSummarizedJreUsageResponse>{},
-        body: await response.json(),
-        bodyKey: "jreUsageCollection",
-        bodyModel: model.JreUsageCollection,
-        type: "model.JreUsageCollection",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-next-page"),
-            key: "opcNextPage",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * List managed instance usage in a specified Fleet filtered by form parameters.
-   * @param RequestSummarizedManagedInstanceUsageRequest
-   * @return RequestSummarizedManagedInstanceUsageResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestSummarizedManagedInstanceUsage.ts.html |here} to see how to use RequestSummarizedManagedInstanceUsage API.
-   */
-  public async requestSummarizedManagedInstanceUsage(
-    requestSummarizedManagedInstanceUsageRequest: requests.RequestSummarizedManagedInstanceUsageRequest
-  ): Promise<responses.RequestSummarizedManagedInstanceUsageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation JavaManagementServiceClient#requestSummarizedManagedInstanceUsage."
-      );
-    const pathParams = {
-      "{fleetId}": requestSummarizedManagedInstanceUsageRequest.fleetId
-    };
-
-    const queryParams = {
-      "limit": requestSummarizedManagedInstanceUsageRequest.limit,
-      "page": requestSummarizedManagedInstanceUsageRequest.page
-    };
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": requestSummarizedManagedInstanceUsageRequest.opcRequestId
-    };
-
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedManagedInstanceUsageRequest.retryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/fleets/{fleetId}/actions/summarizeManagedInstanceUsage",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        requestSummarizedManagedInstanceUsageRequest.requestSummarizedManagedInstanceUsageDetails,
-        "RequestSummarizedManagedInstanceUsageDetails",
-        model.RequestSummarizedManagedInstanceUsageDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.RequestSummarizedManagedInstanceUsageResponse>{},
-        body: await response.json(),
-        bodyKey: "managedInstanceUsageCollection",
-        bodyModel: model.ManagedInstanceUsageCollection,
-        type: "model.ManagedInstanceUsageCollection",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-next-page"),
-            key: "opcNextPage",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
    * List application usage in a Fleet filtered by query parameters.
    * @param SummarizeApplicationUsageRequest
    * @return SummarizeApplicationUsageResponse
@@ -1132,7 +834,8 @@ export class JavaManagementServiceClient {
       "limit": summarizeApplicationUsageRequest.limit,
       "page": summarizeApplicationUsageRequest.page,
       "sortOrder": summarizeApplicationUsageRequest.sortOrder,
-      "sortBy": summarizeApplicationUsageRequest.sortBy
+      "sortBy": summarizeApplicationUsageRequest.sortBy,
+      "osFamily": summarizeApplicationUsageRequest.osFamily
     };
 
     let headerParams = {
@@ -1213,7 +916,8 @@ export class JavaManagementServiceClient {
       "limit": summarizeInstallationUsageRequest.limit,
       "page": summarizeInstallationUsageRequest.page,
       "sortOrder": summarizeInstallationUsageRequest.sortOrder,
-      "sortBy": summarizeInstallationUsageRequest.sortBy
+      "sortBy": summarizeInstallationUsageRequest.sortBy,
+      "osFamily": summarizeInstallationUsageRequest.osFamily
     };
 
     let headerParams = {
@@ -1291,7 +995,8 @@ export class JavaManagementServiceClient {
       "limit": summarizeJreUsageRequest.limit,
       "page": summarizeJreUsageRequest.page,
       "sortOrder": summarizeJreUsageRequest.sortOrder,
-      "sortBy": summarizeJreUsageRequest.sortBy
+      "sortBy": summarizeJreUsageRequest.sortBy,
+      "osFamily": summarizeJreUsageRequest.osFamily
     };
 
     let headerParams = {
@@ -1373,7 +1078,8 @@ export class JavaManagementServiceClient {
       "limit": summarizeManagedInstanceUsageRequest.limit,
       "page": summarizeManagedInstanceUsageRequest.page,
       "sortOrder": summarizeManagedInstanceUsageRequest.sortOrder,
-      "sortBy": summarizeManagedInstanceUsageRequest.sortBy
+      "sortBy": summarizeManagedInstanceUsageRequest.sortBy,
+      "osFamily": summarizeManagedInstanceUsageRequest.osFamily
     };
 
     let headerParams = {

@@ -192,6 +192,8 @@ import * as DatabaseConnectionCredentials from "./database-connection-credential
 export import DatabaseConnectionCredentials = DatabaseConnectionCredentials.DatabaseConnectionCredentials;
 import * as DatabaseConnectionString from "./database-connection-string";
 export import DatabaseConnectionString = DatabaseConnectionString.DatabaseConnectionString;
+import * as DatabaseConnectionStringProfile from "./database-connection-string-profile";
+export import DatabaseConnectionStringProfile = DatabaseConnectionStringProfile.DatabaseConnectionStringProfile;
 import * as DatabaseConnectionStrings from "./database-connection-strings";
 export import DatabaseConnectionStrings = DatabaseConnectionStrings.DatabaseConnectionStrings;
 import * as DatabaseCredentialDetails from "./database-credential-details";

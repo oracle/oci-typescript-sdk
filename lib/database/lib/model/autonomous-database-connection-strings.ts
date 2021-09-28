@@ -42,16 +42,39 @@ export interface AutonomousDatabaseConnectionStrings {
    *
    */
   "allConnectionStrings"?: { [key: string]: string };
+  /**
+   * A list of connection string profiles to allow clients to group, filter and select connection string values based on structured metadata.
+   *
+   */
+  "profiles"?: Array<model.DatabaseConnectionStringProfile>;
 }
 
 export namespace AutonomousDatabaseConnectionStrings {
   export function getJsonObj(obj: AutonomousDatabaseConnectionStrings): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "profiles": obj.profiles
+          ? obj.profiles.map(item => {
+              return model.DatabaseConnectionStringProfile.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: AutonomousDatabaseConnectionStrings): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "profiles": obj.profiles
+          ? obj.profiles.map(item => {
+              return model.DatabaseConnectionStringProfile.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

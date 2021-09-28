@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * Results of a Database Connection search. Contains DatabaseConnectionSummary items.
  *
  */
