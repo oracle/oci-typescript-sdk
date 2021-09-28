@@ -35,4 +35,11 @@ export interface GetApiContentRequest extends common.BaseRequest {
    *
    */
   "ifMatch"?: string;
+  /**
+   * The Range HTTP request header indicates the part of a document that the
+   * server should return. [RFC 7233](https://tools.ietf.org/html/rfc7233#section-3.1).
+   * Note that only a single range of bytes is supported.
+   *
+   */
+  "range"?: common.Range;
 }

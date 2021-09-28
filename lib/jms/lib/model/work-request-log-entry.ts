@@ -1,6 +1,6 @@
 /**
- * Java Management Service Query API
- * API for the Java Management Service. Use this API to view and manage Fleets.
+ * Java Management Service API
+ * API for the Java Management Service. Use this API to view, create, and manage Fleets.
  * OpenAPI spec version: 20210610
  *
  *
@@ -23,7 +23,7 @@ export interface WorkRequestLogEntry {
    */
   "message": string;
   /**
-   * The date and time the log message was written (formatted according to RFC3339).
+   * The date and time the log message was written (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    */
   "timestamp": Date;
 }

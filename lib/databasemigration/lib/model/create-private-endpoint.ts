@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * OCI Private Endpoint configuration details.
  * Not required for source container database connections, it will default to the specified Source Database Connection Private Endpoint.
  *

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateAutonomousContainerDatabaseRequest extends common.BaseRequest {
   /**
-   * Request to create an Autonomous Container Database in a specified Autonomous Exadata Infrastructure.
+   * Request to create an Autonomous Container Database in a specified Autonomous Exadata Infrastructure or in Autonomous VM Cluster.
    */
   "createAutonomousContainerDatabaseDetails": model.CreateAutonomousContainerDatabaseDetails;
   /**

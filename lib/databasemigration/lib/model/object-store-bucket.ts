@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * In lieu of a network database link, OCI Object Storage bucket will be used to store Data Pump dump files for the migration.
  *
  */

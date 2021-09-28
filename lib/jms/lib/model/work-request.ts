@@ -1,6 +1,6 @@
 /**
- * Java Management Service Query API
- * API for the Java Management Service. Use this API to view and manage Fleets.
+ * Java Management Service API
+ * API for the Java Management Service. Use this API to view, create, and manage Fleets.
  * OpenAPI spec version: 20210610
  *
  *
@@ -47,17 +47,17 @@ export interface WorkRequest {
    */
   "percentComplete": number;
   /**
-   * The date and time the request was created (formatted according to RFC3339).
+   * The date and time the request was created (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    *
    */
   "timeAccepted": Date;
   /**
-   * The date and time the work request transitioned from _ACCEPTED_ to _IN_PROGRESS_ (formatted according to RFC3339).
+   * The date and time the work request transitioned from _ACCEPTED_ to _IN_PROGRESS_ (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    *
    */
   "timeStarted"?: Date;
   /**
-   * The date and time the work request reached a terminal state, either _FAILED_ or _SUCCEEDED_ (formatted according to RFC3339).
+   * The date and time the work request reached a terminal state, either _FAILED_ or _SUCCEEDED_ (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    *
    */
   "timeFinished"?: Date;

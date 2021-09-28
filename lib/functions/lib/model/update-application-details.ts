@@ -31,6 +31,11 @@ The maximum size for all configuration keys and values is limited to 4KB. This i
     */
   "config"?: { [key: string]: string };
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)s of the Network Security Groups to add the application to.
+   *
+   */
+  "networkSecurityGroupIds"?: Array<string>;
+  /**
     * A syslog URL to which to send all function logs. Supports tcp, udp, and tcp+tls.
 * The syslog URL must be reachable from all of the subnets configured for the application.
 * Note: If you enable the OCI Logging service for this application, the syslogUrl value is ignored. Function logs are sent to the OCI Logging service, and not to the syslog URL.
@@ -55,6 +60,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "imagePolicyConfig"?: model.ImagePolicyConfig;
 }
 
 export namespace UpdateApplicationDetails {
@@ -64,6 +70,10 @@ export namespace UpdateApplicationDetails {
       ...{
         "traceConfig": obj.traceConfig
           ? model.ApplicationTraceConfig.getJsonObj(obj.traceConfig)
+          : undefined,
+
+        "imagePolicyConfig": obj.imagePolicyConfig
+          ? model.ImagePolicyConfig.getJsonObj(obj.imagePolicyConfig)
           : undefined
       }
     };
@@ -76,6 +86,10 @@ export namespace UpdateApplicationDetails {
       ...{
         "traceConfig": obj.traceConfig
           ? model.ApplicationTraceConfig.getDeserializedJsonObj(obj.traceConfig)
+          : undefined,
+
+        "imagePolicyConfig": obj.imagePolicyConfig
+          ? model.ImagePolicyConfig.getDeserializedJsonObj(obj.imagePolicyConfig)
           : undefined
       }
     };

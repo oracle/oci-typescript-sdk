@@ -1,6 +1,6 @@
 /**
- * Java Management Service Query API
- * API for the Java Management Service. Use this API to view and manage Fleets.
+ * Java Management Service API
+ * API for the Java Management Service. Use this API to view, create, and manage Fleets.
  * OpenAPI spec version: 20210610
  *
  *
@@ -32,7 +32,7 @@ export interface FleetAgentConfiguration {
   "linuxConfiguration": model.FleetAgentOsConfiguration;
   "windowsConfiguration": model.FleetAgentOsConfiguration;
   /**
-   * The date and time of the last modification to the Fleet Agent Configuration (formatted according to RFC3339).
+   * The date and time of the last modification to the Fleet Agent Configuration (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    *
    */
   "timeLastModified": Date;

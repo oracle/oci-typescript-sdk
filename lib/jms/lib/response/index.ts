@@ -1,6 +1,6 @@
 /**
- * Java Management Service Query API
- * API for the Java Management Service. Use this API to view and manage Fleets.
+ * Java Management Service API
+ * API for the Java Management Service. Use this API to view, create, and manage Fleets.
  * OpenAPI spec version: 20210610
  *
  *
@@ -31,14 +31,6 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
-import * as RequestSummarizedApplicationUsageResponse from "./request-summarized-application-usage-response";
-export import RequestSummarizedApplicationUsageResponse = RequestSummarizedApplicationUsageResponse.RequestSummarizedApplicationUsageResponse;
-import * as RequestSummarizedInstallationUsageResponse from "./request-summarized-installation-usage-response";
-export import RequestSummarizedInstallationUsageResponse = RequestSummarizedInstallationUsageResponse.RequestSummarizedInstallationUsageResponse;
-import * as RequestSummarizedJreUsageResponse from "./request-summarized-jre-usage-response";
-export import RequestSummarizedJreUsageResponse = RequestSummarizedJreUsageResponse.RequestSummarizedJreUsageResponse;
-import * as RequestSummarizedManagedInstanceUsageResponse from "./request-summarized-managed-instance-usage-response";
-export import RequestSummarizedManagedInstanceUsageResponse = RequestSummarizedManagedInstanceUsageResponse.RequestSummarizedManagedInstanceUsageResponse;
 import * as SummarizeApplicationUsageResponse from "./summarize-application-usage-response";
 export import SummarizeApplicationUsageResponse = SummarizeApplicationUsageResponse.SummarizeApplicationUsageResponse;
 import * as SummarizeInstallationUsageResponse from "./summarize-installation-usage-response";

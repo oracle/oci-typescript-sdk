@@ -384,7 +384,8 @@ export class ObjectStorageClient {
       "opc-sse-customer-key-sha256": copyObjectRequest.opcSseCustomerKeySha256,
       "opc-source-sse-customer-algorithm": copyObjectRequest.opcSourceSseCustomerAlgorithm,
       "opc-source-sse-customer-key": copyObjectRequest.opcSourceSseCustomerKey,
-      "opc-source-sse-customer-key-sha256": copyObjectRequest.opcSourceSseCustomerKeySha256
+      "opc-source-sse-customer-key-sha256": copyObjectRequest.opcSourceSseCustomerKeySha256,
+      "opc-sse-kms-key-id": copyObjectRequest.opcSseKmsKeyId
     };
 
     const retrier = GenericRetrier.createPreferredRetrier(
@@ -543,7 +544,8 @@ export class ObjectStorageClient {
       "opc-client-request-id": createMultipartUploadRequest.opcClientRequestId,
       "opc-sse-customer-algorithm": createMultipartUploadRequest.opcSseCustomerAlgorithm,
       "opc-sse-customer-key": createMultipartUploadRequest.opcSseCustomerKey,
-      "opc-sse-customer-key-sha256": createMultipartUploadRequest.opcSseCustomerKeySha256
+      "opc-sse-customer-key-sha256": createMultipartUploadRequest.opcSseCustomerKeySha256,
+      "opc-sse-kms-key-id": createMultipartUploadRequest.opcSseKmsKeyId
     };
 
     const retrier = GenericRetrier.createPreferredRetrier(
@@ -3457,6 +3459,7 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
       "opc-sse-customer-algorithm": putObjectRequest.opcSseCustomerAlgorithm,
       "opc-sse-customer-key": putObjectRequest.opcSseCustomerKey,
       "opc-sse-customer-key-sha256": putObjectRequest.opcSseCustomerKeySha256,
+      "opc-sse-kms-key-id": putObjectRequest.opcSseKmsKeyId,
       "storage-tier": putObjectRequest.storageTier
     };
 
@@ -4253,7 +4256,8 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       "Content-MD5": uploadPartRequest.contentMD5,
       "opc-sse-customer-algorithm": uploadPartRequest.opcSseCustomerAlgorithm,
       "opc-sse-customer-key": uploadPartRequest.opcSseCustomerKey,
-      "opc-sse-customer-key-sha256": uploadPartRequest.opcSseCustomerKeySha256
+      "opc-sse-customer-key-sha256": uploadPartRequest.opcSseCustomerKeySha256,
+      "opc-sse-kms-key-id": uploadPartRequest.opcSseKmsKeyId
     };
 
     const retrier = GenericRetrier.createPreferredRetrier(

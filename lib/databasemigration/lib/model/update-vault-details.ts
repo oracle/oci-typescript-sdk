@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * OCI Vault details to store migration and connection credentials secrets. An empty object would result in the removal of the stored details.
  *
  */

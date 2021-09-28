@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * Parameters for Replicat processes.
  * If an empty object is specified, the stored Replicat details will be removed.
  *

@@ -45,6 +45,11 @@ export interface ApplicationSummary {
    *
    */
   "subnetIds"?: Array<string>;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)s of the Network Security Groups to add the application to.
+   *
+   */
+  "networkSecurityGroupIds"?: Array<string>;
   "traceConfig"?: model.ApplicationTraceConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
@@ -76,6 +81,7 @@ Example: `2018-09-12T22:47:12.613Z`
    *
    */
   "timeUpdated"?: Date;
+  "imagePolicyConfig"?: model.ImagePolicyConfig;
 }
 
 export namespace ApplicationSummary {
@@ -85,6 +91,10 @@ export namespace ApplicationSummary {
       ...{
         "traceConfig": obj.traceConfig
           ? model.ApplicationTraceConfig.getJsonObj(obj.traceConfig)
+          : undefined,
+
+        "imagePolicyConfig": obj.imagePolicyConfig
+          ? model.ImagePolicyConfig.getJsonObj(obj.imagePolicyConfig)
           : undefined
       }
     };
@@ -97,6 +107,10 @@ export namespace ApplicationSummary {
       ...{
         "traceConfig": obj.traceConfig
           ? model.ApplicationTraceConfig.getDeserializedJsonObj(obj.traceConfig)
+          : undefined,
+
+        "imagePolicyConfig": obj.imagePolicyConfig
+          ? model.ImagePolicyConfig.getDeserializedJsonObj(obj.imagePolicyConfig)
           : undefined
       }
     };

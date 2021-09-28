@@ -78,4 +78,10 @@ export interface CopyObjectRequest extends common.BaseRequest {
    *
    */
   "opcSourceSseCustomerKeySha256"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a master encryption key used to call the Key
+   * Management service to generate a data encryption key or to encrypt or decrypt a data encryption key.
+   *
+   */
+  "opcSseKmsKeyId"?: string;
 }

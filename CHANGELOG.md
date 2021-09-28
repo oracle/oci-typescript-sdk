@@ -3,6 +3,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.4.0 - 2021-09-28
+### Added
+- Support for autonomous databases and clones on shared infrastructure not requiring mTLS in the Database service
+- Support for server-side encryption using object-specific KMS keys in the Object Storage service
+- Support for Windows in the Java Management service
+- Support for using network security groups in the API Gateway service
+- Support for network security groups in the Functions service
+- Support for signed container images in the Functions service
+- Support for setting message format when creating and updating alarms in the Monitoring service
+- Support for user and security assessment features in the Data Safe service
+
+### Breaking Changes
+- The `RequestSummarizedApplicationUsage`, `RequestSummarizedInstallationUsage`, `RequestSummarizedJreUsage`, `RequestSummarizedManagedInstanceUsage` were removed from the `JavaManagementServiceClient` in the Java Management service
+- The `RequestSummarizedApplicationUsageDetails`, `RequestSummarizedInstallationUsageDetails`, `RequestSummarizedJreUsageDetails` and `RequestSummarizedManagedInstanceUsageDetails` models were removed in the Java Management service
+- The `RequestSummarizedApplicationUsageDetails`, `RequestSummarizedInstallationUsageDetails`, `RequestSummarizedJreUsageDetails` and `RequestSummarizedManagedInstanceUsageDetails` request models were removed in the Java Management service
+- The `RequestSummarizedApplicationUsageDetails`, `RequestSummarizedInstallationUsageDetails` and `RequestSummarizedManagedInstanceUsageDetails` response models were removed in the Java Management service
+
 ## 2.3.1 - 2021-09-14
 ### Added
 - Support for serviceHostKeyFingerprint property for InstanceConsoleConnection in Core service

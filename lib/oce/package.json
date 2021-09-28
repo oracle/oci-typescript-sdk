@@ -1,6 +1,6 @@
 {
   "name": "oci-oce",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "description": "OCI NodeJS client for OCE Service",
   "repository": {
     "type": "git",

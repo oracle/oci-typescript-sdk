@@ -29,7 +29,8 @@ export interface AutonomousContainerDatabase {
    */
   "displayName": string;
   /**
-   * The `DB_UNIQUE_NAME` of the Oracle Database being backed up.
+   * **Deprecated.** The `DB_UNIQUE_NAME` value is set by Oracle Cloud Infrastructure.  Do not specify a value for this parameter. Specifying a value for this field will cause Terraform operations to fail.
+   *
    */
   "dbUniqueName"?: string;
   /**

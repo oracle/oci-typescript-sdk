@@ -1,6 +1,6 @@
 /**
- * Java Management Service Query API
- * API for the Java Management Service. Use this API to view and manage Fleets.
+ * Java Management Service API
+ * API for the Java Management Service. Use this API to view, create, and manage Fleets.
  * OpenAPI spec version: 20210610
  *
  *
@@ -55,18 +55,14 @@ import * as ManagedInstanceUsage from "./managed-instance-usage";
 export import ManagedInstanceUsage = ManagedInstanceUsage.ManagedInstanceUsage;
 import * as ManagedInstanceUsageCollection from "./managed-instance-usage-collection";
 export import ManagedInstanceUsageCollection = ManagedInstanceUsageCollection.ManagedInstanceUsageCollection;
+import * as OperatingSystem from "./operating-system";
+export import OperatingSystem = OperatingSystem.OperatingSystem;
 import * as OperationStatus from "./operation-status";
 export import OperationStatus = OperationStatus.OperationStatus;
 import * as OperationType from "./operation-type";
 export import OperationType = OperationType.OperationType;
-import * as RequestSummarizedApplicationUsageDetails from "./request-summarized-application-usage-details";
-export import RequestSummarizedApplicationUsageDetails = RequestSummarizedApplicationUsageDetails.RequestSummarizedApplicationUsageDetails;
-import * as RequestSummarizedInstallationUsageDetails from "./request-summarized-installation-usage-details";
-export import RequestSummarizedInstallationUsageDetails = RequestSummarizedInstallationUsageDetails.RequestSummarizedInstallationUsageDetails;
-import * as RequestSummarizedJreUsageDetails from "./request-summarized-jre-usage-details";
-export import RequestSummarizedJreUsageDetails = RequestSummarizedJreUsageDetails.RequestSummarizedJreUsageDetails;
-import * as RequestSummarizedManagedInstanceUsageDetails from "./request-summarized-managed-instance-usage-details";
-export import RequestSummarizedManagedInstanceUsageDetails = RequestSummarizedManagedInstanceUsageDetails.RequestSummarizedManagedInstanceUsageDetails;
+import * as OsFamily from "./os-family";
+export import OsFamily = OsFamily.OsFamily;
 import * as SortBy from "./sort-by";
 export import SortBy = SortBy.SortBy;
 import * as SortOrder from "./sort-order";

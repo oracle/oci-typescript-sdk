@@ -1,6 +1,6 @@
 /**
- * Java Management Service Query API
- * API for the Java Management Service. Use this API to view and manage Fleets.
+ * Java Management Service API
+ * API for the Java Management Service. Use this API to view, create, and manage Fleets.
  * OpenAPI spec version: 20210610
  *
  *
@@ -23,7 +23,8 @@ export enum ApplicationSortBy {
   DisplayName = "displayName",
   ApproximateJreCount = "approximateJreCount",
   ApproximateInstallationCount = "approximateInstallationCount",
-  ApproximateManagedInstanceCount = "approximateManagedInstanceCount"
+  ApproximateManagedInstanceCount = "approximateManagedInstanceCount",
+  OsName = "osName"
 }
 
 export namespace ApplicationSortBy {

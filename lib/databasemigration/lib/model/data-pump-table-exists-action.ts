@@ -15,6 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * IMPORT: Specifies the action to be performed when data is loaded into a preexisting table.
  *
  **/

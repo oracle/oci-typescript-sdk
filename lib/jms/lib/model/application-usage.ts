@@ -1,6 +1,6 @@
 /**
- * Java Management Service Query API
- * API for the Java Management Service. Use this API to view and manage Fleets.
+ * Java Management Service API
+ * API for the Java Management Service. Use this API to view, create, and manage Fleets.
  * OpenAPI spec version: 20210610
  *
  *
@@ -34,6 +34,10 @@ export interface ApplicationUsage {
    * The type of the application, denoted by how the application was started.
    */
   "applicationType": string;
+  /**
+   * The operating systems running this application.
+   */
+  "operatingSystems"?: Array<model.OperatingSystem>;
   /**
    * The approximate count of installations running this application. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -74,12 +78,30 @@ export interface ApplicationUsage {
 
 export namespace ApplicationUsage {
   export function getJsonObj(obj: ApplicationUsage): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "operatingSystems": obj.operatingSystems
+          ? obj.operatingSystems.map(item => {
+              return model.OperatingSystem.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ApplicationUsage): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "operatingSystems": obj.operatingSystems
+          ? obj.operatingSystems.map(item => {
+              return model.OperatingSystem.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

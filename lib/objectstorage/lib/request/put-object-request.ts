@@ -136,6 +136,12 @@ export interface PutObjectRequest extends common.BaseRequest {
    */
   "opcSseCustomerKeySha256"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a master encryption key used to call the Key
+   * Management service to generate a data encryption key or to encrypt or decrypt a data encryption key.
+   *
+   */
+  "opcSseKmsKeyId"?: string;
+  /**
    * The storage tier that the object should be stored in. If not specified, the object will be stored in
    * the same storage tier as the bucket.
    *
