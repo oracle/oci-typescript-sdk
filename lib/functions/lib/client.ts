@@ -758,6 +758,7 @@ export class FunctionsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listApplicationsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ApplicationSummary objects
    * contained in responses from the listApplications operation. This iterator will fetch more data from the
    * server as needed.
@@ -771,12 +772,38 @@ export class FunctionsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listApplicationsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listApplications operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllApplicationsResponses(
+    request: requests.ListApplicationsRequest
+  ): AsyncIterableIterator<responses.ListApplicationsResponse> {
+    return paginateResponses(request, req => this.listApplications(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ApplicationSummary objects
+   * contained in responses from the listApplications operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listApplicationsRecordIterator(
+    request: requests.ListApplicationsRequest
+  ): AsyncIterableIterator<model.ApplicationSummary> {
+    return paginateRecords(request, req => this.listApplications(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listApplications operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listApplicationsResponseIterator(
     request: requests.ListApplicationsRequest
   ): AsyncIterableIterator<responses.ListApplicationsResponse> {
     return paginateResponses(request, req => this.listApplications(req));
@@ -855,6 +882,7 @@ export class FunctionsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listFunctionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.FunctionSummary objects
    * contained in responses from the listFunctions operation. This iterator will fetch more data from the
    * server as needed.
@@ -868,12 +896,38 @@ export class FunctionsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listFunctionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listFunctions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllFunctionsResponses(
+    request: requests.ListFunctionsRequest
+  ): AsyncIterableIterator<responses.ListFunctionsResponse> {
+    return paginateResponses(request, req => this.listFunctions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.FunctionSummary objects
+   * contained in responses from the listFunctions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFunctionsRecordIterator(
+    request: requests.ListFunctionsRequest
+  ): AsyncIterableIterator<model.FunctionSummary> {
+    return paginateRecords(request, req => this.listFunctions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listFunctions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFunctionsResponseIterator(
     request: requests.ListFunctionsRequest
   ): AsyncIterableIterator<responses.ListFunctionsResponse> {
     return paginateResponses(request, req => this.listFunctions(req));

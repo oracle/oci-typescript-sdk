@@ -60,6 +60,10 @@ export interface ListManagementAgentImagesRequest extends common.BaseRequest {
    * Filter to return only Management Agents in the particular lifecycle state.
    */
   "lifecycleState"?: model.LifecycleStates;
+  /**
+   * A filter to return either agents or gateway types depending upon install type selected by user. By default both install type will be returned.
+   */
+  "installType"?: model.InstallTypes;
 }
 
 export namespace ListManagementAgentImagesRequest {

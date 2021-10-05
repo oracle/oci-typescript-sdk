@@ -2821,6 +2821,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAvailablePackagesForManagedInstanceRecordIterator function.
    * Creates a new async iterator which will iterate over the models.InstallablePackageSummary objects
    * contained in responses from the listAvailablePackagesForManagedInstance operation. This iterator will fetch more data from the
    * server as needed.
@@ -2834,12 +2835,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAvailablePackagesForManagedInstanceResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAvailablePackagesForManagedInstance operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAvailablePackagesForManagedInstanceResponses(
+    request: requests.ListAvailablePackagesForManagedInstanceRequest
+  ): AsyncIterableIterator<responses.ListAvailablePackagesForManagedInstanceResponse> {
+    return paginateResponses(request, req => this.listAvailablePackagesForManagedInstance(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InstallablePackageSummary objects
+   * contained in responses from the listAvailablePackagesForManagedInstance operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAvailablePackagesForManagedInstanceRecordIterator(
+    request: requests.ListAvailablePackagesForManagedInstanceRequest
+  ): AsyncIterableIterator<model.InstallablePackageSummary> {
+    return paginateRecords(request, req => this.listAvailablePackagesForManagedInstance(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAvailablePackagesForManagedInstance operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAvailablePackagesForManagedInstanceResponseIterator(
     request: requests.ListAvailablePackagesForManagedInstanceRequest
   ): AsyncIterableIterator<responses.ListAvailablePackagesForManagedInstanceResponse> {
     return paginateResponses(request, req => this.listAvailablePackagesForManagedInstance(req));
@@ -2921,6 +2948,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAvailableSoftwareSourcesForManagedInstanceRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AvailableSoftwareSourceSummary objects
    * contained in responses from the listAvailableSoftwareSourcesForManagedInstance operation. This iterator will fetch more data from the
    * server as needed.
@@ -2936,12 +2964,42 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAvailableSoftwareSourcesForManagedInstanceResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAvailableSoftwareSourcesForManagedInstance operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAvailableSoftwareSourcesForManagedInstanceResponses(
+    request: requests.ListAvailableSoftwareSourcesForManagedInstanceRequest
+  ): AsyncIterableIterator<responses.ListAvailableSoftwareSourcesForManagedInstanceResponse> {
+    return paginateResponses(request, req =>
+      this.listAvailableSoftwareSourcesForManagedInstance(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AvailableSoftwareSourceSummary objects
+   * contained in responses from the listAvailableSoftwareSourcesForManagedInstance operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAvailableSoftwareSourcesForManagedInstanceRecordIterator(
+    request: requests.ListAvailableSoftwareSourcesForManagedInstanceRequest
+  ): AsyncIterableIterator<model.AvailableSoftwareSourceSummary> {
+    return paginateRecords(request, req =>
+      this.listAvailableSoftwareSourcesForManagedInstance(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAvailableSoftwareSourcesForManagedInstance operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAvailableSoftwareSourcesForManagedInstanceResponseIterator(
     request: requests.ListAvailableSoftwareSourcesForManagedInstanceRequest
   ): AsyncIterableIterator<responses.ListAvailableSoftwareSourcesForManagedInstanceResponse> {
     return paginateResponses(request, req =>
@@ -3025,6 +3083,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAvailableUpdatesForManagedInstanceRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AvailableUpdateSummary objects
    * contained in responses from the listAvailableUpdatesForManagedInstance operation. This iterator will fetch more data from the
    * server as needed.
@@ -3038,12 +3097,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAvailableUpdatesForManagedInstanceResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAvailableUpdatesForManagedInstance operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAvailableUpdatesForManagedInstanceResponses(
+    request: requests.ListAvailableUpdatesForManagedInstanceRequest
+  ): AsyncIterableIterator<responses.ListAvailableUpdatesForManagedInstanceResponse> {
+    return paginateResponses(request, req => this.listAvailableUpdatesForManagedInstance(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AvailableUpdateSummary objects
+   * contained in responses from the listAvailableUpdatesForManagedInstance operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAvailableUpdatesForManagedInstanceRecordIterator(
+    request: requests.ListAvailableUpdatesForManagedInstanceRequest
+  ): AsyncIterableIterator<model.AvailableUpdateSummary> {
+    return paginateRecords(request, req => this.listAvailableUpdatesForManagedInstance(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAvailableUpdatesForManagedInstance operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAvailableUpdatesForManagedInstanceResponseIterator(
     request: requests.ListAvailableUpdatesForManagedInstanceRequest
   ): AsyncIterableIterator<responses.ListAvailableUpdatesForManagedInstanceResponse> {
     return paginateResponses(request, req => this.listAvailableUpdatesForManagedInstance(req));
@@ -3127,6 +3212,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAvailableWindowsUpdatesForManagedInstanceRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AvailableWindowsUpdateSummary objects
    * contained in responses from the listAvailableWindowsUpdatesForManagedInstance operation. This iterator will fetch more data from the
    * server as needed.
@@ -3140,12 +3226,40 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAvailableWindowsUpdatesForManagedInstanceResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAvailableWindowsUpdatesForManagedInstance operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAvailableWindowsUpdatesForManagedInstanceResponses(
+    request: requests.ListAvailableWindowsUpdatesForManagedInstanceRequest
+  ): AsyncIterableIterator<responses.ListAvailableWindowsUpdatesForManagedInstanceResponse> {
+    return paginateResponses(request, req =>
+      this.listAvailableWindowsUpdatesForManagedInstance(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AvailableWindowsUpdateSummary objects
+   * contained in responses from the listAvailableWindowsUpdatesForManagedInstance operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAvailableWindowsUpdatesForManagedInstanceRecordIterator(
+    request: requests.ListAvailableWindowsUpdatesForManagedInstanceRequest
+  ): AsyncIterableIterator<model.AvailableWindowsUpdateSummary> {
+    return paginateRecords(request, req => this.listAvailableWindowsUpdatesForManagedInstance(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAvailableWindowsUpdatesForManagedInstance operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAvailableWindowsUpdatesForManagedInstanceResponseIterator(
     request: requests.ListAvailableWindowsUpdatesForManagedInstanceRequest
   ): AsyncIterableIterator<responses.ListAvailableWindowsUpdatesForManagedInstanceResponse> {
     return paginateResponses(request, req =>
@@ -3227,6 +3341,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listErrataRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ErratumSummary objects
    * contained in responses from the listErrata operation. This iterator will fetch more data from the
    * server as needed.
@@ -3240,12 +3355,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listErrataResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listErrata operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllErrataResponses(
+    request: requests.ListErrataRequest
+  ): AsyncIterableIterator<responses.ListErrataResponse> {
+    return paginateResponses(request, req => this.listErrata(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ErratumSummary objects
+   * contained in responses from the listErrata operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listErrataRecordIterator(
+    request: requests.ListErrataRequest
+  ): AsyncIterableIterator<model.ErratumSummary> {
+    return paginateRecords(request, req => this.listErrata(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listErrata operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listErrataResponseIterator(
     request: requests.ListErrataRequest
   ): AsyncIterableIterator<responses.ListErrataResponse> {
     return paginateResponses(request, req => this.listErrata(req));
@@ -3325,6 +3466,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagedInstanceErrataRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ErratumSummary objects
    * contained in responses from the listManagedInstanceErrata operation. This iterator will fetch more data from the
    * server as needed.
@@ -3338,12 +3480,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagedInstanceErrataResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listManagedInstanceErrata operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllManagedInstanceErrataResponses(
+    request: requests.ListManagedInstanceErrataRequest
+  ): AsyncIterableIterator<responses.ListManagedInstanceErrataResponse> {
+    return paginateResponses(request, req => this.listManagedInstanceErrata(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ErratumSummary objects
+   * contained in responses from the listManagedInstanceErrata operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagedInstanceErrataRecordIterator(
+    request: requests.ListManagedInstanceErrataRequest
+  ): AsyncIterableIterator<model.ErratumSummary> {
+    return paginateRecords(request, req => this.listManagedInstanceErrata(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listManagedInstanceErrata operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagedInstanceErrataResponseIterator(
     request: requests.ListManagedInstanceErrataRequest
   ): AsyncIterableIterator<responses.ListManagedInstanceErrataResponse> {
     return paginateResponses(request, req => this.listManagedInstanceErrata(req));
@@ -3423,6 +3591,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagedInstanceGroupsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ManagedInstanceGroupSummary objects
    * contained in responses from the listManagedInstanceGroups operation. This iterator will fetch more data from the
    * server as needed.
@@ -3436,12 +3605,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagedInstanceGroupsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listManagedInstanceGroups operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllManagedInstanceGroupsResponses(
+    request: requests.ListManagedInstanceGroupsRequest
+  ): AsyncIterableIterator<responses.ListManagedInstanceGroupsResponse> {
+    return paginateResponses(request, req => this.listManagedInstanceGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ManagedInstanceGroupSummary objects
+   * contained in responses from the listManagedInstanceGroups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagedInstanceGroupsRecordIterator(
+    request: requests.ListManagedInstanceGroupsRequest
+  ): AsyncIterableIterator<model.ManagedInstanceGroupSummary> {
+    return paginateRecords(request, req => this.listManagedInstanceGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listManagedInstanceGroups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagedInstanceGroupsResponseIterator(
     request: requests.ListManagedInstanceGroupsRequest
   ): AsyncIterableIterator<responses.ListManagedInstanceGroupsResponse> {
     return paginateResponses(request, req => this.listManagedInstanceGroups(req));
@@ -3520,6 +3715,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagedInstancesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ManagedInstanceSummary objects
    * contained in responses from the listManagedInstances operation. This iterator will fetch more data from the
    * server as needed.
@@ -3533,12 +3729,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagedInstancesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listManagedInstances operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllManagedInstancesResponses(
+    request: requests.ListManagedInstancesRequest
+  ): AsyncIterableIterator<responses.ListManagedInstancesResponse> {
+    return paginateResponses(request, req => this.listManagedInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ManagedInstanceSummary objects
+   * contained in responses from the listManagedInstances operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagedInstancesRecordIterator(
+    request: requests.ListManagedInstancesRequest
+  ): AsyncIterableIterator<model.ManagedInstanceSummary> {
+    return paginateRecords(request, req => this.listManagedInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listManagedInstances operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagedInstancesResponseIterator(
     request: requests.ListManagedInstancesRequest
   ): AsyncIterableIterator<responses.ListManagedInstancesResponse> {
     return paginateResponses(request, req => this.listManagedInstances(req));
@@ -3620,6 +3842,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPackagesInstalledOnManagedInstanceRecordIterator function.
    * Creates a new async iterator which will iterate over the models.InstalledPackageSummary objects
    * contained in responses from the listPackagesInstalledOnManagedInstance operation. This iterator will fetch more data from the
    * server as needed.
@@ -3633,12 +3856,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPackagesInstalledOnManagedInstanceResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listPackagesInstalledOnManagedInstance operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllPackagesInstalledOnManagedInstanceResponses(
+    request: requests.ListPackagesInstalledOnManagedInstanceRequest
+  ): AsyncIterableIterator<responses.ListPackagesInstalledOnManagedInstanceResponse> {
+    return paginateResponses(request, req => this.listPackagesInstalledOnManagedInstance(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InstalledPackageSummary objects
+   * contained in responses from the listPackagesInstalledOnManagedInstance operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPackagesInstalledOnManagedInstanceRecordIterator(
+    request: requests.ListPackagesInstalledOnManagedInstanceRequest
+  ): AsyncIterableIterator<model.InstalledPackageSummary> {
+    return paginateRecords(request, req => this.listPackagesInstalledOnManagedInstance(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPackagesInstalledOnManagedInstance operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPackagesInstalledOnManagedInstanceResponseIterator(
     request: requests.ListPackagesInstalledOnManagedInstanceRequest
   ): AsyncIterableIterator<responses.ListPackagesInstalledOnManagedInstanceResponse> {
     return paginateResponses(request, req => this.listPackagesInstalledOnManagedInstance(req));
@@ -3721,6 +3970,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listScheduledJobsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ScheduledJobSummary objects
    * contained in responses from the listScheduledJobs operation. This iterator will fetch more data from the
    * server as needed.
@@ -3734,12 +3984,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listScheduledJobsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listScheduledJobs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllScheduledJobsResponses(
+    request: requests.ListScheduledJobsRequest
+  ): AsyncIterableIterator<responses.ListScheduledJobsResponse> {
+    return paginateResponses(request, req => this.listScheduledJobs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ScheduledJobSummary objects
+   * contained in responses from the listScheduledJobs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listScheduledJobsRecordIterator(
+    request: requests.ListScheduledJobsRequest
+  ): AsyncIterableIterator<model.ScheduledJobSummary> {
+    return paginateRecords(request, req => this.listScheduledJobs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listScheduledJobs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listScheduledJobsResponseIterator(
     request: requests.ListScheduledJobsRequest
   ): AsyncIterableIterator<responses.ListScheduledJobsResponse> {
     return paginateResponses(request, req => this.listScheduledJobs(req));
@@ -3819,6 +4095,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSoftwareSourcePackagesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SoftwarePackageSummary objects
    * contained in responses from the listSoftwareSourcePackages operation. This iterator will fetch more data from the
    * server as needed.
@@ -3832,12 +4109,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSoftwareSourcePackagesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSoftwareSourcePackages operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSoftwareSourcePackagesResponses(
+    request: requests.ListSoftwareSourcePackagesRequest
+  ): AsyncIterableIterator<responses.ListSoftwareSourcePackagesResponse> {
+    return paginateResponses(request, req => this.listSoftwareSourcePackages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SoftwarePackageSummary objects
+   * contained in responses from the listSoftwareSourcePackages operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSoftwareSourcePackagesRecordIterator(
+    request: requests.ListSoftwareSourcePackagesRequest
+  ): AsyncIterableIterator<model.SoftwarePackageSummary> {
+    return paginateRecords(request, req => this.listSoftwareSourcePackages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSoftwareSourcePackages operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSoftwareSourcePackagesResponseIterator(
     request: requests.ListSoftwareSourcePackagesRequest
   ): AsyncIterableIterator<responses.ListSoftwareSourcePackagesResponse> {
     return paginateResponses(request, req => this.listSoftwareSourcePackages(req));
@@ -3915,6 +4218,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSoftwareSourcesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SoftwareSourceSummary objects
    * contained in responses from the listSoftwareSources operation. This iterator will fetch more data from the
    * server as needed.
@@ -3928,12 +4232,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSoftwareSourcesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSoftwareSources operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSoftwareSourcesResponses(
+    request: requests.ListSoftwareSourcesRequest
+  ): AsyncIterableIterator<responses.ListSoftwareSourcesResponse> {
+    return paginateResponses(request, req => this.listSoftwareSources(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SoftwareSourceSummary objects
+   * contained in responses from the listSoftwareSources operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSoftwareSourcesRecordIterator(
+    request: requests.ListSoftwareSourcesRequest
+  ): AsyncIterableIterator<model.SoftwareSourceSummary> {
+    return paginateRecords(request, req => this.listSoftwareSources(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSoftwareSources operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSoftwareSourcesResponseIterator(
     request: requests.ListSoftwareSourcesRequest
   ): AsyncIterableIterator<responses.ListSoftwareSourcesResponse> {
     return paginateResponses(request, req => this.listSoftwareSources(req));
@@ -4016,6 +4346,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listUpcomingScheduledJobsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ScheduledJobSummary objects
    * contained in responses from the listUpcomingScheduledJobs operation. This iterator will fetch more data from the
    * server as needed.
@@ -4029,12 +4360,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listUpcomingScheduledJobsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listUpcomingScheduledJobs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllUpcomingScheduledJobsResponses(
+    request: requests.ListUpcomingScheduledJobsRequest
+  ): AsyncIterableIterator<responses.ListUpcomingScheduledJobsResponse> {
+    return paginateResponses(request, req => this.listUpcomingScheduledJobs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ScheduledJobSummary objects
+   * contained in responses from the listUpcomingScheduledJobs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUpcomingScheduledJobsRecordIterator(
+    request: requests.ListUpcomingScheduledJobsRequest
+  ): AsyncIterableIterator<model.ScheduledJobSummary> {
+    return paginateRecords(request, req => this.listUpcomingScheduledJobs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listUpcomingScheduledJobs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUpcomingScheduledJobsResponseIterator(
     request: requests.ListUpcomingScheduledJobsRequest
   ): AsyncIterableIterator<responses.ListUpcomingScheduledJobsResponse> {
     return paginateResponses(request, req => this.listUpcomingScheduledJobs(req));
@@ -4111,6 +4468,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWindowsUpdatesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WindowsUpdateSummary objects
    * contained in responses from the listWindowsUpdates operation. This iterator will fetch more data from the
    * server as needed.
@@ -4124,12 +4482,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWindowsUpdatesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWindowsUpdates operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWindowsUpdatesResponses(
+    request: requests.ListWindowsUpdatesRequest
+  ): AsyncIterableIterator<responses.ListWindowsUpdatesResponse> {
+    return paginateResponses(request, req => this.listWindowsUpdates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WindowsUpdateSummary objects
+   * contained in responses from the listWindowsUpdates operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWindowsUpdatesRecordIterator(
+    request: requests.ListWindowsUpdatesRequest
+  ): AsyncIterableIterator<model.WindowsUpdateSummary> {
+    return paginateRecords(request, req => this.listWindowsUpdates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWindowsUpdates operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWindowsUpdatesResponseIterator(
     request: requests.ListWindowsUpdatesRequest
   ): AsyncIterableIterator<responses.ListWindowsUpdatesResponse> {
     return paginateResponses(request, req => this.listWindowsUpdates(req));
@@ -4211,6 +4595,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWindowsUpdatesInstalledOnManagedInstanceRecordIterator function.
    * Creates a new async iterator which will iterate over the models.InstalledWindowsUpdateSummary objects
    * contained in responses from the listWindowsUpdatesInstalledOnManagedInstance operation. This iterator will fetch more data from the
    * server as needed.
@@ -4224,12 +4609,40 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWindowsUpdatesInstalledOnManagedInstanceResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWindowsUpdatesInstalledOnManagedInstance operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWindowsUpdatesInstalledOnManagedInstanceResponses(
+    request: requests.ListWindowsUpdatesInstalledOnManagedInstanceRequest
+  ): AsyncIterableIterator<responses.ListWindowsUpdatesInstalledOnManagedInstanceResponse> {
+    return paginateResponses(request, req =>
+      this.listWindowsUpdatesInstalledOnManagedInstance(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InstalledWindowsUpdateSummary objects
+   * contained in responses from the listWindowsUpdatesInstalledOnManagedInstance operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWindowsUpdatesInstalledOnManagedInstanceRecordIterator(
+    request: requests.ListWindowsUpdatesInstalledOnManagedInstanceRequest
+  ): AsyncIterableIterator<model.InstalledWindowsUpdateSummary> {
+    return paginateRecords(request, req => this.listWindowsUpdatesInstalledOnManagedInstance(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWindowsUpdatesInstalledOnManagedInstance operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWindowsUpdatesInstalledOnManagedInstanceResponseIterator(
     request: requests.ListWindowsUpdatesInstalledOnManagedInstanceRequest
   ): AsyncIterableIterator<responses.ListWindowsUpdatesInstalledOnManagedInstanceResponse> {
     return paginateResponses(request, req =>
@@ -4313,6 +4726,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestError objects
    * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
    * server as needed.
@@ -4326,12 +4740,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestErrorsResponses(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestError objects
+   * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsRecordIterator(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<model.WorkRequestError> {
+    return paginateRecords(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsResponseIterator(
     request: requests.ListWorkRequestErrorsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
     return paginateResponses(request, req => this.listWorkRequestErrors(req));
@@ -4412,6 +4852,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
    * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
    * server as needed.
@@ -4425,12 +4866,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestLogsResponses(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
+   * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsRecordIterator(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
+    return paginateRecords(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsResponseIterator(
     request: requests.ListWorkRequestLogsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
     return paginateResponses(request, req => this.listWorkRequestLogs(req));
@@ -4509,6 +4976,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
    * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -4522,12 +4990,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestsResponses(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
+   * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsRecordIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
+    return paginateRecords(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsResponseIterator(
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));
@@ -4798,6 +5292,7 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of searchSoftwarePackagesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SoftwarePackageSearchSummary objects
    * contained in responses from the searchSoftwarePackages operation. This iterator will fetch more data from the
    * server as needed.
@@ -4811,12 +5306,38 @@ export class OsManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of searchSoftwarePackagesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the searchSoftwarePackages operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public searchAllSoftwarePackagesResponses(
+    request: requests.SearchSoftwarePackagesRequest
+  ): AsyncIterableIterator<responses.SearchSoftwarePackagesResponse> {
+    return paginateResponses(request, req => this.searchSoftwarePackages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SoftwarePackageSearchSummary objects
+   * contained in responses from the searchSoftwarePackages operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public searchSoftwarePackagesRecordIterator(
+    request: requests.SearchSoftwarePackagesRequest
+  ): AsyncIterableIterator<model.SoftwarePackageSearchSummary> {
+    return paginateRecords(request, req => this.searchSoftwarePackages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the searchSoftwarePackages operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public searchSoftwarePackagesResponseIterator(
     request: requests.SearchSoftwarePackagesRequest
   ): AsyncIterableIterator<responses.SearchSoftwarePackagesResponse> {
     return paginateResponses(request, req => this.searchSoftwarePackages(req));

@@ -246,6 +246,7 @@ export class LimitsClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLimitDefinitionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.LimitDefinitionSummary objects
    * contained in responses from the listLimitDefinitions operation. This iterator will fetch more data from the
    * server as needed.
@@ -259,12 +260,38 @@ export class LimitsClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLimitDefinitionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listLimitDefinitions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllLimitDefinitionsResponses(
+    request: requests.ListLimitDefinitionsRequest
+  ): AsyncIterableIterator<responses.ListLimitDefinitionsResponse> {
+    return paginateResponses(request, req => this.listLimitDefinitions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.LimitDefinitionSummary objects
+   * contained in responses from the listLimitDefinitions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLimitDefinitionsRecordIterator(
+    request: requests.ListLimitDefinitionsRequest
+  ): AsyncIterableIterator<model.LimitDefinitionSummary> {
+    return paginateRecords(request, req => this.listLimitDefinitions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listLimitDefinitions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLimitDefinitionsResponseIterator(
     request: requests.ListLimitDefinitionsRequest
   ): AsyncIterableIterator<responses.ListLimitDefinitionsResponse> {
     return paginateResponses(request, req => this.listLimitDefinitions(req));
@@ -344,6 +371,7 @@ export class LimitsClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLimitValuesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.LimitValueSummary objects
    * contained in responses from the listLimitValues operation. This iterator will fetch more data from the
    * server as needed.
@@ -357,12 +385,38 @@ export class LimitsClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLimitValuesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listLimitValues operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllLimitValuesResponses(
+    request: requests.ListLimitValuesRequest
+  ): AsyncIterableIterator<responses.ListLimitValuesResponse> {
+    return paginateResponses(request, req => this.listLimitValues(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.LimitValueSummary objects
+   * contained in responses from the listLimitValues operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLimitValuesRecordIterator(
+    request: requests.ListLimitValuesRequest
+  ): AsyncIterableIterator<model.LimitValueSummary> {
+    return paginateRecords(request, req => this.listLimitValues(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listLimitValues operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLimitValuesResponseIterator(
     request: requests.ListLimitValuesRequest
   ): AsyncIterableIterator<responses.ListLimitValuesResponse> {
     return paginateResponses(request, req => this.listLimitValues(req));
@@ -439,6 +493,7 @@ export class LimitsClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listServicesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ServiceSummary objects
    * contained in responses from the listServices operation. This iterator will fetch more data from the
    * server as needed.
@@ -452,12 +507,38 @@ export class LimitsClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listServicesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listServices operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllServicesResponses(
+    request: requests.ListServicesRequest
+  ): AsyncIterableIterator<responses.ListServicesResponse> {
+    return paginateResponses(request, req => this.listServices(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ServiceSummary objects
+   * contained in responses from the listServices operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listServicesRecordIterator(
+    request: requests.ListServicesRequest
+  ): AsyncIterableIterator<model.ServiceSummary> {
+    return paginateRecords(request, req => this.listServices(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listServices operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listServicesResponseIterator(
     request: requests.ListServicesRequest
   ): AsyncIterableIterator<responses.ListServicesResponse> {
     return paginateResponses(request, req => this.listServices(req));
@@ -828,6 +909,7 @@ export class QuotasClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listQuotasRecordIterator function.
    * Creates a new async iterator which will iterate over the models.QuotaSummary objects
    * contained in responses from the listQuotas operation. This iterator will fetch more data from the
    * server as needed.
@@ -841,12 +923,38 @@ export class QuotasClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listQuotasResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listQuotas operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllQuotasResponses(
+    request: requests.ListQuotasRequest
+  ): AsyncIterableIterator<responses.ListQuotasResponse> {
+    return paginateResponses(request, req => this.listQuotas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.QuotaSummary objects
+   * contained in responses from the listQuotas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listQuotasRecordIterator(
+    request: requests.ListQuotasRequest
+  ): AsyncIterableIterator<model.QuotaSummary> {
+    return paginateRecords(request, req => this.listQuotas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listQuotas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listQuotasResponseIterator(
     request: requests.ListQuotasRequest
   ): AsyncIterableIterator<responses.ListQuotasResponse> {
     return paginateResponses(request, req => this.listQuotas(req));

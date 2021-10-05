@@ -855,6 +855,7 @@ export class HealthChecksClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listHealthChecksVantagePointsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.HealthChecksVantagePointSummary objects
    * contained in responses from the listHealthChecksVantagePoints operation. This iterator will fetch more data from the
    * server as needed.
@@ -868,12 +869,38 @@ export class HealthChecksClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listHealthChecksVantagePointsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listHealthChecksVantagePoints operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllHealthChecksVantagePointsResponses(
+    request: requests.ListHealthChecksVantagePointsRequest
+  ): AsyncIterableIterator<responses.ListHealthChecksVantagePointsResponse> {
+    return paginateResponses(request, req => this.listHealthChecksVantagePoints(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.HealthChecksVantagePointSummary objects
+   * contained in responses from the listHealthChecksVantagePoints operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listHealthChecksVantagePointsRecordIterator(
+    request: requests.ListHealthChecksVantagePointsRequest
+  ): AsyncIterableIterator<model.HealthChecksVantagePointSummary> {
+    return paginateRecords(request, req => this.listHealthChecksVantagePoints(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listHealthChecksVantagePoints operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listHealthChecksVantagePointsResponseIterator(
     request: requests.ListHealthChecksVantagePointsRequest
   ): AsyncIterableIterator<responses.ListHealthChecksVantagePointsResponse> {
     return paginateResponses(request, req => this.listHealthChecksVantagePoints(req));
@@ -951,6 +978,7 @@ export class HealthChecksClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listHttpMonitorsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.HttpMonitorSummary objects
    * contained in responses from the listHttpMonitors operation. This iterator will fetch more data from the
    * server as needed.
@@ -964,12 +992,38 @@ export class HealthChecksClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listHttpMonitorsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listHttpMonitors operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllHttpMonitorsResponses(
+    request: requests.ListHttpMonitorsRequest
+  ): AsyncIterableIterator<responses.ListHttpMonitorsResponse> {
+    return paginateResponses(request, req => this.listHttpMonitors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.HttpMonitorSummary objects
+   * contained in responses from the listHttpMonitors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listHttpMonitorsRecordIterator(
+    request: requests.ListHttpMonitorsRequest
+  ): AsyncIterableIterator<model.HttpMonitorSummary> {
+    return paginateRecords(request, req => this.listHttpMonitors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listHttpMonitors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listHttpMonitorsResponseIterator(
     request: requests.ListHttpMonitorsRequest
   ): AsyncIterableIterator<responses.ListHttpMonitorsResponse> {
     return paginateResponses(request, req => this.listHttpMonitors(req));
@@ -1051,6 +1105,7 @@ export class HealthChecksClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listHttpProbeResultsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.HttpProbeResultSummary objects
    * contained in responses from the listHttpProbeResults operation. This iterator will fetch more data from the
    * server as needed.
@@ -1064,12 +1119,38 @@ export class HealthChecksClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listHttpProbeResultsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listHttpProbeResults operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllHttpProbeResultsResponses(
+    request: requests.ListHttpProbeResultsRequest
+  ): AsyncIterableIterator<responses.ListHttpProbeResultsResponse> {
+    return paginateResponses(request, req => this.listHttpProbeResults(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.HttpProbeResultSummary objects
+   * contained in responses from the listHttpProbeResults operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listHttpProbeResultsRecordIterator(
+    request: requests.ListHttpProbeResultsRequest
+  ): AsyncIterableIterator<model.HttpProbeResultSummary> {
+    return paginateRecords(request, req => this.listHttpProbeResults(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listHttpProbeResults operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listHttpProbeResultsResponseIterator(
     request: requests.ListHttpProbeResultsRequest
   ): AsyncIterableIterator<responses.ListHttpProbeResultsResponse> {
     return paginateResponses(request, req => this.listHttpProbeResults(req));
@@ -1150,6 +1231,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPingMonitorsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PingMonitorSummary objects
    * contained in responses from the listPingMonitors operation. This iterator will fetch more data from the
    * server as needed.
@@ -1163,12 +1245,38 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPingMonitorsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listPingMonitors operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllPingMonitorsResponses(
+    request: requests.ListPingMonitorsRequest
+  ): AsyncIterableIterator<responses.ListPingMonitorsResponse> {
+    return paginateResponses(request, req => this.listPingMonitors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PingMonitorSummary objects
+   * contained in responses from the listPingMonitors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPingMonitorsRecordIterator(
+    request: requests.ListPingMonitorsRequest
+  ): AsyncIterableIterator<model.PingMonitorSummary> {
+    return paginateRecords(request, req => this.listPingMonitors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPingMonitors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPingMonitorsResponseIterator(
     request: requests.ListPingMonitorsRequest
   ): AsyncIterableIterator<responses.ListPingMonitorsResponse> {
     return paginateResponses(request, req => this.listPingMonitors(req));
@@ -1254,6 +1362,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPingProbeResultsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PingProbeResultSummary objects
    * contained in responses from the listPingProbeResults operation. This iterator will fetch more data from the
    * server as needed.
@@ -1267,12 +1376,38 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPingProbeResultsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listPingProbeResults operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllPingProbeResultsResponses(
+    request: requests.ListPingProbeResultsRequest
+  ): AsyncIterableIterator<responses.ListPingProbeResultsResponse> {
+    return paginateResponses(request, req => this.listPingProbeResults(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PingProbeResultSummary objects
+   * contained in responses from the listPingProbeResults operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPingProbeResultsRecordIterator(
+    request: requests.ListPingProbeResultsRequest
+  ): AsyncIterableIterator<model.PingProbeResultSummary> {
+    return paginateRecords(request, req => this.listPingProbeResults(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPingProbeResults operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPingProbeResultsResponseIterator(
     request: requests.ListPingProbeResultsRequest
   ): AsyncIterableIterator<responses.ListPingProbeResultsResponse> {
     return paginateResponses(request, req => this.listPingProbeResults(req));

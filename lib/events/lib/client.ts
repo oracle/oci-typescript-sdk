@@ -457,6 +457,7 @@ export class EventsClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRulesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.RuleSummary objects
    * contained in responses from the listRules operation. This iterator will fetch more data from the
    * server as needed.
@@ -470,12 +471,38 @@ export class EventsClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRulesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listRules operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllRulesResponses(
+    request: requests.ListRulesRequest
+  ): AsyncIterableIterator<responses.ListRulesResponse> {
+    return paginateResponses(request, req => this.listRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.RuleSummary objects
+   * contained in responses from the listRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRulesRecordIterator(
+    request: requests.ListRulesRequest
+  ): AsyncIterableIterator<model.RuleSummary> {
+    return paginateRecords(request, req => this.listRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRulesResponseIterator(
     request: requests.ListRulesRequest
   ): AsyncIterableIterator<responses.ListRulesResponse> {
     return paginateResponses(request, req => this.listRules(req));

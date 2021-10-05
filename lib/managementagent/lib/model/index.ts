@@ -13,6 +13,8 @@
 
 import * as ActionTypes from "./action-types";
 export import ActionTypes = ActionTypes.ActionTypes;
+import * as AutoUpgradableConfig from "./auto-upgradable-config";
+export import AutoUpgradableConfig = AutoUpgradableConfig.AutoUpgradableConfig;
 import * as AvailabilityHistorySummary from "./availability-history-summary";
 export import AvailabilityHistorySummary = AvailabilityHistorySummary.AvailabilityHistorySummary;
 import * as AvailabilityStatus from "./availability-status";
@@ -25,6 +27,8 @@ import * as DeployPluginsDetails from "./deploy-plugins-details";
 export import DeployPluginsDetails = DeployPluginsDetails.DeployPluginsDetails;
 import * as EditModes from "./edit-modes";
 export import EditModes = EditModes.EditModes;
+import * as InstallTypes from "./install-types";
+export import InstallTypes = InstallTypes.InstallTypes;
 import * as LifecycleStates from "./lifecycle-states";
 export import LifecycleStates = LifecycleStates.LifecycleStates;
 import * as ManagementAgent from "./management-agent";
@@ -69,6 +73,8 @@ import * as OperationTypes from "./operation-types";
 export import OperationTypes = OperationTypes.OperationTypes;
 import * as PlatformTypes from "./platform-types";
 export import PlatformTypes = PlatformTypes.PlatformTypes;
+import * as SetAutoUpgradableConfigDetails from "./set-auto-upgradable-config-details";
+export import SetAutoUpgradableConfigDetails = SetAutoUpgradableConfigDetails.SetAutoUpgradableConfigDetails;
 import * as UpdateManagementAgentDetails from "./update-management-agent-details";
 export import UpdateManagementAgentDetails = UpdateManagementAgentDetails.UpdateManagementAgentDetails;
 import * as UpdateManagementAgentInstallKeyDetails from "./update-management-agent-install-key-details";

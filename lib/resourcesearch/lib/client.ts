@@ -232,6 +232,7 @@ export class ResourceSearchClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listResourceTypesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ResourceType objects
    * contained in responses from the listResourceTypes operation. This iterator will fetch more data from the
    * server as needed.
@@ -245,12 +246,38 @@ export class ResourceSearchClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listResourceTypesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listResourceTypes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllResourceTypesResponses(
+    request: requests.ListResourceTypesRequest
+  ): AsyncIterableIterator<responses.ListResourceTypesResponse> {
+    return paginateResponses(request, req => this.listResourceTypes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ResourceType objects
+   * contained in responses from the listResourceTypes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listResourceTypesRecordIterator(
+    request: requests.ListResourceTypesRequest
+  ): AsyncIterableIterator<model.ResourceType> {
+    return paginateRecords(request, req => this.listResourceTypes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listResourceTypes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listResourceTypesResponseIterator(
     request: requests.ListResourceTypesRequest
   ): AsyncIterableIterator<responses.ListResourceTypesResponse> {
     return paginateResponses(request, req => this.listResourceTypes(req));

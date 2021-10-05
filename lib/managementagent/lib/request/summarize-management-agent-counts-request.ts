@@ -31,6 +31,10 @@ export interface SummarizeManagementAgentCountsRequest extends common.BaseReques
    */
   "hasPlugins"?: boolean;
   /**
+   * A filter to return either agents or gateway types depending upon install type selected by user. By default both install type will be returned.
+   */
+  "installType"?: model.InstallTypes;
+  /**
    * The page token representing the page at which to start retrieving results. This is usually retrieved from a previous list call.
    */
   "page"?: string;

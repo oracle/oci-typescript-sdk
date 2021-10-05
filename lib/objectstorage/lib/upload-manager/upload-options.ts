@@ -29,4 +29,9 @@ export interface UploadOptions {
    * failed uploads themselves).  Default is false.
    */
   isDisableAutoAbort: boolean;
+  /*
+   * Flag to indicate that buffering should not occur when using UploadManager with files. Switching this flag to 'false' can lead to increased memory usage when using files.
+   * For other types of streams, buffering is always enabled. For file streams, it's disabled by default. Default is true.
+   */
+  disableBufferingForFiles: boolean;
 }

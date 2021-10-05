@@ -34,6 +34,10 @@ export interface ManagementAgentAggregationDimensions {
    * Whether or not a managementAgent has at least one plugin
    */
   "hasPlugins"?: boolean;
+  /**
+   * The install type, either AGENT or GATEWAY
+   */
+  "installType"?: model.InstallTypes;
 }
 
 export namespace ManagementAgentAggregationDimensions {

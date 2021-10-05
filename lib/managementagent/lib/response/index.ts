@@ -21,6 +21,8 @@ import * as DeleteWorkRequestResponse from "./delete-work-request-response";
 export import DeleteWorkRequestResponse = DeleteWorkRequestResponse.DeleteWorkRequestResponse;
 import * as DeployPluginsResponse from "./deploy-plugins-response";
 export import DeployPluginsResponse = DeployPluginsResponse.DeployPluginsResponse;
+import * as GetAutoUpgradableConfigResponse from "./get-auto-upgradable-config-response";
+export import GetAutoUpgradableConfigResponse = GetAutoUpgradableConfigResponse.GetAutoUpgradableConfigResponse;
 import * as GetManagementAgentResponse from "./get-management-agent-response";
 export import GetManagementAgentResponse = GetManagementAgentResponse.GetManagementAgentResponse;
 import * as GetManagementAgentInstallKeyResponse from "./get-management-agent-install-key-response";
@@ -45,6 +47,8 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as SetAutoUpgradableConfigResponse from "./set-auto-upgradable-config-response";
+export import SetAutoUpgradableConfigResponse = SetAutoUpgradableConfigResponse.SetAutoUpgradableConfigResponse;
 import * as SummarizeManagementAgentCountsResponse from "./summarize-management-agent-counts-response";
 export import SummarizeManagementAgentCountsResponse = SummarizeManagementAgentCountsResponse.SummarizeManagementAgentCountsResponse;
 import * as SummarizeManagementAgentPluginCountsResponse from "./summarize-management-agent-plugin-counts-response";

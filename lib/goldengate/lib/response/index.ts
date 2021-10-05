@@ -12,6 +12,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CancelDeploymentBackupResponse from "./cancel-deployment-backup-response";
+export import CancelDeploymentBackupResponse = CancelDeploymentBackupResponse.CancelDeploymentBackupResponse;
 import * as ChangeDatabaseRegistrationCompartmentResponse from "./change-database-registration-compartment-response";
 export import ChangeDatabaseRegistrationCompartmentResponse = ChangeDatabaseRegistrationCompartmentResponse.ChangeDatabaseRegistrationCompartmentResponse;
 import * as ChangeDeploymentBackupCompartmentResponse from "./change-deployment-backup-compartment-response";
@@ -36,12 +38,16 @@ import * as GetDeploymentResponse from "./get-deployment-response";
 export import GetDeploymentResponse = GetDeploymentResponse.GetDeploymentResponse;
 import * as GetDeploymentBackupResponse from "./get-deployment-backup-response";
 export import GetDeploymentBackupResponse = GetDeploymentBackupResponse.GetDeploymentBackupResponse;
+import * as GetDeploymentUpgradeResponse from "./get-deployment-upgrade-response";
+export import GetDeploymentUpgradeResponse = GetDeploymentUpgradeResponse.GetDeploymentUpgradeResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
 import * as ListDatabaseRegistrationsResponse from "./list-database-registrations-response";
 export import ListDatabaseRegistrationsResponse = ListDatabaseRegistrationsResponse.ListDatabaseRegistrationsResponse;
 import * as ListDeploymentBackupsResponse from "./list-deployment-backups-response";
 export import ListDeploymentBackupsResponse = ListDeploymentBackupsResponse.ListDeploymentBackupsResponse;
+import * as ListDeploymentUpgradesResponse from "./list-deployment-upgrades-response";
+export import ListDeploymentUpgradesResponse = ListDeploymentUpgradesResponse.ListDeploymentUpgradesResponse;
 import * as ListDeploymentsResponse from "./list-deployments-response";
 export import ListDeploymentsResponse = ListDeploymentsResponse.ListDeploymentsResponse;
 import * as ListWorkRequestErrorsResponse from "./list-work-request-errors-response";

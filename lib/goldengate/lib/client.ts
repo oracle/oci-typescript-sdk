@@ -132,6 +132,74 @@ export class GoldenGateClient {
   }
 
   /**
+   * Cancels a Deployment Backup creation process.
+   * @param CancelDeploymentBackupRequest
+   * @return CancelDeploymentBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CancelDeploymentBackup.ts.html |here} to see how to use CancelDeploymentBackup API.
+   */
+  public async cancelDeploymentBackup(
+    cancelDeploymentBackupRequest: requests.CancelDeploymentBackupRequest
+  ): Promise<responses.CancelDeploymentBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#cancelDeploymentBackup.");
+    const pathParams = {
+      "{deploymentBackupId}": cancelDeploymentBackupRequest.deploymentBackupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelDeploymentBackupRequest.ifMatch,
+      "opc-request-id": cancelDeploymentBackupRequest.opcRequestId,
+      "opc-retry-token": cancelDeploymentBackupRequest.opcRetryToken
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      cancelDeploymentBackupRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentBackups/{deploymentBackupId}/actions/cancel",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        cancelDeploymentBackupRequest.cancelDeploymentBackupDetails,
+        "CancelDeploymentBackupDetails",
+        model.CancelDeploymentBackupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelDeploymentBackupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the DatabaseRegistration into a different compartment within the same tenancy. When provided, If-Match is checked against ETag values of the resource.  For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * @param ChangeDatabaseRegistrationCompartmentRequest
@@ -935,6 +1003,71 @@ export class GoldenGateClient {
   }
 
   /**
+   * Retrieves a deployment upgrade.
+   *
+   * @param GetDeploymentUpgradeRequest
+   * @return GetDeploymentUpgradeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetDeploymentUpgrade.ts.html |here} to see how to use GetDeploymentUpgrade API.
+   */
+  public async getDeploymentUpgrade(
+    getDeploymentUpgradeRequest: requests.GetDeploymentUpgradeRequest
+  ): Promise<responses.GetDeploymentUpgradeResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getDeploymentUpgrade.");
+    const pathParams = {
+      "{deploymentUpgradeId}": getDeploymentUpgradeRequest.deploymentUpgradeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDeploymentUpgradeRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getDeploymentUpgradeRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentUpgrades/{deploymentUpgradeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDeploymentUpgradeResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentUpgrade",
+        bodyModel: model.DeploymentUpgrade,
+        type: "model.DeploymentUpgrade",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieve the WorkRequest identified by the given OCID.
    *
    * @param GetWorkRequestRequest
@@ -1144,6 +1277,79 @@ export class GoldenGateClient {
   }
 
   /**
+   * Lists the Deployment Upgrades in a compartment.
+   *
+   * @param ListDeploymentUpgradesRequest
+   * @return ListDeploymentUpgradesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentUpgrades.ts.html |here} to see how to use ListDeploymentUpgrades API.
+   */
+  public async listDeploymentUpgrades(
+    listDeploymentUpgradesRequest: requests.ListDeploymentUpgradesRequest
+  ): Promise<responses.ListDeploymentUpgradesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#listDeploymentUpgrades.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDeploymentUpgradesRequest.compartmentId,
+      "deploymentId": listDeploymentUpgradesRequest.deploymentId,
+      "lifecycleState": listDeploymentUpgradesRequest.lifecycleState,
+      "displayName": listDeploymentUpgradesRequest.displayName,
+      "limit": listDeploymentUpgradesRequest.limit,
+      "page": listDeploymentUpgradesRequest.page,
+      "sortOrder": listDeploymentUpgradesRequest.sortOrder,
+      "sortBy": listDeploymentUpgradesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDeploymentUpgradesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDeploymentUpgradesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentUpgrades",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDeploymentUpgradesResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentUpgradeCollection",
+        bodyModel: model.DeploymentUpgradeCollection,
+        type: "model.DeploymentUpgradeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the Deployments in a compartment.
    *
    * @param ListDeploymentsRequest
@@ -1160,7 +1366,9 @@ export class GoldenGateClient {
     const queryParams = {
       "compartmentId": listDeploymentsRequest.compartmentId,
       "lifecycleState": listDeploymentsRequest.lifecycleState,
+      "lifecycleSubState": listDeploymentsRequest.lifecycleSubState,
       "displayName": listDeploymentsRequest.displayName,
+      "fqdn": listDeploymentsRequest.fqdn,
       "limit": listDeploymentsRequest.limit,
       "page": listDeploymentsRequest.page,
       "sortOrder": listDeploymentsRequest.sortOrder,
@@ -1283,6 +1491,7 @@ export class GoldenGateClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestError objects
    * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
    * server as needed.
@@ -1296,12 +1505,38 @@ export class GoldenGateClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestErrorsResponses(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestError objects
+   * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsRecordIterator(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<model.WorkRequestError> {
+    return paginateRecords(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsResponseIterator(
     request: requests.ListWorkRequestErrorsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
     return paginateResponses(request, req => this.listWorkRequestErrors(req));
@@ -1376,6 +1611,7 @@ export class GoldenGateClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
    * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
    * server as needed.
@@ -1389,12 +1625,38 @@ export class GoldenGateClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestLogsResponses(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
+   * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsRecordIterator(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
+    return paginateRecords(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsResponseIterator(
     request: requests.ListWorkRequestLogsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
     return paginateResponses(request, req => this.listWorkRequestLogs(req));
@@ -1416,6 +1678,7 @@ export class GoldenGateClient {
 
     const queryParams = {
       "compartmentId": listWorkRequestsRequest.compartmentId,
+      "resourceId": listWorkRequestsRequest.resourceId,
       "page": listWorkRequestsRequest.page,
       "limit": listWorkRequestsRequest.limit
     };
@@ -1468,6 +1731,7 @@ export class GoldenGateClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequest objects
    * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -1481,12 +1745,38 @@ export class GoldenGateClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestsResponses(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequest objects
+   * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsRecordIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequest> {
+    return paginateRecords(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsResponseIterator(
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));

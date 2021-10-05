@@ -1597,6 +1597,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of getDomainRecordsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Record objects
    * contained in responses from the getDomainRecords operation. This iterator will fetch more data from the
    * server as needed.
@@ -1616,12 +1617,49 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of getDomainRecordsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the getDomainRecords operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public getAllDomainRecordsResponses(
+    request: requests.GetDomainRecordsRequest
+  ): AsyncIterableIterator<responses.GetDomainRecordsResponse> {
+    return genericPaginateResponses(
+      request,
+      req => this.getDomainRecords(req),
+      res => res.opcNextPage,
+      (req, nextPageToken) => (req.page = nextPageToken)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Record objects
+   * contained in responses from the getDomainRecords operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public getDomainRecordsRecordIterator(
+    request: requests.GetDomainRecordsRequest
+  ): AsyncIterableIterator<model.Record> {
+    return genericPaginateRecords(
+      request,
+      req => this.getDomainRecords(req),
+      res => res.opcNextPage,
+      (req, nextPageToken) => (req.page = nextPageToken),
+      res => res.recordCollection.items || []
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the getDomainRecords operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public getDomainRecordsResponseIterator(
     request: requests.GetDomainRecordsRequest
   ): AsyncIterableIterator<responses.GetDomainRecordsResponse> {
     return genericPaginateResponses(
@@ -1722,6 +1760,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of getRRSetRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Record objects
    * contained in responses from the getRRSet operation. This iterator will fetch more data from the
    * server as needed.
@@ -1739,12 +1778,49 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of getRRSetResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the getRRSet operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public getAllRRSetResponses(
+    request: requests.GetRRSetRequest
+  ): AsyncIterableIterator<responses.GetRRSetResponse> {
+    return genericPaginateResponses(
+      request,
+      req => this.getRRSet(req),
+      res => res.opcNextPage,
+      (req, nextPageToken) => (req.page = nextPageToken)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Record objects
+   * contained in responses from the getRRSet operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public getRRSetRecordIterator(
+    request: requests.GetRRSetRequest
+  ): AsyncIterableIterator<model.Record> {
+    return genericPaginateRecords(
+      request,
+      req => this.getRRSet(req),
+      res => res.opcNextPage,
+      (req, nextPageToken) => (req.page = nextPageToken),
+      res => res.rRSet.items || []
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the getRRSet operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public getRRSetResponseIterator(
     request: requests.GetRRSetRequest
   ): AsyncIterableIterator<responses.GetRRSetResponse> {
     return genericPaginateResponses(
@@ -2413,6 +2489,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of getZoneRecordsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Record objects
    * contained in responses from the getZoneRecords operation. This iterator will fetch more data from the
    * server as needed.
@@ -2432,12 +2509,49 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of getZoneRecordsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the getZoneRecords operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public getAllZoneRecordsResponses(
+    request: requests.GetZoneRecordsRequest
+  ): AsyncIterableIterator<responses.GetZoneRecordsResponse> {
+    return genericPaginateResponses(
+      request,
+      req => this.getZoneRecords(req),
+      res => res.opcNextPage,
+      (req, nextPageToken) => (req.page = nextPageToken)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Record objects
+   * contained in responses from the getZoneRecords operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public getZoneRecordsRecordIterator(
+    request: requests.GetZoneRecordsRequest
+  ): AsyncIterableIterator<model.Record> {
+    return genericPaginateRecords(
+      request,
+      req => this.getZoneRecords(req),
+      res => res.opcNextPage,
+      (req, nextPageToken) => (req.page = nextPageToken),
+      res => res.recordCollection.items || []
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the getZoneRecords operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public getZoneRecordsResponseIterator(
     request: requests.GetZoneRecordsRequest
   ): AsyncIterableIterator<responses.GetZoneRecordsResponse> {
     return genericPaginateResponses(
@@ -2525,6 +2639,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listResolverEndpointsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ResolverEndpointSummary objects
    * contained in responses from the listResolverEndpoints operation. This iterator will fetch more data from the
    * server as needed.
@@ -2538,12 +2653,38 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listResolverEndpointsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listResolverEndpoints operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllResolverEndpointsResponses(
+    request: requests.ListResolverEndpointsRequest
+  ): AsyncIterableIterator<responses.ListResolverEndpointsResponse> {
+    return paginateResponses(request, req => this.listResolverEndpoints(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ResolverEndpointSummary objects
+   * contained in responses from the listResolverEndpoints operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listResolverEndpointsRecordIterator(
+    request: requests.ListResolverEndpointsRequest
+  ): AsyncIterableIterator<model.ResolverEndpointSummary> {
+    return paginateRecords(request, req => this.listResolverEndpoints(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listResolverEndpoints operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listResolverEndpointsResponseIterator(
     request: requests.ListResolverEndpointsRequest
   ): AsyncIterableIterator<responses.ListResolverEndpointsResponse> {
     return paginateResponses(request, req => this.listResolverEndpoints(req));
@@ -2628,6 +2769,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listResolversRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ResolverSummary objects
    * contained in responses from the listResolvers operation. This iterator will fetch more data from the
    * server as needed.
@@ -2641,12 +2783,38 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listResolversResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listResolvers operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllResolversResponses(
+    request: requests.ListResolversRequest
+  ): AsyncIterableIterator<responses.ListResolversResponse> {
+    return paginateResponses(request, req => this.listResolvers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ResolverSummary objects
+   * contained in responses from the listResolvers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listResolversRecordIterator(
+    request: requests.ListResolversRequest
+  ): AsyncIterableIterator<model.ResolverSummary> {
+    return paginateRecords(request, req => this.listResolvers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listResolvers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listResolversResponseIterator(
     request: requests.ListResolversRequest
   ): AsyncIterableIterator<responses.ListResolversResponse> {
     return paginateResponses(request, req => this.listResolvers(req));
@@ -2737,6 +2905,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSteeringPoliciesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SteeringPolicySummary objects
    * contained in responses from the listSteeringPolicies operation. This iterator will fetch more data from the
    * server as needed.
@@ -2750,12 +2919,38 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSteeringPoliciesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSteeringPolicies operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSteeringPoliciesResponses(
+    request: requests.ListSteeringPoliciesRequest
+  ): AsyncIterableIterator<responses.ListSteeringPoliciesResponse> {
+    return paginateResponses(request, req => this.listSteeringPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SteeringPolicySummary objects
+   * contained in responses from the listSteeringPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSteeringPoliciesRecordIterator(
+    request: requests.ListSteeringPoliciesRequest
+  ): AsyncIterableIterator<model.SteeringPolicySummary> {
+    return paginateRecords(request, req => this.listSteeringPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSteeringPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSteeringPoliciesResponseIterator(
     request: requests.ListSteeringPoliciesRequest
   ): AsyncIterableIterator<responses.ListSteeringPoliciesResponse> {
     return paginateResponses(request, req => this.listSteeringPolicies(req));
@@ -2848,6 +3043,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSteeringPolicyAttachmentsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SteeringPolicyAttachmentSummary objects
    * contained in responses from the listSteeringPolicyAttachments operation. This iterator will fetch more data from the
    * server as needed.
@@ -2861,12 +3057,38 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSteeringPolicyAttachmentsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSteeringPolicyAttachments operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSteeringPolicyAttachmentsResponses(
+    request: requests.ListSteeringPolicyAttachmentsRequest
+  ): AsyncIterableIterator<responses.ListSteeringPolicyAttachmentsResponse> {
+    return paginateResponses(request, req => this.listSteeringPolicyAttachments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SteeringPolicyAttachmentSummary objects
+   * contained in responses from the listSteeringPolicyAttachments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSteeringPolicyAttachmentsRecordIterator(
+    request: requests.ListSteeringPolicyAttachmentsRequest
+  ): AsyncIterableIterator<model.SteeringPolicyAttachmentSummary> {
+    return paginateRecords(request, req => this.listSteeringPolicyAttachments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSteeringPolicyAttachments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSteeringPolicyAttachmentsResponseIterator(
     request: requests.ListSteeringPolicyAttachmentsRequest
   ): AsyncIterableIterator<responses.ListSteeringPolicyAttachmentsResponse> {
     return paginateResponses(request, req => this.listSteeringPolicyAttachments(req));
@@ -2946,6 +3168,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTsigKeysRecordIterator function.
    * Creates a new async iterator which will iterate over the models.TsigKeySummary objects
    * contained in responses from the listTsigKeys operation. This iterator will fetch more data from the
    * server as needed.
@@ -2959,12 +3182,38 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTsigKeysResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listTsigKeys operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllTsigKeysResponses(
+    request: requests.ListTsigKeysRequest
+  ): AsyncIterableIterator<responses.ListTsigKeysResponse> {
+    return paginateResponses(request, req => this.listTsigKeys(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.TsigKeySummary objects
+   * contained in responses from the listTsigKeys operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTsigKeysRecordIterator(
+    request: requests.ListTsigKeysRequest
+  ): AsyncIterableIterator<model.TsigKeySummary> {
+    return paginateRecords(request, req => this.listTsigKeys(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listTsigKeys operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTsigKeysResponseIterator(
     request: requests.ListTsigKeysRequest
   ): AsyncIterableIterator<responses.ListTsigKeysResponse> {
     return paginateResponses(request, req => this.listTsigKeys(req));
@@ -3049,6 +3298,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listViewsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ViewSummary objects
    * contained in responses from the listViews operation. This iterator will fetch more data from the
    * server as needed.
@@ -3062,12 +3312,38 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listViewsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listViews operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllViewsResponses(
+    request: requests.ListViewsRequest
+  ): AsyncIterableIterator<responses.ListViewsResponse> {
+    return paginateResponses(request, req => this.listViews(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ViewSummary objects
+   * contained in responses from the listViews operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listViewsRecordIterator(
+    request: requests.ListViewsRequest
+  ): AsyncIterableIterator<model.ViewSummary> {
+    return paginateRecords(request, req => this.listViews(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listViews operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listViewsResponseIterator(
     request: requests.ListViewsRequest
   ): AsyncIterableIterator<responses.ListViewsResponse> {
     return paginateResponses(request, req => this.listViews(req));
@@ -3143,6 +3419,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listZoneTransferServersRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ZoneTransferServer objects
    * contained in responses from the listZoneTransferServers operation. This iterator will fetch more data from the
    * server as needed.
@@ -3156,12 +3433,38 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listZoneTransferServersResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listZoneTransferServers operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllZoneTransferServersResponses(
+    request: requests.ListZoneTransferServersRequest
+  ): AsyncIterableIterator<responses.ListZoneTransferServersResponse> {
+    return paginateResponses(request, req => this.listZoneTransferServers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ZoneTransferServer objects
+   * contained in responses from the listZoneTransferServers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listZoneTransferServersRecordIterator(
+    request: requests.ListZoneTransferServersRequest
+  ): AsyncIterableIterator<model.ZoneTransferServer> {
+    return paginateRecords(request, req => this.listZoneTransferServers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listZoneTransferServers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listZoneTransferServersResponseIterator(
     request: requests.ListZoneTransferServersRequest
   ): AsyncIterableIterator<responses.ListZoneTransferServersResponse> {
     return paginateResponses(request, req => this.listZoneTransferServers(req));
@@ -3252,6 +3555,7 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listZonesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ZoneSummary objects
    * contained in responses from the listZones operation. This iterator will fetch more data from the
    * server as needed.
@@ -3265,12 +3569,38 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listZonesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listZones operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllZonesResponses(
+    request: requests.ListZonesRequest
+  ): AsyncIterableIterator<responses.ListZonesResponse> {
+    return paginateResponses(request, req => this.listZones(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ZoneSummary objects
+   * contained in responses from the listZones operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listZonesRecordIterator(
+    request: requests.ListZonesRequest
+  ): AsyncIterableIterator<model.ZoneSummary> {
+    return paginateRecords(request, req => this.listZones(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listZones operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listZonesResponseIterator(
     request: requests.ListZonesRequest
   ): AsyncIterableIterator<responses.ListZonesResponse> {
     return paginateResponses(request, req => this.listZones(req));

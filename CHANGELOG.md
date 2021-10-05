@@ -3,6 +3,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.5.0 - 2021-10-05
+### Added
+- Support for configuring Binlog variables in the MySQL Database service.
+- Support new response value "OPERATOR" for backup creationType in list and get MDS backup API in the MySQL Database service.
+- Support for SetAutoUpgradableConfig and GetAutoUpgradableConfig operations in Management Agent Cloud service.
+- Support for additional installType filter for List Management Agents, Images and Count API operations in Management Agent Cloud service.
+- Support for list and read DeploymentUpgrade, cancel and restore DeploymentBackup in the Golden Gate service.
+- Support for non-autonomous databases targets, executing Pre-Migration advisor, uploading Datapump logs into Object Storage bucket, and filtering Database Objects in the Database Migration service.
+- Support for calling Oracle Cloud Infrastructure services in the ap-ibaraki-1 region.
+
+### Breaking Changes
+- Removed field `isAgentAutoUpgradable` from `UpdateManagementAgentDetails` model from Management Agent service
+- Removed field `TimeCreated` and `DisplayName` in `SortBy` enum and `displayName` from `ListWorkRequestsRequest` request model from Database Migration service.
+- Removed field `TimeCreated` and `DisplayName` in `SortBy` enum and `displayName` from `ListWorkRequestsLogRequest` request model from Database Migration service.
+- Removed field `TimeCreated` and `DisplayName` in `SortBy` enum and `displayName` from `ListWorkRequestsErrorsRequest` request model from Database Migration service.
+- Update field `lifecycleState` to use `model.MigrationLifecycleStates` instead of `model.LifecycleStates` from `ListMigrationsRequest` request model from Database Migration service.
+- Update field `lifecycleState` to use `model.MigrationLifecycleStates` instead of `model.LifecycleStates` from `Migration` and `MigrationSummary` model from Database Migration service.
+- Update field `timeStamp` to `timestamp` from `WorkRequestLogEntry` and `WorkRequestError` model from Database Migration service.
+- Removed field `compartmentId` from `UpdateAgentDetails` model from Database Migration service.
+- Mark listAll* paginator functions as deprecated in favor of Iterator paginator functions.
+
 ## 2.4.0 - 2021-09-28
 ### Added
 - Support for autonomous databases and clones on shared infrastructure not requiring mTLS in the Database service

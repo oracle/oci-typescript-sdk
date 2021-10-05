@@ -1145,6 +1145,7 @@ export class DataFlowClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listApplicationsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ApplicationSummary objects
    * contained in responses from the listApplications operation. This iterator will fetch more data from the
    * server as needed.
@@ -1158,12 +1159,38 @@ export class DataFlowClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listApplicationsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listApplications operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllApplicationsResponses(
+    request: requests.ListApplicationsRequest
+  ): AsyncIterableIterator<responses.ListApplicationsResponse> {
+    return paginateResponses(request, req => this.listApplications(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ApplicationSummary objects
+   * contained in responses from the listApplications operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listApplicationsRecordIterator(
+    request: requests.ListApplicationsRequest
+  ): AsyncIterableIterator<model.ApplicationSummary> {
+    return paginateRecords(request, req => this.listApplications(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listApplications operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listApplicationsResponseIterator(
     request: requests.ListApplicationsRequest
   ): AsyncIterableIterator<responses.ListApplicationsResponse> {
     return paginateResponses(request, req => this.listApplications(req));
@@ -1321,6 +1348,7 @@ export class DataFlowClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRunLogsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.RunLogSummary objects
    * contained in responses from the listRunLogs operation. This iterator will fetch more data from the
    * server as needed.
@@ -1334,12 +1362,38 @@ export class DataFlowClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRunLogsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listRunLogs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllRunLogsResponses(
+    request: requests.ListRunLogsRequest
+  ): AsyncIterableIterator<responses.ListRunLogsResponse> {
+    return paginateResponses(request, req => this.listRunLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.RunLogSummary objects
+   * contained in responses from the listRunLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRunLogsRecordIterator(
+    request: requests.ListRunLogsRequest
+  ): AsyncIterableIterator<model.RunLogSummary> {
+    return paginateRecords(request, req => this.listRunLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listRunLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRunLogsResponseIterator(
     request: requests.ListRunLogsRequest
   ): AsyncIterableIterator<responses.ListRunLogsResponse> {
     return paginateResponses(request, req => this.listRunLogs(req));
@@ -1426,6 +1480,7 @@ export class DataFlowClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRunsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.RunSummary objects
    * contained in responses from the listRuns operation. This iterator will fetch more data from the
    * server as needed.
@@ -1437,12 +1492,38 @@ export class DataFlowClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRunsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listRuns operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllRunsResponses(
+    request: requests.ListRunsRequest
+  ): AsyncIterableIterator<responses.ListRunsResponse> {
+    return paginateResponses(request, req => this.listRuns(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.RunSummary objects
+   * contained in responses from the listRuns operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRunsRecordIterator(
+    request: requests.ListRunsRequest
+  ): AsyncIterableIterator<model.RunSummary> {
+    return paginateRecords(request, req => this.listRuns(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listRuns operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRunsResponseIterator(
     request: requests.ListRunsRequest
   ): AsyncIterableIterator<responses.ListRunsResponse> {
     return paginateResponses(request, req => this.listRuns(req));

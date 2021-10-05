@@ -1151,6 +1151,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAcceptedAgreementsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AcceptedAgreementSummary objects
    * contained in responses from the listAcceptedAgreements operation. This iterator will fetch more data from the
    * server as needed.
@@ -1164,12 +1165,38 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAcceptedAgreementsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAcceptedAgreements operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAcceptedAgreementsResponses(
+    request: requests.ListAcceptedAgreementsRequest
+  ): AsyncIterableIterator<responses.ListAcceptedAgreementsResponse> {
+    return paginateResponses(request, req => this.listAcceptedAgreements(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AcceptedAgreementSummary objects
+   * contained in responses from the listAcceptedAgreements operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAcceptedAgreementsRecordIterator(
+    request: requests.ListAcceptedAgreementsRequest
+  ): AsyncIterableIterator<model.AcceptedAgreementSummary> {
+    return paginateRecords(request, req => this.listAcceptedAgreements(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAcceptedAgreements operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAcceptedAgreementsResponseIterator(
     request: requests.ListAcceptedAgreementsRequest
   ): AsyncIterableIterator<responses.ListAcceptedAgreementsResponse> {
     return paginateResponses(request, req => this.listAcceptedAgreements(req));
@@ -1246,6 +1273,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAgreementsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AgreementSummary objects
    * contained in responses from the listAgreements operation. This iterator will fetch more data from the
    * server as needed.
@@ -1259,12 +1287,38 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAgreementsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAgreements operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAgreementsResponses(
+    request: requests.ListAgreementsRequest
+  ): AsyncIterableIterator<responses.ListAgreementsResponse> {
+    return paginateResponses(request, req => this.listAgreements(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AgreementSummary objects
+   * contained in responses from the listAgreements operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAgreementsRecordIterator(
+    request: requests.ListAgreementsRequest
+  ): AsyncIterableIterator<model.AgreementSummary> {
+    return paginateRecords(request, req => this.listAgreements(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAgreements operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAgreementsResponseIterator(
     request: requests.ListAgreementsRequest
   ): AsyncIterableIterator<responses.ListAgreementsResponse> {
     return paginateResponses(request, req => this.listAgreements(req));
@@ -1339,6 +1393,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCategoriesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.CategorySummary objects
    * contained in responses from the listCategories operation. This iterator will fetch more data from the
    * server as needed.
@@ -1352,12 +1407,38 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCategoriesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCategories operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCategoriesResponses(
+    request: requests.ListCategoriesRequest
+  ): AsyncIterableIterator<responses.ListCategoriesResponse> {
+    return paginateResponses(request, req => this.listCategories(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CategorySummary objects
+   * contained in responses from the listCategories operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCategoriesRecordIterator(
+    request: requests.ListCategoriesRequest
+  ): AsyncIterableIterator<model.CategorySummary> {
+    return paginateRecords(request, req => this.listCategories(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCategories operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCategoriesResponseIterator(
     request: requests.ListCategoriesRequest
   ): AsyncIterableIterator<responses.ListCategoriesResponse> {
     return paginateResponses(request, req => this.listCategories(req));
@@ -1456,6 +1537,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listListingsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ListingSummary objects
    * contained in responses from the listListings operation. This iterator will fetch more data from the
    * server as needed.
@@ -1469,12 +1551,38 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listListingsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listListings operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllListingsResponses(
+    request: requests.ListListingsRequest
+  ): AsyncIterableIterator<responses.ListListingsResponse> {
+    return paginateResponses(request, req => this.listListings(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ListingSummary objects
+   * contained in responses from the listListings operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listListingsRecordIterator(
+    request: requests.ListListingsRequest
+  ): AsyncIterableIterator<model.ListingSummary> {
+    return paginateRecords(request, req => this.listListings(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listListings operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listListingsResponseIterator(
     request: requests.ListListingsRequest
   ): AsyncIterableIterator<responses.ListListingsResponse> {
     return paginateResponses(request, req => this.listListings(req));
@@ -1567,6 +1675,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPackagesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ListingPackageSummary objects
    * contained in responses from the listPackages operation. This iterator will fetch more data from the
    * server as needed.
@@ -1580,12 +1689,38 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPackagesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listPackages operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllPackagesResponses(
+    request: requests.ListPackagesRequest
+  ): AsyncIterableIterator<responses.ListPackagesResponse> {
+    return paginateResponses(request, req => this.listPackages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ListingPackageSummary objects
+   * contained in responses from the listPackages operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPackagesRecordIterator(
+    request: requests.ListPackagesRequest
+  ): AsyncIterableIterator<model.ListingPackageSummary> {
+    return paginateRecords(request, req => this.listPackages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPackages operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPackagesResponseIterator(
     request: requests.ListPackagesRequest
   ): AsyncIterableIterator<responses.ListPackagesResponse> {
     return paginateResponses(request, req => this.listPackages(req));
@@ -1664,6 +1799,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPublicationPackagesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PublicationPackageSummary objects
    * contained in responses from the listPublicationPackages operation. This iterator will fetch more data from the
    * server as needed.
@@ -1677,12 +1813,38 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPublicationPackagesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listPublicationPackages operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllPublicationPackagesResponses(
+    request: requests.ListPublicationPackagesRequest
+  ): AsyncIterableIterator<responses.ListPublicationPackagesResponse> {
+    return paginateResponses(request, req => this.listPublicationPackages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PublicationPackageSummary objects
+   * contained in responses from the listPublicationPackages operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPublicationPackagesRecordIterator(
+    request: requests.ListPublicationPackagesRequest
+  ): AsyncIterableIterator<model.PublicationPackageSummary> {
+    return paginateRecords(request, req => this.listPublicationPackages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPublicationPackages operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPublicationPackagesResponseIterator(
     request: requests.ListPublicationPackagesRequest
   ): AsyncIterableIterator<responses.ListPublicationPackagesResponse> {
     return paginateResponses(request, req => this.listPublicationPackages(req));
@@ -1761,6 +1923,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPublicationsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PublicationSummary objects
    * contained in responses from the listPublications operation. This iterator will fetch more data from the
    * server as needed.
@@ -1774,12 +1937,38 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPublicationsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listPublications operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllPublicationsResponses(
+    request: requests.ListPublicationsRequest
+  ): AsyncIterableIterator<responses.ListPublicationsResponse> {
+    return paginateResponses(request, req => this.listPublications(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PublicationSummary objects
+   * contained in responses from the listPublications operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPublicationsRecordIterator(
+    request: requests.ListPublicationsRequest
+  ): AsyncIterableIterator<model.PublicationSummary> {
+    return paginateRecords(request, req => this.listPublications(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPublications operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPublicationsResponseIterator(
     request: requests.ListPublicationsRequest
   ): AsyncIterableIterator<responses.ListPublicationsResponse> {
     return paginateResponses(request, req => this.listPublications(req));
@@ -1854,6 +2043,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPublishersRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PublisherSummary objects
    * contained in responses from the listPublishers operation. This iterator will fetch more data from the
    * server as needed.
@@ -1867,12 +2057,38 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPublishersResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listPublishers operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllPublishersResponses(
+    request: requests.ListPublishersRequest
+  ): AsyncIterableIterator<responses.ListPublishersResponse> {
+    return paginateResponses(request, req => this.listPublishers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PublisherSummary objects
+   * contained in responses from the listPublishers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPublishersRecordIterator(
+    request: requests.ListPublishersRequest
+  ): AsyncIterableIterator<model.PublisherSummary> {
+    return paginateRecords(request, req => this.listPublishers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPublishers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPublishersResponseIterator(
     request: requests.ListPublishersRequest
   ): AsyncIterableIterator<responses.ListPublishersResponse> {
     return paginateResponses(request, req => this.listPublishers(req));
@@ -2149,6 +2365,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of searchListingsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ListingSummary objects
    * contained in responses from the searchListings operation. This iterator will fetch more data from the
    * server as needed.
@@ -2162,12 +2379,38 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
+   * NOTE: This function is deprecated in favor of searchListingsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the searchListings operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public searchAllListingsResponses(
+    request: requests.SearchListingsRequest
+  ): AsyncIterableIterator<responses.SearchListingsResponse> {
+    return paginateResponses(request, req => this.searchListings(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ListingSummary objects
+   * contained in responses from the searchListings operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public searchListingsRecordIterator(
+    request: requests.SearchListingsRequest
+  ): AsyncIterableIterator<model.ListingSummary> {
+    return paginateRecords(request, req => this.searchListings(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the searchListings operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public searchListingsResponseIterator(
     request: requests.SearchListingsRequest
   ): AsyncIterableIterator<responses.SearchListingsResponse> {
     return paginateResponses(request, req => this.searchListings(req));

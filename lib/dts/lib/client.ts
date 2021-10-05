@@ -462,6 +462,7 @@ export class ApplianceExportJobClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listApplianceExportJobsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ApplianceExportJobSummary objects
    * contained in responses from the listApplianceExportJobs operation. This iterator will fetch more data from the
    * server as needed.
@@ -475,12 +476,38 @@ export class ApplianceExportJobClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listApplianceExportJobsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listApplianceExportJobs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllApplianceExportJobsResponses(
+    request: requests.ListApplianceExportJobsRequest
+  ): AsyncIterableIterator<responses.ListApplianceExportJobsResponse> {
+    return paginateResponses(request, req => this.listApplianceExportJobs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ApplianceExportJobSummary objects
+   * contained in responses from the listApplianceExportJobs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listApplianceExportJobsRecordIterator(
+    request: requests.ListApplianceExportJobsRequest
+  ): AsyncIterableIterator<model.ApplianceExportJobSummary> {
+    return paginateRecords(request, req => this.listApplianceExportJobs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listApplianceExportJobs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listApplianceExportJobsResponseIterator(
     request: requests.ListApplianceExportJobsRequest
   ): AsyncIterableIterator<responses.ListApplianceExportJobsResponse> {
     return paginateResponses(request, req => this.listApplianceExportJobs(req));
@@ -2509,6 +2536,7 @@ export class TransferJobClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTransferJobsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.TransferJobSummary objects
    * contained in responses from the listTransferJobs operation. This iterator will fetch more data from the
    * server as needed.
@@ -2522,12 +2550,38 @@ export class TransferJobClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTransferJobsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listTransferJobs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllTransferJobsResponses(
+    request: requests.ListTransferJobsRequest
+  ): AsyncIterableIterator<responses.ListTransferJobsResponse> {
+    return paginateResponses(request, req => this.listTransferJobs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.TransferJobSummary objects
+   * contained in responses from the listTransferJobs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTransferJobsRecordIterator(
+    request: requests.ListTransferJobsRequest
+  ): AsyncIterableIterator<model.TransferJobSummary> {
+    return paginateRecords(request, req => this.listTransferJobs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listTransferJobs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTransferJobsResponseIterator(
     request: requests.ListTransferJobsRequest
   ): AsyncIterableIterator<responses.ListTransferJobsResponse> {
     return paginateResponses(request, req => this.listTransferJobs(req));

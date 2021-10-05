@@ -98,6 +98,7 @@ export class Region {
 
   // OC8
   public static AP_CHIYODA_1: Region = Region.register("ap-chiyoda-1", Realm.OC8, "nja");
+  public static AP_IBARAKI_1: Region = Region.register("ap-ibaraki-1", Realm.OC8, "ukb");
 
   /**
    * Return all known Regions in this version of the SDK, except possibly the region returned by IMDS (Instance Metadata

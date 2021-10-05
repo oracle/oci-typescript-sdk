@@ -2911,6 +2911,7 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listJobRunsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.JobRunSummary objects
    * contained in responses from the listJobRuns operation. This iterator will fetch more data from the
    * server as needed.
@@ -2924,12 +2925,38 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listJobRunsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listJobRuns operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllJobRunsResponses(
+    request: requests.ListJobRunsRequest
+  ): AsyncIterableIterator<responses.ListJobRunsResponse> {
+    return paginateResponses(request, req => this.listJobRuns(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.JobRunSummary objects
+   * contained in responses from the listJobRuns operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listJobRunsRecordIterator(
+    request: requests.ListJobRunsRequest
+  ): AsyncIterableIterator<model.JobRunSummary> {
+    return paginateRecords(request, req => this.listJobRuns(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listJobRuns operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listJobRunsResponseIterator(
     request: requests.ListJobRunsRequest
   ): AsyncIterableIterator<responses.ListJobRunsResponse> {
     return paginateResponses(request, req => this.listJobRuns(req));
@@ -3007,6 +3034,7 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listJobShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.JobShapeSummary objects
    * contained in responses from the listJobShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -3020,12 +3048,38 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listJobShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listJobShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllJobShapesResponses(
+    request: requests.ListJobShapesRequest
+  ): AsyncIterableIterator<responses.ListJobShapesResponse> {
+    return paginateResponses(request, req => this.listJobShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.JobShapeSummary objects
+   * contained in responses from the listJobShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listJobShapesRecordIterator(
+    request: requests.ListJobShapesRequest
+  ): AsyncIterableIterator<model.JobShapeSummary> {
+    return paginateRecords(request, req => this.listJobShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listJobShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listJobShapesResponseIterator(
     request: requests.ListJobShapesRequest
   ): AsyncIterableIterator<responses.ListJobShapesResponse> {
     return paginateResponses(request, req => this.listJobShapes(req));
@@ -3110,6 +3164,7 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listJobsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.JobSummary objects
    * contained in responses from the listJobs operation. This iterator will fetch more data from the
    * server as needed.
@@ -3121,12 +3176,38 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listJobsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listJobs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllJobsResponses(
+    request: requests.ListJobsRequest
+  ): AsyncIterableIterator<responses.ListJobsResponse> {
+    return paginateResponses(request, req => this.listJobs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.JobSummary objects
+   * contained in responses from the listJobs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listJobsRecordIterator(
+    request: requests.ListJobsRequest
+  ): AsyncIterableIterator<model.JobSummary> {
+    return paginateRecords(request, req => this.listJobs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listJobs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listJobsResponseIterator(
     request: requests.ListJobsRequest
   ): AsyncIterableIterator<responses.ListJobsResponse> {
     return paginateResponses(request, req => this.listJobs(req));
@@ -3205,6 +3286,7 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listModelDeploymentShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ModelDeploymentShapeSummary objects
    * contained in responses from the listModelDeploymentShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -3218,12 +3300,38 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listModelDeploymentShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listModelDeploymentShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllModelDeploymentShapesResponses(
+    request: requests.ListModelDeploymentShapesRequest
+  ): AsyncIterableIterator<responses.ListModelDeploymentShapesResponse> {
+    return paginateResponses(request, req => this.listModelDeploymentShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModelDeploymentShapeSummary objects
+   * contained in responses from the listModelDeploymentShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelDeploymentShapesRecordIterator(
+    request: requests.ListModelDeploymentShapesRequest
+  ): AsyncIterableIterator<model.ModelDeploymentShapeSummary> {
+    return paginateRecords(request, req => this.listModelDeploymentShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModelDeploymentShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelDeploymentShapesResponseIterator(
     request: requests.ListModelDeploymentShapesRequest
   ): AsyncIterableIterator<responses.ListModelDeploymentShapesResponse> {
     return paginateResponses(request, req => this.listModelDeploymentShapes(req));
@@ -3309,6 +3417,7 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listModelDeploymentsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ModelDeploymentSummary objects
    * contained in responses from the listModelDeployments operation. This iterator will fetch more data from the
    * server as needed.
@@ -3322,12 +3431,38 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listModelDeploymentsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listModelDeployments operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllModelDeploymentsResponses(
+    request: requests.ListModelDeploymentsRequest
+  ): AsyncIterableIterator<responses.ListModelDeploymentsResponse> {
+    return paginateResponses(request, req => this.listModelDeployments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModelDeploymentSummary objects
+   * contained in responses from the listModelDeployments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelDeploymentsRecordIterator(
+    request: requests.ListModelDeploymentsRequest
+  ): AsyncIterableIterator<model.ModelDeploymentSummary> {
+    return paginateRecords(request, req => this.listModelDeployments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModelDeployments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelDeploymentsResponseIterator(
     request: requests.ListModelDeploymentsRequest
   ): AsyncIterableIterator<responses.ListModelDeploymentsResponse> {
     return paginateResponses(request, req => this.listModelDeployments(req));
@@ -3412,6 +3547,7 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listModelsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ModelSummary objects
    * contained in responses from the listModels operation. This iterator will fetch more data from the
    * server as needed.
@@ -3425,12 +3561,38 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listModelsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listModels operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllModelsResponses(
+    request: requests.ListModelsRequest
+  ): AsyncIterableIterator<responses.ListModelsResponse> {
+    return paginateResponses(request, req => this.listModels(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModelSummary objects
+   * contained in responses from the listModels operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelsRecordIterator(
+    request: requests.ListModelsRequest
+  ): AsyncIterableIterator<model.ModelSummary> {
+    return paginateRecords(request, req => this.listModels(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModels operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelsResponseIterator(
     request: requests.ListModelsRequest
   ): AsyncIterableIterator<responses.ListModelsResponse> {
     return paginateResponses(request, req => this.listModels(req));
@@ -3509,6 +3671,7 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNotebookSessionShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.NotebookSessionShapeSummary objects
    * contained in responses from the listNotebookSessionShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -3522,12 +3685,38 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNotebookSessionShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listNotebookSessionShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllNotebookSessionShapesResponses(
+    request: requests.ListNotebookSessionShapesRequest
+  ): AsyncIterableIterator<responses.ListNotebookSessionShapesResponse> {
+    return paginateResponses(request, req => this.listNotebookSessionShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.NotebookSessionShapeSummary objects
+   * contained in responses from the listNotebookSessionShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNotebookSessionShapesRecordIterator(
+    request: requests.ListNotebookSessionShapesRequest
+  ): AsyncIterableIterator<model.NotebookSessionShapeSummary> {
+    return paginateRecords(request, req => this.listNotebookSessionShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listNotebookSessionShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNotebookSessionShapesResponseIterator(
     request: requests.ListNotebookSessionShapesRequest
   ): AsyncIterableIterator<responses.ListNotebookSessionShapesResponse> {
     return paginateResponses(request, req => this.listNotebookSessionShapes(req));
@@ -3612,6 +3801,7 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNotebookSessionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.NotebookSessionSummary objects
    * contained in responses from the listNotebookSessions operation. This iterator will fetch more data from the
    * server as needed.
@@ -3625,12 +3815,38 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNotebookSessionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listNotebookSessions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllNotebookSessionsResponses(
+    request: requests.ListNotebookSessionsRequest
+  ): AsyncIterableIterator<responses.ListNotebookSessionsResponse> {
+    return paginateResponses(request, req => this.listNotebookSessions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.NotebookSessionSummary objects
+   * contained in responses from the listNotebookSessions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNotebookSessionsRecordIterator(
+    request: requests.ListNotebookSessionsRequest
+  ): AsyncIterableIterator<model.NotebookSessionSummary> {
+    return paginateRecords(request, req => this.listNotebookSessions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listNotebookSessions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNotebookSessionsResponseIterator(
     request: requests.ListNotebookSessionsRequest
   ): AsyncIterableIterator<responses.ListNotebookSessionsResponse> {
     return paginateResponses(request, req => this.listNotebookSessions(req));
@@ -3714,6 +3930,7 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listProjectsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ProjectSummary objects
    * contained in responses from the listProjects operation. This iterator will fetch more data from the
    * server as needed.
@@ -3727,12 +3944,38 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listProjectsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listProjects operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllProjectsResponses(
+    request: requests.ListProjectsRequest
+  ): AsyncIterableIterator<responses.ListProjectsResponse> {
+    return paginateResponses(request, req => this.listProjects(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ProjectSummary objects
+   * contained in responses from the listProjects operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listProjectsRecordIterator(
+    request: requests.ListProjectsRequest
+  ): AsyncIterableIterator<model.ProjectSummary> {
+    return paginateRecords(request, req => this.listProjects(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listProjects operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listProjectsResponseIterator(
     request: requests.ListProjectsRequest
   ): AsyncIterableIterator<responses.ListProjectsResponse> {
     return paginateResponses(request, req => this.listProjects(req));
@@ -3934,6 +4177,7 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
    * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -3947,12 +4191,38 @@ export class DataScienceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestsResponses(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
+   * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsRecordIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
+    return paginateRecords(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsResponseIterator(
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));

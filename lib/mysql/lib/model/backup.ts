@@ -63,7 +63,8 @@ export interface Backup {
    */
   "backupType": Backup.BackupType;
   /**
-   * If the backup was created automatically, or by a manual request.
+   * Indicates how the backup was created: manually, automatic, or by an Operator.
+   *
    */
   "creationType": Backup.CreationType;
   /**
@@ -135,6 +136,7 @@ export namespace Backup {
   export enum CreationType {
     Manual = "MANUAL",
     Automatic = "AUTOMATIC",
+    Operator = "OPERATOR",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

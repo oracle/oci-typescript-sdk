@@ -467,6 +467,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTopicsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.NotificationTopicSummary objects
    * contained in responses from the listTopics operation. This iterator will fetch more data from the
    * server as needed.
@@ -480,12 +481,38 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTopicsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listTopics operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllTopicsResponses(
+    request: requests.ListTopicsRequest
+  ): AsyncIterableIterator<responses.ListTopicsResponse> {
+    return paginateResponses(request, req => this.listTopics(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.NotificationTopicSummary objects
+   * contained in responses from the listTopics operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTopicsRecordIterator(
+    request: requests.ListTopicsRequest
+  ): AsyncIterableIterator<model.NotificationTopicSummary> {
+    return paginateRecords(request, req => this.listTopics(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listTopics operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTopicsResponseIterator(
     request: requests.ListTopicsRequest
   ): AsyncIterableIterator<responses.ListTopicsResponse> {
     return paginateResponses(request, req => this.listTopics(req));
@@ -1154,6 +1181,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSubscriptionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SubscriptionSummary objects
    * contained in responses from the listSubscriptions operation. This iterator will fetch more data from the
    * server as needed.
@@ -1167,12 +1195,38 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSubscriptionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSubscriptions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSubscriptionsResponses(
+    request: requests.ListSubscriptionsRequest
+  ): AsyncIterableIterator<responses.ListSubscriptionsResponse> {
+    return paginateResponses(request, req => this.listSubscriptions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SubscriptionSummary objects
+   * contained in responses from the listSubscriptions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSubscriptionsRecordIterator(
+    request: requests.ListSubscriptionsRequest
+  ): AsyncIterableIterator<model.SubscriptionSummary> {
+    return paginateRecords(request, req => this.listSubscriptions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSubscriptions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSubscriptionsResponseIterator(
     request: requests.ListSubscriptionsRequest
   ): AsyncIterableIterator<responses.ListSubscriptionsResponse> {
     return paginateResponses(request, req => this.listSubscriptions(req));

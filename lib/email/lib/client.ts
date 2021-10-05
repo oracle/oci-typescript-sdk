@@ -1360,6 +1360,7 @@ export class EmailClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSendersRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SenderSummary objects
    * contained in responses from the listSenders operation. This iterator will fetch more data from the
    * server as needed.
@@ -1373,12 +1374,38 @@ export class EmailClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSendersResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSenders operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSendersResponses(
+    request: requests.ListSendersRequest
+  ): AsyncIterableIterator<responses.ListSendersResponse> {
+    return paginateResponses(request, req => this.listSenders(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SenderSummary objects
+   * contained in responses from the listSenders operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSendersRecordIterator(
+    request: requests.ListSendersRequest
+  ): AsyncIterableIterator<model.SenderSummary> {
+    return paginateRecords(request, req => this.listSenders(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSenders operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSendersResponseIterator(
     request: requests.ListSendersRequest
   ): AsyncIterableIterator<responses.ListSendersResponse> {
     return paginateResponses(request, req => this.listSenders(req));
@@ -1464,6 +1491,7 @@ export class EmailClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSuppressionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SuppressionSummary objects
    * contained in responses from the listSuppressions operation. This iterator will fetch more data from the
    * server as needed.
@@ -1477,12 +1505,38 @@ export class EmailClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSuppressionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSuppressions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSuppressionsResponses(
+    request: requests.ListSuppressionsRequest
+  ): AsyncIterableIterator<responses.ListSuppressionsResponse> {
+    return paginateResponses(request, req => this.listSuppressions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SuppressionSummary objects
+   * contained in responses from the listSuppressions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSuppressionsRecordIterator(
+    request: requests.ListSuppressionsRequest
+  ): AsyncIterableIterator<model.SuppressionSummary> {
+    return paginateRecords(request, req => this.listSuppressions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSuppressions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSuppressionsResponseIterator(
     request: requests.ListSuppressionsRequest
   ): AsyncIterableIterator<responses.ListSuppressionsResponse> {
     return paginateResponses(request, req => this.listSuppressions(req));

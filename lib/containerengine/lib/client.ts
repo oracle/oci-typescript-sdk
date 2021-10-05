@@ -1031,6 +1031,7 @@ export class ContainerEngineClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listClustersRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ClusterSummary objects
    * contained in responses from the listClusters operation. This iterator will fetch more data from the
    * server as needed.
@@ -1044,12 +1045,38 @@ export class ContainerEngineClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listClustersResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listClusters operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllClustersResponses(
+    request: requests.ListClustersRequest
+  ): AsyncIterableIterator<responses.ListClustersResponse> {
+    return paginateResponses(request, req => this.listClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ClusterSummary objects
+   * contained in responses from the listClusters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listClustersRecordIterator(
+    request: requests.ListClustersRequest
+  ): AsyncIterableIterator<model.ClusterSummary> {
+    return paginateRecords(request, req => this.listClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listClusters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listClustersResponseIterator(
     request: requests.ListClustersRequest
   ): AsyncIterableIterator<responses.ListClustersResponse> {
     return paginateResponses(request, req => this.listClusters(req));
@@ -1126,6 +1153,7 @@ export class ContainerEngineClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNodePoolsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.NodePoolSummary objects
    * contained in responses from the listNodePools operation. This iterator will fetch more data from the
    * server as needed.
@@ -1139,12 +1167,38 @@ export class ContainerEngineClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNodePoolsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listNodePools operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllNodePoolsResponses(
+    request: requests.ListNodePoolsRequest
+  ): AsyncIterableIterator<responses.ListNodePoolsResponse> {
+    return paginateResponses(request, req => this.listNodePools(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.NodePoolSummary objects
+   * contained in responses from the listNodePools operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNodePoolsRecordIterator(
+    request: requests.ListNodePoolsRequest
+  ): AsyncIterableIterator<model.NodePoolSummary> {
+    return paginateRecords(request, req => this.listNodePools(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listNodePools operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNodePoolsResponseIterator(
     request: requests.ListNodePoolsRequest
   ): AsyncIterableIterator<responses.ListNodePoolsResponse> {
     return paginateResponses(request, req => this.listNodePools(req));
@@ -1347,6 +1401,7 @@ export class ContainerEngineClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
    * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -1360,12 +1415,38 @@ export class ContainerEngineClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestsResponses(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
+   * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsRecordIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
+    return paginateRecords(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsResponseIterator(
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));
