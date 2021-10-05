@@ -22,6 +22,10 @@ export interface ManagementAgentPluginAggregationDimensions {
    * Management Agent Plugin Name
    */
   "pluginName"?: string;
+  /**
+   * Management Agent Plugin Display Name
+   */
+  "pluginDisplayName"?: string;
 }
 
 export namespace ManagementAgentPluginAggregationDimensions {

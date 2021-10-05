@@ -2547,6 +2547,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
+   * NOTE: This function is deprecated in favor of getVolumeBackupPolicyAssetAssignmentRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VolumeBackupPolicyAssignment objects
    * contained in responses from the getVolumeBackupPolicyAssetAssignment operation. This iterator will fetch more data from the
    * server as needed.
@@ -2560,12 +2561,38 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
+   * NOTE: This function is deprecated in favor of getVolumeBackupPolicyAssetAssignmentResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the getVolumeBackupPolicyAssetAssignment operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public getAllVolumeBackupPolicyAssetAssignmentResponses(
+    request: requests.GetVolumeBackupPolicyAssetAssignmentRequest
+  ): AsyncIterableIterator<responses.GetVolumeBackupPolicyAssetAssignmentResponse> {
+    return paginateResponses(request, req => this.getVolumeBackupPolicyAssetAssignment(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VolumeBackupPolicyAssignment objects
+   * contained in responses from the getVolumeBackupPolicyAssetAssignment operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public getVolumeBackupPolicyAssetAssignmentRecordIterator(
+    request: requests.GetVolumeBackupPolicyAssetAssignmentRequest
+  ): AsyncIterableIterator<model.VolumeBackupPolicyAssignment> {
+    return paginateRecords(request, req => this.getVolumeBackupPolicyAssetAssignment(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the getVolumeBackupPolicyAssetAssignment operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public getVolumeBackupPolicyAssetAssignmentResponseIterator(
     request: requests.GetVolumeBackupPolicyAssetAssignmentRequest
   ): AsyncIterableIterator<responses.GetVolumeBackupPolicyAssetAssignmentResponse> {
     return paginateResponses(request, req => this.getVolumeBackupPolicyAssetAssignment(req));
@@ -2900,6 +2927,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBlockVolumeReplicasRecordIterator function.
    * Creates a new async iterator which will iterate over the models.BlockVolumeReplica objects
    * contained in responses from the listBlockVolumeReplicas operation. This iterator will fetch more data from the
    * server as needed.
@@ -2913,12 +2941,38 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBlockVolumeReplicasResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listBlockVolumeReplicas operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllBlockVolumeReplicasResponses(
+    request: requests.ListBlockVolumeReplicasRequest
+  ): AsyncIterableIterator<responses.ListBlockVolumeReplicasResponse> {
+    return paginateResponses(request, req => this.listBlockVolumeReplicas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BlockVolumeReplica objects
+   * contained in responses from the listBlockVolumeReplicas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBlockVolumeReplicasRecordIterator(
+    request: requests.ListBlockVolumeReplicasRequest
+  ): AsyncIterableIterator<model.BlockVolumeReplica> {
+    return paginateRecords(request, req => this.listBlockVolumeReplicas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBlockVolumeReplicas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBlockVolumeReplicasResponseIterator(
     request: requests.ListBlockVolumeReplicasRequest
   ): AsyncIterableIterator<responses.ListBlockVolumeReplicasResponse> {
     return paginateResponses(request, req => this.listBlockVolumeReplicas(req));
@@ -2998,6 +3052,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBootVolumeBackupsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.BootVolumeBackup objects
    * contained in responses from the listBootVolumeBackups operation. This iterator will fetch more data from the
    * server as needed.
@@ -3011,12 +3066,38 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBootVolumeBackupsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listBootVolumeBackups operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllBootVolumeBackupsResponses(
+    request: requests.ListBootVolumeBackupsRequest
+  ): AsyncIterableIterator<responses.ListBootVolumeBackupsResponse> {
+    return paginateResponses(request, req => this.listBootVolumeBackups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BootVolumeBackup objects
+   * contained in responses from the listBootVolumeBackups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBootVolumeBackupsRecordIterator(
+    request: requests.ListBootVolumeBackupsRequest
+  ): AsyncIterableIterator<model.BootVolumeBackup> {
+    return paginateRecords(request, req => this.listBootVolumeBackups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBootVolumeBackups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBootVolumeBackupsResponseIterator(
     request: requests.ListBootVolumeBackupsRequest
   ): AsyncIterableIterator<responses.ListBootVolumeBackupsResponse> {
     return paginateResponses(request, req => this.listBootVolumeBackups(req));
@@ -3095,6 +3176,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBootVolumeReplicasRecordIterator function.
    * Creates a new async iterator which will iterate over the models.BootVolumeReplica objects
    * contained in responses from the listBootVolumeReplicas operation. This iterator will fetch more data from the
    * server as needed.
@@ -3108,12 +3190,38 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBootVolumeReplicasResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listBootVolumeReplicas operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllBootVolumeReplicasResponses(
+    request: requests.ListBootVolumeReplicasRequest
+  ): AsyncIterableIterator<responses.ListBootVolumeReplicasResponse> {
+    return paginateResponses(request, req => this.listBootVolumeReplicas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BootVolumeReplica objects
+   * contained in responses from the listBootVolumeReplicas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBootVolumeReplicasRecordIterator(
+    request: requests.ListBootVolumeReplicasRequest
+  ): AsyncIterableIterator<model.BootVolumeReplica> {
+    return paginateRecords(request, req => this.listBootVolumeReplicas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBootVolumeReplicas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBootVolumeReplicasResponseIterator(
     request: requests.ListBootVolumeReplicasRequest
   ): AsyncIterableIterator<responses.ListBootVolumeReplicasResponse> {
     return paginateResponses(request, req => this.listBootVolumeReplicas(req));
@@ -3188,6 +3296,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBootVolumesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.BootVolume objects
    * contained in responses from the listBootVolumes operation. This iterator will fetch more data from the
    * server as needed.
@@ -3201,12 +3310,38 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBootVolumesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listBootVolumes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllBootVolumesResponses(
+    request: requests.ListBootVolumesRequest
+  ): AsyncIterableIterator<responses.ListBootVolumesResponse> {
+    return paginateResponses(request, req => this.listBootVolumes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BootVolume objects
+   * contained in responses from the listBootVolumes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBootVolumesRecordIterator(
+    request: requests.ListBootVolumesRequest
+  ): AsyncIterableIterator<model.BootVolume> {
+    return paginateRecords(request, req => this.listBootVolumes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBootVolumes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBootVolumesResponseIterator(
     request: requests.ListBootVolumesRequest
   ): AsyncIterableIterator<responses.ListBootVolumesResponse> {
     return paginateResponses(request, req => this.listBootVolumes(req));
@@ -3283,6 +3418,7 @@ For more information about Oracle defined backup policies and user defined backu
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVolumeBackupPoliciesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VolumeBackupPolicy objects
    * contained in responses from the listVolumeBackupPolicies operation. This iterator will fetch more data from the
    * server as needed.
@@ -3296,12 +3432,38 @@ For more information about Oracle defined backup policies and user defined backu
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVolumeBackupPoliciesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVolumeBackupPolicies operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVolumeBackupPoliciesResponses(
+    request: requests.ListVolumeBackupPoliciesRequest
+  ): AsyncIterableIterator<responses.ListVolumeBackupPoliciesResponse> {
+    return paginateResponses(request, req => this.listVolumeBackupPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VolumeBackupPolicy objects
+   * contained in responses from the listVolumeBackupPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumeBackupPoliciesRecordIterator(
+    request: requests.ListVolumeBackupPoliciesRequest
+  ): AsyncIterableIterator<model.VolumeBackupPolicy> {
+    return paginateRecords(request, req => this.listVolumeBackupPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVolumeBackupPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumeBackupPoliciesResponseIterator(
     request: requests.ListVolumeBackupPoliciesRequest
   ): AsyncIterableIterator<responses.ListVolumeBackupPoliciesResponse> {
     return paginateResponses(request, req => this.listVolumeBackupPolicies(req));
@@ -3380,6 +3542,7 @@ For more information about Oracle defined backup policies and user defined backu
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVolumeBackupsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VolumeBackup objects
    * contained in responses from the listVolumeBackups operation. This iterator will fetch more data from the
    * server as needed.
@@ -3393,12 +3556,38 @@ For more information about Oracle defined backup policies and user defined backu
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVolumeBackupsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVolumeBackups operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVolumeBackupsResponses(
+    request: requests.ListVolumeBackupsRequest
+  ): AsyncIterableIterator<responses.ListVolumeBackupsResponse> {
+    return paginateResponses(request, req => this.listVolumeBackups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VolumeBackup objects
+   * contained in responses from the listVolumeBackups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumeBackupsRecordIterator(
+    request: requests.ListVolumeBackupsRequest
+  ): AsyncIterableIterator<model.VolumeBackup> {
+    return paginateRecords(request, req => this.listVolumeBackups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVolumeBackups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumeBackupsResponseIterator(
     request: requests.ListVolumeBackupsRequest
   ): AsyncIterableIterator<responses.ListVolumeBackupsResponse> {
     return paginateResponses(request, req => this.listVolumeBackups(req));
@@ -3477,6 +3666,7 @@ For more information about Oracle defined backup policies and user defined backu
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVolumeGroupBackupsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VolumeGroupBackup objects
    * contained in responses from the listVolumeGroupBackups operation. This iterator will fetch more data from the
    * server as needed.
@@ -3490,12 +3680,38 @@ For more information about Oracle defined backup policies and user defined backu
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVolumeGroupBackupsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVolumeGroupBackups operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVolumeGroupBackupsResponses(
+    request: requests.ListVolumeGroupBackupsRequest
+  ): AsyncIterableIterator<responses.ListVolumeGroupBackupsResponse> {
+    return paginateResponses(request, req => this.listVolumeGroupBackups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VolumeGroupBackup objects
+   * contained in responses from the listVolumeGroupBackups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumeGroupBackupsRecordIterator(
+    request: requests.ListVolumeGroupBackupsRequest
+  ): AsyncIterableIterator<model.VolumeGroupBackup> {
+    return paginateRecords(request, req => this.listVolumeGroupBackups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVolumeGroupBackups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumeGroupBackupsResponseIterator(
     request: requests.ListVolumeGroupBackupsRequest
   ): AsyncIterableIterator<responses.ListVolumeGroupBackupsResponse> {
     return paginateResponses(request, req => this.listVolumeGroupBackups(req));
@@ -3574,6 +3790,7 @@ For more information about Oracle defined backup policies and user defined backu
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVolumeGroupsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VolumeGroup objects
    * contained in responses from the listVolumeGroups operation. This iterator will fetch more data from the
    * server as needed.
@@ -3587,12 +3804,38 @@ For more information about Oracle defined backup policies and user defined backu
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVolumeGroupsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVolumeGroups operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVolumeGroupsResponses(
+    request: requests.ListVolumeGroupsRequest
+  ): AsyncIterableIterator<responses.ListVolumeGroupsResponse> {
+    return paginateResponses(request, req => this.listVolumeGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VolumeGroup objects
+   * contained in responses from the listVolumeGroups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumeGroupsRecordIterator(
+    request: requests.ListVolumeGroupsRequest
+  ): AsyncIterableIterator<model.VolumeGroup> {
+    return paginateRecords(request, req => this.listVolumeGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVolumeGroups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumeGroupsResponseIterator(
     request: requests.ListVolumeGroupsRequest
   ): AsyncIterableIterator<responses.ListVolumeGroupsResponse> {
     return paginateResponses(request, req => this.listVolumeGroups(req));
@@ -3671,6 +3914,7 @@ For more information about Oracle defined backup policies and user defined backu
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVolumesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Volume objects
    * contained in responses from the listVolumes operation. This iterator will fetch more data from the
    * server as needed.
@@ -3682,12 +3926,38 @@ For more information about Oracle defined backup policies and user defined backu
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVolumesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVolumes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVolumesResponses(
+    request: requests.ListVolumesRequest
+  ): AsyncIterableIterator<responses.ListVolumesResponse> {
+    return paginateResponses(request, req => this.listVolumes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Volume objects
+   * contained in responses from the listVolumes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumesRecordIterator(
+    request: requests.ListVolumesRequest
+  ): AsyncIterableIterator<model.Volume> {
+    return paginateRecords(request, req => this.listVolumes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVolumes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumesResponseIterator(
     request: requests.ListVolumesRequest
   ): AsyncIterableIterator<responses.ListVolumesResponse> {
     return paginateResponses(request, req => this.listVolumes(req));
@@ -7855,6 +8125,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAppCatalogListingResourceVersionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AppCatalogListingResourceVersionSummary objects
    * contained in responses from the listAppCatalogListingResourceVersions operation. This iterator will fetch more data from the
    * server as needed.
@@ -7868,12 +8139,38 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAppCatalogListingResourceVersionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAppCatalogListingResourceVersions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAppCatalogListingResourceVersionsResponses(
+    request: requests.ListAppCatalogListingResourceVersionsRequest
+  ): AsyncIterableIterator<responses.ListAppCatalogListingResourceVersionsResponse> {
+    return paginateResponses(request, req => this.listAppCatalogListingResourceVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AppCatalogListingResourceVersionSummary objects
+   * contained in responses from the listAppCatalogListingResourceVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAppCatalogListingResourceVersionsRecordIterator(
+    request: requests.ListAppCatalogListingResourceVersionsRequest
+  ): AsyncIterableIterator<model.AppCatalogListingResourceVersionSummary> {
+    return paginateRecords(request, req => this.listAppCatalogListingResourceVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAppCatalogListingResourceVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAppCatalogListingResourceVersionsResponseIterator(
     request: requests.ListAppCatalogListingResourceVersionsRequest
   ): AsyncIterableIterator<responses.ListAppCatalogListingResourceVersionsResponse> {
     return paginateResponses(request, req => this.listAppCatalogListingResourceVersions(req));
@@ -7948,6 +8245,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAppCatalogListingsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AppCatalogListingSummary objects
    * contained in responses from the listAppCatalogListings operation. This iterator will fetch more data from the
    * server as needed.
@@ -7961,12 +8259,38 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAppCatalogListingsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAppCatalogListings operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAppCatalogListingsResponses(
+    request: requests.ListAppCatalogListingsRequest
+  ): AsyncIterableIterator<responses.ListAppCatalogListingsResponse> {
+    return paginateResponses(request, req => this.listAppCatalogListings(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AppCatalogListingSummary objects
+   * contained in responses from the listAppCatalogListings operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAppCatalogListingsRecordIterator(
+    request: requests.ListAppCatalogListingsRequest
+  ): AsyncIterableIterator<model.AppCatalogListingSummary> {
+    return paginateRecords(request, req => this.listAppCatalogListings(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAppCatalogListings operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAppCatalogListingsResponseIterator(
     request: requests.ListAppCatalogListingsRequest
   ): AsyncIterableIterator<responses.ListAppCatalogListingsResponse> {
     return paginateResponses(request, req => this.listAppCatalogListings(req));
@@ -8042,6 +8366,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAppCatalogSubscriptionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AppCatalogSubscriptionSummary objects
    * contained in responses from the listAppCatalogSubscriptions operation. This iterator will fetch more data from the
    * server as needed.
@@ -8055,12 +8380,38 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAppCatalogSubscriptionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAppCatalogSubscriptions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAppCatalogSubscriptionsResponses(
+    request: requests.ListAppCatalogSubscriptionsRequest
+  ): AsyncIterableIterator<responses.ListAppCatalogSubscriptionsResponse> {
+    return paginateResponses(request, req => this.listAppCatalogSubscriptions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AppCatalogSubscriptionSummary objects
+   * contained in responses from the listAppCatalogSubscriptions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAppCatalogSubscriptionsRecordIterator(
+    request: requests.ListAppCatalogSubscriptionsRequest
+  ): AsyncIterableIterator<model.AppCatalogSubscriptionSummary> {
+    return paginateRecords(request, req => this.listAppCatalogSubscriptions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAppCatalogSubscriptions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAppCatalogSubscriptionsResponseIterator(
     request: requests.ListAppCatalogSubscriptionsRequest
   ): AsyncIterableIterator<responses.ListAppCatalogSubscriptionsResponse> {
     return paginateResponses(request, req => this.listAppCatalogSubscriptions(req));
@@ -8138,6 +8489,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBootVolumeAttachmentsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.BootVolumeAttachment objects
    * contained in responses from the listBootVolumeAttachments operation. This iterator will fetch more data from the
    * server as needed.
@@ -8151,12 +8503,38 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBootVolumeAttachmentsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listBootVolumeAttachments operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllBootVolumeAttachmentsResponses(
+    request: requests.ListBootVolumeAttachmentsRequest
+  ): AsyncIterableIterator<responses.ListBootVolumeAttachmentsResponse> {
+    return paginateResponses(request, req => this.listBootVolumeAttachments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BootVolumeAttachment objects
+   * contained in responses from the listBootVolumeAttachments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBootVolumeAttachmentsRecordIterator(
+    request: requests.ListBootVolumeAttachmentsRequest
+  ): AsyncIterableIterator<model.BootVolumeAttachment> {
+    return paginateRecords(request, req => this.listBootVolumeAttachments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBootVolumeAttachments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBootVolumeAttachmentsResponseIterator(
     request: requests.ListBootVolumeAttachmentsRequest
   ): AsyncIterableIterator<responses.ListBootVolumeAttachmentsResponse> {
     return paginateResponses(request, req => this.listBootVolumeAttachments(req));
@@ -8237,6 +8615,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listComputeCapacityReservationInstanceShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ComputeCapacityReservationInstanceShapeSummary objects
    * contained in responses from the listComputeCapacityReservationInstanceShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -8250,12 +8629,40 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listComputeCapacityReservationInstanceShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listComputeCapacityReservationInstanceShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllComputeCapacityReservationInstanceShapesResponses(
+    request: requests.ListComputeCapacityReservationInstanceShapesRequest
+  ): AsyncIterableIterator<responses.ListComputeCapacityReservationInstanceShapesResponse> {
+    return paginateResponses(request, req =>
+      this.listComputeCapacityReservationInstanceShapes(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ComputeCapacityReservationInstanceShapeSummary objects
+   * contained in responses from the listComputeCapacityReservationInstanceShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeCapacityReservationInstanceShapesRecordIterator(
+    request: requests.ListComputeCapacityReservationInstanceShapesRequest
+  ): AsyncIterableIterator<model.ComputeCapacityReservationInstanceShapeSummary> {
+    return paginateRecords(request, req => this.listComputeCapacityReservationInstanceShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeCapacityReservationInstanceShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeCapacityReservationInstanceShapesResponseIterator(
     request: requests.ListComputeCapacityReservationInstanceShapesRequest
   ): AsyncIterableIterator<responses.ListComputeCapacityReservationInstanceShapesResponse> {
     return paginateResponses(request, req =>
@@ -8338,6 +8745,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listComputeCapacityReservationInstancesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.CapacityReservationInstanceSummary objects
    * contained in responses from the listComputeCapacityReservationInstances operation. This iterator will fetch more data from the
    * server as needed.
@@ -8351,12 +8759,38 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listComputeCapacityReservationInstancesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listComputeCapacityReservationInstances operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllComputeCapacityReservationInstancesResponses(
+    request: requests.ListComputeCapacityReservationInstancesRequest
+  ): AsyncIterableIterator<responses.ListComputeCapacityReservationInstancesResponse> {
+    return paginateResponses(request, req => this.listComputeCapacityReservationInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CapacityReservationInstanceSummary objects
+   * contained in responses from the listComputeCapacityReservationInstances operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeCapacityReservationInstancesRecordIterator(
+    request: requests.ListComputeCapacityReservationInstancesRequest
+  ): AsyncIterableIterator<model.CapacityReservationInstanceSummary> {
+    return paginateRecords(request, req => this.listComputeCapacityReservationInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeCapacityReservationInstances operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeCapacityReservationInstancesResponseIterator(
     request: requests.ListComputeCapacityReservationInstancesRequest
   ): AsyncIterableIterator<responses.ListComputeCapacityReservationInstancesResponse> {
     return paginateResponses(request, req => this.listComputeCapacityReservationInstances(req));
@@ -8439,6 +8873,7 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listComputeCapacityReservationsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ComputeCapacityReservationSummary objects
    * contained in responses from the listComputeCapacityReservations operation. This iterator will fetch more data from the
    * server as needed.
@@ -8452,12 +8887,38 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listComputeCapacityReservationsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listComputeCapacityReservations operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllComputeCapacityReservationsResponses(
+    request: requests.ListComputeCapacityReservationsRequest
+  ): AsyncIterableIterator<responses.ListComputeCapacityReservationsResponse> {
+    return paginateResponses(request, req => this.listComputeCapacityReservations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ComputeCapacityReservationSummary objects
+   * contained in responses from the listComputeCapacityReservations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeCapacityReservationsRecordIterator(
+    request: requests.ListComputeCapacityReservationsRequest
+  ): AsyncIterableIterator<model.ComputeCapacityReservationSummary> {
+    return paginateRecords(request, req => this.listComputeCapacityReservations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeCapacityReservations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeCapacityReservationsResponseIterator(
     request: requests.ListComputeCapacityReservationsRequest
   ): AsyncIterableIterator<responses.ListComputeCapacityReservationsResponse> {
     return paginateResponses(request, req => this.listComputeCapacityReservations(req));
@@ -8538,6 +8999,7 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listComputeGlobalImageCapabilitySchemaVersionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ComputeGlobalImageCapabilitySchemaVersionSummary objects
    * contained in responses from the listComputeGlobalImageCapabilitySchemaVersions operation. This iterator will fetch more data from the
    * server as needed.
@@ -8553,12 +9015,42 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listComputeGlobalImageCapabilitySchemaVersionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listComputeGlobalImageCapabilitySchemaVersions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllComputeGlobalImageCapabilitySchemaVersionsResponses(
+    request: requests.ListComputeGlobalImageCapabilitySchemaVersionsRequest
+  ): AsyncIterableIterator<responses.ListComputeGlobalImageCapabilitySchemaVersionsResponse> {
+    return paginateResponses(request, req =>
+      this.listComputeGlobalImageCapabilitySchemaVersions(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ComputeGlobalImageCapabilitySchemaVersionSummary objects
+   * contained in responses from the listComputeGlobalImageCapabilitySchemaVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeGlobalImageCapabilitySchemaVersionsRecordIterator(
+    request: requests.ListComputeGlobalImageCapabilitySchemaVersionsRequest
+  ): AsyncIterableIterator<model.ComputeGlobalImageCapabilitySchemaVersionSummary> {
+    return paginateRecords(request, req =>
+      this.listComputeGlobalImageCapabilitySchemaVersions(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeGlobalImageCapabilitySchemaVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeGlobalImageCapabilitySchemaVersionsResponseIterator(
     request: requests.ListComputeGlobalImageCapabilitySchemaVersionsRequest
   ): AsyncIterableIterator<responses.ListComputeGlobalImageCapabilitySchemaVersionsResponse> {
     return paginateResponses(request, req =>
@@ -8637,6 +9129,7 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listComputeGlobalImageCapabilitySchemasRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ComputeGlobalImageCapabilitySchemaSummary objects
    * contained in responses from the listComputeGlobalImageCapabilitySchemas operation. This iterator will fetch more data from the
    * server as needed.
@@ -8650,12 +9143,38 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listComputeGlobalImageCapabilitySchemasResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listComputeGlobalImageCapabilitySchemas operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllComputeGlobalImageCapabilitySchemasResponses(
+    request: requests.ListComputeGlobalImageCapabilitySchemasRequest
+  ): AsyncIterableIterator<responses.ListComputeGlobalImageCapabilitySchemasResponse> {
+    return paginateResponses(request, req => this.listComputeGlobalImageCapabilitySchemas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ComputeGlobalImageCapabilitySchemaSummary objects
+   * contained in responses from the listComputeGlobalImageCapabilitySchemas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeGlobalImageCapabilitySchemasRecordIterator(
+    request: requests.ListComputeGlobalImageCapabilitySchemasRequest
+  ): AsyncIterableIterator<model.ComputeGlobalImageCapabilitySchemaSummary> {
+    return paginateRecords(request, req => this.listComputeGlobalImageCapabilitySchemas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeGlobalImageCapabilitySchemas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeGlobalImageCapabilitySchemasResponseIterator(
     request: requests.ListComputeGlobalImageCapabilitySchemasRequest
   ): AsyncIterableIterator<responses.ListComputeGlobalImageCapabilitySchemasResponse> {
     return paginateResponses(request, req => this.listComputeGlobalImageCapabilitySchemas(req));
@@ -8733,6 +9252,7 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listComputeImageCapabilitySchemasRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ComputeImageCapabilitySchemaSummary objects
    * contained in responses from the listComputeImageCapabilitySchemas operation. This iterator will fetch more data from the
    * server as needed.
@@ -8746,12 +9266,38 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listComputeImageCapabilitySchemasResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listComputeImageCapabilitySchemas operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllComputeImageCapabilitySchemasResponses(
+    request: requests.ListComputeImageCapabilitySchemasRequest
+  ): AsyncIterableIterator<responses.ListComputeImageCapabilitySchemasResponse> {
+    return paginateResponses(request, req => this.listComputeImageCapabilitySchemas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ComputeImageCapabilitySchemaSummary objects
+   * contained in responses from the listComputeImageCapabilitySchemas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeImageCapabilitySchemasRecordIterator(
+    request: requests.ListComputeImageCapabilitySchemasRequest
+  ): AsyncIterableIterator<model.ComputeImageCapabilitySchemaSummary> {
+    return paginateRecords(request, req => this.listComputeImageCapabilitySchemas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeImageCapabilitySchemas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeImageCapabilitySchemasResponseIterator(
     request: requests.ListComputeImageCapabilitySchemasRequest
   ): AsyncIterableIterator<responses.ListComputeImageCapabilitySchemasResponse> {
     return paginateResponses(request, req => this.listComputeImageCapabilitySchemas(req));
@@ -8829,6 +9375,7 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listConsoleHistoriesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ConsoleHistory objects
    * contained in responses from the listConsoleHistories operation. This iterator will fetch more data from the
    * server as needed.
@@ -8842,12 +9389,38 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listConsoleHistoriesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listConsoleHistories operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllConsoleHistoriesResponses(
+    request: requests.ListConsoleHistoriesRequest
+  ): AsyncIterableIterator<responses.ListConsoleHistoriesResponse> {
+    return paginateResponses(request, req => this.listConsoleHistories(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ConsoleHistory objects
+   * contained in responses from the listConsoleHistories operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listConsoleHistoriesRecordIterator(
+    request: requests.ListConsoleHistoriesRequest
+  ): AsyncIterableIterator<model.ConsoleHistory> {
+    return paginateRecords(request, req => this.listConsoleHistories(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listConsoleHistories operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listConsoleHistoriesResponseIterator(
     request: requests.ListConsoleHistoriesRequest
   ): AsyncIterableIterator<responses.ListConsoleHistoriesResponse> {
     return paginateResponses(request, req => this.listConsoleHistories(req));
@@ -8925,6 +9498,7 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDedicatedVmHostInstanceShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DedicatedVmHostInstanceShapeSummary objects
    * contained in responses from the listDedicatedVmHostInstanceShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -8938,12 +9512,38 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDedicatedVmHostInstanceShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDedicatedVmHostInstanceShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDedicatedVmHostInstanceShapesResponses(
+    request: requests.ListDedicatedVmHostInstanceShapesRequest
+  ): AsyncIterableIterator<responses.ListDedicatedVmHostInstanceShapesResponse> {
+    return paginateResponses(request, req => this.listDedicatedVmHostInstanceShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DedicatedVmHostInstanceShapeSummary objects
+   * contained in responses from the listDedicatedVmHostInstanceShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDedicatedVmHostInstanceShapesRecordIterator(
+    request: requests.ListDedicatedVmHostInstanceShapesRequest
+  ): AsyncIterableIterator<model.DedicatedVmHostInstanceShapeSummary> {
+    return paginateRecords(request, req => this.listDedicatedVmHostInstanceShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDedicatedVmHostInstanceShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDedicatedVmHostInstanceShapesResponseIterator(
     request: requests.ListDedicatedVmHostInstanceShapesRequest
   ): AsyncIterableIterator<responses.ListDedicatedVmHostInstanceShapesResponse> {
     return paginateResponses(request, req => this.listDedicatedVmHostInstanceShapes(req));
@@ -9023,6 +9623,7 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDedicatedVmHostInstancesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DedicatedVmHostInstanceSummary objects
    * contained in responses from the listDedicatedVmHostInstances operation. This iterator will fetch more data from the
    * server as needed.
@@ -9036,12 +9637,38 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDedicatedVmHostInstancesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDedicatedVmHostInstances operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDedicatedVmHostInstancesResponses(
+    request: requests.ListDedicatedVmHostInstancesRequest
+  ): AsyncIterableIterator<responses.ListDedicatedVmHostInstancesResponse> {
+    return paginateResponses(request, req => this.listDedicatedVmHostInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DedicatedVmHostInstanceSummary objects
+   * contained in responses from the listDedicatedVmHostInstances operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDedicatedVmHostInstancesRecordIterator(
+    request: requests.ListDedicatedVmHostInstancesRequest
+  ): AsyncIterableIterator<model.DedicatedVmHostInstanceSummary> {
+    return paginateRecords(request, req => this.listDedicatedVmHostInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDedicatedVmHostInstances operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDedicatedVmHostInstancesResponseIterator(
     request: requests.ListDedicatedVmHostInstancesRequest
   ): AsyncIterableIterator<responses.ListDedicatedVmHostInstancesResponse> {
     return paginateResponses(request, req => this.listDedicatedVmHostInstances(req));
@@ -9118,6 +9745,7 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDedicatedVmHostShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DedicatedVmHostShapeSummary objects
    * contained in responses from the listDedicatedVmHostShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -9131,12 +9759,38 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDedicatedVmHostShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDedicatedVmHostShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDedicatedVmHostShapesResponses(
+    request: requests.ListDedicatedVmHostShapesRequest
+  ): AsyncIterableIterator<responses.ListDedicatedVmHostShapesResponse> {
+    return paginateResponses(request, req => this.listDedicatedVmHostShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DedicatedVmHostShapeSummary objects
+   * contained in responses from the listDedicatedVmHostShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDedicatedVmHostShapesRecordIterator(
+    request: requests.ListDedicatedVmHostShapesRequest
+  ): AsyncIterableIterator<model.DedicatedVmHostShapeSummary> {
+    return paginateRecords(request, req => this.listDedicatedVmHostShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDedicatedVmHostShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDedicatedVmHostShapesResponseIterator(
     request: requests.ListDedicatedVmHostShapesRequest
   ): AsyncIterableIterator<responses.ListDedicatedVmHostShapesResponse> {
     return paginateResponses(request, req => this.listDedicatedVmHostShapes(req));
@@ -9223,6 +9877,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDedicatedVmHostsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DedicatedVmHostSummary objects
    * contained in responses from the listDedicatedVmHosts operation. This iterator will fetch more data from the
    * server as needed.
@@ -9236,12 +9891,38 @@ You can limit the list by specifying a dedicated virtual machine host display na
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDedicatedVmHostsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDedicatedVmHosts operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDedicatedVmHostsResponses(
+    request: requests.ListDedicatedVmHostsRequest
+  ): AsyncIterableIterator<responses.ListDedicatedVmHostsResponse> {
+    return paginateResponses(request, req => this.listDedicatedVmHosts(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DedicatedVmHostSummary objects
+   * contained in responses from the listDedicatedVmHosts operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDedicatedVmHostsRecordIterator(
+    request: requests.ListDedicatedVmHostsRequest
+  ): AsyncIterableIterator<model.DedicatedVmHostSummary> {
+    return paginateRecords(request, req => this.listDedicatedVmHosts(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDedicatedVmHosts operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDedicatedVmHostsResponseIterator(
     request: requests.ListDedicatedVmHostsRequest
   ): AsyncIterableIterator<responses.ListDedicatedVmHostsResponse> {
     return paginateResponses(request, req => this.listDedicatedVmHosts(req));
@@ -9316,6 +9997,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listImageShapeCompatibilityEntriesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ImageShapeCompatibilitySummary objects
    * contained in responses from the listImageShapeCompatibilityEntries operation. This iterator will fetch more data from the
    * server as needed.
@@ -9329,12 +10011,38 @@ You can limit the list by specifying a dedicated virtual machine host display na
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listImageShapeCompatibilityEntriesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listImageShapeCompatibilityEntries operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllImageShapeCompatibilityEntriesResponses(
+    request: requests.ListImageShapeCompatibilityEntriesRequest
+  ): AsyncIterableIterator<responses.ListImageShapeCompatibilityEntriesResponse> {
+    return paginateResponses(request, req => this.listImageShapeCompatibilityEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ImageShapeCompatibilitySummary objects
+   * contained in responses from the listImageShapeCompatibilityEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listImageShapeCompatibilityEntriesRecordIterator(
+    request: requests.ListImageShapeCompatibilityEntriesRequest
+  ): AsyncIterableIterator<model.ImageShapeCompatibilitySummary> {
+    return paginateRecords(request, req => this.listImageShapeCompatibilityEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listImageShapeCompatibilityEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listImageShapeCompatibilityEntriesResponseIterator(
     request: requests.ListImageShapeCompatibilityEntriesRequest
   ): AsyncIterableIterator<responses.ListImageShapeCompatibilityEntriesResponse> {
     return paginateResponses(request, req => this.listImageShapeCompatibilityEntries(req));
@@ -9421,6 +10129,7 @@ The list of images that's returned is ordered to first show all
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listImagesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Image objects
    * contained in responses from the listImages operation. This iterator will fetch more data from the
    * server as needed.
@@ -9432,12 +10141,38 @@ The list of images that's returned is ordered to first show all
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listImagesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listImages operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllImagesResponses(
+    request: requests.ListImagesRequest
+  ): AsyncIterableIterator<responses.ListImagesResponse> {
+    return paginateResponses(request, req => this.listImages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Image objects
+   * contained in responses from the listImages operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listImagesRecordIterator(
+    request: requests.ListImagesRequest
+  ): AsyncIterableIterator<model.Image> {
+    return paginateRecords(request, req => this.listImages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listImages operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listImagesResponseIterator(
     request: requests.ListImagesRequest
   ): AsyncIterableIterator<responses.ListImagesResponse> {
     return paginateResponses(request, req => this.listImages(req));
@@ -9514,6 +10249,7 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceConsoleConnectionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.InstanceConsoleConnection objects
    * contained in responses from the listInstanceConsoleConnections operation. This iterator will fetch more data from the
    * server as needed.
@@ -9527,12 +10263,38 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceConsoleConnectionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listInstanceConsoleConnections operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllInstanceConsoleConnectionsResponses(
+    request: requests.ListInstanceConsoleConnectionsRequest
+  ): AsyncIterableIterator<responses.ListInstanceConsoleConnectionsResponse> {
+    return paginateResponses(request, req => this.listInstanceConsoleConnections(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InstanceConsoleConnection objects
+   * contained in responses from the listInstanceConsoleConnections operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceConsoleConnectionsRecordIterator(
+    request: requests.ListInstanceConsoleConnectionsRequest
+  ): AsyncIterableIterator<model.InstanceConsoleConnection> {
+    return paginateRecords(request, req => this.listInstanceConsoleConnections(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listInstanceConsoleConnections operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceConsoleConnectionsResponseIterator(
     request: requests.ListInstanceConsoleConnectionsRequest
   ): AsyncIterableIterator<responses.ListInstanceConsoleConnectionsResponse> {
     return paginateResponses(request, req => this.listInstanceConsoleConnections(req));
@@ -9610,6 +10372,7 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceDevicesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Device objects
    * contained in responses from the listInstanceDevices operation. This iterator will fetch more data from the
    * server as needed.
@@ -9623,12 +10386,38 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceDevicesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listInstanceDevices operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllInstanceDevicesResponses(
+    request: requests.ListInstanceDevicesRequest
+  ): AsyncIterableIterator<responses.ListInstanceDevicesResponse> {
+    return paginateResponses(request, req => this.listInstanceDevices(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Device objects
+   * contained in responses from the listInstanceDevices operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceDevicesRecordIterator(
+    request: requests.ListInstanceDevicesRequest
+  ): AsyncIterableIterator<model.Device> {
+    return paginateRecords(request, req => this.listInstanceDevices(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listInstanceDevices operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceDevicesResponseIterator(
     request: requests.ListInstanceDevicesRequest
   ): AsyncIterableIterator<responses.ListInstanceDevicesResponse> {
     return paginateResponses(request, req => this.listInstanceDevices(req));
@@ -9709,6 +10498,7 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstancesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Instance objects
    * contained in responses from the listInstances operation. This iterator will fetch more data from the
    * server as needed.
@@ -9722,12 +10512,38 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstancesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listInstances operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllInstancesResponses(
+    request: requests.ListInstancesRequest
+  ): AsyncIterableIterator<responses.ListInstancesResponse> {
+    return paginateResponses(request, req => this.listInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Instance objects
+   * contained in responses from the listInstances operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstancesRecordIterator(
+    request: requests.ListInstancesRequest
+  ): AsyncIterableIterator<model.Instance> {
+    return paginateRecords(request, req => this.listInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listInstances operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstancesResponseIterator(
     request: requests.ListInstancesRequest
   ): AsyncIterableIterator<responses.ListInstancesResponse> {
     return paginateResponses(request, req => this.listInstances(req));
@@ -9803,6 +10619,7 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Shape objects
    * contained in responses from the listShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -9814,12 +10631,38 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllShapesResponses(
+    request: requests.ListShapesRequest
+  ): AsyncIterableIterator<responses.ListShapesResponse> {
+    return paginateResponses(request, req => this.listShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Shape objects
+   * contained in responses from the listShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listShapesRecordIterator(
+    request: requests.ListShapesRequest
+  ): AsyncIterableIterator<model.Shape> {
+    return paginateRecords(request, req => this.listShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listShapesResponseIterator(
     request: requests.ListShapesRequest
   ): AsyncIterableIterator<responses.ListShapesResponse> {
     return paginateResponses(request, req => this.listShapes(req));
@@ -9897,6 +10740,7 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVnicAttachmentsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VnicAttachment objects
    * contained in responses from the listVnicAttachments operation. This iterator will fetch more data from the
    * server as needed.
@@ -9910,12 +10754,38 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVnicAttachmentsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVnicAttachments operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVnicAttachmentsResponses(
+    request: requests.ListVnicAttachmentsRequest
+  ): AsyncIterableIterator<responses.ListVnicAttachmentsResponse> {
+    return paginateResponses(request, req => this.listVnicAttachments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VnicAttachment objects
+   * contained in responses from the listVnicAttachments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVnicAttachmentsRecordIterator(
+    request: requests.ListVnicAttachmentsRequest
+  ): AsyncIterableIterator<model.VnicAttachment> {
+    return paginateRecords(request, req => this.listVnicAttachments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVnicAttachments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVnicAttachmentsResponseIterator(
     request: requests.ListVnicAttachmentsRequest
   ): AsyncIterableIterator<responses.ListVnicAttachmentsResponse> {
     return paginateResponses(request, req => this.listVnicAttachments(req));
@@ -9995,6 +10865,7 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVolumeAttachmentsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VolumeAttachment objects
    * contained in responses from the listVolumeAttachments operation. This iterator will fetch more data from the
    * server as needed.
@@ -10008,12 +10879,38 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVolumeAttachmentsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVolumeAttachments operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVolumeAttachmentsResponses(
+    request: requests.ListVolumeAttachmentsRequest
+  ): AsyncIterableIterator<responses.ListVolumeAttachmentsResponse> {
+    return paginateResponses(request, req => this.listVolumeAttachments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VolumeAttachment objects
+   * contained in responses from the listVolumeAttachments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumeAttachmentsRecordIterator(
+    request: requests.ListVolumeAttachmentsRequest
+  ): AsyncIterableIterator<model.VolumeAttachment> {
+    return paginateRecords(request, req => this.listVolumeAttachments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVolumeAttachments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumeAttachmentsResponseIterator(
     request: requests.ListVolumeAttachmentsRequest
   ): AsyncIterableIterator<responses.ListVolumeAttachmentsResponse> {
     return paginateResponses(request, req => this.listVolumeAttachments(req));
@@ -12104,6 +13001,7 @@ If the instance configuration does not include all of the parameters that are
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listClusterNetworkInstancesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.InstanceSummary objects
    * contained in responses from the listClusterNetworkInstances operation. This iterator will fetch more data from the
    * server as needed.
@@ -12117,12 +13015,38 @@ If the instance configuration does not include all of the parameters that are
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listClusterNetworkInstancesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listClusterNetworkInstances operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllClusterNetworkInstancesResponses(
+    request: requests.ListClusterNetworkInstancesRequest
+  ): AsyncIterableIterator<responses.ListClusterNetworkInstancesResponse> {
+    return paginateResponses(request, req => this.listClusterNetworkInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InstanceSummary objects
+   * contained in responses from the listClusterNetworkInstances operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listClusterNetworkInstancesRecordIterator(
+    request: requests.ListClusterNetworkInstancesRequest
+  ): AsyncIterableIterator<model.InstanceSummary> {
+    return paginateRecords(request, req => this.listClusterNetworkInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listClusterNetworkInstances operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listClusterNetworkInstancesResponseIterator(
     request: requests.ListClusterNetworkInstancesRequest
   ): AsyncIterableIterator<responses.ListClusterNetworkInstancesResponse> {
     return paginateResponses(request, req => this.listClusterNetworkInstances(req));
@@ -12199,6 +13123,7 @@ If the instance configuration does not include all of the parameters that are
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listClusterNetworksRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ClusterNetworkSummary objects
    * contained in responses from the listClusterNetworks operation. This iterator will fetch more data from the
    * server as needed.
@@ -12212,12 +13137,38 @@ If the instance configuration does not include all of the parameters that are
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listClusterNetworksResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listClusterNetworks operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllClusterNetworksResponses(
+    request: requests.ListClusterNetworksRequest
+  ): AsyncIterableIterator<responses.ListClusterNetworksResponse> {
+    return paginateResponses(request, req => this.listClusterNetworks(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ClusterNetworkSummary objects
+   * contained in responses from the listClusterNetworks operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listClusterNetworksRecordIterator(
+    request: requests.ListClusterNetworksRequest
+  ): AsyncIterableIterator<model.ClusterNetworkSummary> {
+    return paginateRecords(request, req => this.listClusterNetworks(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listClusterNetworks operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listClusterNetworksResponseIterator(
     request: requests.ListClusterNetworksRequest
   ): AsyncIterableIterator<responses.ListClusterNetworksResponse> {
     return paginateResponses(request, req => this.listClusterNetworks(req));
@@ -12293,6 +13244,7 @@ If the instance configuration does not include all of the parameters that are
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceConfigurationsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.InstanceConfigurationSummary objects
    * contained in responses from the listInstanceConfigurations operation. This iterator will fetch more data from the
    * server as needed.
@@ -12306,12 +13258,38 @@ If the instance configuration does not include all of the parameters that are
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceConfigurationsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listInstanceConfigurations operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllInstanceConfigurationsResponses(
+    request: requests.ListInstanceConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListInstanceConfigurationsResponse> {
+    return paginateResponses(request, req => this.listInstanceConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InstanceConfigurationSummary objects
+   * contained in responses from the listInstanceConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceConfigurationsRecordIterator(
+    request: requests.ListInstanceConfigurationsRequest
+  ): AsyncIterableIterator<model.InstanceConfigurationSummary> {
+    return paginateRecords(request, req => this.listInstanceConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listInstanceConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceConfigurationsResponseIterator(
     request: requests.ListInstanceConfigurationsRequest
   ): AsyncIterableIterator<responses.ListInstanceConfigurationsResponse> {
     return paginateResponses(request, req => this.listInstanceConfigurations(req));
@@ -12389,6 +13367,7 @@ If the instance configuration does not include all of the parameters that are
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstancePoolInstancesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.InstanceSummary objects
    * contained in responses from the listInstancePoolInstances operation. This iterator will fetch more data from the
    * server as needed.
@@ -12402,12 +13381,38 @@ If the instance configuration does not include all of the parameters that are
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstancePoolInstancesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listInstancePoolInstances operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllInstancePoolInstancesResponses(
+    request: requests.ListInstancePoolInstancesRequest
+  ): AsyncIterableIterator<responses.ListInstancePoolInstancesResponse> {
+    return paginateResponses(request, req => this.listInstancePoolInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InstanceSummary objects
+   * contained in responses from the listInstancePoolInstances operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstancePoolInstancesRecordIterator(
+    request: requests.ListInstancePoolInstancesRequest
+  ): AsyncIterableIterator<model.InstanceSummary> {
+    return paginateRecords(request, req => this.listInstancePoolInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listInstancePoolInstances operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstancePoolInstancesResponseIterator(
     request: requests.ListInstancePoolInstancesRequest
   ): AsyncIterableIterator<responses.ListInstancePoolInstancesResponse> {
     return paginateResponses(request, req => this.listInstancePoolInstances(req));
@@ -12484,6 +13489,7 @@ If the instance configuration does not include all of the parameters that are
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstancePoolsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.InstancePoolSummary objects
    * contained in responses from the listInstancePools operation. This iterator will fetch more data from the
    * server as needed.
@@ -12497,12 +13503,38 @@ If the instance configuration does not include all of the parameters that are
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstancePoolsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listInstancePools operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllInstancePoolsResponses(
+    request: requests.ListInstancePoolsRequest
+  ): AsyncIterableIterator<responses.ListInstancePoolsResponse> {
+    return paginateResponses(request, req => this.listInstancePools(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InstancePoolSummary objects
+   * contained in responses from the listInstancePools operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstancePoolsRecordIterator(
+    request: requests.ListInstancePoolsRequest
+  ): AsyncIterableIterator<model.InstancePoolSummary> {
+    return paginateRecords(request, req => this.listInstancePools(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listInstancePools operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstancePoolsResponseIterator(
     request: requests.ListInstancePoolsRequest
   ): AsyncIterableIterator<responses.ListInstancePoolsResponse> {
     return paginateResponses(request, req => this.listInstancePools(req));
@@ -19296,6 +20328,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   }
 
   /**
+   * NOTE: This function is deprecated in favor of getAllDrgAttachmentsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DrgAttachmentInfo objects
    * contained in responses from the getAllDrgAttachments operation. This iterator will fetch more data from the
    * server as needed.
@@ -19309,12 +20342,38 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   }
 
   /**
+   * NOTE: This function is deprecated in favor of getAllDrgAttachmentsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the getAllDrgAttachments operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public getAllAllDrgAttachmentsResponses(
+    request: requests.GetAllDrgAttachmentsRequest
+  ): AsyncIterableIterator<responses.GetAllDrgAttachmentsResponse> {
+    return paginateResponses(request, req => this.getAllDrgAttachments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DrgAttachmentInfo objects
+   * contained in responses from the getAllDrgAttachments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public getAllDrgAttachmentsRecordIterator(
+    request: requests.GetAllDrgAttachmentsRequest
+  ): AsyncIterableIterator<model.DrgAttachmentInfo> {
+    return paginateRecords(request, req => this.getAllDrgAttachments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the getAllDrgAttachments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public getAllDrgAttachmentsResponseIterator(
     request: requests.GetAllDrgAttachmentsRequest
   ): AsyncIterableIterator<responses.GetAllDrgAttachmentsResponse> {
     return paginateResponses(request, req => this.getAllDrgAttachments(req));
@@ -22773,6 +23832,7 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCpeDeviceShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.CpeDeviceShapeSummary objects
    * contained in responses from the listCpeDeviceShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -22786,12 +23846,38 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCpeDeviceShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCpeDeviceShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCpeDeviceShapesResponses(
+    request: requests.ListCpeDeviceShapesRequest
+  ): AsyncIterableIterator<responses.ListCpeDeviceShapesResponse> {
+    return paginateResponses(request, req => this.listCpeDeviceShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CpeDeviceShapeSummary objects
+   * contained in responses from the listCpeDeviceShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCpeDeviceShapesRecordIterator(
+    request: requests.ListCpeDeviceShapesRequest
+  ): AsyncIterableIterator<model.CpeDeviceShapeSummary> {
+    return paginateRecords(request, req => this.listCpeDeviceShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCpeDeviceShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCpeDeviceShapesResponseIterator(
     request: requests.ListCpeDeviceShapesRequest
   ): AsyncIterableIterator<responses.ListCpeDeviceShapesResponse> {
     return paginateResponses(request, req => this.listCpeDeviceShapes(req));
@@ -22864,6 +23950,7 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCpesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Cpe objects
    * contained in responses from the listCpes operation. This iterator will fetch more data from the
    * server as needed.
@@ -22875,12 +23962,38 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCpesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCpes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCpesResponses(
+    request: requests.ListCpesRequest
+  ): AsyncIterableIterator<responses.ListCpesResponse> {
+    return paginateResponses(request, req => this.listCpes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Cpe objects
+   * contained in responses from the listCpes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCpesRecordIterator(
+    request: requests.ListCpesRequest
+  ): AsyncIterableIterator<model.Cpe> {
+    return paginateRecords(request, req => this.listCpes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCpes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCpesResponseIterator(
     request: requests.ListCpesRequest
   ): AsyncIterableIterator<responses.ListCpesResponse> {
     return paginateResponses(request, req => this.listCpes(req));
@@ -22958,6 +24071,7 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCrossConnectGroupsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.CrossConnectGroup objects
    * contained in responses from the listCrossConnectGroups operation. This iterator will fetch more data from the
    * server as needed.
@@ -22971,12 +24085,38 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCrossConnectGroupsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCrossConnectGroups operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCrossConnectGroupsResponses(
+    request: requests.ListCrossConnectGroupsRequest
+  ): AsyncIterableIterator<responses.ListCrossConnectGroupsResponse> {
+    return paginateResponses(request, req => this.listCrossConnectGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CrossConnectGroup objects
+   * contained in responses from the listCrossConnectGroups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCrossConnectGroupsRecordIterator(
+    request: requests.ListCrossConnectGroupsRequest
+  ): AsyncIterableIterator<model.CrossConnectGroup> {
+    return paginateRecords(request, req => this.listCrossConnectGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCrossConnectGroups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCrossConnectGroupsResponseIterator(
     request: requests.ListCrossConnectGroupsRequest
   ): AsyncIterableIterator<responses.ListCrossConnectGroupsResponse> {
     return paginateResponses(request, req => this.listCrossConnectGroups(req));
@@ -23051,6 +24191,7 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCrossConnectLocationsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.CrossConnectLocation objects
    * contained in responses from the listCrossConnectLocations operation. This iterator will fetch more data from the
    * server as needed.
@@ -23064,12 +24205,38 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCrossConnectLocationsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCrossConnectLocations operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCrossConnectLocationsResponses(
+    request: requests.ListCrossConnectLocationsRequest
+  ): AsyncIterableIterator<responses.ListCrossConnectLocationsResponse> {
+    return paginateResponses(request, req => this.listCrossConnectLocations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CrossConnectLocation objects
+   * contained in responses from the listCrossConnectLocations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCrossConnectLocationsRecordIterator(
+    request: requests.ListCrossConnectLocationsRequest
+  ): AsyncIterableIterator<model.CrossConnectLocation> {
+    return paginateRecords(request, req => this.listCrossConnectLocations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCrossConnectLocations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCrossConnectLocationsResponseIterator(
     request: requests.ListCrossConnectLocationsRequest
   ): AsyncIterableIterator<responses.ListCrossConnectLocationsResponse> {
     return paginateResponses(request, req => this.listCrossConnectLocations(req));
@@ -23210,6 +24377,7 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCrossConnectsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.CrossConnect objects
    * contained in responses from the listCrossConnects operation. This iterator will fetch more data from the
    * server as needed.
@@ -23223,12 +24391,38 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCrossConnectsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCrossConnects operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCrossConnectsResponses(
+    request: requests.ListCrossConnectsRequest
+  ): AsyncIterableIterator<responses.ListCrossConnectsResponse> {
+    return paginateResponses(request, req => this.listCrossConnects(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CrossConnect objects
+   * contained in responses from the listCrossConnects operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCrossConnectsRecordIterator(
+    request: requests.ListCrossConnectsRequest
+  ): AsyncIterableIterator<model.CrossConnect> {
+    return paginateRecords(request, req => this.listCrossConnects(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCrossConnects operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCrossConnectsResponseIterator(
     request: requests.ListCrossConnectsRequest
   ): AsyncIterableIterator<responses.ListCrossConnectsResponse> {
     return paginateResponses(request, req => this.listCrossConnects(req));
@@ -23304,6 +24498,7 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCrossconnectPortSpeedShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.CrossConnectPortSpeedShape objects
    * contained in responses from the listCrossconnectPortSpeedShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -23317,12 +24512,38 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCrossconnectPortSpeedShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCrossconnectPortSpeedShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCrossconnectPortSpeedShapesResponses(
+    request: requests.ListCrossconnectPortSpeedShapesRequest
+  ): AsyncIterableIterator<responses.ListCrossconnectPortSpeedShapesResponse> {
+    return paginateResponses(request, req => this.listCrossconnectPortSpeedShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CrossConnectPortSpeedShape objects
+   * contained in responses from the listCrossconnectPortSpeedShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCrossconnectPortSpeedShapesRecordIterator(
+    request: requests.ListCrossconnectPortSpeedShapesRequest
+  ): AsyncIterableIterator<model.CrossConnectPortSpeedShape> {
+    return paginateRecords(request, req => this.listCrossconnectPortSpeedShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCrossconnectPortSpeedShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCrossconnectPortSpeedShapesResponseIterator(
     request: requests.ListCrossconnectPortSpeedShapesRequest
   ): AsyncIterableIterator<responses.ListCrossconnectPortSpeedShapesResponse> {
     return paginateResponses(request, req => this.listCrossconnectPortSpeedShapes(req));
@@ -23403,6 +24624,7 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDhcpOptionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DhcpOptions objects
    * contained in responses from the listDhcpOptions operation. This iterator will fetch more data from the
    * server as needed.
@@ -23416,12 +24638,38 @@ For information about generating CPE configuration content, see these operations
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDhcpOptionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDhcpOptions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDhcpOptionsResponses(
+    request: requests.ListDhcpOptionsRequest
+  ): AsyncIterableIterator<responses.ListDhcpOptionsResponse> {
+    return paginateResponses(request, req => this.listDhcpOptions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DhcpOptions objects
+   * contained in responses from the listDhcpOptions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDhcpOptionsRecordIterator(
+    request: requests.ListDhcpOptionsRequest
+  ): AsyncIterableIterator<model.DhcpOptions> {
+    return paginateRecords(request, req => this.listDhcpOptions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDhcpOptions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDhcpOptionsResponseIterator(
     request: requests.ListDhcpOptionsRequest
   ): AsyncIterableIterator<responses.ListDhcpOptionsResponse> {
     return paginateResponses(request, req => this.listDhcpOptions(req));
@@ -23509,6 +24757,7 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDrgAttachmentsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DrgAttachment objects
    * contained in responses from the listDrgAttachments operation. This iterator will fetch more data from the
    * server as needed.
@@ -23522,12 +24771,38 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDrgAttachmentsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDrgAttachments operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDrgAttachmentsResponses(
+    request: requests.ListDrgAttachmentsRequest
+  ): AsyncIterableIterator<responses.ListDrgAttachmentsResponse> {
+    return paginateResponses(request, req => this.listDrgAttachments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DrgAttachment objects
+   * contained in responses from the listDrgAttachments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgAttachmentsRecordIterator(
+    request: requests.ListDrgAttachmentsRequest
+  ): AsyncIterableIterator<model.DrgAttachment> {
+    return paginateRecords(request, req => this.listDrgAttachments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDrgAttachments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgAttachmentsResponseIterator(
     request: requests.ListDrgAttachmentsRequest
   ): AsyncIterableIterator<responses.ListDrgAttachmentsResponse> {
     return paginateResponses(request, req => this.listDrgAttachments(req));
@@ -23605,6 +24880,7 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDrgRouteDistributionStatementsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DrgRouteDistributionStatement objects
    * contained in responses from the listDrgRouteDistributionStatements operation. This iterator will fetch more data from the
    * server as needed.
@@ -23618,12 +24894,38 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDrgRouteDistributionStatementsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDrgRouteDistributionStatements operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDrgRouteDistributionStatementsResponses(
+    request: requests.ListDrgRouteDistributionStatementsRequest
+  ): AsyncIterableIterator<responses.ListDrgRouteDistributionStatementsResponse> {
+    return paginateResponses(request, req => this.listDrgRouteDistributionStatements(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DrgRouteDistributionStatement objects
+   * contained in responses from the listDrgRouteDistributionStatements operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgRouteDistributionStatementsRecordIterator(
+    request: requests.ListDrgRouteDistributionStatementsRequest
+  ): AsyncIterableIterator<model.DrgRouteDistributionStatement> {
+    return paginateRecords(request, req => this.listDrgRouteDistributionStatements(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDrgRouteDistributionStatements operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgRouteDistributionStatementsResponseIterator(
     request: requests.ListDrgRouteDistributionStatementsRequest
   ): AsyncIterableIterator<responses.ListDrgRouteDistributionStatementsResponse> {
     return paginateResponses(request, req => this.listDrgRouteDistributionStatements(req));
@@ -23704,6 +25006,7 @@ To retrieve the statements in a distribution, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDrgRouteDistributionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DrgRouteDistribution objects
    * contained in responses from the listDrgRouteDistributions operation. This iterator will fetch more data from the
    * server as needed.
@@ -23717,12 +25020,38 @@ To retrieve the statements in a distribution, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDrgRouteDistributionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDrgRouteDistributions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDrgRouteDistributionsResponses(
+    request: requests.ListDrgRouteDistributionsRequest
+  ): AsyncIterableIterator<responses.ListDrgRouteDistributionsResponse> {
+    return paginateResponses(request, req => this.listDrgRouteDistributions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DrgRouteDistribution objects
+   * contained in responses from the listDrgRouteDistributions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgRouteDistributionsRecordIterator(
+    request: requests.ListDrgRouteDistributionsRequest
+  ): AsyncIterableIterator<model.DrgRouteDistribution> {
+    return paginateRecords(request, req => this.listDrgRouteDistributions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDrgRouteDistributions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgRouteDistributionsResponseIterator(
     request: requests.ListDrgRouteDistributionsRequest
   ): AsyncIterableIterator<responses.ListDrgRouteDistributionsResponse> {
     return paginateResponses(request, req => this.listDrgRouteDistributions(req));
@@ -23796,6 +25125,7 @@ To retrieve the statements in a distribution, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDrgRouteRulesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DrgRouteRule objects
    * contained in responses from the listDrgRouteRules operation. This iterator will fetch more data from the
    * server as needed.
@@ -23809,12 +25139,38 @@ To retrieve the statements in a distribution, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDrgRouteRulesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDrgRouteRules operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDrgRouteRulesResponses(
+    request: requests.ListDrgRouteRulesRequest
+  ): AsyncIterableIterator<responses.ListDrgRouteRulesResponse> {
+    return paginateResponses(request, req => this.listDrgRouteRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DrgRouteRule objects
+   * contained in responses from the listDrgRouteRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgRouteRulesRecordIterator(
+    request: requests.ListDrgRouteRulesRequest
+  ): AsyncIterableIterator<model.DrgRouteRule> {
+    return paginateRecords(request, req => this.listDrgRouteRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDrgRouteRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgRouteRulesResponseIterator(
     request: requests.ListDrgRouteRulesRequest
   ): AsyncIterableIterator<responses.ListDrgRouteRulesResponse> {
     return paginateResponses(request, req => this.listDrgRouteRules(req));
@@ -23895,6 +25251,7 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDrgRouteTablesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DrgRouteTable objects
    * contained in responses from the listDrgRouteTables operation. This iterator will fetch more data from the
    * server as needed.
@@ -23908,12 +25265,38 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDrgRouteTablesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDrgRouteTables operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDrgRouteTablesResponses(
+    request: requests.ListDrgRouteTablesRequest
+  ): AsyncIterableIterator<responses.ListDrgRouteTablesResponse> {
+    return paginateResponses(request, req => this.listDrgRouteTables(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DrgRouteTable objects
+   * contained in responses from the listDrgRouteTables operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgRouteTablesRecordIterator(
+    request: requests.ListDrgRouteTablesRequest
+  ): AsyncIterableIterator<model.DrgRouteTable> {
+    return paginateRecords(request, req => this.listDrgRouteTables(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDrgRouteTables operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgRouteTablesResponseIterator(
     request: requests.ListDrgRouteTablesRequest
   ): AsyncIterableIterator<responses.ListDrgRouteTablesResponse> {
     return paginateResponses(request, req => this.listDrgRouteTables(req));
@@ -23986,6 +25369,7 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDrgsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Drg objects
    * contained in responses from the listDrgs operation. This iterator will fetch more data from the
    * server as needed.
@@ -23997,12 +25381,38 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDrgsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDrgs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDrgsResponses(
+    request: requests.ListDrgsRequest
+  ): AsyncIterableIterator<responses.ListDrgsResponse> {
+    return paginateResponses(request, req => this.listDrgs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Drg objects
+   * contained in responses from the listDrgs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgsRecordIterator(
+    request: requests.ListDrgsRequest
+  ): AsyncIterableIterator<model.Drg> {
+    return paginateRecords(request, req => this.listDrgs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDrgs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgsResponseIterator(
     request: requests.ListDrgsRequest
   ): AsyncIterableIterator<responses.ListDrgsResponse> {
     return paginateResponses(request, req => this.listDrgs(req));
@@ -24082,6 +25492,7 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/i
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listFastConnectProviderServicesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.FastConnectProviderService objects
    * contained in responses from the listFastConnectProviderServices operation. This iterator will fetch more data from the
    * server as needed.
@@ -24095,12 +25506,38 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/i
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listFastConnectProviderServicesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listFastConnectProviderServices operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllFastConnectProviderServicesResponses(
+    request: requests.ListFastConnectProviderServicesRequest
+  ): AsyncIterableIterator<responses.ListFastConnectProviderServicesResponse> {
+    return paginateResponses(request, req => this.listFastConnectProviderServices(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.FastConnectProviderService objects
+   * contained in responses from the listFastConnectProviderServices operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFastConnectProviderServicesRecordIterator(
+    request: requests.ListFastConnectProviderServicesRequest
+  ): AsyncIterableIterator<model.FastConnectProviderService> {
+    return paginateRecords(request, req => this.listFastConnectProviderServices(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listFastConnectProviderServices operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFastConnectProviderServicesResponseIterator(
     request: requests.ListFastConnectProviderServicesRequest
   ): AsyncIterableIterator<responses.ListFastConnectProviderServicesResponse> {
     return paginateResponses(request, req => this.listFastConnectProviderServices(req));
@@ -24181,6 +25618,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listFastConnectProviderVirtualCircuitBandwidthShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VirtualCircuitBandwidthShape objects
    * contained in responses from the listFastConnectProviderVirtualCircuitBandwidthShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -24196,12 +25634,42 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listFastConnectProviderVirtualCircuitBandwidthShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listFastConnectProviderVirtualCircuitBandwidthShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllFastConnectProviderVirtualCircuitBandwidthShapesResponses(
+    request: requests.ListFastConnectProviderVirtualCircuitBandwidthShapesRequest
+  ): AsyncIterableIterator<responses.ListFastConnectProviderVirtualCircuitBandwidthShapesResponse> {
+    return paginateResponses(request, req =>
+      this.listFastConnectProviderVirtualCircuitBandwidthShapes(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VirtualCircuitBandwidthShape objects
+   * contained in responses from the listFastConnectProviderVirtualCircuitBandwidthShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFastConnectProviderVirtualCircuitBandwidthShapesRecordIterator(
+    request: requests.ListFastConnectProviderVirtualCircuitBandwidthShapesRequest
+  ): AsyncIterableIterator<model.VirtualCircuitBandwidthShape> {
+    return paginateRecords(request, req =>
+      this.listFastConnectProviderVirtualCircuitBandwidthShapes(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listFastConnectProviderVirtualCircuitBandwidthShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFastConnectProviderVirtualCircuitBandwidthShapesResponseIterator(
     request: requests.ListFastConnectProviderVirtualCircuitBandwidthShapesRequest
   ): AsyncIterableIterator<responses.ListFastConnectProviderVirtualCircuitBandwidthShapesResponse> {
     return paginateResponses(request, req =>
@@ -24278,6 +25746,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIPSecConnectionTunnelsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.IPSecConnectionTunnel objects
    * contained in responses from the listIPSecConnectionTunnels operation. This iterator will fetch more data from the
    * server as needed.
@@ -24291,12 +25760,38 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIPSecConnectionTunnelsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listIPSecConnectionTunnels operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllIPSecConnectionTunnelsResponses(
+    request: requests.ListIPSecConnectionTunnelsRequest
+  ): AsyncIterableIterator<responses.ListIPSecConnectionTunnelsResponse> {
+    return paginateResponses(request, req => this.listIPSecConnectionTunnels(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.IPSecConnectionTunnel objects
+   * contained in responses from the listIPSecConnectionTunnels operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIPSecConnectionTunnelsRecordIterator(
+    request: requests.ListIPSecConnectionTunnelsRequest
+  ): AsyncIterableIterator<model.IPSecConnectionTunnel> {
+    return paginateRecords(request, req => this.listIPSecConnectionTunnels(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIPSecConnectionTunnels operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIPSecConnectionTunnelsResponseIterator(
     request: requests.ListIPSecConnectionTunnelsRequest
   ): AsyncIterableIterator<responses.ListIPSecConnectionTunnelsResponse> {
     return paginateResponses(request, req => this.listIPSecConnectionTunnels(req));
@@ -24373,6 +25868,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIPSecConnectionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.IPSecConnection objects
    * contained in responses from the listIPSecConnections operation. This iterator will fetch more data from the
    * server as needed.
@@ -24386,12 +25882,38 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIPSecConnectionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listIPSecConnections operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllIPSecConnectionsResponses(
+    request: requests.ListIPSecConnectionsRequest
+  ): AsyncIterableIterator<responses.ListIPSecConnectionsResponse> {
+    return paginateResponses(request, req => this.listIPSecConnections(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.IPSecConnection objects
+   * contained in responses from the listIPSecConnections operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIPSecConnectionsRecordIterator(
+    request: requests.ListIPSecConnectionsRequest
+  ): AsyncIterableIterator<model.IPSecConnection> {
+    return paginateRecords(request, req => this.listIPSecConnections(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIPSecConnections operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIPSecConnectionsResponseIterator(
     request: requests.ListIPSecConnectionsRequest
   ): AsyncIterableIterator<responses.ListIPSecConnectionsResponse> {
     return paginateResponses(request, req => this.listIPSecConnections(req));
@@ -24471,6 +25993,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInternetGatewaysRecordIterator function.
    * Creates a new async iterator which will iterate over the models.InternetGateway objects
    * contained in responses from the listInternetGateways operation. This iterator will fetch more data from the
    * server as needed.
@@ -24484,12 +26007,38 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInternetGatewaysResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listInternetGateways operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllInternetGatewaysResponses(
+    request: requests.ListInternetGatewaysRequest
+  ): AsyncIterableIterator<responses.ListInternetGatewaysResponse> {
+    return paginateResponses(request, req => this.listInternetGateways(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InternetGateway objects
+   * contained in responses from the listInternetGateways operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInternetGatewaysRecordIterator(
+    request: requests.ListInternetGatewaysRequest
+  ): AsyncIterableIterator<model.InternetGateway> {
+    return paginateRecords(request, req => this.listInternetGateways(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listInternetGateways operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInternetGatewaysResponseIterator(
     request: requests.ListInternetGatewaysRequest
   ): AsyncIterableIterator<responses.ListInternetGatewaysResponse> {
     return paginateResponses(request, req => this.listInternetGateways(req));
@@ -24572,6 +26121,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIpv6sRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Ipv6 objects
    * contained in responses from the listIpv6s operation. This iterator will fetch more data from the
    * server as needed.
@@ -24583,12 +26133,38 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIpv6sResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listIpv6s operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllIpv6sResponses(
+    request: requests.ListIpv6sRequest
+  ): AsyncIterableIterator<responses.ListIpv6sResponse> {
+    return paginateResponses(request, req => this.listIpv6s(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Ipv6 objects
+   * contained in responses from the listIpv6s operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIpv6sRecordIterator(
+    request: requests.ListIpv6sRequest
+  ): AsyncIterableIterator<model.Ipv6> {
+    return paginateRecords(request, req => this.listIpv6s(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIpv6s operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIpv6sResponseIterator(
     request: requests.ListIpv6sRequest
   ): AsyncIterableIterator<responses.ListIpv6sResponse> {
     return paginateResponses(request, req => this.listIpv6s(req));
@@ -24664,6 +26240,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLocalPeeringGatewaysRecordIterator function.
    * Creates a new async iterator which will iterate over the models.LocalPeeringGateway objects
    * contained in responses from the listLocalPeeringGateways operation. This iterator will fetch more data from the
    * server as needed.
@@ -24677,12 +26254,38 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLocalPeeringGatewaysResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listLocalPeeringGateways operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllLocalPeeringGatewaysResponses(
+    request: requests.ListLocalPeeringGatewaysRequest
+  ): AsyncIterableIterator<responses.ListLocalPeeringGatewaysResponse> {
+    return paginateResponses(request, req => this.listLocalPeeringGateways(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.LocalPeeringGateway objects
+   * contained in responses from the listLocalPeeringGateways operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLocalPeeringGatewaysRecordIterator(
+    request: requests.ListLocalPeeringGatewaysRequest
+  ): AsyncIterableIterator<model.LocalPeeringGateway> {
+    return paginateRecords(request, req => this.listLocalPeeringGateways(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listLocalPeeringGateways operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLocalPeeringGatewaysResponseIterator(
     request: requests.ListLocalPeeringGatewaysRequest
   ): AsyncIterableIterator<responses.ListLocalPeeringGatewaysResponse> {
     return paginateResponses(request, req => this.listLocalPeeringGateways(req));
@@ -24761,6 +26364,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNatGatewaysRecordIterator function.
    * Creates a new async iterator which will iterate over the models.NatGateway objects
    * contained in responses from the listNatGateways operation. This iterator will fetch more data from the
    * server as needed.
@@ -24774,12 +26378,38 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNatGatewaysResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listNatGateways operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllNatGatewaysResponses(
+    request: requests.ListNatGatewaysRequest
+  ): AsyncIterableIterator<responses.ListNatGatewaysResponse> {
+    return paginateResponses(request, req => this.listNatGateways(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.NatGateway objects
+   * contained in responses from the listNatGateways operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNatGatewaysRecordIterator(
+    request: requests.ListNatGatewaysRequest
+  ): AsyncIterableIterator<model.NatGateway> {
+    return paginateRecords(request, req => this.listNatGateways(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listNatGateways operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNatGatewaysResponseIterator(
     request: requests.ListNatGatewaysRequest
   ): AsyncIterableIterator<responses.ListNatGatewaysResponse> {
     return paginateResponses(request, req => this.listNatGateways(req));
@@ -24860,6 +26490,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNetworkSecurityGroupSecurityRulesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SecurityRule objects
    * contained in responses from the listNetworkSecurityGroupSecurityRules operation. This iterator will fetch more data from the
    * server as needed.
@@ -24873,12 +26504,38 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNetworkSecurityGroupSecurityRulesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listNetworkSecurityGroupSecurityRules operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllNetworkSecurityGroupSecurityRulesResponses(
+    request: requests.ListNetworkSecurityGroupSecurityRulesRequest
+  ): AsyncIterableIterator<responses.ListNetworkSecurityGroupSecurityRulesResponse> {
+    return paginateResponses(request, req => this.listNetworkSecurityGroupSecurityRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SecurityRule objects
+   * contained in responses from the listNetworkSecurityGroupSecurityRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNetworkSecurityGroupSecurityRulesRecordIterator(
+    request: requests.ListNetworkSecurityGroupSecurityRulesRequest
+  ): AsyncIterableIterator<model.SecurityRule> {
+    return paginateRecords(request, req => this.listNetworkSecurityGroupSecurityRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listNetworkSecurityGroupSecurityRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNetworkSecurityGroupSecurityRulesResponseIterator(
     request: requests.ListNetworkSecurityGroupSecurityRulesRequest
   ): AsyncIterableIterator<responses.ListNetworkSecurityGroupSecurityRulesResponse> {
     return paginateResponses(request, req => this.listNetworkSecurityGroupSecurityRules(req));
@@ -24955,6 +26612,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNetworkSecurityGroupVnicsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.NetworkSecurityGroupVnic objects
    * contained in responses from the listNetworkSecurityGroupVnics operation. This iterator will fetch more data from the
    * server as needed.
@@ -24968,12 +26626,38 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNetworkSecurityGroupVnicsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listNetworkSecurityGroupVnics operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllNetworkSecurityGroupVnicsResponses(
+    request: requests.ListNetworkSecurityGroupVnicsRequest
+  ): AsyncIterableIterator<responses.ListNetworkSecurityGroupVnicsResponse> {
+    return paginateResponses(request, req => this.listNetworkSecurityGroupVnics(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.NetworkSecurityGroupVnic objects
+   * contained in responses from the listNetworkSecurityGroupVnics operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNetworkSecurityGroupVnicsRecordIterator(
+    request: requests.ListNetworkSecurityGroupVnicsRequest
+  ): AsyncIterableIterator<model.NetworkSecurityGroupVnic> {
+    return paginateRecords(request, req => this.listNetworkSecurityGroupVnics(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listNetworkSecurityGroupVnics operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNetworkSecurityGroupVnicsResponseIterator(
     request: requests.ListNetworkSecurityGroupVnicsRequest
   ): AsyncIterableIterator<responses.ListNetworkSecurityGroupVnicsResponse> {
     return paginateResponses(request, req => this.listNetworkSecurityGroupVnics(req));
@@ -25054,6 +26738,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNetworkSecurityGroupsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.NetworkSecurityGroup objects
    * contained in responses from the listNetworkSecurityGroups operation. This iterator will fetch more data from the
    * server as needed.
@@ -25067,12 +26752,38 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNetworkSecurityGroupsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listNetworkSecurityGroups operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllNetworkSecurityGroupsResponses(
+    request: requests.ListNetworkSecurityGroupsRequest
+  ): AsyncIterableIterator<responses.ListNetworkSecurityGroupsResponse> {
+    return paginateResponses(request, req => this.listNetworkSecurityGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.NetworkSecurityGroup objects
+   * contained in responses from the listNetworkSecurityGroups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNetworkSecurityGroupsRecordIterator(
+    request: requests.ListNetworkSecurityGroupsRequest
+  ): AsyncIterableIterator<model.NetworkSecurityGroup> {
+    return paginateRecords(request, req => this.listNetworkSecurityGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listNetworkSecurityGroups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNetworkSecurityGroupsResponseIterator(
     request: requests.ListNetworkSecurityGroupsRequest
   ): AsyncIterableIterator<responses.ListNetworkSecurityGroupsResponse> {
     return paginateResponses(request, req => this.listNetworkSecurityGroups(req));
@@ -25163,6 +26874,7 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPrivateIpsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PrivateIp objects
    * contained in responses from the listPrivateIps operation. This iterator will fetch more data from the
    * server as needed.
@@ -25176,12 +26888,38 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPrivateIpsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listPrivateIps operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllPrivateIpsResponses(
+    request: requests.ListPrivateIpsRequest
+  ): AsyncIterableIterator<responses.ListPrivateIpsResponse> {
+    return paginateResponses(request, req => this.listPrivateIps(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PrivateIp objects
+   * contained in responses from the listPrivateIps operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPrivateIpsRecordIterator(
+    request: requests.ListPrivateIpsRequest
+  ): AsyncIterableIterator<model.PrivateIp> {
+    return paginateRecords(request, req => this.listPrivateIps(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPrivateIps operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPrivateIpsResponseIterator(
     request: requests.ListPrivateIpsRequest
   ): AsyncIterableIterator<responses.ListPrivateIpsResponse> {
     return paginateResponses(request, req => this.listPrivateIps(req));
@@ -25349,6 +27087,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPublicIpsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PublicIp objects
    * contained in responses from the listPublicIps operation. This iterator will fetch more data from the
    * server as needed.
@@ -25362,12 +27101,38 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPublicIpsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listPublicIps operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllPublicIpsResponses(
+    request: requests.ListPublicIpsRequest
+  ): AsyncIterableIterator<responses.ListPublicIpsResponse> {
+    return paginateResponses(request, req => this.listPublicIps(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PublicIp objects
+   * contained in responses from the listPublicIps operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPublicIpsRecordIterator(
+    request: requests.ListPublicIpsRequest
+  ): AsyncIterableIterator<model.PublicIp> {
+    return paginateRecords(request, req => this.listPublicIps(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPublicIps operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPublicIpsResponseIterator(
     request: requests.ListPublicIpsRequest
   ): AsyncIterableIterator<responses.ListPublicIpsResponse> {
     return paginateResponses(request, req => this.listPublicIps(req));
@@ -25443,6 +27208,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRemotePeeringConnectionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.RemotePeeringConnection objects
    * contained in responses from the listRemotePeeringConnections operation. This iterator will fetch more data from the
    * server as needed.
@@ -25456,12 +27222,38 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRemotePeeringConnectionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listRemotePeeringConnections operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllRemotePeeringConnectionsResponses(
+    request: requests.ListRemotePeeringConnectionsRequest
+  ): AsyncIterableIterator<responses.ListRemotePeeringConnectionsResponse> {
+    return paginateResponses(request, req => this.listRemotePeeringConnections(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.RemotePeeringConnection objects
+   * contained in responses from the listRemotePeeringConnections operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRemotePeeringConnectionsRecordIterator(
+    request: requests.ListRemotePeeringConnectionsRequest
+  ): AsyncIterableIterator<model.RemotePeeringConnection> {
+    return paginateRecords(request, req => this.listRemotePeeringConnections(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listRemotePeeringConnections operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRemotePeeringConnectionsResponseIterator(
     request: requests.ListRemotePeeringConnectionsRequest
   ): AsyncIterableIterator<responses.ListRemotePeeringConnectionsResponse> {
     return paginateResponses(request, req => this.listRemotePeeringConnections(req));
@@ -25542,6 +27334,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRouteTablesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.RouteTable objects
    * contained in responses from the listRouteTables operation. This iterator will fetch more data from the
    * server as needed.
@@ -25555,12 +27348,38 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRouteTablesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listRouteTables operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllRouteTablesResponses(
+    request: requests.ListRouteTablesRequest
+  ): AsyncIterableIterator<responses.ListRouteTablesResponse> {
+    return paginateResponses(request, req => this.listRouteTables(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.RouteTable objects
+   * contained in responses from the listRouteTables operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRouteTablesRecordIterator(
+    request: requests.ListRouteTablesRequest
+  ): AsyncIterableIterator<model.RouteTable> {
+    return paginateRecords(request, req => this.listRouteTables(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listRouteTables operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRouteTablesResponseIterator(
     request: requests.ListRouteTablesRequest
   ): AsyncIterableIterator<responses.ListRouteTablesResponse> {
     return paginateResponses(request, req => this.listRouteTables(req));
@@ -25639,6 +27458,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSecurityListsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SecurityList objects
    * contained in responses from the listSecurityLists operation. This iterator will fetch more data from the
    * server as needed.
@@ -25652,12 +27472,38 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSecurityListsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSecurityLists operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSecurityListsResponses(
+    request: requests.ListSecurityListsRequest
+  ): AsyncIterableIterator<responses.ListSecurityListsResponse> {
+    return paginateResponses(request, req => this.listSecurityLists(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SecurityList objects
+   * contained in responses from the listSecurityLists operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSecurityListsRecordIterator(
+    request: requests.ListSecurityListsRequest
+  ): AsyncIterableIterator<model.SecurityList> {
+    return paginateRecords(request, req => this.listSecurityLists(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSecurityLists operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSecurityListsResponseIterator(
     request: requests.ListSecurityListsRequest
   ): AsyncIterableIterator<responses.ListSecurityListsResponse> {
     return paginateResponses(request, req => this.listSecurityLists(req));
@@ -25736,6 +27582,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listServiceGatewaysRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ServiceGateway objects
    * contained in responses from the listServiceGateways operation. This iterator will fetch more data from the
    * server as needed.
@@ -25749,12 +27596,38 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listServiceGatewaysResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listServiceGateways operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllServiceGatewaysResponses(
+    request: requests.ListServiceGatewaysRequest
+  ): AsyncIterableIterator<responses.ListServiceGatewaysResponse> {
+    return paginateResponses(request, req => this.listServiceGateways(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ServiceGateway objects
+   * contained in responses from the listServiceGateways operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listServiceGatewaysRecordIterator(
+    request: requests.ListServiceGatewaysRequest
+  ): AsyncIterableIterator<model.ServiceGateway> {
+    return paginateRecords(request, req => this.listServiceGateways(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listServiceGateways operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listServiceGatewaysResponseIterator(
     request: requests.ListServiceGatewaysRequest
   ): AsyncIterableIterator<responses.ListServiceGatewaysResponse> {
     return paginateResponses(request, req => this.listServiceGateways(req));
@@ -25827,6 +27700,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listServicesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Service objects
    * contained in responses from the listServices operation. This iterator will fetch more data from the
    * server as needed.
@@ -25840,12 +27714,38 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listServicesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listServices operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllServicesResponses(
+    request: requests.ListServicesRequest
+  ): AsyncIterableIterator<responses.ListServicesResponse> {
+    return paginateResponses(request, req => this.listServices(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Service objects
+   * contained in responses from the listServices operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listServicesRecordIterator(
+    request: requests.ListServicesRequest
+  ): AsyncIterableIterator<model.Service> {
+    return paginateRecords(request, req => this.listServices(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listServices operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listServicesResponseIterator(
     request: requests.ListServicesRequest
   ): AsyncIterableIterator<responses.ListServicesResponse> {
     return paginateResponses(request, req => this.listServices(req));
@@ -25924,6 +27824,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSubnetsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Subnet objects
    * contained in responses from the listSubnets operation. This iterator will fetch more data from the
    * server as needed.
@@ -25935,12 +27836,38 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSubnetsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSubnets operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSubnetsResponses(
+    request: requests.ListSubnetsRequest
+  ): AsyncIterableIterator<responses.ListSubnetsResponse> {
+    return paginateResponses(request, req => this.listSubnets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Subnet objects
+   * contained in responses from the listSubnets operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSubnetsRecordIterator(
+    request: requests.ListSubnetsRequest
+  ): AsyncIterableIterator<model.Subnet> {
+    return paginateRecords(request, req => this.listSubnets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSubnets operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSubnetsResponseIterator(
     request: requests.ListSubnetsRequest
   ): AsyncIterableIterator<responses.ListSubnetsResponse> {
     return paginateResponses(request, req => this.listSubnets(req));
@@ -26017,6 +27944,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVcnsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Vcn objects
    * contained in responses from the listVcns operation. This iterator will fetch more data from the
    * server as needed.
@@ -26028,12 +27956,38 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVcnsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVcns operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVcnsResponses(
+    request: requests.ListVcnsRequest
+  ): AsyncIterableIterator<responses.ListVcnsResponse> {
+    return paginateResponses(request, req => this.listVcns(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Vcn objects
+   * contained in responses from the listVcns operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVcnsRecordIterator(
+    request: requests.ListVcnsRequest
+  ): AsyncIterableIterator<model.Vcn> {
+    return paginateRecords(request, req => this.listVcns(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVcns operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVcnsResponseIterator(
     request: requests.ListVcnsRequest
   ): AsyncIterableIterator<responses.ListVcnsResponse> {
     return paginateResponses(request, req => this.listVcns(req));
@@ -26109,6 +28063,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVirtualCircuitBandwidthShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VirtualCircuitBandwidthShape objects
    * contained in responses from the listVirtualCircuitBandwidthShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -26122,12 +28077,38 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVirtualCircuitBandwidthShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVirtualCircuitBandwidthShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVirtualCircuitBandwidthShapesResponses(
+    request: requests.ListVirtualCircuitBandwidthShapesRequest
+  ): AsyncIterableIterator<responses.ListVirtualCircuitBandwidthShapesResponse> {
+    return paginateResponses(request, req => this.listVirtualCircuitBandwidthShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VirtualCircuitBandwidthShape objects
+   * contained in responses from the listVirtualCircuitBandwidthShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVirtualCircuitBandwidthShapesRecordIterator(
+    request: requests.ListVirtualCircuitBandwidthShapesRequest
+  ): AsyncIterableIterator<model.VirtualCircuitBandwidthShape> {
+    return paginateRecords(request, req => this.listVirtualCircuitBandwidthShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVirtualCircuitBandwidthShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVirtualCircuitBandwidthShapesResponseIterator(
     request: requests.ListVirtualCircuitBandwidthShapesRequest
   ): AsyncIterableIterator<responses.ListVirtualCircuitBandwidthShapesResponse> {
     return paginateResponses(request, req => this.listVirtualCircuitBandwidthShapes(req));
@@ -26268,6 +28249,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVirtualCircuitsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VirtualCircuit objects
    * contained in responses from the listVirtualCircuits operation. This iterator will fetch more data from the
    * server as needed.
@@ -26281,12 +28263,38 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVirtualCircuitsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVirtualCircuits operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVirtualCircuitsResponses(
+    request: requests.ListVirtualCircuitsRequest
+  ): AsyncIterableIterator<responses.ListVirtualCircuitsResponse> {
+    return paginateResponses(request, req => this.listVirtualCircuits(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VirtualCircuit objects
+   * contained in responses from the listVirtualCircuits operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVirtualCircuitsRecordIterator(
+    request: requests.ListVirtualCircuitsRequest
+  ): AsyncIterableIterator<model.VirtualCircuit> {
+    return paginateRecords(request, req => this.listVirtualCircuits(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVirtualCircuits operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVirtualCircuitsResponseIterator(
     request: requests.ListVirtualCircuitsRequest
   ): AsyncIterableIterator<responses.ListVirtualCircuitsResponse> {
     return paginateResponses(request, req => this.listVirtualCircuits(req));
@@ -26365,6 +28373,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVlansRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Vlan objects
    * contained in responses from the listVlans operation. This iterator will fetch more data from the
    * server as needed.
@@ -26376,12 +28385,38 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVlansResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVlans operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVlansResponses(
+    request: requests.ListVlansRequest
+  ): AsyncIterableIterator<responses.ListVlansResponse> {
+    return paginateResponses(request, req => this.listVlans(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Vlan objects
+   * contained in responses from the listVlans operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVlansRecordIterator(
+    request: requests.ListVlansRequest
+  ): AsyncIterableIterator<model.Vlan> {
+    return paginateRecords(request, req => this.listVlans(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVlans operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVlansResponseIterator(
     request: requests.ListVlansRequest
   ): AsyncIterableIterator<responses.ListVlansResponse> {
     return paginateResponses(request, req => this.listVlans(req));

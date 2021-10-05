@@ -599,6 +599,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSecretVersionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SecretVersionSummary objects
    * contained in responses from the listSecretVersions operation. This iterator will fetch more data from the
    * server as needed.
@@ -612,12 +613,38 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSecretVersionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSecretVersions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSecretVersionsResponses(
+    request: requests.ListSecretVersionsRequest
+  ): AsyncIterableIterator<responses.ListSecretVersionsResponse> {
+    return paginateResponses(request, req => this.listSecretVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SecretVersionSummary objects
+   * contained in responses from the listSecretVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSecretVersionsRecordIterator(
+    request: requests.ListSecretVersionsRequest
+  ): AsyncIterableIterator<model.SecretVersionSummary> {
+    return paginateRecords(request, req => this.listSecretVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSecretVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSecretVersionsResponseIterator(
     request: requests.ListSecretVersionsRequest
   ): AsyncIterableIterator<responses.ListSecretVersionsResponse> {
     return paginateResponses(request, req => this.listSecretVersions(req));
@@ -695,6 +722,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSecretsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SecretSummary objects
    * contained in responses from the listSecrets operation. This iterator will fetch more data from the
    * server as needed.
@@ -708,12 +736,38 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSecretsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSecrets operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSecretsResponses(
+    request: requests.ListSecretsRequest
+  ): AsyncIterableIterator<responses.ListSecretsResponse> {
+    return paginateResponses(request, req => this.listSecrets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SecretSummary objects
+   * contained in responses from the listSecrets operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSecretsRecordIterator(
+    request: requests.ListSecretsRequest
+  ): AsyncIterableIterator<model.SecretSummary> {
+    return paginateRecords(request, req => this.listSecrets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSecrets operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSecretsResponseIterator(
     request: requests.ListSecretsRequest
   ): AsyncIterableIterator<responses.ListSecretsResponse> {
     return paginateResponses(request, req => this.listSecrets(req));

@@ -2676,6 +2676,7 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLoadBalancerHealthsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.LoadBalancerHealthSummary objects
    * contained in responses from the listLoadBalancerHealths operation. This iterator will fetch more data from the
    * server as needed.
@@ -2689,12 +2690,38 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLoadBalancerHealthsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listLoadBalancerHealths operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllLoadBalancerHealthsResponses(
+    request: requests.ListLoadBalancerHealthsRequest
+  ): AsyncIterableIterator<responses.ListLoadBalancerHealthsResponse> {
+    return paginateResponses(request, req => this.listLoadBalancerHealths(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.LoadBalancerHealthSummary objects
+   * contained in responses from the listLoadBalancerHealths operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLoadBalancerHealthsRecordIterator(
+    request: requests.ListLoadBalancerHealthsRequest
+  ): AsyncIterableIterator<model.LoadBalancerHealthSummary> {
+    return paginateRecords(request, req => this.listLoadBalancerHealths(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listLoadBalancerHealths operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLoadBalancerHealthsResponseIterator(
     request: requests.ListLoadBalancerHealthsRequest
   ): AsyncIterableIterator<responses.ListLoadBalancerHealthsResponse> {
     return paginateResponses(request, req => this.listLoadBalancerHealths(req));
@@ -2772,6 +2799,7 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLoadBalancersRecordIterator function.
    * Creates a new async iterator which will iterate over the models.LoadBalancer objects
    * contained in responses from the listLoadBalancers operation. This iterator will fetch more data from the
    * server as needed.
@@ -2785,12 +2813,38 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLoadBalancersResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listLoadBalancers operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllLoadBalancersResponses(
+    request: requests.ListLoadBalancersRequest
+  ): AsyncIterableIterator<responses.ListLoadBalancersResponse> {
+    return paginateResponses(request, req => this.listLoadBalancers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.LoadBalancer objects
+   * contained in responses from the listLoadBalancers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLoadBalancersRecordIterator(
+    request: requests.ListLoadBalancersRequest
+  ): AsyncIterableIterator<model.LoadBalancer> {
+    return paginateRecords(request, req => this.listLoadBalancers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listLoadBalancers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLoadBalancersResponseIterator(
     request: requests.ListLoadBalancersRequest
   ): AsyncIterableIterator<responses.ListLoadBalancersResponse> {
     return paginateResponses(request, req => this.listLoadBalancers(req));
@@ -2922,6 +2976,7 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPoliciesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.LoadBalancerPolicy objects
    * contained in responses from the listPolicies operation. This iterator will fetch more data from the
    * server as needed.
@@ -2935,12 +2990,38 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPoliciesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listPolicies operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllPoliciesResponses(
+    request: requests.ListPoliciesRequest
+  ): AsyncIterableIterator<responses.ListPoliciesResponse> {
+    return paginateResponses(request, req => this.listPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.LoadBalancerPolicy objects
+   * contained in responses from the listPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPoliciesRecordIterator(
+    request: requests.ListPoliciesRequest
+  ): AsyncIterableIterator<model.LoadBalancerPolicy> {
+    return paginateRecords(request, req => this.listPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPoliciesResponseIterator(
     request: requests.ListPoliciesRequest
   ): AsyncIterableIterator<responses.ListPoliciesResponse> {
     return paginateResponses(request, req => this.listPolicies(req));
@@ -3013,6 +3094,7 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listProtocolsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.LoadBalancerProtocol objects
    * contained in responses from the listProtocols operation. This iterator will fetch more data from the
    * server as needed.
@@ -3026,12 +3108,38 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listProtocolsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listProtocols operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllProtocolsResponses(
+    request: requests.ListProtocolsRequest
+  ): AsyncIterableIterator<responses.ListProtocolsResponse> {
+    return paginateResponses(request, req => this.listProtocols(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.LoadBalancerProtocol objects
+   * contained in responses from the listProtocols operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listProtocolsRecordIterator(
+    request: requests.ListProtocolsRequest
+  ): AsyncIterableIterator<model.LoadBalancerProtocol> {
+    return paginateRecords(request, req => this.listProtocols(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listProtocols operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listProtocolsResponseIterator(
     request: requests.ListProtocolsRequest
   ): AsyncIterableIterator<responses.ListProtocolsResponse> {
     return paginateResponses(request, req => this.listProtocols(req));
@@ -3105,6 +3213,7 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRoutingPoliciesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.RoutingPolicy objects
    * contained in responses from the listRoutingPolicies operation. This iterator will fetch more data from the
    * server as needed.
@@ -3118,12 +3227,38 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRoutingPoliciesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listRoutingPolicies operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllRoutingPoliciesResponses(
+    request: requests.ListRoutingPoliciesRequest
+  ): AsyncIterableIterator<responses.ListRoutingPoliciesResponse> {
+    return paginateResponses(request, req => this.listRoutingPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.RoutingPolicy objects
+   * contained in responses from the listRoutingPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRoutingPoliciesRecordIterator(
+    request: requests.ListRoutingPoliciesRequest
+  ): AsyncIterableIterator<model.RoutingPolicy> {
+    return paginateRecords(request, req => this.listRoutingPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listRoutingPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRoutingPoliciesResponseIterator(
     request: requests.ListRoutingPoliciesRequest
   ): AsyncIterableIterator<responses.ListRoutingPoliciesResponse> {
     return paginateResponses(request, req => this.listRoutingPolicies(req));
@@ -3314,6 +3449,7 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.LoadBalancerShape objects
    * contained in responses from the listShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -3327,12 +3463,38 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllShapesResponses(
+    request: requests.ListShapesRequest
+  ): AsyncIterableIterator<responses.ListShapesResponse> {
+    return paginateResponses(request, req => this.listShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.LoadBalancerShape objects
+   * contained in responses from the listShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listShapesRecordIterator(
+    request: requests.ListShapesRequest
+  ): AsyncIterableIterator<model.LoadBalancerShape> {
+    return paginateRecords(request, req => this.listShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listShapesResponseIterator(
     request: requests.ListShapesRequest
   ): AsyncIterableIterator<responses.ListShapesResponse> {
     return paginateResponses(request, req => this.listShapes(req));
@@ -3406,6 +3568,7 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequest objects
    * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -3419,12 +3582,38 @@ To delete a rule from a rule set, use the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestsResponses(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequest objects
+   * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsRecordIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequest> {
+    return paginateRecords(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsResponseIterator(
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));

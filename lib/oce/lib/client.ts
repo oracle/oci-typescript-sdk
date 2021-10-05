@@ -530,6 +530,7 @@ export class OceInstanceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listOceInstancesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.OceInstanceSummary objects
    * contained in responses from the listOceInstances operation. This iterator will fetch more data from the
    * server as needed.
@@ -543,12 +544,38 @@ export class OceInstanceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listOceInstancesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listOceInstances operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllOceInstancesResponses(
+    request: requests.ListOceInstancesRequest
+  ): AsyncIterableIterator<responses.ListOceInstancesResponse> {
+    return paginateResponses(request, req => this.listOceInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.OceInstanceSummary objects
+   * contained in responses from the listOceInstances operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listOceInstancesRecordIterator(
+    request: requests.ListOceInstancesRequest
+  ): AsyncIterableIterator<model.OceInstanceSummary> {
+    return paginateRecords(request, req => this.listOceInstances(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listOceInstances operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listOceInstancesResponseIterator(
     request: requests.ListOceInstancesRequest
   ): AsyncIterableIterator<responses.ListOceInstancesResponse> {
     return paginateResponses(request, req => this.listOceInstances(req));
@@ -624,6 +651,7 @@ export class OceInstanceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestError objects
    * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
    * server as needed.
@@ -637,12 +665,38 @@ export class OceInstanceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestErrorsResponses(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestError objects
+   * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsRecordIterator(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<model.WorkRequestError> {
+    return paginateRecords(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsResponseIterator(
     request: requests.ListWorkRequestErrorsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
     return paginateResponses(request, req => this.listWorkRequestErrors(req));
@@ -717,6 +771,7 @@ export class OceInstanceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
    * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
    * server as needed.
@@ -730,12 +785,38 @@ export class OceInstanceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestLogsResponses(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
+   * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsRecordIterator(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
+    return paginateRecords(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsResponseIterator(
     request: requests.ListWorkRequestLogsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
     return paginateResponses(request, req => this.listWorkRequestLogs(req));
@@ -810,6 +891,7 @@ export class OceInstanceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequest objects
    * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -823,12 +905,38 @@ export class OceInstanceClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestsResponses(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequest objects
+   * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsRecordIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequest> {
+    return paginateRecords(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsResponseIterator(
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));

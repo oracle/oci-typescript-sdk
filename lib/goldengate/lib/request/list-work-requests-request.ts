@@ -24,6 +24,11 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
+   * The ID of the resource in which to list resources.
+   *
+   */
+  "resourceId"?: string;
+  /**
    * The client request ID for tracing.
    *
    */

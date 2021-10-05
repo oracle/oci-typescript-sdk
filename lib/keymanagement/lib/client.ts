@@ -1613,6 +1613,7 @@ As a management operation, this call is subject to a Key Management limit that a
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listKeyVersionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.KeyVersionSummary objects
    * contained in responses from the listKeyVersions operation. This iterator will fetch more data from the
    * server as needed.
@@ -1626,12 +1627,38 @@ As a management operation, this call is subject to a Key Management limit that a
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listKeyVersionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listKeyVersions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllKeyVersionsResponses(
+    request: requests.ListKeyVersionsRequest
+  ): AsyncIterableIterator<responses.ListKeyVersionsResponse> {
+    return paginateResponses(request, req => this.listKeyVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.KeyVersionSummary objects
+   * contained in responses from the listKeyVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listKeyVersionsRecordIterator(
+    request: requests.ListKeyVersionsRequest
+  ): AsyncIterableIterator<model.KeyVersionSummary> {
+    return paginateRecords(request, req => this.listKeyVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listKeyVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listKeyVersionsResponseIterator(
     request: requests.ListKeyVersionsRequest
   ): AsyncIterableIterator<responses.ListKeyVersionsResponse> {
     return paginateResponses(request, req => this.listKeyVersions(req));
@@ -1716,6 +1743,7 @@ As a management operation, this call is subject to a Key Management limit that a
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listKeysRecordIterator function.
    * Creates a new async iterator which will iterate over the models.KeySummary objects
    * contained in responses from the listKeys operation. This iterator will fetch more data from the
    * server as needed.
@@ -1727,12 +1755,38 @@ As a management operation, this call is subject to a Key Management limit that a
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listKeysResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listKeys operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllKeysResponses(
+    request: requests.ListKeysRequest
+  ): AsyncIterableIterator<responses.ListKeysResponse> {
+    return paginateResponses(request, req => this.listKeys(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.KeySummary objects
+   * contained in responses from the listKeys operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listKeysRecordIterator(
+    request: requests.ListKeysRequest
+  ): AsyncIterableIterator<model.KeySummary> {
+    return paginateRecords(request, req => this.listKeys(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listKeys operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listKeysResponseIterator(
     request: requests.ListKeysRequest
   ): AsyncIterableIterator<responses.ListKeysResponse> {
     return paginateResponses(request, req => this.listKeys(req));
@@ -2909,6 +2963,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVaultReplicasRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VaultReplicaSummary objects
    * contained in responses from the listVaultReplicas operation. This iterator will fetch more data from the
    * server as needed.
@@ -2922,12 +2977,38 @@ As a provisioning operation, this call is subject to a Key Management limit that
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVaultReplicasResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVaultReplicas operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVaultReplicasResponses(
+    request: requests.ListVaultReplicasRequest
+  ): AsyncIterableIterator<responses.ListVaultReplicasResponse> {
+    return paginateResponses(request, req => this.listVaultReplicas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VaultReplicaSummary objects
+   * contained in responses from the listVaultReplicas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVaultReplicasRecordIterator(
+    request: requests.ListVaultReplicasRequest
+  ): AsyncIterableIterator<model.VaultReplicaSummary> {
+    return paginateRecords(request, req => this.listVaultReplicas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVaultReplicas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVaultReplicasResponseIterator(
     request: requests.ListVaultReplicasRequest
   ): AsyncIterableIterator<responses.ListVaultReplicasResponse> {
     return paginateResponses(request, req => this.listVaultReplicas(req));
@@ -3008,6 +3089,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVaultsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VaultSummary objects
    * contained in responses from the listVaults operation. This iterator will fetch more data from the
    * server as needed.
@@ -3021,12 +3103,38 @@ As a provisioning operation, this call is subject to a Key Management limit that
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVaultsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVaults operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVaultsResponses(
+    request: requests.ListVaultsRequest
+  ): AsyncIterableIterator<responses.ListVaultsResponse> {
+    return paginateResponses(request, req => this.listVaults(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VaultSummary objects
+   * contained in responses from the listVaults operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVaultsRecordIterator(
+    request: requests.ListVaultsRequest
+  ): AsyncIterableIterator<model.VaultSummary> {
+    return paginateRecords(request, req => this.listVaults(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVaults operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVaultsResponseIterator(
     request: requests.ListVaultsRequest
   ): AsyncIterableIterator<responses.ListVaultsResponse> {
     return paginateResponses(request, req => this.listVaults(req));

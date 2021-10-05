@@ -22,6 +22,7 @@ import {
 } from "./types";
 import { UploadOptions } from "./upload-options";
 import { UploadableStream } from "./uploadable-stream";
+import { NodeFSBlob } from "./node-fs-blob";
 
 /**
  * UploadManager simplifies interaction with the Object Storage service by abstracting away the method used
@@ -69,7 +70,8 @@ export class UploadManager {
     maxConcurrentUploads: 5,
     allowedMemoryUsage: 5 * 20 * 1024 * 1024,
     enforceMD5: false,
-    isDisableAutoAbort: false
+    isDisableAutoAbort: false,
+    disableBufferingForFiles: true
   };
 
   private shouldUseMultipartUpload(
@@ -154,7 +156,7 @@ export class UploadManager {
   }
 
   private async triggerUploadPart(
-    content: RawData,
+    content: RawData | UploadableBlob,
     requestDetails: RequestDetails,
     uploadId: string,
     uploadPartNum: number,
@@ -164,13 +166,24 @@ export class UploadManager {
   ): Promise<models.CommitMultipartUploadPartDetails> {
     try {
       return await semaphore.use(async () => {
-        const contentDetails: UploadPartContentDetails = {
-          uploadPartBody: content.data,
-          contentLength: content.size
-        };
-        const contentMD5Hash: UploadPartContentMD5HashDetails = this.options.enforceMD5
-          ? { contentMD5: content.md5Hash }
-          : {};
+        let contentDetails: UploadPartContentDetails = <UploadPartContentDetails>{};
+        let contentMD5Hash: UploadPartContentMD5HashDetails = <UploadPartContentMD5HashDetails>{};
+        if (content instanceof NodeFSBlob) {
+          contentDetails = {
+            uploadPartBody: await content.getData(),
+            contentLength: content.size
+          };
+
+          contentMD5Hash = this.options.enforceMD5
+            ? { contentMD5: await content.getMD5Hash() }
+            : {};
+        } else if ("data" in content) {
+          contentDetails = {
+            uploadPartBody: content.data,
+            contentLength: content.size
+          };
+          contentMD5Hash = this.options.enforceMD5 ? { contentMD5: content.md5Hash } : {};
+        }
         const uploadPartDetails: UploadPartDetails = {
           uploadId: uploadId,
           uploadPartNum: uploadPartNum
@@ -228,8 +241,13 @@ export class UploadManager {
     let uploadPartNum = 1;
     const semaphore = new Semaphore(this.options.maxConcurrentUploads);
     const partUploadPromises = [];
-    let body = await content.getData();
-    const dataFeeder = getChunk(body, this.options.partSize);
+    let dataFeeder;
+    if (this.options.disableBufferingForFiles && content instanceof NodeFSBlob) {
+      dataFeeder = getFileChunk(content, this.options.partSize);
+    } else {
+      let body = await content.getData();
+      dataFeeder = getChunk(body, this.options.partSize);
+    }
     for await (const dataPart of dataFeeder) {
       if (partUploadPromises.length > this.MAX_PARTS) {
         throw new Error(
@@ -329,5 +347,16 @@ export class UploadManager {
       objectName: requestDetails.objectName,
       opcClientRequestId: requestDetails.opcClientRequestId
     };
+  }
+}
+
+function getFileChunk(content: NodeFSBlob, partSize: number) {
+  return FileChunk(content, partSize);
+}
+
+async function* FileChunk(content: NodeFSBlob, partSize: number) {
+  let totalSize = content.size;
+  for (let currentChunkStart = 0; currentChunkStart < totalSize; currentChunkStart += partSize) {
+    yield content.slice(currentChunkStart, currentChunkStart + partSize);
   }
 }

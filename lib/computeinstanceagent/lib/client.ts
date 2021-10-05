@@ -481,6 +481,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceAgentCommandExecutionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.InstanceAgentCommandExecutionSummary objects
    * contained in responses from the listInstanceAgentCommandExecutions operation. This iterator will fetch more data from the
    * server as needed.
@@ -494,12 +495,38 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceAgentCommandExecutionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listInstanceAgentCommandExecutions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllInstanceAgentCommandExecutionsResponses(
+    request: requests.ListInstanceAgentCommandExecutionsRequest
+  ): AsyncIterableIterator<responses.ListInstanceAgentCommandExecutionsResponse> {
+    return paginateResponses(request, req => this.listInstanceAgentCommandExecutions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InstanceAgentCommandExecutionSummary objects
+   * contained in responses from the listInstanceAgentCommandExecutions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceAgentCommandExecutionsRecordIterator(
+    request: requests.ListInstanceAgentCommandExecutionsRequest
+  ): AsyncIterableIterator<model.InstanceAgentCommandExecutionSummary> {
+    return paginateRecords(request, req => this.listInstanceAgentCommandExecutions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listInstanceAgentCommandExecutions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceAgentCommandExecutionsResponseIterator(
     request: requests.ListInstanceAgentCommandExecutionsRequest
   ): AsyncIterableIterator<responses.ListInstanceAgentCommandExecutionsResponse> {
     return paginateResponses(request, req => this.listInstanceAgentCommandExecutions(req));
@@ -576,6 +603,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceAgentCommandsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.InstanceAgentCommandSummary objects
    * contained in responses from the listInstanceAgentCommands operation. This iterator will fetch more data from the
    * server as needed.
@@ -589,12 +617,38 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceAgentCommandsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listInstanceAgentCommands operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllInstanceAgentCommandsResponses(
+    request: requests.ListInstanceAgentCommandsRequest
+  ): AsyncIterableIterator<responses.ListInstanceAgentCommandsResponse> {
+    return paginateResponses(request, req => this.listInstanceAgentCommands(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InstanceAgentCommandSummary objects
+   * contained in responses from the listInstanceAgentCommands operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceAgentCommandsRecordIterator(
+    request: requests.ListInstanceAgentCommandsRequest
+  ): AsyncIterableIterator<model.InstanceAgentCommandSummary> {
+    return paginateRecords(request, req => this.listInstanceAgentCommands(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listInstanceAgentCommands operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceAgentCommandsResponseIterator(
     request: requests.ListInstanceAgentCommandsRequest
   ): AsyncIterableIterator<responses.ListInstanceAgentCommandsResponse> {
     return paginateResponses(request, req => this.listInstanceAgentCommands(req));
@@ -818,6 +872,7 @@ export class PluginClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceAgentPluginsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.InstanceAgentPluginSummary objects
    * contained in responses from the listInstanceAgentPlugins operation. This iterator will fetch more data from the
    * server as needed.
@@ -831,12 +886,38 @@ export class PluginClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceAgentPluginsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listInstanceAgentPlugins operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllInstanceAgentPluginsResponses(
+    request: requests.ListInstanceAgentPluginsRequest
+  ): AsyncIterableIterator<responses.ListInstanceAgentPluginsResponse> {
+    return paginateResponses(request, req => this.listInstanceAgentPlugins(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InstanceAgentPluginSummary objects
+   * contained in responses from the listInstanceAgentPlugins operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceAgentPluginsRecordIterator(
+    request: requests.ListInstanceAgentPluginsRequest
+  ): AsyncIterableIterator<model.InstanceAgentPluginSummary> {
+    return paginateRecords(request, req => this.listInstanceAgentPlugins(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listInstanceAgentPlugins operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceAgentPluginsResponseIterator(
     request: requests.ListInstanceAgentPluginsRequest
   ): AsyncIterableIterator<responses.ListInstanceAgentPluginsResponse> {
     return paginateResponses(request, req => this.listInstanceAgentPlugins(req));
@@ -998,6 +1079,7 @@ export class PluginconfigClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceagentAvailablePluginsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AvailablePluginSummary objects
    * contained in responses from the listInstanceagentAvailablePlugins operation. This iterator will fetch more data from the
    * server as needed.
@@ -1011,12 +1093,38 @@ export class PluginconfigClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listInstanceagentAvailablePluginsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listInstanceagentAvailablePlugins operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllInstanceagentAvailablePluginsResponses(
+    request: requests.ListInstanceagentAvailablePluginsRequest
+  ): AsyncIterableIterator<responses.ListInstanceagentAvailablePluginsResponse> {
+    return paginateResponses(request, req => this.listInstanceagentAvailablePlugins(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AvailablePluginSummary objects
+   * contained in responses from the listInstanceagentAvailablePlugins operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceagentAvailablePluginsRecordIterator(
+    request: requests.ListInstanceagentAvailablePluginsRequest
+  ): AsyncIterableIterator<model.AvailablePluginSummary> {
+    return paginateRecords(request, req => this.listInstanceagentAvailablePlugins(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listInstanceagentAvailablePlugins operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceagentAvailablePluginsResponseIterator(
     request: requests.ListInstanceagentAvailablePluginsRequest
   ): AsyncIterableIterator<responses.ListInstanceagentAvailablePluginsResponse> {
     return paginateResponses(request, req => this.listInstanceagentAvailablePlugins(req));

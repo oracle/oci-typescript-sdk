@@ -926,6 +926,7 @@ Before deleting a source, you must delete all the migrations associated with the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listMigrationsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.MigrationSummary objects
    * contained in responses from the listMigrations operation. This iterator will fetch more data from the
    * server as needed.
@@ -939,12 +940,38 @@ Before deleting a source, you must delete all the migrations associated with the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listMigrationsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listMigrations operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllMigrationsResponses(
+    request: requests.ListMigrationsRequest
+  ): AsyncIterableIterator<responses.ListMigrationsResponse> {
+    return paginateResponses(request, req => this.listMigrations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.MigrationSummary objects
+   * contained in responses from the listMigrations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMigrationsRecordIterator(
+    request: requests.ListMigrationsRequest
+  ): AsyncIterableIterator<model.MigrationSummary> {
+    return paginateRecords(request, req => this.listMigrations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listMigrations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMigrationsResponseIterator(
     request: requests.ListMigrationsRequest
   ): AsyncIterableIterator<responses.ListMigrationsResponse> {
     return paginateResponses(request, req => this.listMigrations(req));
@@ -1026,6 +1053,7 @@ Before deleting a source, you must delete all the migrations associated with the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSourceApplicationsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SourceApplicationSummary objects
    * contained in responses from the listSourceApplications operation. This iterator will fetch more data from the
    * server as needed.
@@ -1039,12 +1067,38 @@ Before deleting a source, you must delete all the migrations associated with the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSourceApplicationsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSourceApplications operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSourceApplicationsResponses(
+    request: requests.ListSourceApplicationsRequest
+  ): AsyncIterableIterator<responses.ListSourceApplicationsResponse> {
+    return paginateResponses(request, req => this.listSourceApplications(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SourceApplicationSummary objects
+   * contained in responses from the listSourceApplications operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSourceApplicationsRecordIterator(
+    request: requests.ListSourceApplicationsRequest
+  ): AsyncIterableIterator<model.SourceApplicationSummary> {
+    return paginateRecords(request, req => this.listSourceApplications(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSourceApplications operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSourceApplicationsResponseIterator(
     request: requests.ListSourceApplicationsRequest
   ): AsyncIterableIterator<responses.ListSourceApplicationsResponse> {
     return paginateResponses(request, req => this.listSourceApplications(req));
@@ -1126,6 +1180,7 @@ Before deleting a source, you must delete all the migrations associated with the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSourcesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SourceSummary objects
    * contained in responses from the listSources operation. This iterator will fetch more data from the
    * server as needed.
@@ -1139,12 +1194,38 @@ Before deleting a source, you must delete all the migrations associated with the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSourcesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSources operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSourcesResponses(
+    request: requests.ListSourcesRequest
+  ): AsyncIterableIterator<responses.ListSourcesResponse> {
+    return paginateResponses(request, req => this.listSources(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SourceSummary objects
+   * contained in responses from the listSources operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSourcesRecordIterator(
+    request: requests.ListSourcesRequest
+  ): AsyncIterableIterator<model.SourceSummary> {
+    return paginateRecords(request, req => this.listSources(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSources operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSourcesResponseIterator(
     request: requests.ListSourcesRequest
   ): AsyncIterableIterator<responses.ListSourcesResponse> {
     return paginateResponses(request, req => this.listSources(req));
@@ -1221,6 +1302,7 @@ Before deleting a source, you must delete all the migrations associated with the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestError objects
    * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
    * server as needed.
@@ -1234,12 +1316,38 @@ Before deleting a source, you must delete all the migrations associated with the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestErrorsResponses(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestError objects
+   * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsRecordIterator(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<model.WorkRequestError> {
+    return paginateRecords(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsResponseIterator(
     request: requests.ListWorkRequestErrorsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
     return paginateResponses(request, req => this.listWorkRequestErrors(req));
@@ -1316,6 +1424,7 @@ Before deleting a source, you must delete all the migrations associated with the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
    * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
    * server as needed.
@@ -1329,12 +1438,38 @@ Before deleting a source, you must delete all the migrations associated with the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestLogsResponses(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
+   * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsRecordIterator(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
+    return paginateRecords(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsResponseIterator(
     request: requests.ListWorkRequestLogsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
     return paginateResponses(request, req => this.listWorkRequestLogs(req));
@@ -1410,6 +1545,7 @@ Before deleting a source, you must delete all the migrations associated with the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
    * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -1423,12 +1559,38 @@ Before deleting a source, you must delete all the migrations associated with the
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestsResponses(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
+   * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsRecordIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
+    return paginateRecords(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsResponseIterator(
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));

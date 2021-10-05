@@ -5025,6 +5025,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCompartmentsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Compartment objects
    * contained in responses from the listCompartments operation. This iterator will fetch more data from the
    * server as needed.
@@ -5038,12 +5039,38 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCompartmentsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCompartments operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCompartmentsResponses(
+    request: requests.ListCompartmentsRequest
+  ): AsyncIterableIterator<responses.ListCompartmentsResponse> {
+    return paginateResponses(request, req => this.listCompartments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Compartment objects
+   * contained in responses from the listCompartments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCompartmentsRecordIterator(
+    request: requests.ListCompartmentsRequest
+  ): AsyncIterableIterator<model.Compartment> {
+    return paginateRecords(request, req => this.listCompartments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCompartments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCompartmentsResponseIterator(
     request: requests.ListCompartmentsRequest
   ): AsyncIterableIterator<responses.ListCompartmentsResponse> {
     return paginateResponses(request, req => this.listCompartments(req));
@@ -5117,6 +5144,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCostTrackingTagsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Tag objects
    * contained in responses from the listCostTrackingTags operation. This iterator will fetch more data from the
    * server as needed.
@@ -5130,12 +5158,38 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCostTrackingTagsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCostTrackingTags operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCostTrackingTagsResponses(
+    request: requests.ListCostTrackingTagsRequest
+  ): AsyncIterableIterator<responses.ListCostTrackingTagsResponse> {
+    return paginateResponses(request, req => this.listCostTrackingTags(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Tag objects
+   * contained in responses from the listCostTrackingTags operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCostTrackingTagsRecordIterator(
+    request: requests.ListCostTrackingTagsRequest
+  ): AsyncIterableIterator<model.Tag> {
+    return paginateRecords(request, req => this.listCostTrackingTags(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCostTrackingTags operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCostTrackingTagsResponseIterator(
     request: requests.ListCostTrackingTagsRequest
   ): AsyncIterableIterator<responses.ListCostTrackingTagsResponse> {
     return paginateResponses(request, req => this.listCostTrackingTags(req));
@@ -5279,6 +5333,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDynamicGroupsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DynamicGroup objects
    * contained in responses from the listDynamicGroups operation. This iterator will fetch more data from the
    * server as needed.
@@ -5292,12 +5347,38 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDynamicGroupsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDynamicGroups operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDynamicGroupsResponses(
+    request: requests.ListDynamicGroupsRequest
+  ): AsyncIterableIterator<responses.ListDynamicGroupsResponse> {
+    return paginateResponses(request, req => this.listDynamicGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DynamicGroup objects
+   * contained in responses from the listDynamicGroups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDynamicGroupsRecordIterator(
+    request: requests.ListDynamicGroupsRequest
+  ): AsyncIterableIterator<model.DynamicGroup> {
+    return paginateRecords(request, req => this.listDynamicGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDynamicGroups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDynamicGroupsResponseIterator(
     request: requests.ListDynamicGroupsRequest
   ): AsyncIterableIterator<responses.ListDynamicGroupsResponse> {
     return paginateResponses(request, req => this.listDynamicGroups(req));
@@ -5438,6 +5519,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listGroupsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Group objects
    * contained in responses from the listGroups operation. This iterator will fetch more data from the
    * server as needed.
@@ -5449,12 +5531,38 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listGroupsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listGroups operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllGroupsResponses(
+    request: requests.ListGroupsRequest
+  ): AsyncIterableIterator<responses.ListGroupsResponse> {
+    return paginateResponses(request, req => this.listGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Group objects
+   * contained in responses from the listGroups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listGroupsRecordIterator(
+    request: requests.ListGroupsRequest
+  ): AsyncIterableIterator<model.Group> {
+    return paginateRecords(request, req => this.listGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listGroups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listGroupsResponseIterator(
     request: requests.ListGroupsRequest
   ): AsyncIterableIterator<responses.ListGroupsResponse> {
     return paginateResponses(request, req => this.listGroups(req));
@@ -5530,6 +5638,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIdentityProviderGroupsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.IdentityProviderGroupSummary objects
    * contained in responses from the listIdentityProviderGroups operation. This iterator will fetch more data from the
    * server as needed.
@@ -5543,12 +5652,38 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIdentityProviderGroupsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listIdentityProviderGroups operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllIdentityProviderGroupsResponses(
+    request: requests.ListIdentityProviderGroupsRequest
+  ): AsyncIterableIterator<responses.ListIdentityProviderGroupsResponse> {
+    return paginateResponses(request, req => this.listIdentityProviderGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.IdentityProviderGroupSummary objects
+   * contained in responses from the listIdentityProviderGroups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIdentityProviderGroupsRecordIterator(
+    request: requests.ListIdentityProviderGroupsRequest
+  ): AsyncIterableIterator<model.IdentityProviderGroupSummary> {
+    return paginateRecords(request, req => this.listIdentityProviderGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIdentityProviderGroups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIdentityProviderGroupsResponseIterator(
     request: requests.ListIdentityProviderGroupsRequest
   ): AsyncIterableIterator<responses.ListIdentityProviderGroupsResponse> {
     return paginateResponses(request, req => this.listIdentityProviderGroups(req));
@@ -5629,6 +5764,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIdentityProvidersRecordIterator function.
    * Creates a new async iterator which will iterate over the models.IdentityProvider objects
    * contained in responses from the listIdentityProviders operation. This iterator will fetch more data from the
    * server as needed.
@@ -5642,12 +5778,38 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIdentityProvidersResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listIdentityProviders operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllIdentityProvidersResponses(
+    request: requests.ListIdentityProvidersRequest
+  ): AsyncIterableIterator<responses.ListIdentityProvidersResponse> {
+    return paginateResponses(request, req => this.listIdentityProviders(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.IdentityProvider objects
+   * contained in responses from the listIdentityProviders operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIdentityProvidersRecordIterator(
+    request: requests.ListIdentityProvidersRequest
+  ): AsyncIterableIterator<model.IdentityProvider> {
+    return paginateRecords(request, req => this.listIdentityProviders(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIdentityProviders operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIdentityProvidersResponseIterator(
     request: requests.ListIdentityProvidersRequest
   ): AsyncIterableIterator<responses.ListIdentityProvidersResponse> {
     return paginateResponses(request, req => this.listIdentityProviders(req));
@@ -5721,6 +5883,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIdpGroupMappingsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.IdpGroupMapping objects
    * contained in responses from the listIdpGroupMappings operation. This iterator will fetch more data from the
    * server as needed.
@@ -5734,12 +5897,38 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIdpGroupMappingsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listIdpGroupMappings operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllIdpGroupMappingsResponses(
+    request: requests.ListIdpGroupMappingsRequest
+  ): AsyncIterableIterator<responses.ListIdpGroupMappingsResponse> {
+    return paginateResponses(request, req => this.listIdpGroupMappings(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.IdpGroupMapping objects
+   * contained in responses from the listIdpGroupMappings operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIdpGroupMappingsRecordIterator(
+    request: requests.ListIdpGroupMappingsRequest
+  ): AsyncIterableIterator<model.IdpGroupMapping> {
+    return paginateRecords(request, req => this.listIdpGroupMappings(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIdpGroupMappings operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIdpGroupMappingsResponseIterator(
     request: requests.ListIdpGroupMappingsRequest
   ): AsyncIterableIterator<responses.ListIdpGroupMappingsResponse> {
     return paginateResponses(request, req => this.listIdpGroupMappings(req));
@@ -5816,6 +6005,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listMfaTotpDevicesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.MfaTotpDeviceSummary objects
    * contained in responses from the listMfaTotpDevices operation. This iterator will fetch more data from the
    * server as needed.
@@ -5829,12 +6019,38 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listMfaTotpDevicesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listMfaTotpDevices operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllMfaTotpDevicesResponses(
+    request: requests.ListMfaTotpDevicesRequest
+  ): AsyncIterableIterator<responses.ListMfaTotpDevicesResponse> {
+    return paginateResponses(request, req => this.listMfaTotpDevices(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.MfaTotpDeviceSummary objects
+   * contained in responses from the listMfaTotpDevices operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMfaTotpDevicesRecordIterator(
+    request: requests.ListMfaTotpDevicesRequest
+  ): AsyncIterableIterator<model.MfaTotpDeviceSummary> {
+    return paginateRecords(request, req => this.listMfaTotpDevices(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listMfaTotpDevices operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMfaTotpDevicesResponseIterator(
     request: requests.ListMfaTotpDevicesRequest
   ): AsyncIterableIterator<responses.ListMfaTotpDevicesResponse> {
     return paginateResponses(request, req => this.listMfaTotpDevices(req));
@@ -5913,6 +6129,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNetworkSourcesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.NetworkSourcesSummary objects
    * contained in responses from the listNetworkSources operation. This iterator will fetch more data from the
    * server as needed.
@@ -5926,12 +6143,38 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listNetworkSourcesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listNetworkSources operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllNetworkSourcesResponses(
+    request: requests.ListNetworkSourcesRequest
+  ): AsyncIterableIterator<responses.ListNetworkSourcesResponse> {
+    return paginateResponses(request, req => this.listNetworkSources(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.NetworkSourcesSummary objects
+   * contained in responses from the listNetworkSources operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNetworkSourcesRecordIterator(
+    request: requests.ListNetworkSourcesRequest
+  ): AsyncIterableIterator<model.NetworkSourcesSummary> {
+    return paginateRecords(request, req => this.listNetworkSources(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listNetworkSources operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNetworkSourcesResponseIterator(
     request: requests.ListNetworkSourcesRequest
   ): AsyncIterableIterator<responses.ListNetworkSourcesResponse> {
     return paginateResponses(request, req => this.listNetworkSources(req));
@@ -6007,6 +6250,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listOAuthClientCredentialsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.OAuth2ClientCredentialSummary objects
    * contained in responses from the listOAuthClientCredentials operation. This iterator will fetch more data from the
    * server as needed.
@@ -6020,12 +6264,38 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listOAuthClientCredentialsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listOAuthClientCredentials operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllOAuthClientCredentialsResponses(
+    request: requests.ListOAuthClientCredentialsRequest
+  ): AsyncIterableIterator<responses.ListOAuthClientCredentialsResponse> {
+    return paginateResponses(request, req => this.listOAuthClientCredentials(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.OAuth2ClientCredentialSummary objects
+   * contained in responses from the listOAuthClientCredentials operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listOAuthClientCredentialsRecordIterator(
+    request: requests.ListOAuthClientCredentialsRequest
+  ): AsyncIterableIterator<model.OAuth2ClientCredentialSummary> {
+    return paginateRecords(request, req => this.listOAuthClientCredentials(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listOAuthClientCredentials operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listOAuthClientCredentialsResponseIterator(
     request: requests.ListOAuthClientCredentialsRequest
   ): AsyncIterableIterator<responses.ListOAuthClientCredentialsResponse> {
     return paginateResponses(request, req => this.listOAuthClientCredentials(req));
@@ -6106,6 +6376,7 @@ To determine which policies apply to a particular group or compartment, you must
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPoliciesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Policy objects
    * contained in responses from the listPolicies operation. This iterator will fetch more data from the
    * server as needed.
@@ -6119,12 +6390,38 @@ To determine which policies apply to a particular group or compartment, you must
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPoliciesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listPolicies operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllPoliciesResponses(
+    request: requests.ListPoliciesRequest
+  ): AsyncIterableIterator<responses.ListPoliciesResponse> {
+    return paginateResponses(request, req => this.listPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Policy objects
+   * contained in responses from the listPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPoliciesRecordIterator(
+    request: requests.ListPoliciesRequest
+  ): AsyncIterableIterator<model.Policy> {
+    return paginateRecords(request, req => this.listPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPoliciesResponseIterator(
     request: requests.ListPoliciesRequest
   ): AsyncIterableIterator<responses.ListPoliciesResponse> {
     return paginateResponses(request, req => this.listPolicies(req));
@@ -6446,6 +6743,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTagDefaultsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.TagDefaultSummary objects
    * contained in responses from the listTagDefaults operation. This iterator will fetch more data from the
    * server as needed.
@@ -6459,12 +6757,38 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTagDefaultsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listTagDefaults operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllTagDefaultsResponses(
+    request: requests.ListTagDefaultsRequest
+  ): AsyncIterableIterator<responses.ListTagDefaultsResponse> {
+    return paginateResponses(request, req => this.listTagDefaults(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.TagDefaultSummary objects
+   * contained in responses from the listTagDefaults operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTagDefaultsRecordIterator(
+    request: requests.ListTagDefaultsRequest
+  ): AsyncIterableIterator<model.TagDefaultSummary> {
+    return paginateRecords(request, req => this.listTagDefaults(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listTagDefaults operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTagDefaultsResponseIterator(
     request: requests.ListTagDefaultsRequest
   ): AsyncIterableIterator<responses.ListTagDefaultsResponse> {
     return paginateResponses(request, req => this.listTagDefaults(req));
@@ -6539,6 +6863,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTagNamespacesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.TagNamespaceSummary objects
    * contained in responses from the listTagNamespaces operation. This iterator will fetch more data from the
    * server as needed.
@@ -6552,12 +6877,38 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTagNamespacesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listTagNamespaces operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllTagNamespacesResponses(
+    request: requests.ListTagNamespacesRequest
+  ): AsyncIterableIterator<responses.ListTagNamespacesResponse> {
+    return paginateResponses(request, req => this.listTagNamespaces(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.TagNamespaceSummary objects
+   * contained in responses from the listTagNamespaces operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTagNamespacesRecordIterator(
+    request: requests.ListTagNamespacesRequest
+  ): AsyncIterableIterator<model.TagNamespaceSummary> {
+    return paginateRecords(request, req => this.listTagNamespaces(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listTagNamespaces operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTagNamespacesResponseIterator(
     request: requests.ListTagNamespacesRequest
   ): AsyncIterableIterator<responses.ListTagNamespacesResponse> {
     return paginateResponses(request, req => this.listTagNamespaces(req));
@@ -6637,6 +6988,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTaggingWorkRequestErrorsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.TaggingWorkRequestErrorSummary objects
    * contained in responses from the listTaggingWorkRequestErrors operation. This iterator will fetch more data from the
    * server as needed.
@@ -6650,12 +7002,38 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTaggingWorkRequestErrorsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listTaggingWorkRequestErrors operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllTaggingWorkRequestErrorsResponses(
+    request: requests.ListTaggingWorkRequestErrorsRequest
+  ): AsyncIterableIterator<responses.ListTaggingWorkRequestErrorsResponse> {
+    return paginateResponses(request, req => this.listTaggingWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.TaggingWorkRequestErrorSummary objects
+   * contained in responses from the listTaggingWorkRequestErrors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTaggingWorkRequestErrorsRecordIterator(
+    request: requests.ListTaggingWorkRequestErrorsRequest
+  ): AsyncIterableIterator<model.TaggingWorkRequestErrorSummary> {
+    return paginateRecords(request, req => this.listTaggingWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listTaggingWorkRequestErrors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTaggingWorkRequestErrorsResponseIterator(
     request: requests.ListTaggingWorkRequestErrorsRequest
   ): AsyncIterableIterator<responses.ListTaggingWorkRequestErrorsResponse> {
     return paginateResponses(request, req => this.listTaggingWorkRequestErrors(req));
@@ -6735,6 +7113,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTaggingWorkRequestLogsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.TaggingWorkRequestLogSummary objects
    * contained in responses from the listTaggingWorkRequestLogs operation. This iterator will fetch more data from the
    * server as needed.
@@ -6748,12 +7127,38 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTaggingWorkRequestLogsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listTaggingWorkRequestLogs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllTaggingWorkRequestLogsResponses(
+    request: requests.ListTaggingWorkRequestLogsRequest
+  ): AsyncIterableIterator<responses.ListTaggingWorkRequestLogsResponse> {
+    return paginateResponses(request, req => this.listTaggingWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.TaggingWorkRequestLogSummary objects
+   * contained in responses from the listTaggingWorkRequestLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTaggingWorkRequestLogsRecordIterator(
+    request: requests.ListTaggingWorkRequestLogsRequest
+  ): AsyncIterableIterator<model.TaggingWorkRequestLogSummary> {
+    return paginateRecords(request, req => this.listTaggingWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listTaggingWorkRequestLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTaggingWorkRequestLogsResponseIterator(
     request: requests.ListTaggingWorkRequestLogsRequest
   ): AsyncIterableIterator<responses.ListTaggingWorkRequestLogsResponse> {
     return paginateResponses(request, req => this.listTaggingWorkRequestLogs(req));
@@ -6827,6 +7232,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTaggingWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.TaggingWorkRequestSummary objects
    * contained in responses from the listTaggingWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -6840,12 +7246,38 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTaggingWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listTaggingWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllTaggingWorkRequestsResponses(
+    request: requests.ListTaggingWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListTaggingWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listTaggingWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.TaggingWorkRequestSummary objects
+   * contained in responses from the listTaggingWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTaggingWorkRequestsRecordIterator(
+    request: requests.ListTaggingWorkRequestsRequest
+  ): AsyncIterableIterator<model.TaggingWorkRequestSummary> {
+    return paginateRecords(request, req => this.listTaggingWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listTaggingWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTaggingWorkRequestsResponseIterator(
     request: requests.ListTaggingWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListTaggingWorkRequestsResponse> {
     return paginateResponses(request, req => this.listTaggingWorkRequests(req));
@@ -6920,6 +7352,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTagsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.TagSummary objects
    * contained in responses from the listTags operation. This iterator will fetch more data from the
    * server as needed.
@@ -6931,12 +7364,38 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTagsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listTags operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllTagsResponses(
+    request: requests.ListTagsRequest
+  ): AsyncIterableIterator<responses.ListTagsResponse> {
+    return paginateResponses(request, req => this.listTags(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.TagSummary objects
+   * contained in responses from the listTags operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTagsRecordIterator(
+    request: requests.ListTagsRequest
+  ): AsyncIterableIterator<model.TagSummary> {
+    return paginateRecords(request, req => this.listTags(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listTags operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTagsResponseIterator(
     request: requests.ListTagsRequest
   ): AsyncIterableIterator<responses.ListTagsResponse> {
     return paginateResponses(request, req => this.listTags(req));
@@ -7021,6 +7480,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listUserGroupMembershipsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.UserGroupMembership objects
    * contained in responses from the listUserGroupMemberships operation. This iterator will fetch more data from the
    * server as needed.
@@ -7034,12 +7494,38 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listUserGroupMembershipsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listUserGroupMemberships operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllUserGroupMembershipsResponses(
+    request: requests.ListUserGroupMembershipsRequest
+  ): AsyncIterableIterator<responses.ListUserGroupMembershipsResponse> {
+    return paginateResponses(request, req => this.listUserGroupMemberships(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.UserGroupMembership objects
+   * contained in responses from the listUserGroupMemberships operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUserGroupMembershipsRecordIterator(
+    request: requests.ListUserGroupMembershipsRequest
+  ): AsyncIterableIterator<model.UserGroupMembership> {
+    return paginateRecords(request, req => this.listUserGroupMemberships(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listUserGroupMemberships operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUserGroupMembershipsResponseIterator(
     request: requests.ListUserGroupMembershipsRequest
   ): AsyncIterableIterator<responses.ListUserGroupMembershipsResponse> {
     return paginateResponses(request, req => this.listUserGroupMemberships(req));
@@ -7120,6 +7606,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listUsersRecordIterator function.
    * Creates a new async iterator which will iterate over the models.User objects
    * contained in responses from the listUsers operation. This iterator will fetch more data from the
    * server as needed.
@@ -7131,12 +7618,38 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listUsersResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listUsers operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllUsersResponses(
+    request: requests.ListUsersRequest
+  ): AsyncIterableIterator<responses.ListUsersResponse> {
+    return paginateResponses(request, req => this.listUsers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.User objects
+   * contained in responses from the listUsers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUsersRecordIterator(
+    request: requests.ListUsersRequest
+  ): AsyncIterableIterator<model.User> {
+    return paginateRecords(request, req => this.listUsers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listUsers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUsersResponseIterator(
     request: requests.ListUsersRequest
   ): AsyncIterableIterator<responses.ListUsersResponse> {
     return paginateResponses(request, req => this.listUsers(req));
@@ -7210,6 +7723,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
    * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -7223,12 +7737,38 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestsResponses(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
+   * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsRecordIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
+    return paginateRecords(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsResponseIterator(
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));

@@ -657,6 +657,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutoScalingConfigurationsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutoScalingConfigurationSummary objects
    * contained in responses from the listAutoScalingConfigurations operation. This iterator will fetch more data from the
    * server as needed.
@@ -670,12 +671,38 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutoScalingConfigurationsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAutoScalingConfigurations operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAutoScalingConfigurationsResponses(
+    request: requests.ListAutoScalingConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListAutoScalingConfigurationsResponse> {
+    return paginateResponses(request, req => this.listAutoScalingConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutoScalingConfigurationSummary objects
+   * contained in responses from the listAutoScalingConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutoScalingConfigurationsRecordIterator(
+    request: requests.ListAutoScalingConfigurationsRequest
+  ): AsyncIterableIterator<model.AutoScalingConfigurationSummary> {
+    return paginateRecords(request, req => this.listAutoScalingConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutoScalingConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutoScalingConfigurationsResponseIterator(
     request: requests.ListAutoScalingConfigurationsRequest
   ): AsyncIterableIterator<responses.ListAutoScalingConfigurationsResponse> {
     return paginateResponses(request, req => this.listAutoScalingConfigurations(req));
@@ -754,6 +781,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutoScalingPoliciesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutoScalingPolicySummary objects
    * contained in responses from the listAutoScalingPolicies operation. This iterator will fetch more data from the
    * server as needed.
@@ -767,12 +795,38 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutoScalingPoliciesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAutoScalingPolicies operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAutoScalingPoliciesResponses(
+    request: requests.ListAutoScalingPoliciesRequest
+  ): AsyncIterableIterator<responses.ListAutoScalingPoliciesResponse> {
+    return paginateResponses(request, req => this.listAutoScalingPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutoScalingPolicySummary objects
+   * contained in responses from the listAutoScalingPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutoScalingPoliciesRecordIterator(
+    request: requests.ListAutoScalingPoliciesRequest
+  ): AsyncIterableIterator<model.AutoScalingPolicySummary> {
+    return paginateRecords(request, req => this.listAutoScalingPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutoScalingPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutoScalingPoliciesResponseIterator(
     request: requests.ListAutoScalingPoliciesRequest
   ): AsyncIterableIterator<responses.ListAutoScalingPoliciesResponse> {
     return paginateResponses(request, req => this.listAutoScalingPolicies(req));

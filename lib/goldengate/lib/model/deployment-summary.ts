@@ -56,6 +56,11 @@ export interface DeploymentSummary {
    */
   "lifecycleState"?: model.LifecycleState;
   /**
+   * Possible GGS lifecycle sub-states.
+   *
+   */
+  "lifecycleSubState"?: model.LifecycleSubState;
+  /**
    * Describes the object's current state in detail. For example, it can be used to provide actionable information for a resource in a Failed state.
    *
    */
@@ -128,6 +133,11 @@ export interface DeploymentSummary {
    *
    */
   "isLatestVersion"?: boolean;
+  /**
+   * The date the existing version in use will no longer be considered as usable and an upgrade will be required.  This date is typically 6 months after the version was released for use by GGS.  The format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   *
+   */
+  "timeUpgradeRequired"?: Date;
   /**
    * The deployment type.
    *

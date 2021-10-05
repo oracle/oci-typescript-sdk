@@ -55,6 +55,10 @@ export interface ListManagementAgentsRequest extends common.BaseRequest {
    */
   "isCustomerDeployed"?: boolean;
   /**
+   * A filter to return either agents or gateway types depending upon install type selected by user. By default both install type will be returned.
+   */
+  "installType"?: model.InstallTypes;
+  /**
    * The maximum number of items to return.
    */
   "limit"?: number;

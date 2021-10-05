@@ -82,6 +82,25 @@ export class GoldenGateWaiter {
   }
 
   /**
+   * Waits forDeploymentUpgrade till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDeploymentUpgradeResponse | null (null in case of 404 response)
+   */
+  public async forDeploymentUpgrade(
+    request: serviceRequests.GetDeploymentUpgradeRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetDeploymentUpgradeResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDeploymentUpgrade(request),
+      response => targetStates.includes(response.deploymentUpgrade.lifecycleState!),
+      targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

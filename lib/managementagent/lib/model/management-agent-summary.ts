@@ -47,7 +47,16 @@ export interface ManagementAgentSummary {
    */
   "version": string;
   /**
-   * true if the agent can be upgraded automatically; false if it must be upgraded manually.
+   * Version of the deployment artifact instantiated by this Management Agent.
+   * The format for Standalone resourceMode is YYMMDD.HHMM, and the format for other modes
+   * (whose artifacts are based upon Standalone but can advance independently)
+   * is YYMMDD.HHMM.VVVVVVVVVVVV.
+   * VVVVVVVVVVVV is always a numeric value between 000000000000 and 999999999999
+   *
+   */
+  "resourceArtifactVersion"?: string;
+  /**
+   * true if the agent can be upgraded automatically; false if it must be upgraded manually. This flag is derived from the tenancy level auto upgrade preference.
    */
   "isAgentAutoUpgradable"?: boolean;
   /**
@@ -94,6 +103,10 @@ export interface ManagementAgentSummary {
    * true, if the agent image is manually downloaded and installed. false, if the agent is deployed as a plugin in Oracle Cloud Agent.
    */
   "isCustomerDeployed"?: boolean;
+  /**
+   * The install type, either AGENT or GATEWAY
+   */
+  "installType"?: model.InstallTypes;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`

@@ -585,6 +585,7 @@ export class BudgetClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAlertRulesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AlertRuleSummary objects
    * contained in responses from the listAlertRules operation. This iterator will fetch more data from the
    * server as needed.
@@ -598,12 +599,38 @@ export class BudgetClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAlertRulesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAlertRules operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAlertRulesResponses(
+    request: requests.ListAlertRulesRequest
+  ): AsyncIterableIterator<responses.ListAlertRulesResponse> {
+    return paginateResponses(request, req => this.listAlertRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AlertRuleSummary objects
+   * contained in responses from the listAlertRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAlertRulesRecordIterator(
+    request: requests.ListAlertRulesRequest
+  ): AsyncIterableIterator<model.AlertRuleSummary> {
+    return paginateRecords(request, req => this.listAlertRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAlertRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAlertRulesResponseIterator(
     request: requests.ListAlertRulesRequest
   ): AsyncIterableIterator<responses.ListAlertRulesResponse> {
     return paginateResponses(request, req => this.listAlertRules(req));
@@ -691,6 +718,7 @@ Additional targetTypes would be available in future releases. Clients should ign
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBudgetsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.BudgetSummary objects
    * contained in responses from the listBudgets operation. This iterator will fetch more data from the
    * server as needed.
@@ -704,12 +732,38 @@ Additional targetTypes would be available in future releases. Clients should ign
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBudgetsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listBudgets operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllBudgetsResponses(
+    request: requests.ListBudgetsRequest
+  ): AsyncIterableIterator<responses.ListBudgetsResponse> {
+    return paginateResponses(request, req => this.listBudgets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BudgetSummary objects
+   * contained in responses from the listBudgets operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBudgetsRecordIterator(
+    request: requests.ListBudgetsRequest
+  ): AsyncIterableIterator<model.BudgetSummary> {
+    return paginateRecords(request, req => this.listBudgets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBudgets operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBudgetsResponseIterator(
     request: requests.ListBudgetsRequest
   ): AsyncIterableIterator<responses.ListBudgetsResponse> {
     return paginateResponses(request, req => this.listBudgets(req));

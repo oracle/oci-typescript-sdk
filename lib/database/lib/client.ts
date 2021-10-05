@@ -9653,6 +9653,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousContainerDatabaseDataguardAssociationsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutonomousContainerDatabaseDataguardAssociation objects
    * contained in responses from the listAutonomousContainerDatabaseDataguardAssociations operation. This iterator will fetch more data from the
    * server as needed.
@@ -9668,12 +9669,42 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousContainerDatabaseDataguardAssociationsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAutonomousContainerDatabaseDataguardAssociations operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAutonomousContainerDatabaseDataguardAssociationsResponses(
+    request: requests.ListAutonomousContainerDatabaseDataguardAssociationsRequest
+  ): AsyncIterableIterator<responses.ListAutonomousContainerDatabaseDataguardAssociationsResponse> {
+    return paginateResponses(request, req =>
+      this.listAutonomousContainerDatabaseDataguardAssociations(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousContainerDatabaseDataguardAssociation objects
+   * contained in responses from the listAutonomousContainerDatabaseDataguardAssociations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousContainerDatabaseDataguardAssociationsRecordIterator(
+    request: requests.ListAutonomousContainerDatabaseDataguardAssociationsRequest
+  ): AsyncIterableIterator<model.AutonomousContainerDatabaseDataguardAssociation> {
+    return paginateRecords(request, req =>
+      this.listAutonomousContainerDatabaseDataguardAssociations(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousContainerDatabaseDataguardAssociations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousContainerDatabaseDataguardAssociationsResponseIterator(
     request: requests.ListAutonomousContainerDatabaseDataguardAssociationsRequest
   ): AsyncIterableIterator<responses.ListAutonomousContainerDatabaseDataguardAssociationsResponse> {
     return paginateResponses(request, req =>
@@ -9759,6 +9790,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousContainerDatabasesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutonomousContainerDatabaseSummary objects
    * contained in responses from the listAutonomousContainerDatabases operation. This iterator will fetch more data from the
    * server as needed.
@@ -9772,12 +9804,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousContainerDatabasesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAutonomousContainerDatabases operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAutonomousContainerDatabasesResponses(
+    request: requests.ListAutonomousContainerDatabasesRequest
+  ): AsyncIterableIterator<responses.ListAutonomousContainerDatabasesResponse> {
+    return paginateResponses(request, req => this.listAutonomousContainerDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousContainerDatabaseSummary objects
+   * contained in responses from the listAutonomousContainerDatabases operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousContainerDatabasesRecordIterator(
+    request: requests.ListAutonomousContainerDatabasesRequest
+  ): AsyncIterableIterator<model.AutonomousContainerDatabaseSummary> {
+    return paginateRecords(request, req => this.listAutonomousContainerDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousContainerDatabases operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousContainerDatabasesResponseIterator(
     request: requests.ListAutonomousContainerDatabasesRequest
   ): AsyncIterableIterator<responses.ListAutonomousContainerDatabasesResponse> {
     return paginateResponses(request, req => this.listAutonomousContainerDatabases(req));
@@ -9857,6 +9915,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousDatabaseBackupsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutonomousDatabaseBackupSummary objects
    * contained in responses from the listAutonomousDatabaseBackups operation. This iterator will fetch more data from the
    * server as needed.
@@ -9870,12 +9929,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousDatabaseBackupsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAutonomousDatabaseBackups operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAutonomousDatabaseBackupsResponses(
+    request: requests.ListAutonomousDatabaseBackupsRequest
+  ): AsyncIterableIterator<responses.ListAutonomousDatabaseBackupsResponse> {
+    return paginateResponses(request, req => this.listAutonomousDatabaseBackups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousDatabaseBackupSummary objects
+   * contained in responses from the listAutonomousDatabaseBackups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousDatabaseBackupsRecordIterator(
+    request: requests.ListAutonomousDatabaseBackupsRequest
+  ): AsyncIterableIterator<model.AutonomousDatabaseBackupSummary> {
+    return paginateRecords(request, req => this.listAutonomousDatabaseBackups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousDatabaseBackups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousDatabaseBackupsResponseIterator(
     request: requests.ListAutonomousDatabaseBackupsRequest
   ): AsyncIterableIterator<responses.ListAutonomousDatabaseBackupsResponse> {
     return paginateResponses(request, req => this.listAutonomousDatabaseBackups(req));
@@ -9957,6 +10042,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousDatabaseClonesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutonomousDatabaseSummary objects
    * contained in responses from the listAutonomousDatabaseClones operation. This iterator will fetch more data from the
    * server as needed.
@@ -9970,12 +10056,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousDatabaseClonesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAutonomousDatabaseClones operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAutonomousDatabaseClonesResponses(
+    request: requests.ListAutonomousDatabaseClonesRequest
+  ): AsyncIterableIterator<responses.ListAutonomousDatabaseClonesResponse> {
+    return paginateResponses(request, req => this.listAutonomousDatabaseClones(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousDatabaseSummary objects
+   * contained in responses from the listAutonomousDatabaseClones operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousDatabaseClonesRecordIterator(
+    request: requests.ListAutonomousDatabaseClonesRequest
+  ): AsyncIterableIterator<model.AutonomousDatabaseSummary> {
+    return paginateRecords(request, req => this.listAutonomousDatabaseClones(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousDatabaseClones operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousDatabaseClonesResponseIterator(
     request: requests.ListAutonomousDatabaseClonesRequest
   ): AsyncIterableIterator<responses.ListAutonomousDatabaseClonesResponse> {
     return paginateResponses(request, req => this.listAutonomousDatabaseClones(req));
@@ -10053,6 +10165,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousDatabaseDataguardAssociationsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutonomousDatabaseDataguardAssociation objects
    * contained in responses from the listAutonomousDatabaseDataguardAssociations operation. This iterator will fetch more data from the
    * server as needed.
@@ -10066,12 +10179,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousDatabaseDataguardAssociationsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAutonomousDatabaseDataguardAssociations operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAutonomousDatabaseDataguardAssociationsResponses(
+    request: requests.ListAutonomousDatabaseDataguardAssociationsRequest
+  ): AsyncIterableIterator<responses.ListAutonomousDatabaseDataguardAssociationsResponse> {
+    return paginateResponses(request, req => this.listAutonomousDatabaseDataguardAssociations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousDatabaseDataguardAssociation objects
+   * contained in responses from the listAutonomousDatabaseDataguardAssociations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousDatabaseDataguardAssociationsRecordIterator(
+    request: requests.ListAutonomousDatabaseDataguardAssociationsRequest
+  ): AsyncIterableIterator<model.AutonomousDatabaseDataguardAssociation> {
+    return paginateRecords(request, req => this.listAutonomousDatabaseDataguardAssociations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousDatabaseDataguardAssociations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousDatabaseDataguardAssociationsResponseIterator(
     request: requests.ListAutonomousDatabaseDataguardAssociationsRequest
   ): AsyncIterableIterator<responses.ListAutonomousDatabaseDataguardAssociationsResponse> {
     return paginateResponses(request, req => this.listAutonomousDatabaseDataguardAssociations(req));
@@ -10156,6 +10295,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousDatabasesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutonomousDatabaseSummary objects
    * contained in responses from the listAutonomousDatabases operation. This iterator will fetch more data from the
    * server as needed.
@@ -10169,12 +10309,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousDatabasesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAutonomousDatabases operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAutonomousDatabasesResponses(
+    request: requests.ListAutonomousDatabasesRequest
+  ): AsyncIterableIterator<responses.ListAutonomousDatabasesResponse> {
+    return paginateResponses(request, req => this.listAutonomousDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousDatabaseSummary objects
+   * contained in responses from the listAutonomousDatabases operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousDatabasesRecordIterator(
+    request: requests.ListAutonomousDatabasesRequest
+  ): AsyncIterableIterator<model.AutonomousDatabaseSummary> {
+    return paginateRecords(request, req => this.listAutonomousDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousDatabases operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousDatabasesResponseIterator(
     request: requests.ListAutonomousDatabasesRequest
   ): AsyncIterableIterator<responses.ListAutonomousDatabasesResponse> {
     return paginateResponses(request, req => this.listAutonomousDatabases(req));
@@ -10252,6 +10418,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousDbPreviewVersionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutonomousDbPreviewVersionSummary objects
    * contained in responses from the listAutonomousDbPreviewVersions operation. This iterator will fetch more data from the
    * server as needed.
@@ -10265,12 +10432,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousDbPreviewVersionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAutonomousDbPreviewVersions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAutonomousDbPreviewVersionsResponses(
+    request: requests.ListAutonomousDbPreviewVersionsRequest
+  ): AsyncIterableIterator<responses.ListAutonomousDbPreviewVersionsResponse> {
+    return paginateResponses(request, req => this.listAutonomousDbPreviewVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousDbPreviewVersionSummary objects
+   * contained in responses from the listAutonomousDbPreviewVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousDbPreviewVersionsRecordIterator(
+    request: requests.ListAutonomousDbPreviewVersionsRequest
+  ): AsyncIterableIterator<model.AutonomousDbPreviewVersionSummary> {
+    return paginateRecords(request, req => this.listAutonomousDbPreviewVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousDbPreviewVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousDbPreviewVersionsResponseIterator(
     request: requests.ListAutonomousDbPreviewVersionsRequest
   ): AsyncIterableIterator<responses.ListAutonomousDbPreviewVersionsResponse> {
     return paginateResponses(request, req => this.listAutonomousDbPreviewVersions(req));
@@ -10346,6 +10539,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousDbVersionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutonomousDbVersionSummary objects
    * contained in responses from the listAutonomousDbVersions operation. This iterator will fetch more data from the
    * server as needed.
@@ -10359,12 +10553,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousDbVersionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAutonomousDbVersions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAutonomousDbVersionsResponses(
+    request: requests.ListAutonomousDbVersionsRequest
+  ): AsyncIterableIterator<responses.ListAutonomousDbVersionsResponse> {
+    return paginateResponses(request, req => this.listAutonomousDbVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousDbVersionSummary objects
+   * contained in responses from the listAutonomousDbVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousDbVersionsRecordIterator(
+    request: requests.ListAutonomousDbVersionsRequest
+  ): AsyncIterableIterator<model.AutonomousDbVersionSummary> {
+    return paginateRecords(request, req => this.listAutonomousDbVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousDbVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousDbVersionsResponseIterator(
     request: requests.ListAutonomousDbVersionsRequest
   ): AsyncIterableIterator<responses.ListAutonomousDbVersionsResponse> {
     return paginateResponses(request, req => this.listAutonomousDbVersions(req));
@@ -10441,6 +10661,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousExadataInfrastructureShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutonomousExadataInfrastructureShapeSummary objects
    * contained in responses from the listAutonomousExadataInfrastructureShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -10454,12 +10675,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousExadataInfrastructureShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAutonomousExadataInfrastructureShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAutonomousExadataInfrastructureShapesResponses(
+    request: requests.ListAutonomousExadataInfrastructureShapesRequest
+  ): AsyncIterableIterator<responses.ListAutonomousExadataInfrastructureShapesResponse> {
+    return paginateResponses(request, req => this.listAutonomousExadataInfrastructureShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousExadataInfrastructureShapeSummary objects
+   * contained in responses from the listAutonomousExadataInfrastructureShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousExadataInfrastructureShapesRecordIterator(
+    request: requests.ListAutonomousExadataInfrastructureShapesRequest
+  ): AsyncIterableIterator<model.AutonomousExadataInfrastructureShapeSummary> {
+    return paginateRecords(request, req => this.listAutonomousExadataInfrastructureShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousExadataInfrastructureShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousExadataInfrastructureShapesResponseIterator(
     request: requests.ListAutonomousExadataInfrastructureShapesRequest
   ): AsyncIterableIterator<responses.ListAutonomousExadataInfrastructureShapesResponse> {
     return paginateResponses(request, req => this.listAutonomousExadataInfrastructureShapes(req));
@@ -10538,6 +10785,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousExadataInfrastructuresRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutonomousExadataInfrastructureSummary objects
    * contained in responses from the listAutonomousExadataInfrastructures operation. This iterator will fetch more data from the
    * server as needed.
@@ -10551,12 +10799,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousExadataInfrastructuresResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAutonomousExadataInfrastructures operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAutonomousExadataInfrastructuresResponses(
+    request: requests.ListAutonomousExadataInfrastructuresRequest
+  ): AsyncIterableIterator<responses.ListAutonomousExadataInfrastructuresResponse> {
+    return paginateResponses(request, req => this.listAutonomousExadataInfrastructures(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousExadataInfrastructureSummary objects
+   * contained in responses from the listAutonomousExadataInfrastructures operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousExadataInfrastructuresRecordIterator(
+    request: requests.ListAutonomousExadataInfrastructuresRequest
+  ): AsyncIterableIterator<model.AutonomousExadataInfrastructureSummary> {
+    return paginateRecords(request, req => this.listAutonomousExadataInfrastructures(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousExadataInfrastructures operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousExadataInfrastructuresResponseIterator(
     request: requests.ListAutonomousExadataInfrastructuresRequest
   ): AsyncIterableIterator<responses.ListAutonomousExadataInfrastructuresResponse> {
     return paginateResponses(request, req => this.listAutonomousExadataInfrastructures(req));
@@ -10636,6 +10910,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousVmClustersRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutonomousVmClusterSummary objects
    * contained in responses from the listAutonomousVmClusters operation. This iterator will fetch more data from the
    * server as needed.
@@ -10649,12 +10924,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAutonomousVmClustersResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAutonomousVmClusters operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAutonomousVmClustersResponses(
+    request: requests.ListAutonomousVmClustersRequest
+  ): AsyncIterableIterator<responses.ListAutonomousVmClustersResponse> {
+    return paginateResponses(request, req => this.listAutonomousVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousVmClusterSummary objects
+   * contained in responses from the listAutonomousVmClusters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousVmClustersRecordIterator(
+    request: requests.ListAutonomousVmClustersRequest
+  ): AsyncIterableIterator<model.AutonomousVmClusterSummary> {
+    return paginateRecords(request, req => this.listAutonomousVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousVmClusters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousVmClustersResponseIterator(
     request: requests.ListAutonomousVmClustersRequest
   ): AsyncIterableIterator<responses.ListAutonomousVmClustersResponse> {
     return paginateResponses(request, req => this.listAutonomousVmClusters(req));
@@ -10734,6 +11035,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBackupDestinationRecordIterator function.
    * Creates a new async iterator which will iterate over the models.BackupDestinationSummary objects
    * contained in responses from the listBackupDestination operation. This iterator will fetch more data from the
    * server as needed.
@@ -10747,12 +11049,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBackupDestinationResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listBackupDestination operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllBackupDestinationResponses(
+    request: requests.ListBackupDestinationRequest
+  ): AsyncIterableIterator<responses.ListBackupDestinationResponse> {
+    return paginateResponses(request, req => this.listBackupDestination(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BackupDestinationSummary objects
+   * contained in responses from the listBackupDestination operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBackupDestinationRecordIterator(
+    request: requests.ListBackupDestinationRequest
+  ): AsyncIterableIterator<model.BackupDestinationSummary> {
+    return paginateRecords(request, req => this.listBackupDestination(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBackupDestination operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBackupDestinationResponseIterator(
     request: requests.ListBackupDestinationRequest
   ): AsyncIterableIterator<responses.ListBackupDestinationResponse> {
     return paginateResponses(request, req => this.listBackupDestination(req));
@@ -10826,6 +11154,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBackupsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.BackupSummary objects
    * contained in responses from the listBackups operation. This iterator will fetch more data from the
    * server as needed.
@@ -10839,12 +11168,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBackupsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listBackups operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllBackupsResponses(
+    request: requests.ListBackupsRequest
+  ): AsyncIterableIterator<responses.ListBackupsResponse> {
+    return paginateResponses(request, req => this.listBackups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BackupSummary objects
+   * contained in responses from the listBackups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBackupsRecordIterator(
+    request: requests.ListBackupsRequest
+  ): AsyncIterableIterator<model.BackupSummary> {
+    return paginateRecords(request, req => this.listBackups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBackups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBackupsResponseIterator(
     request: requests.ListBackupsRequest
   ): AsyncIterableIterator<responses.ListBackupsResponse> {
     return paginateResponses(request, req => this.listBackups(req));
@@ -10923,6 +11278,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCloudExadataInfrastructuresRecordIterator function.
    * Creates a new async iterator which will iterate over the models.CloudExadataInfrastructureSummary objects
    * contained in responses from the listCloudExadataInfrastructures operation. This iterator will fetch more data from the
    * server as needed.
@@ -10936,12 +11292,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCloudExadataInfrastructuresResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCloudExadataInfrastructures operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCloudExadataInfrastructuresResponses(
+    request: requests.ListCloudExadataInfrastructuresRequest
+  ): AsyncIterableIterator<responses.ListCloudExadataInfrastructuresResponse> {
+    return paginateResponses(request, req => this.listCloudExadataInfrastructures(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CloudExadataInfrastructureSummary objects
+   * contained in responses from the listCloudExadataInfrastructures operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudExadataInfrastructuresRecordIterator(
+    request: requests.ListCloudExadataInfrastructuresRequest
+  ): AsyncIterableIterator<model.CloudExadataInfrastructureSummary> {
+    return paginateRecords(request, req => this.listCloudExadataInfrastructures(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCloudExadataInfrastructures operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudExadataInfrastructuresResponseIterator(
     request: requests.ListCloudExadataInfrastructuresRequest
   ): AsyncIterableIterator<responses.ListCloudExadataInfrastructuresResponse> {
     return paginateResponses(request, req => this.listCloudExadataInfrastructures(req));
@@ -11018,6 +11400,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCloudVmClusterUpdateHistoryEntriesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.UpdateHistoryEntrySummary objects
    * contained in responses from the listCloudVmClusterUpdateHistoryEntries operation. This iterator will fetch more data from the
    * server as needed.
@@ -11031,12 +11414,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCloudVmClusterUpdateHistoryEntriesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCloudVmClusterUpdateHistoryEntries operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCloudVmClusterUpdateHistoryEntriesResponses(
+    request: requests.ListCloudVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListCloudVmClusterUpdateHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listCloudVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.UpdateHistoryEntrySummary objects
+   * contained in responses from the listCloudVmClusterUpdateHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudVmClusterUpdateHistoryEntriesRecordIterator(
+    request: requests.ListCloudVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<model.UpdateHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listCloudVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCloudVmClusterUpdateHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudVmClusterUpdateHistoryEntriesResponseIterator(
     request: requests.ListCloudVmClusterUpdateHistoryEntriesRequest
   ): AsyncIterableIterator<responses.ListCloudVmClusterUpdateHistoryEntriesResponse> {
     return paginateResponses(request, req => this.listCloudVmClusterUpdateHistoryEntries(req));
@@ -11113,6 +11522,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCloudVmClusterUpdatesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.UpdateSummary objects
    * contained in responses from the listCloudVmClusterUpdates operation. This iterator will fetch more data from the
    * server as needed.
@@ -11126,12 +11536,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCloudVmClusterUpdatesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCloudVmClusterUpdates operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCloudVmClusterUpdatesResponses(
+    request: requests.ListCloudVmClusterUpdatesRequest
+  ): AsyncIterableIterator<responses.ListCloudVmClusterUpdatesResponse> {
+    return paginateResponses(request, req => this.listCloudVmClusterUpdates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.UpdateSummary objects
+   * contained in responses from the listCloudVmClusterUpdates operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudVmClusterUpdatesRecordIterator(
+    request: requests.ListCloudVmClusterUpdatesRequest
+  ): AsyncIterableIterator<model.UpdateSummary> {
+    return paginateRecords(request, req => this.listCloudVmClusterUpdates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCloudVmClusterUpdates operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudVmClusterUpdatesResponseIterator(
     request: requests.ListCloudVmClusterUpdatesRequest
   ): AsyncIterableIterator<responses.ListCloudVmClusterUpdatesResponse> {
     return paginateResponses(request, req => this.listCloudVmClusterUpdates(req));
@@ -11210,6 +11646,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCloudVmClustersRecordIterator function.
    * Creates a new async iterator which will iterate over the models.CloudVmClusterSummary objects
    * contained in responses from the listCloudVmClusters operation. This iterator will fetch more data from the
    * server as needed.
@@ -11223,12 +11660,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCloudVmClustersResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCloudVmClusters operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCloudVmClustersResponses(
+    request: requests.ListCloudVmClustersRequest
+  ): AsyncIterableIterator<responses.ListCloudVmClustersResponse> {
+    return paginateResponses(request, req => this.listCloudVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CloudVmClusterSummary objects
+   * contained in responses from the listCloudVmClusters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudVmClustersRecordIterator(
+    request: requests.ListCloudVmClustersRequest
+  ): AsyncIterableIterator<model.CloudVmClusterSummary> {
+    return paginateRecords(request, req => this.listCloudVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCloudVmClusters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudVmClustersResponseIterator(
     request: requests.ListCloudVmClustersRequest
   ): AsyncIterableIterator<responses.ListCloudVmClustersResponse> {
     return paginateResponses(request, req => this.listCloudVmClusters(req));
@@ -11369,6 +11832,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listContainerDatabasePatchesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AutonomousPatchSummary objects
    * contained in responses from the listContainerDatabasePatches operation. This iterator will fetch more data from the
    * server as needed.
@@ -11382,12 +11846,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listContainerDatabasePatchesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listContainerDatabasePatches operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllContainerDatabasePatchesResponses(
+    request: requests.ListContainerDatabasePatchesRequest
+  ): AsyncIterableIterator<responses.ListContainerDatabasePatchesResponse> {
+    return paginateResponses(request, req => this.listContainerDatabasePatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousPatchSummary objects
+   * contained in responses from the listContainerDatabasePatches operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listContainerDatabasePatchesRecordIterator(
+    request: requests.ListContainerDatabasePatchesRequest
+  ): AsyncIterableIterator<model.AutonomousPatchSummary> {
+    return paginateRecords(request, req => this.listContainerDatabasePatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listContainerDatabasePatches operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listContainerDatabasePatchesResponseIterator(
     request: requests.ListContainerDatabasePatchesRequest
   ): AsyncIterableIterator<responses.ListContainerDatabasePatchesResponse> {
     return paginateResponses(request, req => this.listContainerDatabasePatches(req));
@@ -11462,6 +11952,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDataGuardAssociationsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DataGuardAssociationSummary objects
    * contained in responses from the listDataGuardAssociations operation. This iterator will fetch more data from the
    * server as needed.
@@ -11475,12 +11966,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDataGuardAssociationsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDataGuardAssociations operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDataGuardAssociationsResponses(
+    request: requests.ListDataGuardAssociationsRequest
+  ): AsyncIterableIterator<responses.ListDataGuardAssociationsResponse> {
+    return paginateResponses(request, req => this.listDataGuardAssociations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DataGuardAssociationSummary objects
+   * contained in responses from the listDataGuardAssociations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDataGuardAssociationsRecordIterator(
+    request: requests.ListDataGuardAssociationsRequest
+  ): AsyncIterableIterator<model.DataGuardAssociationSummary> {
+    return paginateRecords(request, req => this.listDataGuardAssociations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDataGuardAssociations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDataGuardAssociationsResponseIterator(
     request: requests.ListDataGuardAssociationsRequest
   ): AsyncIterableIterator<responses.ListDataGuardAssociationsResponse> {
     return paginateResponses(request, req => this.listDataGuardAssociations(req));
@@ -11561,6 +12078,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDatabaseSoftwareImagesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DatabaseSoftwareImageSummary objects
    * contained in responses from the listDatabaseSoftwareImages operation. This iterator will fetch more data from the
    * server as needed.
@@ -11574,12 +12092,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDatabaseSoftwareImagesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDatabaseSoftwareImages operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDatabaseSoftwareImagesResponses(
+    request: requests.ListDatabaseSoftwareImagesRequest
+  ): AsyncIterableIterator<responses.ListDatabaseSoftwareImagesResponse> {
+    return paginateResponses(request, req => this.listDatabaseSoftwareImages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DatabaseSoftwareImageSummary objects
+   * contained in responses from the listDatabaseSoftwareImages operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDatabaseSoftwareImagesRecordIterator(
+    request: requests.ListDatabaseSoftwareImagesRequest
+  ): AsyncIterableIterator<model.DatabaseSoftwareImageSummary> {
+    return paginateRecords(request, req => this.listDatabaseSoftwareImages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDatabaseSoftwareImages operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDatabaseSoftwareImagesResponseIterator(
     request: requests.ListDatabaseSoftwareImagesRequest
   ): AsyncIterableIterator<responses.ListDatabaseSoftwareImagesResponse> {
     return paginateResponses(request, req => this.listDatabaseSoftwareImages(req));
@@ -11659,6 +12203,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDatabaseUpgradeHistoryEntriesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DatabaseUpgradeHistoryEntrySummary objects
    * contained in responses from the listDatabaseUpgradeHistoryEntries operation. This iterator will fetch more data from the
    * server as needed.
@@ -11672,12 +12217,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDatabaseUpgradeHistoryEntriesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDatabaseUpgradeHistoryEntries operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDatabaseUpgradeHistoryEntriesResponses(
+    request: requests.ListDatabaseUpgradeHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListDatabaseUpgradeHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listDatabaseUpgradeHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DatabaseUpgradeHistoryEntrySummary objects
+   * contained in responses from the listDatabaseUpgradeHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDatabaseUpgradeHistoryEntriesRecordIterator(
+    request: requests.ListDatabaseUpgradeHistoryEntriesRequest
+  ): AsyncIterableIterator<model.DatabaseUpgradeHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listDatabaseUpgradeHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDatabaseUpgradeHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDatabaseUpgradeHistoryEntriesResponseIterator(
     request: requests.ListDatabaseUpgradeHistoryEntriesRequest
   ): AsyncIterableIterator<responses.ListDatabaseUpgradeHistoryEntriesResponse> {
     return paginateResponses(request, req => this.listDatabaseUpgradeHistoryEntries(req));
@@ -11756,6 +12327,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDatabasesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DatabaseSummary objects
    * contained in responses from the listDatabases operation. This iterator will fetch more data from the
    * server as needed.
@@ -11769,12 +12341,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDatabasesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDatabases operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDatabasesResponses(
+    request: requests.ListDatabasesRequest
+  ): AsyncIterableIterator<responses.ListDatabasesResponse> {
+    return paginateResponses(request, req => this.listDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DatabaseSummary objects
+   * contained in responses from the listDatabases operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDatabasesRecordIterator(
+    request: requests.ListDatabasesRequest
+  ): AsyncIterableIterator<model.DatabaseSummary> {
+    return paginateRecords(request, req => this.listDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDatabases operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDatabasesResponseIterator(
     request: requests.ListDatabasesRequest
   ): AsyncIterableIterator<responses.ListDatabasesResponse> {
     return paginateResponses(request, req => this.listDatabases(req));
@@ -11849,6 +12447,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbHomePatchHistoryEntriesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PatchHistoryEntrySummary objects
    * contained in responses from the listDbHomePatchHistoryEntries operation. This iterator will fetch more data from the
    * server as needed.
@@ -11862,12 +12461,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbHomePatchHistoryEntriesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDbHomePatchHistoryEntries operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDbHomePatchHistoryEntriesResponses(
+    request: requests.ListDbHomePatchHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListDbHomePatchHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listDbHomePatchHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PatchHistoryEntrySummary objects
+   * contained in responses from the listDbHomePatchHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbHomePatchHistoryEntriesRecordIterator(
+    request: requests.ListDbHomePatchHistoryEntriesRequest
+  ): AsyncIterableIterator<model.PatchHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listDbHomePatchHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbHomePatchHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbHomePatchHistoryEntriesResponseIterator(
     request: requests.ListDbHomePatchHistoryEntriesRequest
   ): AsyncIterableIterator<responses.ListDbHomePatchHistoryEntriesResponse> {
     return paginateResponses(request, req => this.listDbHomePatchHistoryEntries(req));
@@ -11941,6 +12566,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbHomePatchesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PatchSummary objects
    * contained in responses from the listDbHomePatches operation. This iterator will fetch more data from the
    * server as needed.
@@ -11954,12 +12580,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbHomePatchesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDbHomePatches operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDbHomePatchesResponses(
+    request: requests.ListDbHomePatchesRequest
+  ): AsyncIterableIterator<responses.ListDbHomePatchesResponse> {
+    return paginateResponses(request, req => this.listDbHomePatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PatchSummary objects
+   * contained in responses from the listDbHomePatches operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbHomePatchesRecordIterator(
+    request: requests.ListDbHomePatchesRequest
+  ): AsyncIterableIterator<model.PatchSummary> {
+    return paginateRecords(request, req => this.listDbHomePatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbHomePatches operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbHomePatchesResponseIterator(
     request: requests.ListDbHomePatchesRequest
   ): AsyncIterableIterator<responses.ListDbHomePatchesResponse> {
     return paginateResponses(request, req => this.listDbHomePatches(req));
@@ -12040,6 +12692,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbHomesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DbHomeSummary objects
    * contained in responses from the listDbHomes operation. This iterator will fetch more data from the
    * server as needed.
@@ -12053,12 +12706,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbHomesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDbHomes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDbHomesResponses(
+    request: requests.ListDbHomesRequest
+  ): AsyncIterableIterator<responses.ListDbHomesResponse> {
+    return paginateResponses(request, req => this.listDbHomes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DbHomeSummary objects
+   * contained in responses from the listDbHomes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbHomesRecordIterator(
+    request: requests.ListDbHomesRequest
+  ): AsyncIterableIterator<model.DbHomeSummary> {
+    return paginateRecords(request, req => this.listDbHomes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbHomes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbHomesResponseIterator(
     request: requests.ListDbHomesRequest
   ): AsyncIterableIterator<responses.ListDbHomesResponse> {
     return paginateResponses(request, req => this.listDbHomes(req));
@@ -12136,6 +12815,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbNodesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DbNodeSummary objects
    * contained in responses from the listDbNodes operation. This iterator will fetch more data from the
    * server as needed.
@@ -12149,12 +12829,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbNodesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDbNodes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDbNodesResponses(
+    request: requests.ListDbNodesRequest
+  ): AsyncIterableIterator<responses.ListDbNodesResponse> {
+    return paginateResponses(request, req => this.listDbNodes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DbNodeSummary objects
+   * contained in responses from the listDbNodes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbNodesRecordIterator(
+    request: requests.ListDbNodesRequest
+  ): AsyncIterableIterator<model.DbNodeSummary> {
+    return paginateRecords(request, req => this.listDbNodes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbNodes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbNodesResponseIterator(
     request: requests.ListDbNodesRequest
   ): AsyncIterableIterator<responses.ListDbNodesResponse> {
     return paginateResponses(request, req => this.listDbNodes(req));
@@ -12229,6 +12935,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbSystemPatchHistoryEntriesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PatchHistoryEntrySummary objects
    * contained in responses from the listDbSystemPatchHistoryEntries operation. This iterator will fetch more data from the
    * server as needed.
@@ -12242,12 +12949,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbSystemPatchHistoryEntriesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDbSystemPatchHistoryEntries operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDbSystemPatchHistoryEntriesResponses(
+    request: requests.ListDbSystemPatchHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListDbSystemPatchHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listDbSystemPatchHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PatchHistoryEntrySummary objects
+   * contained in responses from the listDbSystemPatchHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbSystemPatchHistoryEntriesRecordIterator(
+    request: requests.ListDbSystemPatchHistoryEntriesRequest
+  ): AsyncIterableIterator<model.PatchHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listDbSystemPatchHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbSystemPatchHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbSystemPatchHistoryEntriesResponseIterator(
     request: requests.ListDbSystemPatchHistoryEntriesRequest
   ): AsyncIterableIterator<responses.ListDbSystemPatchHistoryEntriesResponse> {
     return paginateResponses(request, req => this.listDbSystemPatchHistoryEntries(req));
@@ -12321,6 +13054,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbSystemPatchesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PatchSummary objects
    * contained in responses from the listDbSystemPatches operation. This iterator will fetch more data from the
    * server as needed.
@@ -12334,12 +13068,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbSystemPatchesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDbSystemPatches operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDbSystemPatchesResponses(
+    request: requests.ListDbSystemPatchesRequest
+  ): AsyncIterableIterator<responses.ListDbSystemPatchesResponse> {
+    return paginateResponses(request, req => this.listDbSystemPatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PatchSummary objects
+   * contained in responses from the listDbSystemPatches operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbSystemPatchesRecordIterator(
+    request: requests.ListDbSystemPatchesRequest
+  ): AsyncIterableIterator<model.PatchSummary> {
+    return paginateRecords(request, req => this.listDbSystemPatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbSystemPatches operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbSystemPatchesResponseIterator(
     request: requests.ListDbSystemPatchesRequest
   ): AsyncIterableIterator<responses.ListDbSystemPatchesResponse> {
     return paginateResponses(request, req => this.listDbSystemPatches(req));
@@ -12412,6 +13172,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbSystemShapesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DbSystemShapeSummary objects
    * contained in responses from the listDbSystemShapes operation. This iterator will fetch more data from the
    * server as needed.
@@ -12425,12 +13186,38 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbSystemShapesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDbSystemShapes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDbSystemShapesResponses(
+    request: requests.ListDbSystemShapesRequest
+  ): AsyncIterableIterator<responses.ListDbSystemShapesResponse> {
+    return paginateResponses(request, req => this.listDbSystemShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DbSystemShapeSummary objects
+   * contained in responses from the listDbSystemShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbSystemShapesRecordIterator(
+    request: requests.ListDbSystemShapesRequest
+  ): AsyncIterableIterator<model.DbSystemShapeSummary> {
+    return paginateRecords(request, req => this.listDbSystemShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbSystemShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbSystemShapesResponseIterator(
     request: requests.ListDbSystemShapesRequest
   ): AsyncIterableIterator<responses.ListDbSystemShapesResponse> {
     return paginateResponses(request, req => this.listDbSystemShapes(req));
@@ -12513,6 +13300,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbSystemsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DbSystemSummary objects
    * contained in responses from the listDbSystems operation. This iterator will fetch more data from the
    * server as needed.
@@ -12526,12 +13314,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbSystemsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDbSystems operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDbSystemsResponses(
+    request: requests.ListDbSystemsRequest
+  ): AsyncIterableIterator<responses.ListDbSystemsResponse> {
+    return paginateResponses(request, req => this.listDbSystems(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DbSystemSummary objects
+   * contained in responses from the listDbSystems operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbSystemsRecordIterator(
+    request: requests.ListDbSystemsRequest
+  ): AsyncIterableIterator<model.DbSystemSummary> {
+    return paginateRecords(request, req => this.listDbSystems(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbSystems operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbSystemsResponseIterator(
     request: requests.ListDbSystemsRequest
   ): AsyncIterableIterator<responses.ListDbSystemsResponse> {
     return paginateResponses(request, req => this.listDbSystems(req));
@@ -12608,6 +13422,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbVersionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DbVersionSummary objects
    * contained in responses from the listDbVersions operation. This iterator will fetch more data from the
    * server as needed.
@@ -12621,12 +13436,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDbVersionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDbVersions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDbVersionsResponses(
+    request: requests.ListDbVersionsRequest
+  ): AsyncIterableIterator<responses.ListDbVersionsResponse> {
+    return paginateResponses(request, req => this.listDbVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DbVersionSummary objects
+   * contained in responses from the listDbVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbVersionsRecordIterator(
+    request: requests.ListDbVersionsRequest
+  ): AsyncIterableIterator<model.DbVersionSummary> {
+    return paginateRecords(request, req => this.listDbVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbVersionsResponseIterator(
     request: requests.ListDbVersionsRequest
   ): AsyncIterableIterator<responses.ListDbVersionsResponse> {
     return paginateResponses(request, req => this.listDbVersions(req));
@@ -12706,6 +13547,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExadataInfrastructuresRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ExadataInfrastructureSummary objects
    * contained in responses from the listExadataInfrastructures operation. This iterator will fetch more data from the
    * server as needed.
@@ -12719,12 +13561,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExadataInfrastructuresResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listExadataInfrastructures operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllExadataInfrastructuresResponses(
+    request: requests.ListExadataInfrastructuresRequest
+  ): AsyncIterableIterator<responses.ListExadataInfrastructuresResponse> {
+    return paginateResponses(request, req => this.listExadataInfrastructures(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExadataInfrastructureSummary objects
+   * contained in responses from the listExadataInfrastructures operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExadataInfrastructuresRecordIterator(
+    request: requests.ListExadataInfrastructuresRequest
+  ): AsyncIterableIterator<model.ExadataInfrastructureSummary> {
+    return paginateRecords(request, req => this.listExadataInfrastructures(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExadataInfrastructures operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExadataInfrastructuresResponseIterator(
     request: requests.ListExadataInfrastructuresRequest
   ): AsyncIterableIterator<responses.ListExadataInfrastructuresResponse> {
     return paginateResponses(request, req => this.listExadataInfrastructures(req));
@@ -12803,6 +13671,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExternalContainerDatabasesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ExternalContainerDatabaseSummary objects
    * contained in responses from the listExternalContainerDatabases operation. This iterator will fetch more data from the
    * server as needed.
@@ -12816,12 +13685,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExternalContainerDatabasesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listExternalContainerDatabases operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllExternalContainerDatabasesResponses(
+    request: requests.ListExternalContainerDatabasesRequest
+  ): AsyncIterableIterator<responses.ListExternalContainerDatabasesResponse> {
+    return paginateResponses(request, req => this.listExternalContainerDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExternalContainerDatabaseSummary objects
+   * contained in responses from the listExternalContainerDatabases operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExternalContainerDatabasesRecordIterator(
+    request: requests.ListExternalContainerDatabasesRequest
+  ): AsyncIterableIterator<model.ExternalContainerDatabaseSummary> {
+    return paginateRecords(request, req => this.listExternalContainerDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExternalContainerDatabases operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExternalContainerDatabasesResponseIterator(
     request: requests.ListExternalContainerDatabasesRequest
   ): AsyncIterableIterator<responses.ListExternalContainerDatabasesResponse> {
     return paginateResponses(request, req => this.listExternalContainerDatabases(req));
@@ -12901,6 +13796,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExternalDatabaseConnectorsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ExternalDatabaseConnectorSummary objects
    * contained in responses from the listExternalDatabaseConnectors operation. This iterator will fetch more data from the
    * server as needed.
@@ -12914,12 +13810,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExternalDatabaseConnectorsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listExternalDatabaseConnectors operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllExternalDatabaseConnectorsResponses(
+    request: requests.ListExternalDatabaseConnectorsRequest
+  ): AsyncIterableIterator<responses.ListExternalDatabaseConnectorsResponse> {
+    return paginateResponses(request, req => this.listExternalDatabaseConnectors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExternalDatabaseConnectorSummary objects
+   * contained in responses from the listExternalDatabaseConnectors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExternalDatabaseConnectorsRecordIterator(
+    request: requests.ListExternalDatabaseConnectorsRequest
+  ): AsyncIterableIterator<model.ExternalDatabaseConnectorSummary> {
+    return paginateRecords(request, req => this.listExternalDatabaseConnectors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExternalDatabaseConnectors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExternalDatabaseConnectorsResponseIterator(
     request: requests.ListExternalDatabaseConnectorsRequest
   ): AsyncIterableIterator<responses.ListExternalDatabaseConnectorsResponse> {
     return paginateResponses(request, req => this.listExternalDatabaseConnectors(req));
@@ -12998,6 +13920,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExternalNonContainerDatabasesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ExternalNonContainerDatabaseSummary objects
    * contained in responses from the listExternalNonContainerDatabases operation. This iterator will fetch more data from the
    * server as needed.
@@ -13011,12 +13934,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExternalNonContainerDatabasesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listExternalNonContainerDatabases operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllExternalNonContainerDatabasesResponses(
+    request: requests.ListExternalNonContainerDatabasesRequest
+  ): AsyncIterableIterator<responses.ListExternalNonContainerDatabasesResponse> {
+    return paginateResponses(request, req => this.listExternalNonContainerDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExternalNonContainerDatabaseSummary objects
+   * contained in responses from the listExternalNonContainerDatabases operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExternalNonContainerDatabasesRecordIterator(
+    request: requests.ListExternalNonContainerDatabasesRequest
+  ): AsyncIterableIterator<model.ExternalNonContainerDatabaseSummary> {
+    return paginateRecords(request, req => this.listExternalNonContainerDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExternalNonContainerDatabases operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExternalNonContainerDatabasesResponseIterator(
     request: requests.ListExternalNonContainerDatabasesRequest
   ): AsyncIterableIterator<responses.ListExternalNonContainerDatabasesResponse> {
     return paginateResponses(request, req => this.listExternalNonContainerDatabases(req));
@@ -13098,6 +14047,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExternalPluggableDatabasesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ExternalPluggableDatabaseSummary objects
    * contained in responses from the listExternalPluggableDatabases operation. This iterator will fetch more data from the
    * server as needed.
@@ -13111,12 +14061,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExternalPluggableDatabasesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listExternalPluggableDatabases operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllExternalPluggableDatabasesResponses(
+    request: requests.ListExternalPluggableDatabasesRequest
+  ): AsyncIterableIterator<responses.ListExternalPluggableDatabasesResponse> {
+    return paginateResponses(request, req => this.listExternalPluggableDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExternalPluggableDatabaseSummary objects
+   * contained in responses from the listExternalPluggableDatabases operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExternalPluggableDatabasesRecordIterator(
+    request: requests.ListExternalPluggableDatabasesRequest
+  ): AsyncIterableIterator<model.ExternalPluggableDatabaseSummary> {
+    return paginateRecords(request, req => this.listExternalPluggableDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExternalPluggableDatabases operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExternalPluggableDatabasesResponseIterator(
     request: requests.ListExternalPluggableDatabasesRequest
   ): AsyncIterableIterator<responses.ListExternalPluggableDatabasesResponse> {
     return paginateResponses(request, req => this.listExternalPluggableDatabases(req));
@@ -13258,6 +14234,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listGiVersionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.GiVersionSummary objects
    * contained in responses from the listGiVersions operation. This iterator will fetch more data from the
    * server as needed.
@@ -13271,12 +14248,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listGiVersionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listGiVersions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllGiVersionsResponses(
+    request: requests.ListGiVersionsRequest
+  ): AsyncIterableIterator<responses.ListGiVersionsResponse> {
+    return paginateResponses(request, req => this.listGiVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.GiVersionSummary objects
+   * contained in responses from the listGiVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listGiVersionsRecordIterator(
+    request: requests.ListGiVersionsRequest
+  ): AsyncIterableIterator<model.GiVersionSummary> {
+    return paginateRecords(request, req => this.listGiVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listGiVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listGiVersionsResponseIterator(
     request: requests.ListGiVersionsRequest
   ): AsyncIterableIterator<responses.ListGiVersionsResponse> {
     return paginateResponses(request, req => this.listGiVersions(req));
@@ -13350,6 +14353,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listKeyStoresRecordIterator function.
    * Creates a new async iterator which will iterate over the models.KeyStoreSummary objects
    * contained in responses from the listKeyStores operation. This iterator will fetch more data from the
    * server as needed.
@@ -13363,12 +14367,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listKeyStoresResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listKeyStores operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllKeyStoresResponses(
+    request: requests.ListKeyStoresRequest
+  ): AsyncIterableIterator<responses.ListKeyStoresResponse> {
+    return paginateResponses(request, req => this.listKeyStores(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.KeyStoreSummary objects
+   * contained in responses from the listKeyStores operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listKeyStoresRecordIterator(
+    request: requests.ListKeyStoresRequest
+  ): AsyncIterableIterator<model.KeyStoreSummary> {
+    return paginateRecords(request, req => this.listKeyStores(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listKeyStores operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listKeyStoresResponseIterator(
     request: requests.ListKeyStoresRequest
   ): AsyncIterableIterator<responses.ListKeyStoresResponse> {
     return paginateResponses(request, req => this.listKeyStores(req));
@@ -13448,6 +14478,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listMaintenanceRunsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.MaintenanceRunSummary objects
    * contained in responses from the listMaintenanceRuns operation. This iterator will fetch more data from the
    * server as needed.
@@ -13461,12 +14492,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listMaintenanceRunsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listMaintenanceRuns operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllMaintenanceRunsResponses(
+    request: requests.ListMaintenanceRunsRequest
+  ): AsyncIterableIterator<responses.ListMaintenanceRunsResponse> {
+    return paginateResponses(request, req => this.listMaintenanceRuns(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.MaintenanceRunSummary objects
+   * contained in responses from the listMaintenanceRuns operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMaintenanceRunsRecordIterator(
+    request: requests.ListMaintenanceRunsRequest
+  ): AsyncIterableIterator<model.MaintenanceRunSummary> {
+    return paginateRecords(request, req => this.listMaintenanceRuns(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listMaintenanceRuns operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMaintenanceRunsResponseIterator(
     request: requests.ListMaintenanceRunsRequest
   ): AsyncIterableIterator<responses.ListMaintenanceRunsResponse> {
     return paginateResponses(request, req => this.listMaintenanceRuns(req));
@@ -13544,6 +14601,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPluggableDatabasesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PluggableDatabaseSummary objects
    * contained in responses from the listPluggableDatabases operation. This iterator will fetch more data from the
    * server as needed.
@@ -13557,12 +14615,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listPluggableDatabasesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listPluggableDatabases operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllPluggableDatabasesResponses(
+    request: requests.ListPluggableDatabasesRequest
+  ): AsyncIterableIterator<responses.ListPluggableDatabasesResponse> {
+    return paginateResponses(request, req => this.listPluggableDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PluggableDatabaseSummary objects
+   * contained in responses from the listPluggableDatabases operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPluggableDatabasesRecordIterator(
+    request: requests.ListPluggableDatabasesRequest
+  ): AsyncIterableIterator<model.PluggableDatabaseSummary> {
+    return paginateRecords(request, req => this.listPluggableDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPluggableDatabases operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPluggableDatabasesResponseIterator(
     request: requests.ListPluggableDatabasesRequest
   ): AsyncIterableIterator<responses.ListPluggableDatabasesResponse> {
     return paginateResponses(request, req => this.listPluggableDatabases(req));
@@ -13642,6 +14726,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVmClusterNetworksRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VmClusterNetworkSummary objects
    * contained in responses from the listVmClusterNetworks operation. This iterator will fetch more data from the
    * server as needed.
@@ -13655,12 +14740,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVmClusterNetworksResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVmClusterNetworks operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVmClusterNetworksResponses(
+    request: requests.ListVmClusterNetworksRequest
+  ): AsyncIterableIterator<responses.ListVmClusterNetworksResponse> {
+    return paginateResponses(request, req => this.listVmClusterNetworks(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VmClusterNetworkSummary objects
+   * contained in responses from the listVmClusterNetworks operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVmClusterNetworksRecordIterator(
+    request: requests.ListVmClusterNetworksRequest
+  ): AsyncIterableIterator<model.VmClusterNetworkSummary> {
+    return paginateRecords(request, req => this.listVmClusterNetworks(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVmClusterNetworks operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVmClusterNetworksResponseIterator(
     request: requests.ListVmClusterNetworksRequest
   ): AsyncIterableIterator<responses.ListVmClusterNetworksResponse> {
     return paginateResponses(request, req => this.listVmClusterNetworks(req));
@@ -13735,6 +14846,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVmClusterPatchHistoryEntriesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PatchHistoryEntrySummary objects
    * contained in responses from the listVmClusterPatchHistoryEntries operation. This iterator will fetch more data from the
    * server as needed.
@@ -13748,12 +14860,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVmClusterPatchHistoryEntriesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVmClusterPatchHistoryEntries operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVmClusterPatchHistoryEntriesResponses(
+    request: requests.ListVmClusterPatchHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListVmClusterPatchHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listVmClusterPatchHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PatchHistoryEntrySummary objects
+   * contained in responses from the listVmClusterPatchHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVmClusterPatchHistoryEntriesRecordIterator(
+    request: requests.ListVmClusterPatchHistoryEntriesRequest
+  ): AsyncIterableIterator<model.PatchHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listVmClusterPatchHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVmClusterPatchHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVmClusterPatchHistoryEntriesResponseIterator(
     request: requests.ListVmClusterPatchHistoryEntriesRequest
   ): AsyncIterableIterator<responses.ListVmClusterPatchHistoryEntriesResponse> {
     return paginateResponses(request, req => this.listVmClusterPatchHistoryEntries(req));
@@ -13827,6 +14965,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVmClusterPatchesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.PatchSummary objects
    * contained in responses from the listVmClusterPatches operation. This iterator will fetch more data from the
    * server as needed.
@@ -13840,12 +14979,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVmClusterPatchesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVmClusterPatches operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVmClusterPatchesResponses(
+    request: requests.ListVmClusterPatchesRequest
+  ): AsyncIterableIterator<responses.ListVmClusterPatchesResponse> {
+    return paginateResponses(request, req => this.listVmClusterPatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PatchSummary objects
+   * contained in responses from the listVmClusterPatches operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVmClusterPatchesRecordIterator(
+    request: requests.ListVmClusterPatchesRequest
+  ): AsyncIterableIterator<model.PatchSummary> {
+    return paginateRecords(request, req => this.listVmClusterPatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVmClusterPatches operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVmClusterPatchesResponseIterator(
     request: requests.ListVmClusterPatchesRequest
   ): AsyncIterableIterator<responses.ListVmClusterPatchesResponse> {
     return paginateResponses(request, req => this.listVmClusterPatches(req));
@@ -13923,6 +15088,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVmClusterUpdateHistoryEntriesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VmClusterUpdateHistoryEntrySummary objects
    * contained in responses from the listVmClusterUpdateHistoryEntries operation. This iterator will fetch more data from the
    * server as needed.
@@ -13936,12 +15102,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVmClusterUpdateHistoryEntriesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVmClusterUpdateHistoryEntries operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVmClusterUpdateHistoryEntriesResponses(
+    request: requests.ListVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListVmClusterUpdateHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VmClusterUpdateHistoryEntrySummary objects
+   * contained in responses from the listVmClusterUpdateHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVmClusterUpdateHistoryEntriesRecordIterator(
+    request: requests.ListVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<model.VmClusterUpdateHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVmClusterUpdateHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVmClusterUpdateHistoryEntriesResponseIterator(
     request: requests.ListVmClusterUpdateHistoryEntriesRequest
   ): AsyncIterableIterator<responses.ListVmClusterUpdateHistoryEntriesResponse> {
     return paginateResponses(request, req => this.listVmClusterUpdateHistoryEntries(req));
@@ -14018,6 +15210,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVmClusterUpdatesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VmClusterUpdateSummary objects
    * contained in responses from the listVmClusterUpdates operation. This iterator will fetch more data from the
    * server as needed.
@@ -14031,12 +15224,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVmClusterUpdatesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVmClusterUpdates operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVmClusterUpdatesResponses(
+    request: requests.ListVmClusterUpdatesRequest
+  ): AsyncIterableIterator<responses.ListVmClusterUpdatesResponse> {
+    return paginateResponses(request, req => this.listVmClusterUpdates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VmClusterUpdateSummary objects
+   * contained in responses from the listVmClusterUpdates operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVmClusterUpdatesRecordIterator(
+    request: requests.ListVmClusterUpdatesRequest
+  ): AsyncIterableIterator<model.VmClusterUpdateSummary> {
+    return paginateRecords(request, req => this.listVmClusterUpdates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVmClusterUpdates operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVmClusterUpdatesResponseIterator(
     request: requests.ListVmClusterUpdatesRequest
   ): AsyncIterableIterator<responses.ListVmClusterUpdatesResponse> {
     return paginateResponses(request, req => this.listVmClusterUpdates(req));
@@ -14116,6 +15335,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVmClustersRecordIterator function.
    * Creates a new async iterator which will iterate over the models.VmClusterSummary objects
    * contained in responses from the listVmClusters operation. This iterator will fetch more data from the
    * server as needed.
@@ -14129,12 +15349,38 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listVmClustersResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listVmClusters operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllVmClustersResponses(
+    request: requests.ListVmClustersRequest
+  ): AsyncIterableIterator<responses.ListVmClustersResponse> {
+    return paginateResponses(request, req => this.listVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VmClusterSummary objects
+   * contained in responses from the listVmClusters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVmClustersRecordIterator(
+    request: requests.ListVmClustersRequest
+  ): AsyncIterableIterator<model.VmClusterSummary> {
+    return paginateRecords(request, req => this.listVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVmClusters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVmClustersResponseIterator(
     request: requests.ListVmClustersRequest
   ): AsyncIterableIterator<responses.ListVmClustersResponse> {
     return paginateResponses(request, req => this.listVmClusters(req));

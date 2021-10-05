@@ -19,10 +19,6 @@ import common = require("oci-common");
  */
 export interface UpdateManagementAgentDetails {
   /**
-   * Setting of this flag is no longer supported.
-   */
-  "isAgentAutoUpgradable"?: boolean;
-  /**
    * New displayName of Agent.
    */
   "displayName"?: string;

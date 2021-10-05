@@ -1547,6 +1547,7 @@ export class StreamAdminClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listConnectHarnessesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ConnectHarnessSummary objects
    * contained in responses from the listConnectHarnesses operation. This iterator will fetch more data from the
    * server as needed.
@@ -1560,12 +1561,38 @@ export class StreamAdminClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listConnectHarnessesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listConnectHarnesses operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllConnectHarnessesResponses(
+    request: requests.ListConnectHarnessesRequest
+  ): AsyncIterableIterator<responses.ListConnectHarnessesResponse> {
+    return paginateResponses(request, req => this.listConnectHarnesses(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ConnectHarnessSummary objects
+   * contained in responses from the listConnectHarnesses operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listConnectHarnessesRecordIterator(
+    request: requests.ListConnectHarnessesRequest
+  ): AsyncIterableIterator<model.ConnectHarnessSummary> {
+    return paginateRecords(request, req => this.listConnectHarnesses(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listConnectHarnesses operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listConnectHarnessesResponseIterator(
     request: requests.ListConnectHarnessesRequest
   ): AsyncIterableIterator<responses.ListConnectHarnessesResponse> {
     return paginateResponses(request, req => this.listConnectHarnesses(req));
@@ -1648,6 +1675,7 @@ export class StreamAdminClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listStreamPoolsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.StreamPoolSummary objects
    * contained in responses from the listStreamPools operation. This iterator will fetch more data from the
    * server as needed.
@@ -1661,12 +1689,38 @@ export class StreamAdminClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listStreamPoolsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listStreamPools operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllStreamPoolsResponses(
+    request: requests.ListStreamPoolsRequest
+  ): AsyncIterableIterator<responses.ListStreamPoolsResponse> {
+    return paginateResponses(request, req => this.listStreamPools(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.StreamPoolSummary objects
+   * contained in responses from the listStreamPools operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listStreamPoolsRecordIterator(
+    request: requests.ListStreamPoolsRequest
+  ): AsyncIterableIterator<model.StreamPoolSummary> {
+    return paginateRecords(request, req => this.listStreamPools(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listStreamPools operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listStreamPoolsResponseIterator(
     request: requests.ListStreamPoolsRequest
   ): AsyncIterableIterator<responses.ListStreamPoolsResponse> {
     return paginateResponses(request, req => this.listStreamPools(req));
@@ -1754,6 +1808,7 @@ export class StreamAdminClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listStreamsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.StreamSummary objects
    * contained in responses from the listStreams operation. This iterator will fetch more data from the
    * server as needed.
@@ -1767,12 +1822,38 @@ export class StreamAdminClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listStreamsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listStreams operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllStreamsResponses(
+    request: requests.ListStreamsRequest
+  ): AsyncIterableIterator<responses.ListStreamsResponse> {
+    return paginateResponses(request, req => this.listStreams(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.StreamSummary objects
+   * contained in responses from the listStreams operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listStreamsRecordIterator(
+    request: requests.ListStreamsRequest
+  ): AsyncIterableIterator<model.StreamSummary> {
+    return paginateRecords(request, req => this.listStreams(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listStreams operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listStreamsResponseIterator(
     request: requests.ListStreamsRequest
   ): AsyncIterableIterator<responses.ListStreamsResponse> {
     return paginateResponses(request, req => this.listStreams(req));

@@ -736,6 +736,7 @@ export class BastionClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBastionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.BastionSummary objects
    * contained in responses from the listBastions operation. This iterator will fetch more data from the
    * server as needed.
@@ -749,12 +750,38 @@ export class BastionClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listBastionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listBastions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllBastionsResponses(
+    request: requests.ListBastionsRequest
+  ): AsyncIterableIterator<responses.ListBastionsResponse> {
+    return paginateResponses(request, req => this.listBastions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BastionSummary objects
+   * contained in responses from the listBastions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBastionsRecordIterator(
+    request: requests.ListBastionsRequest
+  ): AsyncIterableIterator<model.BastionSummary> {
+    return paginateRecords(request, req => this.listBastions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBastions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBastionsResponseIterator(
     request: requests.ListBastionsRequest
   ): AsyncIterableIterator<responses.ListBastionsResponse> {
     return paginateResponses(request, req => this.listBastions(req));
@@ -833,6 +860,7 @@ export class BastionClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSessionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SessionSummary objects
    * contained in responses from the listSessions operation. This iterator will fetch more data from the
    * server as needed.
@@ -846,12 +874,38 @@ export class BastionClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSessionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSessions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSessionsResponses(
+    request: requests.ListSessionsRequest
+  ): AsyncIterableIterator<responses.ListSessionsResponse> {
+    return paginateResponses(request, req => this.listSessions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SessionSummary objects
+   * contained in responses from the listSessions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSessionsRecordIterator(
+    request: requests.ListSessionsRequest
+  ): AsyncIterableIterator<model.SessionSummary> {
+    return paginateRecords(request, req => this.listSessions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSessions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSessionsResponseIterator(
     request: requests.ListSessionsRequest
   ): AsyncIterableIterator<responses.ListSessionsResponse> {
     return paginateResponses(request, req => this.listSessions(req));
@@ -926,6 +980,7 @@ export class BastionClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestError objects
    * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
    * server as needed.
@@ -939,12 +994,38 @@ export class BastionClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestErrorsResponses(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestError objects
+   * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsRecordIterator(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<model.WorkRequestError> {
+    return paginateRecords(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsResponseIterator(
     request: requests.ListWorkRequestErrorsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
     return paginateResponses(request, req => this.listWorkRequestErrors(req));
@@ -1019,6 +1100,7 @@ export class BastionClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
    * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
    * server as needed.
@@ -1032,12 +1114,38 @@ export class BastionClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestLogsResponses(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
+   * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsRecordIterator(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
+    return paginateRecords(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsResponseIterator(
     request: requests.ListWorkRequestLogsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
     return paginateResponses(request, req => this.listWorkRequestLogs(req));
@@ -1111,6 +1219,7 @@ export class BastionClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
    * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -1124,12 +1233,38 @@ export class BastionClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestsResponses(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
+   * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsRecordIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
+    return paginateRecords(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsResponseIterator(
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));

@@ -311,6 +311,7 @@ export class SecretsClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSecretBundleVersionsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SecretBundleVersionSummary objects
    * contained in responses from the listSecretBundleVersions operation. This iterator will fetch more data from the
    * server as needed.
@@ -324,12 +325,38 @@ export class SecretsClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSecretBundleVersionsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSecretBundleVersions operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSecretBundleVersionsResponses(
+    request: requests.ListSecretBundleVersionsRequest
+  ): AsyncIterableIterator<responses.ListSecretBundleVersionsResponse> {
+    return paginateResponses(request, req => this.listSecretBundleVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SecretBundleVersionSummary objects
+   * contained in responses from the listSecretBundleVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSecretBundleVersionsRecordIterator(
+    request: requests.ListSecretBundleVersionsRequest
+  ): AsyncIterableIterator<model.SecretBundleVersionSummary> {
+    return paginateRecords(request, req => this.listSecretBundleVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSecretBundleVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSecretBundleVersionsResponseIterator(
     request: requests.ListSecretBundleVersionsRequest
   ): AsyncIterableIterator<responses.ListSecretBundleVersionsResponse> {
     return paginateResponses(request, req => this.listSecretBundleVersions(req));

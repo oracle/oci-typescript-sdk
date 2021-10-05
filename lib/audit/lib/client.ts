@@ -231,6 +231,7 @@ export class AuditClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listEventsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AuditEvent objects
    * contained in responses from the listEvents operation. This iterator will fetch more data from the
    * server as needed.
@@ -244,12 +245,38 @@ export class AuditClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listEventsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listEvents operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllEventsResponses(
+    request: requests.ListEventsRequest
+  ): AsyncIterableIterator<responses.ListEventsResponse> {
+    return paginateResponses(request, req => this.listEvents(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AuditEvent objects
+   * contained in responses from the listEvents operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listEventsRecordIterator(
+    request: requests.ListEventsRequest
+  ): AsyncIterableIterator<model.AuditEvent> {
+    return paginateRecords(request, req => this.listEvents(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listEvents operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listEventsResponseIterator(
     request: requests.ListEventsRequest
   ): AsyncIterableIterator<responses.ListEventsResponse> {
     return paginateResponses(request, req => this.listEvents(req));

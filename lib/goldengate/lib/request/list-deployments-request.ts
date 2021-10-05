@@ -29,10 +29,20 @@ export interface ListDeploymentsRequest extends common.BaseRequest {
    */
   "lifecycleState"?: model.LifecycleState;
   /**
+   * A filter to return only the resources that match the 'lifecycleSubState' given.
+   *
+   */
+  "lifecycleSubState"?: model.LifecycleSubState;
+  /**
    * A filter to return only the resources that match the entire 'displayName' given.
    *
    */
   "displayName"?: string;
+  /**
+   * A filter to return only the resources that match the 'fqdn' given.
+   *
+   */
+  "fqdn"?: string;
   /**
    * The maximum number of items to return.
    *

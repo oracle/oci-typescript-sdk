@@ -1458,6 +1458,7 @@ export class LoggingManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLogGroupsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.LogGroupSummary objects
    * contained in responses from the listLogGroups operation. This iterator will fetch more data from the
    * server as needed.
@@ -1471,12 +1472,38 @@ export class LoggingManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLogGroupsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listLogGroups operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllLogGroupsResponses(
+    request: requests.ListLogGroupsRequest
+  ): AsyncIterableIterator<responses.ListLogGroupsResponse> {
+    return paginateResponses(request, req => this.listLogGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.LogGroupSummary objects
+   * contained in responses from the listLogGroups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLogGroupsRecordIterator(
+    request: requests.ListLogGroupsRequest
+  ): AsyncIterableIterator<model.LogGroupSummary> {
+    return paginateRecords(request, req => this.listLogGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listLogGroups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLogGroupsResponseIterator(
     request: requests.ListLogGroupsRequest
   ): AsyncIterableIterator<responses.ListLogGroupsResponse> {
     return paginateResponses(request, req => this.listLogGroups(req));
@@ -1716,6 +1743,7 @@ export class LoggingManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLogsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.LogSummary objects
    * contained in responses from the listLogs operation. This iterator will fetch more data from the
    * server as needed.
@@ -1727,12 +1755,38 @@ export class LoggingManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listLogsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listLogs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllLogsResponses(
+    request: requests.ListLogsRequest
+  ): AsyncIterableIterator<responses.ListLogsResponse> {
+    return paginateResponses(request, req => this.listLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.LogSummary objects
+   * contained in responses from the listLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLogsRecordIterator(
+    request: requests.ListLogsRequest
+  ): AsyncIterableIterator<model.LogSummary> {
+    return paginateRecords(request, req => this.listLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listLogsResponseIterator(
     request: requests.ListLogsRequest
   ): AsyncIterableIterator<responses.ListLogsResponse> {
     return paginateResponses(request, req => this.listLogs(req));
@@ -1956,6 +2010,7 @@ export class LoggingManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestError objects
    * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
    * server as needed.
@@ -1969,12 +2024,38 @@ export class LoggingManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestErrorsResponses(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestError objects
+   * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsRecordIterator(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<model.WorkRequestError> {
+    return paginateRecords(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsResponseIterator(
     request: requests.ListWorkRequestErrorsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
     return paginateResponses(request, req => this.listWorkRequestErrors(req));
@@ -2050,6 +2131,7 @@ export class LoggingManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestLog objects
    * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
    * server as needed.
@@ -2063,12 +2145,38 @@ export class LoggingManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestLogsResponses(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestLog objects
+   * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsRecordIterator(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<model.WorkRequestLog> {
+    return paginateRecords(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsResponseIterator(
     request: requests.ListWorkRequestLogsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
     return paginateResponses(request, req => this.listWorkRequestLogs(req));
@@ -2152,6 +2260,7 @@ export class LoggingManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
    * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -2165,12 +2274,38 @@ export class LoggingManagementClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestsResponses(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
+   * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsRecordIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
+    return paginateRecords(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsResponseIterator(
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));

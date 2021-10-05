@@ -31,6 +31,11 @@ export interface OggDeployment {
    */
   "adminUsername": string;
   /**
+   * Version of OGG
+   *
+   */
+  "oggVersion"?: string;
+  /**
    * A PEM-encoded SSL certificate.
    *
    */

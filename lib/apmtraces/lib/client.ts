@@ -180,6 +180,7 @@ export class QueryClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listQuickPicksRecordIterator function.
    * Creates a new async iterator which will iterate over the models.QuickPickSummary objects
    * contained in responses from the listQuickPicks operation. This iterator will fetch more data from the
    * server as needed.
@@ -193,12 +194,38 @@ export class QueryClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listQuickPicksResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listQuickPicks operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllQuickPicksResponses(
+    request: requests.ListQuickPicksRequest
+  ): AsyncIterableIterator<responses.ListQuickPicksResponse> {
+    return paginateResponses(request, req => this.listQuickPicks(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.QuickPickSummary objects
+   * contained in responses from the listQuickPicks operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listQuickPicksRecordIterator(
+    request: requests.ListQuickPicksRequest
+  ): AsyncIterableIterator<model.QuickPickSummary> {
+    return paginateRecords(request, req => this.listQuickPicks(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listQuickPicks operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listQuickPicksResponseIterator(
     request: requests.ListQuickPicksRequest
   ): AsyncIterableIterator<responses.ListQuickPicksResponse> {
     return paginateResponses(request, req => this.listQuickPicks(req));

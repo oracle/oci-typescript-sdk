@@ -460,6 +460,7 @@ export class RedirectClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listHttpRedirectsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.HttpRedirectSummary objects
    * contained in responses from the listHttpRedirects operation. This iterator will fetch more data from the
    * server as needed.
@@ -473,12 +474,38 @@ export class RedirectClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listHttpRedirectsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listHttpRedirects operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllHttpRedirectsResponses(
+    request: requests.ListHttpRedirectsRequest
+  ): AsyncIterableIterator<responses.ListHttpRedirectsResponse> {
+    return paginateResponses(request, req => this.listHttpRedirects(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.HttpRedirectSummary objects
+   * contained in responses from the listHttpRedirects operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listHttpRedirectsRecordIterator(
+    request: requests.ListHttpRedirectsRequest
+  ): AsyncIterableIterator<model.HttpRedirectSummary> {
+    return paginateRecords(request, req => this.listHttpRedirects(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listHttpRedirects operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listHttpRedirectsResponseIterator(
     request: requests.ListHttpRedirectsRequest
   ): AsyncIterableIterator<responses.ListHttpRedirectsResponse> {
     return paginateResponses(request, req => this.listHttpRedirects(req));
@@ -2479,6 +2506,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAccessRulesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AccessRule objects
    * contained in responses from the listAccessRules operation. This iterator will fetch more data from the
    * server as needed.
@@ -2492,12 +2520,38 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAccessRulesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAccessRules operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAccessRulesResponses(
+    request: requests.ListAccessRulesRequest
+  ): AsyncIterableIterator<responses.ListAccessRulesResponse> {
+    return paginateResponses(request, req => this.listAccessRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AccessRule objects
+   * contained in responses from the listAccessRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAccessRulesRecordIterator(
+    request: requests.ListAccessRulesRequest
+  ): AsyncIterableIterator<model.AccessRule> {
+    return paginateRecords(request, req => this.listAccessRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAccessRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAccessRulesResponseIterator(
     request: requests.ListAccessRulesRequest
   ): AsyncIterableIterator<responses.ListAccessRulesResponse> {
     return paginateResponses(request, req => this.listAccessRules(req));
@@ -2577,6 +2631,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAddressListsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AddressListSummary objects
    * contained in responses from the listAddressLists operation. This iterator will fetch more data from the
    * server as needed.
@@ -2590,12 +2645,38 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAddressListsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAddressLists operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAddressListsResponses(
+    request: requests.ListAddressListsRequest
+  ): AsyncIterableIterator<responses.ListAddressListsResponse> {
+    return paginateResponses(request, req => this.listAddressLists(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AddressListSummary objects
+   * contained in responses from the listAddressLists operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAddressListsRecordIterator(
+    request: requests.ListAddressListsRequest
+  ): AsyncIterableIterator<model.AddressListSummary> {
+    return paginateRecords(request, req => this.listAddressLists(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAddressLists operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAddressListsResponseIterator(
     request: requests.ListAddressListsRequest
   ): AsyncIterableIterator<responses.ListAddressListsResponse> {
     return paginateResponses(request, req => this.listAddressLists(req));
@@ -2675,6 +2756,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCachingRulesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.CachingRuleSummary objects
    * contained in responses from the listCachingRules operation. This iterator will fetch more data from the
    * server as needed.
@@ -2688,12 +2770,38 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCachingRulesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCachingRules operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCachingRulesResponses(
+    request: requests.ListCachingRulesRequest
+  ): AsyncIterableIterator<responses.ListCachingRulesResponse> {
+    return paginateResponses(request, req => this.listCachingRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CachingRuleSummary objects
+   * contained in responses from the listCachingRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCachingRulesRecordIterator(
+    request: requests.ListCachingRulesRequest
+  ): AsyncIterableIterator<model.CachingRuleSummary> {
+    return paginateRecords(request, req => this.listCachingRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCachingRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCachingRulesResponseIterator(
     request: requests.ListCachingRulesRequest
   ): AsyncIterableIterator<responses.ListCachingRulesResponse> {
     return paginateResponses(request, req => this.listCachingRules(req));
@@ -2777,6 +2885,7 @@ The order of the CAPTCHA challenges is important. The URL for each
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCaptchasRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Captcha objects
    * contained in responses from the listCaptchas operation. This iterator will fetch more data from the
    * server as needed.
@@ -2790,12 +2899,38 @@ The order of the CAPTCHA challenges is important. The URL for each
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCaptchasResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCaptchas operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCaptchasResponses(
+    request: requests.ListCaptchasRequest
+  ): AsyncIterableIterator<responses.ListCaptchasResponse> {
+    return paginateResponses(request, req => this.listCaptchas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Captcha objects
+   * contained in responses from the listCaptchas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCaptchasRecordIterator(
+    request: requests.ListCaptchasRequest
+  ): AsyncIterableIterator<model.Captcha> {
+    return paginateRecords(request, req => this.listCaptchas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCaptchas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCaptchasResponseIterator(
     request: requests.ListCaptchasRequest
   ): AsyncIterableIterator<responses.ListCaptchasResponse> {
     return paginateResponses(request, req => this.listCaptchas(req));
@@ -2875,6 +3010,7 @@ The order of the CAPTCHA challenges is important. The URL for each
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCertificatesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.CertificateSummary objects
    * contained in responses from the listCertificates operation. This iterator will fetch more data from the
    * server as needed.
@@ -2888,12 +3024,38 @@ The order of the CAPTCHA challenges is important. The URL for each
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCertificatesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCertificates operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCertificatesResponses(
+    request: requests.ListCertificatesRequest
+  ): AsyncIterableIterator<responses.ListCertificatesResponse> {
+    return paginateResponses(request, req => this.listCertificates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CertificateSummary objects
+   * contained in responses from the listCertificates operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCertificatesRecordIterator(
+    request: requests.ListCertificatesRequest
+  ): AsyncIterableIterator<model.CertificateSummary> {
+    return paginateRecords(request, req => this.listCertificates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCertificates operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCertificatesResponseIterator(
     request: requests.ListCertificatesRequest
   ): AsyncIterableIterator<responses.ListCertificatesResponse> {
     return paginateResponses(request, req => this.listCertificates(req));
@@ -2974,6 +3136,7 @@ The order of the CAPTCHA challenges is important. The URL for each
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCustomProtectionRulesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.CustomProtectionRuleSummary objects
    * contained in responses from the listCustomProtectionRules operation. This iterator will fetch more data from the
    * server as needed.
@@ -2987,12 +3150,38 @@ The order of the CAPTCHA challenges is important. The URL for each
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listCustomProtectionRulesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listCustomProtectionRules operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllCustomProtectionRulesResponses(
+    request: requests.ListCustomProtectionRulesRequest
+  ): AsyncIterableIterator<responses.ListCustomProtectionRulesResponse> {
+    return paginateResponses(request, req => this.listCustomProtectionRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CustomProtectionRuleSummary objects
+   * contained in responses from the listCustomProtectionRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCustomProtectionRulesRecordIterator(
+    request: requests.ListCustomProtectionRulesRequest
+  ): AsyncIterableIterator<model.CustomProtectionRuleSummary> {
+    return paginateRecords(request, req => this.listCustomProtectionRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCustomProtectionRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCustomProtectionRulesResponseIterator(
     request: requests.ListCustomProtectionRulesRequest
   ): AsyncIterableIterator<responses.ListCustomProtectionRulesResponse> {
     return paginateResponses(request, req => this.listCustomProtectionRules(req));
@@ -3066,6 +3255,7 @@ The order of the CAPTCHA challenges is important. The URL for each
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listEdgeSubnetsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.EdgeSubnet objects
    * contained in responses from the listEdgeSubnets operation. This iterator will fetch more data from the
    * server as needed.
@@ -3079,12 +3269,38 @@ The order of the CAPTCHA challenges is important. The URL for each
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listEdgeSubnetsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listEdgeSubnets operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllEdgeSubnetsResponses(
+    request: requests.ListEdgeSubnetsRequest
+  ): AsyncIterableIterator<responses.ListEdgeSubnetsResponse> {
+    return paginateResponses(request, req => this.listEdgeSubnets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.EdgeSubnet objects
+   * contained in responses from the listEdgeSubnets operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listEdgeSubnetsRecordIterator(
+    request: requests.ListEdgeSubnetsRequest
+  ): AsyncIterableIterator<model.EdgeSubnet> {
+    return paginateRecords(request, req => this.listEdgeSubnets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listEdgeSubnets operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listEdgeSubnetsResponseIterator(
     request: requests.ListEdgeSubnetsRequest
   ): AsyncIterableIterator<responses.ListEdgeSubnetsResponse> {
     return paginateResponses(request, req => this.listEdgeSubnets(req));
@@ -3166,6 +3382,7 @@ The list is sorted by `key`, in ascending order.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listGoodBotsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.GoodBot objects
    * contained in responses from the listGoodBots operation. This iterator will fetch more data from the
    * server as needed.
@@ -3179,12 +3396,38 @@ The list is sorted by `key`, in ascending order.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listGoodBotsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listGoodBots operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllGoodBotsResponses(
+    request: requests.ListGoodBotsRequest
+  ): AsyncIterableIterator<responses.ListGoodBotsResponse> {
+    return paginateResponses(request, req => this.listGoodBots(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.GoodBot objects
+   * contained in responses from the listGoodBots operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listGoodBotsRecordIterator(
+    request: requests.ListGoodBotsRequest
+  ): AsyncIterableIterator<model.GoodBot> {
+    return paginateRecords(request, req => this.listGoodBots(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listGoodBots operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listGoodBotsResponseIterator(
     request: requests.ListGoodBotsRequest
   ): AsyncIterableIterator<responses.ListGoodBotsResponse> {
     return paginateResponses(request, req => this.listGoodBots(req));
@@ -3266,6 +3509,7 @@ The list is sorted by `key`, in ascending order.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listProtectionRulesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ProtectionRule objects
    * contained in responses from the listProtectionRules operation. This iterator will fetch more data from the
    * server as needed.
@@ -3279,12 +3523,38 @@ The list is sorted by `key`, in ascending order.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listProtectionRulesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listProtectionRules operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllProtectionRulesResponses(
+    request: requests.ListProtectionRulesRequest
+  ): AsyncIterableIterator<responses.ListProtectionRulesResponse> {
+    return paginateResponses(request, req => this.listProtectionRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ProtectionRule objects
+   * contained in responses from the listProtectionRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listProtectionRulesRecordIterator(
+    request: requests.ListProtectionRulesRequest
+  ): AsyncIterableIterator<model.ProtectionRule> {
+    return paginateRecords(request, req => this.listProtectionRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listProtectionRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listProtectionRulesResponseIterator(
     request: requests.ListProtectionRulesRequest
   ): AsyncIterableIterator<responses.ListProtectionRulesResponse> {
     return paginateResponses(request, req => this.listProtectionRules(req));
@@ -3367,6 +3637,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRecommendationsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Recommendation objects
    * contained in responses from the listRecommendations operation. This iterator will fetch more data from the
    * server as needed.
@@ -3380,12 +3651,38 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listRecommendationsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listRecommendations operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllRecommendationsResponses(
+    request: requests.ListRecommendationsRequest
+  ): AsyncIterableIterator<responses.ListRecommendationsResponse> {
+    return paginateResponses(request, req => this.listRecommendations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Recommendation objects
+   * contained in responses from the listRecommendations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRecommendationsRecordIterator(
+    request: requests.ListRecommendationsRequest
+  ): AsyncIterableIterator<model.Recommendation> {
+    return paginateRecords(request, req => this.listRecommendations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listRecommendations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRecommendationsResponseIterator(
     request: requests.ListRecommendationsRequest
   ): AsyncIterableIterator<responses.ListRecommendationsResponse> {
     return paginateResponses(request, req => this.listRecommendations(req));
@@ -3467,6 +3764,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listThreatFeedsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ThreatFeed objects
    * contained in responses from the listThreatFeeds operation. This iterator will fetch more data from the
    * server as needed.
@@ -3480,12 +3778,38 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listThreatFeedsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listThreatFeeds operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllThreatFeedsResponses(
+    request: requests.ListThreatFeedsRequest
+  ): AsyncIterableIterator<responses.ListThreatFeedsResponse> {
+    return paginateResponses(request, req => this.listThreatFeeds(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ThreatFeed objects
+   * contained in responses from the listThreatFeeds operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listThreatFeedsRecordIterator(
+    request: requests.ListThreatFeedsRequest
+  ): AsyncIterableIterator<model.ThreatFeed> {
+    return paginateRecords(request, req => this.listThreatFeeds(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listThreatFeeds operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listThreatFeedsResponseIterator(
     request: requests.ListThreatFeedsRequest
   ): AsyncIterableIterator<responses.ListThreatFeedsResponse> {
     return paginateResponses(request, req => this.listThreatFeeds(req));
@@ -3565,6 +3889,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWaasPoliciesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WaasPolicySummary objects
    * contained in responses from the listWaasPolicies operation. This iterator will fetch more data from the
    * server as needed.
@@ -3578,12 +3903,38 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWaasPoliciesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWaasPolicies operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWaasPoliciesResponses(
+    request: requests.ListWaasPoliciesRequest
+  ): AsyncIterableIterator<responses.ListWaasPoliciesResponse> {
+    return paginateResponses(request, req => this.listWaasPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WaasPolicySummary objects
+   * contained in responses from the listWaasPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWaasPoliciesRecordIterator(
+    request: requests.ListWaasPoliciesRequest
+  ): AsyncIterableIterator<model.WaasPolicySummary> {
+    return paginateRecords(request, req => this.listWaasPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWaasPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWaasPoliciesResponseIterator(
     request: requests.ListWaasPoliciesRequest
   ): AsyncIterableIterator<responses.ListWaasPoliciesResponse> {
     return paginateResponses(request, req => this.listWaasPolicies(req));
@@ -3665,6 +4016,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWaasPolicyCustomProtectionRulesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WaasPolicyCustomProtectionRuleSummary objects
    * contained in responses from the listWaasPolicyCustomProtectionRules operation. This iterator will fetch more data from the
    * server as needed.
@@ -3678,12 +4030,38 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWaasPolicyCustomProtectionRulesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWaasPolicyCustomProtectionRules operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWaasPolicyCustomProtectionRulesResponses(
+    request: requests.ListWaasPolicyCustomProtectionRulesRequest
+  ): AsyncIterableIterator<responses.ListWaasPolicyCustomProtectionRulesResponse> {
+    return paginateResponses(request, req => this.listWaasPolicyCustomProtectionRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WaasPolicyCustomProtectionRuleSummary objects
+   * contained in responses from the listWaasPolicyCustomProtectionRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWaasPolicyCustomProtectionRulesRecordIterator(
+    request: requests.ListWaasPolicyCustomProtectionRulesRequest
+  ): AsyncIterableIterator<model.WaasPolicyCustomProtectionRuleSummary> {
+    return paginateRecords(request, req => this.listWaasPolicyCustomProtectionRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWaasPolicyCustomProtectionRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWaasPolicyCustomProtectionRulesResponseIterator(
     request: requests.ListWaasPolicyCustomProtectionRulesRequest
   ): AsyncIterableIterator<responses.ListWaasPolicyCustomProtectionRulesResponse> {
     return paginateResponses(request, req => this.listWaasPolicyCustomProtectionRules(req));
@@ -3761,6 +4139,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWafBlockedRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WafBlockedRequest objects
    * contained in responses from the listWafBlockedRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -3774,12 +4153,38 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWafBlockedRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWafBlockedRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWafBlockedRequestsResponses(
+    request: requests.ListWafBlockedRequestsRequest
+  ): AsyncIterableIterator<responses.ListWafBlockedRequestsResponse> {
+    return paginateResponses(request, req => this.listWafBlockedRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WafBlockedRequest objects
+   * contained in responses from the listWafBlockedRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWafBlockedRequestsRecordIterator(
+    request: requests.ListWafBlockedRequestsRequest
+  ): AsyncIterableIterator<model.WafBlockedRequest> {
+    return paginateRecords(request, req => this.listWafBlockedRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWafBlockedRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWafBlockedRequestsResponseIterator(
     request: requests.ListWafBlockedRequestsRequest
   ): AsyncIterableIterator<responses.ListWafBlockedRequestsResponse> {
     return paginateResponses(request, req => this.listWafBlockedRequests(req));
@@ -3875,6 +4280,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWafLogsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WafLog objects
    * contained in responses from the listWafLogs operation. This iterator will fetch more data from the
    * server as needed.
@@ -3886,12 +4292,38 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWafLogsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWafLogs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWafLogsResponses(
+    request: requests.ListWafLogsRequest
+  ): AsyncIterableIterator<responses.ListWafLogsResponse> {
+    return paginateResponses(request, req => this.listWafLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WafLog objects
+   * contained in responses from the listWafLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWafLogsRecordIterator(
+    request: requests.ListWafLogsRequest
+  ): AsyncIterableIterator<model.WafLog> {
+    return paginateRecords(request, req => this.listWafLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWafLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWafLogsResponseIterator(
     request: requests.ListWafLogsRequest
   ): AsyncIterableIterator<responses.ListWafLogsResponse> {
     return paginateResponses(request, req => this.listWafLogs(req));
@@ -3970,6 +4402,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWafRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WafRequest objects
    * contained in responses from the listWafRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -3983,12 +4416,38 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWafRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWafRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWafRequestsResponses(
+    request: requests.ListWafRequestsRequest
+  ): AsyncIterableIterator<responses.ListWafRequestsResponse> {
+    return paginateResponses(request, req => this.listWafRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WafRequest objects
+   * contained in responses from the listWafRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWafRequestsRecordIterator(
+    request: requests.ListWafRequestsRequest
+  ): AsyncIterableIterator<model.WafRequest> {
+    return paginateRecords(request, req => this.listWafRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWafRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWafRequestsResponseIterator(
     request: requests.ListWafRequestsRequest
   ): AsyncIterableIterator<responses.ListWafRequestsResponse> {
     return paginateResponses(request, req => this.listWafRequests(req));
@@ -4066,6 +4525,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWafTrafficRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WafTrafficDatum objects
    * contained in responses from the listWafTraffic operation. This iterator will fetch more data from the
    * server as needed.
@@ -4079,12 +4539,38 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWafTrafficResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWafTraffic operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWafTrafficResponses(
+    request: requests.ListWafTrafficRequest
+  ): AsyncIterableIterator<responses.ListWafTrafficResponse> {
+    return paginateResponses(request, req => this.listWafTraffic(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WafTrafficDatum objects
+   * contained in responses from the listWafTraffic operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWafTrafficRecordIterator(
+    request: requests.ListWafTrafficRequest
+  ): AsyncIterableIterator<model.WafTrafficDatum> {
+    return paginateRecords(request, req => this.listWafTraffic(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWafTraffic operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWafTrafficResponseIterator(
     request: requests.ListWafTrafficRequest
   ): AsyncIterableIterator<responses.ListWafTrafficResponse> {
     return paginateResponses(request, req => this.listWafTraffic(req));
@@ -4163,6 +4649,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWhitelistsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Whitelist objects
    * contained in responses from the listWhitelists operation. This iterator will fetch more data from the
    * server as needed.
@@ -4176,12 +4663,38 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWhitelistsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWhitelists operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWhitelistsResponses(
+    request: requests.ListWhitelistsRequest
+  ): AsyncIterableIterator<responses.ListWhitelistsResponse> {
+    return paginateResponses(request, req => this.listWhitelists(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Whitelist objects
+   * contained in responses from the listWhitelists operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWhitelistsRecordIterator(
+    request: requests.ListWhitelistsRequest
+  ): AsyncIterableIterator<model.Whitelist> {
+    return paginateRecords(request, req => this.listWhitelists(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWhitelists operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWhitelistsResponseIterator(
     request: requests.ListWhitelistsRequest
   ): AsyncIterableIterator<responses.ListWhitelistsResponse> {
     return paginateResponses(request, req => this.listWhitelists(req));
@@ -4257,6 +4770,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
    * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -4270,12 +4784,38 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestsResponses(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
+   * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsRecordIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
+    return paginateRecords(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsResponseIterator(
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));

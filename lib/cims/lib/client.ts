@@ -369,6 +369,7 @@ export class IncidentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIncidentResourceTypesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.IncidentResourceType objects
    * contained in responses from the listIncidentResourceTypes operation. This iterator will fetch more data from the
    * server as needed.
@@ -382,12 +383,38 @@ export class IncidentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIncidentResourceTypesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listIncidentResourceTypes operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllIncidentResourceTypesResponses(
+    request: requests.ListIncidentResourceTypesRequest
+  ): AsyncIterableIterator<responses.ListIncidentResourceTypesResponse> {
+    return paginateResponses(request, req => this.listIncidentResourceTypes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.IncidentResourceType objects
+   * contained in responses from the listIncidentResourceTypes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIncidentResourceTypesRecordIterator(
+    request: requests.ListIncidentResourceTypesRequest
+  ): AsyncIterableIterator<model.IncidentResourceType> {
+    return paginateRecords(request, req => this.listIncidentResourceTypes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIncidentResourceTypes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIncidentResourceTypesResponseIterator(
     request: requests.ListIncidentResourceTypesRequest
   ): AsyncIterableIterator<responses.ListIncidentResourceTypesResponse> {
     return paginateResponses(request, req => this.listIncidentResourceTypes(req));
@@ -467,6 +494,7 @@ export class IncidentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIncidentsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.IncidentSummary objects
    * contained in responses from the listIncidents operation. This iterator will fetch more data from the
    * server as needed.
@@ -480,12 +508,38 @@ export class IncidentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listIncidentsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listIncidents operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllIncidentsResponses(
+    request: requests.ListIncidentsRequest
+  ): AsyncIterableIterator<responses.ListIncidentsResponse> {
+    return paginateResponses(request, req => this.listIncidents(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.IncidentSummary objects
+   * contained in responses from the listIncidents operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIncidentsRecordIterator(
+    request: requests.ListIncidentsRequest
+  ): AsyncIterableIterator<model.IncidentSummary> {
+    return paginateRecords(request, req => this.listIncidents(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIncidents operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIncidentsResponseIterator(
     request: requests.ListIncidentsRequest
   ): AsyncIterableIterator<responses.ListIncidentsResponse> {
     return paginateResponses(request, req => this.listIncidents(req));

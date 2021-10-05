@@ -559,6 +559,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAlarmsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AlarmSummary objects
    * contained in responses from the listAlarms operation. This iterator will fetch more data from the
    * server as needed.
@@ -572,12 +573,38 @@ This call is subject to a Monitoring limit that applies to the total number of r
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAlarmsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAlarms operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAlarmsResponses(
+    request: requests.ListAlarmsRequest
+  ): AsyncIterableIterator<responses.ListAlarmsResponse> {
+    return paginateResponses(request, req => this.listAlarms(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AlarmSummary objects
+   * contained in responses from the listAlarms operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAlarmsRecordIterator(
+    request: requests.ListAlarmsRequest
+  ): AsyncIterableIterator<model.AlarmSummary> {
+    return paginateRecords(request, req => this.listAlarms(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAlarms operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAlarmsResponseIterator(
     request: requests.ListAlarmsRequest
   ): AsyncIterableIterator<responses.ListAlarmsResponse> {
     return paginateResponses(request, req => this.listAlarms(req));
@@ -660,6 +687,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAlarmsStatusRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AlarmStatusSummary objects
    * contained in responses from the listAlarmsStatus operation. This iterator will fetch more data from the
    * server as needed.
@@ -673,12 +701,38 @@ This call is subject to a Monitoring limit that applies to the total number of r
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAlarmsStatusResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAlarmsStatus operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAlarmsStatusResponses(
+    request: requests.ListAlarmsStatusRequest
+  ): AsyncIterableIterator<responses.ListAlarmsStatusResponse> {
+    return paginateResponses(request, req => this.listAlarmsStatus(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AlarmStatusSummary objects
+   * contained in responses from the listAlarmsStatus operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAlarmsStatusRecordIterator(
+    request: requests.ListAlarmsStatusRequest
+  ): AsyncIterableIterator<model.AlarmStatusSummary> {
+    return paginateRecords(request, req => this.listAlarmsStatus(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAlarmsStatus operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAlarmsStatusResponseIterator(
     request: requests.ListAlarmsStatusRequest
   ): AsyncIterableIterator<responses.ListAlarmsStatusResponse> {
     return paginateResponses(request, req => this.listAlarmsStatus(req));
@@ -762,6 +816,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listMetricsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.Metric objects
    * contained in responses from the listMetrics operation. This iterator will fetch more data from the
    * server as needed.
@@ -773,12 +828,38 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listMetricsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listMetrics operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllMetricsResponses(
+    request: requests.ListMetricsRequest
+  ): AsyncIterableIterator<responses.ListMetricsResponse> {
+    return paginateResponses(request, req => this.listMetrics(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Metric objects
+   * contained in responses from the listMetrics operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMetricsRecordIterator(
+    request: requests.ListMetricsRequest
+  ): AsyncIterableIterator<model.Metric> {
+    return paginateRecords(request, req => this.listMetrics(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listMetrics operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMetricsResponseIterator(
     request: requests.ListMetricsRequest
   ): AsyncIterableIterator<responses.ListMetricsResponse> {
     return paginateResponses(request, req => this.listMetrics(req));

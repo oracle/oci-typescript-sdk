@@ -439,6 +439,68 @@ export class ManagementAgentClient {
   }
 
   /**
+   * Get the AutoUpgradable configuration for all agents in a tenancy.
+   * The supplied compartmentId must be a tenancy root.
+   *
+   * @param GetAutoUpgradableConfigRequest
+   * @return GetAutoUpgradableConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/GetAutoUpgradableConfig.ts.html |here} to see how to use GetAutoUpgradableConfig API.
+   */
+  public async getAutoUpgradableConfig(
+    getAutoUpgradableConfigRequest: requests.GetAutoUpgradableConfigRequest
+  ): Promise<responses.GetAutoUpgradableConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementAgentClient#getAutoUpgradableConfig.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": getAutoUpgradableConfigRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAutoUpgradableConfigRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getAutoUpgradableConfigRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managementAgents/actions/getAutoUpgradableConfig",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAutoUpgradableConfigResponse>{},
+        body: await response.json(),
+        bodyKey: "autoUpgradableConfig",
+        bodyModel: model.AutoUpgradableConfig,
+        type: "model.AutoUpgradableConfig",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets complete details of the inventory of a given agent id
    * @param GetManagementAgentRequest
    * @return GetManagementAgentResponse
@@ -789,6 +851,7 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAvailabilityHistoriesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AvailabilityHistorySummary objects
    * contained in responses from the listAvailabilityHistories operation. This iterator will fetch more data from the
    * server as needed.
@@ -802,12 +865,38 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAvailabilityHistoriesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAvailabilityHistories operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAvailabilityHistoriesResponses(
+    request: requests.ListAvailabilityHistoriesRequest
+  ): AsyncIterableIterator<responses.ListAvailabilityHistoriesResponse> {
+    return paginateResponses(request, req => this.listAvailabilityHistories(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AvailabilityHistorySummary objects
+   * contained in responses from the listAvailabilityHistories operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAvailabilityHistoriesRecordIterator(
+    request: requests.ListAvailabilityHistoriesRequest
+  ): AsyncIterableIterator<model.AvailabilityHistorySummary> {
+    return paginateRecords(request, req => this.listAvailabilityHistories(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAvailabilityHistories operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAvailabilityHistoriesResponseIterator(
     request: requests.ListAvailabilityHistoriesRequest
   ): AsyncIterableIterator<responses.ListAvailabilityHistoriesResponse> {
     return paginateResponses(request, req => this.listAvailabilityHistories(req));
@@ -835,7 +924,8 @@ export class ManagementAgentClient {
       "sortOrder": listManagementAgentImagesRequest.sortOrder,
       "sortBy": listManagementAgentImagesRequest.sortBy,
       "name": listManagementAgentImagesRequest.name,
-      "lifecycleState": listManagementAgentImagesRequest.lifecycleState
+      "lifecycleState": listManagementAgentImagesRequest.lifecycleState,
+      "installType": listManagementAgentImagesRequest.installType
     };
 
     let headerParams = {
@@ -887,6 +977,7 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagementAgentImagesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ManagementAgentImageSummary objects
    * contained in responses from the listManagementAgentImages operation. This iterator will fetch more data from the
    * server as needed.
@@ -900,12 +991,38 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagementAgentImagesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listManagementAgentImages operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllManagementAgentImagesResponses(
+    request: requests.ListManagementAgentImagesRequest
+  ): AsyncIterableIterator<responses.ListManagementAgentImagesResponse> {
+    return paginateResponses(request, req => this.listManagementAgentImages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ManagementAgentImageSummary objects
+   * contained in responses from the listManagementAgentImages operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagementAgentImagesRecordIterator(
+    request: requests.ListManagementAgentImagesRequest
+  ): AsyncIterableIterator<model.ManagementAgentImageSummary> {
+    return paginateRecords(request, req => this.listManagementAgentImages(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listManagementAgentImages operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagementAgentImagesResponseIterator(
     request: requests.ListManagementAgentImagesRequest
   ): AsyncIterableIterator<responses.ListManagementAgentImagesResponse> {
     return paginateResponses(request, req => this.listManagementAgentImages(req));
@@ -985,6 +1102,7 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagementAgentInstallKeysRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ManagementAgentInstallKeySummary objects
    * contained in responses from the listManagementAgentInstallKeys operation. This iterator will fetch more data from the
    * server as needed.
@@ -998,12 +1116,38 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagementAgentInstallKeysResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listManagementAgentInstallKeys operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllManagementAgentInstallKeysResponses(
+    request: requests.ListManagementAgentInstallKeysRequest
+  ): AsyncIterableIterator<responses.ListManagementAgentInstallKeysResponse> {
+    return paginateResponses(request, req => this.listManagementAgentInstallKeys(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ManagementAgentInstallKeySummary objects
+   * contained in responses from the listManagementAgentInstallKeys operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagementAgentInstallKeysRecordIterator(
+    request: requests.ListManagementAgentInstallKeysRequest
+  ): AsyncIterableIterator<model.ManagementAgentInstallKeySummary> {
+    return paginateRecords(request, req => this.listManagementAgentInstallKeys(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listManagementAgentInstallKeys operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagementAgentInstallKeysResponseIterator(
     request: requests.ListManagementAgentInstallKeysRequest
   ): AsyncIterableIterator<responses.ListManagementAgentInstallKeysResponse> {
     return paginateResponses(request, req => this.listManagementAgentInstallKeys(req));
@@ -1083,6 +1227,7 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagementAgentPluginsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ManagementAgentPluginSummary objects
    * contained in responses from the listManagementAgentPlugins operation. This iterator will fetch more data from the
    * server as needed.
@@ -1096,12 +1241,38 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagementAgentPluginsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listManagementAgentPlugins operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllManagementAgentPluginsResponses(
+    request: requests.ListManagementAgentPluginsRequest
+  ): AsyncIterableIterator<responses.ListManagementAgentPluginsResponse> {
+    return paginateResponses(request, req => this.listManagementAgentPlugins(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ManagementAgentPluginSummary objects
+   * contained in responses from the listManagementAgentPlugins operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagementAgentPluginsRecordIterator(
+    request: requests.ListManagementAgentPluginsRequest
+  ): AsyncIterableIterator<model.ManagementAgentPluginSummary> {
+    return paginateRecords(request, req => this.listManagementAgentPlugins(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listManagementAgentPlugins operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagementAgentPluginsResponseIterator(
     request: requests.ListManagementAgentPluginsRequest
   ): AsyncIterableIterator<responses.ListManagementAgentPluginsResponse> {
     return paginateResponses(request, req => this.listManagementAgentPlugins(req));
@@ -1132,6 +1303,7 @@ export class ManagementAgentClient {
       "hostId": listManagementAgentsRequest.hostId,
       "platformType": listManagementAgentsRequest.platformType,
       "isCustomerDeployed": listManagementAgentsRequest.isCustomerDeployed,
+      "installType": listManagementAgentsRequest.installType,
       "limit": listManagementAgentsRequest.limit,
       "page": listManagementAgentsRequest.page,
       "sortOrder": listManagementAgentsRequest.sortOrder,
@@ -1186,6 +1358,7 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagementAgentsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ManagementAgentSummary objects
    * contained in responses from the listManagementAgents operation. This iterator will fetch more data from the
    * server as needed.
@@ -1199,12 +1372,38 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listManagementAgentsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listManagementAgents operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllManagementAgentsResponses(
+    request: requests.ListManagementAgentsRequest
+  ): AsyncIterableIterator<responses.ListManagementAgentsResponse> {
+    return paginateResponses(request, req => this.listManagementAgents(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ManagementAgentSummary objects
+   * contained in responses from the listManagementAgents operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagementAgentsRecordIterator(
+    request: requests.ListManagementAgentsRequest
+  ): AsyncIterableIterator<model.ManagementAgentSummary> {
+    return paginateRecords(request, req => this.listManagementAgents(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listManagementAgents operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listManagementAgentsResponseIterator(
     request: requests.ListManagementAgentsRequest
   ): AsyncIterableIterator<responses.ListManagementAgentsResponse> {
     return paginateResponses(request, req => this.listManagementAgents(req));
@@ -1282,6 +1481,7 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestError objects
    * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
    * server as needed.
@@ -1295,12 +1495,38 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestErrorsResponses(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestError objects
+   * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsRecordIterator(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<model.WorkRequestError> {
+    return paginateRecords(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsResponseIterator(
     request: requests.ListWorkRequestErrorsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
     return paginateResponses(request, req => this.listWorkRequestErrors(req));
@@ -1378,6 +1604,7 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
    * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
    * server as needed.
@@ -1391,12 +1618,38 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestLogsResponses(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
+   * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsRecordIterator(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
+    return paginateRecords(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsResponseIterator(
     request: requests.ListWorkRequestLogsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
     return paginateResponses(request, req => this.listWorkRequestLogs(req));
@@ -1475,6 +1728,7 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
    * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -1488,6 +1742,7 @@ export class ManagementAgentClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
@@ -1497,6 +1752,97 @@ export class ManagementAgentClient {
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
+   * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsRecordIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
+    return paginateRecords(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsResponseIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Sets the AutoUpgradable configuration for all agents in a tenancy.
+   * The supplied compartmentId must be a tenancy root.
+   *
+   * @param SetAutoUpgradableConfigRequest
+   * @return SetAutoUpgradableConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/SetAutoUpgradableConfig.ts.html |here} to see how to use SetAutoUpgradableConfig API.
+   */
+  public async setAutoUpgradableConfig(
+    setAutoUpgradableConfigRequest: requests.SetAutoUpgradableConfigRequest
+  ): Promise<responses.SetAutoUpgradableConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementAgentClient#setAutoUpgradableConfig.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": setAutoUpgradableConfigRequest.opcRetryToken,
+      "opc-request-id": setAutoUpgradableConfigRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      setAutoUpgradableConfigRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managementAgents/actions/setAutoUpgradableConfig",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        setAutoUpgradableConfigRequest.setAutoUpgradableConfigDetails,
+        "SetAutoUpgradableConfigDetails",
+        model.SetAutoUpgradableConfigDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SetAutoUpgradableConfigResponse>{},
+        body: await response.json(),
+        bodyKey: "autoUpgradableConfig",
+        bodyModel: model.AutoUpgradableConfig,
+        type: "model.AutoUpgradableConfig",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -1519,6 +1865,7 @@ export class ManagementAgentClient {
       "compartmentId": summarizeManagementAgentCountsRequest.compartmentId,
       "groupBy": summarizeManagementAgentCountsRequest.groupBy,
       "hasPlugins": summarizeManagementAgentCountsRequest.hasPlugins,
+      "installType": summarizeManagementAgentCountsRequest.installType,
       "page": summarizeManagementAgentCountsRequest.page
     };
 

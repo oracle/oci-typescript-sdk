@@ -658,6 +658,7 @@ export class AnnouncementsPreferencesClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAnnouncementsPreferencesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.AnnouncementsPreferencesSummary objects
    * contained in responses from the listAnnouncementsPreferences operation. This iterator will fetch more data from the
    * server as needed.
@@ -671,12 +672,38 @@ export class AnnouncementsPreferencesClient {
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listAnnouncementsPreferencesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listAnnouncementsPreferences operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllAnnouncementsPreferencesResponses(
+    request: requests.ListAnnouncementsPreferencesRequest
+  ): AsyncIterableIterator<responses.ListAnnouncementsPreferencesResponse> {
+    return paginateResponses(request, req => this.listAnnouncementsPreferences(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AnnouncementsPreferencesSummary objects
+   * contained in responses from the listAnnouncementsPreferences operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAnnouncementsPreferencesRecordIterator(
+    request: requests.ListAnnouncementsPreferencesRequest
+  ): AsyncIterableIterator<model.AnnouncementsPreferencesSummary> {
+    return paginateRecords(request, req => this.listAnnouncementsPreferences(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAnnouncementsPreferences operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAnnouncementsPreferencesResponseIterator(
     request: requests.ListAnnouncementsPreferencesRequest
   ): AsyncIterableIterator<responses.ListAnnouncementsPreferencesResponse> {
     return paginateResponses(request, req => this.listAnnouncementsPreferences(req));

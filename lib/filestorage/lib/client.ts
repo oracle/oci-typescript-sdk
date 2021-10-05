@@ -1219,6 +1219,7 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExportSetsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ExportSetSummary objects
    * contained in responses from the listExportSets operation. This iterator will fetch more data from the
    * server as needed.
@@ -1232,12 +1233,38 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExportSetsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listExportSets operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllExportSetsResponses(
+    request: requests.ListExportSetsRequest
+  ): AsyncIterableIterator<responses.ListExportSetsResponse> {
+    return paginateResponses(request, req => this.listExportSets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExportSetSummary objects
+   * contained in responses from the listExportSets operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExportSetsRecordIterator(
+    request: requests.ListExportSetsRequest
+  ): AsyncIterableIterator<model.ExportSetSummary> {
+    return paginateRecords(request, req => this.listExportSets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExportSets operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExportSetsResponseIterator(
     request: requests.ListExportSetsRequest
   ): AsyncIterableIterator<responses.ListExportSetsResponse> {
     return paginateResponses(request, req => this.listExportSets(req));
@@ -1319,6 +1346,7 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExportsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.ExportSummary objects
    * contained in responses from the listExports operation. This iterator will fetch more data from the
    * server as needed.
@@ -1332,12 +1360,38 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listExportsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listExports operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllExportsResponses(
+    request: requests.ListExportsRequest
+  ): AsyncIterableIterator<responses.ListExportsResponse> {
+    return paginateResponses(request, req => this.listExports(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExportSummary objects
+   * contained in responses from the listExports operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExportsRecordIterator(
+    request: requests.ListExportsRequest
+  ): AsyncIterableIterator<model.ExportSummary> {
+    return paginateRecords(request, req => this.listExports(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExports operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExportsResponseIterator(
     request: requests.ListExportsRequest
   ): AsyncIterableIterator<responses.ListExportsResponse> {
     return paginateResponses(request, req => this.listExports(req));
@@ -1419,6 +1473,7 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listFileSystemsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.FileSystemSummary objects
    * contained in responses from the listFileSystems operation. This iterator will fetch more data from the
    * server as needed.
@@ -1432,12 +1487,38 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listFileSystemsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listFileSystems operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllFileSystemsResponses(
+    request: requests.ListFileSystemsRequest
+  ): AsyncIterableIterator<responses.ListFileSystemsResponse> {
+    return paginateResponses(request, req => this.listFileSystems(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.FileSystemSummary objects
+   * contained in responses from the listFileSystems operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFileSystemsRecordIterator(
+    request: requests.ListFileSystemsRequest
+  ): AsyncIterableIterator<model.FileSystemSummary> {
+    return paginateRecords(request, req => this.listFileSystems(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listFileSystems operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFileSystemsResponseIterator(
     request: requests.ListFileSystemsRequest
   ): AsyncIterableIterator<responses.ListFileSystemsResponse> {
     return paginateResponses(request, req => this.listFileSystems(req));
@@ -1518,6 +1599,7 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listMountTargetsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.MountTargetSummary objects
    * contained in responses from the listMountTargets operation. This iterator will fetch more data from the
    * server as needed.
@@ -1531,12 +1613,38 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listMountTargetsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listMountTargets operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllMountTargetsResponses(
+    request: requests.ListMountTargetsRequest
+  ): AsyncIterableIterator<responses.ListMountTargetsResponse> {
+    return paginateResponses(request, req => this.listMountTargets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.MountTargetSummary objects
+   * contained in responses from the listMountTargets operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMountTargetsRecordIterator(
+    request: requests.ListMountTargetsRequest
+  ): AsyncIterableIterator<model.MountTargetSummary> {
+    return paginateRecords(request, req => this.listMountTargets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listMountTargets operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMountTargetsResponseIterator(
     request: requests.ListMountTargetsRequest
   ): AsyncIterableIterator<responses.ListMountTargetsResponse> {
     return paginateResponses(request, req => this.listMountTargets(req));
@@ -1613,6 +1721,7 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSnapshotsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SnapshotSummary objects
    * contained in responses from the listSnapshots operation. This iterator will fetch more data from the
    * server as needed.
@@ -1626,12 +1735,38 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSnapshotsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSnapshots operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSnapshotsResponses(
+    request: requests.ListSnapshotsRequest
+  ): AsyncIterableIterator<responses.ListSnapshotsResponse> {
+    return paginateResponses(request, req => this.listSnapshots(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SnapshotSummary objects
+   * contained in responses from the listSnapshots operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSnapshotsRecordIterator(
+    request: requests.ListSnapshotsRequest
+  ): AsyncIterableIterator<model.SnapshotSummary> {
+    return paginateRecords(request, req => this.listSnapshots(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSnapshots operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSnapshotsResponseIterator(
     request: requests.ListSnapshotsRequest
   ): AsyncIterableIterator<responses.ListSnapshotsResponse> {
     return paginateResponses(request, req => this.listSnapshots(req));

@@ -104,9 +104,29 @@ export interface ConfigurationVariables {
    */
   "sqlWarnings"?: boolean;
   /**
-   * (\"binlog_expire_logs_seconds\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Sets the binary log expiration period in seconds.
+   * binlogExpireLogsSeconds corresponds to the MySQL binary logging system variable [binlog_expire_logs_seconds](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_expire_logs_seconds).
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "binlogExpireLogsSeconds"?: number;
+  /**
+   * Configures the amount of table metadata added to the binary log when using row-based logging.
+   * binlogRowMetadata corresponds to the MySQL binary logging system variable [binlog_row_metadata](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_metadata).
+   *
+   */
+  "binlogRowMetadata"?: ConfigurationVariables.BinlogRowMetadata;
+  /**
+   * When set to PARTIAL_JSON, this enables use of a space-efficient binary log format for updates that modify only a small portion of a JSON document.
+   * binlogRowValueOptions corresponds to the MySQL binary logging system variable [binlog_row_value_options](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_value_options).
+   *
+   */
+  "binlogRowValueOptions"?: string;
+  /**
+   * Enables compression for transactions that are written to binary log files on this server.
+   * binlogTransactionCompression corresponds to the MySQL binary logging system variable [binlog_transaction_compression](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_compression).
+   *
+   */
+  "binlogTransactionCompression"?: boolean;
   /**
    * (\"innodb_buffer_pool_size\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -295,6 +315,16 @@ export namespace ConfigurationVariables {
     Before = "BEFORE",
     After = "AFTER",
     BeforeAndAfter = "BEFORE_AND_AFTER",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum BinlogRowMetadata {
+    Full = "FULL",
+    Minimal = "MINIMAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

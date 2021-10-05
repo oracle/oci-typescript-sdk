@@ -2624,6 +2624,7 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDataSafePrivateEndpointsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.DataSafePrivateEndpointSummary objects
    * contained in responses from the listDataSafePrivateEndpoints operation. This iterator will fetch more data from the
    * server as needed.
@@ -2637,12 +2638,38 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listDataSafePrivateEndpointsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listDataSafePrivateEndpoints operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllDataSafePrivateEndpointsResponses(
+    request: requests.ListDataSafePrivateEndpointsRequest
+  ): AsyncIterableIterator<responses.ListDataSafePrivateEndpointsResponse> {
+    return paginateResponses(request, req => this.listDataSafePrivateEndpoints(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DataSafePrivateEndpointSummary objects
+   * contained in responses from the listDataSafePrivateEndpoints operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDataSafePrivateEndpointsRecordIterator(
+    request: requests.ListDataSafePrivateEndpointsRequest
+  ): AsyncIterableIterator<model.DataSafePrivateEndpointSummary> {
+    return paginateRecords(request, req => this.listDataSafePrivateEndpoints(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDataSafePrivateEndpoints operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDataSafePrivateEndpointsResponseIterator(
     request: requests.ListDataSafePrivateEndpointsRequest
   ): AsyncIterableIterator<responses.ListDataSafePrivateEndpointsResponse> {
     return paginateResponses(request, req => this.listDataSafePrivateEndpoints(req));
@@ -2726,6 +2753,7 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listFindingsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.FindingSummary objects
    * contained in responses from the listFindings operation. This iterator will fetch more data from the
    * server as needed.
@@ -2739,12 +2767,38 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listFindingsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listFindings operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllFindingsResponses(
+    request: requests.ListFindingsRequest
+  ): AsyncIterableIterator<responses.ListFindingsResponse> {
+    return paginateResponses(request, req => this.listFindings(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.FindingSummary objects
+   * contained in responses from the listFindings operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFindingsRecordIterator(
+    request: requests.ListFindingsRequest
+  ): AsyncIterableIterator<model.FindingSummary> {
+    return paginateRecords(request, req => this.listFindings(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listFindings operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFindingsResponseIterator(
     request: requests.ListFindingsRequest
   ): AsyncIterableIterator<responses.ListFindingsResponse> {
     return paginateResponses(request, req => this.listFindings(req));
@@ -2837,6 +2891,7 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listGrantsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.GrantSummary objects
    * contained in responses from the listGrants operation. This iterator will fetch more data from the
    * server as needed.
@@ -2850,12 +2905,38 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listGrantsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listGrants operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllGrantsResponses(
+    request: requests.ListGrantsRequest
+  ): AsyncIterableIterator<responses.ListGrantsResponse> {
+    return paginateResponses(request, req => this.listGrants(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.GrantSummary objects
+   * contained in responses from the listGrants operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listGrantsRecordIterator(
+    request: requests.ListGrantsRequest
+  ): AsyncIterableIterator<model.GrantSummary> {
+    return paginateRecords(request, req => this.listGrants(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listGrants operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listGrantsResponseIterator(
     request: requests.ListGrantsRequest
   ): AsyncIterableIterator<responses.ListGrantsResponse> {
     return paginateResponses(request, req => this.listGrants(req));
@@ -2936,6 +3017,7 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listOnPremConnectorsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.OnPremConnectorSummary objects
    * contained in responses from the listOnPremConnectors operation. This iterator will fetch more data from the
    * server as needed.
@@ -2949,12 +3031,38 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listOnPremConnectorsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listOnPremConnectors operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllOnPremConnectorsResponses(
+    request: requests.ListOnPremConnectorsRequest
+  ): AsyncIterableIterator<responses.ListOnPremConnectorsResponse> {
+    return paginateResponses(request, req => this.listOnPremConnectors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.OnPremConnectorSummary objects
+   * contained in responses from the listOnPremConnectors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listOnPremConnectorsRecordIterator(
+    request: requests.ListOnPremConnectorsRequest
+  ): AsyncIterableIterator<model.OnPremConnectorSummary> {
+    return paginateRecords(request, req => this.listOnPremConnectors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listOnPremConnectors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listOnPremConnectorsResponseIterator(
     request: requests.ListOnPremConnectorsRequest
   ): AsyncIterableIterator<responses.ListOnPremConnectorsResponse> {
     return paginateResponses(request, req => this.listOnPremConnectors(req));
@@ -3062,6 +3170,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSecurityAssessmentsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.SecurityAssessmentSummary objects
    * contained in responses from the listSecurityAssessments operation. This iterator will fetch more data from the
    * server as needed.
@@ -3075,12 +3184,38 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listSecurityAssessmentsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listSecurityAssessments operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllSecurityAssessmentsResponses(
+    request: requests.ListSecurityAssessmentsRequest
+  ): AsyncIterableIterator<responses.ListSecurityAssessmentsResponse> {
+    return paginateResponses(request, req => this.listSecurityAssessments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SecurityAssessmentSummary objects
+   * contained in responses from the listSecurityAssessments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSecurityAssessmentsRecordIterator(
+    request: requests.ListSecurityAssessmentsRequest
+  ): AsyncIterableIterator<model.SecurityAssessmentSummary> {
+    return paginateRecords(request, req => this.listSecurityAssessments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSecurityAssessments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSecurityAssessmentsResponseIterator(
     request: requests.ListSecurityAssessmentsRequest
   ): AsyncIterableIterator<responses.ListSecurityAssessmentsResponse> {
     return paginateResponses(request, req => this.listSecurityAssessments(req));
@@ -3168,6 +3303,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTargetDatabasesRecordIterator function.
    * Creates a new async iterator which will iterate over the models.TargetDatabaseSummary objects
    * contained in responses from the listTargetDatabases operation. This iterator will fetch more data from the
    * server as needed.
@@ -3181,12 +3317,38 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listTargetDatabasesResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listTargetDatabases operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllTargetDatabasesResponses(
+    request: requests.ListTargetDatabasesRequest
+  ): AsyncIterableIterator<responses.ListTargetDatabasesResponse> {
+    return paginateResponses(request, req => this.listTargetDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.TargetDatabaseSummary objects
+   * contained in responses from the listTargetDatabases operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTargetDatabasesRecordIterator(
+    request: requests.ListTargetDatabasesRequest
+  ): AsyncIterableIterator<model.TargetDatabaseSummary> {
+    return paginateRecords(request, req => this.listTargetDatabases(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listTargetDatabases operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTargetDatabasesResponseIterator(
     request: requests.ListTargetDatabasesRequest
   ): AsyncIterableIterator<responses.ListTargetDatabasesResponse> {
     return paginateResponses(request, req => this.listTargetDatabases(req));
@@ -3294,6 +3456,7 @@ To use ListUserAnalytics to get a full list of all compartments and subcompartme
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listUserAnalyticsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.UserAggregation objects
    * contained in responses from the listUserAnalytics operation. This iterator will fetch more data from the
    * server as needed.
@@ -3307,12 +3470,38 @@ To use ListUserAnalytics to get a full list of all compartments and subcompartme
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listUserAnalyticsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listUserAnalytics operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllUserAnalyticsResponses(
+    request: requests.ListUserAnalyticsRequest
+  ): AsyncIterableIterator<responses.ListUserAnalyticsResponse> {
+    return paginateResponses(request, req => this.listUserAnalytics(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.UserAggregation objects
+   * contained in responses from the listUserAnalytics operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUserAnalyticsRecordIterator(
+    request: requests.ListUserAnalyticsRequest
+  ): AsyncIterableIterator<model.UserAggregation> {
+    return paginateRecords(request, req => this.listUserAnalytics(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listUserAnalytics operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUserAnalyticsResponseIterator(
     request: requests.ListUserAnalyticsRequest
   ): AsyncIterableIterator<responses.ListUserAnalyticsResponse> {
     return paginateResponses(request, req => this.listUserAnalytics(req));
@@ -3419,6 +3608,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listUserAssessmentsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.UserAssessmentSummary objects
    * contained in responses from the listUserAssessments operation. This iterator will fetch more data from the
    * server as needed.
@@ -3432,12 +3622,38 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listUserAssessmentsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listUserAssessments operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllUserAssessmentsResponses(
+    request: requests.ListUserAssessmentsRequest
+  ): AsyncIterableIterator<responses.ListUserAssessmentsResponse> {
+    return paginateResponses(request, req => this.listUserAssessments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.UserAssessmentSummary objects
+   * contained in responses from the listUserAssessments operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUserAssessmentsRecordIterator(
+    request: requests.ListUserAssessmentsRequest
+  ): AsyncIterableIterator<model.UserAssessmentSummary> {
+    return paginateRecords(request, req => this.listUserAssessments(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listUserAssessments operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUserAssessmentsResponseIterator(
     request: requests.ListUserAssessmentsRequest
   ): AsyncIterableIterator<responses.ListUserAssessmentsResponse> {
     return paginateResponses(request, req => this.listUserAssessments(req));
@@ -3537,6 +3753,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listUsersRecordIterator function.
    * Creates a new async iterator which will iterate over the models.UserSummary objects
    * contained in responses from the listUsers operation. This iterator will fetch more data from the
    * server as needed.
@@ -3550,12 +3767,38 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listUsersResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listUsers operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllUsersResponses(
+    request: requests.ListUsersRequest
+  ): AsyncIterableIterator<responses.ListUsersResponse> {
+    return paginateResponses(request, req => this.listUsers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.UserSummary objects
+   * contained in responses from the listUsers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUsersRecordIterator(
+    request: requests.ListUsersRequest
+  ): AsyncIterableIterator<model.UserSummary> {
+    return paginateRecords(request, req => this.listUsers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listUsers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUsersResponseIterator(
     request: requests.ListUsersRequest
   ): AsyncIterableIterator<responses.ListUsersResponse> {
     return paginateResponses(request, req => this.listUsers(req));
@@ -3630,6 +3873,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestError objects
    * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
    * server as needed.
@@ -3643,12 +3887,38 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestErrorsResponses(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestError objects
+   * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsRecordIterator(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<model.WorkRequestError> {
+    return paginateRecords(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsResponseIterator(
     request: requests.ListWorkRequestErrorsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
     return paginateResponses(request, req => this.listWorkRequestErrors(req));
@@ -3723,6 +3993,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
    * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
    * server as needed.
@@ -3736,12 +4007,38 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestLogsResponses(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
+   * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsRecordIterator(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
+    return paginateRecords(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsResponseIterator(
     request: requests.ListWorkRequestLogsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
     return paginateResponses(request, req => this.listWorkRequestLogs(req));
@@ -3817,6 +4114,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsRecordIterator function.
    * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
    * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
    * server as needed.
@@ -3830,12 +4128,38 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * NOTE: This function is deprecated in favor of listWorkRequestsResponseIterator function.
    * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
    * will fetch more data from the server as needed.
    *
    * @param request a request which can be sent to the service operation
    */
   public listAllWorkRequestsResponses(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestSummary objects
+   * contained in responses from the listWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsRecordIterator(
+    request: requests.ListWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequestSummary> {
+    return paginateRecords(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestsResponseIterator(
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));
