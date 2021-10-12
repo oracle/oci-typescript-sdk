@@ -134,6 +134,8 @@ import * as GetLogAnalyticsLogGroupsSummaryResponse from "./get-log-analytics-lo
 export import GetLogAnalyticsLogGroupsSummaryResponse = GetLogAnalyticsLogGroupsSummaryResponse.GetLogAnalyticsLogGroupsSummaryResponse;
 import * as GetLogAnalyticsObjectCollectionRuleResponse from "./get-log-analytics-object-collection-rule-response";
 export import GetLogAnalyticsObjectCollectionRuleResponse = GetLogAnalyticsObjectCollectionRuleResponse.GetLogAnalyticsObjectCollectionRuleResponse;
+import * as GetLogSetsCountResponse from "./get-log-sets-count-response";
+export import GetLogSetsCountResponse = GetLogSetsCountResponse.GetLogSetsCountResponse;
 import * as GetLookupResponse from "./get-lookup-response";
 export import GetLookupResponse = GetLookupResponse.GetLookupResponse;
 import * as GetLookupSummaryResponse from "./get-lookup-summary-response";

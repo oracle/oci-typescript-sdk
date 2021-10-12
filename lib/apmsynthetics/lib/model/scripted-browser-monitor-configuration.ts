@@ -22,6 +22,7 @@ export interface ScriptedBrowserMonitorConfiguration extends model.MonitorConfig
    * If certificate validation is enabled, then the call will fail in case of certification errors.
    */
   "isCertificateValidationEnabled"?: boolean;
+  "networkConfiguration"?: model.NetworkConfiguration;
 
   "configType": string;
 }
@@ -35,7 +36,11 @@ export namespace ScriptedBrowserMonitorConfiguration {
       ...(isParentJsonObj
         ? obj
         : (model.MonitorConfiguration.getJsonObj(obj) as ScriptedBrowserMonitorConfiguration)),
-      ...{}
+      ...{
+        "networkConfiguration": obj.networkConfiguration
+          ? model.NetworkConfiguration.getJsonObj(obj.networkConfiguration)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -51,7 +56,11 @@ export namespace ScriptedBrowserMonitorConfiguration {
         : (model.MonitorConfiguration.getDeserializedJsonObj(
             obj
           ) as ScriptedBrowserMonitorConfiguration)),
-      ...{}
+      ...{
+        "networkConfiguration": obj.networkConfiguration
+          ? model.NetworkConfiguration.getDeserializedJsonObj(obj.networkConfiguration)
+          : undefined
+      }
     };
 
     return jsonObj;

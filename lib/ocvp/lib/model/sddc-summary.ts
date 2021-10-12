@@ -70,7 +70,7 @@ Therefore, if you upgrade the existing ESXi hosts in the SDDC to use a newer
    */
   "hcxFqdn"?: string;
   /**
-   * HCX enabled or not
+   * Indicates whether HCX is enabled.
    */
   "isHcxEnabled"?: boolean;
   /**

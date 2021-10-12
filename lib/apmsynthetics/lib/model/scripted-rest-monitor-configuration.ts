@@ -18,6 +18,8 @@ import common = require("oci-common");
  * Configuration details for the SCRIPTED_REST monitor type.
  */
 export interface ScriptedRestMonitorConfiguration extends model.MonitorConfiguration {
+  "networkConfiguration"?: model.NetworkConfiguration;
+
   "configType": string;
 }
 
@@ -30,7 +32,11 @@ export namespace ScriptedRestMonitorConfiguration {
       ...(isParentJsonObj
         ? obj
         : (model.MonitorConfiguration.getJsonObj(obj) as ScriptedRestMonitorConfiguration)),
-      ...{}
+      ...{
+        "networkConfiguration": obj.networkConfiguration
+          ? model.NetworkConfiguration.getJsonObj(obj.networkConfiguration)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -46,7 +52,11 @@ export namespace ScriptedRestMonitorConfiguration {
         : (model.MonitorConfiguration.getDeserializedJsonObj(
             obj
           ) as ScriptedRestMonitorConfiguration)),
-      ...{}
+      ...{
+        "networkConfiguration": obj.networkConfiguration
+          ? model.NetworkConfiguration.getDeserializedJsonObj(obj.networkConfiguration)
+          : undefined
+      }
     };
 
     return jsonObj;

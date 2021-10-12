@@ -60,6 +60,7 @@ export interface RestMonitorConfiguration extends model.MonitorConfiguration {
    *
    */
   "verifyResponseCodes"?: Array<string>;
+  "networkConfiguration"?: model.NetworkConfiguration;
 
   "configType": string;
 }
@@ -83,6 +84,10 @@ export namespace RestMonitorConfiguration {
           ? obj.requestQueryParams.map(item => {
               return model.RequestQueryParam.getJsonObj(item);
             })
+          : undefined,
+
+        "networkConfiguration": obj.networkConfiguration
+          ? model.NetworkConfiguration.getJsonObj(obj.networkConfiguration)
           : undefined
       }
     };
@@ -111,6 +116,10 @@ export namespace RestMonitorConfiguration {
           ? obj.requestQueryParams.map(item => {
               return model.RequestQueryParam.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "networkConfiguration": obj.networkConfiguration
+          ? model.NetworkConfiguration.getDeserializedJsonObj(obj.networkConfiguration)
           : undefined
       }
     };

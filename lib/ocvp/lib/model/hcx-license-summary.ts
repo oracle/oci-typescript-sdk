@@ -21,11 +21,11 @@ import common = require("oci-common");
  */
 export interface HcxLicenseSummary {
   /**
-   * HCX on-premise license key value
+   * HCX on-premise license key value.
    */
   "activationKey": string;
   /**
-   * status of HCX on-premise license
+   * status of HCX on-premise license.
    */
   "status": model.HcxLicenseStatus;
   /**

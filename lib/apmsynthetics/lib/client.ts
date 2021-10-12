@@ -430,7 +430,7 @@ export class ApmSyntheticClient {
   }
 
   /**
-   * Gets the results for a specific execution of a monitor identified by OCID. The results are in a HAR file, Screenshot, or Console Log.
+   * Gets the results for a specific execution of a monitor identified by OCID. The results are in a HAR file, Screenshot, Console Log or Network details.
    *
    * @param GetMonitorResultRequest
    * @return GetMonitorResultResponse

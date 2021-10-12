@@ -16,11 +16,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The HCX on-premise licenses to be reserved when downgrade from HCX Enterprise to HCX Advanced.
+ * The HCX on-premise license keys to be reserved when downgrading from HCX Enterprise to HCX Advanced.
+ * Downgrading from HCX Enterprise to HCX Advanced reduces the number of provided license keys from 10 to 3.
+ *
  */
 export interface DowngradeHcxDetails {
   /**
-   * The HCX on-premise licenses keys to be reserved when downgrade from HCX Enterprise to HCX Advanced.
+   * The HCX on-premise license keys to be reserved when downgrading from HCX Enterprise to HCX Advanced.
+   *
    */
   "reservingHcxOnPremiseLicenseKeys": Array<string>;
 }

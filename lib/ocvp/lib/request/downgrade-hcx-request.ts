@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DowngradeHcxRequest extends common.BaseRequest {
   /**
-   * The HCX on-premise license keys to be reserved when downgrade from HCX Enterprise to HCX Advanced.
+   * The HCX on-premise license keys to be reserved when downgrading from HCX Enterprise to HCX Advanced.
    */
   "downgradeHcxDetails": model.DowngradeHcxDetails;
   /**
