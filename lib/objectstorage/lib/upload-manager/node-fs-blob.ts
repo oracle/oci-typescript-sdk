@@ -42,13 +42,14 @@ export class NodeFSBlob implements UploadableBlob {
    * returns stream.Readable object
    */
   public async getData(): Promise<Readable> {
+    const end = this.fileSize === 0 ? this.end : this.end - 1;
     return createReadStream(this.filePath, {
       start: this.start,
       // As per https://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options, end is inclusive.
       // However, as per https://developer.mozilla.org/en-US/docs/Web/API/Blob/slice, end is non-inclusive.
       // Read till end - 1 to match Blob's behavior
       // Note: if this.end = 0, and end: -1, we will have an issue giving The value of "end" is out of range. It must be >= 0 and <= 2 ** 53 - 1. Received -1
-      end: this.end,
+      end: end,
       highWaterMark: this.highWaterMark
     });
   }

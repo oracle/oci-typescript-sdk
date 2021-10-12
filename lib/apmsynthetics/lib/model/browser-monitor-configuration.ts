@@ -28,6 +28,7 @@ export interface BrowserMonitorConfiguration extends model.MonitorConfiguration 
    *
    */
   "verifyTexts"?: Array<model.VerifyText>;
+  "networkConfiguration"?: model.NetworkConfiguration;
 
   "configType": string;
 }
@@ -43,6 +44,9 @@ export namespace BrowserMonitorConfiguration {
           ? obj.verifyTexts.map(item => {
               return model.VerifyText.getJsonObj(item);
             })
+          : undefined,
+        "networkConfiguration": obj.networkConfiguration
+          ? model.NetworkConfiguration.getJsonObj(obj.networkConfiguration)
           : undefined
       }
     };
@@ -63,6 +67,9 @@ export namespace BrowserMonitorConfiguration {
           ? obj.verifyTexts.map(item => {
               return model.VerifyText.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "networkConfiguration": obj.networkConfiguration
+          ? model.NetworkConfiguration.getDeserializedJsonObj(obj.networkConfiguration)
           : undefined
       }
     };

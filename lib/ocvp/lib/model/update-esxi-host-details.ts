@@ -28,9 +28,8 @@ Avoid entering confidential information.
     */
   "displayName"?: string;
   /**
-   * Billing option to switch to after the existing billing cycle ends.
-   * Oracle Cloud Infrastructure VMware Solution supports the following billing interval SKUs:
-   * HOUR, MONTH, ONE_YEAR, and THREE_YEARS.
+   * The billing option to switch to after the existing billing cycle ends.
+   * If `nextSku` is null or empty, `currentSku` continues to the next billing cycle.
    * {@link #listSupportedSkus(ListSupportedSkusRequest) listSupportedSkus}.
    *
    */

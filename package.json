@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -101,7 +101,11 @@
     "oci-genericartifactscontent": "file:lib/genericartifactscontent",
     "oci-jms": "file:lib/jms",
     "oci-devops": "file:lib/devops",
-    "oci-aianomalydetection": "file:lib/aianomalydetection"
+    "oci-aianomalydetection": "file:lib/aianomalydetection",
+    "oci-apmconfig": "file:lib/apmconfig",
+    "oci-datalabelingservice": "file:lib/datalabelingservice",
+    "oci-datalabelingservicedataplane": "file:lib/datalabelingservicedataplane",
+    "oci-waf": "file:lib/waf"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * HCX on-premise license status
+ * HCX on-premise license status.
  **/
 export enum HcxLicenseStatus {
   Available = "AVAILABLE",

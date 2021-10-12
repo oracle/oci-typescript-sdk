@@ -328,6 +328,8 @@ import * as LogGroupSummaryReport from "./log-group-summary-report";
 export import LogGroupSummaryReport = LogGroupSummaryReport.LogGroupSummaryReport;
 import * as LogSetCollection from "./log-set-collection";
 export import LogSetCollection = LogSetCollection.LogSetCollection;
+import * as LogSetsCount from "./log-sets-count";
+export import LogSetsCount = LogSetsCount.LogSetsCount;
 import * as LookupField from "./lookup-field";
 export import LookupField = LookupField.LookupField;
 import * as LookupSummaryReport from "./lookup-summary-report";

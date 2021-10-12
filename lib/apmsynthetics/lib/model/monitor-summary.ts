@@ -59,6 +59,10 @@ export interface MonitorSummary {
    */
   "repeatIntervalInSeconds": number;
   /**
+   * If runOnce is enabled, then the monitor will run once.
+   */
+  "isRunOnce": boolean;
+  /**
    * Timeout in seconds. Timeout cannot be more than 30% of repeatIntervalInSeconds time for monitors.
    * Also, timeoutInSeconds should be a multiple of 60.
    * Monitor will be allowed to run only for timeoutInSeconds time. It would be terminated after that.

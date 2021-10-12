@@ -40,6 +40,11 @@ export interface ListLogSetsRequest extends common.BaseRequest {
    *
    */
   "sortOrder"?: ListLogSetsRequest.SortOrder;
+  /**
+   * If this filter is present, each of the logsets returned must contain the value of this filter.
+   *
+   */
+  "logSetNameContains"?: Array<string>;
 }
 
 export namespace ListLogSetsRequest {
