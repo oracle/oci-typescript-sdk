@@ -78,6 +78,11 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Specifies a prefix for the `Oracle SID` of the database to be created.
+   *
+   */
+  "sidPrefix"?: string;
 }
 
 export namespace CreateDatabaseDetails {

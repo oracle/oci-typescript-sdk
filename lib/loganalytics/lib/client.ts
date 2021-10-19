@@ -284,7 +284,8 @@ export class LogAnalyticsClient {
     let headerParams = {
       "opc-retry-token": appendLookupDataRequest.opcRetryToken,
       "opc-request-id": appendLookupDataRequest.opcRequestId,
-      "if-match": appendLookupDataRequest.ifMatch
+      "if-match": appendLookupDataRequest.ifMatch,
+      "expect": appendLookupDataRequest.expect
     };
 
     const retrier = GenericRetrier.createPreferredRetrier(
@@ -4478,6 +4479,81 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Lists the preferences of the tenant. Currently, only \"DEFAULT_HOMEPAGE\" is supported.
+   *
+   * @param GetPreferencesRequest
+   * @return GetPreferencesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetPreferences.ts.html |here} to see how to use GetPreferences API.
+   */
+  public async getPreferences(
+    getPreferencesRequest: requests.GetPreferencesRequest
+  ): Promise<responses.GetPreferencesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getPreferences.");
+    const pathParams = {
+      "{namespaceName}": getPreferencesRequest.namespaceName
+    };
+
+    const queryParams = {
+      "sortOrder": getPreferencesRequest.sortOrder,
+      "sortBy": getPreferencesRequest.sortBy,
+      "limit": getPreferencesRequest.limit,
+      "page": getPreferencesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPreferencesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getPreferencesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/preferences",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPreferencesResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsPreferenceCollection",
+        bodyModel: model.LogAnalyticsPreferenceCollection,
+        type: "model.LogAnalyticsPreferenceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns the intermediate results for a query that was specified to run asynchronously if the query has not completed,
    * otherwise the final query results identified by a queryWorkRequestId returned when submitting the query execute asynchronously.
    *
@@ -5023,6 +5099,67 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * This API retrieves details of the configured bucket that stores unprocessed payloads.
+   *
+   * @param GetUnprocessedDataBucketRequest
+   * @return GetUnprocessedDataBucketResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetUnprocessedDataBucket.ts.html |here} to see how to use GetUnprocessedDataBucket API.
+   */
+  public async getUnprocessedDataBucket(
+    getUnprocessedDataBucketRequest: requests.GetUnprocessedDataBucketRequest
+  ): Promise<responses.GetUnprocessedDataBucketResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#getUnprocessedDataBucket.");
+    const pathParams = {
+      "{namespaceName}": getUnprocessedDataBucketRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getUnprocessedDataBucketRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getUnprocessedDataBucketRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/unprocessedDataBucket",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetUnprocessedDataBucketResponse>{},
+        body: await response.json(),
+        bodyKey: "unprocessedDataBucket",
+        bodyModel: model.UnprocessedDataBucket,
+        type: "model.UnprocessedDataBucket",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets an On-Demand Upload info by reference.
    * @param GetUploadRequest
    * @return GetUploadResponse
@@ -5174,7 +5311,8 @@ export class LogAnalyticsClient {
 
     let headerParams = {
       "opc-retry-token": importCustomContentRequest.opcRetryToken,
-      "opc-request-id": importCustomContentRequest.opcRequestId
+      "opc-request-id": importCustomContentRequest.opcRequestId,
+      "expect": importCustomContentRequest.expect
     };
 
     const retrier = GenericRetrier.createPreferredRetrier(
@@ -9084,7 +9222,8 @@ export class LogAnalyticsClient {
 
     let headerParams = {
       "opc-retry-token": registerLookupRequest.opcRetryToken,
-      "opc-request-id": registerLookupRequest.opcRequestId
+      "opc-request-id": registerLookupRequest.opcRequestId,
+      "expect": registerLookupRequest.expect
     };
 
     const retrier = GenericRetrier.createPreferredRetrier(
@@ -9254,6 +9393,68 @@ export class LogAnalyticsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveEntityAssociationsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes the tenant preferences. Currently, only \"DEFAULT_HOMEPAGE\" is supported.
+   *
+   * @param RemovePreferencesRequest
+   * @return RemovePreferencesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RemovePreferences.ts.html |here} to see how to use RemovePreferences API.
+   */
+  public async removePreferences(
+    removePreferencesRequest: requests.RemovePreferencesRequest
+  ): Promise<responses.RemovePreferencesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#removePreferences.");
+    const pathParams = {
+      "{namespaceName}": removePreferencesRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": removePreferencesRequest.opcRetryToken,
+      "opc-request-id": removePreferencesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      removePreferencesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/preferences/actions/removePreferences",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removePreferencesRequest.removePreferencesDetails,
+        "LogAnalyticsPreferenceDetails",
+        model.LogAnalyticsPreferenceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemovePreferencesResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9446,6 +9647,72 @@ export class LogAnalyticsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.RunResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API configures a bucket to store unprocessed payloads.
+   * While processing there could be reasons a payload cannot be processed (mismatched structure, corrupted archive format, etc),
+   * if configured the payload would be uploaded to the bucket for verification.
+   *
+   * @param SetUnprocessedDataBucketRequest
+   * @return SetUnprocessedDataBucketResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/SetUnprocessedDataBucket.ts.html |here} to see how to use SetUnprocessedDataBucket API.
+   */
+  public async setUnprocessedDataBucket(
+    setUnprocessedDataBucketRequest: requests.SetUnprocessedDataBucketRequest
+  ): Promise<responses.SetUnprocessedDataBucketResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#setUnprocessedDataBucket.");
+    const pathParams = {
+      "{namespaceName}": setUnprocessedDataBucketRequest.namespaceName
+    };
+
+    const queryParams = {
+      "bucketName": setUnprocessedDataBucketRequest.bucketName,
+      "isEnabled": setUnprocessedDataBucketRequest.isEnabled
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": setUnprocessedDataBucketRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      setUnprocessedDataBucketRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/actions/setUnprocessedDataBucket",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SetUnprocessedDataBucketResponse>{},
+        body: await response.json(),
+        bodyKey: "unprocessedDataBucket",
+        bodyModel: model.UnprocessedDataBucket,
+        type: "model.UnprocessedDataBucket",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10176,7 +10443,8 @@ export class LogAnalyticsClient {
     let headerParams = {
       "opc-retry-token": updateLookupDataRequest.opcRetryToken,
       "opc-request-id": updateLookupDataRequest.opcRequestId,
-      "if-match": updateLookupDataRequest.ifMatch
+      "if-match": updateLookupDataRequest.ifMatch,
+      "expect": updateLookupDataRequest.expect
     };
 
     const retrier = GenericRetrier.createPreferredRetrier(
@@ -10205,6 +10473,68 @@ export class LogAnalyticsClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the tenant preferences. Currently, only \"DEFAULT_HOMEPAGE\" is supported.
+   *
+   * @param UpdatePreferencesRequest
+   * @return UpdatePreferencesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdatePreferences.ts.html |here} to see how to use UpdatePreferences API.
+   */
+  public async updatePreferences(
+    updatePreferencesRequest: requests.UpdatePreferencesRequest
+  ): Promise<responses.UpdatePreferencesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#updatePreferences.");
+    const pathParams = {
+      "{namespaceName}": updatePreferencesRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": updatePreferencesRequest.opcRetryToken,
+      "opc-request-id": updatePreferencesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      updatePreferencesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/preferences/actions/updatePreferences",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePreferencesRequest.updatePreferencesDetails,
+        "LogAnalyticsPreferenceDetails",
+        model.LogAnalyticsPreferenceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePreferencesResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -10386,7 +10716,8 @@ export class LogAnalyticsClient {
     let headerParams = {
       "opc-request-id": uploadLogEventsFileRequest.opcRequestId,
       "content-type": uploadLogEventsFileRequest.contentType,
-      "opc-retry-token": uploadLogEventsFileRequest.opcRetryToken
+      "opc-retry-token": uploadLogEventsFileRequest.opcRetryToken,
+      "expect": uploadLogEventsFileRequest.expect
     };
 
     const retrier = GenericRetrier.createPreferredRetrier(
@@ -10468,7 +10799,8 @@ export class LogAnalyticsClient {
       "content-md5": uploadLogFileRequest.contentMd5,
       "content-type": uploadLogFileRequest.contentType,
       "opc-meta-loggrpid": uploadLogFileRequest.opcMetaLoggrpid,
-      "opc-retry-token": uploadLogFileRequest.opcRetryToken
+      "opc-retry-token": uploadLogFileRequest.opcRetryToken,
+      "expect": uploadLogFileRequest.expect
     };
 
     const retrier = GenericRetrier.createPreferredRetrier(

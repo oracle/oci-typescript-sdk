@@ -129,6 +129,11 @@ export namespace AbstractCommandDescriptor {
             <model.FieldSummaryCommandDescriptor>(<object>jsonObj),
             true
           );
+        case "GEO_STATS":
+          return model.GeoStatsCommandDescriptor.getJsonObj(
+            <model.GeoStatsCommandDescriptor>(<object>jsonObj),
+            true
+          );
         case "MAP":
           return model.MapCommandDescriptor.getJsonObj(
             <model.MapCommandDescriptor>(<object>jsonObj),
@@ -362,6 +367,11 @@ export namespace AbstractCommandDescriptor {
         case "FIELD_SUMMARY":
           return model.FieldSummaryCommandDescriptor.getDeserializedJsonObj(
             <model.FieldSummaryCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "GEO_STATS":
+          return model.GeoStatsCommandDescriptor.getDeserializedJsonObj(
+            <model.GeoStatsCommandDescriptor>(<object>jsonObj),
             true
           );
         case "MAP":

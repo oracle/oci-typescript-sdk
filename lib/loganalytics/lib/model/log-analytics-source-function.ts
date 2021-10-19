@@ -42,6 +42,10 @@ export interface LogAnalyticsSourceFunction {
    */
   "sourceReference"?: string;
   /**
+   * Features of the source function to use for enrichment.
+   */
+  "features"?: Array<string>;
+  /**
    * The source function unique identifier. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "functionId"?: number;

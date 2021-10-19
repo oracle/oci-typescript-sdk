@@ -290,6 +290,84 @@ export class DatabaseClient {
   }
 
   /**
+   * Add Virtual Machines to the VM cluster. Applies to Exadata Cloud@Customer instances only.
+   *
+   * @param AddVirtualMachineToVmClusterRequest
+   * @return AddVirtualMachineToVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddVirtualMachineToVmCluster.ts.html |here} to see how to use AddVirtualMachineToVmCluster API.
+   */
+  public async addVirtualMachineToVmCluster(
+    addVirtualMachineToVmClusterRequest: requests.AddVirtualMachineToVmClusterRequest
+  ): Promise<responses.AddVirtualMachineToVmClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#addVirtualMachineToVmCluster.");
+    const pathParams = {
+      "{vmClusterId}": addVirtualMachineToVmClusterRequest.vmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addVirtualMachineToVmClusterRequest.opcRetryToken,
+      "opc-request-id": addVirtualMachineToVmClusterRequest.opcRequestId,
+      "if-match": addVirtualMachineToVmClusterRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      addVirtualMachineToVmClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vmClusters/{vmClusterId}/actions/addVirtualMachine",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addVirtualMachineToVmClusterRequest.addVirtualMachineToVmClusterDetails,
+        "AddVirtualMachineToVmClusterDetails",
+        model.AddVirtualMachineToVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddVirtualMachineToVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "vmCluster",
+        bodyModel: model.VmCluster,
+        type: "model.VmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Initiates a data refresh for an Autonomous Database refreshable clone. Data is refreshed from the source database to the point of a specified timestamp.
    *
    * @param AutonomousDatabaseManualRefreshRequest
@@ -1702,6 +1780,82 @@ export class DatabaseClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Converts a non-container database to a pluggable database.
+   *
+   * @param ConvertToPdbRequest
+   * @return ConvertToPdbResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConvertToPdb.ts.html |here} to see how to use ConvertToPdb API.
+   */
+  public async convertToPdb(
+    convertToPdbRequest: requests.ConvertToPdbRequest
+  ): Promise<responses.ConvertToPdbResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#convertToPdb.");
+    const pathParams = {
+      "{databaseId}": convertToPdbRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": convertToPdbRequest.ifMatch,
+      "opc-request-id": convertToPdbRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      convertToPdbRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/convertToPdb",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        convertToPdbRequest.convertToPdbDetails,
+        "ConvertToPdbDetails",
+        model.ConvertToPdbDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConvertToPdbResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -8123,6 +8277,73 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * Gets information about the Exadata Db server.
+   *
+   * @param GetDbServerRequest
+   * @return GetDbServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbServer.ts.html |here} to see how to use GetDbServer API.
+   */
+  public async getDbServer(
+    getDbServerRequest: requests.GetDbServerRequest
+  ): Promise<responses.GetDbServerResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbServer.");
+    const pathParams = {
+      "{dbServerId}": getDbServerRequest.dbServerId
+    };
+
+    const queryParams = {
+      "exadataInfrastructureId": getDbServerRequest.exadataInfrastructureId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDbServerRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getDbServerRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbServers/{dbServerId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDbServerResponse>{},
+        body: await response.json(),
+        bodyKey: "dbServer",
+        bodyModel: model.DbServer,
+        type: "model.DbServer",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Gets information about the specified DB system.
 * <p>
 **Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
@@ -8959,6 +9180,69 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of operations performed to convert the specified database from non-container (non-CDB) to pluggable (PDB).
+   *
+   * @param GetPdbConversionHistoryEntryRequest
+   * @return GetPdbConversionHistoryEntryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetPdbConversionHistoryEntry.ts.html |here} to see how to use GetPdbConversionHistoryEntry API.
+   */
+  public async getPdbConversionHistoryEntry(
+    getPdbConversionHistoryEntryRequest: requests.GetPdbConversionHistoryEntryRequest
+  ): Promise<responses.GetPdbConversionHistoryEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getPdbConversionHistoryEntry.");
+    const pathParams = {
+      "{databaseId}": getPdbConversionHistoryEntryRequest.databaseId,
+      "{pdbConversionHistoryEntryId}":
+        getPdbConversionHistoryEntryRequest.pdbConversionHistoryEntryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPdbConversionHistoryEntryRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      getPdbConversionHistoryEntryRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/pdbConversionHistoryEntries/{pdbConversionHistoryEntryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPdbConversionHistoryEntryResponse>{},
+        body: await response.json(),
+        bodyKey: "pdbConversionHistoryEntry",
+        bodyModel: model.PdbConversionHistoryEntry,
+        type: "model.PdbConversionHistoryEntry",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -12765,7 +13049,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "page": listDbNodesRequest.page,
       "sortBy": listDbNodesRequest.sortBy,
       "sortOrder": listDbNodesRequest.sortOrder,
-      "lifecycleState": listDbNodesRequest.lifecycleState
+      "lifecycleState": listDbNodesRequest.lifecycleState,
+      "dbServerId": listDbNodesRequest.dbServerId
     };
 
     let headerParams = {
@@ -12864,6 +13149,130 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     request: requests.ListDbNodesRequest
   ): AsyncIterableIterator<responses.ListDbNodesResponse> {
     return paginateResponses(request, req => this.listDbNodes(req));
+  }
+
+  /**
+   * Lists the Exadata DB servers in the ExadataInfrastructureId and specified compartment.
+   *
+   * @param ListDbServersRequest
+   * @return ListDbServersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbServers.ts.html |here} to see how to use ListDbServers API.
+   */
+  public async listDbServers(
+    listDbServersRequest: requests.ListDbServersRequest
+  ): Promise<responses.ListDbServersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbServers.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDbServersRequest.compartmentId,
+      "exadataInfrastructureId": listDbServersRequest.exadataInfrastructureId,
+      "limit": listDbServersRequest.limit,
+      "page": listDbServersRequest.page,
+      "sortOrder": listDbServersRequest.sortOrder,
+      "sortBy": listDbServersRequest.sortBy,
+      "lifecycleState": listDbServersRequest.lifecycleState,
+      "displayName": listDbServersRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDbServersRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listDbServersRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbServers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDbServersResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.DbServerSummary,
+        type: "Array<model.DbServerSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDbServersRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.DbServerSummary objects
+   * contained in responses from the listDbServers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDbServers(
+    request: requests.ListDbServersRequest
+  ): AsyncIterableIterator<model.DbServerSummary> {
+    return paginateRecords(request, req => this.listDbServers(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDbServersResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listDbServers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDbServersResponses(
+    request: requests.ListDbServersRequest
+  ): AsyncIterableIterator<responses.ListDbServersResponse> {
+    return paginateResponses(request, req => this.listDbServers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DbServerSummary objects
+   * contained in responses from the listDbServers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbServersRecordIterator(
+    request: requests.ListDbServersRequest
+  ): AsyncIterableIterator<model.DbServerSummary> {
+    return paginateRecords(request, req => this.listDbServers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbServers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbServersResponseIterator(
+    request: requests.ListDbServersRequest
+  ): AsyncIterableIterator<responses.ListDbServersResponse> {
+    return paginateResponses(request, req => this.listDbServers(req));
   }
 
   /**
@@ -14530,6 +14939,131 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Gets the pluggable database conversion history for a specified database in a bare metal or virtual machine DB system.
+   *
+   * @param ListPdbConversionHistoryEntriesRequest
+   * @return ListPdbConversionHistoryEntriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListPdbConversionHistoryEntries.ts.html |here} to see how to use ListPdbConversionHistoryEntries API.
+   */
+  public async listPdbConversionHistoryEntries(
+    listPdbConversionHistoryEntriesRequest: requests.ListPdbConversionHistoryEntriesRequest
+  ): Promise<responses.ListPdbConversionHistoryEntriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listPdbConversionHistoryEntries.");
+    const pathParams = {
+      "{databaseId}": listPdbConversionHistoryEntriesRequest.databaseId
+    };
+
+    const queryParams = {
+      "pdbConversionAction": listPdbConversionHistoryEntriesRequest.pdbConversionAction,
+      "lifecycleState": listPdbConversionHistoryEntriesRequest.lifecycleState,
+      "sortBy": listPdbConversionHistoryEntriesRequest.sortBy,
+      "sortOrder": listPdbConversionHistoryEntriesRequest.sortOrder,
+      "limit": listPdbConversionHistoryEntriesRequest.limit,
+      "page": listPdbConversionHistoryEntriesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPdbConversionHistoryEntriesRequest.opcRequestId
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      listPdbConversionHistoryEntriesRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/pdbConversionHistoryEntries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPdbConversionHistoryEntriesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.PdbConversionHistoryEntrySummary,
+        type: "Array<model.PdbConversionHistoryEntrySummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPdbConversionHistoryEntriesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.PdbConversionHistoryEntrySummary objects
+   * contained in responses from the listPdbConversionHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPdbConversionHistoryEntries(
+    request: requests.ListPdbConversionHistoryEntriesRequest
+  ): AsyncIterableIterator<model.PdbConversionHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listPdbConversionHistoryEntries(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPdbConversionHistoryEntriesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listPdbConversionHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPdbConversionHistoryEntriesResponses(
+    request: requests.ListPdbConversionHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListPdbConversionHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listPdbConversionHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PdbConversionHistoryEntrySummary objects
+   * contained in responses from the listPdbConversionHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPdbConversionHistoryEntriesRecordIterator(
+    request: requests.ListPdbConversionHistoryEntriesRequest
+  ): AsyncIterableIterator<model.PdbConversionHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listPdbConversionHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPdbConversionHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPdbConversionHistoryEntriesResponseIterator(
+    request: requests.ListPdbConversionHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListPdbConversionHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listPdbConversionHistoryEntries(req));
+  }
+
+  /**
    * Gets a list of the pluggable databases in a database or compartment. You must provide either a `databaseId` or `compartmentId` value.
    *
    * @param ListPluggableDatabasesRequest
@@ -15968,6 +16502,84 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         bodyKey: "pluggableDatabase",
         bodyModel: model.PluggableDatabase,
         type: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove Virtual Machines from the VM cluster. Applies to Exadata Cloud@Customer instances only.
+   *
+   * @param RemoveVirtualMachineFromVmClusterRequest
+   * @return RemoveVirtualMachineFromVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoveVirtualMachineFromVmCluster.ts.html |here} to see how to use RemoveVirtualMachineFromVmCluster API.
+   */
+  public async removeVirtualMachineFromVmCluster(
+    removeVirtualMachineFromVmClusterRequest: requests.RemoveVirtualMachineFromVmClusterRequest
+  ): Promise<responses.RemoveVirtualMachineFromVmClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#removeVirtualMachineFromVmCluster.");
+    const pathParams = {
+      "{vmClusterId}": removeVirtualMachineFromVmClusterRequest.vmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": removeVirtualMachineFromVmClusterRequest.opcRetryToken,
+      "opc-request-id": removeVirtualMachineFromVmClusterRequest.opcRequestId,
+      "if-match": removeVirtualMachineFromVmClusterRequest.ifMatch
+    };
+
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
+      removeVirtualMachineFromVmClusterRequest.retryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vmClusters/{vmClusterId}/actions/removeVirtualMachine",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeVirtualMachineFromVmClusterRequest.removeVirtualMachineFromVmClusterDetails,
+        "RemoveVirtualMachineFromVmClusterDetails",
+        model.RemoveVirtualMachineFromVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveVirtualMachineFromVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "vmCluster",
+        bodyModel: model.VmCluster,
+        type: "model.VmCluster",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

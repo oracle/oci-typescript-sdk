@@ -27,6 +27,10 @@ export interface ExtractLogHeaderResults {
    * The log field or log header values.
    */
   "xmlPaths"?: Array<string>;
+  /**
+   * The log header values.
+   */
+  "headerPaths"?: Array<string>;
 }
 
 export namespace ExtractLogHeaderResults {

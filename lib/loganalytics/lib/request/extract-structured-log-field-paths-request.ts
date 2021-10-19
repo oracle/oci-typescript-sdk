@@ -49,6 +49,7 @@ export interface ExtractStructuredLogFieldPathsRequest extends common.BaseReques
 export namespace ExtractStructuredLogFieldPathsRequest {
   export enum ParserType {
     Xml = "XML",
-    Json = "JSON"
+    Json = "JSON",
+    Delimited = "DELIMITED"
   }
 }

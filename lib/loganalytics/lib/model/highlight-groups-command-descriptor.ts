@@ -31,6 +31,11 @@ export interface HighlightGroupsCommandDescriptor extends model.AbstractCommandD
    */
   "priority"?: string;
   /**
+   * List of fields to search for terms or phrases to highlight.  If not specified all string fields are scanned.
+   *
+   */
+  "matchOnly"?: Array<string>;
+  /**
    * List of fields to search for terms or phrases to highlight.
    *
    */

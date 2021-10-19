@@ -108,7 +108,16 @@ Example: `{\"Department\": \"Finance\"}`
    * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
    */
   "databaseSoftwareImageId"?: string;
+  /**
+   * True if the database is a container database.
+   */
+  "isCdb"?: boolean;
   "databaseManagementConfig"?: model.CloudDatabaseManagementConfig;
+  /**
+   * Specifies a prefix for the `Oracle SID` of the database to be created.
+   *
+   */
+  "sidPrefix"?: string;
 }
 
 export namespace Database {
@@ -118,6 +127,7 @@ export namespace Database {
     Updating = "UPDATING",
     BackupInProgress = "BACKUP_IN_PROGRESS",
     Upgrading = "UPGRADING",
+    Converting = "CONVERTING",
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
     RestoreFailed = "RESTORE_FAILED",
