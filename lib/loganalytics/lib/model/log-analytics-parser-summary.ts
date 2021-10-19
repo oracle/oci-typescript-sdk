@@ -148,6 +148,11 @@ export interface LogAnalyticsParserSummary {
    *
    */
   "isUserDeleted"?: boolean;
+  /**
+   * A flag indicating whether the XML parser should consider the namespace(s) while processing the log data.
+   *
+   */
+  "isNamespaceAware"?: boolean;
 }
 
 export namespace LogAnalyticsParserSummary {

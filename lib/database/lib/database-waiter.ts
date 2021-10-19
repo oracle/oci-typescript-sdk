@@ -79,6 +79,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forAddVirtualMachineToVmCluster
+   *
+   * @param request the request to send
+   * @return response returns AddVirtualMachineToVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forAddVirtualMachineToVmCluster(
+    request: serviceRequests.AddVirtualMachineToVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.AddVirtualMachineToVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const addVirtualMachineToVmClusterResponse = await this.client.addVirtualMachineToVmCluster(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      addVirtualMachineToVmClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: addVirtualMachineToVmClusterResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forAutonomousDatabaseManualRefresh
    *
    * @param request the request to send
@@ -564,6 +590,27 @@ export class DatabaseWaiter {
       response: configureAutonomousDatabaseVaultKeyResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forConvertToPdb
+   *
+   * @param request the request to send
+   * @return response returns ConvertToPdbResponse, GetWorkRequestResponse tuple
+   */
+  public async forConvertToPdb(
+    request: serviceRequests.ConvertToPdbRequest
+  ): Promise<{
+    response: serviceResponses.ConvertToPdbResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const convertToPdbResponse = await this.client.convertToPdb(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      convertToPdbResponse.opcWorkRequestId
+    );
+    return { response: convertToPdbResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**
@@ -2303,6 +2350,25 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDbServer till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDbServerResponse | null (null in case of 404 response)
+   */
+  public async forDbServer(
+    request: serviceRequests.GetDbServerRequest,
+    ...targetStates: models.DbServer.LifecycleState[]
+  ): Promise<serviceResponses.GetDbServerResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDbServer(request),
+      response => targetStates.includes(response.dbServer.lifecycleState!),
+      targetStates.includes(models.DbServer.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDbSystem till it reaches any of the provided states
    *
    * @param request the request to send
@@ -2469,6 +2535,24 @@ export class DatabaseWaiter {
       () => this.client.getMaintenanceRun(request),
       response => targetStates.includes(response.maintenanceRun.lifecycleState!),
       targetStates.includes(models.MaintenanceRun.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forPdbConversionHistoryEntry till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPdbConversionHistoryEntryResponse
+   */
+  public async forPdbConversionHistoryEntry(
+    request: serviceRequests.GetPdbConversionHistoryEntryRequest,
+    ...targetStates: models.PdbConversionHistoryEntry.LifecycleState[]
+  ): Promise<serviceResponses.GetPdbConversionHistoryEntryResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getPdbConversionHistoryEntry(request),
+      response => targetStates.includes(response.pdbConversionHistoryEntry.lifecycleState!)
     );
   }
 
@@ -2809,6 +2893,32 @@ export class DatabaseWaiter {
     );
     return {
       response: remoteClonePluggableDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRemoveVirtualMachineFromVmCluster
+   *
+   * @param request the request to send
+   * @return response returns RemoveVirtualMachineFromVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forRemoveVirtualMachineFromVmCluster(
+    request: serviceRequests.RemoveVirtualMachineFromVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.RemoveVirtualMachineFromVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const removeVirtualMachineFromVmClusterResponse = await this.client.removeVirtualMachineFromVmCluster(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      removeVirtualMachineFromVmClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: removeVirtualMachineFromVmClusterResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

@@ -97,6 +97,22 @@ export interface DbNode {
    * Additional information about the planned maintenance.
    */
   "additionalDetails"?: string;
+  /**
+   * The number of CPU cores enabled on the Db node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cpuCoreCount"?: number;
+  /**
+   * The allocated memory in GBs on the Db node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memorySizeInGBs"?: number;
+  /**
+   * The allocated local node storage in GBs on the Db node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dbNodeStorageSizeInGBs"?: number;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exacc Db server associated with the database node.
+   */
+  "dbServerId"?: string;
 }
 
 export namespace DbNode {

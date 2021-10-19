@@ -121,6 +121,11 @@ export interface UpsertLogAnalyticsParserDetails {
    * The parser type.  Default value is REGEX.
    */
   "type"?: UpsertLogAnalyticsParserDetails.Type;
+  /**
+   * A flag indicating whether the XML parser should consider the namespace(s) while processing the log data.
+   *
+   */
+  "isNamespaceAware"?: boolean;
 }
 
 export namespace UpsertLogAnalyticsParserDetails {

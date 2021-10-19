@@ -36,6 +36,11 @@ export interface CreateDatabaseFromBackupDetails {
    * The display name of the database to be created from the backup. It must begin with an alphabetic character and can contain a maximum of eight alphanumeric characters. Special characters are not permitted.
    */
   "dbName"?: string;
+  /**
+   * Specifies a prefix for the `Oracle SID` of the database to be created.
+   *
+   */
+  "sidPrefix"?: string;
 }
 
 export namespace CreateDatabaseFromBackupDetails {

@@ -67,6 +67,16 @@ For more information, see
 * 
     */
   "transportType": CreateDataGuardAssociationDetails.TransportType;
+  /**
+   * Specifies the `DB_UNIQUE_NAME` of the peer database to be created.
+   *
+   */
+  "peerDbUniqueName"?: string;
+  /**
+   * Specifies a prefix for the `Oracle SID` of the database to be created.
+   *
+   */
+  "peerSidPrefix"?: string;
 
   "creationType": string;
 }

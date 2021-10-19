@@ -26,6 +26,10 @@ export interface CreateDbHomeFromBackupDetails {
    * The user-provided name of the Database Home.
    */
   "displayName"?: string;
+  /**
+   * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the image to be used to restore a database.
+   */
+  "databaseSoftwareImageId"?: string;
   "database": model.CreateDatabaseFromBackupDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.

@@ -50,6 +50,10 @@ export interface ListDbNodesRequest extends common.BaseRequest {
    * A filter to return only resources that match the given lifecycle state exactly.
    */
   "lifecycleState"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exacc Db server.
+   */
+  "dbServerId"?: string;
 }
 
 export namespace ListDbNodesRequest {
