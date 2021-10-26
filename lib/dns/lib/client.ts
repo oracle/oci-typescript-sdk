@@ -31,7 +31,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum DnsApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DnsClient {
   protected static serviceEndpointTemplate = "https://dns.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -51,6 +53,15 @@ export class DnsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -141,6 +152,7 @@ export class DnsClient {
    * Moves a resolver into a different compartment along with its protected default view and any endpoints.
    * Zones in the default view are not moved. Requires a `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeResolverCompartmentRequest
    * @return ChangeResolverCompartmentResponse
    * @throws OciError when an error occurs
@@ -165,9 +177,11 @@ export class DnsClient {
       "opc-request-id": changeResolverCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeResolverCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeResolverCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -211,6 +225,7 @@ export class DnsClient {
   /**
    * Moves a steering policy into a different compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeSteeringPolicyCompartmentRequest
    * @return ChangeSteeringPolicyCompartmentResponse
    * @throws OciError when an error occurs
@@ -236,9 +251,11 @@ export class DnsClient {
       "opc-request-id": changeSteeringPolicyCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeSteeringPolicyCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSteeringPolicyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -277,6 +294,7 @@ export class DnsClient {
   /**
    * Moves a TSIG key into a different compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeTsigKeyCompartmentRequest
    * @return ChangeTsigKeyCompartmentResponse
    * @throws OciError when an error occurs
@@ -301,9 +319,11 @@ export class DnsClient {
       "opc-request-id": changeTsigKeyCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeTsigKeyCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeTsigKeyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -343,6 +363,7 @@ export class DnsClient {
    * Moves a view into a different compartment. Protected views cannot have their compartment changed. Requires a
    * `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeViewCompartmentRequest
    * @return ChangeViewCompartmentResponse
    * @throws OciError when an error occurs
@@ -367,9 +388,11 @@ export class DnsClient {
       "opc-request-id": changeViewCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeViewCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeViewCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -417,6 +440,7 @@ export class DnsClient {
    * <p>
    **Note:** All SteeringPolicyAttachment objects associated with this zone will also be moved into the provided compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeZoneCompartmentRequest
    * @return ChangeZoneCompartmentResponse
    * @throws OciError when an error occurs
@@ -441,9 +465,11 @@ export class DnsClient {
       "opc-request-id": changeZoneCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeZoneCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeZoneCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -487,6 +513,7 @@ export class DnsClient {
   /**
    * Creates a new resolver endpoint. Requires a `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateResolverEndpointRequest
    * @return CreateResolverEndpointResponse
    * @throws OciError when an error occurs
@@ -510,9 +537,11 @@ export class DnsClient {
       "opc-request-id": createResolverEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createResolverEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createResolverEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -571,6 +600,7 @@ export class DnsClient {
    * Creates a new steering policy in the specified compartment. For more information on
    * creating policies with templates, see [Traffic Management API Guide](https://docs.cloud.oracle.com/iaas/Content/TrafficManagement/Concepts/trafficmanagementapi.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateSteeringPolicyRequest
    * @return CreateSteeringPolicyResponse
    * @throws OciError when an error occurs
@@ -592,9 +622,11 @@ export class DnsClient {
       "opc-request-id": createSteeringPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSteeringPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSteeringPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -652,6 +684,7 @@ export class DnsClient {
 For the purposes of access control, the attachment is automatically placed
 * into the same compartment as the domain's zone.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateSteeringPolicyAttachmentRequest
      * @return CreateSteeringPolicyAttachmentResponse
      * @throws OciError when an error occurs
@@ -674,9 +707,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": createSteeringPolicyAttachmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSteeringPolicyAttachmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSteeringPolicyAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -730,6 +765,7 @@ For the purposes of access control, the attachment is automatically placed
    * Creates a new TSIG key in the specified compartment. There is no
    * `opc-retry-token` header since TSIG key names must be globally unique.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTsigKeyRequest
    * @return CreateTsigKeyResponse
    * @throws OciError when an error occurs
@@ -750,9 +786,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": createTsigKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTsigKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTsigKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -810,6 +848,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Creates a new view in the specified compartment. Requires a `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateViewRequest
    * @return CreateViewResponse
    * @throws OciError when an error occurs
@@ -831,9 +870,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": createViewRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createViewRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createViewRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -895,6 +936,7 @@ For the purposes of access control, the attachment is automatically placed
    * private zone. Private zones must have a zone type of `PRIMARY`. Creating a private zone at or under
    * `oraclevcn.com` within the default protected view of a VCN-dedicated resolver is not permitted.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateZoneRequest
    * @return CreateZoneResponse
    * @throws OciError when an error occurs
@@ -917,9 +959,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": createZoneRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createZoneRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createZoneRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -979,6 +1023,7 @@ For the purposes of access control, the attachment is automatically placed
    * required with a value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used
    * for the scope query parameter then the viewId query parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDomainRecordsRequest
    * @return DeleteDomainRecordsResponse
    * @throws OciError when an error occurs
@@ -1006,9 +1051,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteDomainRecordsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDomainRecordsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDomainRecordsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1044,6 +1091,7 @@ For the purposes of access control, the attachment is automatically placed
    * value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used for the scope
    * query parameter then the viewId query parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRRSetRequest
    * @return DeleteRRSetResponse
    * @throws OciError when an error occurs
@@ -1072,9 +1120,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteRRSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteRRSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRRSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1111,6 +1161,7 @@ For the purposes of access control, the attachment is automatically placed
    * Resolver endpoints may not be deleted if they are referenced by a resolver rule. Requires a `PRIVATE` scope
    * query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteResolverEndpointRequest
    * @return DeleteResolverEndpointResponse
    * @throws OciError when an error occurs
@@ -1136,9 +1187,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteResolverEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteResolverEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteResolverEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1180,6 +1233,7 @@ For the purposes of access control, the attachment is automatically placed
    * Deletion will fail if the policy is attached to any zones. To detach a
    * policy from a zone, see `DeleteSteeringPolicyAttachment`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSteeringPolicyRequest
    * @return DeleteSteeringPolicyResponse
    * @throws OciError when an error occurs
@@ -1204,9 +1258,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteSteeringPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSteeringPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSteeringPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1241,6 +1297,7 @@ For the purposes of access control, the attachment is automatically placed
    * Deletes the specified steering policy attachment.
    * A `204` response indicates that the delete has been successful.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSteeringPolicyAttachmentRequest
    * @return DeleteSteeringPolicyAttachmentResponse
    * @throws OciError when an error occurs
@@ -1267,9 +1324,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteSteeringPolicyAttachmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSteeringPolicyAttachmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSteeringPolicyAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1303,6 +1362,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Deletes the specified TSIG key.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTsigKeyRequest
    * @return DeleteTsigKeyResponse
    * @throws OciError when an error occurs
@@ -1327,9 +1387,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteTsigKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTsigKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTsigKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1372,6 +1434,7 @@ For the purposes of access control, the attachment is automatically placed
    * deleted if they are referenced by non-deleted zones or resolvers.
    * Protected views cannot be deleted. Requires a `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteViewRequest
    * @return DeleteViewResponse
    * @throws OciError when an error occurs
@@ -1396,9 +1459,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteViewRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteViewRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteViewRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1440,6 +1505,7 @@ For the purposes of access control, the attachment is automatically placed
    * required with a value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used
    * for the scope query parameter then the viewId query parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteZoneRequest
    * @return DeleteZoneResponse
    * @throws OciError when an error occurs
@@ -1466,9 +1532,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteZoneRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteZoneRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteZoneRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1511,6 +1579,7 @@ For the purposes of access control, the attachment is automatically placed
    * provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query
    * parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDomainRecordsRequest
    * @return GetDomainRecordsResponse
    * @throws OciError when an error occurs
@@ -1544,9 +1613,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getDomainRecordsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDomainRecordsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDomainRecordsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1676,6 +1747,7 @@ For the purposes of access control, the attachment is automatically placed
    * provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query
    * parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRRSetRequest
    * @return GetRRSetResponse
    * @throws OciError when an error occurs
@@ -1707,9 +1779,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getRRSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRRSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRRSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1836,6 +1910,7 @@ For the purposes of access control, the attachment is automatically placed
    * resolver in the DELETED lifecycleState will result in a `404` response to be
    * consistent with other operations of the API. Requires a `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetResolverRequest
    * @return GetResolverResponse
    * @throws OciError when an error occurs
@@ -1860,9 +1935,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getResolverRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getResolverRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getResolverRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1907,6 +1984,7 @@ For the purposes of access control, the attachment is automatically placed
    * in the DELETED lifecycle state will result in a `404` response to be consistent with other operations of the
    * API. Requires a `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetResolverEndpointRequest
    * @return GetResolverEndpointResponse
    * @throws OciError when an error occurs
@@ -1932,9 +2010,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getResolverEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getResolverEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getResolverEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1977,6 +2057,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Gets information about the specified steering policy.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSteeringPolicyRequest
    * @return GetSteeringPolicyResponse
    * @throws OciError when an error occurs
@@ -2001,9 +2082,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getSteeringPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSteeringPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSteeringPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2046,6 +2129,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Gets information about the specified steering policy attachment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSteeringPolicyAttachmentRequest
    * @return GetSteeringPolicyAttachmentResponse
    * @throws OciError when an error occurs
@@ -2070,9 +2154,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getSteeringPolicyAttachmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSteeringPolicyAttachmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSteeringPolicyAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2115,6 +2201,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Gets information about the specified TSIG key.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTsigKeyRequest
    * @return GetTsigKeyResponse
    * @throws OciError when an error occurs
@@ -2139,9 +2226,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getTsigKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTsigKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTsigKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2186,6 +2275,7 @@ For the purposes of access control, the attachment is automatically placed
    * view in the DELETED lifecycleState will result in a `404` response to be
    * consistent with other operations of the API. Requires a `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetViewRequest
    * @return GetViewResponse
    * @throws OciError when an error occurs
@@ -2210,9 +2300,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getViewRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getViewRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getViewRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2257,6 +2349,7 @@ For the purposes of access control, the attachment is automatically placed
    * zones, the scope query parameter is required with a value of `PRIVATE`. When the zone name is provided as a
    * path parameter and `PRIVATE` is used for the scope query parameter then the viewId query parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetZoneRequest
    * @return GetZoneResponse
    * @throws OciError when an error occurs
@@ -2283,9 +2376,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getZoneRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getZoneRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getZoneRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2328,6 +2423,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Gets the requested zone's zone file.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetZoneContentRequest
    * @return GetZoneContentResponse
    * @throws OciError when an error occurs
@@ -2353,9 +2449,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getZoneContentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getZoneContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getZoneContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2402,6 +2500,7 @@ For the purposes of access control, the attachment is automatically placed
    * provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query
    * parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetZoneRecordsRequest
    * @return GetZoneRecordsResponse
    * @throws OciError when an error occurs
@@ -2436,9 +2535,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getZoneRecordsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getZoneRecordsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getZoneRecordsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2568,6 +2669,7 @@ For the purposes of access control, the attachment is automatically placed
    * query parameter is provided, the collection does not include resolver endpoints in the DELETED
    * lifecycle state to be consistent with other operations of the API. Requires a `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResolverEndpointsRequest
    * @return ListResolverEndpointsResponse
    * @throws OciError when an error occurs
@@ -2596,9 +2698,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listResolverEndpointsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listResolverEndpointsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResolverEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2698,6 +2802,7 @@ For the purposes of access control, the attachment is automatically placed
    * does not include resolvers in the DELETED lifecycleState to be consistent
    * with other operations of the API. Requires a `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResolversRequest
    * @return ListResolversResponse
    * @throws OciError when an error occurs
@@ -2726,9 +2831,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listResolversRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listResolversRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResolversRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2823,6 +2930,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Gets a list of all steering policies in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSteeringPoliciesRequest
    * @return ListSteeringPoliciesResponse
    * @throws OciError when an error occurs
@@ -2857,9 +2965,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listSteeringPoliciesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSteeringPoliciesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSteeringPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2959,6 +3069,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Lists the steering policy attachments in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSteeringPolicyAttachmentsRequest
    * @return ListSteeringPolicyAttachmentsResponse
    * @throws OciError when an error occurs
@@ -2995,9 +3106,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listSteeringPolicyAttachmentsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSteeringPolicyAttachmentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSteeringPolicyAttachmentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3097,6 +3210,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Gets a list of all TSIG keys in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTsigKeysRequest
    * @return ListTsigKeysResponse
    * @throws OciError when an error occurs
@@ -3125,9 +3239,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listTsigKeysRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTsigKeysRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTsigKeysRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3227,6 +3343,7 @@ For the purposes of access control, the attachment is automatically placed
    * does not include views in the DELETED lifecycleState to be consistent
    * with other operations of the API. Requires a `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListViewsRequest
    * @return ListViewsResponse
    * @throws OciError when an error occurs
@@ -3255,9 +3372,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listViewsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listViewsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listViewsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3354,6 +3473,7 @@ For the purposes of access control, the attachment is automatically placed
    * compartment (which must be the root compartment of a tenancy) that transfer zone data with external master or
    * downstream nameservers.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListZoneTransferServersRequest
    * @return ListZoneTransferServersResponse
    * @throws OciError when an error occurs
@@ -3376,9 +3496,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listZoneTransferServersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listZoneTransferServersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listZoneTransferServersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3474,6 +3596,7 @@ For the purposes of access control, the attachment is automatically placed
    * Gets a list of all zones in the specified compartment. The collection can be filtered by name, time created,
    * scope, associated view, and zone type. Filtering by view is only supported for private zones.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListZonesRequest
    * @return ListZonesResponse
    * @throws OciError when an error occurs
@@ -3507,9 +3630,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listZonesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listZonesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listZonesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3613,6 +3738,7 @@ For the purposes of access control, the attachment is automatically placed
    * name is provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId
    * query parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PatchDomainRecordsRequest
    * @return PatchDomainRecordsResponse
    * @throws OciError when an error occurs
@@ -3640,9 +3766,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": patchDomainRecordsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      patchDomainRecordsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchDomainRecordsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3702,6 +3830,7 @@ For the purposes of access control, the attachment is automatically placed
    * of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used for the scope query
    * parameter then the viewId query parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PatchRRSetRequest
    * @return PatchRRSetResponse
    * @throws OciError when an error occurs
@@ -3730,9 +3859,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": patchRRSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      patchRRSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchRRSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3794,6 +3925,7 @@ For the purposes of access control, the attachment is automatically placed
    * the zone name is provided as a path parameter and `PRIVATE` is used for the scope query parameter then the
    * viewId query parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PatchZoneRecordsRequest
    * @return PatchZoneRecordsResponse
    * @throws OciError when an error occurs
@@ -3820,9 +3952,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": patchZoneRecordsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      patchZoneRecordsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchZoneRecordsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3885,6 +4019,7 @@ For the purposes of access control, the attachment is automatically placed
    * value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used for the scope
    * query parameter then the viewId query parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDomainRecordsRequest
    * @return UpdateDomainRecordsResponse
    * @throws OciError when an error occurs
@@ -3912,9 +4047,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateDomainRecordsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDomainRecordsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDomainRecordsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3974,6 +4111,7 @@ For the purposes of access control, the attachment is automatically placed
    * value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used for the scope
    * query parameter then the viewId query parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRRSetRequest
    * @return UpdateRRSetResponse
    * @throws OciError when an error occurs
@@ -4002,9 +4140,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateRRSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRRSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRRSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4062,6 +4202,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Updates the specified resolver with your new information. Requires a `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateResolverRequest
    * @return UpdateResolverResponse
    * @throws OciError when an error occurs
@@ -4086,9 +4227,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateResolverRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateResolverRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateResolverRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4141,6 +4284,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Updates the specified resolver endpoint with your new information. Requires a `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateResolverEndpointRequest
    * @return UpdateResolverEndpointResponse
    * @throws OciError when an error occurs
@@ -4166,9 +4310,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateResolverEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateResolverEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateResolverEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4221,6 +4367,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Updates the configuration of the specified steering policy.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSteeringPolicyRequest
    * @return UpdateSteeringPolicyResponse
    * @throws OciError when an error occurs
@@ -4245,9 +4392,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateSteeringPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSteeringPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSteeringPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4295,6 +4444,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Updates the specified steering policy attachment with your new information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSteeringPolicyAttachmentRequest
    * @return UpdateSteeringPolicyAttachmentResponse
    * @throws OciError when an error occurs
@@ -4321,9 +4471,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateSteeringPolicyAttachmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSteeringPolicyAttachmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSteeringPolicyAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4371,6 +4523,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Updates the specified TSIG key.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTsigKeyRequest
    * @return UpdateTsigKeyResponse
    * @throws OciError when an error occurs
@@ -4395,9 +4548,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateTsigKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTsigKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTsigKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4450,6 +4605,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Updates the specified view with your new information. Requires a `PRIVATE` scope query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateViewRequest
    * @return UpdateViewResponse
    * @throws OciError when an error occurs
@@ -4474,9 +4630,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateViewRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateViewRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateViewRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4533,6 +4691,7 @@ For the purposes of access control, the attachment is automatically placed
    * provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query
    * parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateZoneRequest
    * @return UpdateZoneResponse
    * @throws OciError when an error occurs
@@ -4559,9 +4718,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateZoneRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateZoneRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateZoneRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4619,6 +4780,7 @@ For the purposes of access control, the attachment is automatically placed
    * When the zone name is provided as a path parameter and `PRIVATE` is used for the scope query parameter then
    * the viewId query parameter is required.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateZoneRecordsRequest
    * @return UpdateZoneRecordsResponse
    * @throws OciError when an error occurs
@@ -4645,9 +4807,11 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateZoneRecordsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateZoneRecordsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateZoneRecordsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

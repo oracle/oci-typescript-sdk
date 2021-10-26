@@ -45,6 +45,10 @@ export interface EmManagedExternalDatabaseInsight extends model.DatabaseInsight 
    * OPSI Enterprise Manager Bridge OCID
    */
   "enterpriseManagerBridgeId": string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata insight.
+   */
+  "exadataInsightId"?: string;
 
   "entitySource": string;
 }

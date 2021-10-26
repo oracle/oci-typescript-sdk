@@ -1,6 +1,6 @@
 /**
  * Data Integration API
- * Use the Data Integration Service APIs to perform common extract, load, and transform (ETL) tasks.
+ * Use the Data Integration API to organize your data integration projects, create data flows, pipelines and tasks, and then publish, schedule, and run tasks that extract, transform, and load data. For more information, see [Data Integration](https://docs.oracle.com/iaas/data-integration/home.htm).
  * OpenAPI spec version: 20200430
  * Contact: di_dis_ww_grp@oracle.com
  *
@@ -33,6 +33,8 @@ import * as CreateExternalPublicationValidationRequest from "./create-external-p
 export import CreateExternalPublicationValidationRequest = CreateExternalPublicationValidationRequest.CreateExternalPublicationValidationRequest;
 import * as CreateFolderRequest from "./create-folder-request";
 export import CreateFolderRequest = CreateFolderRequest.CreateFolderRequest;
+import * as CreateFunctionLibraryRequest from "./create-function-library-request";
+export import CreateFunctionLibraryRequest = CreateFunctionLibraryRequest.CreateFunctionLibraryRequest;
 import * as CreatePatchRequest from "./create-patch-request";
 export import CreatePatchRequest = CreatePatchRequest.CreatePatchRequest;
 import * as CreatePipelineRequest from "./create-pipeline-request";
@@ -51,6 +53,10 @@ import * as CreateTaskScheduleRequest from "./create-task-schedule-request";
 export import CreateTaskScheduleRequest = CreateTaskScheduleRequest.CreateTaskScheduleRequest;
 import * as CreateTaskValidationRequest from "./create-task-validation-request";
 export import CreateTaskValidationRequest = CreateTaskValidationRequest.CreateTaskValidationRequest;
+import * as CreateUserDefinedFunctionRequest from "./create-user-defined-function-request";
+export import CreateUserDefinedFunctionRequest = CreateUserDefinedFunctionRequest.CreateUserDefinedFunctionRequest;
+import * as CreateUserDefinedFunctionValidationRequest from "./create-user-defined-function-validation-request";
+export import CreateUserDefinedFunctionValidationRequest = CreateUserDefinedFunctionValidationRequest.CreateUserDefinedFunctionValidationRequest;
 import * as CreateWorkspaceRequest from "./create-workspace-request";
 export import CreateWorkspaceRequest = CreateWorkspaceRequest.CreateWorkspaceRequest;
 import * as DeleteApplicationRequest from "./delete-application-request";
@@ -71,6 +77,8 @@ import * as DeleteExternalPublicationValidationRequest from "./delete-external-p
 export import DeleteExternalPublicationValidationRequest = DeleteExternalPublicationValidationRequest.DeleteExternalPublicationValidationRequest;
 import * as DeleteFolderRequest from "./delete-folder-request";
 export import DeleteFolderRequest = DeleteFolderRequest.DeleteFolderRequest;
+import * as DeleteFunctionLibraryRequest from "./delete-function-library-request";
+export import DeleteFunctionLibraryRequest = DeleteFunctionLibraryRequest.DeleteFunctionLibraryRequest;
 import * as DeletePatchRequest from "./delete-patch-request";
 export import DeletePatchRequest = DeletePatchRequest.DeletePatchRequest;
 import * as DeletePipelineRequest from "./delete-pipeline-request";
@@ -89,6 +97,10 @@ import * as DeleteTaskScheduleRequest from "./delete-task-schedule-request";
 export import DeleteTaskScheduleRequest = DeleteTaskScheduleRequest.DeleteTaskScheduleRequest;
 import * as DeleteTaskValidationRequest from "./delete-task-validation-request";
 export import DeleteTaskValidationRequest = DeleteTaskValidationRequest.DeleteTaskValidationRequest;
+import * as DeleteUserDefinedFunctionRequest from "./delete-user-defined-function-request";
+export import DeleteUserDefinedFunctionRequest = DeleteUserDefinedFunctionRequest.DeleteUserDefinedFunctionRequest;
+import * as DeleteUserDefinedFunctionValidationRequest from "./delete-user-defined-function-validation-request";
+export import DeleteUserDefinedFunctionValidationRequest = DeleteUserDefinedFunctionValidationRequest.DeleteUserDefinedFunctionValidationRequest;
 import * as DeleteWorkspaceRequest from "./delete-workspace-request";
 export import DeleteWorkspaceRequest = DeleteWorkspaceRequest.DeleteWorkspaceRequest;
 import * as GetApplicationRequest from "./get-application-request";
@@ -115,6 +127,8 @@ import * as GetExternalPublicationValidationRequest from "./get-external-publica
 export import GetExternalPublicationValidationRequest = GetExternalPublicationValidationRequest.GetExternalPublicationValidationRequest;
 import * as GetFolderRequest from "./get-folder-request";
 export import GetFolderRequest = GetFolderRequest.GetFolderRequest;
+import * as GetFunctionLibraryRequest from "./get-function-library-request";
+export import GetFunctionLibraryRequest = GetFunctionLibraryRequest.GetFunctionLibraryRequest;
 import * as GetPatchRequest from "./get-patch-request";
 export import GetPatchRequest = GetPatchRequest.GetPatchRequest;
 import * as GetPipelineRequest from "./get-pipeline-request";
@@ -139,6 +153,10 @@ import * as GetTaskScheduleRequest from "./get-task-schedule-request";
 export import GetTaskScheduleRequest = GetTaskScheduleRequest.GetTaskScheduleRequest;
 import * as GetTaskValidationRequest from "./get-task-validation-request";
 export import GetTaskValidationRequest = GetTaskValidationRequest.GetTaskValidationRequest;
+import * as GetUserDefinedFunctionRequest from "./get-user-defined-function-request";
+export import GetUserDefinedFunctionRequest = GetUserDefinedFunctionRequest.GetUserDefinedFunctionRequest;
+import * as GetUserDefinedFunctionValidationRequest from "./get-user-defined-function-validation-request";
+export import GetUserDefinedFunctionValidationRequest = GetUserDefinedFunctionValidationRequest.GetUserDefinedFunctionValidationRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
 import * as GetWorkspaceRequest from "./get-workspace-request";
@@ -165,6 +183,8 @@ import * as ListExternalPublicationsRequest from "./list-external-publications-r
 export import ListExternalPublicationsRequest = ListExternalPublicationsRequest.ListExternalPublicationsRequest;
 import * as ListFoldersRequest from "./list-folders-request";
 export import ListFoldersRequest = ListFoldersRequest.ListFoldersRequest;
+import * as ListFunctionLibrariesRequest from "./list-function-libraries-request";
+export import ListFunctionLibrariesRequest = ListFunctionLibrariesRequest.ListFunctionLibrariesRequest;
 import * as ListPatchChangesRequest from "./list-patch-changes-request";
 export import ListPatchChangesRequest = ListPatchChangesRequest.ListPatchChangesRequest;
 import * as ListPatchesRequest from "./list-patches-request";
@@ -193,6 +213,10 @@ import * as ListTaskValidationsRequest from "./list-task-validations-request";
 export import ListTaskValidationsRequest = ListTaskValidationsRequest.ListTaskValidationsRequest;
 import * as ListTasksRequest from "./list-tasks-request";
 export import ListTasksRequest = ListTasksRequest.ListTasksRequest;
+import * as ListUserDefinedFunctionValidationsRequest from "./list-user-defined-function-validations-request";
+export import ListUserDefinedFunctionValidationsRequest = ListUserDefinedFunctionValidationsRequest.ListUserDefinedFunctionValidationsRequest;
+import * as ListUserDefinedFunctionsRequest from "./list-user-defined-functions-request";
+export import ListUserDefinedFunctionsRequest = ListUserDefinedFunctionsRequest.ListUserDefinedFunctionsRequest;
 import * as ListWorkRequestErrorsRequest from "./list-work-request-errors-request";
 export import ListWorkRequestErrorsRequest = ListWorkRequestErrorsRequest.ListWorkRequestErrorsRequest;
 import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
@@ -217,6 +241,8 @@ import * as UpdateExternalPublicationRequest from "./update-external-publication
 export import UpdateExternalPublicationRequest = UpdateExternalPublicationRequest.UpdateExternalPublicationRequest;
 import * as UpdateFolderRequest from "./update-folder-request";
 export import UpdateFolderRequest = UpdateFolderRequest.UpdateFolderRequest;
+import * as UpdateFunctionLibraryRequest from "./update-function-library-request";
+export import UpdateFunctionLibraryRequest = UpdateFunctionLibraryRequest.UpdateFunctionLibraryRequest;
 import * as UpdatePipelineRequest from "./update-pipeline-request";
 export import UpdatePipelineRequest = UpdatePipelineRequest.UpdatePipelineRequest;
 import * as UpdateProjectRequest from "./update-project-request";
@@ -231,5 +257,7 @@ import * as UpdateTaskRunRequest from "./update-task-run-request";
 export import UpdateTaskRunRequest = UpdateTaskRunRequest.UpdateTaskRunRequest;
 import * as UpdateTaskScheduleRequest from "./update-task-schedule-request";
 export import UpdateTaskScheduleRequest = UpdateTaskScheduleRequest.UpdateTaskScheduleRequest;
+import * as UpdateUserDefinedFunctionRequest from "./update-user-defined-function-request";
+export import UpdateUserDefinedFunctionRequest = UpdateUserDefinedFunctionRequest.UpdateUserDefinedFunctionRequest;
 import * as UpdateWorkspaceRequest from "./update-workspace-request";
 export import UpdateWorkspaceRequest = UpdateWorkspaceRequest.UpdateWorkspaceRequest;

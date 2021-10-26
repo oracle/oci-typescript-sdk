@@ -25,7 +25,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum FileStorageApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class FileStorageClient {
   protected static serviceEndpointTemplate = "https://filestorage.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -45,6 +47,15 @@ export class FileStorageClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -134,6 +145,7 @@ export class FileStorageClient {
   /**
    * Moves a file system and its associated snapshots into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes)
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeFileSystemCompartmentRequest
    * @return ChangeFileSystemCompartmentResponse
    * @throws OciError when an error occurs
@@ -156,9 +168,11 @@ export class FileStorageClient {
       "opc-request-id": changeFileSystemCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeFileSystemCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeFileSystemCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -197,6 +211,7 @@ export class FileStorageClient {
   /**
    * Moves a mount target and its associated export set into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes)
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeMountTargetCompartmentRequest
    * @return ChangeMountTargetCompartmentResponse
    * @throws OciError when an error occurs
@@ -219,9 +234,11 @@ export class FileStorageClient {
       "opc-request-id": changeMountTargetCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeMountTargetCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMountTargetCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -261,6 +278,7 @@ export class FileStorageClient {
    * Creates a new export in the specified export set, path, and
    * file system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateExportRequest
    * @return CreateExportResponse
    * @throws OciError when an error occurs
@@ -280,9 +298,11 @@ export class FileStorageClient {
       "opc-request-id": createExportRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createExportRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExportRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -358,6 +378,7 @@ All Oracle Cloud Infrastructure resources, including
 * You can also retrieve a resource's OCID by using a List API operation on that resource
 * type or by viewing the resource in the Console.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateFileSystemRequest
      * @return CreateFileSystemResponse
      * @throws OciError when an error occurs
@@ -377,9 +398,11 @@ All Oracle Cloud Infrastructure resources, including
       "opc-request-id": createFileSystemRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createFileSystemRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createFileSystemRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -458,6 +481,7 @@ All Oracle Cloud Infrastructure Services resources, including
 * You can also retrieve a resource's OCID by using a List API operation on that resource
 * type, or by viewing the resource in the Console.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateMountTargetRequest
      * @return CreateMountTargetResponse
      * @throws OciError when an error occurs
@@ -477,9 +501,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": createMountTargetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createMountTargetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMountTargetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -528,6 +554,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * Creates a new snapshot of the specified file system. You
    * can access the snapshot at `.snapshot/<name>`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateSnapshotRequest
    * @return CreateSnapshotResponse
    * @throws OciError when an error occurs
@@ -547,9 +574,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": createSnapshotRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSnapshotRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -597,6 +626,7 @@ All Oracle Cloud Infrastructure Services resources, including
   /**
    * Deletes the specified export.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExportRequest
    * @return DeleteExportResponse
    * @throws OciError when an error occurs
@@ -618,9 +648,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": deleteExportRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteExportRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExportRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -656,6 +688,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * verify that no remaining export resources still reference it. Deleting a
    * file system also deletes all of its snapshots.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteFileSystemRequest
    * @return DeleteFileSystemResponse
    * @throws OciError when an error occurs
@@ -677,9 +710,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": deleteFileSystemRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteFileSystemRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteFileSystemRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -714,6 +749,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * Deletes the specified mount target. This operation also deletes the
    * mount target's VNICs.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteMountTargetRequest
    * @return DeleteMountTargetResponse
    * @throws OciError when an error occurs
@@ -735,9 +771,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": deleteMountTargetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteMountTargetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMountTargetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -771,6 +809,7 @@ All Oracle Cloud Infrastructure Services resources, including
   /**
    * Deletes the specified snapshot.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSnapshotRequest
    * @return DeleteSnapshotResponse
    * @throws OciError when an error occurs
@@ -792,9 +831,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": deleteSnapshotRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSnapshotRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -827,6 +868,7 @@ All Oracle Cloud Infrastructure Services resources, including
 
   /**
    * Gets the specified export's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExportRequest
    * @return GetExportResponse
    * @throws OciError when an error occurs
@@ -847,9 +889,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getExportRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getExportRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExportRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -891,6 +935,7 @@ All Oracle Cloud Infrastructure Services resources, including
 
   /**
    * Gets the specified export set's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExportSetRequest
    * @return GetExportSetResponse
    * @throws OciError when an error occurs
@@ -911,9 +956,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getExportSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getExportSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExportSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -955,6 +1002,7 @@ All Oracle Cloud Infrastructure Services resources, including
 
   /**
    * Gets the specified file system's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetFileSystemRequest
    * @return GetFileSystemResponse
    * @throws OciError when an error occurs
@@ -975,9 +1023,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getFileSystemRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getFileSystemRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFileSystemRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1019,6 +1069,7 @@ All Oracle Cloud Infrastructure Services resources, including
 
   /**
    * Gets the specified mount target's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMountTargetRequest
    * @return GetMountTargetResponse
    * @throws OciError when an error occurs
@@ -1039,9 +1090,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getMountTargetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getMountTargetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMountTargetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1083,6 +1136,7 @@ All Oracle Cloud Infrastructure Services resources, including
 
   /**
    * Gets the specified snapshot's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSnapshotRequest
    * @return GetSnapshotResponse
    * @throws OciError when an error occurs
@@ -1103,9 +1157,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getSnapshotRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSnapshotRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1148,6 +1204,7 @@ All Oracle Cloud Infrastructure Services resources, including
   /**
    * Lists the export set resources in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListExportSetsRequest
    * @return ListExportSetsResponse
    * @throws OciError when an error occurs
@@ -1176,9 +1233,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listExportSetsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listExportSetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExportSetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1275,6 +1334,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * set. You must specify an export set ID, a file system ID, and
    * / or a compartment ID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListExportsRequest
    * @return ListExportsResponse
    * @throws OciError when an error occurs
@@ -1303,9 +1363,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listExportsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listExportsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExportsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1400,6 +1462,7 @@ All Oracle Cloud Infrastructure Services resources, including
   /**
    * Lists the file system resources in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListFileSystemsRequest
    * @return ListFileSystemsResponse
    * @throws OciError when an error occurs
@@ -1430,9 +1493,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listFileSystemsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listFileSystemsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFileSystemsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1527,6 +1592,7 @@ All Oracle Cloud Infrastructure Services resources, including
   /**
    * Lists the mount target resources in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListMountTargetsRequest
    * @return ListMountTargetsResponse
    * @throws OciError when an error occurs
@@ -1556,9 +1622,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listMountTargetsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listMountTargetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMountTargetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1653,6 +1721,7 @@ All Oracle Cloud Infrastructure Services resources, including
   /**
    * Lists snapshots of the specified file system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSnapshotsRequest
    * @return ListSnapshotsResponse
    * @throws OciError when an error occurs
@@ -1678,9 +1747,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listSnapshotsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSnapshotsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSnapshotsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1774,6 +1845,7 @@ All Oracle Cloud Infrastructure Services resources, including
 
   /**
    * Updates the specified export's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateExportRequest
    * @return UpdateExportResponse
    * @throws OciError when an error occurs
@@ -1795,9 +1867,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": updateExportRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateExportRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExportRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1844,6 +1918,7 @@ All Oracle Cloud Infrastructure Services resources, including
 
   /**
    * Updates the specified export set's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateExportSetRequest
    * @return UpdateExportSetResponse
    * @throws OciError when an error occurs
@@ -1865,9 +1940,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": updateExportSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateExportSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExportSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1916,6 +1993,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * Updates the specified file system's information.
    * You can use this operation to rename a file system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateFileSystemRequest
    * @return UpdateFileSystemResponse
    * @throws OciError when an error occurs
@@ -1937,9 +2015,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": updateFileSystemRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateFileSystemRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateFileSystemRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1986,6 +2066,7 @@ All Oracle Cloud Infrastructure Services resources, including
 
   /**
    * Updates the specified mount target's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateMountTargetRequest
    * @return UpdateMountTargetResponse
    * @throws OciError when an error occurs
@@ -2007,9 +2088,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": updateMountTargetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateMountTargetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMountTargetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2056,6 +2139,7 @@ All Oracle Cloud Infrastructure Services resources, including
 
   /**
    * Updates the specified snapshot's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSnapshotRequest
    * @return UpdateSnapshotResponse
    * @throws OciError when an error occurs
@@ -2077,9 +2161,11 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": updateSnapshotRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSnapshotRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -39,6 +39,16 @@ export interface SummarizeSqlInsightsRequest extends common.BaseRequest {
    */
   "id"?: Array<string>;
   /**
+   * Optional list of exadata insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "exadataInsightId"?: Array<string>;
+  /**
+   * Filter by one or more cdb name.
+   *
+   */
+  "cdbName"?: Array<string>;
+  /**
    * Filter by one or more hostname.
    *
    */

@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A single Subscription SKU
+ * A single subscription SKU.
  */
 export interface Sku {
   /**
-   * SKU number
+   * SKU number.
    */
   "number"?: string;
   /**
-   * SKU name
+   * SKU name.
    */
   "name"?: string;
   /**
-   * SKU quantity Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * SKU quantity. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "quantity"?: number;
 }

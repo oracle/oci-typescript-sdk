@@ -29,7 +29,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum ApplianceExportJobApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ApplianceExportJobClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
@@ -50,6 +52,15 @@ export class ApplianceExportJobClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -138,6 +149,7 @@ export class ApplianceExportJobClient {
 
   /**
    * Moves a ApplianceExportJob into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeApplianceExportJobCompartmentRequest
    * @return ChangeApplianceExportJobCompartmentResponse
    * @throws OciError when an error occurs
@@ -163,9 +175,11 @@ export class ApplianceExportJobClient {
       "opc-retry-token": changeApplianceExportJobCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeApplianceExportJobCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeApplianceExportJobCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -203,6 +217,7 @@ export class ApplianceExportJobClient {
 
   /**
    * Creates a new Appliance Export Job that corresponds with customer's logical dataset
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateApplianceExportJobRequest
    * @return CreateApplianceExportJobResponse
    * @throws OciError when an error occurs
@@ -223,9 +238,11 @@ export class ApplianceExportJobClient {
       "opc-request-id": createApplianceExportJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createApplianceExportJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createApplianceExportJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -272,6 +289,7 @@ export class ApplianceExportJobClient {
 
   /**
    * deletes a Appliance Export Job
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteApplianceExportJobRequest
    * @return DeleteApplianceExportJobResponse
    * @throws OciError when an error occurs
@@ -294,9 +312,11 @@ export class ApplianceExportJobClient {
       "opc-request-id": deleteApplianceExportJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteApplianceExportJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteApplianceExportJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -329,6 +349,7 @@ export class ApplianceExportJobClient {
 
   /**
    * Describes a Appliance Export Job in detail
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetApplianceExportJobRequest
    * @return GetApplianceExportJobResponse
    * @throws OciError when an error occurs
@@ -350,9 +371,11 @@ export class ApplianceExportJobClient {
       "opc-request-id": getApplianceExportJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getApplianceExportJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getApplianceExportJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -394,6 +417,7 @@ export class ApplianceExportJobClient {
 
   /**
    * Lists Appliance Export Jobs in a given compartment
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListApplianceExportJobsRequest
    * @return ListApplianceExportJobsResponse
    * @throws OciError when an error occurs
@@ -419,9 +443,11 @@ export class ApplianceExportJobClient {
       "opc-request-id": listApplianceExportJobsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listApplianceExportJobsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listApplianceExportJobsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -515,6 +541,7 @@ export class ApplianceExportJobClient {
 
   /**
    * Updates a Appliance Export Job that corresponds with customer's logical dataset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateApplianceExportJobRequest
    * @return UpdateApplianceExportJobResponse
    * @throws OciError when an error occurs
@@ -537,9 +564,11 @@ export class ApplianceExportJobClient {
       "opc-request-id": updateApplianceExportJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateApplianceExportJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateApplianceExportJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -585,7 +614,9 @@ export class ApplianceExportJobClient {
   }
 }
 export enum ShippingVendorsApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ShippingVendorsClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
@@ -605,6 +636,15 @@ export class ShippingVendorsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -670,6 +710,7 @@ export class ShippingVendorsClient {
 
   /**
    * Lists available shipping vendors for Transfer Package delivery
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListShippingVendorsRequest
    * @return ListShippingVendorsResponse
    * @throws OciError when an error occurs
@@ -688,9 +729,11 @@ export class ShippingVendorsClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listShippingVendorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listShippingVendorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -726,7 +769,9 @@ export class ShippingVendorsClient {
   }
 }
 export enum TransferApplianceApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class TransferApplianceClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
@@ -747,6 +792,15 @@ export class TransferApplianceClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -835,6 +889,7 @@ export class TransferApplianceClient {
 
   /**
    * Create a new Transfer Appliance
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTransferApplianceRequest
    * @return CreateTransferApplianceResponse
    * @throws OciError when an error occurs
@@ -856,9 +911,11 @@ export class TransferApplianceClient {
       "opc-retry-token": createTransferApplianceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTransferApplianceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTransferApplianceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -905,6 +962,7 @@ export class TransferApplianceClient {
 
   /**
    * Creates an X.509 certificate from a public key
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTransferApplianceAdminCredentialsRequest
    * @return CreateTransferApplianceAdminCredentialsResponse
    * @throws OciError when an error occurs
@@ -929,9 +987,11 @@ export class TransferApplianceClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTransferApplianceAdminCredentialsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTransferApplianceAdminCredentialsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -978,6 +1038,7 @@ export class TransferApplianceClient {
 
   /**
    * deletes a transfer Appliance
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTransferApplianceRequest
    * @return DeleteTransferApplianceResponse
    * @throws OciError when an error occurs
@@ -999,9 +1060,11 @@ export class TransferApplianceClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTransferApplianceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTransferApplianceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1034,6 +1097,7 @@ export class TransferApplianceClient {
 
   /**
    * Describes a transfer appliance in detail
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTransferApplianceRequest
    * @return GetTransferApplianceResponse
    * @throws OciError when an error occurs
@@ -1055,9 +1119,11 @@ export class TransferApplianceClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTransferApplianceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTransferApplianceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1099,6 +1165,7 @@ export class TransferApplianceClient {
 
   /**
    * Gets the x.509 certificate for the Transfer Appliance's dedicated Certificate Authority (CA)
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTransferApplianceCertificateAuthorityCertificateRequest
    * @return GetTransferApplianceCertificateAuthorityCertificateResponse
    * @throws OciError when an error occurs
@@ -1123,9 +1190,11 @@ export class TransferApplianceClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTransferApplianceCertificateAuthorityCertificateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTransferApplianceCertificateAuthorityCertificateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1168,6 +1237,7 @@ export class TransferApplianceClient {
 
   /**
    * Describes a transfer appliance encryptionPassphrase in detail
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTransferApplianceEncryptionPassphraseRequest
    * @return GetTransferApplianceEncryptionPassphraseResponse
    * @throws OciError when an error occurs
@@ -1192,9 +1262,11 @@ export class TransferApplianceClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTransferApplianceEncryptionPassphraseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTransferApplianceEncryptionPassphraseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1236,6 +1308,7 @@ export class TransferApplianceClient {
 
   /**
    * Lists Transfer Appliances associated with a transferJob
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTransferAppliancesRequest
    * @return ListTransferAppliancesResponse
    * @throws OciError when an error occurs
@@ -1258,9 +1331,11 @@ export class TransferApplianceClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTransferAppliancesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTransferAppliancesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1297,6 +1372,7 @@ export class TransferApplianceClient {
 
   /**
    * Updates a Transfer Appliance
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTransferApplianceRequest
    * @return UpdateTransferApplianceResponse
    * @throws OciError when an error occurs
@@ -1319,9 +1395,11 @@ export class TransferApplianceClient {
       "if-match": updateTransferApplianceRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTransferApplianceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTransferApplianceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1367,7 +1445,9 @@ export class TransferApplianceClient {
   }
 }
 export enum TransferApplianceEntitlementApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class TransferApplianceEntitlementClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
@@ -1388,6 +1468,15 @@ export class TransferApplianceEntitlementClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -1477,6 +1566,7 @@ export class TransferApplianceEntitlementClient {
 
   /**
    * Create the Entitlement to use a Transfer Appliance. It requires some offline process of review and signatures before request is granted.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTransferApplianceEntitlementRequest
    * @return CreateTransferApplianceEntitlementResponse
    * @throws OciError when an error occurs
@@ -1499,9 +1589,11 @@ export class TransferApplianceEntitlementClient {
       "opc-request-id": createTransferApplianceEntitlementRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTransferApplianceEntitlementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTransferApplianceEntitlementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1548,6 +1640,7 @@ export class TransferApplianceEntitlementClient {
 
   /**
    * Describes the Transfer Appliance Entitlement in detail
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTransferApplianceEntitlementRequest
    * @return GetTransferApplianceEntitlementResponse
    * @throws OciError when an error occurs
@@ -1572,9 +1665,11 @@ export class TransferApplianceEntitlementClient {
       "opc-request-id": getTransferApplianceEntitlementRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTransferApplianceEntitlementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTransferApplianceEntitlementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1611,6 +1706,7 @@ export class TransferApplianceEntitlementClient {
 
   /**
    * Lists Transfer Transfer Appliance Entitlement
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTransferApplianceEntitlementRequest
    * @return ListTransferApplianceEntitlementResponse
    * @throws OciError when an error occurs
@@ -1636,9 +1732,11 @@ export class TransferApplianceEntitlementClient {
       "opc-request-id": listTransferApplianceEntitlementRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTransferApplianceEntitlementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTransferApplianceEntitlementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1674,7 +1772,9 @@ export class TransferApplianceEntitlementClient {
   }
 }
 export enum TransferDeviceApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class TransferDeviceClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
@@ -1695,6 +1795,15 @@ export class TransferDeviceClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -1783,6 +1892,7 @@ export class TransferDeviceClient {
 
   /**
    * Create a new Transfer Device
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTransferDeviceRequest
    * @return CreateTransferDeviceResponse
    * @throws OciError when an error occurs
@@ -1804,9 +1914,11 @@ export class TransferDeviceClient {
       "opc-retry-token": createTransferDeviceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTransferDeviceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTransferDeviceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1853,6 +1965,7 @@ export class TransferDeviceClient {
 
   /**
    * deletes a transfer Device
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTransferDeviceRequest
    * @return DeleteTransferDeviceResponse
    * @throws OciError when an error occurs
@@ -1874,9 +1987,11 @@ export class TransferDeviceClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTransferDeviceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTransferDeviceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1909,6 +2024,7 @@ export class TransferDeviceClient {
 
   /**
    * Describes a transfer package in detail
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTransferDeviceRequest
    * @return GetTransferDeviceResponse
    * @throws OciError when an error occurs
@@ -1929,9 +2045,11 @@ export class TransferDeviceClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTransferDeviceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTransferDeviceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1973,6 +2091,7 @@ export class TransferDeviceClient {
 
   /**
    * Lists Transfer Devices associated with a transferJob
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTransferDevicesRequest
    * @return ListTransferDevicesResponse
    * @throws OciError when an error occurs
@@ -1996,9 +2115,11 @@ export class TransferDeviceClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTransferDevicesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTransferDevicesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2035,6 +2156,7 @@ export class TransferDeviceClient {
 
   /**
    * Updates a Transfer Device
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTransferDeviceRequest
    * @return UpdateTransferDeviceResponse
    * @throws OciError when an error occurs
@@ -2057,9 +2179,11 @@ export class TransferDeviceClient {
       "if-match": updateTransferDeviceRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTransferDeviceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTransferDeviceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2105,7 +2229,9 @@ export class TransferDeviceClient {
   }
 }
 export enum TransferJobApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class TransferJobClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
@@ -2126,6 +2252,15 @@ export class TransferJobClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -2214,6 +2349,7 @@ export class TransferJobClient {
 
   /**
    * Moves a TransferJob into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeTransferJobCompartmentRequest
    * @return ChangeTransferJobCompartmentResponse
    * @throws OciError when an error occurs
@@ -2237,9 +2373,11 @@ export class TransferJobClient {
       "opc-retry-token": changeTransferJobCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeTransferJobCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeTransferJobCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2282,6 +2420,7 @@ export class TransferJobClient {
 
   /**
    * Create a new Transfer Job that corresponds with customer's logical dataset e.g. a DB or a filesystem.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTransferJobRequest
    * @return CreateTransferJobResponse
    * @throws OciError when an error occurs
@@ -2301,9 +2440,11 @@ export class TransferJobClient {
       "opc-request-id": createTransferJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTransferJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTransferJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2350,6 +2491,7 @@ export class TransferJobClient {
 
   /**
    * deletes a transfer job
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTransferJobRequest
    * @return DeleteTransferJobResponse
    * @throws OciError when an error occurs
@@ -2370,9 +2512,11 @@ export class TransferJobClient {
       "opc-request-id": deleteTransferJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTransferJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTransferJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2405,6 +2549,7 @@ export class TransferJobClient {
 
   /**
    * Describes a transfer job in detail
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTransferJobRequest
    * @return GetTransferJobResponse
    * @throws OciError when an error occurs
@@ -2425,9 +2570,11 @@ export class TransferJobClient {
       "opc-request-id": getTransferJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTransferJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTransferJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2469,6 +2616,7 @@ export class TransferJobClient {
 
   /**
    * Lists Transfer Jobs in a given compartment
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTransferJobsRequest
    * @return ListTransferJobsResponse
    * @throws OciError when an error occurs
@@ -2493,9 +2641,11 @@ export class TransferJobClient {
       "opc-request-id": listTransferJobsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTransferJobsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTransferJobsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2589,6 +2739,7 @@ export class TransferJobClient {
 
   /**
    * Updates a Transfer Job that corresponds with customer's logical dataset e.g. a DB or a filesystem.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTransferJobRequest
    * @return UpdateTransferJobResponse
    * @throws OciError when an error occurs
@@ -2610,9 +2761,11 @@ export class TransferJobClient {
       "opc-request-id": updateTransferJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTransferJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTransferJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2658,7 +2811,9 @@ export class TransferJobClient {
   }
 }
 export enum TransferPackageApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class TransferPackageClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
@@ -2679,6 +2834,15 @@ export class TransferPackageClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -2767,6 +2931,7 @@ export class TransferPackageClient {
 
   /**
    * Attaches Devices to a Transfer Package
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachDevicesToTransferPackageRequest
    * @return AttachDevicesToTransferPackageResponse
    * @throws OciError when an error occurs
@@ -2788,9 +2953,11 @@ export class TransferPackageClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      attachDevicesToTransferPackageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachDevicesToTransferPackageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2833,6 +3000,7 @@ export class TransferPackageClient {
 
   /**
    * Create a new Transfer Package
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTransferPackageRequest
    * @return CreateTransferPackageResponse
    * @throws OciError when an error occurs
@@ -2854,9 +3022,11 @@ export class TransferPackageClient {
       "opc-retry-token": createTransferPackageRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTransferPackageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTransferPackageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2903,6 +3073,7 @@ export class TransferPackageClient {
 
   /**
    * deletes a transfer Package
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTransferPackageRequest
    * @return DeleteTransferPackageResponse
    * @throws OciError when an error occurs
@@ -2924,9 +3095,11 @@ export class TransferPackageClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTransferPackageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTransferPackageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2959,6 +3132,7 @@ export class TransferPackageClient {
 
   /**
    * Detaches Devices from a Transfer Package
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetachDevicesFromTransferPackageRequest
    * @return DetachDevicesFromTransferPackageResponse
    * @throws OciError when an error occurs
@@ -2982,9 +3156,11 @@ export class TransferPackageClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detachDevicesFromTransferPackageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachDevicesFromTransferPackageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3027,6 +3203,7 @@ export class TransferPackageClient {
 
   /**
    * Describes a transfer package in detail
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTransferPackageRequest
    * @return GetTransferPackageResponse
    * @throws OciError when an error occurs
@@ -3048,9 +3225,11 @@ export class TransferPackageClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTransferPackageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTransferPackageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3092,6 +3271,7 @@ export class TransferPackageClient {
 
   /**
    * Lists Transfer Packages associated with a transferJob
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTransferPackagesRequest
    * @return ListTransferPackagesResponse
    * @throws OciError when an error occurs
@@ -3115,9 +3295,11 @@ export class TransferPackageClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTransferPackagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTransferPackagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3154,6 +3336,7 @@ export class TransferPackageClient {
 
   /**
    * Updates a Transfer Package
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTransferPackageRequest
    * @return UpdateTransferPackageResponse
    * @throws OciError when an error occurs
@@ -3176,9 +3359,11 @@ export class TransferPackageClient {
       "if-match": updateTransferPackageRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTransferPackageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTransferPackageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

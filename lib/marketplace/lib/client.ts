@@ -24,7 +24,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum AccountApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class AccountClient {
   protected static serviceEndpointTemplate = "https://marketplace.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -43,6 +45,15 @@ export class AccountClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -108,6 +119,7 @@ export class AccountClient {
 
   /**
    * Returns Tenant eligibility and other information for launching a PIC image
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetLaunchEligibilityRequest
    * @return GetLaunchEligibilityResponse
    * @throws OciError when an error occurs
@@ -129,9 +141,11 @@ export class AccountClient {
       "opc-request-id": getLaunchEligibilityRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getLaunchEligibilityRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getLaunchEligibilityRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -168,6 +182,7 @@ export class AccountClient {
 
   /**
    * Returns eligibility details of the tenancy to see and launch third party paid listings
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetThirdPartyPaidListingEligibilityRequest
    * @return GetThirdPartyPaidListingEligibilityResponse
    * @throws OciError when an error occurs
@@ -189,9 +204,11 @@ export class AccountClient {
       "opc-request-id": getThirdPartyPaidListingEligibilityRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getThirdPartyPaidListingEligibilityRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getThirdPartyPaidListingEligibilityRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -227,7 +244,9 @@ export class AccountClient {
   }
 }
 export enum MarketplaceApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class MarketplaceClient {
   protected static serviceEndpointTemplate = "https://marketplace.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -247,6 +266,15 @@ export class MarketplaceClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -335,6 +363,7 @@ export class MarketplaceClient {
 
   /**
    * Moves the specified publication from one compartment to another.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangePublicationCompartmentRequest
    * @return ChangePublicationCompartmentResponse
    * @throws OciError when an error occurs
@@ -358,9 +387,11 @@ export class MarketplaceClient {
       "if-match": changePublicationCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changePublicationCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changePublicationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -400,6 +431,7 @@ export class MarketplaceClient {
    * Accepts a terms of use agreement for a specific package version of a listing. You must accept all
    * terms of use for a package before you can deploy the package.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAcceptedAgreementRequest
    * @return CreateAcceptedAgreementResponse
    * @throws OciError when an error occurs
@@ -420,9 +452,11 @@ export class MarketplaceClient {
       "opc-retry-token": createAcceptedAgreementRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAcceptedAgreementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAcceptedAgreementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -469,6 +503,7 @@ export class MarketplaceClient {
 
   /**
    * Creates a publication of the specified listing type with an optional default package.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePublicationRequest
    * @return CreatePublicationResponse
    * @throws OciError when an error occurs
@@ -488,9 +523,11 @@ export class MarketplaceClient {
       "opc-request-id": createPublicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPublicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPublicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -540,6 +577,7 @@ export class MarketplaceClient {
    * before initiating a deployment. Listings in Marketplace that require acceptance of the specified terms
    * of use can no longer be deployed, but existing deployments aren't affected.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAcceptedAgreementRequest
    * @return DeleteAcceptedAgreementResponse
    * @throws OciError when an error occurs
@@ -564,9 +602,11 @@ export class MarketplaceClient {
       "if-match": deleteAcceptedAgreementRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAcceptedAgreementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAcceptedAgreementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -599,6 +639,7 @@ export class MarketplaceClient {
 
   /**
    * Deletes a publication, which also removes the associated listing from anywhere it was published, such as Marketplace or Compute.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePublicationRequest
    * @return DeletePublicationResponse
    * @throws OciError when an error occurs
@@ -620,9 +661,11 @@ export class MarketplaceClient {
       "opc-request-id": deletePublicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePublicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePublicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -656,6 +699,7 @@ export class MarketplaceClient {
   /**
    * Gets the details of a specific, previously accepted terms of use agreement.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAcceptedAgreementRequest
    * @return GetAcceptedAgreementResponse
    * @throws OciError when an error occurs
@@ -676,9 +720,11 @@ export class MarketplaceClient {
       "opc-request-id": getAcceptedAgreementRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAcceptedAgreementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAcceptedAgreementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -722,6 +768,7 @@ export class MarketplaceClient {
    * Returns a terms of use agreement for a package with a time-based signature that can be used to
    * accept the agreement.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAgreementRequest
    * @return GetAgreementResponse
    * @throws OciError when an error occurs
@@ -746,9 +793,11 @@ export class MarketplaceClient {
       "opc-request-id": getAgreementRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAgreementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAgreementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -800,6 +849,7 @@ Subscribing to the listing requires you to first get a signature from the terms 
 To get the image ID to launch an instance, issue a [GetAppCatalogListingResourceVersion](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion) API call.
 * Lastly, to launch the instance, use the image ID of the listing resource version to issue a [LaunchInstance](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/Instance/LaunchInstance) API call.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetListingRequest
      * @return GetListingResponse
      * @throws OciError when an error occurs
@@ -822,9 +872,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": getListingRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getListingRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getListingRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -880,6 +932,7 @@ Subscribing to the listing requires you to first get a signature from the terms 
 To get the image ID to launch an instance, issue a [GetAppCatalogListingResourceVersion](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion) API call.
 * Lastly, to launch the instance, use the image ID of the listing resource version to issue a [LaunchInstance](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/Instance/LaunchInstance) API call.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetPackageRequest
      * @return GetPackageResponse
      * @throws OciError when an error occurs
@@ -903,9 +956,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": getPackageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPackageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPackageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -947,6 +1002,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
 
   /**
    * Gets the details of the specified publication.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPublicationRequest
    * @return GetPublicationResponse
    * @throws OciError when an error occurs
@@ -967,9 +1023,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": getPublicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPublicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPublicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1011,6 +1069,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
 
   /**
    * Gets the details of a specific package version within a given publication.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPublicationPackageRequest
    * @return GetPublicationPackageResponse
    * @throws OciError when an error occurs
@@ -1033,9 +1092,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": getPublicationPackageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPublicationPackageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPublicationPackageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1079,6 +1140,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * Lists the terms of use agreements that have been accepted in the specified compartment.
    * You can filter results by specifying query parameters.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAcceptedAgreementsRequest
    * @return ListAcceptedAgreementsResponse
    * @throws OciError when an error occurs
@@ -1108,9 +1170,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": listAcceptedAgreementsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAcceptedAgreementsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAcceptedAgreementsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1205,6 +1269,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   /**
    * Returns the terms of use agreements that must be accepted before you can deploy the specified version of a package.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAgreementsRequest
    * @return ListAgreementsResponse
    * @throws OciError when an error occurs
@@ -1230,9 +1295,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": listAgreementsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAgreementsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAgreementsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1328,6 +1395,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * Gets the list of all the categories for listings published to Oracle Cloud Infrastructure Marketplace. Categories apply
    * to the software product provided by the listing.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCategoriesRequest
    * @return ListCategoriesResponse
    * @throws OciError when an error occurs
@@ -1350,9 +1418,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": listCategoriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCategoriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCategoriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1461,6 +1531,7 @@ Subscribing to the listing requires you to first get a signature from the terms 
 To get the image ID to launch an instance, issue a [GetAppCatalogListingResourceVersion](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion) API call.
 * Lastly, to launch the instance, use the image ID of the listing resource version to issue a [LaunchInstance](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/Instance/LaunchInstance) API call.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListListingsRequest
      * @return ListListingsResponse
      * @throws OciError when an error occurs
@@ -1494,9 +1565,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": listListingsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listListingsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listListingsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1604,6 +1677,7 @@ Subscribing to the listing requires you to first get a signature from the terms 
 To get the image ID to launch an instance, issue a [GetAppCatalogListingResourceVersion](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion) API call.
 * Lastly, to launch the instance, use the image ID of the listing resource version to issue a [LaunchInstance](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/Instance/LaunchInstance) API call.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListPackagesRequest
      * @return ListPackagesResponse
      * @throws OciError when an error occurs
@@ -1632,9 +1706,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": listPackagesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPackagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPackagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1728,6 +1804,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
 
   /**
    * Lists the packages in the specified publication.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPublicationPackagesRequest
    * @return ListPublicationPackagesResponse
    * @throws OciError when an error occurs
@@ -1756,9 +1833,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": listPublicationPackagesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPublicationPackagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPublicationPackagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1852,6 +1931,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
 
   /**
    * Lists the publications in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPublicationsRequest
    * @return ListPublicationsResponse
    * @throws OciError when an error occurs
@@ -1880,9 +1960,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": listPublicationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPublicationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPublicationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1977,6 +2059,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   /**
    * Gets the list of all the publishers of listings available in Oracle Cloud Infrastructure Marketplace.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPublishersRequest
    * @return ListPublishersResponse
    * @throws OciError when an error occurs
@@ -2000,9 +2083,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": listPublishersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPublishersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPublishersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2096,6 +2181,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
 
   /**
    * Lists available types of reports for the compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListReportTypesRequest
    * @return ListReportTypesResponse
    * @throws OciError when an error occurs
@@ -2117,9 +2203,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": listReportTypesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listReportTypesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listReportTypesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2161,6 +2249,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
 
   /**
    * Lists reports in the compartment that match the specified report type and date.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListReportsRequest
    * @return ListReportsResponse
    * @throws OciError when an error occurs
@@ -2184,9 +2273,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": listReportsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listReportsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listReportsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2228,6 +2319,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
 
   /**
    * Returns list of all tax implications that current tenant may be liable to once they launch the listing.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTaxesRequest
    * @return ListTaxesResponse
    * @throws OciError when an error occurs
@@ -2250,9 +2342,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": listTaxesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTaxesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTaxesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2296,6 +2390,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * Find listings that match the specified criteria. The search query could be free text
    * or structured.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SearchListingsRequest
    * @return SearchListingsResponse
    * @throws OciError when an error occurs
@@ -2317,9 +2412,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "opc-request-id": searchListingsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      searchListingsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchListingsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2419,6 +2516,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   /**
    * Updates the display name or tags associated with a listing's previously accepted terms of use agreement.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAcceptedAgreementRequest
    * @return UpdateAcceptedAgreementResponse
    * @throws OciError when an error occurs
@@ -2442,9 +2540,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "if-match": updateAcceptedAgreementRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAcceptedAgreementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAcceptedAgreementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2491,6 +2591,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
 
   /**
    * Updates the details of an existing publication.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdatePublicationRequest
    * @return UpdatePublicationResponse
    * @throws OciError when an error occurs
@@ -2513,9 +2614,11 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       "if-match": updatePublicationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePublicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePublicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

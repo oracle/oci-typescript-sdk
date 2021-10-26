@@ -23,7 +23,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum AnnouncementApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class AnnouncementClient {
   protected static serviceEndpointTemplate = "https://announcements.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -42,6 +44,15 @@ export class AnnouncementClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -108,6 +119,7 @@ export class AnnouncementClient {
   /**
    * Gets the details of a specific announcement.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAnnouncementRequest
    * @return GetAnnouncementResponse
    * @throws OciError when an error occurs
@@ -128,9 +140,11 @@ export class AnnouncementClient {
       "opc-request-id": getAnnouncementRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAnnouncementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAnnouncementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -168,6 +182,7 @@ export class AnnouncementClient {
   /**
    * Gets information about whether a specific announcement was acknowledged by a user.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAnnouncementUserStatusRequest
    * @return GetAnnouncementUserStatusResponse
    * @throws OciError when an error occurs
@@ -189,9 +204,11 @@ export class AnnouncementClient {
       "opc-request-id": getAnnouncementUserStatusRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAnnouncementUserStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAnnouncementUserStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -229,6 +246,7 @@ export class AnnouncementClient {
   /**
    * Gets a list of announcements for the current tenancy.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAnnouncementsRequest
    * @return ListAnnouncementsResponse
    * @throws OciError when an error occurs
@@ -258,9 +276,11 @@ export class AnnouncementClient {
       "opc-request-id": listAnnouncementsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAnnouncementsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAnnouncementsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -303,6 +323,7 @@ export class AnnouncementClient {
   /**
    * Updates the status of the specified announcement with regard to whether it has been marked as read.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAnnouncementUserStatusRequest
    * @return UpdateAnnouncementUserStatusResponse
    * @throws OciError when an error occurs
@@ -325,9 +346,11 @@ export class AnnouncementClient {
       "opc-request-id": updateAnnouncementUserStatusRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAnnouncementUserStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAnnouncementUserStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -369,7 +392,9 @@ export class AnnouncementClient {
   }
 }
 export enum AnnouncementsPreferencesApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class AnnouncementsPreferencesClient {
   protected static serviceEndpointTemplate = "https://announcements.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -388,6 +413,15 @@ export class AnnouncementsPreferencesClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -455,6 +489,7 @@ export class AnnouncementsPreferencesClient {
   /**
    * Creates a request that specifies preferences for the tenancy regarding receiving announcements by email.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAnnouncementsPreferenceRequest
    * @return CreateAnnouncementsPreferenceResponse
    * @throws OciError when an error occurs
@@ -477,9 +512,11 @@ export class AnnouncementsPreferencesClient {
       "opc-retry-token": createAnnouncementsPreferenceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAnnouncementsPreferenceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAnnouncementsPreferenceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -527,6 +564,7 @@ export class AnnouncementsPreferencesClient {
   /**
    * Gets the current preferences of the tenancy regarding receiving announcements by email.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAnnouncementsPreferenceRequest
    * @return GetAnnouncementsPreferenceResponse
    * @throws OciError when an error occurs
@@ -550,9 +588,11 @@ export class AnnouncementsPreferencesClient {
       "opc-request-id": getAnnouncementsPreferenceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAnnouncementsPreferenceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAnnouncementsPreferenceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -590,6 +630,7 @@ export class AnnouncementsPreferencesClient {
   /**
    * Gets the current preferences of the tenancy regarding receiving announcements by email.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAnnouncementsPreferencesRequest
    * @return ListAnnouncementsPreferencesResponse
    * @throws OciError when an error occurs
@@ -615,9 +656,11 @@ export class AnnouncementsPreferencesClient {
       "opc-request-id": listAnnouncementsPreferencesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAnnouncementsPreferencesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAnnouncementsPreferencesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -712,6 +755,7 @@ export class AnnouncementsPreferencesClient {
   /**
    * Updates the preferences of the tenancy regarding receiving announcements by email.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAnnouncementsPreferenceRequest
    * @return UpdateAnnouncementsPreferenceResponse
    * @throws OciError when an error occurs
@@ -736,9 +780,11 @@ export class AnnouncementsPreferencesClient {
       "if-match": updateAnnouncementsPreferenceRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAnnouncementsPreferenceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAnnouncementsPreferenceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

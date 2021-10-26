@@ -26,6 +26,7 @@ export enum ActionType {
   Deleted = "DELETED",
   InProgress = "IN_PROGRESS",
   Related = "RELATED",
+  Failed = "FAILED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

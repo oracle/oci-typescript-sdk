@@ -25,7 +25,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum WafApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class WafClient {
   protected static serviceEndpointTemplate = "https://waf.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -45,6 +47,15 @@ export class WafClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -135,6 +146,7 @@ export class WafClient {
    * Moves a NetworkAddressList resource from one compartment to another.
    * When provided, If-Match is checked against ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeNetworkAddressListCompartmentRequest
    * @return ChangeNetworkAddressListCompartmentResponse
    * @throws OciError when an error occurs
@@ -157,9 +169,11 @@ export class WafClient {
       "opc-request-id": changeNetworkAddressListCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeNetworkAddressListCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeNetworkAddressListCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -204,6 +218,7 @@ export class WafClient {
    * Moves a Web App Firewall resource from one compartment to another.
    * When provided, If-Match is checked against ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeWebAppFirewallCompartmentRequest
    * @return ChangeWebAppFirewallCompartmentResponse
    * @throws OciError when an error occurs
@@ -226,9 +241,11 @@ export class WafClient {
       "opc-request-id": changeWebAppFirewallCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeWebAppFirewallCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeWebAppFirewallCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -273,6 +290,7 @@ export class WafClient {
    * Moves a WebAppFirewallfPolicy resource from one compartment to another.
    * When provided, If-Match is checked against ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeWebAppFirewallPolicyCompartmentRequest
    * @return ChangeWebAppFirewallPolicyCompartmentResponse
    * @throws OciError when an error occurs
@@ -296,9 +314,11 @@ export class WafClient {
       "opc-request-id": changeWebAppFirewallPolicyCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeWebAppFirewallPolicyCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeWebAppFirewallPolicyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -342,6 +362,7 @@ export class WafClient {
   /**
    * Creates a new NetworkAddressList.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateNetworkAddressListRequest
    * @return CreateNetworkAddressListResponse
    * @throws OciError when an error occurs
@@ -361,9 +382,11 @@ export class WafClient {
       "opc-request-id": createNetworkAddressListRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createNetworkAddressListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNetworkAddressListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -426,6 +449,7 @@ export class WafClient {
   /**
    * Creates a new WebAppFirewall.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateWebAppFirewallRequest
    * @return CreateWebAppFirewallResponse
    * @throws OciError when an error occurs
@@ -445,9 +469,11 @@ export class WafClient {
       "opc-request-id": createWebAppFirewallRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createWebAppFirewallRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createWebAppFirewallRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -510,6 +536,7 @@ export class WafClient {
   /**
    * Creates a new WebAppFirewallPolicy.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateWebAppFirewallPolicyRequest
    * @return CreateWebAppFirewallPolicyResponse
    * @throws OciError when an error occurs
@@ -529,9 +556,11 @@ export class WafClient {
       "opc-request-id": createWebAppFirewallPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createWebAppFirewallPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createWebAppFirewallPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -593,6 +622,7 @@ export class WafClient {
 
   /**
    * Deletes a NetworkAddressList resource identified by the OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteNetworkAddressListRequest
    * @return DeleteNetworkAddressListResponse
    * @throws OciError when an error occurs
@@ -614,9 +644,11 @@ export class WafClient {
       "opc-request-id": deleteNetworkAddressListRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteNetworkAddressListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNetworkAddressListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -654,6 +686,7 @@ export class WafClient {
 
   /**
    * Deletes a WebAppFirewall resource identified by the OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteWebAppFirewallRequest
    * @return DeleteWebAppFirewallResponse
    * @throws OciError when an error occurs
@@ -675,9 +708,11 @@ export class WafClient {
       "opc-request-id": deleteWebAppFirewallRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteWebAppFirewallRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteWebAppFirewallRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -715,6 +750,7 @@ export class WafClient {
 
   /**
    * Deletes a WebAppFirewallPolicy resource identified by the OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteWebAppFirewallPolicyRequest
    * @return DeleteWebAppFirewallPolicyResponse
    * @throws OciError when an error occurs
@@ -736,9 +772,11 @@ export class WafClient {
       "opc-request-id": deleteWebAppFirewallPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteWebAppFirewallPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteWebAppFirewallPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -776,6 +814,7 @@ export class WafClient {
 
   /**
    * Gets a NetworkAddressList by OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetNetworkAddressListRequest
    * @return GetNetworkAddressListResponse
    * @throws OciError when an error occurs
@@ -796,9 +835,11 @@ export class WafClient {
       "opc-request-id": getNetworkAddressListRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getNetworkAddressListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNetworkAddressListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -840,6 +881,7 @@ export class WafClient {
 
   /**
    * Gets a WebAppFirewall by OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWebAppFirewallRequest
    * @return GetWebAppFirewallResponse
    * @throws OciError when an error occurs
@@ -860,9 +902,11 @@ export class WafClient {
       "opc-request-id": getWebAppFirewallRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWebAppFirewallRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWebAppFirewallRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -904,6 +948,7 @@ export class WafClient {
 
   /**
    * Gets a WebAppFirewallPolicy with the given OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWebAppFirewallPolicyRequest
    * @return GetWebAppFirewallPolicyResponse
    * @throws OciError when an error occurs
@@ -924,9 +969,11 @@ export class WafClient {
       "opc-request-id": getWebAppFirewallPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWebAppFirewallPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWebAppFirewallPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -968,6 +1015,7 @@ export class WafClient {
 
   /**
    * Gets the status of the WorkRequest with the given OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -988,9 +1036,11 @@ export class WafClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1033,6 +1083,7 @@ export class WafClient {
   /**
    * Gets a list of all NetworkAddressLists in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListNetworkAddressListsRequest
    * @return ListNetworkAddressListsResponse
    * @throws OciError when an error occurs
@@ -1060,9 +1111,11 @@ export class WafClient {
       "opc-request-id": listNetworkAddressListsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNetworkAddressListsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNetworkAddressListsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1105,6 +1158,7 @@ export class WafClient {
   /**
    * Lists of protection capabilities filtered by query parameters.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProtectionCapabilitiesRequest
    * @return ListProtectionCapabilitiesResponse
    * @throws OciError when an error occurs
@@ -1134,9 +1188,11 @@ export class WafClient {
       "opc-request-id": listProtectionCapabilitiesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listProtectionCapabilitiesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProtectionCapabilitiesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1179,6 +1235,7 @@ export class WafClient {
   /**
    * Lists of available group tags filtered by query parameters.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProtectionCapabilityGroupTagsRequest
    * @return ListProtectionCapabilityGroupTagsResponse
    * @throws OciError when an error occurs
@@ -1206,9 +1263,11 @@ export class WafClient {
       "opc-request-id": listProtectionCapabilityGroupTagsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listProtectionCapabilityGroupTagsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProtectionCapabilityGroupTagsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1251,6 +1310,7 @@ export class WafClient {
   /**
    * Gets a list of all WebAppFirewallPolicies in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWebAppFirewallPoliciesRequest
    * @return ListWebAppFirewallPoliciesResponse
    * @throws OciError when an error occurs
@@ -1278,9 +1338,11 @@ export class WafClient {
       "opc-request-id": listWebAppFirewallPoliciesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWebAppFirewallPoliciesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWebAppFirewallPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1323,6 +1385,7 @@ export class WafClient {
   /**
    * Gets a list of all WebAppFirewalls in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWebAppFirewallsRequest
    * @return ListWebAppFirewallsResponse
    * @throws OciError when an error occurs
@@ -1351,9 +1414,11 @@ export class WafClient {
       "opc-request-id": listWebAppFirewallsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWebAppFirewallsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWebAppFirewallsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1396,6 +1461,7 @@ export class WafClient {
   /**
    * Return a (paginated) list of errors for a given WorkRequest.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1419,9 +1485,11 @@ export class WafClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1464,6 +1532,7 @@ export class WafClient {
   /**
    * Return a (paginated) list of logs for a given WorkRequest.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1487,9 +1556,11 @@ export class WafClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1532,6 +1603,7 @@ export class WafClient {
   /**
    * Lists the WorkRequests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1555,9 +1627,11 @@ export class WafClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1599,6 +1673,7 @@ export class WafClient {
 
   /**
    * Update the NetworkAddressList identified by the OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateNetworkAddressListRequest
    * @return UpdateNetworkAddressListResponse
    * @throws OciError when an error occurs
@@ -1620,9 +1695,11 @@ export class WafClient {
       "opc-request-id": updateNetworkAddressListRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateNetworkAddressListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNetworkAddressListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1665,6 +1742,7 @@ export class WafClient {
 
   /**
    * Updates the WebAppFirewall identified by the OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateWebAppFirewallRequest
    * @return UpdateWebAppFirewallResponse
    * @throws OciError when an error occurs
@@ -1686,9 +1764,11 @@ export class WafClient {
       "opc-request-id": updateWebAppFirewallRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateWebAppFirewallRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateWebAppFirewallRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1731,6 +1811,7 @@ export class WafClient {
 
   /**
    * Update the WebAppFirewallPolicy identified by the OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateWebAppFirewallPolicyRequest
    * @return UpdateWebAppFirewallPolicyResponse
    * @throws OciError when an error occurs
@@ -1752,9 +1833,11 @@ export class WafClient {
       "opc-request-id": updateWebAppFirewallPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateWebAppFirewallPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateWebAppFirewallPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

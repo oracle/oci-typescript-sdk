@@ -170,3 +170,5 @@ export import apmconfig = require("oci-apmconfig");
 export import datalabelingservice = require("oci-datalabelingservice");
 export import datalabelingservicedataplane = require("oci-datalabelingservicedataplane");
 export import waf = require("oci-waf");
+export import certificates = require("oci-certificates");
+export import certificatesmanagement = require("oci-certificatesmanagement");

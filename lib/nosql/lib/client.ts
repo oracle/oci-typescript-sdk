@@ -27,7 +27,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum NosqlApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class NosqlClient {
   protected static serviceEndpointTemplate = "https://nosql.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -47,6 +49,15 @@ export class NosqlClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -135,6 +146,7 @@ export class NosqlClient {
 
   /**
    * Change a table's compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeTableCompartmentRequest
    * @return ChangeTableCompartmentResponse
    * @throws OciError when an error occurs
@@ -157,9 +169,11 @@ export class NosqlClient {
       "opc-request-id": changeTableCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeTableCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeTableCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -202,6 +216,7 @@ export class NosqlClient {
 
   /**
    * Create a new index on the table identified by tableNameOrId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateIndexRequest
    * @return CreateIndexResponse
    * @throws OciError when an error occurs
@@ -223,9 +238,11 @@ export class NosqlClient {
       "opc-request-id": createIndexRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createIndexRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createIndexRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -268,6 +285,7 @@ export class NosqlClient {
 
   /**
    * Create a new table.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTableRequest
    * @return CreateTableResponse
    * @throws OciError when an error occurs
@@ -287,9 +305,11 @@ export class NosqlClient {
       "opc-request-id": createTableRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -332,6 +352,7 @@ export class NosqlClient {
 
   /**
    * Delete an index from the table identified by tableNameOrId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteIndexRequest
    * @return DeleteIndexResponse
    * @throws OciError when an error occurs
@@ -357,9 +378,11 @@ export class NosqlClient {
       "opc-request-id": deleteIndexRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteIndexRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteIndexRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -397,6 +420,7 @@ export class NosqlClient {
 
   /**
    * Delete a single row from the table, by primary key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRowRequest
    * @return DeleteRowResponse
    * @throws OciError when an error occurs
@@ -423,9 +447,11 @@ export class NosqlClient {
       "opc-request-id": deleteRowRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteRowRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRowRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -462,6 +488,7 @@ export class NosqlClient {
 
   /**
    * Delete a table by tableNameOrId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTableRequest
    * @return DeleteTableResponse
    * @throws OciError when an error occurs
@@ -486,9 +513,11 @@ export class NosqlClient {
       "opc-request-id": deleteTableRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -526,6 +555,7 @@ export class NosqlClient {
 
   /**
    * Cancel a work request operation with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteWorkRequestRequest
    * @return DeleteWorkRequestResponse
    * @throws OciError when an error occurs
@@ -547,9 +577,11 @@ export class NosqlClient {
       "opc-request-id": deleteWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -587,6 +619,7 @@ export class NosqlClient {
 
   /**
    * Get information about a single index.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIndexRequest
    * @return GetIndexResponse
    * @throws OciError when an error occurs
@@ -610,9 +643,11 @@ export class NosqlClient {
       "opc-request-id": getIndexRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getIndexRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIndexRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -654,6 +689,7 @@ export class NosqlClient {
 
   /**
    * Get a single row from the table by primary key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRowRequest
    * @return GetRowResponse
    * @throws OciError when an error occurs
@@ -677,9 +713,11 @@ export class NosqlClient {
       "opc-request-id": getRowRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRowRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRowRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -721,6 +759,7 @@ export class NosqlClient {
 
   /**
    * Get table info by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTableRequest
    * @return GetTableResponse
    * @throws OciError when an error occurs
@@ -743,9 +782,11 @@ export class NosqlClient {
       "opc-request-id": getTableRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -787,6 +828,7 @@ export class NosqlClient {
 
   /**
    * Get the status of the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -807,9 +849,11 @@ export class NosqlClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -856,6 +900,7 @@ export class NosqlClient {
 
   /**
    * Get a list of indexes on a table.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIndexesRequest
    * @return ListIndexesResponse
    * @throws OciError when an error occurs
@@ -884,9 +929,11 @@ export class NosqlClient {
       "opc-request-id": listIndexesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listIndexesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIndexesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -928,6 +975,7 @@ export class NosqlClient {
 
   /**
    * Get table usage info.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTableUsageRequest
    * @return ListTableUsageResponse
    * @throws OciError when an error occurs
@@ -954,9 +1002,11 @@ export class NosqlClient {
       "opc-request-id": listTableUsageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTableUsageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTableUsageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -998,6 +1048,7 @@ export class NosqlClient {
 
   /**
    * Get a list of tables in a compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTablesRequest
    * @return ListTablesResponse
    * @throws OciError when an error occurs
@@ -1024,9 +1075,11 @@ export class NosqlClient {
       "opc-request-id": listTablesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTablesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTablesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1069,6 +1122,7 @@ export class NosqlClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1092,9 +1146,11 @@ export class NosqlClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1137,6 +1193,7 @@ export class NosqlClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1160,9 +1217,11 @@ export class NosqlClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1204,6 +1263,7 @@ export class NosqlClient {
 
   /**
    * List the work requests in a compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1226,9 +1286,11 @@ export class NosqlClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1271,6 +1333,7 @@ export class NosqlClient {
   /**
    * Prepare a SQL statement for use in a query with variable substitution.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PrepareStatementRequest
    * @return PrepareStatementResponse
    * @throws OciError when an error occurs
@@ -1292,9 +1355,11 @@ export class NosqlClient {
       "opc-request-id": prepareStatementRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      prepareStatementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      prepareStatementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1331,6 +1396,7 @@ export class NosqlClient {
 
   /**
    * Execute a SQL query.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param QueryRequest
    * @return QueryResponse
    * @throws OciError when an error occurs
@@ -1350,9 +1416,11 @@ export class NosqlClient {
       "opc-request-id": queryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      queryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      queryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1400,6 +1468,7 @@ export class NosqlClient {
   /**
    * Check the syntax and return a brief summary of a SQL statement.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeStatementRequest
    * @return SummarizeStatementResponse
    * @throws OciError when an error occurs
@@ -1421,9 +1490,11 @@ export class NosqlClient {
       "opc-request-id": summarizeStatementRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeStatementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeStatementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1460,6 +1531,7 @@ export class NosqlClient {
 
   /**
    * Write a single row into the table.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRowRequest
    * @return UpdateRowResponse
    * @throws OciError when an error occurs
@@ -1481,9 +1553,11 @@ export class NosqlClient {
       "opc-request-id": updateRowRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRowRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRowRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1532,6 +1606,7 @@ export class NosqlClient {
    * Alter the table identified by tableNameOrId,
    * changing schema, limits, or tags
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTableRequest
    * @return UpdateTableResponse
    * @throws OciError when an error occurs
@@ -1553,9 +1628,11 @@ export class NosqlClient {
       "opc-request-id": updateTableRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

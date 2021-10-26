@@ -26,7 +26,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum DbManagementApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DbManagementClient {
   protected static serviceEndpointTemplate = "https://dbmgmt.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -46,6 +48,15 @@ export class DbManagementClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -137,6 +148,7 @@ export class DbManagementClient {
    * After the database is added, it will be included in the
    * management activities performed on the Managed Database Group.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddManagedDatabaseToManagedDatabaseGroupRequest
    * @return AddManagedDatabaseToManagedDatabaseGroupResponse
    * @throws OciError when an error occurs
@@ -162,9 +174,11 @@ export class DbManagementClient {
       "opc-retry-token": addManagedDatabaseToManagedDatabaseGroupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addManagedDatabaseToManagedDatabaseGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addManagedDatabaseToManagedDatabaseGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -215,6 +229,7 @@ export class DbManagementClient {
 * current instance. You must update them manually to be passed to
 * a future instance.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeDatabaseParametersRequest
      * @return ChangeDatabaseParametersResponse
      * @throws OciError when an error occurs
@@ -237,9 +252,11 @@ export class DbManagementClient {
       "opc-retry-token": changeDatabaseParametersRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDatabaseParametersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDatabaseParametersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -281,6 +298,7 @@ export class DbManagementClient {
 
   /**
    * Moves the Database Management private endpoint and its dependent resources to the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDbManagementPrivateEndpointCompartmentRequest
    * @return ChangeDbManagementPrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
@@ -307,9 +325,11 @@ export class DbManagementClient {
       "if-match": changeDbManagementPrivateEndpointCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDbManagementPrivateEndpointCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDbManagementPrivateEndpointCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -349,6 +369,7 @@ export class DbManagementClient {
   /**
    * Moves a job.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeJobCompartmentRequest
    * @return ChangeJobCompartmentResponse
    * @throws OciError when an error occurs
@@ -372,9 +393,11 @@ export class DbManagementClient {
       "if-match": changeJobCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeJobCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeJobCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -415,6 +438,7 @@ export class DbManagementClient {
    * The destination compartment must not have a Managed Database Group
    * with the same name.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeManagedDatabaseGroupCompartmentRequest
    * @return ChangeManagedDatabaseGroupCompartmentResponse
    * @throws OciError when an error occurs
@@ -441,9 +465,11 @@ export class DbManagementClient {
       "if-match": changeManagedDatabaseGroupCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeManagedDatabaseGroupCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeManagedDatabaseGroupCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -482,6 +508,7 @@ export class DbManagementClient {
   /**
    * Creates a new Database Management private endpoint.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDbManagementPrivateEndpointRequest
    * @return CreateDbManagementPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -502,9 +529,11 @@ export class DbManagementClient {
       "opc-request-id": createDbManagementPrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDbManagementPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDbManagementPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -564,6 +593,7 @@ export class DbManagementClient {
    * of the parameters, managedDatabaseId or managedDatabaseGroupId should be provided as
    * input in CreateJobDetails resource in request body.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateJobRequest
    * @return CreateJobResponse
    * @throws OciError when an error occurs
@@ -583,9 +613,11 @@ export class DbManagementClient {
       "opc-retry-token": createJobRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -639,6 +671,7 @@ export class DbManagementClient {
    * Creates a Managed Database Group. The group does not contain any
    * Managed Databases when it is created, and they must be added later.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateManagedDatabaseGroupRequest
    * @return CreateManagedDatabaseGroupResponse
    * @throws OciError when an error occurs
@@ -659,9 +692,11 @@ export class DbManagementClient {
       "opc-retry-token": createManagedDatabaseGroupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createManagedDatabaseGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createManagedDatabaseGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -713,6 +748,7 @@ export class DbManagementClient {
 
   /**
    * Deletes the specified Database Management private endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDbManagementPrivateEndpointRequest
    * @return DeleteDbManagementPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -736,9 +772,11 @@ export class DbManagementClient {
       "if-match": deleteDbManagementPrivateEndpointRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDbManagementPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDbManagementPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -776,6 +814,7 @@ export class DbManagementClient {
 
   /**
    * Deletes the job specified by jobId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteJobRequest
    * @return DeleteJobResponse
    * @throws OciError when an error occurs
@@ -797,9 +836,11 @@ export class DbManagementClient {
       "opc-request-id": deleteJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -834,6 +875,7 @@ export class DbManagementClient {
    * Deletes the Managed Database Group specified by managedDatabaseGroupId.
    * If the group contains Managed Databases, then it cannot be deleted.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteManagedDatabaseGroupRequest
    * @return DeleteManagedDatabaseGroupResponse
    * @throws OciError when an error occurs
@@ -856,9 +898,11 @@ export class DbManagementClient {
       "opc-request-id": deleteManagedDatabaseGroupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteManagedDatabaseGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteManagedDatabaseGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -892,6 +936,7 @@ export class DbManagementClient {
   /**
    * Gets the AWR report for the specific database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAwrDbReportRequest
    * @return GetAwrDbReportResponse
    * @throws OciError when an error occurs
@@ -923,9 +968,11 @@ export class DbManagementClient {
       "opc-retry-token": getAwrDbReportRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAwrDbReportRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAwrDbReportRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -963,6 +1010,7 @@ export class DbManagementClient {
   /**
    * Gets the SQL health check report for one SQL of the specific database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAwrDbSqlReportRequest
    * @return GetAwrDbSqlReportResponse
    * @throws OciError when an error occurs
@@ -994,9 +1042,11 @@ export class DbManagementClient {
       "opc-retry-token": getAwrDbSqlReportRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAwrDbSqlReportRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAwrDbSqlReportRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1036,6 +1086,7 @@ export class DbManagementClient {
    * Real Application Clusters (Oracle RAC) database specified
    * by managedDatabaseId.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetClusterCacheMetricRequest
    * @return GetClusterCacheMetricResponse
    * @throws OciError when an error occurs
@@ -1060,9 +1111,11 @@ export class DbManagementClient {
       "opc-request-id": getClusterCacheMetricRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getClusterCacheMetricRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getClusterCacheMetricRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1101,6 +1154,7 @@ export class DbManagementClient {
    * Gets the health metrics for a fleet of databases in a compartment or in a Managed Database Group.
    * Either the CompartmentId or the ManagedDatabaseGroupId query parameters must be provided to retrieve the health metrics.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDatabaseFleetHealthMetricsRequest
    * @return GetDatabaseFleetHealthMetricsResponse
    * @throws OciError when an error occurs
@@ -1132,9 +1186,11 @@ export class DbManagementClient {
       "opc-request-id": getDatabaseFleetHealthMetricsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDatabaseFleetHealthMetricsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseFleetHealthMetricsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1171,6 +1227,7 @@ export class DbManagementClient {
 
   /**
    * Gets a summary of the activity and resource usage metrics like DB Time, CPU, User I/O, Wait, Storage, and Memory for a Managed Database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDatabaseHomeMetricsRequest
    * @return GetDatabaseHomeMetricsResponse
    * @throws OciError when an error occurs
@@ -1194,9 +1251,11 @@ export class DbManagementClient {
       "opc-request-id": getDatabaseHomeMetricsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDatabaseHomeMetricsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseHomeMetricsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1233,6 +1292,7 @@ export class DbManagementClient {
 
   /**
    * Gets the details of the specified Database Management private endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDbManagementPrivateEndpointRequest
    * @return GetDbManagementPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -1255,9 +1315,11 @@ export class DbManagementClient {
       "opc-request-id": getDbManagementPrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDbManagementPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbManagementPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1300,6 +1362,7 @@ export class DbManagementClient {
   /**
    * Gets the details for the job specified by jobId.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobRequest
    * @return GetJobResponse
    * @throws OciError when an error occurs
@@ -1318,9 +1381,11 @@ export class DbManagementClient {
       "opc-request-id": getJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1368,6 +1433,7 @@ export class DbManagementClient {
   /**
    * Gets the details for the job execution specified by jobExecutionId.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobExecutionRequest
    * @return GetJobExecutionResponse
    * @throws OciError when an error occurs
@@ -1388,9 +1454,11 @@ export class DbManagementClient {
       "opc-request-id": getJobExecutionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobExecutionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJobExecutionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1428,6 +1496,7 @@ export class DbManagementClient {
   /**
    * Gets the details for the job run specified by jobRunId.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobRunRequest
    * @return GetJobRunResponse
    * @throws OciError when an error occurs
@@ -1448,9 +1517,11 @@ export class DbManagementClient {
       "opc-request-id": getJobRunRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJobRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1488,6 +1559,7 @@ export class DbManagementClient {
   /**
    * Gets the details for the Managed Database specified by managedDatabaseId.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagedDatabaseRequest
    * @return GetManagedDatabaseResponse
    * @throws OciError when an error occurs
@@ -1508,9 +1580,11 @@ export class DbManagementClient {
       "opc-request-id": getManagedDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getManagedDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getManagedDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1548,6 +1622,7 @@ export class DbManagementClient {
   /**
    * Gets the details for the Managed Database Group specified by managedDatabaseGroupId.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagedDatabaseGroupRequest
    * @return GetManagedDatabaseGroupResponse
    * @throws OciError when an error occurs
@@ -1569,9 +1644,11 @@ export class DbManagementClient {
       "opc-request-id": getManagedDatabaseGroupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getManagedDatabaseGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getManagedDatabaseGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1616,6 +1693,7 @@ export class DbManagementClient {
    * for each Pdb under specified Container database in same compartment as container database.
    * If comparmentId is provided then for each Pdb under specified compartmentId.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPdbMetricsRequest
    * @return GetPdbMetricsResponse
    * @throws OciError when an error occurs
@@ -1642,9 +1720,11 @@ export class DbManagementClient {
       "opc-request-id": getPdbMetricsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPdbMetricsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPdbMetricsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1681,6 +1761,7 @@ export class DbManagementClient {
 
   /**
    * Gets information of the work request with the given Work Request Id.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1701,9 +1782,11 @@ export class DbManagementClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1745,6 +1828,7 @@ export class DbManagementClient {
 
   /**
    * Gets the list of Databases using the specified Database Management private endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAssociatedDatabasesRequest
    * @return ListAssociatedDatabasesResponse
    * @throws OciError when an error occurs
@@ -1773,9 +1857,11 @@ export class DbManagementClient {
       "opc-request-id": listAssociatedDatabasesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAssociatedDatabasesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAssociatedDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1818,6 +1904,7 @@ export class DbManagementClient {
   /**
    * Lists AWR snapshots for the specified database in the AWR.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAwrDbSnapshotsRequest
    * @return ListAwrDbSnapshotsResponse
    * @throws OciError when an error occurs
@@ -1851,9 +1938,11 @@ export class DbManagementClient {
       "opc-retry-token": listAwrDbSnapshotsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAwrDbSnapshotsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAwrDbSnapshotsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1896,6 +1985,7 @@ export class DbManagementClient {
   /**
    * Gets the list of databases and their snapshot summary details available in the AWR of the specified Managed Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAwrDbsRequest
    * @return ListAwrDbsResponse
    * @throws OciError when an error occurs
@@ -1925,9 +2015,11 @@ export class DbManagementClient {
       "opc-retry-token": listAwrDbsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAwrDbsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAwrDbsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1970,6 +2062,7 @@ export class DbManagementClient {
   /**
    * Gets the list of database parameters for the specified Managed Database. The parameters are listed in alphabetical order, along with their current values.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDatabaseParametersRequest
    * @return ListDatabaseParametersResponse
    * @throws OciError when an error occurs
@@ -1997,9 +2090,11 @@ export class DbManagementClient {
       "opc-request-id": listDatabaseParametersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDatabaseParametersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseParametersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2037,6 +2132,7 @@ export class DbManagementClient {
   /**
    * Gets a list of Database Management private endpoints.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDbManagementPrivateEndpointsRequest
    * @return ListDbManagementPrivateEndpointsResponse
    * @throws OciError when an error occurs
@@ -2065,9 +2161,11 @@ export class DbManagementClient {
       "opc-request-id": listDbManagementPrivateEndpointsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDbManagementPrivateEndpointsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbManagementPrivateEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2113,6 +2211,7 @@ export class DbManagementClient {
    * If none of these parameters is provided, all the job executions in the compartment are listed. Job executions can also be filtered
    * based on the name and status parameters.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListJobExecutionsRequest
    * @return ListJobExecutionsResponse
    * @throws OciError when an error occurs
@@ -2144,9 +2243,11 @@ export class DbManagementClient {
       "opc-request-id": listJobExecutionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobExecutionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobExecutionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2192,6 +2293,7 @@ export class DbManagementClient {
    * should be provided. If none of these parameters is provided, all the job runs in the compartment are listed.
    * Job runs can also be filtered based on name and runStatus parameters.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListJobRunsRequest
    * @return ListJobRunsResponse
    * @throws OciError when an error occurs
@@ -2222,9 +2324,11 @@ export class DbManagementClient {
       "opc-request-id": listJobRunsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobRunsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobRunsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2270,6 +2374,7 @@ export class DbManagementClient {
    * should be provided. If none of these parameters is provided, all the jobs in the compartment are listed.
    * Jobs can also be filtered based on the name and lifecycleState parameters.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListJobsRequest
    * @return ListJobsResponse
    * @throws OciError when an error occurs
@@ -2299,9 +2404,11 @@ export class DbManagementClient {
       "opc-request-id": listJobsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2347,6 +2454,7 @@ export class DbManagementClient {
    * Only one of the parameters, ID or name should be provided. If none of these parameters is provided,
    * all the Managed Database Groups in the compartment are listed.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagedDatabaseGroupsRequest
    * @return ListManagedDatabaseGroupsResponse
    * @throws OciError when an error occurs
@@ -2375,9 +2483,11 @@ export class DbManagementClient {
       "opc-request-id": listManagedDatabaseGroupsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagedDatabaseGroupsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagedDatabaseGroupsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2425,6 +2535,7 @@ export class DbManagementClient {
    * If the deployment type is not specified or if it is `ONPREMISE`, then the management option is not
    * considered and Managed Databases with `ADVANCED` management option are listed.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagedDatabasesRequest
    * @return ListManagedDatabasesResponse
    * @throws OciError when an error occurs
@@ -2454,9 +2565,11 @@ export class DbManagementClient {
       "opc-request-id": listManagedDatabasesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagedDatabasesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagedDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2498,6 +2611,7 @@ export class DbManagementClient {
 
   /**
    * Gets the list of tablespaces for the specified managedDatabaseId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTablespacesRequest
    * @return ListTablespacesResponse
    * @throws OciError when an error occurs
@@ -2524,9 +2638,11 @@ export class DbManagementClient {
       "opc-request-id": listTablespacesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTablespacesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTablespacesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2569,6 +2685,7 @@ export class DbManagementClient {
   /**
    * Returns a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -2595,9 +2712,11 @@ export class DbManagementClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2640,6 +2759,7 @@ export class DbManagementClient {
   /**
    * Returns a (paginated) list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -2665,9 +2785,11 @@ export class DbManagementClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2710,6 +2832,7 @@ export class DbManagementClient {
   /**
    * Lists all the work requests in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -2737,9 +2860,11 @@ export class DbManagementClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2785,6 +2910,7 @@ export class DbManagementClient {
    * run to completion. However, any activities scheduled to run in the future
    * will not be performed on this database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveManagedDatabaseFromManagedDatabaseGroupRequest
    * @return RemoveManagedDatabaseFromManagedDatabaseGroupResponse
    * @throws OciError when an error occurs
@@ -2810,9 +2936,11 @@ export class DbManagementClient {
       "opc-retry-token": removeManagedDatabaseFromManagedDatabaseGroupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeManagedDatabaseFromManagedDatabaseGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeManagedDatabaseFromManagedDatabaseGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2851,6 +2979,7 @@ export class DbManagementClient {
   /**
    * Resets database parameter values to their default or startup values.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ResetDatabaseParametersRequest
    * @return ResetDatabaseParametersResponse
    * @throws OciError when an error occurs
@@ -2873,9 +3002,11 @@ export class DbManagementClient {
       "opc-retry-token": resetDatabaseParametersRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      resetDatabaseParametersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      resetDatabaseParametersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2918,6 +3049,7 @@ export class DbManagementClient {
   /**
    * Summarizes the AWR CPU resource limits and metrics for the specified database in AWR.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeAwrDbCpuUsagesRequest
    * @return SummarizeAwrDbCpuUsagesResponse
    * @throws OciError when an error occurs
@@ -2953,9 +3085,11 @@ export class DbManagementClient {
       "opc-retry-token": summarizeAwrDbCpuUsagesRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbCpuUsagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDbCpuUsagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2998,6 +3132,7 @@ export class DbManagementClient {
   /**
    * Summarizes the metric samples for the specified database in the AWR. The metric samples are summarized based on the Time dimension for each metric.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeAwrDbMetricsRequest
    * @return SummarizeAwrDbMetricsResponse
    * @throws OciError when an error occurs
@@ -3033,9 +3168,11 @@ export class DbManagementClient {
       "opc-retry-token": summarizeAwrDbMetricsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbMetricsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDbMetricsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3082,6 +3219,7 @@ export class DbManagementClient {
    * To get a list of all the database parameters whose values were changed during a specified time range, use the following API endpoint:
    * /managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbParameters
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeAwrDbParameterChangesRequest
    * @return SummarizeAwrDbParameterChangesResponse
    * @throws OciError when an error occurs
@@ -3118,9 +3256,11 @@ export class DbManagementClient {
       "opc-retry-token": summarizeAwrDbParameterChangesRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbParameterChangesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDbParameterChangesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3173,6 +3313,7 @@ export class DbManagementClient {
 Note that this API does not return information on the number of times each database parameter has been changed within the time range. To get the database parameter value change history for a specific parameter, use the following API endpoint:
 * /managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbParameterChanges
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param SummarizeAwrDbParametersRequest
      * @return SummarizeAwrDbParametersResponse
      * @throws OciError when an error occurs
@@ -3213,9 +3354,11 @@ Note that this API does not return information on the number of times each datab
       "opc-retry-token": summarizeAwrDbParametersRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbParametersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDbParametersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3258,6 +3401,7 @@ Note that this API does not return information on the number of times each datab
   /**
    * Summarizes the AWR snapshot ranges that contain continuous snapshots, for the specified Managed Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeAwrDbSnapshotRangesRequest
    * @return SummarizeAwrDbSnapshotRangesResponse
    * @throws OciError when an error occurs
@@ -3288,9 +3432,11 @@ Note that this API does not return information on the number of times each datab
       "opc-retry-token": summarizeAwrDbSnapshotRangesRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbSnapshotRangesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDbSnapshotRangesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3333,6 +3479,7 @@ Note that this API does not return information on the number of times each datab
   /**
    * Summarizes the AWR SYSSTAT sample data for the specified database in AWR. The statistical data is summarized based on the Time dimension for each statistic.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeAwrDbSysstatsRequest
    * @return SummarizeAwrDbSysstatsResponse
    * @throws OciError when an error occurs
@@ -3368,9 +3515,11 @@ Note that this API does not return information on the number of times each datab
       "opc-retry-token": summarizeAwrDbSysstatsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbSysstatsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDbSysstatsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3413,6 +3562,7 @@ Note that this API does not return information on the number of times each datab
   /**
    * Summarizes the AWR top wait events.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeAwrDbTopWaitEventsRequest
    * @return SummarizeAwrDbTopWaitEventsResponse
    * @throws OciError when an error occurs
@@ -3448,9 +3598,11 @@ Note that this API does not return information on the number of times each datab
       "opc-retry-token": summarizeAwrDbTopWaitEventsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbTopWaitEventsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDbTopWaitEventsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3493,6 +3645,7 @@ Note that this API does not return information on the number of times each datab
   /**
    * Summarizes AWR wait event data into value buckets and frequency, for the specified database in the AWR.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeAwrDbWaitEventBucketsRequest
    * @return SummarizeAwrDbWaitEventBucketsResponse
    * @throws OciError when an error occurs
@@ -3532,9 +3685,11 @@ Note that this API does not return information on the number of times each datab
       "opc-retry-token": summarizeAwrDbWaitEventBucketsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbWaitEventBucketsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDbWaitEventBucketsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3577,6 +3732,7 @@ Note that this API does not return information on the number of times each datab
   /**
    * Summarizes the AWR wait event sample data for the specified database in the AWR. The event data is summarized based on the Time dimension for each event.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeAwrDbWaitEventsRequest
    * @return SummarizeAwrDbWaitEventsResponse
    * @throws OciError when an error occurs
@@ -3614,9 +3770,11 @@ Note that this API does not return information on the number of times each datab
       "opc-retry-token": summarizeAwrDbWaitEventsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAwrDbWaitEventsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDbWaitEventsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3658,6 +3816,7 @@ Note that this API does not return information on the number of times each datab
 
   /**
    * Gets the number of job executions grouped by status for a job, Managed Database, or Database Group in a specific compartment. Only one of the parameters, jobId, managedDatabaseId, or managedDatabaseGroupId should be provided.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeJobExecutionsStatusesRequest
    * @return SummarizeJobExecutionsStatusesResponse
    * @throws OciError when an error occurs
@@ -3687,9 +3846,11 @@ Note that this API does not return information on the number of times each datab
       "opc-request-id": summarizeJobExecutionsStatusesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeJobExecutionsStatusesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeJobExecutionsStatusesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3726,6 +3887,7 @@ Note that this API does not return information on the number of times each datab
 
   /**
    * Updates one or more attributes of the specified Database Management private endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDbManagementPrivateEndpointRequest
    * @return UpdateDbManagementPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -3749,9 +3911,11 @@ Note that this API does not return information on the number of times each datab
       "if-match": updateDbManagementPrivateEndpointRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDbManagementPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDbManagementPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3799,6 +3963,7 @@ Note that this API does not return information on the number of times each datab
   /**
    * Updates the details for the recurring scheduled job specified by jobId. Note that non-recurring (one time) jobs cannot be updated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateJobRequest
    * @return UpdateJobResponse
    * @throws OciError when an error occurs
@@ -3820,9 +3985,11 @@ Note that this API does not return information on the number of times each datab
       "if-match": updateJobRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3870,6 +4037,7 @@ Note that this API does not return information on the number of times each datab
   /**
    * Updates the Managed Database Group specified by managedDatabaseGroupId.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateManagedDatabaseGroupRequest
    * @return UpdateManagedDatabaseGroupResponse
    * @throws OciError when an error occurs
@@ -3892,9 +4060,11 @@ Note that this API does not return information on the number of times each datab
       "opc-request-id": updateManagedDatabaseGroupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateManagedDatabaseGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateManagedDatabaseGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

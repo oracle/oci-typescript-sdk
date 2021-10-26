@@ -27,7 +27,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum KmsCryptoApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class KmsCryptoClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -46,6 +48,15 @@ export class KmsCryptoClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -74,6 +85,7 @@ export class KmsCryptoClient {
   /**
    * Decrypts data using the given [DecryptDataDetails](https://docs.cloud.oracle.com/api/#/en/key/latest/datatypes/DecryptDataDetails) resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DecryptRequest
    * @return DecryptResponse
    * @throws OciError when an error occurs
@@ -92,9 +104,11 @@ export class KmsCryptoClient {
       "opc-request-id": decryptRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      decryptRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      decryptRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -138,6 +152,7 @@ export class KmsCryptoClient {
    * Encrypts data using the given [EncryptDataDetails](https://docs.cloud.oracle.com/api/#/en/key/latest/datatypes/EncryptDataDetails) resource.
    * Plaintext included in the example request is a base64-encoded value of a UTF-8 string.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EncryptRequest
    * @return EncryptResponse
    * @throws OciError when an error occurs
@@ -156,9 +171,11 @@ export class KmsCryptoClient {
       "opc-request-id": encryptRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      encryptRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      encryptRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -203,6 +220,7 @@ export class KmsCryptoClient {
    * keys that you create and store on a hardware security module (HSM) can never leave the HSM. You can only export keys
    * stored on the server. For export, the key version is encrypted by an RSA public key that you provide.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ExportKeyRequest
    * @return ExportKeyResponse
    * @throws OciError when an error occurs
@@ -220,9 +238,11 @@ export class KmsCryptoClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      exportKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -265,6 +285,7 @@ export class KmsCryptoClient {
   /**
    * Generates a key that you can use to encrypt or decrypt data.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GenerateDataEncryptionKeyRequest
    * @return GenerateDataEncryptionKeyResponse
    * @throws OciError when an error occurs
@@ -284,9 +305,11 @@ export class KmsCryptoClient {
       "opc-request-id": generateDataEncryptionKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      generateDataEncryptionKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateDataEncryptionKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -331,6 +354,7 @@ export class KmsCryptoClient {
    * also known as an asymmetric key. To verify the generated signature, you can use the [Verify](https://docs.cloud.oracle.com/api/#/en/key/latest/VerifiedData/Verify)
    * operation. Or, if you want to validate the signature outside of the service, you can do so by using the public key of the same asymmetric key.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SignRequest
    * @return SignResponse
    * @throws OciError when an error occurs
@@ -347,9 +371,11 @@ export class KmsCryptoClient {
       "opc-request-id": signRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      signRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      signRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -394,6 +420,7 @@ export class KmsCryptoClient {
    * by using the public key of the same asymmetric key that was used to sign the data. If you want to validate the
    * digital signature outside of the service, you can do so by using the public key of the asymmetric key.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param VerifyRequest
    * @return VerifyResponse
    * @throws OciError when an error occurs
@@ -410,9 +437,11 @@ export class KmsCryptoClient {
       "opc-request-id": verifyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      verifyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      verifyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -453,7 +482,9 @@ export class KmsCryptoClient {
   }
 }
 export enum KmsManagementApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class KmsManagementClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -473,6 +504,15 @@ export class KmsManagementClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -525,6 +565,7 @@ export class KmsManagementClient {
    * Backs up an encrypted file that contains all key versions and metadata of the specified key so that you can restore
    * the key later. The file also contains the metadata of the vault that the key belonged to.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param BackupKeyRequest
    * @return BackupKeyResponse
    * @throws OciError when an error occurs
@@ -547,9 +588,11 @@ export class KmsManagementClient {
       "opc-retry-token": backupKeyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      backupKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      backupKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -609,6 +652,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * write operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CancelKeyDeletionRequest
      * @return CancelKeyDeletionResponse
      * @throws OciError when an error occurs
@@ -631,9 +675,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": cancelKeyDeletionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelKeyDeletionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelKeyDeletionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -683,6 +729,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * write operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CancelKeyVersionDeletionRequest
      * @return CancelKeyVersionDeletionResponse
      * @throws OciError when an error occurs
@@ -707,9 +754,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": cancelKeyVersionDeletionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelKeyVersionDeletionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelKeyVersionDeletionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -760,6 +809,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * write operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeKeyCompartmentRequest
      * @return ChangeKeyCompartmentResponse
      * @throws OciError when an error occurs
@@ -783,9 +833,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": changeKeyCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeKeyCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeKeyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -834,6 +886,7 @@ As a management operation, this call is subject to a Key Management limit that a
 * to reject an otherwise valid request when the total rate of management write operations exceeds 10
 * requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateKeyRequest
      * @return CreateKeyResponse
      * @throws OciError when an error occurs
@@ -853,9 +906,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": createKeyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -909,6 +964,7 @@ As a management operation, this call is subject to a Key Management limit that a
 * otherwise valid request when the total rate of management write operations exceeds 10 requests per second
 * for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateKeyVersionRequest
      * @return CreateKeyVersionResponse
      * @throws OciError when an error occurs
@@ -930,9 +986,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": createKeyVersionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createKeyVersionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createKeyVersionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -981,6 +1039,7 @@ As a management operation, this call is subject to a Key Management limit that a
 * otherwise valid request when the total rate of management write operations exceeds 10 requests per second
 * for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DisableKeyRequest
      * @return DisableKeyResponse
      * @throws OciError when an error occurs
@@ -1003,9 +1062,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": disableKeyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      disableKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1054,6 +1115,7 @@ As a management operation, this call is subject to a Key Management limit that a
 * otherwise valid request when the total rate of management write operations exceeds 10 requests per second
 * for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param EnableKeyRequest
      * @return EnableKeyResponse
      * @throws OciError when an error occurs
@@ -1076,9 +1138,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": enableKeyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      enableKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1126,6 +1190,7 @@ As a management operation, this call is subject to a Key Management limit that a
 * otherwise valid request when the total rate of management read operations exceeds 10 requests per second for
 * a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetKeyRequest
      * @return GetKeyResponse
      * @throws OciError when an error occurs
@@ -1144,9 +1209,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": getKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1194,6 +1261,7 @@ As a management operation, this call is subject to a Key Management limit that a
 * otherwise valid request when the total rate of management read operations exceeds 10 requests per second
 * for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetKeyVersionRequest
      * @return GetKeyVersionResponse
      * @throws OciError when an error occurs
@@ -1215,9 +1283,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": getKeyVersionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getKeyVersionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getKeyVersionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1263,6 +1333,7 @@ As a management operation, this call is subject to a Key Management limit that a
    * details about whether the operation associated with the given replicationId has been
    * successfully applied across replicas.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetReplicationStatusRequest
    * @return GetReplicationStatusResponse
    * @throws OciError when an error occurs
@@ -1284,9 +1355,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": getReplicationStatusRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getReplicationStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getReplicationStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1330,6 +1403,7 @@ As a management operation, this call is subject to a Key Management limit that a
    * Gets details about the public RSA wrapping key associated with the vault in the endpoint. Each vault has an RSA key-pair that wraps and
    * unwraps AES key material for import into Key Management.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWrappingKeyRequest
    * @return GetWrappingKeyResponse
    * @throws OciError when an error occurs
@@ -1348,9 +1422,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": getWrappingKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWrappingKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWrappingKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1395,6 +1471,7 @@ As a management operation, this call is subject to a Key Management limit that a
    * wrapped by the vault's public RSA wrapping key before you can import it. Key Management supports AES symmetric keys
    * that are exactly 16, 24, or 32 bytes. Furthermore, the key length must match what you specify at the time of import.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ImportKeyRequest
    * @return ImportKeyResponse
    * @throws OciError when an error occurs
@@ -1414,9 +1491,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": importKeyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      importKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1468,6 +1547,7 @@ As a management operation, this call is subject to a Key Management limit that a
    * Furthermore, the key length must match the length of the specified key and what you specify as the length
    * at the time of import.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ImportKeyVersionRequest
    * @return ImportKeyVersionResponse
    * @throws OciError when an error occurs
@@ -1489,9 +1569,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": importKeyVersionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      importKeyVersionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importKeyVersionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1545,6 +1627,7 @@ As a management operation, this call is subject to a Key Management limit that a
 * otherwise valid request when the total rate of management read operations exceeds 10 requests per second
 * for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListKeyVersionsRequest
      * @return ListKeyVersionsResponse
      * @throws OciError when an error occurs
@@ -1570,9 +1653,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": listKeyVersionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listKeyVersionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listKeyVersionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1672,6 +1757,7 @@ As a management operation, this call is subject to a Key Management limit that a
 * otherwise valid request when the total rate of management read operations exceeds 10 requests per second
 * for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListKeysRequest
      * @return ListKeysResponse
      * @throws OciError when an error occurs
@@ -1700,9 +1786,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": listKeysRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listKeysRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listKeysRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1797,6 +1885,7 @@ As a management operation, this call is subject to a Key Management limit that a
    * If the vault doesn't exist, the operation returns a response with a 404 HTTP status error code. You
    * need to first restore the vault associated with the key.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestoreKeyFromFileRequest
    * @return RestoreKeyFromFileResponse
    * @throws OciError when an error occurs
@@ -1818,9 +1907,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": restoreKeyFromFileRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restoreKeyFromFileRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restoreKeyFromFileRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1877,6 +1968,7 @@ As a management operation, this call is subject to a Key Management limit that a
    * Object Storage location. If the vault doesn't exist, the operation returns a response with a
    * 404 HTTP status error code. You need to first restore the vault associated with the key.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestoreKeyFromObjectStoreRequest
    * @return RestoreKeyFromObjectStoreResponse
    * @throws OciError when an error occurs
@@ -1898,9 +1990,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-retry-token": restoreKeyFromObjectStoreRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restoreKeyFromObjectStoreRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restoreKeyFromObjectStoreRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1959,6 +2053,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * write operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ScheduleKeyDeletionRequest
      * @return ScheduleKeyDeletionResponse
      * @throws OciError when an error occurs
@@ -1982,9 +2077,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": scheduleKeyDeletionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      scheduleKeyDeletionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scheduleKeyDeletionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2038,6 +2135,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * write operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ScheduleKeyVersionDeletionRequest
      * @return ScheduleKeyVersionDeletionResponse
      * @throws OciError when an error occurs
@@ -2062,9 +2160,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": scheduleKeyVersionDeletionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      scheduleKeyVersionDeletionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scheduleKeyVersionDeletionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2119,6 +2219,7 @@ As a management operation, this call is subject to a Key Management limit that a
 * otherwise valid request when the total rate of management write operations exceeds 10 requests per second
 * for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateKeyRequest
      * @return UpdateKeyResponse
      * @throws OciError when an error occurs
@@ -2140,9 +2241,11 @@ As a management operation, this call is subject to a Key Management limit that a
       "opc-request-id": updateKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2188,7 +2291,9 @@ As a management operation, this call is subject to a Key Management limit that a
   }
 }
 export enum KmsVaultApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class KmsVaultClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -2208,6 +2313,15 @@ export class KmsVaultClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -2298,6 +2412,7 @@ export class KmsVaultClient {
    * You can backup a vault whether or not it contains keys. This operation only backs up the
    * metadata of the vault, and does not include key metadata.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param BackupVaultRequest
    * @return BackupVaultResponse
    * @throws OciError when an error occurs
@@ -2320,9 +2435,11 @@ export class KmsVaultClient {
       "opc-retry-token": backupVaultRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      backupVaultRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      backupVaultRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2383,6 +2500,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * write operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CancelVaultDeletionRequest
      * @return CancelVaultDeletionResponse
      * @throws OciError when an error occurs
@@ -2405,9 +2523,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": cancelVaultDeletionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelVaultDeletionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelVaultDeletionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2458,6 +2578,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * write operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeVaultCompartmentRequest
      * @return ChangeVaultCompartmentResponse
      * @throws OciError when an error occurs
@@ -2480,9 +2601,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": changeVaultCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeVaultCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeVaultCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2534,6 +2657,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * write operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateVaultRequest
      * @return CreateVaultResponse
      * @throws OciError when an error occurs
@@ -2553,9 +2677,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": createVaultRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVaultRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVaultRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2612,6 +2738,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * write operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateVaultReplicaRequest
      * @return CreateVaultReplicaResponse
      * @throws OciError when an error occurs
@@ -2634,9 +2761,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": createVaultReplicaRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVaultReplicaRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVaultReplicaRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2685,6 +2814,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * write operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteVaultReplicaRequest
      * @return DeleteVaultReplicaResponse
      * @throws OciError when an error occurs
@@ -2707,9 +2837,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": deleteVaultReplicaRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVaultReplicaRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVaultReplicaRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2758,6 +2890,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * read operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetVaultRequest
      * @return GetVaultResponse
      * @throws OciError when an error occurs
@@ -2778,9 +2911,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-request-id": getVaultRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVaultRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVaultRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2823,6 +2958,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   /**
    * Gets the count of keys and key versions in the specified vault to calculate usage against service limits.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVaultUsageRequest
    * @return GetVaultUsageResponse
    * @throws OciError when an error occurs
@@ -2843,9 +2979,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-request-id": getVaultUsageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVaultUsageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVaultUsageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2888,6 +3026,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * write operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListVaultReplicasRequest
      * @return ListVaultReplicasResponse
      * @throws OciError when an error occurs
@@ -2915,9 +3054,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": listVaultReplicasRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVaultReplicasRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVaultReplicasRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3022,6 +3163,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * read operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListVaultsRequest
      * @return ListVaultsResponse
      * @throws OciError when an error occurs
@@ -3046,9 +3188,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-request-id": listVaultsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVaultsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVaultsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3145,6 +3289,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
    * with the same OCID already exists, this operation returns a response with a
    * 409 HTTP status error code.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestoreVaultFromFileRequest
    * @return RestoreVaultFromFileResponse
    * @throws OciError when an error occurs
@@ -3168,9 +3313,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": restoreVaultFromFileRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restoreVaultFromFileRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restoreVaultFromFileRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3227,6 +3374,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
    * Storage. If a vault with the same OCID already exists, this operation returns
    * a response with a 409 HTTP status error code.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestoreVaultFromObjectStoreRequest
    * @return RestoreVaultFromObjectStoreResponse
    * @throws OciError when an error occurs
@@ -3250,9 +3398,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": restoreVaultFromObjectStoreRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restoreVaultFromObjectStoreRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restoreVaultFromObjectStoreRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3314,6 +3464,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * write operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ScheduleVaultDeletionRequest
      * @return ScheduleVaultDeletionResponse
      * @throws OciError when an error occurs
@@ -3336,9 +3487,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-retry-token": scheduleVaultDeletionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      scheduleVaultDeletionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scheduleVaultDeletionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3393,6 +3546,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 * throttle this call to reject an otherwise valid request when the total rate of provisioning
 * write operations exceeds 10 requests per second for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateVaultRequest
      * @return UpdateVaultResponse
      * @throws OciError when an error occurs
@@ -3414,9 +3568,11 @@ As a provisioning operation, this call is subject to a Key Management limit that
       "opc-request-id": updateVaultRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVaultRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVaultRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

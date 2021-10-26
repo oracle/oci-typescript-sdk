@@ -23,7 +23,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum DevopsApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DevopsClient {
   protected static serviceEndpointTemplate = "https://devops.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -43,6 +45,15 @@ export class DevopsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -131,6 +142,7 @@ export class DevopsClient {
 
   /**
    * Submit stage approval.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ApproveDeploymentRequest
    * @return ApproveDeploymentResponse
    * @throws OciError when an error occurs
@@ -153,9 +165,11 @@ export class DevopsClient {
       "opc-retry-token": approveDeploymentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      approveDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      approveDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -201,7 +215,82 @@ export class DevopsClient {
   }
 
   /**
+   * Cancels the Build Run based on build run id provided in request
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CancelBuildRunRequest
+   * @return CancelBuildRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CancelBuildRun.ts.html |here} to see how to use CancelBuildRun API.
+   */
+  public async cancelBuildRun(
+    cancelBuildRunRequest: requests.CancelBuildRunRequest
+  ): Promise<responses.CancelBuildRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#cancelBuildRun.");
+    const pathParams = {
+      "{buildRunId}": cancelBuildRunRequest.buildRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelBuildRunRequest.ifMatch,
+      "opc-request-id": cancelBuildRunRequest.opcRequestId,
+      "opc-retry-token": cancelBuildRunRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelBuildRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildRuns/{buildRunId}/actions/cancel",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        cancelBuildRunRequest.cancelBuildRunDetails,
+        "CancelBuildRunDetails",
+        model.CancelBuildRunDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelBuildRunResponse>{},
+        body: await response.json(),
+        bodyKey: "buildRun",
+        bodyModel: model.BuildRun,
+        type: "model.BuildRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancels a deployment resource by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelDeploymentRequest
    * @return CancelDeploymentResponse
    * @throws OciError when an error occurs
@@ -224,9 +313,11 @@ export class DevopsClient {
       "opc-retry-token": cancelDeploymentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -273,6 +364,7 @@ export class DevopsClient {
 
   /**
    * Moves a project resource from one compartment OCID to another.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeProjectCompartmentRequest
    * @return ChangeProjectCompartmentResponse
    * @throws OciError when an error occurs
@@ -295,9 +387,11 @@ export class DevopsClient {
       "opc-retry-token": changeProjectCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeProjectCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeProjectCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -339,7 +433,332 @@ export class DevopsClient {
   }
 
   /**
+   * Creates a new BuildPipeline.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateBuildPipelineRequest
+   * @return CreateBuildPipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateBuildPipeline.ts.html |here} to see how to use CreateBuildPipeline API.
+   */
+  public async createBuildPipeline(
+    createBuildPipelineRequest: requests.CreateBuildPipelineRequest
+  ): Promise<responses.CreateBuildPipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#createBuildPipeline.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createBuildPipelineRequest.opcRetryToken,
+      "opc-request-id": createBuildPipelineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBuildPipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildPipelines",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createBuildPipelineRequest.createBuildPipelineDetails,
+        "CreateBuildPipelineDetails",
+        model.CreateBuildPipelineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateBuildPipelineResponse>{},
+        body: await response.json(),
+        bodyKey: "buildPipeline",
+        bodyModel: model.BuildPipeline,
+        type: "model.BuildPipeline",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new Stage.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateBuildPipelineStageRequest
+   * @return CreateBuildPipelineStageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateBuildPipelineStage.ts.html |here} to see how to use CreateBuildPipelineStage API.
+   */
+  public async createBuildPipelineStage(
+    createBuildPipelineStageRequest: requests.CreateBuildPipelineStageRequest
+  ): Promise<responses.CreateBuildPipelineStageResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#createBuildPipelineStage.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createBuildPipelineStageRequest.opcRetryToken,
+      "opc-request-id": createBuildPipelineStageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBuildPipelineStageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildPipelineStages",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createBuildPipelineStageRequest.createBuildPipelineStageDetails,
+        "CreateBuildPipelineStageDetails",
+        model.CreateBuildPipelineStageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateBuildPipelineStageResponse>{},
+        body: await response.json(),
+        bodyKey: "buildPipelineStage",
+        bodyModel: model.BuildPipelineStage,
+        type: "model.BuildPipelineStage",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Starts a build pipeline run for a predefined build pipeline
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateBuildRunRequest
+   * @return CreateBuildRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateBuildRun.ts.html |here} to see how to use CreateBuildRun API.
+   */
+  public async createBuildRun(
+    createBuildRunRequest: requests.CreateBuildRunRequest
+  ): Promise<responses.CreateBuildRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#createBuildRun.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createBuildRunRequest.opcRetryToken,
+      "opc-request-id": createBuildRunRequest.opcRequestId,
+      "if-match": createBuildRunRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBuildRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildRuns",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createBuildRunRequest.createBuildRunDetails,
+        "CreateBuildRunDetails",
+        model.CreateBuildRunDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateBuildRunResponse>{},
+        body: await response.json(),
+        bodyKey: "buildRun",
+        bodyModel: model.BuildRun,
+        type: "model.BuildRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new Connection.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateConnectionRequest
+   * @return CreateConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateConnection.ts.html |here} to see how to use CreateConnection API.
+   */
+  public async createConnection(
+    createConnectionRequest: requests.CreateConnectionRequest
+  ): Promise<responses.CreateConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#createConnection.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createConnectionRequest.opcRetryToken,
+      "opc-request-id": createConnectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createConnectionRequest.createConnectionDetails,
+        "CreateConnectionDetails",
+        model.CreateConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateConnectionResponse>{},
+        body: await response.json(),
+        bodyKey: "connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new deployment artifact.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDeployArtifactRequest
    * @return CreateDeployArtifactResponse
    * @throws OciError when an error occurs
@@ -359,9 +778,11 @@ export class DevopsClient {
       "opc-request-id": createDeployArtifactRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDeployArtifactRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDeployArtifactRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -418,6 +839,7 @@ export class DevopsClient {
 
   /**
    * Creates a new deployment environment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDeployEnvironmentRequest
    * @return CreateDeployEnvironmentResponse
    * @throws OciError when an error occurs
@@ -437,9 +859,11 @@ export class DevopsClient {
       "opc-request-id": createDeployEnvironmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDeployEnvironmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDeployEnvironmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -496,6 +920,7 @@ export class DevopsClient {
 
   /**
    * Creates a new deployment pipeline.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDeployPipelineRequest
    * @return CreateDeployPipelineResponse
    * @throws OciError when an error occurs
@@ -515,9 +940,11 @@ export class DevopsClient {
       "opc-request-id": createDeployPipelineRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDeployPipelineRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDeployPipelineRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -574,6 +1001,7 @@ export class DevopsClient {
 
   /**
    * Creates a new deployment stage.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDeployStageRequest
    * @return CreateDeployStageResponse
    * @throws OciError when an error occurs
@@ -593,9 +1021,11 @@ export class DevopsClient {
       "opc-request-id": createDeployStageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDeployStageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDeployStageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -652,6 +1082,7 @@ export class DevopsClient {
 
   /**
    * Creates a new deployment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDeploymentRequest
    * @return CreateDeploymentResponse
    * @throws OciError when an error occurs
@@ -671,9 +1102,11 @@ export class DevopsClient {
       "opc-request-id": createDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -720,6 +1153,7 @@ export class DevopsClient {
 
   /**
    * Creates a new project.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateProjectRequest
    * @return CreateProjectResponse
    * @throws OciError when an error occurs
@@ -739,9 +1173,11 @@ export class DevopsClient {
       "opc-request-id": createProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -797,7 +1233,364 @@ export class DevopsClient {
   }
 
   /**
+   * Creates a new Repository.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateRepositoryRequest
+   * @return CreateRepositoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateRepository.ts.html |here} to see how to use CreateRepository API.
+   */
+  public async createRepository(
+    createRepositoryRequest: requests.CreateRepositoryRequest
+  ): Promise<responses.CreateRepositoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#createRepository.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createRepositoryRequest.opcRetryToken,
+      "opc-request-id": createRepositoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createRepositoryRequest.createRepositoryDetails,
+        "CreateRepositoryDetails",
+        model.CreateRepositoryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateRepositoryResponse>{},
+        body: await response.json(),
+        bodyKey: "repository",
+        bodyModel: model.Repository,
+        type: "model.Repository",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new Trigger.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateTriggerRequest
+   * @return CreateTriggerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateTrigger.ts.html |here} to see how to use CreateTrigger API.
+   */
+  public async createTrigger(
+    createTriggerRequest: requests.CreateTriggerRequest
+  ): Promise<responses.CreateTriggerResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#createTrigger.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createTriggerRequest.opcRetryToken,
+      "opc-request-id": createTriggerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTriggerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/triggers",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createTriggerRequest.createTriggerDetails,
+        "CreateTriggerDetails",
+        model.CreateTriggerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateTriggerResponse>{},
+        body: await response.json(),
+        bodyKey: "triggerCreateResult",
+        bodyModel: model.TriggerCreateResult,
+        type: "model.TriggerCreateResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a BuildPipeline resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteBuildPipelineRequest
+   * @return DeleteBuildPipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteBuildPipeline.ts.html |here} to see how to use DeleteBuildPipeline API.
+   */
+  public async deleteBuildPipeline(
+    deleteBuildPipelineRequest: requests.DeleteBuildPipelineRequest
+  ): Promise<responses.DeleteBuildPipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteBuildPipeline.");
+    const pathParams = {
+      "{buildPipelineId}": deleteBuildPipelineRequest.buildPipelineId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteBuildPipelineRequest.ifMatch,
+      "opc-request-id": deleteBuildPipelineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBuildPipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildPipelines/{buildPipelineId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteBuildPipelineResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Stage based on stage id provided in request
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteBuildPipelineStageRequest
+   * @return DeleteBuildPipelineStageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteBuildPipelineStage.ts.html |here} to see how to use DeleteBuildPipelineStage API.
+   */
+  public async deleteBuildPipelineStage(
+    deleteBuildPipelineStageRequest: requests.DeleteBuildPipelineStageRequest
+  ): Promise<responses.DeleteBuildPipelineStageResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteBuildPipelineStage.");
+    const pathParams = {
+      "{buildPipelineStageId}": deleteBuildPipelineStageRequest.buildPipelineStageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteBuildPipelineStageRequest.ifMatch,
+      "opc-request-id": deleteBuildPipelineStageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBuildPipelineStageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildPipelineStages/{buildPipelineStageId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteBuildPipelineStageResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Connection resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteConnectionRequest
+   * @return DeleteConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteConnection.ts.html |here} to see how to use DeleteConnection API.
+   */
+  public async deleteConnection(
+    deleteConnectionRequest: requests.DeleteConnectionRequest
+  ): Promise<responses.DeleteConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteConnection.");
+    const pathParams = {
+      "{connectionId}": deleteConnectionRequest.connectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteConnectionRequest.ifMatch,
+      "opc-request-id": deleteConnectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/{connectionId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteConnectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a deployment artifact resource by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDeployArtifactRequest
    * @return DeleteDeployArtifactResponse
    * @throws OciError when an error occurs
@@ -819,9 +1612,11 @@ export class DevopsClient {
       "opc-request-id": deleteDeployArtifactRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDeployArtifactRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDeployArtifactRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -859,6 +1654,7 @@ export class DevopsClient {
 
   /**
    * Deletes a deployment environment resource by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDeployEnvironmentRequest
    * @return DeleteDeployEnvironmentResponse
    * @throws OciError when an error occurs
@@ -880,9 +1676,11 @@ export class DevopsClient {
       "opc-request-id": deleteDeployEnvironmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDeployEnvironmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDeployEnvironmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -920,6 +1718,7 @@ export class DevopsClient {
 
   /**
    * Deletes a deployment pipeline resource by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDeployPipelineRequest
    * @return DeleteDeployPipelineResponse
    * @throws OciError when an error occurs
@@ -941,9 +1740,11 @@ export class DevopsClient {
       "opc-request-id": deleteDeployPipelineRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDeployPipelineRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDeployPipelineRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -981,6 +1782,7 @@ export class DevopsClient {
 
   /**
    * Deletes a deployment stage resource by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDeployStageRequest
    * @return DeleteDeployStageResponse
    * @throws OciError when an error occurs
@@ -1002,9 +1804,11 @@ export class DevopsClient {
       "opc-request-id": deleteDeployStageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDeployStageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDeployStageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1042,6 +1846,7 @@ export class DevopsClient {
 
   /**
    * Deletes a project resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
    * @throws OciError when an error occurs
@@ -1063,9 +1868,11 @@ export class DevopsClient {
       "opc-request-id": deleteProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1102,7 +1909,611 @@ export class DevopsClient {
   }
 
   /**
+   * Deletes a Repository's Ref by its name. Returns an error if the name is ambiguous. Can be disambiguated by using full names like \"heads/<name>\" or \"tags/<name>\".
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteRefRequest
+   * @return DeleteRefResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteRef.ts.html |here} to see how to use DeleteRef API.
+   */
+  public async deleteRef(
+    deleteRefRequest: requests.DeleteRefRequest
+  ): Promise<responses.DeleteRefResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteRef.");
+    const pathParams = {
+      "{repositoryId}": deleteRefRequest.repositoryId,
+      "{refName}": deleteRefRequest.refName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteRefRequest.ifMatch,
+      "opc-retry-token": deleteRefRequest.opcRetryToken,
+      "opc-request-id": deleteRefRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRefRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/refs/{refName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteRefResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Repository resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteRepositoryRequest
+   * @return DeleteRepositoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteRepository.ts.html |here} to see how to use DeleteRepository API.
+   */
+  public async deleteRepository(
+    deleteRepositoryRequest: requests.DeleteRepositoryRequest
+  ): Promise<responses.DeleteRepositoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteRepository.");
+    const pathParams = {
+      "{repositoryId}": deleteRepositoryRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteRepositoryRequest.ifMatch,
+      "opc-request-id": deleteRepositoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteRepositoryResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Trigger resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteTriggerRequest
+   * @return DeleteTriggerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteTrigger.ts.html |here} to see how to use DeleteTrigger API.
+   */
+  public async deleteTrigger(
+    deleteTriggerRequest: requests.DeleteTriggerRequest
+  ): Promise<responses.DeleteTriggerResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteTrigger.");
+    const pathParams = {
+      "{triggerId}": deleteTriggerRequest.triggerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteTriggerRequest.ifMatch,
+      "opc-request-id": deleteTriggerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTriggerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/triggers/{triggerId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteTriggerResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a BuildPipeline by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetBuildPipelineRequest
+   * @return GetBuildPipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetBuildPipeline.ts.html |here} to see how to use GetBuildPipeline API.
+   */
+  public async getBuildPipeline(
+    getBuildPipelineRequest: requests.GetBuildPipelineRequest
+  ): Promise<responses.GetBuildPipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getBuildPipeline.");
+    const pathParams = {
+      "{buildPipelineId}": getBuildPipelineRequest.buildPipelineId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBuildPipelineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBuildPipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildPipelines/{buildPipelineId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBuildPipelineResponse>{},
+        body: await response.json(),
+        bodyKey: "buildPipeline",
+        bodyModel: model.BuildPipeline,
+        type: "model.BuildPipeline",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a Stage based on the stage id provided in request
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetBuildPipelineStageRequest
+   * @return GetBuildPipelineStageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetBuildPipelineStage.ts.html |here} to see how to use GetBuildPipelineStage API.
+   */
+  public async getBuildPipelineStage(
+    getBuildPipelineStageRequest: requests.GetBuildPipelineStageRequest
+  ): Promise<responses.GetBuildPipelineStageResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getBuildPipelineStage.");
+    const pathParams = {
+      "{buildPipelineStageId}": getBuildPipelineStageRequest.buildPipelineStageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBuildPipelineStageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBuildPipelineStageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildPipelineStages/{buildPipelineStageId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBuildPipelineStageResponse>{},
+        body: await response.json(),
+        bodyKey: "buildPipelineStage",
+        bodyModel: model.BuildPipelineStage,
+        type: "model.BuildPipelineStage",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the details of a build exection for a given build run id.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetBuildRunRequest
+   * @return GetBuildRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetBuildRun.ts.html |here} to see how to use GetBuildRun API.
+   */
+  public async getBuildRun(
+    getBuildRunRequest: requests.GetBuildRunRequest
+  ): Promise<responses.GetBuildRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getBuildRun.");
+    const pathParams = {
+      "{buildRunId}": getBuildRunRequest.buildRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBuildRunRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBuildRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildRuns/{buildRunId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBuildRunResponse>{},
+        body: await response.json(),
+        bodyKey: "buildRun",
+        bodyModel: model.BuildRun,
+        type: "model.BuildRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a Repository's Commit by commitId
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCommitRequest
+   * @return GetCommitResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetCommit.ts.html |here} to see how to use GetCommit API.
+   */
+  public async getCommit(
+    getCommitRequest: requests.GetCommitRequest
+  ): Promise<responses.GetCommitResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getCommit.");
+    const pathParams = {
+      "{repositoryId}": getCommitRequest.repositoryId,
+      "{commitId}": getCommitRequest.commitId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCommitRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCommitRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/commits/{commitId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCommitResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryCommit",
+        bodyModel: model.RepositoryCommit,
+        type: "model.RepositoryCommit",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Compares two revisions for their differences. Supports comparison between two refs or commits.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCommitDiffRequest
+   * @return GetCommitDiffResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetCommitDiff.ts.html |here} to see how to use GetCommitDiff API.
+   */
+  public async getCommitDiff(
+    getCommitDiffRequest: requests.GetCommitDiffRequest
+  ): Promise<responses.GetCommitDiffResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getCommitDiff.");
+    const pathParams = {
+      "{repositoryId}": getCommitDiffRequest.repositoryId
+    };
+
+    const queryParams = {
+      "baseVersion": getCommitDiffRequest.baseVersion,
+      "targetVersion": getCommitDiffRequest.targetVersion,
+      "isComparisonFromMergeBase": getCommitDiffRequest.isComparisonFromMergeBase
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCommitDiffRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCommitDiffRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/diff",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCommitDiffResponse>{},
+        body: await response.json(),
+        bodyKey: "diffResponse",
+        bodyModel: model.DiffResponse,
+        type: "model.DiffResponse",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a Connection by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetConnectionRequest
+   * @return GetConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetConnection.ts.html |here} to see how to use GetConnection API.
+   */
+  public async getConnection(
+    getConnectionRequest: requests.GetConnectionRequest
+  ): Promise<responses.GetConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getConnection.");
+    const pathParams = {
+      "{connectionId}": getConnectionRequest.connectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getConnectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/{connectionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetConnectionResponse>{},
+        body: await response.json(),
+        bodyKey: "connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a deployment artifact by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDeployArtifactRequest
    * @return GetDeployArtifactResponse
    * @throws OciError when an error occurs
@@ -1123,9 +2534,11 @@ export class DevopsClient {
       "opc-request-id": getDeployArtifactRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDeployArtifactRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDeployArtifactRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1167,6 +2580,7 @@ export class DevopsClient {
 
   /**
    * Retrieves a deployment environment by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDeployEnvironmentRequest
    * @return GetDeployEnvironmentResponse
    * @throws OciError when an error occurs
@@ -1187,9 +2601,11 @@ export class DevopsClient {
       "opc-request-id": getDeployEnvironmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDeployEnvironmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDeployEnvironmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1231,6 +2647,7 @@ export class DevopsClient {
 
   /**
    * Retrieves a deployment pipeline by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDeployPipelineRequest
    * @return GetDeployPipelineResponse
    * @throws OciError when an error occurs
@@ -1251,9 +2668,11 @@ export class DevopsClient {
       "opc-request-id": getDeployPipelineRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDeployPipelineRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDeployPipelineRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1295,6 +2714,7 @@ export class DevopsClient {
 
   /**
    * Retrieves a deployment stage by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDeployStageRequest
    * @return GetDeployStageResponse
    * @throws OciError when an error occurs
@@ -1315,9 +2735,11 @@ export class DevopsClient {
       "opc-request-id": getDeployStageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDeployStageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDeployStageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1359,6 +2781,7 @@ export class DevopsClient {
 
   /**
    * Retrieves a deployment by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDeploymentRequest
    * @return GetDeploymentResponse
    * @throws OciError when an error occurs
@@ -1379,9 +2802,11 @@ export class DevopsClient {
       "opc-request-id": getDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1422,7 +2847,297 @@ export class DevopsClient {
   }
 
   /**
+   * Gets the line-by-line difference between files on different commits.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetFileDiffRequest
+   * @return GetFileDiffResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetFileDiff.ts.html |here} to see how to use GetFileDiff API.
+   */
+  public async getFileDiff(
+    getFileDiffRequest: requests.GetFileDiffRequest
+  ): Promise<responses.GetFileDiffResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getFileDiff.");
+    const pathParams = {
+      "{repositoryId}": getFileDiffRequest.repositoryId,
+      "{filePath}": getFileDiffRequest.filePath
+    };
+
+    const queryParams = {
+      "baseVersion": getFileDiffRequest.baseVersion,
+      "targetVersion": getFileDiffRequest.targetVersion,
+      "isComparisonFromMergeBase": getFileDiffRequest.isComparisonFromMergeBase
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getFileDiffRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFileDiffRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/diffs/{filePath}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetFileDiffResponse>{},
+        body: await response.json(),
+        bodyKey: "fileDiffResponse",
+        bodyModel: model.FileDiffResponse,
+        type: "model.FileDiffResponse",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns either current mirror record or last successful mirror record for a specific mirror repository
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetMirrorRecordRequest
+   * @return GetMirrorRecordResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetMirrorRecord.ts.html |here} to see how to use GetMirrorRecord API.
+   */
+  public async getMirrorRecord(
+    getMirrorRecordRequest: requests.GetMirrorRecordRequest
+  ): Promise<responses.GetMirrorRecordResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getMirrorRecord.");
+    const pathParams = {
+      "{repositoryId}": getMirrorRecordRequest.repositoryId,
+      "{mirrorRecordType}": getMirrorRecordRequest.mirrorRecordType
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMirrorRecordRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMirrorRecordRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/mirrorRecords/{mirrorRecordType}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMirrorRecordResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryMirrorRecord",
+        bodyModel: model.RepositoryMirrorRecord,
+        type: "model.RepositoryMirrorRecord",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get blob of specific branch name/commit id and file path
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetObjectRequest
+   * @return GetObjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetObject.ts.html |here} to see how to use GetObject API.
+   */
+  public async getObject(
+    getObjectRequest: requests.GetObjectRequest
+  ): Promise<responses.GetObjectResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getObject.");
+    const pathParams = {
+      "{repositoryId}": getObjectRequest.repositoryId
+    };
+
+    const queryParams = {
+      "filePath": getObjectRequest.filePath,
+      "refName": getObjectRequest.refName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getObjectRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getObjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/object",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetObjectResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryObject",
+        bodyModel: model.RepositoryObject,
+        type: "model.RepositoryObject",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get contents of a specified Object
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetObjectContentRequest
+   * @return GetObjectContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetObjectContent.ts.html |here} to see how to use GetObjectContent API.
+   */
+  public async getObjectContent(
+    getObjectContentRequest: requests.GetObjectContentRequest
+  ): Promise<responses.GetObjectContentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getObjectContent.");
+    const pathParams = {
+      "{repositoryId}": getObjectContentRequest.repositoryId,
+      "{sha}": getObjectContentRequest.sha
+    };
+
+    const queryParams = {
+      "filePath": getObjectContentRequest.filePath
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getObjectContentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getObjectContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/objects/{sha}/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetObjectContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Content-Type"),
+            key: "contentType",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Content-Disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a project by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetProjectRequest
    * @return GetProjectResponse
    * @throws OciError when an error occurs
@@ -1443,9 +3158,11 @@ export class DevopsClient {
       "opc-request-id": getProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1486,7 +3203,360 @@ export class DevopsClient {
   }
 
   /**
+   * Gets a Repository's Ref by its name with preference for branches over tags if the name is ambiguous. Can be disambiguated by using full names like \"heads/<name>\" or \"tags/<name>\".
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetRefRequest
+   * @return GetRefResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRef.ts.html |here} to see how to use GetRef API.
+   */
+  public async getRef(getRefRequest: requests.GetRefRequest): Promise<responses.GetRefResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getRef.");
+    const pathParams = {
+      "{repositoryId}": getRefRequest.repositoryId,
+      "{refName}": getRefRequest.refName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRefRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRefRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/refs/{refName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRefResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryRef",
+        bodyModel: model.RepositoryRef,
+        type: "model.RepositoryRef",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a Repository by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetRepositoryRequest
+   * @return GetRepositoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepository.ts.html |here} to see how to use GetRepository API.
+   */
+  public async getRepository(
+    getRepositoryRequest: requests.GetRepositoryRequest
+  ): Promise<responses.GetRepositoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getRepository.");
+    const pathParams = {
+      "{repositoryId}": getRepositoryRequest.repositoryId
+    };
+
+    const queryParams = {
+      "fields": getRepositoryRequest.fields
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRepositoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRepositoryResponse>{},
+        body: await response.json(),
+        bodyKey: "repository",
+        bodyModel: model.Repository,
+        type: "model.Repository",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Return the archived repository information
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetRepositoryArchiveContentRequest
+   * @return GetRepositoryArchiveContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepositoryArchiveContent.ts.html |here} to see how to use GetRepositoryArchiveContent API.
+   */
+  public async getRepositoryArchiveContent(
+    getRepositoryArchiveContentRequest: requests.GetRepositoryArchiveContentRequest
+  ): Promise<responses.GetRepositoryArchiveContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#getRepositoryArchiveContent.");
+    const pathParams = {
+      "{repositoryId}": getRepositoryArchiveContentRequest.repositoryId
+    };
+
+    const queryParams = {
+      "refName": getRepositoryArchiveContentRequest.refName,
+      "format": getRepositoryArchiveContentRequest.format
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRepositoryArchiveContentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRepositoryArchiveContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/archive/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRepositoryArchiveContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Content-Type"),
+            key: "contentType",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Content-Disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get lines of a specified file. Supports starting line number and limit.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetRepositoryFileLinesRequest
+   * @return GetRepositoryFileLinesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepositoryFileLines.ts.html |here} to see how to use GetRepositoryFileLines API.
+   */
+  public async getRepositoryFileLines(
+    getRepositoryFileLinesRequest: requests.GetRepositoryFileLinesRequest
+  ): Promise<responses.GetRepositoryFileLinesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getRepositoryFileLines.");
+    const pathParams = {
+      "{repositoryId}": getRepositoryFileLinesRequest.repositoryId,
+      "{filePath}": getRepositoryFileLinesRequest.filePath
+    };
+
+    const queryParams = {
+      "revision": getRepositoryFileLinesRequest.revision,
+      "startLineNumber": getRepositoryFileLinesRequest.startLineNumber,
+      "limit": getRepositoryFileLinesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRepositoryFileLinesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRepositoryFileLinesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/files/{filePath}/lines",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRepositoryFileLinesResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryFileLines",
+        bodyModel: model.RepositoryFileLines,
+        type: "model.RepositoryFileLines",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a Trigger by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetTriggerRequest
+   * @return GetTriggerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetTrigger.ts.html |here} to see how to use GetTrigger API.
+   */
+  public async getTrigger(
+    getTriggerRequest: requests.GetTriggerRequest
+  ): Promise<responses.GetTriggerResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getTrigger.");
+    const pathParams = {
+      "{triggerId}": getTriggerRequest.triggerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getTriggerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTriggerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/triggers/{triggerId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetTriggerResponse>{},
+        body: await response.json(),
+        bodyKey: "trigger",
+        bodyModel: model.Trigger,
+        type: "model.Trigger",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves the status of the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1507,9 +3577,11 @@ export class DevopsClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1550,7 +3622,539 @@ export class DevopsClient {
   }
 
   /**
+   * Get a list of all the authors
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAuthorsRequest
+   * @return ListAuthorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListAuthors.ts.html |here} to see how to use ListAuthors API.
+   */
+  public async listAuthors(
+    listAuthorsRequest: requests.ListAuthorsRequest
+  ): Promise<responses.ListAuthorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listAuthors.");
+    const pathParams = {
+      "{repositoryId}": listAuthorsRequest.repositoryId
+    };
+
+    const queryParams = {
+      "refName": listAuthorsRequest.refName,
+      "limit": listAuthorsRequest.limit,
+      "page": listAuthorsRequest.page,
+      "sortOrder": listAuthorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAuthorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAuthorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/authors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAuthorsResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryAuthorCollection",
+        bodyModel: model.RepositoryAuthorCollection,
+        type: "model.RepositoryAuthorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns summary of list of all Stages in a compartment or buildPipeline
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBuildPipelineStagesRequest
+   * @return ListBuildPipelineStagesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListBuildPipelineStages.ts.html |here} to see how to use ListBuildPipelineStages API.
+   */
+  public async listBuildPipelineStages(
+    listBuildPipelineStagesRequest: requests.ListBuildPipelineStagesRequest
+  ): Promise<responses.ListBuildPipelineStagesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listBuildPipelineStages.");
+    const pathParams = {};
+
+    const queryParams = {
+      "id": listBuildPipelineStagesRequest.id,
+      "buildPipelineId": listBuildPipelineStagesRequest.buildPipelineId,
+      "compartmentId": listBuildPipelineStagesRequest.compartmentId,
+      "lifecycleState": listBuildPipelineStagesRequest.lifecycleState,
+      "displayName": listBuildPipelineStagesRequest.displayName,
+      "limit": listBuildPipelineStagesRequest.limit,
+      "page": listBuildPipelineStagesRequest.page,
+      "sortOrder": listBuildPipelineStagesRequest.sortOrder,
+      "sortBy": listBuildPipelineStagesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBuildPipelineStagesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBuildPipelineStagesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildPipelineStages",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBuildPipelineStagesResponse>{},
+        body: await response.json(),
+        bodyKey: "buildPipelineStageCollection",
+        bodyModel: model.BuildPipelineStageCollection,
+        type: "model.BuildPipelineStageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of BuildPipelines.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBuildPipelinesRequest
+   * @return ListBuildPipelinesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListBuildPipelines.ts.html |here} to see how to use ListBuildPipelines API.
+   */
+  public async listBuildPipelines(
+    listBuildPipelinesRequest: requests.ListBuildPipelinesRequest
+  ): Promise<responses.ListBuildPipelinesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listBuildPipelines.");
+    const pathParams = {};
+
+    const queryParams = {
+      "id": listBuildPipelinesRequest.id,
+      "projectId": listBuildPipelinesRequest.projectId,
+      "compartmentId": listBuildPipelinesRequest.compartmentId,
+      "lifecycleState": listBuildPipelinesRequest.lifecycleState,
+      "displayName": listBuildPipelinesRequest.displayName,
+      "limit": listBuildPipelinesRequest.limit,
+      "page": listBuildPipelinesRequest.page,
+      "sortOrder": listBuildPipelinesRequest.sortOrder,
+      "sortBy": listBuildPipelinesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBuildPipelinesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBuildPipelinesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildPipelines",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBuildPipelinesResponse>{},
+        body: await response.json(),
+        bodyKey: "buildPipelineCollection",
+        bodyModel: model.BuildPipelineCollection,
+        type: "model.BuildPipelineCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of build runs summary.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBuildRunsRequest
+   * @return ListBuildRunsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListBuildRuns.ts.html |here} to see how to use ListBuildRuns API.
+   */
+  public async listBuildRuns(
+    listBuildRunsRequest: requests.ListBuildRunsRequest
+  ): Promise<responses.ListBuildRunsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listBuildRuns.");
+    const pathParams = {};
+
+    const queryParams = {
+      "id": listBuildRunsRequest.id,
+      "buildPipelineId": listBuildRunsRequest.buildPipelineId,
+      "projectId": listBuildRunsRequest.projectId,
+      "compartmentId": listBuildRunsRequest.compartmentId,
+      "displayName": listBuildRunsRequest.displayName,
+      "lifecycleState": listBuildRunsRequest.lifecycleState,
+      "limit": listBuildRunsRequest.limit,
+      "page": listBuildRunsRequest.page,
+      "sortOrder": listBuildRunsRequest.sortOrder,
+      "sortBy": listBuildRunsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBuildRunsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBuildRunsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildRuns",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBuildRunsResponse>{},
+        body: await response.json(),
+        bodyKey: "buildRunSummaryCollection",
+        bodyModel: model.BuildRunSummaryCollection,
+        type: "model.BuildRunSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Compares two revisions and lists the differences. Supports comparison between two refs or commits.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListCommitDiffsRequest
+   * @return ListCommitDiffsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListCommitDiffs.ts.html |here} to see how to use ListCommitDiffs API.
+   */
+  public async listCommitDiffs(
+    listCommitDiffsRequest: requests.ListCommitDiffsRequest
+  ): Promise<responses.ListCommitDiffsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listCommitDiffs.");
+    const pathParams = {
+      "{repositoryId}": listCommitDiffsRequest.repositoryId
+    };
+
+    const queryParams = {
+      "baseVersion": listCommitDiffsRequest.baseVersion,
+      "targetVersion": listCommitDiffsRequest.targetVersion,
+      "isComparisonFromMergeBase": listCommitDiffsRequest.isComparisonFromMergeBase,
+      "limit": listCommitDiffsRequest.limit,
+      "page": listCommitDiffsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCommitDiffsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCommitDiffsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/diffs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCommitDiffsResponse>{},
+        body: await response.json(),
+        bodyKey: "diffCollection",
+        bodyModel: model.DiffCollection,
+        type: "model.DiffCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Commits.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListCommitsRequest
+   * @return ListCommitsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListCommits.ts.html |here} to see how to use ListCommits API.
+   */
+  public async listCommits(
+    listCommitsRequest: requests.ListCommitsRequest
+  ): Promise<responses.ListCommitsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listCommits.");
+    const pathParams = {
+      "{repositoryId}": listCommitsRequest.repositoryId
+    };
+
+    const queryParams = {
+      "refName": listCommitsRequest.refName,
+      "excludeRefName": listCommitsRequest.excludeRefName,
+      "filePath": listCommitsRequest.filePath,
+      "timestampGreaterThanOrEqualTo": listCommitsRequest.timestampGreaterThanOrEqualTo,
+      "timestampLessThanOrEqualTo": listCommitsRequest.timestampLessThanOrEqualTo,
+      "commitMessage": listCommitsRequest.commitMessage,
+      "authorName": listCommitsRequest.authorName,
+      "limit": listCommitsRequest.limit,
+      "page": listCommitsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCommitsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCommitsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/commits",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCommitsResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryCommitCollection",
+        bodyModel: model.RepositoryCommitCollection,
+        type: "model.RepositoryCommitCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Connections.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListConnectionsRequest
+   * @return ListConnectionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListConnections.ts.html |here} to see how to use ListConnections API.
+   */
+  public async listConnections(
+    listConnectionsRequest: requests.ListConnectionsRequest
+  ): Promise<responses.ListConnectionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listConnections.");
+    const pathParams = {};
+
+    const queryParams = {
+      "id": listConnectionsRequest.id,
+      "projectId": listConnectionsRequest.projectId,
+      "compartmentId": listConnectionsRequest.compartmentId,
+      "lifecycleState": listConnectionsRequest.lifecycleState,
+      "displayName": listConnectionsRequest.displayName,
+      "connectionType": listConnectionsRequest.connectionType,
+      "limit": listConnectionsRequest.limit,
+      "page": listConnectionsRequest.page,
+      "sortOrder": listConnectionsRequest.sortOrder,
+      "sortBy": listConnectionsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listConnectionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConnectionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListConnectionsResponse>{},
+        body: await response.json(),
+        bodyKey: "connectionCollection",
+        bodyModel: model.ConnectionCollection,
+        type: "model.ConnectionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of deployment artifacts.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDeployArtifactsRequest
    * @return ListDeployArtifactsResponse
    * @throws OciError when an error occurs
@@ -1579,9 +4183,11 @@ export class DevopsClient {
       "opc-request-id": listDeployArtifactsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDeployArtifactsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeployArtifactsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1623,6 +4229,7 @@ export class DevopsClient {
 
   /**
    * Returns a list of deployment environments.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDeployEnvironmentsRequest
    * @return ListDeployEnvironmentsResponse
    * @throws OciError when an error occurs
@@ -1651,9 +4258,11 @@ export class DevopsClient {
       "opc-request-id": listDeployEnvironmentsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDeployEnvironmentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeployEnvironmentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1695,6 +4304,7 @@ export class DevopsClient {
 
   /**
    * Returns a list of deployment pipelines.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDeployPipelinesRequest
    * @return ListDeployPipelinesResponse
    * @throws OciError when an error occurs
@@ -1723,9 +4333,11 @@ export class DevopsClient {
       "opc-request-id": listDeployPipelinesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDeployPipelinesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeployPipelinesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1767,6 +4379,7 @@ export class DevopsClient {
 
   /**
    * Retrieves a list of deployment stages.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDeployStagesRequest
    * @return ListDeployStagesResponse
    * @throws OciError when an error occurs
@@ -1795,9 +4408,11 @@ export class DevopsClient {
       "opc-request-id": listDeployStagesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDeployStagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeployStagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1839,6 +4454,7 @@ export class DevopsClient {
 
   /**
    * Returns a list of deployments.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDeploymentsRequest
    * @return ListDeploymentsResponse
    * @throws OciError when an error occurs
@@ -1870,9 +4486,11 @@ export class DevopsClient {
       "opc-request-id": listDeploymentsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDeploymentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeploymentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1913,7 +4531,157 @@ export class DevopsClient {
   }
 
   /**
+   * Returns a list of mirror entry in history within 30 days
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListMirrorRecordsRequest
+   * @return ListMirrorRecordsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListMirrorRecords.ts.html |here} to see how to use ListMirrorRecords API.
+   */
+  public async listMirrorRecords(
+    listMirrorRecordsRequest: requests.ListMirrorRecordsRequest
+  ): Promise<responses.ListMirrorRecordsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listMirrorRecords.");
+    const pathParams = {
+      "{repositoryId}": listMirrorRecordsRequest.repositoryId
+    };
+
+    const queryParams = {
+      "limit": listMirrorRecordsRequest.limit,
+      "page": listMirrorRecordsRequest.page,
+      "sortOrder": listMirrorRecordsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMirrorRecordsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMirrorRecordsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/mirrorRecords",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMirrorRecordsResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryMirrorRecordCollection",
+        bodyModel: model.RepositoryMirrorRecordCollection,
+        type: "model.RepositoryMirrorRecordCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Fetches a list of files and directories in a repository.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListPathsRequest
+   * @return ListPathsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPaths.ts.html |here} to see how to use ListPaths API.
+   */
+  public async listPaths(
+    listPathsRequest: requests.ListPathsRequest
+  ): Promise<responses.ListPathsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listPaths.");
+    const pathParams = {
+      "{repositoryId}": listPathsRequest.repositoryId
+    };
+
+    const queryParams = {
+      "ref": listPathsRequest.ref,
+      "pathsInSubtree": listPathsRequest.pathsInSubtree,
+      "folderPath": listPathsRequest.folderPath,
+      "limit": listPathsRequest.limit,
+      "page": listPathsRequest.page,
+      "displayName": listPathsRequest.displayName,
+      "sortOrder": listPathsRequest.sortOrder,
+      "sortBy": listPathsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPathsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPathsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/paths",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPathsResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryPathCollection",
+        bodyModel: model.RepositoryPathCollection,
+        type: "model.RepositoryPathCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of projects.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProjectsRequest
    * @return ListProjectsResponse
    * @throws OciError when an error occurs
@@ -1941,9 +4709,11 @@ export class DevopsClient {
       "opc-request-id": listProjectsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listProjectsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProjectsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1984,7 +4754,236 @@ export class DevopsClient {
   }
 
   /**
+   * Returns a list of Refs.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListRefsRequest
+   * @return ListRefsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListRefs.ts.html |here} to see how to use ListRefs API.
+   */
+  public async listRefs(
+    listRefsRequest: requests.ListRefsRequest
+  ): Promise<responses.ListRefsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listRefs.");
+    const pathParams = {
+      "{repositoryId}": listRefsRequest.repositoryId
+    };
+
+    const queryParams = {
+      "refType": listRefsRequest.refType,
+      "commitId": listRefsRequest.commitId,
+      "limit": listRefsRequest.limit,
+      "page": listRefsRequest.page,
+      "refName": listRefsRequest.refName,
+      "sortOrder": listRefsRequest.sortOrder,
+      "sortBy": listRefsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRefsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRefsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/refs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRefsResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryRefCollection",
+        bodyModel: model.RepositoryRefCollection,
+        type: "model.RepositoryRefCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Repositories given a compartmentId or a projectId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListRepositoriesRequest
+   * @return ListRepositoriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListRepositories.ts.html |here} to see how to use ListRepositories API.
+   */
+  public async listRepositories(
+    listRepositoriesRequest: requests.ListRepositoriesRequest
+  ): Promise<responses.ListRepositoriesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listRepositories.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listRepositoriesRequest.compartmentId,
+      "projectId": listRepositoriesRequest.projectId,
+      "repositoryId": listRepositoriesRequest.repositoryId,
+      "lifecycleState": listRepositoriesRequest.lifecycleState,
+      "name": listRepositoriesRequest.name,
+      "limit": listRepositoriesRequest.limit,
+      "page": listRepositoriesRequest.page,
+      "sortOrder": listRepositoriesRequest.sortOrder,
+      "sortBy": listRepositoriesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRepositoriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRepositoriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRepositoriesResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryCollection",
+        bodyModel: model.RepositoryCollection,
+        type: "model.RepositoryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Triggers.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListTriggersRequest
+   * @return ListTriggersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListTriggers.ts.html |here} to see how to use ListTriggers API.
+   */
+  public async listTriggers(
+    listTriggersRequest: requests.ListTriggersRequest
+  ): Promise<responses.ListTriggersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listTriggers.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listTriggersRequest.compartmentId,
+      "projectId": listTriggersRequest.projectId,
+      "lifecycleState": listTriggersRequest.lifecycleState,
+      "displayName": listTriggersRequest.displayName,
+      "id": listTriggersRequest.id,
+      "limit": listTriggersRequest.limit,
+      "page": listTriggersRequest.page,
+      "sortOrder": listTriggersRequest.sortOrder,
+      "sortBy": listTriggersRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTriggersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTriggersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/triggers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTriggersResponse>{},
+        body: await response.json(),
+        bodyKey: "triggerCollection",
+        bodyModel: model.TriggerCollection,
+        type: "model.TriggerCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of errors for a given work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -2010,9 +5009,11 @@ export class DevopsClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2054,6 +5055,7 @@ export class DevopsClient {
 
   /**
    * Returns a list of logs for a given work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -2079,9 +5081,11 @@ export class DevopsClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2123,6 +5127,7 @@ export class DevopsClient {
 
   /**
    * Lists the work requests in a compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -2150,9 +5155,11 @@ export class DevopsClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2193,7 +5200,486 @@ export class DevopsClient {
   }
 
   /**
+   * Synchronize a mirrored repository to the latest version from external providers
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param MirrorRepositoryRequest
+   * @return MirrorRepositoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/MirrorRepository.ts.html |here} to see how to use MirrorRepository API.
+   */
+  public async mirrorRepository(
+    mirrorRepositoryRequest: requests.MirrorRepositoryRequest
+  ): Promise<responses.MirrorRepositoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#mirrorRepository.");
+    const pathParams = {
+      "{repositoryId}": mirrorRepositoryRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": mirrorRepositoryRequest.ifMatch,
+      "opc-request-id": mirrorRepositoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      mirrorRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/actions/mirror",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.MirrorRepositoryResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new Ref or updates an existing one.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutRepositoryRefRequest
+   * @return PutRepositoryRefResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/PutRepositoryRef.ts.html |here} to see how to use PutRepositoryRef API.
+   */
+  public async putRepositoryRef(
+    putRepositoryRefRequest: requests.PutRepositoryRefRequest
+  ): Promise<responses.PutRepositoryRefResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#putRepositoryRef.");
+    const pathParams = {
+      "{repositoryId}": putRepositoryRefRequest.repositoryId,
+      "{refName}": putRepositoryRefRequest.refName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": putRepositoryRefRequest.ifMatch,
+      "opc-retry-token": putRepositoryRefRequest.opcRetryToken,
+      "opc-request-id": putRepositoryRefRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putRepositoryRefRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/refs/{refName}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putRepositoryRefRequest.putRepositoryRefDetails,
+        "PutRepositoryRefDetails",
+        model.PutRepositoryRefDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutRepositoryRefResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryRef",
+        bodyModel: model.RepositoryRef,
+        type: "model.RepositoryRef",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the BuildPipeline
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateBuildPipelineRequest
+   * @return UpdateBuildPipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateBuildPipeline.ts.html |here} to see how to use UpdateBuildPipeline API.
+   */
+  public async updateBuildPipeline(
+    updateBuildPipelineRequest: requests.UpdateBuildPipelineRequest
+  ): Promise<responses.UpdateBuildPipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateBuildPipeline.");
+    const pathParams = {
+      "{buildPipelineId}": updateBuildPipelineRequest.buildPipelineId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateBuildPipelineRequest.ifMatch,
+      "opc-request-id": updateBuildPipelineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBuildPipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildPipelines/{buildPipelineId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateBuildPipelineRequest.updateBuildPipelineDetails,
+        "UpdateBuildPipelineDetails",
+        model.UpdateBuildPipelineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateBuildPipelineResponse>{},
+        body: await response.json(),
+        bodyKey: "buildPipeline",
+        bodyModel: model.BuildPipeline,
+        type: "model.BuildPipeline",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Stage based on the stage id provided in request
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateBuildPipelineStageRequest
+   * @return UpdateBuildPipelineStageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateBuildPipelineStage.ts.html |here} to see how to use UpdateBuildPipelineStage API.
+   */
+  public async updateBuildPipelineStage(
+    updateBuildPipelineStageRequest: requests.UpdateBuildPipelineStageRequest
+  ): Promise<responses.UpdateBuildPipelineStageResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateBuildPipelineStage.");
+    const pathParams = {
+      "{buildPipelineStageId}": updateBuildPipelineStageRequest.buildPipelineStageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateBuildPipelineStageRequest.ifMatch,
+      "opc-request-id": updateBuildPipelineStageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBuildPipelineStageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildPipelineStages/{buildPipelineStageId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateBuildPipelineStageRequest.updateBuildPipelineStageDetails,
+        "UpdateBuildPipelineStageDetails",
+        model.UpdateBuildPipelineStageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateBuildPipelineStageResponse>{},
+        body: await response.json(),
+        bodyKey: "buildPipelineStage",
+        bodyModel: model.BuildPipelineStage,
+        type: "model.BuildPipelineStage",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the BuildRun
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateBuildRunRequest
+   * @return UpdateBuildRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateBuildRun.ts.html |here} to see how to use UpdateBuildRun API.
+   */
+  public async updateBuildRun(
+    updateBuildRunRequest: requests.UpdateBuildRunRequest
+  ): Promise<responses.UpdateBuildRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateBuildRun.");
+    const pathParams = {
+      "{buildRunId}": updateBuildRunRequest.buildRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateBuildRunRequest.ifMatch,
+      "opc-request-id": updateBuildRunRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBuildRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/buildRuns/{buildRunId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateBuildRunRequest.updateBuildRunDetails,
+        "UpdateBuildRunDetails",
+        model.UpdateBuildRunDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateBuildRunResponse>{},
+        body: await response.json(),
+        bodyKey: "buildRun",
+        bodyModel: model.BuildRun,
+        type: "model.BuildRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Connection
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateConnectionRequest
+   * @return UpdateConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateConnection.ts.html |here} to see how to use UpdateConnection API.
+   */
+  public async updateConnection(
+    updateConnectionRequest: requests.UpdateConnectionRequest
+  ): Promise<responses.UpdateConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateConnection.");
+    const pathParams = {
+      "{connectionId}": updateConnectionRequest.connectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateConnectionRequest.ifMatch,
+      "opc-request-id": updateConnectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/{connectionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateConnectionRequest.updateConnectionDetails,
+        "UpdateConnectionDetails",
+        model.UpdateConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateConnectionResponse>{},
+        body: await response.json(),
+        bodyKey: "connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the deployment artifact.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDeployArtifactRequest
    * @return UpdateDeployArtifactResponse
    * @throws OciError when an error occurs
@@ -2215,9 +5701,11 @@ export class DevopsClient {
       "opc-request-id": updateDeployArtifactRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDeployArtifactRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDeployArtifactRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2274,6 +5762,7 @@ export class DevopsClient {
 
   /**
    * Updates the deployment environment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDeployEnvironmentRequest
    * @return UpdateDeployEnvironmentResponse
    * @throws OciError when an error occurs
@@ -2295,9 +5784,11 @@ export class DevopsClient {
       "opc-request-id": updateDeployEnvironmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDeployEnvironmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDeployEnvironmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2354,6 +5845,7 @@ export class DevopsClient {
 
   /**
    * Updates the deployment pipeline.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDeployPipelineRequest
    * @return UpdateDeployPipelineResponse
    * @throws OciError when an error occurs
@@ -2375,9 +5867,11 @@ export class DevopsClient {
       "opc-request-id": updateDeployPipelineRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDeployPipelineRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDeployPipelineRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2434,6 +5928,7 @@ export class DevopsClient {
 
   /**
    * Updates the deployment stage.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDeployStageRequest
    * @return UpdateDeployStageResponse
    * @throws OciError when an error occurs
@@ -2455,9 +5950,11 @@ export class DevopsClient {
       "opc-request-id": updateDeployStageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDeployStageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDeployStageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2514,6 +6011,7 @@ export class DevopsClient {
 
   /**
    * Updates the deployment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDeploymentRequest
    * @return UpdateDeploymentResponse
    * @throws OciError when an error occurs
@@ -2535,9 +6033,11 @@ export class DevopsClient {
       "opc-request-id": updateDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2584,6 +6084,7 @@ export class DevopsClient {
 
   /**
    * Updates the project.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateProjectRequest
    * @return UpdateProjectResponse
    * @throws OciError when an error occurs
@@ -2605,9 +6106,11 @@ export class DevopsClient {
       "opc-request-id": updateProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2651,6 +6154,167 @@ export class DevopsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Repository
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateRepositoryRequest
+   * @return UpdateRepositoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateRepository.ts.html |here} to see how to use UpdateRepository API.
+   */
+  public async updateRepository(
+    updateRepositoryRequest: requests.UpdateRepositoryRequest
+  ): Promise<responses.UpdateRepositoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateRepository.");
+    const pathParams = {
+      "{repositoryId}": updateRepositoryRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateRepositoryRequest.ifMatch,
+      "opc-request-id": updateRepositoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateRepositoryRequest.updateRepositoryDetails,
+        "UpdateRepositoryDetails",
+        model.UpdateRepositoryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateRepositoryResponse>{},
+        body: await response.json(),
+        bodyKey: "repository",
+        bodyModel: model.Repository,
+        type: "model.Repository",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Trigger
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateTriggerRequest
+   * @return UpdateTriggerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateTrigger.ts.html |here} to see how to use UpdateTrigger API.
+   */
+  public async updateTrigger(
+    updateTriggerRequest: requests.UpdateTriggerRequest
+  ): Promise<responses.UpdateTriggerResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateTrigger.");
+    const pathParams = {
+      "{triggerId}": updateTriggerRequest.triggerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateTriggerRequest.ifMatch,
+      "opc-request-id": updateTriggerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTriggerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/triggers/{triggerId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateTriggerRequest.updateTriggerDetails,
+        "UpdateTriggerDetails",
+        model.UpdateTriggerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateTriggerResponse>{},
+        body: await response.json(),
+        bodyKey: "trigger",
+        bodyModel: model.Trigger,
+        type: "model.Trigger",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
             dataType: "string"
           }
         ]

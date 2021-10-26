@@ -29,7 +29,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum AutoScalingApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class AutoScalingClient {
   protected static serviceEndpointTemplate = "https://autoscaling.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -48,6 +50,15 @@ export class AutoScalingClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -119,6 +130,7 @@ export class AutoScalingClient {
 When you move an autoscaling configuration to a different compartment, associated resources such as instance
 * pools are not moved.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeAutoScalingConfigurationCompartmentRequest
      * @return ChangeAutoScalingConfigurationCompartmentResponse
      * @throws OciError when an error occurs
@@ -145,9 +157,11 @@ When you move an autoscaling configuration to a different compartment, associate
       "opc-retry-token": changeAutoScalingConfigurationCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeAutoScalingConfigurationCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAutoScalingConfigurationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -190,6 +204,7 @@ When you move an autoscaling configuration to a different compartment, associate
 
   /**
    * Creates an autoscaling configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAutoScalingConfigurationRequest
    * @return CreateAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
@@ -210,9 +225,11 @@ When you move an autoscaling configuration to a different compartment, associate
       "opc-retry-token": createAutoScalingConfigurationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAutoScalingConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAutoScalingConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -268,6 +285,7 @@ You can create the following types of autoscaling policies:
 An autoscaling configuration can either have multiple schedule-based autoscaling policies, or one
 * threshold-based autoscaling policy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateAutoScalingPolicyRequest
      * @return CreateAutoScalingPolicyResponse
      * @throws OciError when an error occurs
@@ -290,9 +308,11 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-retry-token": createAutoScalingPolicyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAutoScalingPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAutoScalingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -339,6 +359,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
 
   /**
    * Deletes an autoscaling configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAutoScalingConfigurationRequest
    * @return DeleteAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
@@ -362,9 +383,11 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-request-id": deleteAutoScalingConfigurationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAutoScalingConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAutoScalingConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -397,6 +420,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
 
   /**
    * Deletes an autoscaling policy for the specified autoscaling configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAutoScalingPolicyRequest
    * @return DeleteAutoScalingPolicyResponse
    * @throws OciError when an error occurs
@@ -420,9 +444,11 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-request-id": deleteAutoScalingPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAutoScalingPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAutoScalingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -456,6 +482,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
 
   /**
    * Gets information about the specified autoscaling configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutoScalingConfigurationRequest
    * @return GetAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
@@ -477,9 +504,11 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-request-id": getAutoScalingConfigurationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutoScalingConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutoScalingConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -521,6 +550,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
 
   /**
    * Gets information about the specified autoscaling policy in the specified autoscaling configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutoScalingPolicyRequest
    * @return GetAutoScalingPolicyResponse
    * @throws OciError when an error occurs
@@ -542,9 +572,11 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-request-id": getAutoScalingPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutoScalingPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutoScalingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -588,6 +620,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   /**
    * Lists autoscaling configurations in the specifed compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutoScalingConfigurationsRequest
    * @return ListAutoScalingConfigurationsResponse
    * @throws OciError when an error occurs
@@ -614,9 +647,11 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-request-id": listAutoScalingConfigurationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutoScalingConfigurationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutoScalingConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -711,6 +746,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   /**
    * Lists the autoscaling policies in the specified autoscaling configuration.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutoScalingPoliciesRequest
    * @return ListAutoScalingPoliciesResponse
    * @throws OciError when an error occurs
@@ -738,9 +774,11 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-request-id": listAutoScalingPoliciesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutoScalingPoliciesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutoScalingPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -836,6 +874,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
    * Updates certain fields on the specified autoscaling configuration, such as the name, the cooldown period,
    * and whether the autoscaling configuration is enabled.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutoScalingConfigurationRequest
    * @return UpdateAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
@@ -860,9 +899,11 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-retry-token": updateAutoScalingConfigurationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAutoScalingConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAutoScalingConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -909,6 +950,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
 
   /**
    * Updates an autoscaling policy in the specified autoscaling configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutoScalingPolicyRequest
    * @return UpdateAutoScalingPolicyResponse
    * @throws OciError when an error occurs
@@ -933,9 +975,11 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-retry-token": updateAutoScalingPolicyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAutoScalingPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAutoScalingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

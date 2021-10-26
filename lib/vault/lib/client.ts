@@ -24,7 +24,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum VaultsApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class VaultsClient {
   protected static serviceEndpointTemplate = "https://vaults.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -44,6 +46,15 @@ export class VaultsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -135,6 +146,7 @@ export class VaultsClient {
    * a scheduled deletion restores the secret's lifecycle state to what
    * it was before you scheduled the secret for deletion.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelSecretDeletionRequest
    * @return CancelSecretDeletionResponse
    * @throws OciError when an error occurs
@@ -156,9 +168,11 @@ export class VaultsClient {
       "opc-request-id": cancelSecretDeletionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelSecretDeletionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelSecretDeletionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -196,6 +210,7 @@ export class VaultsClient {
 
   /**
    * Cancels the scheduled deletion of a secret version.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelSecretVersionDeletionRequest
    * @return CancelSecretVersionDeletionResponse
    * @throws OciError when an error occurs
@@ -219,9 +234,11 @@ export class VaultsClient {
       "opc-request-id": cancelSecretVersionDeletionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelSecretVersionDeletionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelSecretVersionDeletionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -263,6 +280,7 @@ export class VaultsClient {
 * <p>
 When provided, if-match is checked against the ETag values of the secret.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeSecretCompartmentRequest
      * @return ChangeSecretCompartmentResponse
      * @throws OciError when an error occurs
@@ -285,9 +303,11 @@ When provided, if-match is checked against the ETag values of the secret.
       "opc-retry-token": changeSecretCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeSecretCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSecretCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -333,6 +353,7 @@ When provided, if-match is checked against the ETag values of the secret.
 * <p>
 This operation is not supported by the Oracle Cloud Infrastructure Terraform Provider.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateSecretRequest
      * @return CreateSecretResponse
      * @throws OciError when an error occurs
@@ -352,9 +373,11 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       "opc-retry-token": createSecretRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSecretRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSecretRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -401,6 +424,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
 
   /**
    * Gets information about the specified secret.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSecretRequest
    * @return GetSecretResponse
    * @throws OciError when an error occurs
@@ -421,9 +445,11 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       "opc-request-id": getSecretRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSecretRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSecretRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -466,6 +492,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   /**
    * Gets information about the specified version of a secret.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSecretVersionRequest
    * @return GetSecretVersionResponse
    * @throws OciError when an error occurs
@@ -487,9 +514,11 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       "opc-request-id": getSecretVersionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSecretVersionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSecretVersionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -531,6 +560,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
 
   /**
    * Lists all secret versions for the specified secret.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSecretVersionsRequest
    * @return ListSecretVersionsResponse
    * @throws OciError when an error occurs
@@ -556,9 +586,11 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       "opc-request-id": listSecretVersionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSecretVersionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSecretVersionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -652,6 +684,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
 
   /**
    * Lists all secrets in the specified vault and compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSecretsRequest
    * @return ListSecretsResponse
    * @throws OciError when an error occurs
@@ -679,9 +712,11 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       "opc-request-id": listSecretsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSecretsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSecretsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -777,6 +812,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
    * Schedules the deletion of the specified secret. This sets the lifecycle state of the secret
    * to `PENDING_DELETION` and then deletes it after the specified retention period ends.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ScheduleSecretDeletionRequest
    * @return ScheduleSecretDeletionResponse
    * @throws OciError when an error occurs
@@ -798,9 +834,11 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       "opc-request-id": scheduleSecretDeletionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      scheduleSecretDeletionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scheduleSecretDeletionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -845,6 +883,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
    * Schedules the deletion of the specified secret version. This deletes it after the specified retention period ends. You can only
    * delete a secret version if the secret version rotation state is marked as `DEPRECATED`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ScheduleSecretVersionDeletionRequest
    * @return ScheduleSecretVersionDeletionResponse
    * @throws OciError when an error occurs
@@ -868,9 +907,11 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       "opc-request-id": scheduleSecretVersionDeletionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      scheduleSecretVersionDeletionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scheduleSecretVersionDeletionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -919,6 +960,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
 * <p>
 This operation is not supported by the Oracle Cloud Infrastructure Terraform Provider.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateSecretRequest
      * @return UpdateSecretResponse
      * @throws OciError when an error occurs
@@ -940,9 +982,11 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       "opc-request-id": updateSecretRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSecretRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSecretRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -22,7 +22,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum ApmSyntheticApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ApmSyntheticClient {
   protected static serviceEndpointTemplate =
     "https://apm-synthetic.{region}.oci.{secondLevelDomain}";
@@ -42,6 +44,15 @@ export class ApmSyntheticClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -108,6 +119,7 @@ export class ApmSyntheticClient {
   /**
    * Creates a new monitor.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateMonitorRequest
    * @return CreateMonitorResponse
    * @throws OciError when an error occurs
@@ -129,9 +141,11 @@ export class ApmSyntheticClient {
       "opc-request-id": createMonitorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createMonitorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMonitorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -179,6 +193,7 @@ export class ApmSyntheticClient {
   /**
    * Creates a new script.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateScriptRequest
    * @return CreateScriptResponse
    * @throws OciError when an error occurs
@@ -200,9 +215,11 @@ export class ApmSyntheticClient {
       "opc-request-id": createScriptRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createScriptRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createScriptRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -249,6 +266,7 @@ export class ApmSyntheticClient {
 
   /**
    * Deletes the specified monitor.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteMonitorRequest
    * @return DeleteMonitorResponse
    * @throws OciError when an error occurs
@@ -272,9 +290,11 @@ export class ApmSyntheticClient {
       "opc-request-id": deleteMonitorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteMonitorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMonitorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -307,6 +327,7 @@ export class ApmSyntheticClient {
 
   /**
    * Deletes the specified script.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteScriptRequest
    * @return DeleteScriptResponse
    * @throws OciError when an error occurs
@@ -330,9 +351,11 @@ export class ApmSyntheticClient {
       "opc-request-id": deleteScriptRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteScriptRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteScriptRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -365,6 +388,7 @@ export class ApmSyntheticClient {
 
   /**
    * Gets the configuration of the monitor identified by the OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMonitorRequest
    * @return GetMonitorResponse
    * @throws OciError when an error occurs
@@ -387,9 +411,11 @@ export class ApmSyntheticClient {
       "opc-request-id": getMonitorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getMonitorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMonitorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -432,6 +458,7 @@ export class ApmSyntheticClient {
   /**
    * Gets the results for a specific execution of a monitor identified by OCID. The results are in a HAR file, Screenshot, Console Log or Network details.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMonitorResultRequest
    * @return GetMonitorResultResponse
    * @throws OciError when an error occurs
@@ -458,9 +485,11 @@ export class ApmSyntheticClient {
       "opc-request-id": getMonitorResultRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getMonitorResultRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMonitorResultRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -497,6 +526,7 @@ export class ApmSyntheticClient {
 
   /**
    * Gets the configuration of the script identified by the OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetScriptRequest
    * @return GetScriptResponse
    * @throws OciError when an error occurs
@@ -519,9 +549,11 @@ export class ApmSyntheticClient {
       "opc-request-id": getScriptRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getScriptRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getScriptRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -564,6 +596,7 @@ export class ApmSyntheticClient {
   /**
    * Returns a list of monitors.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListMonitorsRequest
    * @return ListMonitorsResponse
    * @throws OciError when an error occurs
@@ -592,9 +625,11 @@ export class ApmSyntheticClient {
       "opc-request-id": listMonitorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listMonitorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMonitorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -637,6 +672,7 @@ export class ApmSyntheticClient {
   /**
    * Returns a list of public vantage points.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPublicVantagePointsRequest
    * @return ListPublicVantagePointsResponse
    * @throws OciError when an error occurs
@@ -664,9 +700,11 @@ export class ApmSyntheticClient {
       "opc-request-id": listPublicVantagePointsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPublicVantagePointsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPublicVantagePointsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -709,6 +747,7 @@ export class ApmSyntheticClient {
   /**
    * Returns a list of scripts.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListScriptsRequest
    * @return ListScriptsResponse
    * @throws OciError when an error occurs
@@ -735,9 +774,11 @@ export class ApmSyntheticClient {
       "opc-request-id": listScriptsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listScriptsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listScriptsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -779,6 +820,7 @@ export class ApmSyntheticClient {
 
   /**
    * Updates the monitor.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateMonitorRequest
    * @return UpdateMonitorResponse
    * @throws OciError when an error occurs
@@ -802,9 +844,11 @@ export class ApmSyntheticClient {
       "opc-request-id": updateMonitorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateMonitorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMonitorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -851,6 +895,7 @@ export class ApmSyntheticClient {
 
   /**
    * Updates the script.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateScriptRequest
    * @return UpdateScriptResponse
    * @throws OciError when an error occurs
@@ -874,9 +919,11 @@ export class ApmSyntheticClient {
       "opc-request-id": updateScriptRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateScriptRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateScriptRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

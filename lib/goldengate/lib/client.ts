@@ -25,7 +25,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum GoldenGateApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class GoldenGateClient {
   protected static serviceEndpointTemplate = "https://goldengate.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -45,6 +47,15 @@ export class GoldenGateClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -133,6 +144,7 @@ export class GoldenGateClient {
 
   /**
    * Cancels a Deployment Backup creation process.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelDeploymentBackupRequest
    * @return CancelDeploymentBackupResponse
    * @throws OciError when an error occurs
@@ -156,9 +168,11 @@ export class GoldenGateClient {
       "opc-retry-token": cancelDeploymentBackupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelDeploymentBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelDeploymentBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -202,6 +216,7 @@ export class GoldenGateClient {
   /**
    * Moves the DatabaseRegistration into a different compartment within the same tenancy. When provided, If-Match is checked against ETag values of the resource.  For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDatabaseRegistrationCompartmentRequest
    * @return ChangeDatabaseRegistrationCompartmentResponse
    * @throws OciError when an error occurs
@@ -228,9 +243,11 @@ export class GoldenGateClient {
       "opc-retry-token": changeDatabaseRegistrationCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDatabaseRegistrationCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDatabaseRegistrationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -274,6 +291,7 @@ export class GoldenGateClient {
   /**
    * Moves a DeploymentBackup into a different compartment within the same tenancy.  When provided, If-Match is checked against ETag values of the resource.  For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDeploymentBackupCompartmentRequest
    * @return ChangeDeploymentBackupCompartmentResponse
    * @throws OciError when an error occurs
@@ -297,9 +315,11 @@ export class GoldenGateClient {
       "opc-retry-token": changeDeploymentBackupCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDeploymentBackupCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDeploymentBackupCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -338,6 +358,7 @@ export class GoldenGateClient {
   /**
    * Moves the Deployment into a different compartment within the same tenancy.  When provided, If-Match is checked against ETag values of the resource.  For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDeploymentCompartmentRequest
    * @return ChangeDeploymentCompartmentResponse
    * @throws OciError when an error occurs
@@ -361,9 +382,11 @@ export class GoldenGateClient {
       "opc-retry-token": changeDeploymentCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDeploymentCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDeploymentCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -407,6 +430,7 @@ export class GoldenGateClient {
   /**
    * Creates a new DatabaseRegistration.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDatabaseRegistrationRequest
    * @return CreateDatabaseRegistrationResponse
    * @throws OciError when an error occurs
@@ -427,9 +451,11 @@ export class GoldenGateClient {
       "opc-request-id": createDatabaseRegistrationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDatabaseRegistrationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDatabaseRegistrationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -482,6 +508,7 @@ export class GoldenGateClient {
   /**
    * Creates a new Deployment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDeploymentRequest
    * @return CreateDeploymentResponse
    * @throws OciError when an error occurs
@@ -501,9 +528,11 @@ export class GoldenGateClient {
       "opc-request-id": createDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -555,6 +584,7 @@ export class GoldenGateClient {
 
   /**
    * Creates a new DeploymentBackup.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDeploymentBackupRequest
    * @return CreateDeploymentBackupResponse
    * @throws OciError when an error occurs
@@ -575,9 +605,11 @@ export class GoldenGateClient {
       "opc-request-id": createDeploymentBackupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDeploymentBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDeploymentBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -621,6 +653,7 @@ export class GoldenGateClient {
   /**
    * Deletes a DatabaseRegistration.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDatabaseRegistrationRequest
    * @return DeleteDatabaseRegistrationResponse
    * @throws OciError when an error occurs
@@ -643,9 +676,11 @@ export class GoldenGateClient {
       "opc-request-id": deleteDatabaseRegistrationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDatabaseRegistrationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDatabaseRegistrationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -684,6 +719,7 @@ export class GoldenGateClient {
   /**
    * Deletes the Deployment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDeploymentRequest
    * @return DeleteDeploymentResponse
    * @throws OciError when an error occurs
@@ -705,9 +741,11 @@ export class GoldenGateClient {
       "opc-request-id": deleteDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -746,6 +784,7 @@ export class GoldenGateClient {
   /**
    * Deletes a DeploymentBackup.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDeploymentBackupRequest
    * @return DeleteDeploymentBackupResponse
    * @throws OciError when an error occurs
@@ -768,9 +807,11 @@ export class GoldenGateClient {
       "opc-request-id": deleteDeploymentBackupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDeploymentBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDeploymentBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -809,6 +850,7 @@ export class GoldenGateClient {
   /**
    * Retrieves a DatabaseRegistration.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDatabaseRegistrationRequest
    * @return GetDatabaseRegistrationResponse
    * @throws OciError when an error occurs
@@ -830,9 +872,11 @@ export class GoldenGateClient {
       "opc-request-id": getDatabaseRegistrationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDatabaseRegistrationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseRegistrationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -875,6 +919,7 @@ export class GoldenGateClient {
   /**
    * Retrieves a deployment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDeploymentRequest
    * @return GetDeploymentResponse
    * @throws OciError when an error occurs
@@ -895,9 +940,11 @@ export class GoldenGateClient {
       "opc-request-id": getDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -940,6 +987,7 @@ export class GoldenGateClient {
   /**
    * Retrieves a DeploymentBackup.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDeploymentBackupRequest
    * @return GetDeploymentBackupResponse
    * @throws OciError when an error occurs
@@ -960,9 +1008,11 @@ export class GoldenGateClient {
       "opc-request-id": getDeploymentBackupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDeploymentBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDeploymentBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1005,6 +1055,7 @@ export class GoldenGateClient {
   /**
    * Retrieves a deployment upgrade.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDeploymentUpgradeRequest
    * @return GetDeploymentUpgradeResponse
    * @throws OciError when an error occurs
@@ -1025,9 +1076,11 @@ export class GoldenGateClient {
       "opc-request-id": getDeploymentUpgradeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDeploymentUpgradeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDeploymentUpgradeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1070,6 +1123,7 @@ export class GoldenGateClient {
   /**
    * Retrieve the WorkRequest identified by the given OCID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1090,9 +1144,11 @@ export class GoldenGateClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1135,6 +1191,7 @@ export class GoldenGateClient {
   /**
    * Lists the DatabaseRegistrations in the compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDatabaseRegistrationsRequest
    * @return ListDatabaseRegistrationsResponse
    * @throws OciError when an error occurs
@@ -1162,9 +1219,11 @@ export class GoldenGateClient {
       "opc-request-id": listDatabaseRegistrationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDatabaseRegistrationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseRegistrationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1207,6 +1266,7 @@ export class GoldenGateClient {
   /**
    * Lists the Backups in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDeploymentBackupsRequest
    * @return ListDeploymentBackupsResponse
    * @throws OciError when an error occurs
@@ -1234,9 +1294,11 @@ export class GoldenGateClient {
       "opc-request-id": listDeploymentBackupsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDeploymentBackupsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeploymentBackupsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1279,6 +1341,7 @@ export class GoldenGateClient {
   /**
    * Lists the Deployment Upgrades in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDeploymentUpgradesRequest
    * @return ListDeploymentUpgradesResponse
    * @throws OciError when an error occurs
@@ -1307,9 +1370,11 @@ export class GoldenGateClient {
       "opc-request-id": listDeploymentUpgradesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDeploymentUpgradesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeploymentUpgradesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1352,6 +1417,7 @@ export class GoldenGateClient {
   /**
    * Lists the Deployments in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDeploymentsRequest
    * @return ListDeploymentsResponse
    * @throws OciError when an error occurs
@@ -1380,9 +1446,11 @@ export class GoldenGateClient {
       "opc-request-id": listDeploymentsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDeploymentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeploymentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1425,6 +1493,7 @@ export class GoldenGateClient {
   /**
    * Lists work request errors.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1448,9 +1517,11 @@ export class GoldenGateClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1545,6 +1616,7 @@ export class GoldenGateClient {
   /**
    * Lists work request logs.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1568,9 +1640,11 @@ export class GoldenGateClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1665,6 +1739,7 @@ export class GoldenGateClient {
   /**
    * Lists the work requests in the compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1688,9 +1763,11 @@ export class GoldenGateClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1784,6 +1861,7 @@ export class GoldenGateClient {
 
   /**
    * Restores a Deployment from a Deployment Backup created from the same Deployment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestoreDeploymentRequest
    * @return RestoreDeploymentResponse
    * @throws OciError when an error occurs
@@ -1806,9 +1884,11 @@ export class GoldenGateClient {
       "opc-retry-token": restoreDeploymentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restoreDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restoreDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1852,6 +1932,7 @@ export class GoldenGateClient {
   /**
    * Starts a Deployment. When provided, If-Match is checked against ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StartDeploymentRequest
    * @return StartDeploymentResponse
    * @throws OciError when an error occurs
@@ -1874,9 +1955,11 @@ export class GoldenGateClient {
       "opc-retry-token": startDeploymentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      startDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1920,6 +2003,7 @@ export class GoldenGateClient {
   /**
    * Stops a Deployment. When provided, If-Match is checked against ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StopDeploymentRequest
    * @return StopDeploymentResponse
    * @throws OciError when an error occurs
@@ -1942,9 +2026,11 @@ export class GoldenGateClient {
       "opc-retry-token": stopDeploymentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      stopDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1988,6 +2074,7 @@ export class GoldenGateClient {
   /**
    * Updates the DatabaseRegistration.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDatabaseRegistrationRequest
    * @return UpdateDatabaseRegistrationResponse
    * @throws OciError when an error occurs
@@ -2010,9 +2097,11 @@ export class GoldenGateClient {
       "opc-request-id": updateDatabaseRegistrationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDatabaseRegistrationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDatabaseRegistrationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2056,6 +2145,7 @@ export class GoldenGateClient {
   /**
    * Modifies a Deployment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDeploymentRequest
    * @return UpdateDeploymentResponse
    * @throws OciError when an error occurs
@@ -2077,9 +2167,11 @@ export class GoldenGateClient {
       "opc-request-id": updateDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2123,6 +2215,7 @@ export class GoldenGateClient {
   /**
    * Modifies a Deployment Backup.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDeploymentBackupRequest
    * @return UpdateDeploymentBackupResponse
    * @throws OciError when an error occurs
@@ -2145,9 +2238,11 @@ export class GoldenGateClient {
       "opc-request-id": updateDeploymentBackupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDeploymentBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDeploymentBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2195,6 +2290,7 @@ export class GoldenGateClient {
   /**
    * Upgrade a Deployment. When provided, If-Match is checked against ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpgradeDeploymentRequest
    * @return UpgradeDeploymentResponse
    * @throws OciError when an error occurs
@@ -2217,9 +2313,11 @@ export class GoldenGateClient {
       "opc-retry-token": upgradeDeploymentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      upgradeDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      upgradeDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -1,6 +1,6 @@
 /**
  * Data Integration API
- * Use the Data Integration Service APIs to perform common extract, load, and transform (ETL) tasks.
+ * Use the Data Integration API to organize your data integration projects, create data flows, pipelines and tasks, and then publish, schedule, and run tasks that extract, transform, and load data. For more information, see [Data Integration](https://docs.oracle.com/iaas/data-integration/home.htm).
  * OpenAPI spec version: 20200430
  * Contact: di_dis_ww_grp@oracle.com
  *
@@ -24,7 +24,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum DataIntegrationApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DataIntegrationClient {
   protected static serviceEndpointTemplate =
     "https://dataintegration.{region}.oci.{secondLevelDomain}";
@@ -45,6 +47,15 @@ export class DataIntegrationClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -134,6 +145,7 @@ export class DataIntegrationClient {
   /**
    * Moves a workspace to a specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCompartmentRequest
    * @return ChangeCompartmentResponse
    * @throws OciError when an error occurs
@@ -157,9 +169,11 @@ export class DataIntegrationClient {
       "opc-retry-token": changeCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -203,6 +217,7 @@ export class DataIntegrationClient {
   /**
    * Creates an application.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateApplicationRequest
    * @return CreateApplicationResponse
    * @throws OciError when an error occurs
@@ -225,9 +240,11 @@ export class DataIntegrationClient {
       "opc-retry-token": createApplicationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -274,6 +291,7 @@ export class DataIntegrationClient {
 
   /**
    * Creates a connection under an existing data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateConnectionRequest
    * @return CreateConnectionResponse
    * @throws OciError when an error occurs
@@ -295,9 +313,11 @@ export class DataIntegrationClient {
       "opc-retry-token": createConnectionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -344,6 +364,7 @@ export class DataIntegrationClient {
 
   /**
    * Creates a connection validation.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateConnectionValidationRequest
    * @return CreateConnectionValidationResponse
    * @throws OciError when an error occurs
@@ -366,9 +387,11 @@ export class DataIntegrationClient {
       "opc-retry-token": createConnectionValidationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createConnectionValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createConnectionValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -415,6 +438,7 @@ export class DataIntegrationClient {
 
   /**
    * Creates a data asset with default connection.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDataAssetRequest
    * @return CreateDataAssetResponse
    * @throws OciError when an error occurs
@@ -436,9 +460,11 @@ export class DataIntegrationClient {
       "opc-retry-token": createDataAssetRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -486,6 +512,7 @@ export class DataIntegrationClient {
   /**
    * Creates a new data flow in a project or folder ready for performing data integrations.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDataFlowRequest
    * @return CreateDataFlowResponse
    * @throws OciError when an error occurs
@@ -507,9 +534,11 @@ export class DataIntegrationClient {
       "opc-request-id": createDataFlowRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDataFlowRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDataFlowRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -557,6 +586,7 @@ export class DataIntegrationClient {
   /**
    * Accepts the data flow definition in the request payload and creates a data flow validation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDataFlowValidationRequest
    * @return CreateDataFlowValidationResponse
    * @throws OciError when an error occurs
@@ -579,9 +609,11 @@ export class DataIntegrationClient {
       "opc-retry-token": createDataFlowValidationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDataFlowValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDataFlowValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -628,6 +660,7 @@ export class DataIntegrationClient {
 
   /**
    * Creates the data entity shape using the shape from the data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateEntityShapeRequest
    * @return CreateEntityShapeResponse
    * @throws OciError when an error occurs
@@ -653,9 +686,11 @@ export class DataIntegrationClient {
       "if-match": createEntityShapeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createEntityShapeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createEntityShapeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -698,6 +733,7 @@ export class DataIntegrationClient {
 
   /**
    * Publish a DataFlow in a OCI DataFlow application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateExternalPublicationRequest
    * @return CreateExternalPublicationResponse
    * @throws OciError when an error occurs
@@ -721,9 +757,11 @@ export class DataIntegrationClient {
       "opc-retry-token": createExternalPublicationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createExternalPublicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExternalPublicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -770,6 +808,7 @@ export class DataIntegrationClient {
 
   /**
    * Validates a specific task.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateExternalPublicationValidationRequest
    * @return CreateExternalPublicationValidationResponse
    * @throws OciError when an error occurs
@@ -795,9 +834,11 @@ export class DataIntegrationClient {
       "opc-retry-token": createExternalPublicationValidationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createExternalPublicationValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExternalPublicationValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -846,6 +887,7 @@ export class DataIntegrationClient {
    * Creates a folder in a project or in another folder, limited to two levels of folders. |
    * Folders are used to organize your design-time resources, such as tasks or data flows.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateFolderRequest
    * @return CreateFolderResponse
    * @throws OciError when an error occurs
@@ -867,9 +909,11 @@ export class DataIntegrationClient {
       "opc-request-id": createFolderRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createFolderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createFolderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -915,7 +959,84 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Creates a function library in a project or in another function library, limited to two levels of function libraries. |
+   * FunctionLibraries are used to organize your design-time resources, such as tasks or data flows.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateFunctionLibraryRequest
+   * @return CreateFunctionLibraryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateFunctionLibrary.ts.html |here} to see how to use CreateFunctionLibrary API.
+   */
+  public async createFunctionLibrary(
+    createFunctionLibraryRequest: requests.CreateFunctionLibraryRequest
+  ): Promise<responses.CreateFunctionLibraryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#createFunctionLibrary.");
+    const pathParams = {
+      "{workspaceId}": createFunctionLibraryRequest.workspaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createFunctionLibraryRequest.opcRetryToken,
+      "opc-request-id": createFunctionLibraryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createFunctionLibraryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/functionLibraries",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createFunctionLibraryRequest.createFunctionLibraryDetails,
+        "CreateFunctionLibraryDetails",
+        model.CreateFunctionLibraryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateFunctionLibraryResponse>{},
+        body: await response.json(),
+        bodyKey: "functionLibrary",
+        bodyModel: model.FunctionLibrary,
+        type: "model.FunctionLibrary",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a patch in an application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePatchRequest
    * @return CreatePatchResponse
    * @throws OciError when an error occurs
@@ -938,9 +1059,11 @@ export class DataIntegrationClient {
       "opc-retry-token": createPatchRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPatchRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPatchRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -988,6 +1111,7 @@ export class DataIntegrationClient {
   /**
    * Creates a new pipeline in a project or folder ready for performing task orchestration.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePipelineRequest
    * @return CreatePipelineResponse
    * @throws OciError when an error occurs
@@ -1009,9 +1133,11 @@ export class DataIntegrationClient {
       "opc-request-id": createPipelineRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPipelineRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPipelineRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1059,6 +1185,7 @@ export class DataIntegrationClient {
   /**
    * Accepts the data flow definition in the request payload and creates a pipeline validation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePipelineValidationRequest
    * @return CreatePipelineValidationResponse
    * @throws OciError when an error occurs
@@ -1081,9 +1208,11 @@ export class DataIntegrationClient {
       "opc-retry-token": createPipelineValidationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPipelineValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPipelineValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1131,6 +1260,7 @@ export class DataIntegrationClient {
   /**
    * Creates a project. Projects are organizational constructs within a workspace that you use to organize your design-time resources, such as tasks or data flows. Projects can be organized into folders.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateProjectRequest
    * @return CreateProjectResponse
    * @throws OciError when an error occurs
@@ -1152,9 +1282,11 @@ export class DataIntegrationClient {
       "opc-request-id": createProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1201,6 +1333,7 @@ export class DataIntegrationClient {
 
   /**
    * Endpoint to create a new schedule
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateScheduleRequest
    * @return CreateScheduleResponse
    * @throws OciError when an error occurs
@@ -1223,9 +1356,11 @@ export class DataIntegrationClient {
       "opc-retry-token": createScheduleRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createScheduleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createScheduleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1273,6 +1408,7 @@ export class DataIntegrationClient {
   /**
    * Creates a new task ready for performing data integrations. There are specialized types of tasks that include data loader and integration tasks.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTaskRequest
    * @return CreateTaskResponse
    * @throws OciError when an error occurs
@@ -1294,9 +1430,11 @@ export class DataIntegrationClient {
       "opc-request-id": createTaskRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTaskRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTaskRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1343,6 +1481,7 @@ export class DataIntegrationClient {
 
   /**
    * Creates a data integration task run for the specified task.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTaskRunRequest
    * @return CreateTaskRunResponse
    * @throws OciError when an error occurs
@@ -1365,9 +1504,11 @@ export class DataIntegrationClient {
       "opc-request-id": createTaskRunRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTaskRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTaskRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1414,6 +1555,7 @@ export class DataIntegrationClient {
 
   /**
    * Endpoint to be used create TaskSchedule.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTaskScheduleRequest
    * @return CreateTaskScheduleResponse
    * @throws OciError when an error occurs
@@ -1437,9 +1579,11 @@ export class DataIntegrationClient {
       "opc-retry-token": createTaskScheduleRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTaskScheduleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTaskScheduleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1486,6 +1630,7 @@ export class DataIntegrationClient {
 
   /**
    * Validates a specific task.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTaskValidationRequest
    * @return CreateTaskValidationResponse
    * @throws OciError when an error occurs
@@ -1508,9 +1653,11 @@ export class DataIntegrationClient {
       "opc-retry-token": createTaskValidationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTaskValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTaskValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1556,8 +1703,161 @@ export class DataIntegrationClient {
   }
 
   /**
-   * Creates a new Data Integration workspace ready for performing data integration tasks.
+   * Creates a new UserDefinedFunction in a function library ready for performing data integrations.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateUserDefinedFunctionRequest
+   * @return CreateUserDefinedFunctionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateUserDefinedFunction.ts.html |here} to see how to use CreateUserDefinedFunction API.
+   */
+  public async createUserDefinedFunction(
+    createUserDefinedFunctionRequest: requests.CreateUserDefinedFunctionRequest
+  ): Promise<responses.CreateUserDefinedFunctionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#createUserDefinedFunction.");
+    const pathParams = {
+      "{workspaceId}": createUserDefinedFunctionRequest.workspaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createUserDefinedFunctionRequest.opcRetryToken,
+      "opc-request-id": createUserDefinedFunctionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createUserDefinedFunctionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/userDefinedFunctions",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createUserDefinedFunctionRequest.createUserDefinedFunctionDetails,
+        "CreateUserDefinedFunctionDetails",
+        model.CreateUserDefinedFunctionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateUserDefinedFunctionResponse>{},
+        body: await response.json(),
+        bodyKey: "userDefinedFunction",
+        bodyModel: model.UserDefinedFunction,
+        type: "model.UserDefinedFunction",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Accepts the UserDefinedFunction definition in the request payload and creates a UserDefinedFunction validation.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateUserDefinedFunctionValidationRequest
+   * @return CreateUserDefinedFunctionValidationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateUserDefinedFunctionValidation.ts.html |here} to see how to use CreateUserDefinedFunctionValidation API.
+   */
+  public async createUserDefinedFunctionValidation(
+    createUserDefinedFunctionValidationRequest: requests.CreateUserDefinedFunctionValidationRequest
+  ): Promise<responses.CreateUserDefinedFunctionValidationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataIntegrationClient#createUserDefinedFunctionValidation."
+      );
+    const pathParams = {
+      "{workspaceId}": createUserDefinedFunctionValidationRequest.workspaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createUserDefinedFunctionValidationRequest.opcRequestId,
+      "opc-retry-token": createUserDefinedFunctionValidationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createUserDefinedFunctionValidationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/userDefinedFunctionValidations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createUserDefinedFunctionValidationRequest.createUserDefinedFunctionValidationDetails,
+        "CreateUserDefinedFunctionValidationDetails",
+        model.CreateUserDefinedFunctionValidationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateUserDefinedFunctionValidationResponse>{},
+        body: await response.json(),
+        bodyKey: "userDefinedFunctionValidation",
+        bodyModel: model.UserDefinedFunctionValidation,
+        type: "model.UserDefinedFunctionValidation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new Data Integration workspace ready for performing data integration tasks. To retrieve the OCID for the new workspace, use the opc-work-request-id returned by this API and call the {@link #getWorkRequest(GetWorkRequestRequest) getWorkRequest} API.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateWorkspaceRequest
    * @return CreateWorkspaceResponse
    * @throws OciError when an error occurs
@@ -1577,9 +1877,11 @@ export class DataIntegrationClient {
       "opc-request-id": createWorkspaceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createWorkspaceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createWorkspaceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1622,6 +1924,7 @@ export class DataIntegrationClient {
 
   /**
    * Removes an application using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteApplicationRequest
    * @return DeleteApplicationResponse
    * @throws OciError when an error occurs
@@ -1645,9 +1948,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteApplicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1680,6 +1985,7 @@ export class DataIntegrationClient {
 
   /**
    * Removes a connection using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteConnectionRequest
    * @return DeleteConnectionResponse
    * @throws OciError when an error occurs
@@ -1702,9 +2008,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteConnectionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1737,6 +2045,7 @@ export class DataIntegrationClient {
 
   /**
    * Deletes a connection validation.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteConnectionValidationRequest
    * @return DeleteConnectionValidationResponse
    * @throws OciError when an error occurs
@@ -1760,9 +2069,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteConnectionValidationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteConnectionValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteConnectionValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1795,6 +2106,7 @@ export class DataIntegrationClient {
 
   /**
    * Removes a data asset using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDataAssetRequest
    * @return DeleteDataAssetResponse
    * @throws OciError when an error occurs
@@ -1817,9 +2129,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteDataAssetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1852,6 +2166,7 @@ export class DataIntegrationClient {
 
   /**
    * Removes a data flow from a project or folder using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDataFlowRequest
    * @return DeleteDataFlowResponse
    * @throws OciError when an error occurs
@@ -1874,9 +2189,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteDataFlowRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDataFlowRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDataFlowRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1909,6 +2226,7 @@ export class DataIntegrationClient {
 
   /**
    * Removes a data flow validation using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDataFlowValidationRequest
    * @return DeleteDataFlowValidationResponse
    * @throws OciError when an error occurs
@@ -1932,9 +2250,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteDataFlowValidationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDataFlowValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDataFlowValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1967,6 +2287,7 @@ export class DataIntegrationClient {
 
   /**
    * Removes a published object using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExternalPublicationRequest
    * @return DeleteExternalPublicationResponse
    * @throws OciError when an error occurs
@@ -1991,9 +2312,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteExternalPublicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteExternalPublicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExternalPublicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2028,6 +2351,7 @@ export class DataIntegrationClient {
   /**
    * Removes a task validation using the specified identifier.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExternalPublicationValidationRequest
    * @return DeleteExternalPublicationValidationResponse
    * @throws OciError when an error occurs
@@ -2055,9 +2379,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteExternalPublicationValidationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteExternalPublicationValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExternalPublicationValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2091,6 +2417,7 @@ export class DataIntegrationClient {
 
   /**
    * Removes a folder from a project using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteFolderRequest
    * @return DeleteFolderResponse
    * @throws OciError when an error occurs
@@ -2113,9 +2440,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteFolderRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteFolderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteFolderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2147,7 +2476,69 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Removes a Function Library from a project using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteFunctionLibraryRequest
+   * @return DeleteFunctionLibraryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteFunctionLibrary.ts.html |here} to see how to use DeleteFunctionLibrary API.
+   */
+  public async deleteFunctionLibrary(
+    deleteFunctionLibraryRequest: requests.DeleteFunctionLibraryRequest
+  ): Promise<responses.DeleteFunctionLibraryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#deleteFunctionLibrary.");
+    const pathParams = {
+      "{workspaceId}": deleteFunctionLibraryRequest.workspaceId,
+      "{functionLibraryKey}": deleteFunctionLibraryRequest.functionLibraryKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteFunctionLibraryRequest.ifMatch,
+      "opc-request-id": deleteFunctionLibraryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteFunctionLibraryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/functionLibraries/{functionLibraryKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteFunctionLibraryResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a patch using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePatchRequest
    * @return DeletePatchResponse
    * @throws OciError when an error occurs
@@ -2171,9 +2562,11 @@ export class DataIntegrationClient {
       "opc-request-id": deletePatchRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePatchRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePatchRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2206,6 +2599,7 @@ export class DataIntegrationClient {
 
   /**
    * Removes a pipeline from a project or folder using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePipelineRequest
    * @return DeletePipelineResponse
    * @throws OciError when an error occurs
@@ -2228,9 +2622,11 @@ export class DataIntegrationClient {
       "opc-request-id": deletePipelineRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePipelineRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePipelineRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2263,6 +2659,7 @@ export class DataIntegrationClient {
 
   /**
    * Removes a pipeline validation using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePipelineValidationRequest
    * @return DeletePipelineValidationResponse
    * @throws OciError when an error occurs
@@ -2286,9 +2683,11 @@ export class DataIntegrationClient {
       "opc-request-id": deletePipelineValidationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePipelineValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePipelineValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2321,6 +2720,7 @@ export class DataIntegrationClient {
 
   /**
    * Removes a project from the workspace using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
    * @throws OciError when an error occurs
@@ -2343,9 +2743,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2378,6 +2780,7 @@ export class DataIntegrationClient {
 
   /**
    * Endpoint to delete schedule.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteScheduleRequest
    * @return DeleteScheduleResponse
    * @throws OciError when an error occurs
@@ -2401,9 +2804,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteScheduleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteScheduleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteScheduleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2436,6 +2841,7 @@ export class DataIntegrationClient {
 
   /**
    * Removes a task using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTaskRequest
    * @return DeleteTaskResponse
    * @throws OciError when an error occurs
@@ -2458,9 +2864,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteTaskRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTaskRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTaskRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2493,6 +2901,7 @@ export class DataIntegrationClient {
 
   /**
    * Deletes a task run using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTaskRunRequest
    * @return DeleteTaskRunResponse
    * @throws OciError when an error occurs
@@ -2516,9 +2925,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteTaskRunRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTaskRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTaskRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2551,6 +2962,7 @@ export class DataIntegrationClient {
 
   /**
    * Endpoint to delete TaskSchedule.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTaskScheduleRequest
    * @return DeleteTaskScheduleResponse
    * @throws OciError when an error occurs
@@ -2575,9 +2987,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteTaskScheduleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTaskScheduleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTaskScheduleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2612,6 +3026,7 @@ export class DataIntegrationClient {
   /**
    * Removes a task validation using the specified identifier.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTaskValidationRequest
    * @return DeleteTaskValidationResponse
    * @throws OciError when an error occurs
@@ -2635,9 +3050,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteTaskValidationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTaskValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTaskValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2669,7 +3086,134 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Removes a UserDefinedFunction from a function library using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteUserDefinedFunctionRequest
+   * @return DeleteUserDefinedFunctionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteUserDefinedFunction.ts.html |here} to see how to use DeleteUserDefinedFunction API.
+   */
+  public async deleteUserDefinedFunction(
+    deleteUserDefinedFunctionRequest: requests.DeleteUserDefinedFunctionRequest
+  ): Promise<responses.DeleteUserDefinedFunctionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#deleteUserDefinedFunction.");
+    const pathParams = {
+      "{workspaceId}": deleteUserDefinedFunctionRequest.workspaceId,
+      "{userDefinedFunctionKey}": deleteUserDefinedFunctionRequest.userDefinedFunctionKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteUserDefinedFunctionRequest.ifMatch,
+      "opc-request-id": deleteUserDefinedFunctionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteUserDefinedFunctionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/userDefinedFunctions/{userDefinedFunctionKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteUserDefinedFunctionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a UserDefinedFunction validation using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteUserDefinedFunctionValidationRequest
+   * @return DeleteUserDefinedFunctionValidationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteUserDefinedFunctionValidation.ts.html |here} to see how to use DeleteUserDefinedFunctionValidation API.
+   */
+  public async deleteUserDefinedFunctionValidation(
+    deleteUserDefinedFunctionValidationRequest: requests.DeleteUserDefinedFunctionValidationRequest
+  ): Promise<responses.DeleteUserDefinedFunctionValidationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataIntegrationClient#deleteUserDefinedFunctionValidation."
+      );
+    const pathParams = {
+      "{workspaceId}": deleteUserDefinedFunctionValidationRequest.workspaceId,
+      "{userDefinedFunctionValidationKey}":
+        deleteUserDefinedFunctionValidationRequest.userDefinedFunctionValidationKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteUserDefinedFunctionValidationRequest.ifMatch,
+      "opc-request-id": deleteUserDefinedFunctionValidationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteUserDefinedFunctionValidationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/userDefinedFunctionValidations/{userDefinedFunctionValidationKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteUserDefinedFunctionValidationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a Data Integration workspace resource using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteWorkspaceRequest
    * @return DeleteWorkspaceResponse
    * @throws OciError when an error occurs
@@ -2694,9 +3238,11 @@ export class DataIntegrationClient {
       "opc-request-id": deleteWorkspaceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteWorkspaceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteWorkspaceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2734,6 +3280,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves an application using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetApplicationRequest
    * @return GetApplicationResponse
    * @throws OciError when an error occurs
@@ -2755,9 +3302,11 @@ export class DataIntegrationClient {
       "opc-request-id": getApplicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2799,6 +3348,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves the connection details using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConnectionRequest
    * @return GetConnectionResponse
    * @throws OciError when an error occurs
@@ -2820,9 +3370,11 @@ export class DataIntegrationClient {
       "opc-request-id": getConnectionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2864,6 +3416,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a connection validation using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConnectionValidationRequest
    * @return GetConnectionValidationResponse
    * @throws OciError when an error occurs
@@ -2886,9 +3439,11 @@ export class DataIntegrationClient {
       "opc-request-id": getConnectionValidationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getConnectionValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConnectionValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2932,6 +3487,7 @@ export class DataIntegrationClient {
    * Retrieves statistics on a workspace. It returns an object with an array of property values, such as the number of projects, |
    *        applications, data assets, and so on.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCountStatisticRequest
    * @return GetCountStatisticResponse
    * @throws OciError when an error occurs
@@ -2954,9 +3510,11 @@ export class DataIntegrationClient {
       "opc-request-id": getCountStatisticRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCountStatisticRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCountStatisticRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2998,6 +3556,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves details of a data asset using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataAssetRequest
    * @return GetDataAssetResponse
    * @throws OciError when an error occurs
@@ -3019,9 +3578,11 @@ export class DataIntegrationClient {
       "opc-request-id": getDataAssetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3063,6 +3624,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves the data entity details with the given name from live schema.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataEntityRequest
    * @return GetDataEntityResponse
    * @throws OciError when an error occurs
@@ -3086,9 +3648,11 @@ export class DataIntegrationClient {
       "opc-request-id": getDataEntityRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDataEntityRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataEntityRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3126,6 +3690,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a data flow using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataFlowRequest
    * @return GetDataFlowResponse
    * @throws OciError when an error occurs
@@ -3149,9 +3714,11 @@ export class DataIntegrationClient {
       "opc-request-id": getDataFlowRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDataFlowRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataFlowRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3193,6 +3760,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a data flow validation using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataFlowValidationRequest
    * @return GetDataFlowValidationResponse
    * @throws OciError when an error occurs
@@ -3215,9 +3783,11 @@ export class DataIntegrationClient {
       "opc-request-id": getDataFlowValidationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDataFlowValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataFlowValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3259,6 +3829,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves the details of a dependent object from an application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDependentObjectRequest
    * @return GetDependentObjectResponse
    * @throws OciError when an error occurs
@@ -3282,9 +3853,11 @@ export class DataIntegrationClient {
       "opc-request-id": getDependentObjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDependentObjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDependentObjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3327,6 +3900,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a publshed object in an task using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExternalPublicationRequest
    * @return GetExternalPublicationResponse
    * @throws OciError when an error occurs
@@ -3350,9 +3924,11 @@ export class DataIntegrationClient {
       "opc-request-id": getExternalPublicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getExternalPublicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalPublicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3395,6 +3971,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves an external publication validation using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExternalPublicationValidationRequest
    * @return GetExternalPublicationValidationResponse
    * @throws OciError when an error occurs
@@ -3421,9 +3998,11 @@ export class DataIntegrationClient {
       "opc-request-id": getExternalPublicationValidationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getExternalPublicationValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalPublicationValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3466,6 +4045,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a folder using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetFolderRequest
    * @return GetFolderResponse
    * @throws OciError when an error occurs
@@ -3489,9 +4069,11 @@ export class DataIntegrationClient {
       "opc-request-id": getFolderRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getFolderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFolderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3532,7 +4114,79 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Retrieves a Function Library using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetFunctionLibraryRequest
+   * @return GetFunctionLibraryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetFunctionLibrary.ts.html |here} to see how to use GetFunctionLibrary API.
+   */
+  public async getFunctionLibrary(
+    getFunctionLibraryRequest: requests.GetFunctionLibraryRequest
+  ): Promise<responses.GetFunctionLibraryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#getFunctionLibrary.");
+    const pathParams = {
+      "{workspaceId}": getFunctionLibraryRequest.workspaceId,
+      "{functionLibraryKey}": getFunctionLibraryRequest.functionLibraryKey
+    };
+
+    const queryParams = {
+      "projection": getFunctionLibraryRequest.projection
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getFunctionLibraryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFunctionLibraryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/functionLibraries/{functionLibraryKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetFunctionLibraryResponse>{},
+        body: await response.json(),
+        bodyKey: "functionLibrary",
+        bodyModel: model.FunctionLibrary,
+        type: "model.FunctionLibrary",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a patch in an application using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPatchRequest
    * @return GetPatchResponse
    * @throws OciError when an error occurs
@@ -3555,9 +4209,11 @@ export class DataIntegrationClient {
       "opc-request-id": getPatchRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPatchRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPatchRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3599,6 +4255,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a pipeline using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPipelineRequest
    * @return GetPipelineResponse
    * @throws OciError when an error occurs
@@ -3622,9 +4279,11 @@ export class DataIntegrationClient {
       "opc-request-id": getPipelineRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPipelineRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPipelineRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3666,6 +4325,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a pipeline validation using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPipelineValidationRequest
    * @return GetPipelineValidationResponse
    * @throws OciError when an error occurs
@@ -3688,9 +4348,11 @@ export class DataIntegrationClient {
       "opc-request-id": getPipelineValidationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPipelineValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPipelineValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3732,6 +4394,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a project using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetProjectRequest
    * @return GetProjectResponse
    * @throws OciError when an error occurs
@@ -3755,9 +4418,11 @@ export class DataIntegrationClient {
       "opc-request-id": getProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3799,6 +4464,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves the details of a published object from an application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPublishedObjectRequest
    * @return GetPublishedObjectResponse
    * @throws OciError when an error occurs
@@ -3824,9 +4490,11 @@ export class DataIntegrationClient {
       "opc-request-id": getPublishedObjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPublishedObjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPublishedObjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3869,6 +4537,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a reference in an application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetReferenceRequest
    * @return GetReferenceResponse
    * @throws OciError when an error occurs
@@ -3891,9 +4560,11 @@ export class DataIntegrationClient {
       "opc-request-id": getReferenceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getReferenceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getReferenceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3935,6 +4606,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves schedule by schedule key
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetScheduleRequest
    * @return GetScheduleResponse
    * @throws OciError when an error occurs
@@ -3957,9 +4629,11 @@ export class DataIntegrationClient {
       "opc-request-id": getScheduleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getScheduleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getScheduleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4001,6 +4675,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a schema that can be accessed using the specified connection.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSchemaRequest
    * @return GetSchemaResponse
    * @throws OciError when an error occurs
@@ -4023,9 +4698,11 @@ export class DataIntegrationClient {
       "opc-request-id": getSchemaRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSchemaRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSchemaRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4062,6 +4739,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a task using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTaskRequest
    * @return GetTaskResponse
    * @throws OciError when an error occurs
@@ -4085,9 +4763,11 @@ export class DataIntegrationClient {
       "opc-request-id": getTaskRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTaskRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTaskRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4129,6 +4809,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a task run using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTaskRunRequest
    * @return GetTaskRunResponse
    * @throws OciError when an error occurs
@@ -4151,9 +4832,11 @@ export class DataIntegrationClient {
       "opc-request-id": getTaskRunRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTaskRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTaskRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4195,6 +4878,7 @@ export class DataIntegrationClient {
 
   /**
    * Endpoint used to get taskSchedule by its key
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTaskScheduleRequest
    * @return GetTaskScheduleResponse
    * @throws OciError when an error occurs
@@ -4217,9 +4901,11 @@ export class DataIntegrationClient {
       "opc-request-id": getTaskScheduleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTaskScheduleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTaskScheduleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4263,6 +4949,7 @@ export class DataIntegrationClient {
   /**
    * Retrieves a task validation using the specified identifier.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTaskValidationRequest
    * @return GetTaskValidationResponse
    * @throws OciError when an error occurs
@@ -4285,9 +4972,11 @@ export class DataIntegrationClient {
       "opc-request-id": getTaskValidationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTaskValidationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTaskValidationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4328,7 +5017,150 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Retrieves a UserDefinedFunction using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetUserDefinedFunctionRequest
+   * @return GetUserDefinedFunctionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetUserDefinedFunction.ts.html |here} to see how to use GetUserDefinedFunction API.
+   */
+  public async getUserDefinedFunction(
+    getUserDefinedFunctionRequest: requests.GetUserDefinedFunctionRequest
+  ): Promise<responses.GetUserDefinedFunctionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#getUserDefinedFunction.");
+    const pathParams = {
+      "{workspaceId}": getUserDefinedFunctionRequest.workspaceId,
+      "{userDefinedFunctionKey}": getUserDefinedFunctionRequest.userDefinedFunctionKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getUserDefinedFunctionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getUserDefinedFunctionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/userDefinedFunctions/{userDefinedFunctionKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetUserDefinedFunctionResponse>{},
+        body: await response.json(),
+        bodyKey: "userDefinedFunction",
+        bodyModel: model.UserDefinedFunction,
+        type: "model.UserDefinedFunction",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a UserDefinedFunction validation using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetUserDefinedFunctionValidationRequest
+   * @return GetUserDefinedFunctionValidationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetUserDefinedFunctionValidation.ts.html |here} to see how to use GetUserDefinedFunctionValidation API.
+   */
+  public async getUserDefinedFunctionValidation(
+    getUserDefinedFunctionValidationRequest: requests.GetUserDefinedFunctionValidationRequest
+  ): Promise<responses.GetUserDefinedFunctionValidationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataIntegrationClient#getUserDefinedFunctionValidation."
+      );
+    const pathParams = {
+      "{workspaceId}": getUserDefinedFunctionValidationRequest.workspaceId,
+      "{userDefinedFunctionValidationKey}":
+        getUserDefinedFunctionValidationRequest.userDefinedFunctionValidationKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getUserDefinedFunctionValidationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getUserDefinedFunctionValidationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/userDefinedFunctionValidations/{userDefinedFunctionValidationKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetUserDefinedFunctionValidationResponse>{},
+        body: await response.json(),
+        bodyKey: "userDefinedFunctionValidation",
+        bodyModel: model.UserDefinedFunctionValidation,
+        type: "model.UserDefinedFunctionValidation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves the status of the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -4349,9 +5181,11 @@ export class DataIntegrationClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4398,6 +5232,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a Data Integration workspace using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkspaceRequest
    * @return GetWorkspaceResponse
    * @throws OciError when an error occurs
@@ -4418,9 +5253,11 @@ export class DataIntegrationClient {
       "opc-request-id": getWorkspaceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkspaceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkspaceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4462,6 +5299,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a list of applications and provides options to filter the list.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListApplicationsRequest
    * @return ListApplicationsResponse
    * @throws OciError when an error occurs
@@ -4477,6 +5315,7 @@ export class DataIntegrationClient {
 
     const queryParams = {
       "name": listApplicationsRequest.name,
+      "nameContains": listApplicationsRequest.nameContains,
       "identifier": listApplicationsRequest.identifier,
       "fields": listApplicationsRequest.fields,
       "limit": listApplicationsRequest.limit,
@@ -4490,9 +5329,11 @@ export class DataIntegrationClient {
       "opc-request-id": listApplicationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listApplicationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listApplicationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4544,6 +5385,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a list of connection validations within the specified workspace.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListConnectionValidationsRequest
    * @return ListConnectionValidationsResponse
    * @throws OciError when an error occurs
@@ -4574,9 +5416,11 @@ export class DataIntegrationClient {
       "opc-request-id": listConnectionValidationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listConnectionValidationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConnectionValidationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4628,6 +5472,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a list of all connections.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListConnectionsRequest
    * @return ListConnectionsResponse
    * @throws OciError when an error occurs
@@ -4657,9 +5502,11 @@ export class DataIntegrationClient {
       "opc-request-id": listConnectionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listConnectionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConnectionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4712,6 +5559,7 @@ export class DataIntegrationClient {
   /**
    * Retrieves a list of all data asset summaries.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataAssetsRequest
    * @return ListDataAssetsResponse
    * @throws OciError when an error occurs
@@ -4740,9 +5588,11 @@ export class DataIntegrationClient {
       "opc-request-id": listDataAssetsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDataAssetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataAssetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4795,6 +5645,7 @@ export class DataIntegrationClient {
   /**
    * Lists a summary of data entities from the data asset using the specified connection.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataEntitiesRequest
    * @return ListDataEntitiesResponse
    * @throws OciError when an error occurs
@@ -4827,9 +5678,11 @@ export class DataIntegrationClient {
       "opc-request-id": listDataEntitiesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDataEntitiesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4882,6 +5735,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a list of data flow validations within the specified workspace.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataFlowValidationsRequest
    * @return ListDataFlowValidationsResponse
    * @throws OciError when an error occurs
@@ -4912,9 +5766,11 @@ export class DataIntegrationClient {
       "opc-request-id": listDataFlowValidationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDataFlowValidationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataFlowValidationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4967,6 +5823,7 @@ export class DataIntegrationClient {
   /**
    * Retrieves a list of data flows in a project or folder.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataFlowsRequest
    * @return ListDataFlowsResponse
    * @throws OciError when an error occurs
@@ -4996,9 +5853,11 @@ export class DataIntegrationClient {
       "opc-request-id": listDataFlowsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDataFlowsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataFlowsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5050,6 +5909,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a list of all dependent objects for a specific application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDependentObjectsRequest
    * @return ListDependentObjectsResponse
    * @throws OciError when an error occurs
@@ -5068,6 +5928,7 @@ export class DataIntegrationClient {
     const queryParams = {
       "fields": listDependentObjectsRequest.fields,
       "name": listDependentObjectsRequest.name,
+      "nameContains": listDependentObjectsRequest.nameContains,
       "identifier": listDependentObjectsRequest.identifier,
       "type": listDependentObjectsRequest.type,
       "typeInSubtree": listDependentObjectsRequest.typeInSubtree,
@@ -5082,9 +5943,11 @@ export class DataIntegrationClient {
       "opc-request-id": listDependentObjectsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDependentObjectsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDependentObjectsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5137,6 +6000,7 @@ export class DataIntegrationClient {
   /**
    * Retrieves a lists of external publication validations in a workspace and provides options to filter the list.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListExternalPublicationValidationsRequest
    * @return ListExternalPublicationValidationsResponse
    * @throws OciError when an error occurs
@@ -5169,9 +6033,11 @@ export class DataIntegrationClient {
       "opc-request-id": listExternalPublicationValidationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listExternalPublicationValidationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalPublicationValidationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5223,6 +6089,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a list of external publications in an application and provides options to filter the list.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListExternalPublicationsRequest
    * @return ListExternalPublicationsResponse
    * @throws OciError when an error occurs
@@ -5252,9 +6119,11 @@ export class DataIntegrationClient {
       "opc-request-id": listExternalPublicationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listExternalPublicationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalPublicationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5307,6 +6176,7 @@ export class DataIntegrationClient {
   /**
    * Retrieves a list of folders in a project and provides options to filter the list.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListFoldersRequest
    * @return ListFoldersResponse
    * @throws OciError when an error occurs
@@ -5324,6 +6194,7 @@ export class DataIntegrationClient {
       "aggregatorKey": listFoldersRequest.aggregatorKey,
       "fields": listFoldersRequest.fields,
       "name": listFoldersRequest.name,
+      "nameContains": listFoldersRequest.nameContains,
       "identifier": listFoldersRequest.identifier,
       "page": listFoldersRequest.page,
       "limit": listFoldersRequest.limit,
@@ -5336,9 +6207,11 @@ export class DataIntegrationClient {
       "opc-request-id": listFoldersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listFoldersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFoldersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5389,7 +6262,96 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Retrieves a list of function libraries in a project and provides options to filter the list.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListFunctionLibrariesRequest
+   * @return ListFunctionLibrariesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListFunctionLibraries.ts.html |here} to see how to use ListFunctionLibraries API.
+   */
+  public async listFunctionLibraries(
+    listFunctionLibrariesRequest: requests.ListFunctionLibrariesRequest
+  ): Promise<responses.ListFunctionLibrariesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#listFunctionLibraries.");
+    const pathParams = {
+      "{workspaceId}": listFunctionLibrariesRequest.workspaceId
+    };
+
+    const queryParams = {
+      "aggregatorKey": listFunctionLibrariesRequest.aggregatorKey,
+      "fields": listFunctionLibrariesRequest.fields,
+      "name": listFunctionLibrariesRequest.name,
+      "identifier": listFunctionLibrariesRequest.identifier,
+      "page": listFunctionLibrariesRequest.page,
+      "limit": listFunctionLibrariesRequest.limit,
+      "sortOrder": listFunctionLibrariesRequest.sortOrder,
+      "sortBy": listFunctionLibrariesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listFunctionLibrariesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFunctionLibrariesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/functionLibraries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListFunctionLibrariesResponse>{},
+        body: await response.json(),
+        bodyKey: "functionLibrarySummaryCollection",
+        bodyModel: model.FunctionLibrarySummaryCollection,
+        type: "model.FunctionLibrarySummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a list of patches in an application and provides options to filter the list.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPatchChangesRequest
    * @return ListPatchChangesResponse
    * @throws OciError when an error occurs
@@ -5419,9 +6381,11 @@ export class DataIntegrationClient {
       "opc-request-id": listPatchChangesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPatchChangesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPatchChangesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5473,6 +6437,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a list of patches in an application and provides options to filter the list. For listing changes based on a period and logical objects changed, see ListPatchChanges API.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPatchesRequest
    * @return ListPatchesResponse
    * @throws OciError when an error occurs
@@ -5502,9 +6467,11 @@ export class DataIntegrationClient {
       "opc-request-id": listPatchesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPatchesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPatchesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5556,6 +6523,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a list of pipeline validations within the specified workspace.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPipelineValidationsRequest
    * @return ListPipelineValidationsResponse
    * @throws OciError when an error occurs
@@ -5586,9 +6554,11 @@ export class DataIntegrationClient {
       "opc-request-id": listPipelineValidationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPipelineValidationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPipelineValidationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5641,6 +6611,7 @@ export class DataIntegrationClient {
   /**
    * Retrieves a list of pipelines in a project or folder from within a workspace, the query parameter specifies the project or folder.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPipelinesRequest
    * @return ListPipelinesResponse
    * @throws OciError when an error occurs
@@ -5670,9 +6641,11 @@ export class DataIntegrationClient {
       "opc-request-id": listPipelinesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPipelinesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPipelinesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5725,6 +6698,7 @@ export class DataIntegrationClient {
   /**
    * Retrieves a lists of projects in a workspace and provides options to filter the list.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProjectsRequest
    * @return ListProjectsResponse
    * @throws OciError when an error occurs
@@ -5741,6 +6715,7 @@ export class DataIntegrationClient {
     const queryParams = {
       "fields": listProjectsRequest.fields,
       "name": listProjectsRequest.name,
+      "nameContains": listProjectsRequest.nameContains,
       "identifier": listProjectsRequest.identifier,
       "page": listProjectsRequest.page,
       "limit": listProjectsRequest.limit,
@@ -5753,9 +6728,11 @@ export class DataIntegrationClient {
       "opc-request-id": listProjectsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listProjectsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProjectsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5807,6 +6784,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a list of all the published objects for a specified application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPublishedObjectsRequest
    * @return ListPublishedObjectsResponse
    * @throws OciError when an error occurs
@@ -5825,6 +6803,8 @@ export class DataIntegrationClient {
     const queryParams = {
       "fields": listPublishedObjectsRequest.fields,
       "name": listPublishedObjectsRequest.name,
+      "nameStartsWith": listPublishedObjectsRequest.nameStartsWith,
+      "nameContains": listPublishedObjectsRequest.nameContains,
       "identifier": listPublishedObjectsRequest.identifier,
       "type": listPublishedObjectsRequest.type,
       "typeInSubtree": listPublishedObjectsRequest.typeInSubtree,
@@ -5839,9 +6819,11 @@ export class DataIntegrationClient {
       "opc-request-id": listPublishedObjectsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPublishedObjectsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPublishedObjectsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5893,6 +6875,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a list of references in an application. Reference objects are created when dataflows and tasks use objects, such as data assets and connections.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListReferencesRequest
    * @return ListReferencesResponse
    * @throws OciError when an error occurs
@@ -5920,9 +6903,11 @@ export class DataIntegrationClient {
       "opc-request-id": listReferencesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listReferencesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listReferencesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5980,6 +6965,7 @@ export class DataIntegrationClient {
   /**
    * Use this endpoint to list schedules.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSchedulesRequest
    * @return ListSchedulesResponse
    * @throws OciError when an error occurs
@@ -6010,9 +6996,11 @@ export class DataIntegrationClient {
       "opc-request-id": listSchedulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSchedulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSchedulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6064,6 +7052,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a list of all the schemas that can be accessed using the specified connection.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSchemasRequest
    * @return ListSchemasResponse
    * @throws OciError when an error occurs
@@ -6094,9 +7083,11 @@ export class DataIntegrationClient {
       "opc-request-id": listSchemasRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSchemasRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSchemasRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6148,6 +7139,7 @@ export class DataIntegrationClient {
 
   /**
    * Gets log entries for task runs using its key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTaskRunLogsRequest
    * @return ListTaskRunLogsResponse
    * @throws OciError when an error occurs
@@ -6175,9 +7167,11 @@ export class DataIntegrationClient {
       "opc-request-id": listTaskRunLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTaskRunLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTaskRunLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6281,6 +7275,7 @@ export class DataIntegrationClient {
 
   /**
    * Retrieves a list of task runs and provides options to filter the list.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTaskRunsRequest
    * @return ListTaskRunsResponse
    * @throws OciError when an error occurs
@@ -6305,7 +7300,8 @@ export class DataIntegrationClient {
       "limit": listTaskRunsRequest.limit,
       "sortOrder": listTaskRunsRequest.sortOrder,
       "sortBy": listTaskRunsRequest.sortBy,
-      "filter": listTaskRunsRequest.filter
+      "filter": listTaskRunsRequest.filter,
+      "nameStartsWith": listTaskRunsRequest.nameStartsWith
     };
 
     let headerParams = {
@@ -6313,9 +7309,11 @@ export class DataIntegrationClient {
       "opc-request-id": listTaskRunsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTaskRunsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTaskRunsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6368,6 +7366,7 @@ export class DataIntegrationClient {
   /**
    * This endpoint can be used to get the list of all the TaskSchedule objects.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTaskSchedulesRequest
    * @return ListTaskSchedulesResponse
    * @throws OciError when an error occurs
@@ -6400,9 +7399,11 @@ export class DataIntegrationClient {
       "opc-request-id": listTaskSchedulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTaskSchedulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTaskSchedulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6455,6 +7456,7 @@ export class DataIntegrationClient {
   /**
    * Retrieves a list of task validations within the specified workspace.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTaskValidationsRequest
    * @return ListTaskValidationsResponse
    * @throws OciError when an error occurs
@@ -6485,9 +7487,11 @@ export class DataIntegrationClient {
       "opc-request-id": listTaskValidationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTaskValidationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTaskValidationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6540,6 +7544,7 @@ export class DataIntegrationClient {
   /**
    * Retrieves a list of all tasks in a specified project or folder.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTasksRequest
    * @return ListTasksResponse
    * @throws OciError when an error occurs
@@ -6571,9 +7576,11 @@ export class DataIntegrationClient {
       "opc-request-id": listTasksRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTasksRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTasksRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6624,8 +7631,186 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Retrieves a list of UserDefinedFunctionvalidations within the specified workspace.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListUserDefinedFunctionValidationsRequest
+   * @return ListUserDefinedFunctionValidationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListUserDefinedFunctionValidations.ts.html |here} to see how to use ListUserDefinedFunctionValidations API.
+   */
+  public async listUserDefinedFunctionValidations(
+    listUserDefinedFunctionValidationsRequest: requests.ListUserDefinedFunctionValidationsRequest
+  ): Promise<responses.ListUserDefinedFunctionValidationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataIntegrationClient#listUserDefinedFunctionValidations."
+      );
+    const pathParams = {
+      "{workspaceId}": listUserDefinedFunctionValidationsRequest.workspaceId
+    };
+
+    const queryParams = {
+      "key": listUserDefinedFunctionValidationsRequest.key,
+      "name": listUserDefinedFunctionValidationsRequest.name,
+      "identifier": listUserDefinedFunctionValidationsRequest.identifier,
+      "fields": listUserDefinedFunctionValidationsRequest.fields,
+      "page": listUserDefinedFunctionValidationsRequest.page,
+      "limit": listUserDefinedFunctionValidationsRequest.limit,
+      "sortBy": listUserDefinedFunctionValidationsRequest.sortBy,
+      "sortOrder": listUserDefinedFunctionValidationsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listUserDefinedFunctionValidationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listUserDefinedFunctionValidationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/userDefinedFunctionValidations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListUserDefinedFunctionValidationsResponse>{},
+        body: await response.json(),
+        bodyKey: "userDefinedFunctionValidationSummaryCollection",
+        bodyModel: model.UserDefinedFunctionValidationSummaryCollection,
+        type: "model.UserDefinedFunctionValidationSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a list of UserDefinedFunctions in a function library.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListUserDefinedFunctionsRequest
+   * @return ListUserDefinedFunctionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListUserDefinedFunctions.ts.html |here} to see how to use ListUserDefinedFunctions API.
+   */
+  public async listUserDefinedFunctions(
+    listUserDefinedFunctionsRequest: requests.ListUserDefinedFunctionsRequest
+  ): Promise<responses.ListUserDefinedFunctionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#listUserDefinedFunctions.");
+    const pathParams = {
+      "{workspaceId}": listUserDefinedFunctionsRequest.workspaceId
+    };
+
+    const queryParams = {
+      "functionLibraryKey": listUserDefinedFunctionsRequest.functionLibraryKey,
+      "fields": listUserDefinedFunctionsRequest.fields,
+      "name": listUserDefinedFunctionsRequest.name,
+      "identifier": listUserDefinedFunctionsRequest.identifier,
+      "limit": listUserDefinedFunctionsRequest.limit,
+      "page": listUserDefinedFunctionsRequest.page,
+      "sortOrder": listUserDefinedFunctionsRequest.sortOrder,
+      "sortBy": listUserDefinedFunctionsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listUserDefinedFunctionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listUserDefinedFunctionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/userDefinedFunctions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListUserDefinedFunctionsResponse>{},
+        body: await response.json(),
+        bodyKey: "userDefinedFunctionSummaryCollection",
+        bodyModel: model.UserDefinedFunctionSummaryCollection,
+        type: "model.UserDefinedFunctionSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a paginated list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -6652,9 +7837,11 @@ export class DataIntegrationClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6749,6 +7936,7 @@ export class DataIntegrationClient {
   /**
    * Retrieves a paginated list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -6775,9 +7963,11 @@ export class DataIntegrationClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6872,6 +8062,7 @@ export class DataIntegrationClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -6898,9 +8089,11 @@ export class DataIntegrationClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6995,6 +8188,7 @@ export class DataIntegrationClient {
   /**
    * Retrieves a list of Data Integration workspaces.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkspacesRequest
    * @return ListWorkspacesResponse
    * @throws OciError when an error occurs
@@ -7021,9 +8215,11 @@ export class DataIntegrationClient {
       "opc-request-id": listWorkspacesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkspacesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkspacesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7118,6 +8314,7 @@ export class DataIntegrationClient {
   /**
    * Starts a workspace.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StartWorkspaceRequest
    * @return StartWorkspaceResponse
    * @throws OciError when an error occurs
@@ -7140,9 +8337,11 @@ export class DataIntegrationClient {
       "opc-retry-token": startWorkspaceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      startWorkspaceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startWorkspaceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7181,6 +8380,7 @@ export class DataIntegrationClient {
   /**
    * Stops a workspace.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StopWorkspaceRequest
    * @return StopWorkspaceResponse
    * @throws OciError when an error occurs
@@ -7206,9 +8406,11 @@ export class DataIntegrationClient {
       "opc-retry-token": stopWorkspaceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      stopWorkspaceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopWorkspaceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7246,6 +8448,7 @@ export class DataIntegrationClient {
 
   /**
    * Updates an application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateApplicationRequest
    * @return UpdateApplicationResponse
    * @throws OciError when an error occurs
@@ -7269,9 +8472,11 @@ export class DataIntegrationClient {
       "opc-request-id": updateApplicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7318,6 +8523,7 @@ export class DataIntegrationClient {
 
   /**
    * Updates a connection under a data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateConnectionRequest
    * @return UpdateConnectionResponse
    * @throws OciError when an error occurs
@@ -7340,9 +8546,11 @@ export class DataIntegrationClient {
       "if-match": updateConnectionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7389,6 +8597,7 @@ export class DataIntegrationClient {
 
   /**
    * Updates a specific data asset with default connection.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDataAssetRequest
    * @return UpdateDataAssetResponse
    * @throws OciError when an error occurs
@@ -7411,9 +8620,11 @@ export class DataIntegrationClient {
       "if-match": updateDataAssetRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7460,6 +8671,7 @@ export class DataIntegrationClient {
 
   /**
    * Updates a specific data flow.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDataFlowRequest
    * @return UpdateDataFlowResponse
    * @throws OciError when an error occurs
@@ -7482,9 +8694,11 @@ export class DataIntegrationClient {
       "if-match": updateDataFlowRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDataFlowRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDataFlowRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7531,6 +8745,7 @@ export class DataIntegrationClient {
 
   /**
    * Updates the external publication object.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateExternalPublicationRequest
    * @return UpdateExternalPublicationResponse
    * @throws OciError when an error occurs
@@ -7555,9 +8770,11 @@ export class DataIntegrationClient {
       "if-match": updateExternalPublicationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateExternalPublicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalPublicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7605,6 +8822,7 @@ export class DataIntegrationClient {
 
   /**
    * Updates a specific folder.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateFolderRequest
    * @return UpdateFolderResponse
    * @throws OciError when an error occurs
@@ -7627,9 +8845,11 @@ export class DataIntegrationClient {
       "if-match": updateFolderRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateFolderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateFolderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7675,7 +8895,83 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Updates a specific Function Library.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateFunctionLibraryRequest
+   * @return UpdateFunctionLibraryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateFunctionLibrary.ts.html |here} to see how to use UpdateFunctionLibrary API.
+   */
+  public async updateFunctionLibrary(
+    updateFunctionLibraryRequest: requests.UpdateFunctionLibraryRequest
+  ): Promise<responses.UpdateFunctionLibraryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#updateFunctionLibrary.");
+    const pathParams = {
+      "{workspaceId}": updateFunctionLibraryRequest.workspaceId,
+      "{functionLibraryKey}": updateFunctionLibraryRequest.functionLibraryKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateFunctionLibraryRequest.opcRequestId,
+      "if-match": updateFunctionLibraryRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateFunctionLibraryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/functionLibraries/{functionLibraryKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateFunctionLibraryRequest.updateFunctionLibraryDetails,
+        "UpdateFunctionLibraryDetails",
+        model.UpdateFunctionLibraryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateFunctionLibraryResponse>{},
+        body: await response.json(),
+        bodyKey: "functionLibrary",
+        bodyModel: model.FunctionLibrary,
+        type: "model.FunctionLibrary",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates a specific pipeline.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdatePipelineRequest
    * @return UpdatePipelineResponse
    * @throws OciError when an error occurs
@@ -7698,9 +8994,11 @@ export class DataIntegrationClient {
       "if-match": updatePipelineRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePipelineRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePipelineRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7747,6 +9045,7 @@ export class DataIntegrationClient {
 
   /**
    * Updates a specific project.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateProjectRequest
    * @return UpdateProjectResponse
    * @throws OciError when an error occurs
@@ -7769,9 +9068,11 @@ export class DataIntegrationClient {
       "if-match": updateProjectRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7818,6 +9119,7 @@ export class DataIntegrationClient {
 
   /**
    * Updates the application references. For example, to map a data asset to a different target object.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateReferenceRequest
    * @return UpdateReferenceResponse
    * @throws OciError when an error occurs
@@ -7842,9 +9144,11 @@ export class DataIntegrationClient {
       "opc-retry-token": updateReferenceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateReferenceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateReferenceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7891,6 +9195,7 @@ export class DataIntegrationClient {
 
   /**
    * Endpoint used to update the schedule
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateScheduleRequest
    * @return UpdateScheduleResponse
    * @throws OciError when an error occurs
@@ -7914,9 +9219,11 @@ export class DataIntegrationClient {
       "opc-request-id": updateScheduleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateScheduleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateScheduleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7963,6 +9270,7 @@ export class DataIntegrationClient {
 
   /**
    * Updates a specific task. For example, you can update the task description or move the task to a different folder by changing the `aggregatorKey` to a different folder in the registry.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTaskRequest
    * @return UpdateTaskResponse
    * @throws OciError when an error occurs
@@ -7985,9 +9293,11 @@ export class DataIntegrationClient {
       "if-match": updateTaskRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTaskRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTaskRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8034,6 +9344,7 @@ export class DataIntegrationClient {
 
   /**
    * Updates the status of the task run. For example, aborts a task run.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTaskRunRequest
    * @return UpdateTaskRunResponse
    * @throws OciError when an error occurs
@@ -8057,9 +9368,11 @@ export class DataIntegrationClient {
       "if-match": updateTaskRunRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTaskRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTaskRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8106,6 +9419,7 @@ export class DataIntegrationClient {
 
   /**
    * Endpoint used to update the TaskSchedule
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTaskScheduleRequest
    * @return UpdateTaskScheduleResponse
    * @throws OciError when an error occurs
@@ -8130,9 +9444,11 @@ export class DataIntegrationClient {
       "opc-request-id": updateTaskScheduleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTaskScheduleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTaskScheduleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8179,7 +9495,83 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Updates a specific UserDefinedFunction.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateUserDefinedFunctionRequest
+   * @return UpdateUserDefinedFunctionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateUserDefinedFunction.ts.html |here} to see how to use UpdateUserDefinedFunction API.
+   */
+  public async updateUserDefinedFunction(
+    updateUserDefinedFunctionRequest: requests.UpdateUserDefinedFunctionRequest
+  ): Promise<responses.UpdateUserDefinedFunctionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#updateUserDefinedFunction.");
+    const pathParams = {
+      "{workspaceId}": updateUserDefinedFunctionRequest.workspaceId,
+      "{userDefinedFunctionKey}": updateUserDefinedFunctionRequest.userDefinedFunctionKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateUserDefinedFunctionRequest.opcRequestId,
+      "if-match": updateUserDefinedFunctionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateUserDefinedFunctionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/userDefinedFunctions/{userDefinedFunctionKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateUserDefinedFunctionRequest.updateUserDefinedFunctionDetails,
+        "UpdateUserDefinedFunctionDetails",
+        model.UpdateUserDefinedFunctionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateUserDefinedFunctionResponse>{},
+        body: await response.json(),
+        bodyKey: "userDefinedFunction",
+        bodyModel: model.UserDefinedFunction,
+        type: "model.UserDefinedFunction",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified Data Integration workspace.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateWorkspaceRequest
    * @return UpdateWorkspaceResponse
    * @throws OciError when an error occurs
@@ -8201,9 +9593,11 @@ export class DataIntegrationClient {
       "opc-request-id": updateWorkspaceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateWorkspaceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateWorkspaceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

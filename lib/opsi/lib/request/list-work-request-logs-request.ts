@@ -44,4 +44,20 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
    *
    */
   "limit"?: number;
+  /**
+   * The field to sort by. Only one sort order may be provided. Default order for timeAccepted is descending.
+   *
+   */
+  "sortBy"?: ListWorkRequestLogsRequest.SortBy;
+  /**
+   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   *
+   */
+  "sortOrder"?: model.SortOrder;
+}
+
+export namespace ListWorkRequestLogsRequest {
+  export enum SortBy {
+    TimeAccepted = "timeAccepted"
+  }
 }

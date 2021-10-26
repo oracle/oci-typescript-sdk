@@ -26,7 +26,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum LoadBalancerApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class LoadBalancerClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -46,6 +48,15 @@ export class LoadBalancerClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -136,6 +147,7 @@ export class LoadBalancerClient {
    * Moves a load balancer into a different compartment within the same tenancy. For information about moving resources
    * between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeLoadBalancerCompartmentRequest
    * @return ChangeLoadBalancerCompartmentResponse
    * @throws OciError when an error occurs
@@ -159,9 +171,11 @@ export class LoadBalancerClient {
       "if-match": changeLoadBalancerCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeLoadBalancerCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeLoadBalancerCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -204,6 +218,7 @@ export class LoadBalancerClient {
 
   /**
    * Adds a backend server to a backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateBackendRequest
    * @return CreateBackendResponse
    * @throws OciError when an error occurs
@@ -226,9 +241,11 @@ export class LoadBalancerClient {
       "opc-retry-token": createBackendRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createBackendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBackendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -271,6 +288,7 @@ export class LoadBalancerClient {
 
   /**
    * Adds a backend set to a load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateBackendSetRequest
    * @return CreateBackendSetResponse
    * @throws OciError when an error occurs
@@ -292,9 +310,11 @@ export class LoadBalancerClient {
       "opc-retry-token": createBackendSetRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createBackendSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBackendSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -337,6 +357,7 @@ export class LoadBalancerClient {
 
   /**
    * Creates an asynchronous request to add an SSL certificate bundle.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateCertificateRequest
    * @return CreateCertificateResponse
    * @throws OciError when an error occurs
@@ -358,9 +379,11 @@ export class LoadBalancerClient {
       "opc-retry-token": createCertificateRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCertificateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCertificateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -405,6 +428,7 @@ export class LoadBalancerClient {
    * Adds a hostname resource to the specified load balancer. For more information, see
    * [Managing Request Routing](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingrequest.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateHostnameRequest
    * @return CreateHostnameResponse
    * @throws OciError when an error occurs
@@ -426,9 +450,11 @@ export class LoadBalancerClient {
       "opc-retry-token": createHostnameRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createHostnameRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createHostnameRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -471,6 +497,7 @@ export class LoadBalancerClient {
 
   /**
    * Adds a listener to a load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateListenerRequest
    * @return CreateListenerResponse
    * @throws OciError when an error occurs
@@ -492,9 +519,11 @@ export class LoadBalancerClient {
       "opc-retry-token": createListenerRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createListenerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createListenerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -564,6 +593,7 @@ After you send your request, the new object's state will temporarily be PROVISIO
 When you create a load balancer, the system assigns an IP address.
 * To get the IP address, use the {@link #getLoadBalancer(GetLoadBalancerRequest) getLoadBalancer} operation.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateLoadBalancerRequest
      * @return CreateLoadBalancerResponse
      * @throws OciError when an error occurs
@@ -583,9 +613,11 @@ When you create a load balancer, the system assigns an IP address.
       "opc-retry-token": createLoadBalancerRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createLoadBalancerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createLoadBalancerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -630,6 +662,7 @@ When you create a load balancer, the system assigns an IP address.
    * Adds a path route set to a load balancer. For more information, see
    * [Managing Request Routing](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingrequest.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePathRouteSetRequest
    * @return CreatePathRouteSetResponse
    * @throws OciError when an error occurs
@@ -651,9 +684,11 @@ When you create a load balancer, the system assigns an IP address.
       "opc-retry-token": createPathRouteSetRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPathRouteSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPathRouteSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -698,6 +733,7 @@ When you create a load balancer, the system assigns an IP address.
    * Adds a routing policy to a load balancer. For more information, see
    * [Managing Request Routing](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingrequest.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRoutingPolicyRequest
    * @return CreateRoutingPolicyResponse
    * @throws OciError when an error occurs
@@ -719,9 +755,11 @@ When you create a load balancer, the system assigns an IP address.
       "opc-retry-token": createRoutingPolicyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createRoutingPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRoutingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -766,6 +804,7 @@ When you create a load balancer, the system assigns an IP address.
    * Creates a new rule set associated with the specified load balancer. For more information, see
    * [Managing Rule Sets](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingrulesets.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRuleSetRequest
    * @return CreateRuleSetResponse
    * @throws OciError when an error occurs
@@ -786,9 +825,11 @@ When you create a load balancer, the system assigns an IP address.
       "opc-request-id": createRuleSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createRuleSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRuleSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -831,6 +872,7 @@ When you create a load balancer, the system assigns an IP address.
 
   /**
    * Creates a custom SSL cipher suite.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateSSLCipherSuiteRequest
    * @return CreateSSLCipherSuiteResponse
    * @throws OciError when an error occurs
@@ -853,9 +895,11 @@ When you create a load balancer, the system assigns an IP address.
       "opc-retry-token": createSSLCipherSuiteRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSSLCipherSuiteRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSSLCipherSuiteRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -898,6 +942,7 @@ When you create a load balancer, the system assigns an IP address.
 
   /**
    * Removes a backend server from a given load balancer and backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBackendRequest
    * @return DeleteBackendResponse
    * @throws OciError when an error occurs
@@ -920,9 +965,11 @@ When you create a load balancer, the system assigns an IP address.
       "opc-request-id": deleteBackendRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteBackendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBackendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -963,6 +1010,7 @@ When you create a load balancer, the system assigns an IP address.
 * <p>
 Before you can delete a backend set, you must remove it from any active listeners.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteBackendSetRequest
      * @return DeleteBackendSetResponse
      * @throws OciError when an error occurs
@@ -984,9 +1032,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": deleteBackendSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteBackendSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBackendSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1024,6 +1074,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Deletes an SSL certificate bundle from a load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCertificateRequest
    * @return DeleteCertificateResponse
    * @throws OciError when an error occurs
@@ -1045,9 +1096,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": deleteCertificateRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCertificateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCertificateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1086,6 +1139,7 @@ Before you can delete a backend set, you must remove it from any active listener
   /**
    * Deletes a hostname resource from the specified load balancer.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteHostnameRequest
    * @return DeleteHostnameResponse
    * @throws OciError when an error occurs
@@ -1107,9 +1161,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": deleteHostnameRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteHostnameRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteHostnameRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1147,6 +1203,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Deletes a listener from a load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteListenerRequest
    * @return DeleteListenerResponse
    * @throws OciError when an error occurs
@@ -1168,9 +1225,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": deleteListenerRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteListenerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteListenerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1208,6 +1267,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Stops a load balancer and removes it from service.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteLoadBalancerRequest
    * @return DeleteLoadBalancerResponse
    * @throws OciError when an error occurs
@@ -1228,9 +1288,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": deleteLoadBalancerRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteLoadBalancerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteLoadBalancerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1272,6 +1334,7 @@ Before you can delete a backend set, you must remove it from any active listener
 To delete a path route rule from a path route set, use the
 * {@link #updatePathRouteSet(UpdatePathRouteSetRequest) updatePathRouteSet} operation.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeletePathRouteSetRequest
      * @return DeletePathRouteSetResponse
      * @throws OciError when an error occurs
@@ -1293,9 +1356,11 @@ To delete a path route rule from a path route set, use the
       "opc-request-id": deletePathRouteSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePathRouteSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePathRouteSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1337,6 +1402,7 @@ To delete a path route rule from a path route set, use the
 To delete a routing rule from a routing policy, use the
 * {@link #updateRoutingPolicy(UpdateRoutingPolicyRequest) updateRoutingPolicy} operation.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteRoutingPolicyRequest
      * @return DeleteRoutingPolicyResponse
      * @throws OciError when an error occurs
@@ -1358,9 +1424,11 @@ To delete a routing rule from a routing policy, use the
       "opc-request-id": deleteRoutingPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteRoutingPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRoutingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1402,6 +1470,7 @@ To delete a routing rule from a routing policy, use the
 To delete a rule from a rule set, use the
 * {@link #updateRuleSet(UpdateRuleSetRequest) updateRuleSet} operation.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteRuleSetRequest
      * @return DeleteRuleSetResponse
      * @throws OciError when an error occurs
@@ -1423,9 +1492,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": deleteRuleSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteRuleSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRuleSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1463,6 +1534,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Deletes an SSL cipher suite from a load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSSLCipherSuiteRequest
    * @return DeleteSSLCipherSuiteResponse
    * @throws OciError when an error occurs
@@ -1485,9 +1557,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": deleteSSLCipherSuiteRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSSLCipherSuiteRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSSLCipherSuiteRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1525,6 +1599,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Gets the specified backend server's configuration information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBackendRequest
    * @return GetBackendResponse
    * @throws OciError when an error occurs
@@ -1547,9 +1622,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": getBackendRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBackendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBackendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1586,6 +1663,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Gets the current health status of the specified backend server.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBackendHealthRequest
    * @return GetBackendHealthResponse
    * @throws OciError when an error occurs
@@ -1608,9 +1686,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": getBackendHealthRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBackendHealthRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBackendHealthRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1648,6 +1728,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Gets the specified backend set's configuration information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBackendSetRequest
    * @return GetBackendSetResponse
    * @throws OciError when an error occurs
@@ -1669,9 +1750,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": getBackendSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBackendSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBackendSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1708,6 +1791,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Gets the health status for the specified backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBackendSetHealthRequest
    * @return GetBackendSetHealthResponse
    * @throws OciError when an error occurs
@@ -1729,9 +1813,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": getBackendSetHealthRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBackendSetHealthRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBackendSetHealthRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1768,6 +1854,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Gets the health check policy information for a given load balancer and backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetHealthCheckerRequest
    * @return GetHealthCheckerResponse
    * @throws OciError when an error occurs
@@ -1789,9 +1876,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": getHealthCheckerRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getHealthCheckerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHealthCheckerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1828,6 +1917,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Gets the specified hostname resource's configuration information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetHostnameRequest
    * @return GetHostnameResponse
    * @throws OciError when an error occurs
@@ -1849,9 +1939,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": getHostnameRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getHostnameRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHostnameRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1888,6 +1980,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Gets the specified load balancer's configuration information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetLoadBalancerRequest
    * @return GetLoadBalancerResponse
    * @throws OciError when an error occurs
@@ -1908,9 +2001,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": getLoadBalancerRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getLoadBalancerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getLoadBalancerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1947,6 +2042,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Gets the health status for the specified load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetLoadBalancerHealthRequest
    * @return GetLoadBalancerHealthResponse
    * @throws OciError when an error occurs
@@ -1968,9 +2064,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": getLoadBalancerHealthRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getLoadBalancerHealthRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getLoadBalancerHealthRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2007,6 +2105,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Gets the specified path route set's configuration information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPathRouteSetRequest
    * @return GetPathRouteSetResponse
    * @throws OciError when an error occurs
@@ -2028,9 +2127,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": getPathRouteSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPathRouteSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPathRouteSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2067,6 +2168,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Gets the specified routing policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRoutingPolicyRequest
    * @return GetRoutingPolicyResponse
    * @throws OciError when an error occurs
@@ -2088,9 +2190,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": getRoutingPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRoutingPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRoutingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2127,6 +2231,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Gets the specified set of rules.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRuleSetRequest
    * @return GetRuleSetResponse
    * @throws OciError when an error occurs
@@ -2148,9 +2253,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": getRuleSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRuleSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRuleSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2187,6 +2294,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Gets the specified SSL cipher suite's configuration information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSSLCipherSuiteRequest
    * @return GetSSLCipherSuiteResponse
    * @throws OciError when an error occurs
@@ -2208,9 +2316,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": getSSLCipherSuiteRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSSLCipherSuiteRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSSLCipherSuiteRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2247,6 +2357,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Gets the details of a work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -2267,9 +2378,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2306,6 +2419,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists all backend sets associated with a given load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBackendSetsRequest
    * @return ListBackendSetsResponse
    * @throws OciError when an error occurs
@@ -2326,9 +2440,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listBackendSetsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBackendSetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBackendSetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2365,6 +2481,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists the backend servers for a given load balancer and backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBackendsRequest
    * @return ListBackendsResponse
    * @throws OciError when an error occurs
@@ -2386,9 +2503,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listBackendsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBackendsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBackendsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2425,6 +2544,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists all SSL certificates bundles associated with a given load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCertificatesRequest
    * @return ListCertificatesResponse
    * @throws OciError when an error occurs
@@ -2445,9 +2565,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listCertificatesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCertificatesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCertificatesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2484,6 +2606,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists all hostname resources associated with the specified load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListHostnamesRequest
    * @return ListHostnamesResponse
    * @throws OciError when an error occurs
@@ -2504,9 +2627,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listHostnamesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listHostnamesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHostnamesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2550,6 +2675,7 @@ To delete a rule from a rule set, use the
    * *  Request header rules
    * *  Response header rules
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListListenerRulesRequest
    * @return ListListenerRulesResponse
    * @throws OciError when an error occurs
@@ -2571,9 +2697,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listListenerRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listListenerRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listListenerRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2610,6 +2738,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists the summary health statuses for all load balancers in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListLoadBalancerHealthsRequest
    * @return ListLoadBalancerHealthsResponse
    * @throws OciError when an error occurs
@@ -2633,9 +2762,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listLoadBalancerHealthsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listLoadBalancerHealthsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listLoadBalancerHealthsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2729,6 +2860,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists all load balancers in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListLoadBalancersRequest
    * @return ListLoadBalancersResponse
    * @throws OciError when an error occurs
@@ -2756,9 +2888,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listLoadBalancersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listLoadBalancersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listLoadBalancersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2852,6 +2986,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists all path route sets associated with the specified load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPathRouteSetsRequest
    * @return ListPathRouteSetsResponse
    * @throws OciError when an error occurs
@@ -2872,9 +3007,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listPathRouteSetsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPathRouteSetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPathRouteSetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2911,6 +3048,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists the available load balancer policies.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPoliciesRequest
    * @return ListPoliciesResponse
    * @throws OciError when an error occurs
@@ -2933,9 +3071,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listPoliciesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPoliciesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3029,6 +3169,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists all supported traffic protocols.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProtocolsRequest
    * @return ListProtocolsResponse
    * @throws OciError when an error occurs
@@ -3051,9 +3192,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listProtocolsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listProtocolsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProtocolsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3147,6 +3290,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists all routing policies associated with the specified load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRoutingPoliciesRequest
    * @return ListRoutingPoliciesResponse
    * @throws OciError when an error occurs
@@ -3170,9 +3314,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listRoutingPoliciesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRoutingPoliciesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRoutingPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3266,6 +3412,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists all rule sets associated with the specified load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRuleSetsRequest
    * @return ListRuleSetsResponse
    * @throws OciError when an error occurs
@@ -3286,9 +3433,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listRuleSetsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRuleSetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRuleSetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3325,6 +3474,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists all SSL cipher suites associated with the specified load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSSLCipherSuitesRequest
    * @return ListSSLCipherSuitesResponse
    * @throws OciError when an error occurs
@@ -3345,9 +3495,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listSSLCipherSuitesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSSLCipherSuitesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSSLCipherSuitesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3384,6 +3536,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists the valid load balancer shapes.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListShapesRequest
    * @return ListShapesResponse
    * @throws OciError when an error occurs
@@ -3406,9 +3559,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listShapesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3502,6 +3657,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Lists the work requests for a given load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -3525,9 +3681,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3621,6 +3779,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Updates the configuration of a backend server within the specified backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBackendRequest
    * @return UpdateBackendResponse
    * @throws OciError when an error occurs
@@ -3644,9 +3803,11 @@ To delete a rule from a rule set, use the
       "opc-retry-token": updateBackendRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateBackendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBackendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3689,6 +3850,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Updates a backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBackendSetRequest
    * @return UpdateBackendSetResponse
    * @throws OciError when an error occurs
@@ -3711,9 +3873,11 @@ To delete a rule from a rule set, use the
       "opc-retry-token": updateBackendSetRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateBackendSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBackendSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3756,6 +3920,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Updates the health check policy for a given load balancer and backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateHealthCheckerRequest
    * @return UpdateHealthCheckerResponse
    * @throws OciError when an error occurs
@@ -3778,9 +3943,11 @@ To delete a rule from a rule set, use the
       "opc-retry-token": updateHealthCheckerRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateHealthCheckerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateHealthCheckerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3825,6 +3992,7 @@ To delete a rule from a rule set, use the
    * Overwrites an existing hostname resource on the specified load balancer. Use this operation to change a
    * virtual hostname.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateHostnameRequest
    * @return UpdateHostnameResponse
    * @throws OciError when an error occurs
@@ -3846,9 +4014,11 @@ To delete a rule from a rule set, use the
       "opc-request-id": updateHostnameRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateHostnameRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateHostnameRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3891,6 +4061,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Updates a listener for a given load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateListenerRequest
    * @return UpdateListenerResponse
    * @throws OciError when an error occurs
@@ -3913,9 +4084,11 @@ To delete a rule from a rule set, use the
       "opc-retry-token": updateListenerRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateListenerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateListenerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3958,6 +4131,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Updates a load balancer's configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateLoadBalancerRequest
    * @return UpdateLoadBalancerResponse
    * @throws OciError when an error occurs
@@ -3979,9 +4153,11 @@ To delete a rule from a rule set, use the
       "opc-retry-token": updateLoadBalancerRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateLoadBalancerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateLoadBalancerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4030,6 +4206,7 @@ To delete a rule from a rule set, use the
    * start accepting larger bandwidth and when reshaping to a smaller one, the LB will be accepting smaller
    * bandwidth.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateLoadBalancerShapeRequest
    * @return UpdateLoadBalancerShapeResponse
    * @throws OciError when an error occurs
@@ -4052,9 +4229,11 @@ To delete a rule from a rule set, use the
       "opc-retry-token": updateLoadBalancerShapeRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateLoadBalancerShapeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateLoadBalancerShapeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4097,6 +4276,7 @@ To delete a rule from a rule set, use the
 
   /**
    * Updates the network security groups associated with the specified load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateNetworkSecurityGroupsRequest
    * @return UpdateNetworkSecurityGroupsResponse
    * @throws OciError when an error occurs
@@ -4119,9 +4299,11 @@ To delete a rule from a rule set, use the
       "opc-retry-token": updateNetworkSecurityGroupsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateNetworkSecurityGroupsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNetworkSecurityGroupsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4170,6 +4352,7 @@ To add a new path route rule to a path route set, the `pathRoutes` in the
 * {@link #updatePathRouteSetDetails(UpdatePathRouteSetDetailsRequest) updatePathRouteSetDetails} object must include
 * both the new path route rule to add and the existing path route rules to retain.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdatePathRouteSetRequest
      * @return UpdatePathRouteSetResponse
      * @throws OciError when an error occurs
@@ -4192,9 +4375,11 @@ To add a new path route rule to a path route set, the `pathRoutes` in the
       "opc-retry-token": updatePathRouteSetRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePathRouteSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePathRouteSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4241,6 +4426,7 @@ To add a new path route rule to a path route set, the `pathRoutes` in the
 * <p>
 To add a new routing rule to a routing policy, the body must include both the new routing rule to add and the existing rules to retain.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateRoutingPolicyRequest
      * @return UpdateRoutingPolicyResponse
      * @throws OciError when an error occurs
@@ -4263,9 +4449,11 @@ To add a new routing rule to a routing policy, the body must include both the ne
       "opc-retry-token": updateRoutingPolicyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRoutingPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRoutingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4312,6 +4500,7 @@ To add a new routing rule to a routing policy, the body must include both the ne
 * <p>
 To add a new rule to a set, the body must include both the new rule to add and the existing rules to retain.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateRuleSetRequest
      * @return UpdateRuleSetResponse
      * @throws OciError when an error occurs
@@ -4333,9 +4522,11 @@ To add a new rule to a set, the body must include both the new rule to add and t
       "opc-request-id": updateRuleSetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRuleSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRuleSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4378,6 +4569,7 @@ To add a new rule to a set, the body must include both the new rule to add and t
 
   /**
    * Updates an existing SSL cipher suite for the specified load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSSLCipherSuiteRequest
    * @return UpdateSSLCipherSuiteResponse
    * @throws OciError when an error occurs
@@ -4401,9 +4593,11 @@ To add a new rule to a set, the body must include both the new rule to add and t
       "opc-retry-token": updateSSLCipherSuiteRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSSLCipherSuiteRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSSLCipherSuiteRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -34,6 +34,7 @@ export interface EmManagedExternalDatabaseConfigurationSummary
    * Array of hostname and instance name.
    */
   "instances": Array<model.HostInstanceMap>;
+  "exadataDetails": model.ExadataDetails;
 
   "entitySource": string;
 }
@@ -54,6 +55,9 @@ export namespace EmManagedExternalDatabaseConfigurationSummary {
           ? obj.instances.map(item => {
               return model.HostInstanceMap.getJsonObj(item);
             })
+          : undefined,
+        "exadataDetails": obj.exadataDetails
+          ? model.ExadataDetails.getJsonObj(obj.exadataDetails)
           : undefined
       }
     };
@@ -76,6 +80,9 @@ export namespace EmManagedExternalDatabaseConfigurationSummary {
           ? obj.instances.map(item => {
               return model.HostInstanceMap.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "exadataDetails": obj.exadataDetails
+          ? model.ExadataDetails.getDeserializedJsonObj(obj.exadataDetails)
           : undefined
       }
     };

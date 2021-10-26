@@ -27,7 +27,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 export enum RedirectApiKeys {
   ApiKey
 }
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class RedirectClient {
   protected static serviceEndpointTemplate = "https://waas.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -47,6 +49,15 @@ export class RedirectClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -135,6 +146,7 @@ export class RedirectClient {
 
   /**
    * Moves HTTP Redirect into a different compartment. When provided, If-Match is checked against ETag values of the WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeHttpRedirectCompartmentRequest
    * @return ChangeHttpRedirectCompartmentResponse
    * @throws OciError when an error occurs
@@ -158,9 +170,11 @@ export class RedirectClient {
       "opc-retry-token": changeHttpRedirectCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeHttpRedirectCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeHttpRedirectCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -198,6 +212,7 @@ export class RedirectClient {
 
   /**
    * Creates a new HTTP Redirect on the WAF edge.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateHttpRedirectRequest
    * @return CreateHttpRedirectResponse
    * @throws OciError when an error occurs
@@ -217,9 +232,11 @@ export class RedirectClient {
       "opc-retry-token": createHttpRedirectRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createHttpRedirectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createHttpRedirectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -262,6 +279,7 @@ export class RedirectClient {
 
   /**
    * Deletes a redirect.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteHttpRedirectRequest
    * @return DeleteHttpRedirectResponse
    * @throws OciError when an error occurs
@@ -284,9 +302,11 @@ export class RedirectClient {
       "if-match": deleteHttpRedirectRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteHttpRedirectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteHttpRedirectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -324,6 +344,7 @@ export class RedirectClient {
 
   /**
    * Gets the details of a HTTP Redirect.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetHttpRedirectRequest
    * @return GetHttpRedirectResponse
    * @throws OciError when an error occurs
@@ -344,9 +365,11 @@ export class RedirectClient {
       "opc-request-id": getHttpRedirectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getHttpRedirectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHttpRedirectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -388,6 +411,7 @@ export class RedirectClient {
 
   /**
    * Gets a list of HTTP Redirects.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListHttpRedirectsRequest
    * @return ListHttpRedirectsResponse
    * @throws OciError when an error occurs
@@ -417,9 +441,11 @@ export class RedirectClient {
       "opc-request-id": listHttpRedirectsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listHttpRedirectsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHttpRedirectsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -513,6 +539,7 @@ export class RedirectClient {
 
   /**
    * Updates the details of a HTTP Redirect, including target and tags. Only the fields specified in the request body will be updated; all other properties will remain unchanged.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateHttpRedirectRequest
    * @return UpdateHttpRedirectResponse
    * @throws OciError when an error occurs
@@ -535,9 +562,11 @@ export class RedirectClient {
       "if-match": updateHttpRedirectRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateHttpRedirectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateHttpRedirectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -581,7 +610,9 @@ export class RedirectClient {
 export enum WaasApiKeys {
   ApiKey
 }
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class WaasClient {
   protected static serviceEndpointTemplate = "https://waas.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -601,6 +632,15 @@ export class WaasClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -691,6 +731,7 @@ export class WaasClient {
      * Accepts a list of recommended Web Application Firewall protection rules. Web Application Firewall protection rule recommendations are sets of rules generated by observed traffic patterns through the Web Application Firewall and are meant to optimize the Web Application Firewall's security profile. Only the rules specified in the request body will be updated; all other rules will remain unchanged.
 * <p>
 Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to view a list of recommended Web Application Firewall protection rules. For more information, see [WAF Protection Rules](https://docs.cloud.oracle.com/iaas/Content/WAF/Tasks/wafprotectionrules.htm).
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param AcceptRecommendationsRequest
      * @return AcceptRecommendationsResponse
      * @throws OciError when an error occurs
@@ -712,9 +753,11 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       "if-match": acceptRecommendationsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      acceptRecommendationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      acceptRecommendationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -756,6 +799,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
 
   /**
    * Cancels a specified work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
@@ -778,9 +822,11 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       "if-match": cancelWorkRequestRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -816,6 +862,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
    * is checked against ETag values of the address list. For information about moving
    * resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeAddressListCompartmentRequest
    * @return ChangeAddressListCompartmentResponse
    * @throws OciError when an error occurs
@@ -839,9 +886,11 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       "opc-retry-token": changeAddressListCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeAddressListCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAddressListCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -881,6 +930,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
    * Moves certificate into a different compartment. When provided, If-Match is checked against ETag values of the certificate.
    * For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCertificateCompartmentRequest
    * @return ChangeCertificateCompartmentResponse
    * @throws OciError when an error occurs
@@ -904,9 +954,11 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       "opc-retry-token": changeCertificateCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeCertificateCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCertificateCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -944,6 +996,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
 
   /**
    * Moves a custom protection rule into a different compartment within the same tenancy. When provided, If-Match is checked against ETag values of the custom protection rule. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCustomProtectionRuleCompartmentRequest
    * @return ChangeCustomProtectionRuleCompartmentResponse
    * @throws OciError when an error occurs
@@ -968,9 +1021,11 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       "opc-retry-token": changeCustomProtectionRuleCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeCustomProtectionRuleCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCustomProtectionRuleCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1010,6 +1065,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
    * Moves WAAS policy into a different compartment. When provided, If-Match is checked against ETag values of the WAAS policy.
    * For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeWaasPolicyCompartmentRequest
    * @return ChangeWaasPolicyCompartmentResponse
    * @throws OciError when an error occurs
@@ -1032,9 +1088,11 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       "opc-retry-token": changeWaasPolicyCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeWaasPolicyCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeWaasPolicyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1072,6 +1130,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
 
   /**
    * Creates an address list in a set compartment and allows it to be used in a WAAS policy and referenced by access rules. Addresses can be IP addresses and CIDR notations.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAddressListRequest
    * @return CreateAddressListResponse
    * @throws OciError when an error occurs
@@ -1091,9 +1150,11 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       "opc-retry-token": createAddressListRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAddressListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAddressListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1142,6 +1203,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
      * Allows an SSL certificate to be added to a WAAS policy. The Web Application Firewall terminates SSL connections to inspect requests in runtime, and then re-encrypts requests before sending them to the origin for fulfillment.
 * <p>
 For more information, see [WAF Settings](https://docs.cloud.oracle.com/iaas/Content/WAF/Tasks/wafsettings.htm).
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateCertificateRequest
      * @return CreateCertificateResponse
      * @throws OciError when an error occurs
@@ -1161,9 +1223,11 @@ For more information, see [WAF Settings](https://docs.cloud.oracle.com/iaas/Cont
       "opc-retry-token": createCertificateRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCertificateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCertificateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1212,6 +1276,7 @@ For more information, see [WAF Settings](https://docs.cloud.oracle.com/iaas/Cont
      * Creates a new custom protection rule in the specified compartment.
 * <p>
 Custom protection rules allow you to create rules in addition to the rulesets provided by the Web Application Firewall service, including rules from [ModSecurity](https://modsecurity.org/). The syntax for custom rules is based on the ModSecurity syntax. For more information about custom protection rules, see [Custom Protection Rules](https://docs.cloud.oracle.com/iaas/Content/WAF/Tasks/customprotectionrules.htm).
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateCustomProtectionRuleRequest
      * @return CreateCustomProtectionRuleResponse
      * @throws OciError when an error occurs
@@ -1231,9 +1296,11 @@ Custom protection rules allow you to create rules in addition to the rulesets pr
       "opc-retry-token": createCustomProtectionRuleRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCustomProtectionRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCustomProtectionRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1292,6 +1359,7 @@ You must specify a display name and domain for the WAAS policy. The display name
 All Oracle Cloud Infrastructure resources, including WAAS policies, receive a unique, Oracle-assigned ID called an Oracle Cloud Identifier (OCID). When a resource is created, you can find its OCID in the response. You can also retrieve a resource's OCID by using a list API operation for that resource type, or by viewing the resource in the Console. Fore more information, see [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 **Note:** After sending the POST request, the new object's state will temporarily be `CREATING`. Ensure that the resource's state has changed to `ACTIVE` before use.
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateWaasPolicyRequest
      * @return CreateWaasPolicyResponse
      * @throws OciError when an error occurs
@@ -1311,9 +1379,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-retry-token": createWaasPolicyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createWaasPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createWaasPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1361,6 +1431,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Deletes the address list from the compartment if it is not used.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAddressListRequest
    * @return DeleteAddressListResponse
    * @throws OciError when an error occurs
@@ -1383,9 +1454,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "if-match": deleteAddressListRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAddressListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAddressListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1418,6 +1491,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Deletes an SSL certificate from the WAAS service.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCertificateRequest
    * @return DeleteCertificateResponse
    * @throws OciError when an error occurs
@@ -1440,9 +1514,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "if-match": deleteCertificateRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCertificateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCertificateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1475,6 +1551,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Deletes a Custom Protection rule.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCustomProtectionRuleRequest
    * @return DeleteCustomProtectionRuleResponse
    * @throws OciError when an error occurs
@@ -1497,9 +1574,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "if-match": deleteCustomProtectionRuleRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCustomProtectionRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCustomProtectionRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1532,6 +1611,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Deletes a policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteWaasPolicyRequest
    * @return DeleteWaasPolicyResponse
    * @throws OciError when an error occurs
@@ -1554,9 +1634,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "if-match": deleteWaasPolicyRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteWaasPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteWaasPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1594,6 +1676,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets the details of an address list.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAddressListRequest
    * @return GetAddressListResponse
    * @throws OciError when an error occurs
@@ -1614,9 +1697,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": getAddressListRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAddressListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAddressListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1658,6 +1743,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets the details of an SSL certificate.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCertificateRequest
    * @return GetCertificateResponse
    * @throws OciError when an error occurs
@@ -1678,9 +1764,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": getCertificateRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCertificateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCertificateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1722,6 +1810,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets the details of a custom protection rule.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCustomProtectionRuleRequest
    * @return GetCustomProtectionRuleResponse
    * @throws OciError when an error occurs
@@ -1742,9 +1831,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": getCustomProtectionRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCustomProtectionRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCustomProtectionRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1786,6 +1877,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets the device fingerprint challenge settings in the Web Application Firewall configuration for a WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDeviceFingerprintChallengeRequest
    * @return GetDeviceFingerprintChallengeResponse
    * @throws OciError when an error occurs
@@ -1807,9 +1899,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": getDeviceFingerprintChallengeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDeviceFingerprintChallengeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDeviceFingerprintChallengeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1851,6 +1945,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets the human interaction challenge settings in the Web Application Firewall configuration for a WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetHumanInteractionChallengeRequest
    * @return GetHumanInteractionChallengeResponse
    * @throws OciError when an error occurs
@@ -1872,9 +1967,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": getHumanInteractionChallengeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getHumanInteractionChallengeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHumanInteractionChallengeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1916,6 +2013,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets the JavaScript challenge settings in the Web Application Firewall configuration for a WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJsChallengeRequest
    * @return GetJsChallengeResponse
    * @throws OciError when an error occurs
@@ -1936,9 +2034,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": getJsChallengeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJsChallengeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJsChallengeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1980,6 +2080,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets the configuration of a WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPolicyConfigRequest
    * @return GetPolicyConfigResponse
    * @throws OciError when an error occurs
@@ -2000,9 +2101,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": getPolicyConfigRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPolicyConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPolicyConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2044,6 +2147,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets the details of a protection rule in the Web Application Firewall configuration for a WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetProtectionRuleRequest
    * @return GetProtectionRuleResponse
    * @throws OciError when an error occurs
@@ -2065,9 +2169,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": getProtectionRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getProtectionRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getProtectionRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2109,6 +2215,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets the protection settings in the Web Application Firewall configuration for a WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetProtectionSettingsRequest
    * @return GetProtectionSettingsResponse
    * @throws OciError when an error occurs
@@ -2129,9 +2236,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": getProtectionSettingsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getProtectionSettingsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getProtectionSettingsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2173,6 +2282,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets the details of a WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWaasPolicyRequest
    * @return GetWaasPolicyResponse
    * @throws OciError when an error occurs
@@ -2193,9 +2303,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": getWaasPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWaasPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWaasPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2237,6 +2349,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets the address rate limiting settings of the Web Application Firewall configuration for a WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWafAddressRateLimitingRequest
    * @return GetWafAddressRateLimitingResponse
    * @throws OciError when an error occurs
@@ -2257,9 +2370,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": getWafAddressRateLimitingRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWafAddressRateLimitingRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWafAddressRateLimitingRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2301,6 +2416,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets the Web Application Firewall configuration details for a WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWafConfigRequest
    * @return GetWafConfigResponse
    * @throws OciError when an error occurs
@@ -2321,9 +2437,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": getWafConfigRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWafConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWafConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2365,6 +2483,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets the details of a specified work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -2385,9 +2504,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2435,6 +2556,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   /**
    * Gets the currently configured access rules for the Web Application Firewall configuration of a specified WAAS policy.
    * The order of the access rules is important. The rules will be checked in the order they are specified and the first matching rule will be used.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAccessRulesRequest
    * @return ListAccessRulesResponse
    * @throws OciError when an error occurs
@@ -2458,9 +2580,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": listAccessRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAccessRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAccessRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2559,6 +2683,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 
   /**
    * Gets a list of address lists that can be used in a WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAddressListsRequest
    * @return ListAddressListsResponse
    * @throws OciError when an error occurs
@@ -2588,9 +2713,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": listAddressListsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAddressListsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAddressListsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2685,6 +2812,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   /**
    * Gets the currently configured caching rules for the Web Application Firewall configuration of a specified WAAS policy.
    * The rules are processed in the order they are specified in and the first matching rule will be used when processing a request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCachingRulesRequest
    * @return ListCachingRulesResponse
    * @throws OciError when an error occurs
@@ -2708,9 +2836,11 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       "opc-request-id": listCachingRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCachingRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCachingRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2814,6 +2944,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
 The order of the CAPTCHA challenges is important. The URL for each
 * CAPTCHA will be checked in the order they are created.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListCaptchasRequest
      * @return ListCaptchasResponse
      * @throws OciError when an error occurs
@@ -2837,9 +2968,11 @@ The order of the CAPTCHA challenges is important. The URL for each
       "opc-request-id": listCaptchasRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCaptchasRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCaptchasRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2938,6 +3071,7 @@ The order of the CAPTCHA challenges is important. The URL for each
 
   /**
    * Gets a list of SSL certificates that can be used in a WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCertificatesRequest
    * @return ListCertificatesResponse
    * @throws OciError when an error occurs
@@ -2967,9 +3101,11 @@ The order of the CAPTCHA challenges is important. The URL for each
       "opc-request-id": listCertificatesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCertificatesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCertificatesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3063,6 +3199,7 @@ The order of the CAPTCHA challenges is important. The URL for each
 
   /**
    * Gets a list of custom protection rules for the specified Web Application Firewall.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCustomProtectionRulesRequest
    * @return ListCustomProtectionRulesResponse
    * @throws OciError when an error occurs
@@ -3093,9 +3230,11 @@ The order of the CAPTCHA challenges is important. The URL for each
       "opc-request-id": listCustomProtectionRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCustomProtectionRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCustomProtectionRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3189,6 +3328,7 @@ The order of the CAPTCHA challenges is important. The URL for each
 
   /**
    * Return the list of the tenant's edge node subnets. Use these CIDR blocks to restrict incoming traffic to your origin. These subnets are owned by OCI and forward traffic to customer origins. They are not associated with specific regions or compartments.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListEdgeSubnetsRequest
    * @return ListEdgeSubnetsResponse
    * @throws OciError when an error occurs
@@ -3212,9 +3352,11 @@ The order of the CAPTCHA challenges is important. The URL for each
       "opc-request-id": listEdgeSubnetsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listEdgeSubnetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEdgeSubnetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3311,6 +3453,7 @@ The order of the CAPTCHA challenges is important. The URL for each
 * <p>
 The list is sorted by `key`, in ascending order.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListGoodBotsRequest
      * @return ListGoodBotsResponse
      * @throws OciError when an error occurs
@@ -3334,9 +3477,11 @@ The list is sorted by `key`, in ascending order.
       "opc-request-id": listGoodBotsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listGoodBotsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listGoodBotsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3436,6 +3581,7 @@ The list is sorted by `key`, in ascending order.
   /**
    * Gets the list of available protection rules for a WAAS policy. Use the `GetWafConfig` operation to view a list of currently configured protection rules for the Web Application Firewall, or use the `ListRecommendations` operation to get a list of recommended protection rules for the Web Application Firewall.
    * The list is sorted by `key`, in ascending order.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProtectionRulesRequest
    * @return ListProtectionRulesResponse
    * @throws OciError when an error occurs
@@ -3461,9 +3607,11 @@ The list is sorted by `key`, in ascending order.
       "opc-request-id": listProtectionRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listProtectionRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProtectionRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3565,6 +3713,7 @@ The list is sorted by `key`, in ascending order.
 * <p>
 Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendations` method to accept recommended Web Application Firewall protection rules. For more information, see [WAF Protection Rules](https://docs.cloud.oracle.com/iaas/Content/WAF/Tasks/wafprotectionrules.htm).
 * The list is sorted by `key`, in ascending order.
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListRecommendationsRequest
      * @return ListRecommendationsResponse
      * @throws OciError when an error occurs
@@ -3589,9 +3738,11 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       "opc-request-id": listRecommendationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRecommendationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRecommendationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3693,6 +3844,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * and the actions set for each feed. The list is sorted by `key`,
    * in ascending order.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListThreatFeedsRequest
    * @return ListThreatFeedsResponse
    * @throws OciError when an error occurs
@@ -3716,9 +3868,11 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       "opc-request-id": listThreatFeedsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listThreatFeedsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listThreatFeedsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3817,6 +3971,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
 
   /**
    * Gets a list of WAAS policies.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWaasPoliciesRequest
    * @return ListWaasPoliciesResponse
    * @throws OciError when an error occurs
@@ -3846,9 +4001,11 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       "opc-request-id": listWaasPoliciesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWaasPoliciesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWaasPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3942,6 +4099,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
 
   /**
    * Gets the list of currently configured custom protection rules for a WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWaasPolicyCustomProtectionRulesRequest
    * @return ListWaasPolicyCustomProtectionRulesResponse
    * @throws OciError when an error occurs
@@ -3968,9 +4126,11 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       "opc-request-id": listWaasPolicyCustomProtectionRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWaasPolicyCustomProtectionRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWaasPolicyCustomProtectionRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4069,6 +4229,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
 
   /**
    * Gets the number of blocked requests by a Web Application Firewall feature in five minute blocks, sorted by `timeObserved` in ascending order (starting from oldest data).
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWafBlockedRequestsRequest
    * @return ListWafBlockedRequestsResponse
    * @throws OciError when an error occurs
@@ -4096,9 +4257,11 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       "opc-request-id": listWafBlockedRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWafBlockedRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWafBlockedRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4195,6 +4358,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * policy. Sorted by the `timeObserved` in ascending order (starting from the
    * oldest recorded event).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWafLogsRequest
    * @return ListWafLogsResponse
    * @throws OciError when an error occurs
@@ -4237,9 +4401,11 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       "opc-request-id": listWafLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWafLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWafLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4334,6 +4500,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * over a specified period of time, including blocked requests. Sorted
    * by `timeObserved` in ascending order (starting from oldest requests).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWafRequestsRequest
    * @return ListWafRequestsResponse
    * @throws OciError when an error occurs
@@ -4359,9 +4526,11 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       "opc-request-id": listWafRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWafRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWafRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4457,6 +4626,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
    * Gets the Web Application Firewall traffic data for a WAAS policy.
    * Sorted by `timeObserved` in ascending order (starting from oldest data).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWafTrafficRequest
    * @return ListWafTrafficResponse
    * @throws OciError when an error occurs
@@ -4482,9 +4652,11 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       "opc-request-id": listWafTrafficRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWafTrafficRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWafTrafficRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4578,6 +4750,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
 
   /**
    * Gets the list of whitelists defined in the Web Application Firewall configuration for a WAAS policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWhitelistsRequest
    * @return ListWhitelistsResponse
    * @throws OciError when an error occurs
@@ -4601,9 +4774,11 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       "opc-request-id": listWhitelistsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWhitelistsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWhitelistsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4702,6 +4877,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
 
   /**
    * Gets a list of subnets (CIDR notation) from which the WAAS EDGE may make requests. The subnets are owned by OCI and forward traffic to your origins. Allow traffic from these subnets to your origins. They are not associated with specific regions or compartments.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -4727,9 +4903,11 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4824,6 +5002,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   /**
    * Performs a purge of the cache for each specified resource. If no resources are passed, the cache for the entire Web Application Firewall will be purged.
    * For more information, see [Caching Rules](https://docs.cloud.oracle.com/iaas/Content/WAF/Tasks/cachingrules.htm#purge).
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PurgeCacheRequest
    * @return PurgeCacheResponse
    * @throws OciError when an error occurs
@@ -4845,9 +5024,11 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       "if-match": purgeCacheRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      purgeCacheRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      purgeCacheRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4898,6 +5079,7 @@ Access rules can be updated by changing the properties of the access rule object
 Access rules can be created by adding a new access rule object to the list without a `key` property specified. A `key` will be generated for the new access rule upon update.
 * <p>
 Any existing access rules that are not specified with a `key` in the list of access rules will be deleted upon update.
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateAccessRulesRequest
      * @return UpdateAccessRulesResponse
      * @throws OciError when an error occurs
@@ -4920,9 +5102,11 @@ Any existing access rules that are not specified with a `key` in the list of acc
       "if-match": updateAccessRulesRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAccessRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAccessRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4965,6 +5149,7 @@ Any existing access rules that are not specified with a `key` in the list of acc
 
   /**
    * Updates the details of an address list. Only the fields specified in the request body will be updated; all other properties will remain unchanged.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAddressListRequest
    * @return UpdateAddressListResponse
    * @throws OciError when an error occurs
@@ -4986,9 +5171,11 @@ Any existing access rules that are not specified with a `key` in the list of acc
       "if-match": updateAddressListRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAddressListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAddressListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5041,6 +5228,7 @@ Caching rules WAF policies allow you to selectively cache content on Oracle Clou
 This operation can create, delete, update, and/or reorder caching rules depending on the structure of the request body. Caching rules can be updated by changing the properties of the caching rule object with the rule's key specified in the key field. Any existing caching rules that are not specified with a key in the list of access rules will be deleted upon update.
 * <p>
 The order the caching rules are specified in is important. The rules are processed in the order they are specified and the first matching rule will be used when processing a request. Use `ListCachingRules` to view a list of all available caching rules in a compartment.
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateCachingRulesRequest
      * @return UpdateCachingRulesResponse
      * @throws OciError when an error occurs
@@ -5063,9 +5251,11 @@ The order the caching rules are specified in is important. The rules are process
       "if-match": updateCachingRulesRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCachingRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCachingRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5116,6 +5306,7 @@ CAPTCHA challenges can be created by adding a new access rule object to the list
 Any existing CAPTCHA challenges that are not specified with a `key` in the list of CAPTCHA challenges will be deleted upon update.
 * <p>
 Query parameters are allowed in CAPTCHA URL.
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateCaptchasRequest
      * @return UpdateCaptchasResponse
      * @throws OciError when an error occurs
@@ -5138,9 +5329,11 @@ Query parameters are allowed in CAPTCHA URL.
       "if-match": updateCaptchasRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCaptchasRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCaptchasRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5183,6 +5376,7 @@ Query parameters are allowed in CAPTCHA URL.
 
   /**
    * It is not possible to update a certificate, only create and delete. Therefore, this operation can only update the display name, freeform tags, and defined tags of a certificate.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCertificateRequest
    * @return UpdateCertificateResponse
    * @throws OciError when an error occurs
@@ -5204,9 +5398,11 @@ Query parameters are allowed in CAPTCHA URL.
       "if-match": updateCertificateRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCertificateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCertificateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5253,6 +5449,7 @@ Query parameters are allowed in CAPTCHA URL.
 
   /**
    * Updates the configuration of a custom protection rule. Only the fields specified in the request body will be updated; all other properties will remain unchanged.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCustomProtectionRuleRequest
    * @return UpdateCustomProtectionRuleResponse
    * @throws OciError when an error occurs
@@ -5275,9 +5472,11 @@ Query parameters are allowed in CAPTCHA URL.
       "if-match": updateCustomProtectionRuleRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCustomProtectionRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCustomProtectionRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5328,6 +5527,7 @@ Query parameters are allowed in CAPTCHA URL.
 The signature is based on a library of attributes detected via JavaScript listeners; the attributes include OS, screen resolution, fonts, UserAgent, IP address, etc. We are constantly making improvements and considering new libraries to include in our DFC build. We can also exclude attributes from the signature as needed.
 * <p>
 DFC collects attributes to generate a hashed signature about a client - if a fingerprint is not possible, then it will result in a block or alert action. Actions can be enforced across multiple devices if they share they have the same fingerprint.
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateDeviceFingerprintChallengeRequest
      * @return UpdateDeviceFingerprintChallengeResponse
      * @throws OciError when an error occurs
@@ -5351,9 +5551,11 @@ DFC collects attributes to generate a hashed signature about a client - if a fin
       "if-match": updateDeviceFingerprintChallengeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDeviceFingerprintChallengeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDeviceFingerprintChallengeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5398,6 +5600,7 @@ DFC collects attributes to generate a hashed signature about a client - if a fin
      * Updates the list of good bots in the Web Application Firewall configuration for a policy. Only the fields specified in the request body will be updated, all other configuration properties will remain unchanged.
 * <p>
 Good bots allows you to manage access for bots from known providers, such as Google or Baidu. For more information about good bots, see [Bot Management](https://docs.cloud.oracle.com/iaas/Content/WAF/Tasks/botmanagement.htm).
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateGoodBotsRequest
      * @return UpdateGoodBotsResponse
      * @throws OciError when an error occurs
@@ -5420,9 +5623,11 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       "if-match": updateGoodBotsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateGoodBotsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateGoodBotsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5465,6 +5670,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
 
   /**
    * Updates the Human Interaction Challenge (HIC) settings in the Web Application Firewall configuration for a WAAS policy. HIC is a countermeasure that allows the proxy to check the user's browser for various behaviors that distinguish a human presence from a bot.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateHumanInteractionChallengeRequest
    * @return UpdateHumanInteractionChallengeResponse
    * @throws OciError when an error occurs
@@ -5488,9 +5694,11 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       "if-match": updateHumanInteractionChallengeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateHumanInteractionChallengeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateHumanInteractionChallengeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5533,6 +5741,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
 
   /**
    * Updates the JavaScript challenge settings in the Web Application Firewall configuration for a WAAS policy. JavaScript Challenge validates that the client can accept JavaScript with a binary decision. For more information, see [Bot Management](https://docs.cloud.oracle.com/iaas/Content/WAF/Tasks/botmanagement.htm).
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateJsChallengeRequest
    * @return UpdateJsChallengeResponse
    * @throws OciError when an error occurs
@@ -5555,9 +5764,11 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       "if-match": updateJsChallengeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateJsChallengeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateJsChallengeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5600,6 +5811,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
 
   /**
    * Updates the configuration for a WAAS policy. Only the fields specified in the request body will be updated; all other properties will remain unchanged.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdatePolicyConfigRequest
    * @return UpdatePolicyConfigResponse
    * @throws OciError when an error occurs
@@ -5622,9 +5834,11 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       "if-match": updatePolicyConfigRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePolicyConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePolicyConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5669,6 +5883,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
    * Updates the action for each specified protection rule. Requests can either be allowed, blocked, or trigger an alert if they meet the parameters of an applied rule. For more information on protection rules, see [WAF Protection Rules](https://docs.cloud.oracle.com/iaas/Content/WAF/Tasks/wafprotectionrules.htm).
    * This operation can update or disable protection rules depending on the structure of the request body.
    * Protection rules can be updated by changing the properties of the protection rule object with the rule's key specified in the key field.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateProtectionRulesRequest
    * @return UpdateProtectionRulesResponse
    * @throws OciError when an error occurs
@@ -5690,9 +5905,11 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       "if-match": updateProtectionRulesRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateProtectionRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateProtectionRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5735,6 +5952,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
 
   /**
    * Updates the protection settings in the Web Application Firewall configuration for a WAAS policy. Protection settings allow you define what action is taken when a request is blocked by the Web Application Firewall, such as returning a response code or block page. Only the fields specified in the request body will be updated; all other fields will remain unchanged.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateProtectionSettingsRequest
    * @return UpdateProtectionSettingsResponse
    * @throws OciError when an error occurs
@@ -5757,9 +5975,11 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       "if-match": updateProtectionSettingsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateProtectionSettingsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateProtectionSettingsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5802,6 +6022,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
 
   /**
    * Updates the action to take when a request's IP address matches an address in the specified threat intelligence feed. Threat intelligence feeds are compiled lists of IP addresses with malicious reputations based on internet intelligence. Only the threat feeds specified in the request body will be updated; all other threat feeds will remain unchanged.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateThreatFeedsRequest
    * @return UpdateThreatFeedsResponse
    * @throws OciError when an error occurs
@@ -5823,9 +6044,11 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       "if-match": updateThreatFeedsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateThreatFeedsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateThreatFeedsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5870,6 +6093,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
    * Updates the details of a WAAS policy, including origins and tags. Only the fields specified in the request body will be updated; all other properties will remain unchanged.
    * To update platform provided resources such as `GoodBots`, `ProtectionRules`, and `ThreatFeeds`, first retrieve the list of available resources with the related list operation such as `GetThreatFeeds` or `GetProtectionRules`.
    * The returned list will contain objects with `key` properties that can be used to update the resource during the `UpdateWaasPolicy` request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateWaasPolicyRequest
    * @return UpdateWaasPolicyResponse
    * @throws OciError when an error occurs
@@ -5892,9 +6116,11 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       "if-match": updateWaasPolicyRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateWaasPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateWaasPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5937,6 +6163,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
 
   /**
    * Updates the action for each specified custom protection rule. Only the `DETECT` and `BLOCK` actions can be set. Disabled rules should not be included in the list. For more information on protection rules, see [WAF Protection Rules](https://docs.cloud.oracle.com/iaas/Content/WAF/Tasks/wafprotectionrules.htm).
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateWaasPolicyCustomProtectionRulesRequest
    * @return UpdateWaasPolicyCustomProtectionRulesResponse
    * @throws OciError when an error occurs
@@ -5960,9 +6187,11 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       "if-match": updateWaasPolicyCustomProtectionRulesRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateWaasPolicyCustomProtectionRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateWaasPolicyCustomProtectionRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6005,6 +6234,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
 
   /**
    * Updates the address rate limiting settings in the Web Application Firewall configuration for a policy. Rate limiting allows you to configure a threshold for the number of requests from a unique IP address for the given period. You can also define the response code for the requests from the same address that exceed the threshold.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateWafAddressRateLimitingRequest
    * @return UpdateWafAddressRateLimitingResponse
    * @throws OciError when an error occurs
@@ -6028,9 +6258,11 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       "if-match": updateWafAddressRateLimitingRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateWafAddressRateLimitingRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateWafAddressRateLimitingRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6081,6 +6313,7 @@ To update platform provided resources such as `GoodBots`, `ProtectionRules`, and
 The returned list will contain objects with `key` properties that can be used to update the
 * resource during the `UpdateWafConfig` request.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateWafConfigRequest
      * @return UpdateWafConfigResponse
      * @throws OciError when an error occurs
@@ -6103,9 +6336,11 @@ The returned list will contain objects with `key` properties that can be used to
       "if-match": updateWafConfigRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateWafConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateWafConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6156,6 +6391,7 @@ Whitelists can be updated by changing the properties of the whitelist object wit
 Whitelists can be created by adding a new whitelist object to the list without a `key` property specified. A `key` will be generated for the new whitelist upon update.
 * <p>
 Whitelists can be deleted by removing the existing whitelist object from the list. Any existing whitelists that are not specified with a `key` in the list of access rules will be deleted upon update.
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateWhitelistsRequest
      * @return UpdateWhitelistsResponse
      * @throws OciError when an error occurs
@@ -6178,9 +6414,11 @@ Whitelists can be deleted by removing the existing whitelist object from the lis
       "if-match": updateWhitelistsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateWhitelistsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateWhitelistsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

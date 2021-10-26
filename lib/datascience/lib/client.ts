@@ -25,7 +25,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum DataScienceApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DataScienceClient {
   protected static serviceEndpointTemplate = "https://datascience.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -45,6 +47,15 @@ export class DataScienceClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -133,6 +144,7 @@ export class DataScienceClient {
 
   /**
    * Activates the model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ActivateModelRequest
    * @return ActivateModelResponse
    * @throws OciError when an error occurs
@@ -154,9 +166,11 @@ export class DataScienceClient {
       "opc-request-id": activateModelRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      activateModelRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateModelRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -198,6 +212,7 @@ export class DataScienceClient {
 
   /**
    * Activates the model deployment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ActivateModelDeploymentRequest
    * @return ActivateModelDeploymentResponse
    * @throws OciError when an error occurs
@@ -220,9 +235,11 @@ export class DataScienceClient {
       "opc-request-id": activateModelDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      activateModelDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateModelDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -260,6 +277,7 @@ export class DataScienceClient {
 
   /**
    * Activates the notebook session.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ActivateNotebookSessionRequest
    * @return ActivateNotebookSessionResponse
    * @throws OciError when an error occurs
@@ -282,9 +300,11 @@ export class DataScienceClient {
       "opc-request-id": activateNotebookSessionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      activateNotebookSessionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateNotebookSessionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -322,6 +342,7 @@ export class DataScienceClient {
 
   /**
    * Cancels an IN_PROGRESS job run.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelJobRunRequest
    * @return CancelJobRunResponse
    * @throws OciError when an error occurs
@@ -343,9 +364,11 @@ export class DataScienceClient {
       "if-match": cancelJobRunRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelJobRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelJobRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -378,6 +401,7 @@ export class DataScienceClient {
 
   /**
    * Cancels a work request that has not started.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
@@ -399,9 +423,11 @@ export class DataScienceClient {
       "opc-request-id": cancelWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -434,6 +460,7 @@ export class DataScienceClient {
 
   /**
    * Changes a job's compartment
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeJobCompartmentRequest
    * @return ChangeJobCompartmentResponse
    * @throws OciError when an error occurs
@@ -455,9 +482,11 @@ export class DataScienceClient {
       "opc-request-id": changeJobCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeJobCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeJobCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -495,6 +524,7 @@ export class DataScienceClient {
 
   /**
    * Changes a job run's compartment
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeJobRunCompartmentRequest
    * @return ChangeJobRunCompartmentResponse
    * @throws OciError when an error occurs
@@ -517,9 +547,11 @@ export class DataScienceClient {
       "opc-request-id": changeJobRunCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeJobRunCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeJobRunCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -557,6 +589,7 @@ export class DataScienceClient {
 
   /**
    * Moves a model resource into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeModelCompartmentRequest
    * @return ChangeModelCompartmentResponse
    * @throws OciError when an error occurs
@@ -580,9 +613,11 @@ export class DataScienceClient {
       "opc-retry-token": changeModelCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeModelCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeModelCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -620,6 +655,7 @@ export class DataScienceClient {
 
   /**
    * Moves a model deployment into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeModelDeploymentCompartmentRequest
    * @return ChangeModelDeploymentCompartmentResponse
    * @throws OciError when an error occurs
@@ -643,9 +679,11 @@ export class DataScienceClient {
       "opc-retry-token": changeModelDeploymentCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeModelDeploymentCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeModelDeploymentCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -683,6 +721,7 @@ export class DataScienceClient {
 
   /**
    * Moves a notebook session resource into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeNotebookSessionCompartmentRequest
    * @return ChangeNotebookSessionCompartmentResponse
    * @throws OciError when an error occurs
@@ -706,9 +745,11 @@ export class DataScienceClient {
       "opc-retry-token": changeNotebookSessionCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeNotebookSessionCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeNotebookSessionCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -746,6 +787,7 @@ export class DataScienceClient {
 
   /**
    * Moves a project resource into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeProjectCompartmentRequest
    * @return ChangeProjectCompartmentResponse
    * @throws OciError when an error occurs
@@ -769,9 +811,11 @@ export class DataScienceClient {
       "opc-retry-token": changeProjectCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeProjectCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeProjectCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -809,6 +853,7 @@ export class DataScienceClient {
 
   /**
    * Creates a job.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateJobRequest
    * @return CreateJobResponse
    * @throws OciError when an error occurs
@@ -828,9 +873,11 @@ export class DataScienceClient {
       "opc-retry-token": createJobRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -877,6 +924,7 @@ export class DataScienceClient {
 
   /**
    * Uploads a job artifact.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateJobArtifactRequest
    * @return CreateJobArtifactResponse
    * @throws OciError when an error occurs
@@ -899,9 +947,11 @@ export class DataScienceClient {
       "content-disposition": createJobArtifactRequest.contentDisposition
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createJobArtifactRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createJobArtifactRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -941,6 +991,7 @@ export class DataScienceClient {
 
   /**
    * Creates a job run.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateJobRunRequest
    * @return CreateJobRunResponse
    * @throws OciError when an error occurs
@@ -960,9 +1011,11 @@ export class DataScienceClient {
       "opc-retry-token": createJobRunRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createJobRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createJobRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1009,6 +1062,7 @@ export class DataScienceClient {
 
   /**
    * Creates a new model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateModelRequest
    * @return CreateModelResponse
    * @throws OciError when an error occurs
@@ -1028,9 +1082,11 @@ export class DataScienceClient {
       "opc-retry-token": createModelRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createModelRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createModelRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1077,6 +1133,7 @@ export class DataScienceClient {
 
   /**
    * Creates model artifact for specified model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateModelArtifactRequest
    * @return CreateModelArtifactResponse
    * @throws OciError when an error occurs
@@ -1099,9 +1156,11 @@ export class DataScienceClient {
       "content-disposition": createModelArtifactRequest.contentDisposition
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createModelArtifactRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createModelArtifactRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1141,6 +1200,7 @@ export class DataScienceClient {
 
   /**
    * Creates a new model deployment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateModelDeploymentRequest
    * @return CreateModelDeploymentResponse
    * @throws OciError when an error occurs
@@ -1161,9 +1221,11 @@ export class DataScienceClient {
       "opc-retry-token": createModelDeploymentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createModelDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createModelDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1220,6 +1282,7 @@ export class DataScienceClient {
 
   /**
    * Creates provenance information for the specified model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateModelProvenanceRequest
    * @return CreateModelProvenanceResponse
    * @throws OciError when an error occurs
@@ -1242,9 +1305,11 @@ export class DataScienceClient {
       "opc-retry-token": createModelProvenanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createModelProvenanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createModelProvenanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1291,6 +1356,7 @@ export class DataScienceClient {
 
   /**
    * Creates a new notebook session.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateNotebookSessionRequest
    * @return CreateNotebookSessionResponse
    * @throws OciError when an error occurs
@@ -1311,9 +1377,11 @@ export class DataScienceClient {
       "opc-retry-token": createNotebookSessionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createNotebookSessionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNotebookSessionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1370,6 +1438,7 @@ export class DataScienceClient {
 
   /**
    * Creates a new project.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateProjectRequest
    * @return CreateProjectResponse
    * @throws OciError when an error occurs
@@ -1389,9 +1458,11 @@ export class DataScienceClient {
       "opc-retry-token": createProjectRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1438,6 +1509,7 @@ export class DataScienceClient {
 
   /**
    * Deactivates the model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeactivateModelRequest
    * @return DeactivateModelResponse
    * @throws OciError when an error occurs
@@ -1459,9 +1531,11 @@ export class DataScienceClient {
       "opc-request-id": deactivateModelRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deactivateModelRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deactivateModelRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1503,6 +1577,7 @@ export class DataScienceClient {
 
   /**
    * Deactivates the model deployment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeactivateModelDeploymentRequest
    * @return DeactivateModelDeploymentResponse
    * @throws OciError when an error occurs
@@ -1525,9 +1600,11 @@ export class DataScienceClient {
       "opc-request-id": deactivateModelDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deactivateModelDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deactivateModelDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1565,6 +1642,7 @@ export class DataScienceClient {
 
   /**
    * Deactivates the notebook session.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeactivateNotebookSessionRequest
    * @return DeactivateNotebookSessionResponse
    * @throws OciError when an error occurs
@@ -1587,9 +1665,11 @@ export class DataScienceClient {
       "opc-request-id": deactivateNotebookSessionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deactivateNotebookSessionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deactivateNotebookSessionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1627,6 +1707,7 @@ export class DataScienceClient {
 
   /**
    * Deletes a job.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteJobRequest
    * @return DeleteJobResponse
    * @throws OciError when an error occurs
@@ -1650,9 +1731,11 @@ export class DataScienceClient {
       "opc-request-id": deleteJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1690,6 +1773,7 @@ export class DataScienceClient {
 
   /**
    * Deletes a job run.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteJobRunRequest
    * @return DeleteJobRunResponse
    * @throws OciError when an error occurs
@@ -1711,9 +1795,11 @@ export class DataScienceClient {
       "opc-request-id": deleteJobRunRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteJobRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteJobRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1746,6 +1832,7 @@ export class DataScienceClient {
 
   /**
    * Deletes the specified model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteModelRequest
    * @return DeleteModelResponse
    * @throws OciError when an error occurs
@@ -1767,9 +1854,11 @@ export class DataScienceClient {
       "opc-request-id": deleteModelRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteModelRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteModelRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1802,6 +1891,7 @@ export class DataScienceClient {
 
   /**
    * Deletes the specified model deployment. Any unsaved work in this model deployment is lost.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteModelDeploymentRequest
    * @return DeleteModelDeploymentResponse
    * @throws OciError when an error occurs
@@ -1824,9 +1914,11 @@ export class DataScienceClient {
       "opc-request-id": deleteModelDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteModelDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteModelDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1864,6 +1956,7 @@ export class DataScienceClient {
 
   /**
    * Deletes the specified notebook session. Any unsaved work in this notebook session are lost.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteNotebookSessionRequest
    * @return DeleteNotebookSessionResponse
    * @throws OciError when an error occurs
@@ -1886,9 +1979,11 @@ export class DataScienceClient {
       "opc-request-id": deleteNotebookSessionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteNotebookSessionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNotebookSessionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1926,6 +2021,7 @@ export class DataScienceClient {
 
   /**
    * Deletes the specified project. This operation fails unless all associated resources (notebook sessions or models) are in a DELETED state. You must delete all associated resources before deleting a project.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
    * @throws OciError when an error occurs
@@ -1947,9 +2043,11 @@ export class DataScienceClient {
       "opc-request-id": deleteProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1987,6 +2085,7 @@ export class DataScienceClient {
 
   /**
    * Gets a job.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobRequest
    * @return GetJobResponse
    * @throws OciError when an error occurs
@@ -2005,9 +2104,11 @@ export class DataScienceClient {
       "opc-request-id": getJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2049,6 +2150,7 @@ export class DataScienceClient {
 
   /**
    * Downloads job artifact content for specified job.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobArtifactContentRequest
    * @return GetJobArtifactContentResponse
    * @throws OciError when an error occurs
@@ -2071,9 +2173,11 @@ export class DataScienceClient {
       "range": getJobArtifactContentRequest.range
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobArtifactContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJobArtifactContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2135,6 +2239,7 @@ export class DataScienceClient {
 
   /**
    * Gets a job run.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobRunRequest
    * @return GetJobRunResponse
    * @throws OciError when an error occurs
@@ -2155,9 +2260,11 @@ export class DataScienceClient {
       "opc-request-id": getJobRunRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJobRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2199,6 +2306,7 @@ export class DataScienceClient {
 
   /**
    * Gets the specified model's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetModelRequest
    * @return GetModelResponse
    * @throws OciError when an error occurs
@@ -2219,9 +2327,11 @@ export class DataScienceClient {
       "opc-request-id": getModelRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getModelRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModelRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2263,6 +2373,7 @@ export class DataScienceClient {
 
   /**
    * Downloads model artifact content for specified model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetModelArtifactContentRequest
    * @return GetModelArtifactContentResponse
    * @throws OciError when an error occurs
@@ -2285,9 +2396,11 @@ export class DataScienceClient {
       "range": getModelArtifactContentRequest.range
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getModelArtifactContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModelArtifactContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2349,6 +2462,7 @@ export class DataScienceClient {
 
   /**
    * Retrieves the model deployment for the specified `modelDeploymentId`.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetModelDeploymentRequest
    * @return GetModelDeploymentResponse
    * @throws OciError when an error occurs
@@ -2369,9 +2483,11 @@ export class DataScienceClient {
       "opc-request-id": getModelDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getModelDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModelDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2413,6 +2529,7 @@ export class DataScienceClient {
 
   /**
    * Gets provenance information for specified model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetModelProvenanceRequest
    * @return GetModelProvenanceResponse
    * @throws OciError when an error occurs
@@ -2433,9 +2550,11 @@ export class DataScienceClient {
       "opc-request-id": getModelProvenanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getModelProvenanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModelProvenanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2477,6 +2596,7 @@ export class DataScienceClient {
 
   /**
    * Gets the specified notebook session's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetNotebookSessionRequest
    * @return GetNotebookSessionResponse
    * @throws OciError when an error occurs
@@ -2497,9 +2617,11 @@ export class DataScienceClient {
       "opc-request-id": getNotebookSessionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getNotebookSessionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNotebookSessionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2541,6 +2663,7 @@ export class DataScienceClient {
 
   /**
    * Gets the specified project's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetProjectRequest
    * @return GetProjectResponse
    * @throws OciError when an error occurs
@@ -2561,9 +2684,11 @@ export class DataScienceClient {
       "opc-request-id": getProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2605,6 +2730,7 @@ export class DataScienceClient {
 
   /**
    * Gets the specified work request's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -2625,9 +2751,11 @@ export class DataScienceClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2674,6 +2802,7 @@ export class DataScienceClient {
 
   /**
    * Gets job artifact metadata.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param HeadJobArtifactRequest
    * @return HeadJobArtifactResponse
    * @throws OciError when an error occurs
@@ -2694,9 +2823,11 @@ export class DataScienceClient {
       "opc-request-id": headJobArtifactRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      headJobArtifactRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      headJobArtifactRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2754,6 +2885,7 @@ export class DataScienceClient {
 
   /**
    * Gets model artifact metadata for specified model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param HeadModelArtifactRequest
    * @return HeadModelArtifactResponse
    * @throws OciError when an error occurs
@@ -2774,9 +2906,11 @@ export class DataScienceClient {
       "opc-request-id": headModelArtifactRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      headModelArtifactRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      headModelArtifactRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2834,6 +2968,7 @@ export class DataScienceClient {
 
   /**
    * List out job runs.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListJobRunsRequest
    * @return ListJobRunsResponse
    * @throws OciError when an error occurs
@@ -2863,9 +2998,11 @@ export class DataScienceClient {
       "opc-request-id": listJobRunsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobRunsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobRunsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2964,6 +3101,7 @@ export class DataScienceClient {
 
   /**
    * List job shapes available in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListJobShapesRequest
    * @return ListJobShapesResponse
    * @throws OciError when an error occurs
@@ -2986,9 +3124,11 @@ export class DataScienceClient {
       "opc-request-id": listJobShapesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3087,6 +3227,7 @@ export class DataScienceClient {
 
   /**
    * List jobs in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListJobsRequest
    * @return ListJobsResponse
    * @throws OciError when an error occurs
@@ -3116,9 +3257,11 @@ export class DataScienceClient {
       "opc-request-id": listJobsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3215,6 +3358,7 @@ export class DataScienceClient {
 
   /**
    * Lists the valid model deployment shapes.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListModelDeploymentShapesRequest
    * @return ListModelDeploymentShapesResponse
    * @throws OciError when an error occurs
@@ -3238,9 +3382,11 @@ export class DataScienceClient {
       "opc-request-id": listModelDeploymentShapesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listModelDeploymentShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModelDeploymentShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3340,6 +3486,7 @@ export class DataScienceClient {
   /**
    * Lists all model deployments in the specified compartment. Only one parameter other than compartmentId may also be included in a query. The query must include compartmentId. If the query does not include compartmentId, or includes compartmentId but two or more other parameters an error is returned.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListModelDeploymentsRequest
    * @return ListModelDeploymentsResponse
    * @throws OciError when an error occurs
@@ -3369,9 +3516,11 @@ export class DataScienceClient {
       "opc-request-id": listModelDeploymentsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listModelDeploymentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModelDeploymentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3470,6 +3619,7 @@ export class DataScienceClient {
 
   /**
    * Lists models in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListModelsRequest
    * @return ListModelsResponse
    * @throws OciError when an error occurs
@@ -3499,9 +3649,11 @@ export class DataScienceClient {
       "opc-request-id": listModelsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listModelsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModelsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3600,6 +3752,7 @@ export class DataScienceClient {
 
   /**
    * Lists the valid notebook session shapes.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListNotebookSessionShapesRequest
    * @return ListNotebookSessionShapesResponse
    * @throws OciError when an error occurs
@@ -3623,9 +3776,11 @@ export class DataScienceClient {
       "opc-request-id": listNotebookSessionShapesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNotebookSessionShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNotebookSessionShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3724,6 +3879,7 @@ export class DataScienceClient {
 
   /**
    * Lists the notebook sessions in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListNotebookSessionsRequest
    * @return ListNotebookSessionsResponse
    * @throws OciError when an error occurs
@@ -3753,9 +3909,11 @@ export class DataScienceClient {
       "opc-request-id": listNotebookSessionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNotebookSessionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNotebookSessionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3854,6 +4012,7 @@ export class DataScienceClient {
 
   /**
    * Lists projects in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProjectsRequest
    * @return ListProjectsResponse
    * @throws OciError when an error occurs
@@ -3882,9 +4041,11 @@ export class DataScienceClient {
       "opc-request-id": listProjectsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listProjectsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProjectsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3983,6 +4144,7 @@ export class DataScienceClient {
 
   /**
    * Lists work request errors for the specified work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -4004,9 +4166,11 @@ export class DataScienceClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4043,6 +4207,7 @@ export class DataScienceClient {
 
   /**
    * Lists work request logs for the specified work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -4063,9 +4228,11 @@ export class DataScienceClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4102,6 +4269,7 @@ export class DataScienceClient {
 
   /**
    * Lists work requests in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -4129,9 +4297,11 @@ export class DataScienceClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4230,6 +4400,7 @@ export class DataScienceClient {
 
   /**
    * Updates a job.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateJobRequest
    * @return UpdateJobResponse
    * @throws OciError when an error occurs
@@ -4251,9 +4422,11 @@ export class DataScienceClient {
       "if-match": updateJobRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4300,6 +4473,7 @@ export class DataScienceClient {
 
   /**
    * Updates a job run.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateJobRunRequest
    * @return UpdateJobRunResponse
    * @throws OciError when an error occurs
@@ -4321,9 +4495,11 @@ export class DataScienceClient {
       "if-match": updateJobRunRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateJobRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateJobRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4370,6 +4546,7 @@ export class DataScienceClient {
 
   /**
    * Updates the properties of a model. You can update the `displayName`, `description`, `freeformTags`, and `definedTags` properties.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateModelRequest
    * @return UpdateModelResponse
    * @throws OciError when an error occurs
@@ -4391,9 +4568,11 @@ export class DataScienceClient {
       "opc-request-id": updateModelRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateModelRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateModelRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4444,6 +4623,7 @@ export class DataScienceClient {
    * can also be updated independently. All of the fields can be updated when the deployment is in the INACTIVE lifecycle state. Changes will take effect the next time the model
    * deployment is activated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateModelDeploymentRequest
    * @return UpdateModelDeploymentResponse
    * @throws OciError when an error occurs
@@ -4466,9 +4646,11 @@ export class DataScienceClient {
       "opc-request-id": updateModelDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateModelDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateModelDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4511,6 +4693,7 @@ export class DataScienceClient {
 
   /**
    * Updates the provenance information for the specified model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateModelProvenanceRequest
    * @return UpdateModelProvenanceResponse
    * @throws OciError when an error occurs
@@ -4533,9 +4716,11 @@ export class DataScienceClient {
       "if-match": updateModelProvenanceRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateModelProvenanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateModelProvenanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4585,6 +4770,7 @@ export class DataScienceClient {
    * When the notebook session is in the INACTIVE lifecycle state, you can update `notebookSessionConfigurationDetails` and change `shape`, `subnetId`, and `blockStorageSizeInGBs`.
    * Changes to the `notebookSessionConfigurationDetails` take effect the next time the `ActivateNotebookSession` action is invoked on the notebook session resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateNotebookSessionRequest
    * @return UpdateNotebookSessionResponse
    * @throws OciError when an error occurs
@@ -4607,9 +4793,11 @@ export class DataScienceClient {
       "opc-request-id": updateNotebookSessionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateNotebookSessionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNotebookSessionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4656,6 +4844,7 @@ export class DataScienceClient {
 
   /**
    * Updates the properties of a project. You can update the `displayName`, `description`, `freeformTags`, and `definedTags` properties.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateProjectRequest
    * @return UpdateProjectResponse
    * @throws OciError when an error occurs
@@ -4677,9 +4866,11 @@ export class DataScienceClient {
       "opc-request-id": updateProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

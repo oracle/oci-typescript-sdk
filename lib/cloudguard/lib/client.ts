@@ -23,7 +23,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum CloudGuardApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class CloudGuardClient {
   protected static serviceEndpointTemplate =
     "https://cloudguard-cp-api.{region}.oci.{secondLevelDomain}";
@@ -44,6 +46,15 @@ export class CloudGuardClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -132,6 +143,7 @@ export class CloudGuardClient {
 
   /**
    * Moves the DetectorRecipe from current compartment to another.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDetectorRecipeCompartmentRequest
    * @return ChangeDetectorRecipeCompartmentResponse
    * @throws OciError when an error occurs
@@ -155,9 +167,11 @@ export class CloudGuardClient {
       "opc-retry-token": changeDetectorRecipeCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDetectorRecipeCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDetectorRecipeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -195,6 +209,7 @@ export class CloudGuardClient {
 
   /**
    * Moves the ManagedList from current compartment to another.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeManagedListCompartmentRequest
    * @return ChangeManagedListCompartmentResponse
    * @throws OciError when an error occurs
@@ -218,9 +233,11 @@ export class CloudGuardClient {
       "opc-retry-token": changeManagedListCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeManagedListCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeManagedListCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -258,6 +275,7 @@ export class CloudGuardClient {
 
   /**
    * Moves the ResponderRecipe from current compartment to another.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeResponderRecipeCompartmentRequest
    * @return ChangeResponderRecipeCompartmentResponse
    * @throws OciError when an error occurs
@@ -281,9 +299,11 @@ export class CloudGuardClient {
       "opc-retry-token": changeResponderRecipeCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeResponderRecipeCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeResponderRecipeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -322,6 +342,7 @@ export class CloudGuardClient {
   /**
    * Creates a new Data Mask Rule Definition
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDataMaskRuleRequest
    * @return CreateDataMaskRuleResponse
    * @throws OciError when an error occurs
@@ -341,9 +362,11 @@ export class CloudGuardClient {
       "opc-request-id": createDataMaskRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDataMaskRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDataMaskRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -391,6 +414,7 @@ export class CloudGuardClient {
   /**
    * Creates a DetectorRecipe
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDetectorRecipeRequest
    * @return CreateDetectorRecipeResponse
    * @throws OciError when an error occurs
@@ -410,9 +434,11 @@ export class CloudGuardClient {
       "opc-request-id": createDetectorRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDetectorRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDetectorRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -460,6 +486,7 @@ export class CloudGuardClient {
   /**
    * Creates a new ManagedList.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateManagedListRequest
    * @return CreateManagedListResponse
    * @throws OciError when an error occurs
@@ -479,9 +506,11 @@ export class CloudGuardClient {
       "opc-request-id": createManagedListRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createManagedListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createManagedListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -529,6 +558,7 @@ export class CloudGuardClient {
   /**
    * Create a ResponderRecipe.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateResponderRecipeRequest
    * @return CreateResponderRecipeResponse
    * @throws OciError when an error occurs
@@ -548,9 +578,11 @@ export class CloudGuardClient {
       "opc-request-id": createResponderRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createResponderRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createResponderRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -598,6 +630,7 @@ export class CloudGuardClient {
   /**
    * Creates a new Target
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTargetRequest
    * @return CreateTargetResponse
    * @throws OciError when an error occurs
@@ -617,9 +650,11 @@ export class CloudGuardClient {
       "opc-request-id": createTargetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTargetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTargetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -667,6 +702,7 @@ export class CloudGuardClient {
   /**
    * Attach a DetectorRecipe with the Target
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTargetDetectorRecipeRequest
    * @return CreateTargetDetectorRecipeResponse
    * @throws OciError when an error occurs
@@ -689,9 +725,11 @@ export class CloudGuardClient {
       "opc-request-id": createTargetDetectorRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTargetDetectorRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTargetDetectorRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -739,6 +777,7 @@ export class CloudGuardClient {
   /**
    * Attach a ResponderRecipe with the Target
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTargetResponderRecipeRequest
    * @return CreateTargetResponderRecipeResponse
    * @throws OciError when an error occurs
@@ -761,9 +800,11 @@ export class CloudGuardClient {
       "opc-request-id": createTargetResponderRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTargetResponderRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTargetResponderRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -810,6 +851,7 @@ export class CloudGuardClient {
 
   /**
    * Deletes a DataMaskRule identified by dataMaskRuleId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDataMaskRuleRequest
    * @return DeleteDataMaskRuleResponse
    * @throws OciError when an error occurs
@@ -831,9 +873,11 @@ export class CloudGuardClient {
       "opc-request-id": deleteDataMaskRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDataMaskRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDataMaskRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -866,6 +910,7 @@ export class CloudGuardClient {
 
   /**
    * Deletes a DetectorRecipe identified by detectorRecipeId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDetectorRecipeRequest
    * @return DeleteDetectorRecipeResponse
    * @throws OciError when an error occurs
@@ -888,9 +933,11 @@ export class CloudGuardClient {
       "opc-retry-token": deleteDetectorRecipeRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDetectorRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDetectorRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -923,6 +970,7 @@ export class CloudGuardClient {
 
   /**
    * Deletes a managed list identified by managedListId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteManagedListRequest
    * @return DeleteManagedListResponse
    * @throws OciError when an error occurs
@@ -945,9 +993,11 @@ export class CloudGuardClient {
       "opc-retry-token": deleteManagedListRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteManagedListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteManagedListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -980,6 +1030,7 @@ export class CloudGuardClient {
 
   /**
    * Delete the ResponderRecipe resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteResponderRecipeRequest
    * @return DeleteResponderRecipeResponse
    * @throws OciError when an error occurs
@@ -1001,9 +1052,11 @@ export class CloudGuardClient {
       "opc-request-id": deleteResponderRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteResponderRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteResponderRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1036,6 +1089,7 @@ export class CloudGuardClient {
 
   /**
    * Deletes a Target identified by targetId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTargetRequest
    * @return DeleteTargetResponse
    * @throws OciError when an error occurs
@@ -1057,9 +1111,11 @@ export class CloudGuardClient {
       "opc-request-id": deleteTargetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTargetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTargetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1092,6 +1148,7 @@ export class CloudGuardClient {
 
   /**
    * Delete the TargetDetectorRecipe resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTargetDetectorRecipeRequest
    * @return DeleteTargetDetectorRecipeResponse
    * @throws OciError when an error occurs
@@ -1115,9 +1172,11 @@ export class CloudGuardClient {
       "opc-request-id": deleteTargetDetectorRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTargetDetectorRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTargetDetectorRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1150,6 +1209,7 @@ export class CloudGuardClient {
 
   /**
    * Delete the TargetResponderRecipe resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTargetResponderRecipeRequest
    * @return DeleteTargetResponderRecipeResponse
    * @throws OciError when an error occurs
@@ -1173,9 +1233,11 @@ export class CloudGuardClient {
       "opc-request-id": deleteTargetResponderRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTargetResponderRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTargetResponderRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1208,6 +1270,7 @@ export class CloudGuardClient {
 
   /**
    * Executes the responder execution. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ExecuteResponderExecutionRequest
    * @return ExecuteResponderExecutionResponse
    * @throws OciError when an error occurs
@@ -1233,9 +1296,11 @@ export class CloudGuardClient {
       "opc-retry-token": executeResponderExecutionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      executeResponderExecutionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      executeResponderExecutionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1274,6 +1339,7 @@ export class CloudGuardClient {
   /**
    * Returns ConditionType with its details.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConditionMetadataTypeRequest
    * @return GetConditionMetadataTypeResponse
    * @throws OciError when an error occurs
@@ -1298,9 +1364,11 @@ export class CloudGuardClient {
       "opc-request-id": getConditionMetadataTypeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getConditionMetadataTypeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConditionMetadataTypeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1342,6 +1410,7 @@ export class CloudGuardClient {
 
   /**
    * GET Cloud Guard Configuration Details for a Tenancy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConfigurationRequest
    * @return GetConfigurationResponse
    * @throws OciError when an error occurs
@@ -1362,9 +1431,11 @@ export class CloudGuardClient {
       "opc-request-id": getConfigurationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1411,6 +1482,7 @@ export class CloudGuardClient {
 
   /**
    * Returns a DataMaskRule identified by DataMaskRuleId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataMaskRuleRequest
    * @return GetDataMaskRuleResponse
    * @throws OciError when an error occurs
@@ -1431,9 +1503,11 @@ export class CloudGuardClient {
       "opc-request-id": getDataMaskRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDataMaskRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataMaskRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1476,6 +1550,7 @@ export class CloudGuardClient {
   /**
    * Returns a Detector identified by detectorId.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDetectorRequest
    * @return GetDetectorResponse
    * @throws OciError when an error occurs
@@ -1496,9 +1571,11 @@ export class CloudGuardClient {
       "opc-request-id": getDetectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDetectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDetectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1540,6 +1617,7 @@ export class CloudGuardClient {
 
   /**
    * Returns a DetectorRecipe identified by detectorRecipeId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDetectorRecipeRequest
    * @return GetDetectorRecipeResponse
    * @throws OciError when an error occurs
@@ -1560,9 +1638,11 @@ export class CloudGuardClient {
       "opc-request-id": getDetectorRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDetectorRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDetectorRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1604,6 +1684,7 @@ export class CloudGuardClient {
 
   /**
    * Get DetectorRule by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDetectorRecipeDetectorRuleRequest
    * @return GetDetectorRecipeDetectorRuleResponse
    * @throws OciError when an error occurs
@@ -1626,9 +1707,11 @@ export class CloudGuardClient {
       "opc-request-id": getDetectorRecipeDetectorRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDetectorRecipeDetectorRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDetectorRecipeDetectorRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1671,6 +1754,7 @@ export class CloudGuardClient {
   /**
    * Returns a Detector Rule identified by detectorRuleId
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDetectorRuleRequest
    * @return GetDetectorRuleResponse
    * @throws OciError when an error occurs
@@ -1692,9 +1776,11 @@ export class CloudGuardClient {
       "opc-request-id": getDetectorRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDetectorRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDetectorRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1741,6 +1827,7 @@ export class CloudGuardClient {
 
   /**
    * Returns a managed list identified by managedListId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagedListRequest
    * @return GetManagedListResponse
    * @throws OciError when an error occurs
@@ -1761,9 +1848,11 @@ export class CloudGuardClient {
       "opc-request-id": getManagedListRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getManagedListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getManagedListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1805,6 +1894,7 @@ export class CloudGuardClient {
 
   /**
    * Returns a Problems response
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetProblemRequest
    * @return GetProblemResponse
    * @throws OciError when an error occurs
@@ -1825,9 +1915,11 @@ export class CloudGuardClient {
       "opc-request-id": getProblemRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getProblemRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getProblemRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1870,6 +1962,7 @@ export class CloudGuardClient {
   /**
    * Returns a Responder Execution identified by responderExecutionId
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetResponderExecutionRequest
    * @return GetResponderExecutionResponse
    * @throws OciError when an error occurs
@@ -1890,9 +1983,11 @@ export class CloudGuardClient {
       "opc-request-id": getResponderExecutionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getResponderExecutionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getResponderExecutionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1934,6 +2029,7 @@ export class CloudGuardClient {
 
   /**
    * Get a ResponderRecipe by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetResponderRecipeRequest
    * @return GetResponderRecipeResponse
    * @throws OciError when an error occurs
@@ -1954,9 +2050,11 @@ export class CloudGuardClient {
       "opc-request-id": getResponderRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getResponderRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getResponderRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1998,6 +2096,7 @@ export class CloudGuardClient {
 
   /**
    * Get ResponderRule by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetResponderRecipeResponderRuleRequest
    * @return GetResponderRecipeResponderRuleResponse
    * @throws OciError when an error occurs
@@ -2020,9 +2119,11 @@ export class CloudGuardClient {
       "opc-request-id": getResponderRecipeResponderRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getResponderRecipeResponderRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getResponderRecipeResponderRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2064,6 +2165,7 @@ export class CloudGuardClient {
 
   /**
    * Get a ResponderRule by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetResponderRuleRequest
    * @return GetResponderRuleResponse
    * @throws OciError when an error occurs
@@ -2084,9 +2186,11 @@ export class CloudGuardClient {
       "opc-request-id": getResponderRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getResponderRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getResponderRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2128,6 +2232,7 @@ export class CloudGuardClient {
 
   /**
    * Returns a Target identified by targetId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTargetRequest
    * @return GetTargetResponse
    * @throws OciError when an error occurs
@@ -2148,9 +2253,11 @@ export class CloudGuardClient {
       "opc-request-id": getTargetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTargetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTargetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2192,6 +2299,7 @@ export class CloudGuardClient {
 
   /**
    * Get a TargetDetectorRecipe by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTargetDetectorRecipeRequest
    * @return GetTargetDetectorRecipeResponse
    * @throws OciError when an error occurs
@@ -2214,9 +2322,11 @@ export class CloudGuardClient {
       "opc-request-id": getTargetDetectorRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTargetDetectorRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTargetDetectorRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2258,6 +2368,7 @@ export class CloudGuardClient {
 
   /**
    * Get DetectorRule by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTargetDetectorRecipeDetectorRuleRequest
    * @return GetTargetDetectorRecipeDetectorRuleResponse
    * @throws OciError when an error occurs
@@ -2281,9 +2392,11 @@ export class CloudGuardClient {
       "opc-request-id": getTargetDetectorRecipeDetectorRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTargetDetectorRecipeDetectorRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTargetDetectorRecipeDetectorRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2326,6 +2439,7 @@ export class CloudGuardClient {
 
   /**
    * Get a TargetResponderRecipe by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTargetResponderRecipeRequest
    * @return GetTargetResponderRecipeResponse
    * @throws OciError when an error occurs
@@ -2348,9 +2462,11 @@ export class CloudGuardClient {
       "opc-request-id": getTargetResponderRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTargetResponderRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTargetResponderRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2392,6 +2508,7 @@ export class CloudGuardClient {
 
   /**
    * Get ResponderRule by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTargetResponderRecipeResponderRuleRequest
    * @return GetTargetResponderRecipeResponderRuleResponse
    * @throws OciError when an error occurs
@@ -2418,9 +2535,11 @@ export class CloudGuardClient {
       "opc-request-id": getTargetResponderRecipeResponderRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTargetResponderRecipeResponderRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTargetResponderRecipeResponderRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2464,6 +2583,7 @@ export class CloudGuardClient {
   /**
    * Returns a list of condition types.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListConditionMetadataTypesRequest
    * @return ListConditionMetadataTypesResponse
    * @throws OciError when an error occurs
@@ -2490,9 +2610,11 @@ export class CloudGuardClient {
       "opc-request-id": listConditionMetadataTypesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listConditionMetadataTypesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConditionMetadataTypesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2535,6 +2657,7 @@ export class CloudGuardClient {
   /**
    * Returns a list of all Data Mask Rules in the root 'compartmentId' passed.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataMaskRulesRequest
    * @return ListDataMaskRulesResponse
    * @throws OciError when an error occurs
@@ -2566,9 +2689,11 @@ export class CloudGuardClient {
       "opc-request-id": listDataMaskRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDataMaskRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataMaskRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2611,6 +2736,7 @@ export class CloudGuardClient {
   /**
    * Returns a list of DetectorRule associated with DetectorRecipe.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDetectorRecipeDetectorRulesRequest
    * @return ListDetectorRecipeDetectorRulesResponse
    * @throws OciError when an error occurs
@@ -2640,9 +2766,11 @@ export class CloudGuardClient {
       "opc-request-id": listDetectorRecipeDetectorRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDetectorRecipeDetectorRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDetectorRecipeDetectorRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2699,6 +2827,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListDetectorRecipesRequest
      * @return ListDetectorRecipesResponse
      * @throws OciError when an error occurs
@@ -2728,9 +2857,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       "opc-request-id": listDetectorRecipesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDetectorRecipesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDetectorRecipesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2773,6 +2904,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   /**
    * Returns a list of detector rules for the detectorId passed.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDetectorRulesRequest
    * @return ListDetectorRulesResponse
    * @throws OciError when an error occurs
@@ -2801,9 +2933,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       "opc-request-id": listDetectorRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDetectorRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDetectorRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2846,6 +2980,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   /**
    * Returns detector catalog - list of detectors supported by Cloud Guard
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDetectorsRequest
    * @return ListDetectorsResponse
    * @throws OciError when an error occurs
@@ -2871,9 +3006,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       "opc-request-id": listDetectorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDetectorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDetectorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2916,6 +3053,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   /**
    * Returns a list of Impacted Resources for a CloudGuard Problem
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListImpactedResourcesRequest
    * @return ListImpactedResourcesResponse
    * @throws OciError when an error occurs
@@ -2941,9 +3079,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       "opc-request-id": listImpactedResourcesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listImpactedResourcesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listImpactedResourcesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2985,6 +3125,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
 
   /**
    * Returns all ManagedList types supported by Cloud Guard
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagedListTypesRequest
    * @return ListManagedListTypesResponse
    * @throws OciError when an error occurs
@@ -3010,9 +3151,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       "opc-request-id": listManagedListTypesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagedListTypesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagedListTypesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3068,6 +3211,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListManagedListsRequest
      * @return ListManagedListsResponse
      * @throws OciError when an error occurs
@@ -3098,9 +3242,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
       "opc-request-id": listManagedListsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagedListsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagedListsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3143,6 +3289,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
   /**
    * Returns the list of global policy statements needed by Cloud Guard when enabling
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPoliciesRequest
    * @return ListPoliciesResponse
    * @throws OciError when an error occurs
@@ -3167,9 +3314,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
       "opc-request-id": listPoliciesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPoliciesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3212,6 +3361,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
   /**
    * Returns a list of Actions done on CloudGuard Problem
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProblemHistoriesRequest
    * @return ListProblemHistoriesResponse
    * @throws OciError when an error occurs
@@ -3238,9 +3388,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
       "opc-request-id": listProblemHistoriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listProblemHistoriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProblemHistoriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3297,6 +3449,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListProblemsRequest
      * @return ListProblemsResponse
      * @throws OciError when an error occurs
@@ -3342,9 +3495,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       "opc-request-id": listProblemsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listProblemsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProblemsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3387,6 +3542,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   /**
    * Returns a list of all Recommendations.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRecommendationsRequest
    * @return ListRecommendationsResponse
    * @throws OciError when an error occurs
@@ -3416,9 +3572,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       "opc-request-id": listRecommendationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRecommendationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRecommendationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3461,6 +3619,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   /**
    * Returns a list of resource types.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResourceTypesRequest
    * @return ListResourceTypesResponse
    * @throws OciError when an error occurs
@@ -3486,9 +3645,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       "opc-request-id": listResourceTypesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listResourceTypesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResourceTypesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3531,6 +3692,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   /**
    * Returns a list of Responder activities done on CloudGuard Problem
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResponderActivitiesRequest
    * @return ListResponderActivitiesResponse
    * @throws OciError when an error occurs
@@ -3557,9 +3719,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       "opc-request-id": listResponderActivitiesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listResponderActivitiesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResponderActivitiesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3602,6 +3766,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   /**
    * Returns a list of Responder Executions. A Responder Execution is an entity that tracks the collective execution of multiple Responder Rule Executions for a given Problem.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResponderExecutionsRequest
    * @return ListResponderExecutionsResponse
    * @throws OciError when an error occurs
@@ -3642,9 +3807,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       "opc-request-id": listResponderExecutionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listResponderExecutionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResponderExecutionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3687,6 +3854,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   /**
    * Returns a list of ResponderRule associated with ResponderRecipe.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResponderRecipeResponderRulesRequest
    * @return ListResponderRecipeResponderRulesResponse
    * @throws OciError when an error occurs
@@ -3716,9 +3884,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       "opc-request-id": listResponderRecipeResponderRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listResponderRecipeResponderRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResponderRecipeResponderRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3774,6 +3944,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListResponderRecipesRequest
      * @return ListResponderRecipesResponse
      * @throws OciError when an error occurs
@@ -3803,9 +3974,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       "opc-request-id": listResponderRecipesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listResponderRecipesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResponderRecipesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3848,6 +4021,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   /**
    * Returns a list of ResponderRule.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResponderRulesRequest
    * @return ListResponderRulesResponse
    * @throws OciError when an error occurs
@@ -3874,9 +4048,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       "opc-request-id": listResponderRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listResponderRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResponderRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3919,6 +4095,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   /**
    * Returns a list of DetectorRule associated with DetectorRecipe within a Target.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTargetDetectorRecipeDetectorRulesRequest
    * @return ListTargetDetectorRecipeDetectorRulesResponse
    * @throws OciError when an error occurs
@@ -3952,9 +4129,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       "opc-request-id": listTargetDetectorRecipeDetectorRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTargetDetectorRecipeDetectorRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTargetDetectorRecipeDetectorRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3996,6 +4175,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
 
   /**
    * Returns a list of all detector recipes associated with the target identified by targetId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTargetDetectorRecipesRequest
    * @return ListTargetDetectorRecipesResponse
    * @throws OciError when an error occurs
@@ -4025,9 +4205,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       "opc-request-id": listTargetDetectorRecipesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTargetDetectorRecipesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTargetDetectorRecipesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4070,6 +4252,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   /**
    * Returns a list of ResponderRule associated with ResponderRecipe within a Target.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTargetResponderRecipeResponderRulesRequest
    * @return ListTargetResponderRecipeResponderRulesResponse
    * @throws OciError when an error occurs
@@ -4103,9 +4286,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       "opc-request-id": listTargetResponderRecipeResponderRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTargetResponderRecipeResponderRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTargetResponderRecipeResponderRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4147,6 +4332,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
 
   /**
    * Returns a list of all responder recipes associated with the target identified by targetId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTargetResponderRecipesRequest
    * @return ListTargetResponderRecipesResponse
    * @throws OciError when an error occurs
@@ -4176,9 +4362,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       "opc-request-id": listTargetResponderRecipesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTargetResponderRecipesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTargetResponderRecipesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4234,6 +4422,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListTargetsRequest
      * @return ListTargetsResponse
      * @throws OciError when an error occurs
@@ -4262,9 +4451,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       "opc-request-id": listTargetsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTargetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTargetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4307,6 +4498,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   /**
    * Examines the number of problems related to the resource and the relative severity of those problems.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestRiskScoresRequest
    * @return RequestRiskScoresResponse
    * @throws OciError when an error occurs
@@ -4329,9 +4521,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       "opc-request-id": requestRiskScoresRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestRiskScoresRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestRiskScoresRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4375,6 +4569,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
    * Measures the number of resources examined across all regions and compares it with the
    * number of problems detected, for a given time period.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestSecurityScoreSummarizedTrendRequest
    * @return RequestSecurityScoreSummarizedTrendResponse
    * @throws OciError when an error occurs
@@ -4402,9 +4597,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       "opc-request-id": requestSecurityScoreSummarizedTrendRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSecurityScoreSummarizedTrendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSecurityScoreSummarizedTrendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4447,6 +4644,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   /**
    * Measures the number of resources examined across all regions and compares it with the number of problems detected.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestSecurityScoresRequest
    * @return RequestSecurityScoresResponse
    * @throws OciError when an error occurs
@@ -4469,9 +4667,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       "opc-request-id": requestSecurityScoresRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSecurityScoresRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSecurityScoresRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4528,6 +4728,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 The compartmentId to be passed with `accessLevel` and `compartmentIdInSubtree` params has to be the root
 * compartment id (tenant-id) only.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param RequestSummarizedActivityProblemsRequest
      * @return RequestSummarizedActivityProblemsResponse
      * @throws OciError when an error occurs
@@ -4554,9 +4755,11 @@ The compartmentId to be passed with `accessLevel` and `compartmentIdInSubtree` p
       "opc-request-id": requestSummarizedActivityProblemsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedActivityProblemsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSummarizedActivityProblemsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4610,6 +4813,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param RequestSummarizedProblemsRequest
      * @return RequestSummarizedProblemsResponse
      * @throws OciError when an error occurs
@@ -4636,9 +4840,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": requestSummarizedProblemsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedProblemsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSummarizedProblemsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4692,6 +4898,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param RequestSummarizedResponderExecutionsRequest
      * @return RequestSummarizedResponderExecutionsResponse
      * @throws OciError when an error occurs
@@ -4722,9 +4929,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": requestSummarizedResponderExecutionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedResponderExecutionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSummarizedResponderExecutionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4767,6 +4976,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   /**
    * DEPRECATED
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestSummarizedRiskScoresRequest
    * @return RequestSummarizedRiskScoresResponse
    * @throws OciError when an error occurs
@@ -4790,9 +5000,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": requestSummarizedRiskScoresRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedRiskScoresRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSummarizedRiskScoresRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4835,6 +5047,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   /**
    * DEPRECATED
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestSummarizedSecurityScoresRequest
    * @return RequestSummarizedSecurityScoresResponse
    * @throws OciError when an error occurs
@@ -4858,9 +5071,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": requestSummarizedSecurityScoresRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedSecurityScoresRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSummarizedSecurityScoresRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4914,6 +5129,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param RequestSummarizedTrendProblemsRequest
      * @return RequestSummarizedTrendProblemsResponse
      * @throws OciError when an error occurs
@@ -4943,9 +5159,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": requestSummarizedTrendProblemsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedTrendProblemsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSummarizedTrendProblemsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4999,6 +5217,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param RequestSummarizedTrendResponderExecutionsRequest
      * @return RequestSummarizedTrendResponderExecutionsResponse
      * @throws OciError when an error occurs
@@ -5031,9 +5250,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": requestSummarizedTrendResponderExecutionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedTrendResponderExecutionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSummarizedTrendResponderExecutionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5076,6 +5297,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   /**
    * DEPRECATED
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestSummarizedTrendSecurityScoresRequest
    * @return RequestSummarizedTrendSecurityScoresResponse
    * @throws OciError when an error occurs
@@ -5103,9 +5325,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": requestSummarizedTrendSecurityScoresRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedTrendSecurityScoresRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSummarizedTrendSecurityScoresRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5149,6 +5373,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * Skips the execution for a bulk of responder executions
    * The operation is atomic in nature
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SkipBulkResponderExecutionRequest
    * @return SkipBulkResponderExecutionResponse
    * @throws OciError when an error occurs
@@ -5168,9 +5393,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": skipBulkResponderExecutionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      skipBulkResponderExecutionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      skipBulkResponderExecutionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5208,6 +5435,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 
   /**
    * Skips the execution of the responder execution. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SkipResponderExecutionRequest
    * @return SkipResponderExecutionResponse
    * @throws OciError when an error occurs
@@ -5233,9 +5461,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-retry-token": skipResponderExecutionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      skipResponderExecutionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      skipResponderExecutionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5269,6 +5499,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   /**
    * push the problem to responder
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param TriggerResponderRequest
    * @return TriggerResponderResponse
    * @throws OciError when an error occurs
@@ -5291,9 +5522,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "if-match": triggerResponderRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      triggerResponderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      triggerResponderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5333,6 +5566,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * Updates the statuses in bulk for a list of problems
    * The operation is atomic in nature
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBulkProblemStatusRequest
    * @return UpdateBulkProblemStatusResponse
    * @throws OciError when an error occurs
@@ -5352,9 +5586,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": updateBulkProblemStatusRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateBulkProblemStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBulkProblemStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5393,6 +5629,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   /**
    * Enable/Disable Cloud Guard. The reporting region cannot be updated once created.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateConfigurationRequest
    * @return UpdateConfigurationResponse
    * @throws OciError when an error occurs
@@ -5415,9 +5652,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "if-match": updateConfigurationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5464,6 +5703,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 
   /**
    * Updates a DataMaskRule identified by dataMaskRuleId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDataMaskRuleRequest
    * @return UpdateDataMaskRuleResponse
    * @throws OciError when an error occurs
@@ -5485,9 +5725,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": updateDataMaskRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDataMaskRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDataMaskRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5534,6 +5776,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 
   /**
    * Updates a detector recipe identified by detectorRecipeId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDetectorRecipeRequest
    * @return UpdateDetectorRecipeResponse
    * @throws OciError when an error occurs
@@ -5556,9 +5799,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-retry-token": updateDetectorRecipeRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDetectorRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDetectorRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5605,6 +5850,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 
   /**
    * Update the DetectorRule by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDetectorRecipeDetectorRuleRequest
    * @return UpdateDetectorRecipeDetectorRuleResponse
    * @throws OciError when an error occurs
@@ -5628,9 +5874,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": updateDetectorRecipeDetectorRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDetectorRecipeDetectorRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDetectorRecipeDetectorRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5677,6 +5925,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 
   /**
    * Updates a managed list identified by managedListId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateManagedListRequest
    * @return UpdateManagedListResponse
    * @throws OciError when an error occurs
@@ -5699,9 +5948,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-retry-token": updateManagedListRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateManagedListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateManagedListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5749,6 +6000,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   /**
    * updates the problem details
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateProblemStatusRequest
    * @return UpdateProblemStatusResponse
    * @throws OciError when an error occurs
@@ -5771,9 +6023,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "if-match": updateProblemStatusRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateProblemStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateProblemStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5820,6 +6074,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 
   /**
    * Update the ResponderRecipe resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateResponderRecipeRequest
    * @return UpdateResponderRecipeResponse
    * @throws OciError when an error occurs
@@ -5841,9 +6096,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": updateResponderRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateResponderRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateResponderRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5890,6 +6147,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 
   /**
    * Update the ResponderRule by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateResponderRecipeResponderRuleRequest
    * @return UpdateResponderRecipeResponderRuleResponse
    * @throws OciError when an error occurs
@@ -5913,9 +6171,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": updateResponderRecipeResponderRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateResponderRecipeResponderRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateResponderRecipeResponderRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5962,6 +6222,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 
   /**
    * Updates a Target identified by targetId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTargetRequest
    * @return UpdateTargetResponse
    * @throws OciError when an error occurs
@@ -5983,9 +6244,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": updateTargetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTargetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTargetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6032,6 +6295,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 
   /**
    * Update the TargetDetectorRecipe resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTargetDetectorRecipeRequest
    * @return UpdateTargetDetectorRecipeResponse
    * @throws OciError when an error occurs
@@ -6055,9 +6319,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": updateTargetDetectorRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTargetDetectorRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTargetDetectorRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6104,6 +6370,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 
   /**
    * Update the DetectorRule by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTargetDetectorRecipeDetectorRuleRequest
    * @return UpdateTargetDetectorRecipeDetectorRuleResponse
    * @throws OciError when an error occurs
@@ -6131,9 +6398,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": updateTargetDetectorRecipeDetectorRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTargetDetectorRecipeDetectorRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTargetDetectorRecipeDetectorRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6181,6 +6450,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 
   /**
    * Update the TargetResponderRecipe resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTargetResponderRecipeRequest
    * @return UpdateTargetResponderRecipeResponse
    * @throws OciError when an error occurs
@@ -6204,9 +6474,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": updateTargetResponderRecipeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTargetResponderRecipeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTargetResponderRecipeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6253,6 +6525,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
 
   /**
    * Update the ResponderRule by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTargetResponderRecipeResponderRuleRequest
    * @return UpdateTargetResponderRecipeResponderRuleResponse
    * @throws OciError when an error occurs
@@ -6280,9 +6553,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       "opc-request-id": updateTargetResponderRecipeResponderRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTargetResponderRecipeResponderRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTargetResponderRecipeResponderRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

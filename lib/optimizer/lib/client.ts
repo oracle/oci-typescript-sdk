@@ -23,7 +23,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum OptimizerApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class OptimizerClient {
   protected static serviceEndpointTemplate = "https://optimizer.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -43,6 +45,15 @@ export class OptimizerClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -132,6 +143,7 @@ export class OptimizerClient {
   /**
    * Applies the specified recommendations to the resources.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param BulkApplyRecommendationsRequest
    * @return BulkApplyRecommendationsResponse
    * @throws OciError when an error occurs
@@ -154,9 +166,11 @@ export class OptimizerClient {
       "opc-retry-token": bulkApplyRecommendationsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      bulkApplyRecommendationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkApplyRecommendationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -200,6 +214,7 @@ export class OptimizerClient {
   /**
    * Creates a new profile.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateProfileRequest
    * @return CreateProfileResponse
    * @throws OciError when an error occurs
@@ -219,9 +234,11 @@ export class OptimizerClient {
       "opc-retry-token": createProfileRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createProfileRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createProfileRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -269,6 +286,7 @@ export class OptimizerClient {
   /**
    * Deletes the specified profile. Uses the profile's OCID to determine which profile to delete.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteProfileRequest
    * @return DeleteProfileResponse
    * @throws OciError when an error occurs
@@ -290,9 +308,11 @@ export class OptimizerClient {
       "opc-request-id": deleteProfileRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteProfileRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteProfileRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -326,6 +346,7 @@ export class OptimizerClient {
   /**
    * Gets the category that corresponds to the specified OCID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCategoryRequest
    * @return GetCategoryResponse
    * @throws OciError when an error occurs
@@ -346,9 +367,11 @@ export class OptimizerClient {
       "opc-request-id": getCategoryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCategoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCategoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -386,6 +409,7 @@ export class OptimizerClient {
   /**
    * Gets the Cloud Advisor enrollment status.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetEnrollmentStatusRequest
    * @return GetEnrollmentStatusResponse
    * @throws OciError when an error occurs
@@ -406,9 +430,11 @@ export class OptimizerClient {
       "opc-request-id": getEnrollmentStatusRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getEnrollmentStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEnrollmentStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -451,6 +477,7 @@ export class OptimizerClient {
   /**
    * Gets the specified profile's information. Uses the profile's OCID to determine which profile to retrieve.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetProfileRequest
    * @return GetProfileResponse
    * @throws OciError when an error occurs
@@ -471,9 +498,11 @@ export class OptimizerClient {
       "opc-request-id": getProfileRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getProfileRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getProfileRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -516,6 +545,7 @@ export class OptimizerClient {
   /**
    * Gets the recommendation for the specified OCID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRecommendationRequest
    * @return GetRecommendationResponse
    * @throws OciError when an error occurs
@@ -536,9 +566,11 @@ export class OptimizerClient {
       "opc-request-id": getRecommendationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRecommendationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRecommendationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -581,6 +613,7 @@ export class OptimizerClient {
   /**
    * Gets the resource action that corresponds to the specified OCID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetResourceActionRequest
    * @return GetResourceActionResponse
    * @throws OciError when an error occurs
@@ -601,9 +634,11 @@ export class OptimizerClient {
       "opc-request-id": getResourceActionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getResourceActionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getResourceActionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -645,6 +680,7 @@ export class OptimizerClient {
 
   /**
    * Gets the status of the work request associated with the specified ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -665,9 +701,11 @@ export class OptimizerClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -710,6 +748,7 @@ export class OptimizerClient {
   /**
    * Lists the supported Cloud Advisor categories.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCategoriesRequest
    * @return ListCategoriesResponse
    * @throws OciError when an error occurs
@@ -737,9 +776,11 @@ export class OptimizerClient {
       "opc-request-id": listCategoriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCategoriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCategoriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -787,6 +828,7 @@ export class OptimizerClient {
   /**
    * Lists the Cloud Advisor enrollment statuses.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListEnrollmentStatusesRequest
    * @return ListEnrollmentStatusesResponse
    * @throws OciError when an error occurs
@@ -813,9 +855,11 @@ export class OptimizerClient {
       "opc-request-id": listEnrollmentStatusesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listEnrollmentStatusesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEnrollmentStatusesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -864,6 +908,7 @@ export class OptimizerClient {
    * Lists changes to the recommendations based on user activity.
    * For example, lists when recommendations have been implemented, dismissed, postponed, or reactivated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListHistoriesRequest
    * @return ListHistoriesResponse
    * @throws OciError when an error occurs
@@ -895,9 +940,11 @@ export class OptimizerClient {
       "opc-request-id": listHistoriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listHistoriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHistoriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -945,6 +992,7 @@ export class OptimizerClient {
   /**
    * Lists the existing profiles.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProfilesRequest
    * @return ListProfilesResponse
    * @throws OciError when an error occurs
@@ -971,9 +1019,11 @@ export class OptimizerClient {
       "opc-request-id": listProfilesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listProfilesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProfilesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1021,6 +1071,7 @@ export class OptimizerClient {
   /**
    * Lists the existing strategies.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRecommendationStrategiesRequest
    * @return ListRecommendationStrategiesResponse
    * @throws OciError when an error occurs
@@ -1049,9 +1100,11 @@ export class OptimizerClient {
       "opc-request-id": listRecommendationStrategiesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRecommendationStrategiesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRecommendationStrategiesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1099,6 +1152,7 @@ export class OptimizerClient {
   /**
    * Lists the Cloud Advisor recommendations that are currently supported in the specified category.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRecommendationsRequest
    * @return ListRecommendationsResponse
    * @throws OciError when an error occurs
@@ -1128,9 +1182,11 @@ export class OptimizerClient {
       "opc-request-id": listRecommendationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRecommendationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRecommendationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1178,6 +1234,7 @@ export class OptimizerClient {
   /**
    * Lists the Cloud Advisor resource actions that are supported by the specified recommendation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResourceActionsRequest
    * @return ListResourceActionsResponse
    * @throws OciError when an error occurs
@@ -1208,9 +1265,11 @@ export class OptimizerClient {
       "opc-request-id": listResourceActionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listResourceActionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResourceActionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1258,6 +1317,7 @@ export class OptimizerClient {
   /**
    * Lists errors associated with the specified work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1281,9 +1341,11 @@ export class OptimizerClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1326,6 +1388,7 @@ export class OptimizerClient {
   /**
    * Lists the logs associated with the specified work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1349,9 +1412,11 @@ export class OptimizerClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1394,6 +1459,7 @@ export class OptimizerClient {
   /**
    * Lists the work requests in the tenancy. The tenancy is the root compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1416,9 +1482,11 @@ export class OptimizerClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1461,6 +1529,7 @@ export class OptimizerClient {
   /**
    * Updates the enrollment status of the tenancy.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateEnrollmentStatusRequest
    * @return UpdateEnrollmentStatusResponse
    * @throws OciError when an error occurs
@@ -1482,9 +1551,11 @@ export class OptimizerClient {
       "if-match": updateEnrollmentStatusRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateEnrollmentStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateEnrollmentStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1532,6 +1603,7 @@ export class OptimizerClient {
   /**
    * Updates the specified profile. Uses the profile's OCID to determine which profile to update.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateProfileRequest
    * @return UpdateProfileResponse
    * @throws OciError when an error occurs
@@ -1553,9 +1625,11 @@ export class OptimizerClient {
       "opc-request-id": updateProfileRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateProfileRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateProfileRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1608,6 +1682,7 @@ export class OptimizerClient {
    *   * Dismiss recommendation
    *   * Reactivate recommendation
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRecommendationRequest
    * @return UpdateRecommendationResponse
    * @throws OciError when an error occurs
@@ -1629,9 +1704,11 @@ export class OptimizerClient {
       "if-match": updateRecommendationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRecommendationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRecommendationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1684,6 +1761,7 @@ export class OptimizerClient {
    *   * Ignore resource action
    *   * Reactivate resource action
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateResourceActionRequest
    * @return UpdateResourceActionResponse
    * @throws OciError when an error occurs
@@ -1705,9 +1783,11 @@ export class OptimizerClient {
       "if-match": updateResourceActionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateResourceActionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateResourceActionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

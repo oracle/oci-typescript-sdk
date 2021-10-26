@@ -70,6 +70,16 @@ export interface SummarizeDatabaseInsightResourceForecastTrendRequest extends co
    */
   "id"?: Array<string>;
   /**
+   * Optional list of exadata insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "exadataInsightId"?: Array<string>;
+  /**
+   * Filter by one or more cdb name.
+   *
+   */
+  "cdbName"?: Array<string>;
+  /**
    * Choose the type of statistic metric data to be used for forecasting.
    */
   "statistic"?: SummarizeDatabaseInsightResourceForecastTrendRequest.Statistic;

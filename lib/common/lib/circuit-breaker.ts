@@ -60,11 +60,20 @@ interface CircuitBreakerOptions {
 export default class CircuitBreaker {
   circuit: any = null;
   noCircuit: boolean = false;
+  static get envVariableCheckForDefaultCircuitBreaker() {
+    if (process.env.OCI_SDK_DEFAULT_CIRCUITBREAKER_ENABLED === "true") {
+      CircuitBreaker.DefaultCircuitBreakerOverriden = true;
+    } else if (process.env.OCI_SDK_DEFAULT_CIRCUITBREAKER_ENABLED === "false") {
+      CircuitBreaker.DefaultCircuitBreakerOverriden = true;
+    }
+    return process.env.OCI_SDK_DEFAULT_CIRCUITBREAKER_ENABLED;
+  }
   static EnableGlobalCircuitBreaker = true; // Configuration to turn on/off the global circuit breaker.
-  static EnableDefaultCircuitBreaker = process.env.OCI_SDK_DEFAULT_CIRCUITBREAKER_ENABLED;
+  static EnableDefaultCircuitBreaker = CircuitBreaker.envVariableCheckForDefaultCircuitBreaker;
+  public static DefaultCircuitBreakerOverriden = false;
 
   private static DefaultConfiguration: CircuitBreakerOptions = {
-    timeout: 10000, // If our function takes longer than 10 seconds, trigger a failure
+    timeout: 600000, // If our function takes longer than 60 minutes, trigger a failure
     errorThresholdPercentage: 80, // When 80% of requests fail, trip the circuit
     resetTimeout: 30000, // After 30 seconds, try again.
     rollingCountTimeout: 120000,
@@ -82,6 +91,7 @@ export default class CircuitBreaker {
       ...CircuitBreaker.DefaultConfiguration,
       ...circuitBreakerConfig
     };
+    CircuitBreaker.DefaultCircuitBreakerOverriden = true;
   }
 
   static internalCircuit = new Breaker(FetchWrapper, {

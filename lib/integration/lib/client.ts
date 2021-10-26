@@ -24,7 +24,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum IntegrationInstanceApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class IntegrationInstanceClient {
   protected static serviceEndpointTemplate = "https://integration.{region}.ocp.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -44,6 +46,15 @@ export class IntegrationInstanceClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -134,6 +145,7 @@ export class IntegrationInstanceClient {
   /**
    * Change the compartment for an integration instance
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeIntegrationInstanceCompartmentRequest
    * @return ChangeIntegrationInstanceCompartmentResponse
    * @throws OciError when an error occurs
@@ -159,9 +171,11 @@ export class IntegrationInstanceClient {
       "opc-retry-token": changeIntegrationInstanceCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeIntegrationInstanceCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeIntegrationInstanceCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -206,6 +220,7 @@ export class IntegrationInstanceClient {
    * Change an Integration instance network endpoint. The operation is long-running
    * and creates a new WorkRequest.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeIntegrationInstanceNetworkEndpointRequest
    * @return ChangeIntegrationInstanceNetworkEndpointResponse
    * @throws OciError when an error occurs
@@ -232,9 +247,11 @@ export class IntegrationInstanceClient {
       "opc-retry-token": changeIntegrationInstanceNetworkEndpointRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeIntegrationInstanceNetworkEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeIntegrationInstanceNetworkEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -278,6 +295,7 @@ export class IntegrationInstanceClient {
   /**
    * Creates a new Integration Instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateIntegrationInstanceRequest
    * @return CreateIntegrationInstanceResponse
    * @throws OciError when an error occurs
@@ -298,9 +316,11 @@ export class IntegrationInstanceClient {
       "opc-request-id": createIntegrationInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createIntegrationInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createIntegrationInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -343,6 +363,7 @@ export class IntegrationInstanceClient {
 
   /**
    * Deletes an Integration Instance resource by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteIntegrationInstanceRequest
    * @return DeleteIntegrationInstanceResponse
    * @throws OciError when an error occurs
@@ -365,9 +386,11 @@ export class IntegrationInstanceClient {
       "opc-request-id": deleteIntegrationInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteIntegrationInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteIntegrationInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -405,6 +428,7 @@ export class IntegrationInstanceClient {
 
   /**
    * Gets a IntegrationInstance by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIntegrationInstanceRequest
    * @return GetIntegrationInstanceResponse
    * @throws OciError when an error occurs
@@ -426,9 +450,11 @@ export class IntegrationInstanceClient {
       "opc-request-id": getIntegrationInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getIntegrationInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIntegrationInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -470,6 +496,7 @@ export class IntegrationInstanceClient {
 
   /**
    * Gets the status of the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -491,9 +518,11 @@ export class IntegrationInstanceClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -541,6 +570,7 @@ export class IntegrationInstanceClient {
   /**
    * Returns a list of Integration Instances.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIntegrationInstancesRequest
    * @return ListIntegrationInstancesResponse
    * @throws OciError when an error occurs
@@ -568,9 +598,11 @@ export class IntegrationInstanceClient {
       "opc-request-id": listIntegrationInstancesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listIntegrationInstancesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIntegrationInstancesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -669,6 +701,7 @@ export class IntegrationInstanceClient {
 
   /**
    * Get the errors of a work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -694,9 +727,11 @@ export class IntegrationInstanceClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -795,6 +830,7 @@ export class IntegrationInstanceClient {
 
   /**
    * Get the logs of a work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -820,9 +856,11 @@ export class IntegrationInstanceClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -922,6 +960,7 @@ export class IntegrationInstanceClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -946,9 +985,11 @@ export class IntegrationInstanceClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1048,6 +1089,7 @@ export class IntegrationInstanceClient {
   /**
    * Start an integration instance that was previously in an INACTIVE state
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StartIntegrationInstanceRequest
    * @return StartIntegrationInstanceResponse
    * @throws OciError when an error occurs
@@ -1071,9 +1113,11 @@ export class IntegrationInstanceClient {
       "opc-retry-token": startIntegrationInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      startIntegrationInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startIntegrationInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1112,6 +1156,7 @@ export class IntegrationInstanceClient {
   /**
    * Stop an integration instance that was previously in an ACTIVE state
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StopIntegrationInstanceRequest
    * @return StopIntegrationInstanceResponse
    * @throws OciError when an error occurs
@@ -1135,9 +1180,11 @@ export class IntegrationInstanceClient {
       "opc-retry-token": stopIntegrationInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      stopIntegrationInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopIntegrationInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1175,6 +1222,7 @@ export class IntegrationInstanceClient {
 
   /**
    * Updates the Integration Instance.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateIntegrationInstanceRequest
    * @return UpdateIntegrationInstanceResponse
    * @throws OciError when an error occurs
@@ -1197,9 +1245,11 @@ export class IntegrationInstanceClient {
       "opc-request-id": updateIntegrationInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateIntegrationInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateIntegrationInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -88,6 +88,11 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "billingContractEndDate": Date;
   /**
+   * The availability domain of the ESXi host.
+   *
+   */
+  "computeAvailabilityDomain": string;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

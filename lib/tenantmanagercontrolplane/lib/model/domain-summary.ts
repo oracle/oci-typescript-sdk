@@ -43,11 +43,11 @@ export interface DomainSummary {
    */
   "txtRecord": string;
   /**
-   * Date-time when this domain was created. An RFC3339-formatted date and time string.
+   * Date-time when this domain was created. An RFC 3339-formatted date and time string.
    */
   "timeCreated"?: Date;
   /**
-   * Date-time when this domain was last updated. An RFC3339-formatted date and time string.
+   * Date-time when this domain was last updated. An RFC 3339-formatted date and time string.
    */
   "timeUpdated"?: Date;
   /**

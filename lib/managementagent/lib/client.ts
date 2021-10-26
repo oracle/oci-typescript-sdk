@@ -24,7 +24,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum ManagementAgentApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ManagementAgentClient {
   protected static serviceEndpointTemplate =
     "https://management-agent.{region}.oci.{secondLevelDomain}";
@@ -45,6 +47,15 @@ export class ManagementAgentClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -134,6 +145,7 @@ export class ManagementAgentClient {
   /**
    * User creates a new install key as part of this API.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateManagementAgentInstallKeyRequest
    * @return CreateManagementAgentInstallKeyResponse
    * @throws OciError when an error occurs
@@ -154,9 +166,11 @@ export class ManagementAgentClient {
       "opc-request-id": createManagementAgentInstallKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createManagementAgentInstallKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createManagementAgentInstallKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -203,6 +217,7 @@ export class ManagementAgentClient {
 
   /**
    * Deletes a Management Agent resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteManagementAgentRequest
    * @return DeleteManagementAgentResponse
    * @throws OciError when an error occurs
@@ -225,9 +240,11 @@ export class ManagementAgentClient {
       "opc-request-id": deleteManagementAgentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteManagementAgentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteManagementAgentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -260,6 +277,7 @@ export class ManagementAgentClient {
 
   /**
    * Deletes a Management Agent install Key resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteManagementAgentInstallKeyRequest
    * @return DeleteManagementAgentInstallKeyResponse
    * @throws OciError when an error occurs
@@ -283,9 +301,11 @@ export class ManagementAgentClient {
       "opc-request-id": deleteManagementAgentInstallKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteManagementAgentInstallKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteManagementAgentInstallKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -318,6 +338,7 @@ export class ManagementAgentClient {
 
   /**
    * Cancel the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteWorkRequestRequest
    * @return DeleteWorkRequestResponse
    * @throws OciError when an error occurs
@@ -340,9 +361,11 @@ export class ManagementAgentClient {
       "if-match": deleteWorkRequestRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -376,6 +399,7 @@ export class ManagementAgentClient {
   /**
    * Deploys Plugins to a given list of agentIds.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeployPluginsRequest
    * @return DeployPluginsResponse
    * @throws OciError when an error occurs
@@ -395,9 +419,11 @@ export class ManagementAgentClient {
       "opc-request-id": deployPluginsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deployPluginsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deployPluginsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -442,6 +468,7 @@ export class ManagementAgentClient {
    * Get the AutoUpgradable configuration for all agents in a tenancy.
    * The supplied compartmentId must be a tenancy root.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutoUpgradableConfigRequest
    * @return GetAutoUpgradableConfigResponse
    * @throws OciError when an error occurs
@@ -463,9 +490,11 @@ export class ManagementAgentClient {
       "opc-request-id": getAutoUpgradableConfigRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutoUpgradableConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutoUpgradableConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -502,6 +531,7 @@ export class ManagementAgentClient {
 
   /**
    * Gets complete details of the inventory of a given agent id
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagementAgentRequest
    * @return GetManagementAgentResponse
    * @throws OciError when an error occurs
@@ -523,9 +553,11 @@ export class ManagementAgentClient {
       "opc-request-id": getManagementAgentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getManagementAgentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getManagementAgentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -567,6 +599,7 @@ export class ManagementAgentClient {
 
   /**
    * Gets complete details of the Agent install Key for a given key id
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagementAgentInstallKeyRequest
    * @return GetManagementAgentInstallKeyResponse
    * @throws OciError when an error occurs
@@ -589,9 +622,11 @@ export class ManagementAgentClient {
       "opc-request-id": getManagementAgentInstallKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getManagementAgentInstallKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getManagementAgentInstallKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -634,6 +669,7 @@ export class ManagementAgentClient {
   /**
    * Returns a file with Management Agent install Key in it
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagementAgentInstallKeyContentRequest
    * @return GetManagementAgentInstallKeyContentResponse
    * @throws OciError when an error occurs
@@ -660,9 +696,11 @@ export class ManagementAgentClient {
       "opc-request-id": getManagementAgentInstallKeyContentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getManagementAgentInstallKeyContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getManagementAgentInstallKeyContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -709,6 +747,7 @@ export class ManagementAgentClient {
 
   /**
    * Gets the status of the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -729,9 +768,11 @@ export class ManagementAgentClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -778,6 +819,7 @@ export class ManagementAgentClient {
 
   /**
    * Lists the availability history records of Management Agent
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAvailabilityHistoriesRequest
    * @return ListAvailabilityHistoriesResponse
    * @throws OciError when an error occurs
@@ -808,9 +850,11 @@ export class ManagementAgentClient {
       "opc-request-id": listAvailabilityHistoriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAvailabilityHistoriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAvailabilityHistoriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -905,6 +949,7 @@ export class ManagementAgentClient {
   /**
    * Get supported agent image information
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagementAgentImagesRequest
    * @return ListManagementAgentImagesResponse
    * @throws OciError when an error occurs
@@ -934,9 +979,11 @@ export class ManagementAgentClient {
       "opc-request-id": listManagementAgentImagesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagementAgentImagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagementAgentImagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1031,6 +1078,7 @@ export class ManagementAgentClient {
   /**
    * Returns a list of Management Agent installed Keys.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagementAgentInstallKeysRequest
    * @return ListManagementAgentInstallKeysResponse
    * @throws OciError when an error occurs
@@ -1059,9 +1107,11 @@ export class ManagementAgentClient {
       "opc-request-id": listManagementAgentInstallKeysRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagementAgentInstallKeysRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagementAgentInstallKeysRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1156,6 +1206,7 @@ export class ManagementAgentClient {
   /**
    * Returns a list of managementAgentPlugins.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagementAgentPluginsRequest
    * @return ListManagementAgentPluginsResponse
    * @throws OciError when an error occurs
@@ -1184,9 +1235,11 @@ export class ManagementAgentClient {
       "opc-request-id": listManagementAgentPluginsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagementAgentPluginsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagementAgentPluginsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1281,6 +1334,7 @@ export class ManagementAgentClient {
   /**
    * Returns a list of Management Agent.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagementAgentsRequest
    * @return ListManagementAgentsResponse
    * @throws OciError when an error occurs
@@ -1315,9 +1369,11 @@ export class ManagementAgentClient {
       "opc-request-id": listManagementAgentsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagementAgentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagementAgentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1412,6 +1468,7 @@ export class ManagementAgentClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1438,9 +1495,11 @@ export class ManagementAgentClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1535,6 +1594,7 @@ export class ManagementAgentClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1561,9 +1621,11 @@ export class ManagementAgentClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1658,6 +1720,7 @@ export class ManagementAgentClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1685,9 +1748,11 @@ export class ManagementAgentClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1783,6 +1848,7 @@ export class ManagementAgentClient {
    * Sets the AutoUpgradable configuration for all agents in a tenancy.
    * The supplied compartmentId must be a tenancy root.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SetAutoUpgradableConfigRequest
    * @return SetAutoUpgradableConfigResponse
    * @throws OciError when an error occurs
@@ -1803,9 +1869,11 @@ export class ManagementAgentClient {
       "opc-request-id": setAutoUpgradableConfigRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      setAutoUpgradableConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      setAutoUpgradableConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1849,6 +1917,7 @@ export class ManagementAgentClient {
    * Gets count of the inventory of agents for a given compartment id, group by, and isPluginDeployed parameters.
    * Supported groupBy parameters: availabilityStatus, platformType, version
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeManagementAgentCountsRequest
    * @return SummarizeManagementAgentCountsResponse
    * @throws OciError when an error occurs
@@ -1874,9 +1943,11 @@ export class ManagementAgentClient {
       "opc-request-id": summarizeManagementAgentCountsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeManagementAgentCountsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeManagementAgentCountsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1920,6 +1991,7 @@ export class ManagementAgentClient {
    * Gets count of the inventory of management agent plugins for a given compartment id and group by parameter.
    * Supported groupBy parameter: pluginName
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeManagementAgentPluginCountsRequest
    * @return SummarizeManagementAgentPluginCountsResponse
    * @throws OciError when an error occurs
@@ -1945,9 +2017,11 @@ export class ManagementAgentClient {
       "opc-request-id": summarizeManagementAgentPluginCountsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeManagementAgentPluginCountsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeManagementAgentPluginCountsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1990,6 +2064,7 @@ export class ManagementAgentClient {
   /**
    * API to update the console managed properties of the Management Agent.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateManagementAgentRequest
    * @return UpdateManagementAgentResponse
    * @throws OciError when an error occurs
@@ -2013,9 +2088,11 @@ export class ManagementAgentClient {
       "if-match": updateManagementAgentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateManagementAgentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateManagementAgentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2063,6 +2140,7 @@ export class ManagementAgentClient {
   /**
    * API to update the modifiable properties of the Management Agent install key.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateManagementAgentInstallKeyRequest
    * @return UpdateManagementAgentInstallKeyResponse
    * @throws OciError when an error occurs
@@ -2087,9 +2165,11 @@ export class ManagementAgentClient {
       "if-match": updateManagementAgentInstallKeyRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateManagementAgentInstallKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateManagementAgentInstallKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

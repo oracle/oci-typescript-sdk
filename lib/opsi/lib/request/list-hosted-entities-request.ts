@@ -59,6 +59,11 @@ export interface ListHostedEntitiesRequest extends common.BaseRequest {
    */
   "platformType"?: Array<ListHostedEntitiesRequest.PlatformType>;
   /**
+   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of exadata insight resource.
+   *
+   */
+  "exadataInsightId"?: string;
+  /**
    * For list pagination. The maximum number of results per page, or items to
    * return in a paginated \"List\" call.
    * For important details about how pagination works, see

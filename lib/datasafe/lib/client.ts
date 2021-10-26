@@ -24,7 +24,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum DataSafeApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DataSafeClient {
   protected static serviceEndpointTemplate = "https://datasafe.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -44,6 +46,15 @@ export class DataSafeClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -133,6 +144,7 @@ export class DataSafeClient {
   /**
    * Reactivates a previously deactivated Data Safe target database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ActivateTargetDatabaseRequest
    * @return ActivateTargetDatabaseResponse
    * @throws OciError when an error occurs
@@ -155,9 +167,11 @@ export class DataSafeClient {
       "opc-request-id": activateTargetDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      activateTargetDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateTargetDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -200,6 +214,7 @@ export class DataSafeClient {
 
   /**
    * Moves the Data Safe private endpoint and its dependent resources to the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDataSafePrivateEndpointCompartmentRequest
    * @return ChangeDataSafePrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
@@ -225,9 +240,11 @@ export class DataSafeClient {
       "if-match": changeDataSafePrivateEndpointCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDataSafePrivateEndpointCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDataSafePrivateEndpointCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -270,6 +287,7 @@ export class DataSafeClient {
 
   /**
    * Moves the specified on-premises connector into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeOnPremConnectorCompartmentRequest
    * @return ChangeOnPremConnectorCompartmentResponse
    * @throws OciError when an error occurs
@@ -293,9 +311,11 @@ export class DataSafeClient {
       "opc-retry-token": changeOnPremConnectorCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeOnPremConnectorCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeOnPremConnectorCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -338,6 +358,7 @@ To start, call first the operation ListSecurityAssessments with filters \"type =
 * <p>
 The existing saved security assessments created due to the schedule are not moved. However, all new saves will be associated with the new compartment.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeSecurityAssessmentCompartmentRequest
      * @return ChangeSecurityAssessmentCompartmentResponse
      * @throws OciError when an error occurs
@@ -361,9 +382,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-retry-token": changeSecurityAssessmentCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeSecurityAssessmentCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSecurityAssessmentCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -401,6 +424,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Moves the Data Safe target database to the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeTargetDatabaseCompartmentRequest
    * @return ChangeTargetDatabaseCompartmentResponse
    * @throws OciError when an error occurs
@@ -424,9 +448,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-retry-token": changeTargetDatabaseCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeTargetDatabaseCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeTargetDatabaseCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -469,6 +495,7 @@ The existing saved security assessments created due to the schedule are not move
    * ChangeUserAssessmentCompartment with the scheduleAssessmentId. The existing saved user assessments created per the schedule
    * are not be moved. However, all new saves will be associated with the new compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeUserAssessmentCompartmentRequest
    * @return ChangeUserAssessmentCompartmentResponse
    * @throws OciError when an error occurs
@@ -492,9 +519,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": changeUserAssessmentCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeUserAssessmentCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeUserAssessmentCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -534,6 +563,7 @@ The existing saved security assessments created due to the schedule are not move
    * Compares two security assessments. For this comparison, a security assessment can be a saved assessment, a latest assessment, or a baseline assessment.
    * For example, you can compare saved assessment or a latest assessment against a baseline.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CompareSecurityAssessmentRequest
    * @return CompareSecurityAssessmentResponse
    * @throws OciError when an error occurs
@@ -557,9 +587,11 @@ The existing saved security assessments created due to the schedule are not move
       "if-match": compareSecurityAssessmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      compareSecurityAssessmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      compareSecurityAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -604,6 +636,7 @@ The existing saved security assessments created due to the schedule are not move
    * Compares two user assessments. For this comparison, a user assessment can be a saved, a latest assessment, or a baseline.
    * As an example, it can be used to compare a user assessment saved or a latest assessment with a baseline.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CompareUserAssessmentRequest
    * @return CompareUserAssessmentResponse
    * @throws OciError when an error occurs
@@ -626,9 +659,11 @@ The existing saved security assessments created due to the schedule are not move
       "if-match": compareUserAssessmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      compareUserAssessmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      compareUserAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -672,6 +707,7 @@ The existing saved security assessments created due to the schedule are not move
   /**
    * Creates a new Data Safe private endpoint.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDataSafePrivateEndpointRequest
    * @return CreateDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -692,9 +728,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": createDataSafePrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDataSafePrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDataSafePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -752,6 +790,7 @@ The existing saved security assessments created due to the schedule are not move
   /**
    * Creates a new on-premises connector.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateOnPremConnectorRequest
    * @return CreateOnPremConnectorResponse
    * @throws OciError when an error occurs
@@ -771,9 +810,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": createOnPremConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createOnPremConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOnPremConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -833,6 +874,7 @@ The existing saved security assessments created due to the schedule are not move
    * it will save the latest assessments in the specified compartment. If a schedule is passed, it will persist the latest assessments,
    * at the defined date and time, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateSecurityAssessmentRequest
    * @return CreateSecurityAssessmentResponse
    * @throws OciError when an error occurs
@@ -853,9 +895,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": createSecurityAssessmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSecurityAssessmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSecurityAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -913,6 +957,7 @@ The existing saved security assessments created due to the schedule are not move
   /**
    * Registers the specified database with Data Safe and creates a Data Safe target database in the Data Safe Console.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTargetDatabaseRequest
    * @return CreateTargetDatabaseResponse
    * @throws OciError when an error occurs
@@ -932,9 +977,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": createTargetDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTargetDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTargetDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -994,6 +1041,7 @@ The existing saved security assessments created due to the schedule are not move
    * specified compartment. If a scheduled is passed in, this operation persists the latest assessments that exist at the defined
    * date and time, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateUserAssessmentRequest
    * @return CreateUserAssessmentResponse
    * @throws OciError when an error occurs
@@ -1013,9 +1061,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": createUserAssessmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createUserAssessmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createUserAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1073,6 +1123,7 @@ The existing saved security assessments created due to the schedule are not move
   /**
    * Deactivates a target database in Data Safe.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeactivateTargetDatabaseRequest
    * @return DeactivateTargetDatabaseResponse
    * @throws OciError when an error occurs
@@ -1096,9 +1147,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": deactivateTargetDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deactivateTargetDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deactivateTargetDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1136,6 +1189,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Deletes the specified Data Safe private endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDataSafePrivateEndpointRequest
    * @return DeleteDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -1158,9 +1212,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": deleteDataSafePrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDataSafePrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDataSafePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1198,6 +1254,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Deletes the specified on-premises connector.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteOnPremConnectorRequest
    * @return DeleteOnPremConnectorResponse
    * @throws OciError when an error occurs
@@ -1219,9 +1276,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": deleteOnPremConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteOnPremConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOnPremConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1263,6 +1322,7 @@ The existing saved security assessments created due to the schedule are not move
    * That operation returns the scheduleAssessmentId. Then, call DeleteSecurityAssessment with the scheduleAssessmentId.
    * If the assessment being deleted is the baseline for that compartment, then it will impact all baselines in the compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSecurityAssessmentRequest
    * @return DeleteSecurityAssessmentResponse
    * @throws OciError when an error occurs
@@ -1285,9 +1345,11 @@ The existing saved security assessments created due to the schedule are not move
       "if-match": deleteSecurityAssessmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSecurityAssessmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSecurityAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1325,6 +1387,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Deregisters the specified database from Data Safe and removes the target database from the Data Safe Console.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTargetDatabaseRequest
    * @return DeleteTargetDatabaseResponse
    * @throws OciError when an error occurs
@@ -1346,9 +1409,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": deleteTargetDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTargetDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTargetDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1390,6 +1455,7 @@ The existing saved security assessments created due to the schedule are not move
    * That call returns the scheduleAssessmentId. Then call DeleteUserAssessment with the scheduleAssessmentId.
    * If the assessment being deleted is the baseline for that compartment, then it will impact all baselines in the compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteUserAssessmentRequest
    * @return DeleteUserAssessmentResponse
    * @throws OciError when an error occurs
@@ -1411,9 +1477,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": deleteUserAssessmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteUserAssessmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteUserAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1452,6 +1520,7 @@ The existing saved security assessments created due to the schedule are not move
   /**
    * Downloads the privilege script to grant/revoke required roles from the Data Safe account on the target database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DownloadPrivilegeScriptRequest
    * @return DownloadPrivilegeScriptResponse
    * @throws OciError when an error occurs
@@ -1472,9 +1541,11 @@ The existing saved security assessments created due to the schedule are not move
       "if-match": downloadPrivilegeScriptRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      downloadPrivilegeScriptRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadPrivilegeScriptRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1523,6 +1594,7 @@ The existing saved security assessments created due to the schedule are not move
    * Downloads the report of the specified security assessment. To download the security assessment report, it needs to be generated first.
    * Please use GenerateSecurityAssessmentReport to generate a downloadable report in the preferred format (PDF, XLS).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DownloadSecurityAssessmentReportRequest
    * @return DownloadSecurityAssessmentReportResponse
    * @throws OciError when an error occurs
@@ -1546,9 +1618,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": downloadSecurityAssessmentReportRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      downloadSecurityAssessmentReportRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadSecurityAssessmentReportRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1602,6 +1676,7 @@ The existing saved security assessments created due to the schedule are not move
    * Downloads the report of the specified user assessment. To download the user assessment report, it needs to be generated first.
    * Please use GenerateUserAssessmentReport to generate a downloadable report in the preferred format (PDF, XLS).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DownloadUserAssessmentReportRequest
    * @return DownloadUserAssessmentReportResponse
    * @throws OciError when an error occurs
@@ -1625,9 +1700,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": downloadUserAssessmentReportRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      downloadUserAssessmentReportRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadUserAssessmentReportRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1680,6 +1757,7 @@ The existing saved security assessments created due to the schedule are not move
   /**
    * Enables Data Safe in the tenancy and region.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableDataSafeConfigurationRequest
    * @return EnableDataSafeConfigurationResponse
    * @throws OciError when an error occurs
@@ -1702,9 +1780,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": enableDataSafeConfigurationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      enableDataSafeConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableDataSafeConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1748,6 +1828,7 @@ The existing saved security assessments created due to the schedule are not move
   /**
    * Creates and downloads the configuration of the specified on-premises connector.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GenerateOnPremConnectorConfigurationRequest
    * @return GenerateOnPremConnectorConfigurationResponse
    * @throws OciError when an error occurs
@@ -1771,9 +1852,11 @@ The existing saved security assessments created due to the schedule are not move
       "if-match": generateOnPremConnectorConfigurationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      generateOnPremConnectorConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateOnPremConnectorConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1827,6 +1910,7 @@ The existing saved security assessments created due to the schedule are not move
    * Generates the report of the specified security assessment. You can get the report in PDF or XLS format.
    * After generating the report, use DownloadSecurityAssessmentReport to download it in the preferred format.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GenerateSecurityAssessmentReportRequest
    * @return GenerateSecurityAssessmentReportResponse
    * @throws OciError when an error occurs
@@ -1850,9 +1934,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": generateSecurityAssessmentReportRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      generateSecurityAssessmentReportRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateSecurityAssessmentReportRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1897,6 +1983,7 @@ The existing saved security assessments created due to the schedule are not move
    * Generates the report of the specified user assessment. The report is available in PDF or XLS format.
    * After generating the report, use DownloadUserAssessmentReport to download it in the preferred format.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GenerateUserAssessmentReportRequest
    * @return GenerateUserAssessmentReportResponse
    * @throws OciError when an error occurs
@@ -1920,9 +2007,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": generateUserAssessmentReportRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      generateUserAssessmentReportRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateUserAssessmentReportRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1965,6 +2054,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Gets the details of the Data Safe configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataSafeConfigurationRequest
    * @return GetDataSafeConfigurationResponse
    * @throws OciError when an error occurs
@@ -1986,9 +2076,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": getDataSafeConfigurationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDataSafeConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataSafeConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2030,6 +2122,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Gets the details of the specified Data Safe private endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataSafePrivateEndpointRequest
    * @return GetDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -2051,9 +2144,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": getDataSafePrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDataSafePrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataSafePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2095,6 +2190,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Gets the details of the specified on-premises connector.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOnPremConnectorRequest
    * @return GetOnPremConnectorResponse
    * @throws OciError when an error occurs
@@ -2115,9 +2211,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": getOnPremConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getOnPremConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOnPremConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2159,6 +2257,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Gets the details of the specified security assessment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSecurityAssessmentRequest
    * @return GetSecurityAssessmentResponse
    * @throws OciError when an error occurs
@@ -2179,9 +2278,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": getSecurityAssessmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSecurityAssessmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSecurityAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2223,6 +2324,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Gets the details of the comparison report on the security assessments submitted for comparison.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSecurityAssessmentComparisonRequest
    * @return GetSecurityAssessmentComparisonResponse
    * @throws OciError when an error occurs
@@ -2246,9 +2348,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": getSecurityAssessmentComparisonRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSecurityAssessmentComparisonRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSecurityAssessmentComparisonRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2292,6 +2396,7 @@ The existing saved security assessments created due to the schedule are not move
   /**
    * Returns the details of the specified Data Safe target database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTargetDatabaseRequest
    * @return GetTargetDatabaseResponse
    * @throws OciError when an error occurs
@@ -2312,9 +2417,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": getTargetDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTargetDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTargetDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2356,6 +2463,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Gets a user assessment by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetUserAssessmentRequest
    * @return GetUserAssessmentResponse
    * @throws OciError when an error occurs
@@ -2376,9 +2484,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": getUserAssessmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getUserAssessmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getUserAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2420,6 +2530,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Gets the details of the comparison report for the user assessments provided.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetUserAssessmentComparisonRequest
    * @return GetUserAssessmentComparisonResponse
    * @throws OciError when an error occurs
@@ -2442,9 +2553,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": getUserAssessmentComparisonRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getUserAssessmentComparisonRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getUserAssessmentComparisonRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2481,6 +2594,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Gets the details of the specified work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -2501,9 +2615,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2551,6 +2667,7 @@ The existing saved security assessments created due to the schedule are not move
   /**
    * Gets a list of Data Safe private endpoints.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataSafePrivateEndpointsRequest
    * @return ListDataSafePrivateEndpointsResponse
    * @throws OciError when an error occurs
@@ -2581,9 +2698,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": listDataSafePrivateEndpointsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDataSafePrivateEndpointsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataSafePrivateEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2678,6 +2797,7 @@ The existing saved security assessments created due to the schedule are not move
   /**
    * List all the findings from all the targets in the specified assessment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListFindingsRequest
    * @return ListFindingsResponse
    * @throws OciError when an error occurs
@@ -2705,9 +2825,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": listFindingsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listFindingsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFindingsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2810,6 +2932,7 @@ The existing saved security assessments created due to the schedule are not move
    * roles a privilege grant is. The userKey in this operation is a system-generated identifier. Perform the operation ListUsers
    * to get the userKey for a particular user.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListGrantsRequest
    * @return ListGrantsResponse
    * @throws OciError when an error occurs
@@ -2843,9 +2966,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": listGrantsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listGrantsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listGrantsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2945,6 +3070,7 @@ The existing saved security assessments created due to the schedule are not move
   /**
    * Gets a list of on-premises connectors.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListOnPremConnectorsRequest
    * @return ListOnPremConnectorsResponse
    * @throws OciError when an error occurs
@@ -2974,9 +3100,11 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": listOnPremConnectorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listOnPremConnectorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOnPremConnectorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3085,6 +3213,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListSecurityAssessmentsRequest
      * @return ListSecurityAssessmentsResponse
      * @throws OciError when an error occurs
@@ -3122,9 +3251,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       "opc-request-id": listSecurityAssessmentsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSecurityAssessmentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSecurityAssessmentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3224,6 +3355,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   /**
    * Returns the list of registered target databases in Data Safe.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTargetDatabasesRequest
    * @return ListTargetDatabasesResponse
    * @throws OciError when an error occurs
@@ -3255,9 +3387,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       "opc-request-id": listTargetDatabasesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTargetDatabasesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTargetDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3371,6 +3505,7 @@ The parameter compartmentIdInSubtree applies when you perform ListUserAnalytics 
 To use ListUserAnalytics to get a full list of all compartments and subcompartments in the tenancy from the root compartment,
 * set the parameter compartmentIdInSubtree to true and accessLevel to ACCESSIBLE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListUserAnalyticsRequest
      * @return ListUserAnalyticsResponse
      * @throws OciError when an error occurs
@@ -3413,9 +3548,11 @@ To use ListUserAnalytics to get a full list of all compartments and subcompartme
       "opc-request-id": listUserAnalyticsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listUserAnalyticsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listUserAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3524,6 +3661,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListUserAssessmentsRequest
      * @return ListUserAssessmentsResponse
      * @throws OciError when an error occurs
@@ -3560,9 +3698,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": listUserAssessmentsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listUserAssessmentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listUserAssessmentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3665,6 +3805,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * of the latest password change. It also contains the user category derived from these user details as well as privileges
    * granted to each user.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListUsersRequest
    * @return ListUsersResponse
    * @throws OciError when an error occurs
@@ -3705,9 +3846,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": listUsersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listUsersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listUsersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3807,6 +3950,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Gets a list of errors for the specified work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -3830,9 +3974,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3927,6 +4073,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Gets a list of log entries for the specified work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -3950,9 +4097,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4047,6 +4196,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Gets a list of work requests.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -4071,9 +4221,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4169,6 +4321,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * Runs a security assessment, refreshes the latest assessment, and saves it for future reference.
    * The assessment runs with a securityAssessmentId of type LATEST. Before you start, first call the ListSecurityAssessments operation with filter \"type = latest\" to get the security assessment id for the target's latest assessment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RefreshSecurityAssessmentRequest
    * @return RefreshSecurityAssessmentResponse
    * @throws OciError when an error occurs
@@ -4192,9 +4345,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "if-match": refreshSecurityAssessmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      refreshSecurityAssessmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      refreshSecurityAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4240,6 +4395,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * Before you start, first call the ListUserAssessments operation with filter \"type = latest\" to get the user assessment ID for
    * the target's latest assessment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RefreshUserAssessmentRequest
    * @return RefreshUserAssessmentResponse
    * @throws OciError when an error occurs
@@ -4262,9 +4418,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "if-match": refreshUserAssessmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      refreshUserAssessmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      refreshUserAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4307,6 +4465,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Sets the saved security assessment as the baseline in the compartment where the the specified assessment resides. The security assessment needs to be of type 'SAVED'.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SetSecurityAssessmentBaselineRequest
    * @return SetSecurityAssessmentBaselineResponse
    * @throws OciError when an error occurs
@@ -4330,9 +4489,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": setSecurityAssessmentBaselineRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      setSecurityAssessmentBaselineRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      setSecurityAssessmentBaselineRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4375,6 +4536,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Sets the saved user assessment as the baseline in the compartment where the specified assessment resides. The user assessment needs to be of type 'SAVED'.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SetUserAssessmentBaselineRequest
    * @return SetUserAssessmentBaselineResponse
    * @throws OciError when an error occurs
@@ -4398,9 +4560,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": setUserAssessmentBaselineRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      setUserAssessmentBaselineRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      setUserAssessmentBaselineRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4445,6 +4609,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * Removes the baseline setting for the saved security assessment. The saved security assessment is no longer considered a baseline.
    * Sets the if-match parameter to the value of the etag from a previous GET or POST response for that resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UnsetSecurityAssessmentBaselineRequest
    * @return UnsetSecurityAssessmentBaselineResponse
    * @throws OciError when an error occurs
@@ -4468,9 +4633,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": unsetSecurityAssessmentBaselineRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      unsetSecurityAssessmentBaselineRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      unsetSecurityAssessmentBaselineRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4510,6 +4677,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * Removes the baseline setting for the saved user assessment. The saved user assessment is no longer considered a baseline.
    * Sets the if-match parameter to the value of the etag from a previous GET or POST response for that resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UnsetUserAssessmentBaselineRequest
    * @return UnsetUserAssessmentBaselineResponse
    * @throws OciError when an error occurs
@@ -4533,9 +4701,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": unsetUserAssessmentBaselineRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      unsetUserAssessmentBaselineRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      unsetUserAssessmentBaselineRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4573,6 +4743,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates one or more attributes of the specified Data Safe private endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDataSafePrivateEndpointRequest
    * @return UpdateDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -4595,9 +4766,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateDataSafePrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDataSafePrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDataSafePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4640,6 +4813,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates one or more attributes of the specified on-premises connector.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateOnPremConnectorRequest
    * @return UpdateOnPremConnectorResponse
    * @throws OciError when an error occurs
@@ -4661,9 +4835,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateOnPremConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateOnPremConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOnPremConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4707,6 +4883,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Updates the wallet for the specified on-premises connector to a new version.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateOnPremConnectorWalletRequest
    * @return UpdateOnPremConnectorWalletResponse
    * @throws OciError when an error occurs
@@ -4730,9 +4907,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateOnPremConnectorWalletRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateOnPremConnectorWalletRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOnPremConnectorWalletRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4776,6 +4955,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Updates one or more attributes of the specified security assessment. This operation allows to update the security assessment displayName, description, or schedule.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSecurityAssessmentRequest
    * @return UpdateSecurityAssessmentResponse
    * @throws OciError when an error occurs
@@ -4798,9 +4978,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "if-match": updateSecurityAssessmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSecurityAssessmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSecurityAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4843,6 +5025,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates one or more attributes of the specified Data Safe target database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTargetDatabaseRequest
    * @return UpdateTargetDatabaseResponse
    * @throws OciError when an error occurs
@@ -4865,9 +5048,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-retry-token": updateTargetDatabaseRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTargetDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTargetDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4911,6 +5096,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Updates one or more attributes of the specified user assessment. This operation allows to update the user assessment displayName, description, or schedule.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateUserAssessmentRequest
    * @return UpdateUserAssessmentResponse
    * @throws OciError when an error occurs
@@ -4932,9 +5118,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "if-match": updateUserAssessmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateUserAssessmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateUserAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

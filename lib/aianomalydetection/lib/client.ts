@@ -26,7 +26,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum AnomalyDetectionApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class AnomalyDetectionClient {
   protected static serviceEndpointTemplate =
     "https://anomalydetection.aiservice.{region}.oci.{secondLevelDomain}";
@@ -47,6 +49,15 @@ export class AnomalyDetectionClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -135,6 +146,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Cancel work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
@@ -157,9 +169,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": cancelWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -192,6 +206,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Moves a resource into a different compartment. When provided, 'If-Match' is checked against 'ETag' values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeAiPrivateEndpointCompartmentRequest
    * @return ChangeAiPrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
@@ -217,9 +232,11 @@ export class AnomalyDetectionClient {
       "opc-retry-token": changeAiPrivateEndpointCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeAiPrivateEndpointCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAiPrivateEndpointCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -262,6 +279,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Changing the compartment of a data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDataAssetCompartmentRequest
    * @return ChangeDataAssetCompartmentResponse
    * @throws OciError when an error occurs
@@ -285,9 +303,11 @@ export class AnomalyDetectionClient {
       "opc-retry-token": changeDataAssetCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDataAssetCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDataAssetCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -334,6 +354,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Moves a Model resource from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeModelCompartmentRequest
    * @return ChangeModelCompartmentResponse
    * @throws OciError when an error occurs
@@ -357,9 +378,11 @@ export class AnomalyDetectionClient {
       "opc-retry-token": changeModelCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeModelCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeModelCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -397,6 +420,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Moves a Project resource from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeProjectCompartmentRequest
    * @return ChangeProjectCompartmentResponse
    * @throws OciError when an error occurs
@@ -420,9 +444,11 @@ export class AnomalyDetectionClient {
       "opc-retry-token": changeProjectCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeProjectCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeProjectCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -460,6 +486,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Create a new private reverse connection endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAiPrivateEndpointRequest
    * @return CreateAiPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -480,9 +507,11 @@ export class AnomalyDetectionClient {
       "opc-retry-token": createAiPrivateEndpointRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAiPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAiPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -526,6 +555,7 @@ export class AnomalyDetectionClient {
   /**
    * Creates a new DataAsset.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDataAssetRequest
    * @return CreateDataAssetResponse
    * @throws OciError when an error occurs
@@ -545,9 +575,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": createDataAssetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -595,6 +627,7 @@ export class AnomalyDetectionClient {
   /**
    * Creates a new Model.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateModelRequest
    * @return CreateModelResponse
    * @throws OciError when an error occurs
@@ -614,9 +647,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": createModelRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createModelRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createModelRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -674,6 +709,7 @@ export class AnomalyDetectionClient {
   /**
    * Creates a new Project.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateProjectRequest
    * @return CreateProjectResponse
    * @throws OciError when an error occurs
@@ -693,9 +729,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": createProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -742,6 +780,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Deletes a private reverse connection endpoint by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAiPrivateEndpointRequest
    * @return DeleteAiPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -764,9 +803,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": deleteAiPrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAiPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAiPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -804,6 +845,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Deletes a DataAsset resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDataAssetRequest
    * @return DeleteDataAssetResponse
    * @throws OciError when an error occurs
@@ -825,9 +867,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": deleteDataAssetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -860,6 +904,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Deletes an ai model resource by identifier. This operation fails with a 409 error unless all associated resources are in a DELETED state. You must delete all associated resources before deleting a project.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteModelRequest
    * @return DeleteModelResponse
    * @throws OciError when an error occurs
@@ -881,9 +926,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": deleteModelRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteModelRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteModelRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -921,6 +968,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Deletes a Project resource by identifier. This operation fails with a 409 error unless all associated resources (models deployments or data assets) are in a DELETED state. You must delete all associated resources before deleting a project.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
    * @throws OciError when an error occurs
@@ -942,9 +990,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": deleteProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -982,6 +1032,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Make a detect call with an anomaly model and detection data
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetectAnomaliesRequest
    * @return DetectAnomaliesResponse
    * @throws OciError when an error occurs
@@ -1002,9 +1053,11 @@ export class AnomalyDetectionClient {
       "opc-retry-token": detectAnomaliesRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detectAnomaliesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detectAnomaliesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1046,6 +1099,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Gets a specific private reverse connection by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAiPrivateEndpointRequest
    * @return GetAiPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -1067,9 +1121,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": getAiPrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAiPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAiPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1111,6 +1167,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Gets a DataAsset by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataAssetRequest
    * @return GetDataAssetResponse
    * @throws OciError when an error occurs
@@ -1131,9 +1188,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": getDataAssetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1175,6 +1234,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Gets a Model by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetModelRequest
    * @return GetModelResponse
    * @throws OciError when an error occurs
@@ -1195,9 +1255,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": getModelRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getModelRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModelRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1239,6 +1301,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Gets a Project by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetProjectRequest
    * @return GetProjectResponse
    * @throws OciError when an error occurs
@@ -1259,9 +1322,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": getProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1303,6 +1368,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Gets the status of the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1323,9 +1389,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1373,6 +1441,7 @@ export class AnomalyDetectionClient {
   /**
    * Returns a list of all the AI private endpoints in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAiPrivateEndpointsRequest
    * @return ListAiPrivateEndpointsResponse
    * @throws OciError when an error occurs
@@ -1401,9 +1470,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": listAiPrivateEndpointsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAiPrivateEndpointsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAiPrivateEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1446,6 +1517,7 @@ export class AnomalyDetectionClient {
   /**
    * Returns a list of DataAssets.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataAssetsRequest
    * @return ListDataAssetsResponse
    * @throws OciError when an error occurs
@@ -1473,9 +1545,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": listDataAssetsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDataAssetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataAssetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1518,6 +1592,7 @@ export class AnomalyDetectionClient {
   /**
    * Returns a list of Models.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListModelsRequest
    * @return ListModelsResponse
    * @throws OciError when an error occurs
@@ -1545,9 +1620,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": listModelsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listModelsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModelsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1590,6 +1667,7 @@ export class AnomalyDetectionClient {
   /**
    * Returns a list of  Projects.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProjectsRequest
    * @return ListProjectsResponse
    * @throws OciError when an error occurs
@@ -1616,9 +1694,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": listProjectsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listProjectsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProjectsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1661,6 +1741,7 @@ export class AnomalyDetectionClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1685,9 +1766,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1730,6 +1813,7 @@ export class AnomalyDetectionClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1754,9 +1838,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1799,6 +1885,7 @@ export class AnomalyDetectionClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1823,9 +1910,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1867,6 +1956,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Updates the private reverse connection endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAiPrivateEndpointRequest
    * @return UpdateAiPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -1889,9 +1979,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": updateAiPrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAiPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAiPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1934,6 +2026,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Updates the DataAsset
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDataAssetRequest
    * @return UpdateDataAssetResponse
    * @throws OciError when an error occurs
@@ -1955,9 +2048,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": updateDataAssetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2004,6 +2099,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Updates the Model
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateModelRequest
    * @return UpdateModelResponse
    * @throws OciError when an error occurs
@@ -2025,9 +2121,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": updateModelRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateModelRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateModelRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2070,6 +2168,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Updates the Project
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateProjectRequest
    * @return UpdateProjectResponse
    * @throws OciError when an error occurs
@@ -2091,9 +2190,11 @@ export class AnomalyDetectionClient {
       "opc-request-id": updateProjectRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateProjectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateProjectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

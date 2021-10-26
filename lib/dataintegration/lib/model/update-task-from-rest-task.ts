@@ -1,6 +1,6 @@
 /**
  * Data Integration API
- * Use the Data Integration Service APIs to perform common extract, load, and transform (ETL) tasks.
+ * Use the Data Integration API to organize your data integration projects, create data flows, pipelines and tasks, and then publish, schedule, and run tasks that extract, transform, and load data. For more information, see [Data Integration](https://docs.oracle.com/iaas/data-integration/home.htm).
  * OpenAPI spec version: 20200430
  * Contact: di_dis_ww_grp@oracle.com
  *
@@ -15,29 +15,26 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about the Generic REST task.
+ * The information about the Generic REST task. The endpoint and cancelEndpoint  properties are deprecated, use the properties executeRestCallConfig, cancelRestCallConfig and pollRestCallConfig for execute, cancel and polling of the calls.
  */
 export interface UpdateTaskFromRestTask extends model.UpdateTaskDetails {
   "authDetails"?: model.AuthDetails;
   "endpoint"?: model.Expression;
   /**
-   * The REST method to use.
+   * The REST method to use. This property is deprecated, use ExecuteRestCallConfig's methodType property instead.
    */
   "methodType"?: UpdateTaskFromRestTask.MethodType;
-  /**
-   * The headers for the REST call.
-   */
   "headers"?: any;
   /**
    * Header value.
    */
   "additionalProperties"?: string;
   /**
-   * JSON data for payload body.
+   * JSON data for payload body. This property is deprecated, use ExecuteRestCallConfig's payload config param instead.
    */
   "jsonData"?: string;
   /**
-   * The invocation type to be used for Generic REST invocation.
+   * The REST invocation pattern to use. ASYNC_OCI_WORKREQUEST is being deprecated as well as cancelEndpoint/MethodType.
    */
   "apiCallMode"?: UpdateTaskFromRestTask.ApiCallMode;
   "cancelEndpoint"?: model.Expression;
@@ -45,6 +42,8 @@ export interface UpdateTaskFromRestTask extends model.UpdateTaskDetails {
    * The REST method to use for canceling the original request.
    */
   "cancelMethodType"?: UpdateTaskFromRestTask.CancelMethodType;
+  "executeRestCallConfig"?: model.ExecuteRestCallConfig;
+  "cancelRestCallConfig"?: model.CancelRestCallConfig;
 
   "modelType": string;
 }
@@ -60,7 +59,8 @@ export namespace UpdateTaskFromRestTask {
 
   export enum ApiCallMode {
     Synchronous = "SYNCHRONOUS",
-    AsyncOciWorkrequest = "ASYNC_OCI_WORKREQUEST"
+    AsyncOciWorkrequest = "ASYNC_OCI_WORKREQUEST",
+    AsyncGeneric = "ASYNC_GENERIC"
   }
 
   export enum CancelMethodType {
@@ -82,6 +82,13 @@ export namespace UpdateTaskFromRestTask {
 
         "cancelEndpoint": obj.cancelEndpoint
           ? model.Expression.getJsonObj(obj.cancelEndpoint)
+          : undefined,
+
+        "executeRestCallConfig": obj.executeRestCallConfig
+          ? model.ExecuteRestCallConfig.getJsonObj(obj.executeRestCallConfig)
+          : undefined,
+        "cancelRestCallConfig": obj.cancelRestCallConfig
+          ? model.CancelRestCallConfig.getJsonObj(obj.cancelRestCallConfig)
           : undefined
       }
     };
@@ -107,6 +114,13 @@ export namespace UpdateTaskFromRestTask {
 
         "cancelEndpoint": obj.cancelEndpoint
           ? model.Expression.getDeserializedJsonObj(obj.cancelEndpoint)
+          : undefined,
+
+        "executeRestCallConfig": obj.executeRestCallConfig
+          ? model.ExecuteRestCallConfig.getDeserializedJsonObj(obj.executeRestCallConfig)
+          : undefined,
+        "cancelRestCallConfig": obj.cancelRestCallConfig
+          ? model.CancelRestCallConfig.getDeserializedJsonObj(obj.cancelRestCallConfig)
           : undefined
       }
     };

@@ -27,7 +27,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum ContainerEngineApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ContainerEngineClient {
   protected static serviceEndpointTemplate =
     "https://containerengine.{region}.oci.{secondLevelDomain}";
@@ -48,6 +50,15 @@ export class ContainerEngineClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -136,6 +147,7 @@ export class ContainerEngineClient {
 
   /**
    * Initiates cluster migration to use native VCN.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ClusterMigrateToNativeVcnRequest
    * @return ClusterMigrateToNativeVcnResponse
    * @throws OciError when an error occurs
@@ -158,9 +170,11 @@ export class ContainerEngineClient {
       "opc-request-id": clusterMigrateToNativeVcnRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      clusterMigrateToNativeVcnRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      clusterMigrateToNativeVcnRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -203,6 +217,7 @@ export class ContainerEngineClient {
 
   /**
    * Create a new cluster.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateClusterRequest
    * @return CreateClusterResponse
    * @throws OciError when an error occurs
@@ -222,9 +237,11 @@ export class ContainerEngineClient {
       "opc-request-id": createClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -267,6 +284,7 @@ export class ContainerEngineClient {
 
   /**
    * Create the Kubeconfig YAML for a cluster.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateKubeconfigRequest
    * @return CreateKubeconfigResponse
    * @throws OciError when an error occurs
@@ -287,9 +305,11 @@ export class ContainerEngineClient {
       "opc-request-id": createKubeconfigRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createKubeconfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createKubeconfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -331,6 +351,7 @@ export class ContainerEngineClient {
 
   /**
    * Create a new node pool.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateNodePoolRequest
    * @return CreateNodePoolResponse
    * @throws OciError when an error occurs
@@ -350,9 +371,11 @@ export class ContainerEngineClient {
       "opc-request-id": createNodePoolRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createNodePoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNodePoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -395,6 +418,7 @@ export class ContainerEngineClient {
 
   /**
    * Delete a cluster.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteClusterRequest
    * @return DeleteClusterResponse
    * @throws OciError when an error occurs
@@ -416,9 +440,11 @@ export class ContainerEngineClient {
       "opc-request-id": deleteClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -456,6 +482,7 @@ export class ContainerEngineClient {
 
   /**
    * Delete a node pool.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteNodePoolRequest
    * @return DeleteNodePoolResponse
    * @throws OciError when an error occurs
@@ -477,9 +504,11 @@ export class ContainerEngineClient {
       "opc-request-id": deleteNodePoolRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteNodePoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNodePoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -517,6 +546,7 @@ export class ContainerEngineClient {
 
   /**
    * Cancel a work request that has not started.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteWorkRequestRequest
    * @return DeleteWorkRequestResponse
    * @throws OciError when an error occurs
@@ -539,9 +569,11 @@ export class ContainerEngineClient {
       "opc-request-id": deleteWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -574,6 +606,7 @@ export class ContainerEngineClient {
 
   /**
    * Get the details of a cluster.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetClusterRequest
    * @return GetClusterResponse
    * @throws OciError when an error occurs
@@ -594,9 +627,11 @@ export class ContainerEngineClient {
       "opc-request-id": getClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -638,6 +673,7 @@ export class ContainerEngineClient {
 
   /**
    * Get details on a cluster's migration to native VCN.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetClusterMigrateToNativeVcnStatusRequest
    * @return GetClusterMigrateToNativeVcnStatusResponse
    * @throws OciError when an error occurs
@@ -661,9 +697,11 @@ export class ContainerEngineClient {
       "opc-request-id": getClusterMigrateToNativeVcnStatusRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getClusterMigrateToNativeVcnStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getClusterMigrateToNativeVcnStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -705,6 +743,7 @@ export class ContainerEngineClient {
 
   /**
    * Get options available for clusters.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetClusterOptionsRequest
    * @return GetClusterOptionsResponse
    * @throws OciError when an error occurs
@@ -728,9 +767,11 @@ export class ContainerEngineClient {
       "opc-request-id": getClusterOptionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getClusterOptionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getClusterOptionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -767,6 +808,7 @@ export class ContainerEngineClient {
 
   /**
    * Get the details of a node pool.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetNodePoolRequest
    * @return GetNodePoolResponse
    * @throws OciError when an error occurs
@@ -787,9 +829,11 @@ export class ContainerEngineClient {
       "opc-request-id": getNodePoolRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getNodePoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNodePoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -831,6 +875,7 @@ export class ContainerEngineClient {
 
   /**
    * Get options available for node pools.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetNodePoolOptionsRequest
    * @return GetNodePoolOptionsResponse
    * @throws OciError when an error occurs
@@ -854,9 +899,11 @@ export class ContainerEngineClient {
       "opc-request-id": getNodePoolOptionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getNodePoolOptionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNodePoolOptionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -893,6 +940,7 @@ export class ContainerEngineClient {
 
   /**
    * Get the details of a work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -913,9 +961,11 @@ export class ContainerEngineClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -962,6 +1012,7 @@ export class ContainerEngineClient {
 
   /**
    * List all the cluster objects in a compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListClustersRequest
    * @return ListClustersResponse
    * @throws OciError when an error occurs
@@ -988,9 +1039,11 @@ export class ContainerEngineClient {
       "opc-request-id": listClustersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listClustersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listClustersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1084,6 +1137,7 @@ export class ContainerEngineClient {
 
   /**
    * List all the node pools in a compartment, and optionally filter by cluster.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListNodePoolsRequest
    * @return ListNodePoolsResponse
    * @throws OciError when an error occurs
@@ -1110,9 +1164,11 @@ export class ContainerEngineClient {
       "opc-request-id": listNodePoolsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNodePoolsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNodePoolsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1206,6 +1262,7 @@ export class ContainerEngineClient {
 
   /**
    * Get the errors of a work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1229,9 +1286,11 @@ export class ContainerEngineClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1268,6 +1327,7 @@ export class ContainerEngineClient {
 
   /**
    * Get the logs of a work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1291,9 +1351,11 @@ export class ContainerEngineClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1330,6 +1392,7 @@ export class ContainerEngineClient {
 
   /**
    * List all work requests in a compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1358,9 +1421,11 @@ export class ContainerEngineClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1454,6 +1519,7 @@ export class ContainerEngineClient {
 
   /**
    * Update the details of a cluster.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateClusterRequest
    * @return UpdateClusterResponse
    * @throws OciError when an error occurs
@@ -1475,9 +1541,11 @@ export class ContainerEngineClient {
       "opc-request-id": updateClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1520,6 +1588,7 @@ export class ContainerEngineClient {
 
   /**
    * Update the details of the cluster endpoint configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateClusterEndpointConfigRequest
    * @return UpdateClusterEndpointConfigResponse
    * @throws OciError when an error occurs
@@ -1542,9 +1611,11 @@ export class ContainerEngineClient {
       "opc-request-id": updateClusterEndpointConfigRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateClusterEndpointConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateClusterEndpointConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1587,6 +1658,7 @@ export class ContainerEngineClient {
 
   /**
    * Update the details of a node pool.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateNodePoolRequest
    * @return UpdateNodePoolResponse
    * @throws OciError when an error occurs
@@ -1608,9 +1680,11 @@ export class ContainerEngineClient {
       "opc-request-id": updateNodePoolRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateNodePoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNodePoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

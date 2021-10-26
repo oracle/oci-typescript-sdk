@@ -51,11 +51,11 @@ export interface DomainGovernanceSummary {
    */
   "onsSubscriptionId": string;
   /**
-   * Date-time when this domain governance was created. An RFC3339-formatted date and time string.
+   * Date-time when this domain governance was created. An RFC 3339-formatted date and time string.
    */
   "timeCreated"?: Date;
   /**
-   * Date-time when this domain governance was last updated. An RFC3339-formatted date and time string.
+   * Date-time when this domain governance was last updated. An RFC 3339-formatted date and time string.
    */
   "timeUpdated"?: Date;
   /**

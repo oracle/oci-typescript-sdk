@@ -26,7 +26,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum NotificationControlPlaneApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class NotificationControlPlaneClient {
   protected static serviceEndpointTemplate = "https://notification.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -45,6 +47,15 @@ export class NotificationControlPlaneClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -116,6 +127,7 @@ export class NotificationControlPlaneClient {
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeTopicCompartmentRequest
      * @return ChangeTopicCompartmentResponse
      * @throws OciError when an error occurs
@@ -139,9 +151,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "if-match": changeTopicCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeTopicCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeTopicCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -193,6 +207,7 @@ All Oracle Cloud Infrastructure resources, including topics, get an Oracle-assig
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateTopicRequest
      * @return CreateTopicResponse
      * @throws OciError when an error occurs
@@ -213,9 +228,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "opc-request-id": createTopicRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTopicRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTopicRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -265,6 +282,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteTopicRequest
      * @return DeleteTopicResponse
      * @throws OciError when an error occurs
@@ -287,9 +305,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "if-match": deleteTopicRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTopicRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTopicRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -323,6 +343,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   /**
    * Gets the specified topic's configuration information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTopicRequest
    * @return GetTopicResponse
    * @throws OciError when an error occurs
@@ -344,9 +365,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "opc-request-id": getTopicRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTopicRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTopicRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -391,6 +414,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListTopicsRequest
      * @return ListTopicsResponse
      * @throws OciError when an error occurs
@@ -419,9 +443,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
       "opc-request-id": listTopicsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTopicsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTopicsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -523,6 +549,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateTopicRequest
      * @return UpdateTopicResponse
      * @throws OciError when an error occurs
@@ -545,9 +572,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "if-match": updateTopicRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTopicRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTopicRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -593,7 +622,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   }
 }
 export enum NotificationDataPlaneApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class NotificationDataPlaneClient {
   protected static serviceEndpointTemplate = "https://notification.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -613,6 +644,15 @@ export class NotificationDataPlaneClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -707,6 +747,7 @@ export class NotificationDataPlaneClient {
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeSubscriptionCompartmentRequest
      * @return ChangeSubscriptionCompartmentResponse
      * @throws OciError when an error occurs
@@ -732,9 +773,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "if-match": changeSubscriptionCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeSubscriptionCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSubscriptionCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -777,6 +820,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateSubscriptionRequest
      * @return CreateSubscriptionResponse
      * @throws OciError when an error occurs
@@ -797,9 +841,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "opc-request-id": createSubscriptionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSubscriptionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -849,6 +895,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteSubscriptionRequest
      * @return DeleteSubscriptionResponse
      * @throws OciError when an error occurs
@@ -871,9 +918,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "if-match": deleteSubscriptionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSubscriptionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -909,6 +958,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetConfirmSubscriptionRequest
      * @return GetConfirmSubscriptionResponse
      * @throws OciError when an error occurs
@@ -933,9 +983,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "opc-request-id": getConfirmSubscriptionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getConfirmSubscriptionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConfirmSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -980,6 +1032,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetSubscriptionRequest
      * @return GetSubscriptionResponse
      * @throws OciError when an error occurs
@@ -1001,9 +1054,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "opc-request-id": getSubscriptionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSubscriptionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1048,6 +1103,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetUnsubscriptionRequest
      * @return GetUnsubscriptionResponse
      * @throws OciError when an error occurs
@@ -1072,9 +1128,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "opc-request-id": getUnsubscriptionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getUnsubscriptionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getUnsubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1114,6 +1172,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListSubscriptionsRequest
      * @return ListSubscriptionsResponse
      * @throws OciError when an error occurs
@@ -1138,9 +1197,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "opc-request-id": listSubscriptionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSubscriptionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubscriptionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1251,6 +1312,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60 per topic
 For more information about publishing messages, see [Publishing Messages](https://docs.cloud.oracle.com/iaas/Content/Notification/Tasks/publishingmessages.htm).
 * For steps to request a limit increase, see [Requesting a Service Limit Increase](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/servicelimits.htm#three).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param PublishMessageRequest
      * @return PublishMessageResponse
      * @throws OciError when an error occurs
@@ -1273,9 +1335,11 @@ For more information about publishing messages, see [Publishing Messages](https:
       "messageType": publishMessageRequest.messageType
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      publishMessageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      publishMessageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1320,6 +1384,7 @@ For more information about publishing messages, see [Publishing Messages](https:
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ResendSubscriptionConfirmationRequest
      * @return ResendSubscriptionConfirmationResponse
      * @throws OciError when an error occurs
@@ -1343,9 +1408,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "opc-request-id": resendSubscriptionConfirmationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      resendSubscriptionConfirmationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      resendSubscriptionConfirmationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1385,6 +1452,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * <p>
 Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateSubscriptionRequest
      * @return UpdateSubscriptionResponse
      * @throws OciError when an error occurs
@@ -1407,9 +1475,11 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       "if-match": updateSubscriptionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSubscriptionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

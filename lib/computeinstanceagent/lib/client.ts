@@ -26,7 +26,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum ComputeInstanceAgentApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ComputeInstanceAgentClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -46,6 +48,15 @@ export class ComputeInstanceAgentClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -140,6 +151,7 @@ export class ComputeInstanceAgentClient {
 Canceling a command is a best-effort attempt. If the command has already
 * completed, it will not be canceled.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CancelInstanceAgentCommandRequest
      * @return CancelInstanceAgentCommandResponse
      * @throws OciError when an error occurs
@@ -162,9 +174,11 @@ Canceling a command is a best-effort attempt. If the command has already
       "if-match": cancelInstanceAgentCommandRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelInstanceAgentCommandRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelInstanceAgentCommandRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -204,6 +218,7 @@ On Linux instances, the script runs in a bash shell. On Windows instances, the
 Commands that require administrator privileges will run only if Oracle Cloud Agent
 * is running with administrator privileges.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateInstanceAgentCommandRequest
      * @return CreateInstanceAgentCommandResponse
      * @throws OciError when an error occurs
@@ -224,9 +239,11 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       "opc-retry-token": createInstanceAgentCommandRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createInstanceAgentCommandRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createInstanceAgentCommandRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -273,6 +290,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
 
   /**
    * Gets information about an Oracle Cloud Agent command.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInstanceAgentCommandRequest
    * @return GetInstanceAgentCommandResponse
    * @throws OciError when an error occurs
@@ -294,9 +312,11 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       "opc-request-id": getInstanceAgentCommandRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getInstanceAgentCommandRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInstanceAgentCommandRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -338,6 +358,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
 
   /**
    * Gets information about the status of specified instance agent commandId for the given instanceId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInstanceAgentCommandExecutionRequest
    * @return GetInstanceAgentCommandExecutionResponse
    * @throws OciError when an error occurs
@@ -363,9 +384,11 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       "opc-request-id": getInstanceAgentCommandExecutionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getInstanceAgentCommandExecutionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInstanceAgentCommandExecutionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -409,6 +432,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
    * Lists the execution details for Oracle Cloud Agent commands that run on the specified compute
    * instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInstanceAgentCommandExecutionsRequest
    * @return ListInstanceAgentCommandExecutionsResponse
    * @throws OciError when an error occurs
@@ -438,9 +462,11 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       "opc-request-id": listInstanceAgentCommandExecutionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listInstanceAgentCommandExecutionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstanceAgentCommandExecutionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -535,6 +561,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   /**
    * Lists the Oracle Cloud Agent commands issued in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInstanceAgentCommandsRequest
    * @return ListInstanceAgentCommandsResponse
    * @throws OciError when an error occurs
@@ -560,9 +587,11 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       "opc-request-id": listInstanceAgentCommandsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listInstanceAgentCommandsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstanceAgentCommandsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -655,7 +684,9 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   }
 }
 export enum PluginApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class PluginClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -674,6 +705,15 @@ export class PluginClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -739,6 +779,7 @@ export class PluginClient {
 
   /**
    * The API to get information for a plugin.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInstanceAgentPluginRequest
    * @return GetInstanceAgentPluginResponse
    * @throws OciError when an error occurs
@@ -762,9 +803,11 @@ export class PluginClient {
       "opc-request-id": getInstanceAgentPluginRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getInstanceAgentPluginRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInstanceAgentPluginRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -801,6 +844,7 @@ export class PluginClient {
 
   /**
    * The API to get one or more plugin information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInstanceAgentPluginsRequest
    * @return ListInstanceAgentPluginsResponse
    * @throws OciError when an error occurs
@@ -829,9 +873,11 @@ export class PluginClient {
       "opc-request-id": listInstanceAgentPluginsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listInstanceAgentPluginsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstanceAgentPluginsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -924,7 +970,9 @@ export class PluginClient {
   }
 }
 export enum PluginconfigApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class PluginconfigClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -943,6 +991,15 @@ export class PluginconfigClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -1008,6 +1065,7 @@ export class PluginconfigClient {
 
   /**
    * The API to get the list of plugins that are available.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInstanceagentAvailablePluginsRequest
    * @return ListInstanceagentAvailablePluginsResponse
    * @throws OciError when an error occurs
@@ -1036,9 +1094,11 @@ export class PluginconfigClient {
       "opc-request-id": listInstanceagentAvailablePluginsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listInstanceagentAvailablePluginsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstanceagentAvailablePluginsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

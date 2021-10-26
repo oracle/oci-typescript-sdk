@@ -29,7 +29,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum AccessRequestsApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class AccessRequestsClient {
   protected static serviceEndpointTemplate =
     "https://operator-access-control.{region}.oci.{secondLevelDomain}";
@@ -50,6 +52,15 @@ export class AccessRequestsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -139,6 +150,7 @@ export class AccessRequestsClient {
   /**
    * Approves an access request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ApproveAccessRequestRequest
    * @return ApproveAccessRequestResponse
    * @throws OciError when an error occurs
@@ -162,9 +174,11 @@ export class AccessRequestsClient {
       "opc-request-id": approveAccessRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      approveAccessRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      approveAccessRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -207,6 +221,7 @@ export class AccessRequestsClient {
 
   /**
    * Gets details of an access request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAccessRequestRequest
    * @return GetAccessRequestResponse
    * @throws OciError when an error occurs
@@ -227,9 +242,11 @@ export class AccessRequestsClient {
       "opc-request-id": getAccessRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAccessRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAccessRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -267,6 +284,7 @@ export class AccessRequestsClient {
   /**
    * Returns a history of all status associated with the accessRequestId.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAccessRequestHistoriesRequest
    * @return ListAccessRequestHistoriesResponse
    * @throws OciError when an error occurs
@@ -291,9 +309,11 @@ export class AccessRequestsClient {
       "opc-request-id": listAccessRequestHistoriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAccessRequestHistoriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAccessRequestHistoriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -336,6 +356,7 @@ export class AccessRequestsClient {
   /**
    * Lists all access requests in the compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAccessRequestsRequest
    * @return ListAccessRequestsResponse
    * @throws OciError when an error occurs
@@ -363,9 +384,11 @@ export class AccessRequestsClient {
       "opc-request-id": listAccessRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAccessRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAccessRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -408,6 +431,7 @@ export class AccessRequestsClient {
   /**
    * Rejects an access request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RejectAccessRequestRequest
    * @return RejectAccessRequestResponse
    * @throws OciError when an error occurs
@@ -431,9 +455,11 @@ export class AccessRequestsClient {
       "opc-request-id": rejectAccessRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      rejectAccessRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rejectAccessRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -477,6 +503,7 @@ export class AccessRequestsClient {
   /**
    * Revokes an already approved access request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RevokeAccessRequestRequest
    * @return RevokeAccessRequestResponse
    * @throws OciError when an error occurs
@@ -500,9 +527,11 @@ export class AccessRequestsClient {
       "opc-request-id": revokeAccessRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      revokeAccessRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      revokeAccessRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -544,7 +573,9 @@ export class AccessRequestsClient {
   }
 }
 export enum OperatorActionsApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class OperatorActionsClient {
   protected static serviceEndpointTemplate =
     "https://operator-access-control.{region}.oci.{secondLevelDomain}";
@@ -564,6 +595,15 @@ export class OperatorActionsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -629,6 +669,7 @@ export class OperatorActionsClient {
 
   /**
    * Gets the operator action associated with the specified operator action ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOperatorActionRequest
    * @return GetOperatorActionResponse
    * @throws OciError when an error occurs
@@ -650,9 +691,11 @@ export class OperatorActionsClient {
       "opc-request-id": getOperatorActionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getOperatorActionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOperatorActionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -690,6 +733,7 @@ export class OperatorActionsClient {
   /**
    * Lists all the OperatorActions available in the system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListOperatorActionsRequest
    * @return ListOperatorActionsResponse
    * @throws OciError when an error occurs
@@ -717,9 +761,11 @@ export class OperatorActionsClient {
       "opc-request-id": listOperatorActionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listOperatorActionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOperatorActionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -760,7 +806,9 @@ export class OperatorActionsClient {
   }
 }
 export enum OperatorControlApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class OperatorControlClient {
   protected static serviceEndpointTemplate =
     "https://operator-access-control.{region}.oci.{secondLevelDomain}";
@@ -781,6 +829,15 @@ export class OperatorControlClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -870,6 +927,7 @@ export class OperatorControlClient {
   /**
    * Moves the Operator Control resource into a different compartment. When provided, 'If-Match' is checked against 'ETag' values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeOperatorControlCompartmentRequest
    * @return ChangeOperatorControlCompartmentResponse
    * @throws OciError when an error occurs
@@ -895,9 +953,11 @@ export class OperatorControlClient {
       "opc-request-id": changeOperatorControlCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeOperatorControlCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeOperatorControlCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -936,6 +996,7 @@ export class OperatorControlClient {
   /**
    * Creates an Operator Control.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateOperatorControlRequest
    * @return CreateOperatorControlResponse
    * @throws OciError when an error occurs
@@ -956,9 +1017,11 @@ export class OperatorControlClient {
       "opc-request-id": createOperatorControlRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createOperatorControlRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOperatorControlRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1010,6 +1073,7 @@ export class OperatorControlClient {
    * done under the Operator Control is preserved for future needs. The system purges the deleted Operator Control only when all of the audit data associated with the
    * Operator Control are also deleted. Therefore, you cannot reuse the name of the deleted Operator Control until the system purges the Operator Control.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteOperatorControlRequest
    * @return DeleteOperatorControlResponse
    * @throws OciError when an error occurs
@@ -1034,9 +1098,11 @@ export class OperatorControlClient {
       "opc-request-id": deleteOperatorControlRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteOperatorControlRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOperatorControlRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1069,6 +1135,7 @@ export class OperatorControlClient {
 
   /**
    * Gets the Operator Control associated with the specified Operator Control ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOperatorControlRequest
    * @return GetOperatorControlResponse
    * @throws OciError when an error occurs
@@ -1090,9 +1157,11 @@ export class OperatorControlClient {
       "opc-request-id": getOperatorControlRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getOperatorControlRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOperatorControlRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1135,6 +1204,7 @@ export class OperatorControlClient {
   /**
    * Lists the operator controls in the compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListOperatorControlsRequest
    * @return ListOperatorControlsResponse
    * @throws OciError when an error occurs
@@ -1162,9 +1232,11 @@ export class OperatorControlClient {
       "opc-request-id": listOperatorControlsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listOperatorControlsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOperatorControlsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1207,6 +1279,7 @@ export class OperatorControlClient {
   /**
    * Modifies the existing OperatorControl for a given operator control id except the operator control id.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateOperatorControlRequest
    * @return UpdateOperatorControlResponse
    * @throws OciError when an error occurs
@@ -1229,9 +1302,11 @@ export class OperatorControlClient {
       "opc-request-id": updateOperatorControlRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateOperatorControlRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOperatorControlRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1277,7 +1352,9 @@ export class OperatorControlClient {
   }
 }
 export enum OperatorControlAssignmentApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class OperatorControlAssignmentClient {
   protected static serviceEndpointTemplate =
     "https://operator-access-control.{region}.oci.{secondLevelDomain}";
@@ -1298,6 +1375,15 @@ export class OperatorControlAssignmentClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -1388,6 +1474,7 @@ export class OperatorControlAssignmentClient {
   /**
    * Changes the compartment of the specified Operator Control assignment ID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeOperatorControlAssignmentCompartmentRequest
    * @return ChangeOperatorControlAssignmentCompartmentResponse
    * @throws OciError when an error occurs
@@ -1414,9 +1501,11 @@ export class OperatorControlAssignmentClient {
       "opc-request-id": changeOperatorControlAssignmentCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeOperatorControlAssignmentCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeOperatorControlAssignmentCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1454,6 +1543,7 @@ export class OperatorControlAssignmentClient {
 
   /**
    * Creates an Operator Control Assignment resource. In effect, this brings the target resource under the governance of the Operator Control for specified time duration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateOperatorControlAssignmentRequest
    * @return CreateOperatorControlAssignmentResponse
    * @throws OciError when an error occurs
@@ -1476,9 +1566,11 @@ export class OperatorControlAssignmentClient {
       "opc-request-id": createOperatorControlAssignmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createOperatorControlAssignmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOperatorControlAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1521,6 +1613,7 @@ export class OperatorControlAssignmentClient {
 
   /**
    * Deletes the specified Operator Control Assignment. This has the effect of unassigning the specific Operator Control from the target resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteOperatorControlAssignmentRequest
    * @return DeleteOperatorControlAssignmentResponse
    * @throws OciError when an error occurs
@@ -1548,9 +1641,11 @@ export class OperatorControlAssignmentClient {
       "opc-request-id": deleteOperatorControlAssignmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteOperatorControlAssignmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOperatorControlAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1583,6 +1678,7 @@ export class OperatorControlAssignmentClient {
 
   /**
    * Gets the details of an Operator Control Assignment of the specified ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOperatorControlAssignmentRequest
    * @return GetOperatorControlAssignmentResponse
    * @throws OciError when an error occurs
@@ -1607,9 +1703,11 @@ export class OperatorControlAssignmentClient {
       "opc-request-id": getOperatorControlAssignmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getOperatorControlAssignmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOperatorControlAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1651,6 +1749,7 @@ export class OperatorControlAssignmentClient {
 
   /**
    * Lists all Operator Control Assignments.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListOperatorControlAssignmentsRequest
    * @return ListOperatorControlAssignmentsResponse
    * @throws OciError when an error occurs
@@ -1681,9 +1780,11 @@ export class OperatorControlAssignmentClient {
       "opc-request-id": listOperatorControlAssignmentsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listOperatorControlAssignmentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOperatorControlAssignmentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1726,6 +1827,7 @@ export class OperatorControlAssignmentClient {
   /**
    * Modifies the existing Operator Control assignment of the specified Operator Control assignment ID. Modifying the assignment does not change the Operator Control assignment ID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateOperatorControlAssignmentRequest
    * @return UpdateOperatorControlAssignmentResponse
    * @throws OciError when an error occurs
@@ -1751,9 +1853,11 @@ export class OperatorControlAssignmentClient {
       "opc-request-id": updateOperatorControlAssignmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateOperatorControlAssignmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOperatorControlAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

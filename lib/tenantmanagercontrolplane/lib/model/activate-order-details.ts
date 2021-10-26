@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The parameters for activating an order subscription in a tenancy
+ * The parameters for activating an order subscription in a tenancy.
  */
 export interface ActivateOrderDetails {
   /**
-   * Tenant Id to activate the Order.
+   * Tenant ID to activate the order.
    */
   "compartmentId": string;
 }

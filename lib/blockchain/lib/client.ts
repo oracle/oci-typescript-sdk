@@ -23,7 +23,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum BlockchainPlatformApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class BlockchainPlatformClient {
   protected static serviceEndpointTemplate = "https://blockchain.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -43,6 +45,15 @@ export class BlockchainPlatformClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -131,6 +142,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Change Blockchain Platform Compartment
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeBlockchainPlatformCompartmentRequest
    * @return ChangeBlockchainPlatformCompartmentResponse
    * @throws OciError when an error occurs
@@ -156,9 +168,11 @@ export class BlockchainPlatformClient {
       "opc-retry-token": changeBlockchainPlatformCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeBlockchainPlatformCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeBlockchainPlatformCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -202,6 +216,7 @@ export class BlockchainPlatformClient {
   /**
    * Creates a new Blockchain Platform.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateBlockchainPlatformRequest
    * @return CreateBlockchainPlatformResponse
    * @throws OciError when an error occurs
@@ -222,9 +237,11 @@ export class BlockchainPlatformClient {
       "opc-request-id": createBlockchainPlatformRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createBlockchainPlatformRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBlockchainPlatformRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -267,6 +284,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Create Blockchain Platform Osn
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateOsnRequest
    * @return CreateOsnResponse
    * @throws OciError when an error occurs
@@ -289,9 +307,11 @@ export class BlockchainPlatformClient {
       "opc-retry-token": createOsnRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createOsnRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOsnRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -334,6 +354,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Create Blockchain Platform Peer
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePeerRequest
    * @return CreatePeerResponse
    * @throws OciError when an error occurs
@@ -355,9 +376,11 @@ export class BlockchainPlatformClient {
       "opc-retry-token": createPeerRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPeerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPeerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -400,6 +423,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Delete a particular of a Blockchain Platform
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBlockchainPlatformRequest
    * @return DeleteBlockchainPlatformResponse
    * @throws OciError when an error occurs
@@ -422,9 +446,11 @@ export class BlockchainPlatformClient {
       "if-match": deleteBlockchainPlatformRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteBlockchainPlatformRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBlockchainPlatformRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -462,6 +488,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Delete a particular OSN of a Blockchain Platform
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteOsnRequest
    * @return DeleteOsnResponse
    * @throws OciError when an error occurs
@@ -484,9 +511,11 @@ export class BlockchainPlatformClient {
       "if-match": deleteOsnRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteOsnRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOsnRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -524,6 +553,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Delete a particular peer of a Blockchain Platform
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePeerRequest
    * @return DeletePeerResponse
    * @throws OciError when an error occurs
@@ -546,9 +576,11 @@ export class BlockchainPlatformClient {
       "if-match": deletePeerRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePeerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePeerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -586,6 +618,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Attempts to cancel the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteWorkRequestRequest
    * @return DeleteWorkRequestResponse
    * @throws OciError when an error occurs
@@ -608,9 +641,11 @@ export class BlockchainPlatformClient {
       "if-match": deleteWorkRequestRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -648,6 +683,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Gets information about a Blockchain Platform identified by the specific id
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBlockchainPlatformRequest
    * @return GetBlockchainPlatformResponse
    * @throws OciError when an error occurs
@@ -669,9 +705,11 @@ export class BlockchainPlatformClient {
       "opc-request-id": getBlockchainPlatformRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBlockchainPlatformRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBlockchainPlatformRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -713,6 +751,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Gets information about an OSN identified by the specific id
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOsnRequest
    * @return GetOsnResponse
    * @throws OciError when an error occurs
@@ -732,9 +771,11 @@ export class BlockchainPlatformClient {
       "opc-request-id": getOsnRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getOsnRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOsnRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -776,6 +817,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Gets information about a peer identified by the specific id
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPeerRequest
    * @return GetPeerResponse
    * @throws OciError when an error occurs
@@ -797,9 +839,11 @@ export class BlockchainPlatformClient {
       "opc-request-id": getPeerRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPeerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPeerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -841,6 +885,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Gets the status of the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -862,9 +907,11 @@ export class BlockchainPlatformClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -911,6 +958,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Returns a list Blockchain Platform Instances in a compartment
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBlockchainPlatformsRequest
    * @return ListBlockchainPlatformsResponse
    * @throws OciError when an error occurs
@@ -938,9 +986,11 @@ export class BlockchainPlatformClient {
       "opc-request-id": listBlockchainPlatformsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBlockchainPlatformsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBlockchainPlatformsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -982,6 +1032,7 @@ export class BlockchainPlatformClient {
 
   /**
    * List Blockchain Platform OSNs
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListOsnsRequest
    * @return ListOsnsResponse
    * @throws OciError when an error occurs
@@ -1009,9 +1060,11 @@ export class BlockchainPlatformClient {
       "opc-retry-token": listOsnsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listOsnsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOsnsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1053,6 +1106,7 @@ export class BlockchainPlatformClient {
 
   /**
    * List Blockchain Platform Peers
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPeersRequest
    * @return ListPeersResponse
    * @throws OciError when an error occurs
@@ -1080,9 +1134,11 @@ export class BlockchainPlatformClient {
       "opc-retry-token": listPeersRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPeersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPeersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1125,6 +1181,7 @@ export class BlockchainPlatformClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1149,9 +1206,11 @@ export class BlockchainPlatformClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1194,6 +1253,7 @@ export class BlockchainPlatformClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1218,9 +1278,11 @@ export class BlockchainPlatformClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1263,6 +1325,7 @@ export class BlockchainPlatformClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1289,9 +1352,11 @@ export class BlockchainPlatformClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1333,6 +1398,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Preview Scale Blockchain Platform
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PreviewScaleBlockchainPlatformRequest
    * @return PreviewScaleBlockchainPlatformResponse
    * @throws OciError when an error occurs
@@ -1356,9 +1422,11 @@ export class BlockchainPlatformClient {
       "opc-request-id": previewScaleBlockchainPlatformRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      previewScaleBlockchainPlatformRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      previewScaleBlockchainPlatformRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1405,6 +1473,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Scale Blockchain Platform
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ScaleBlockchainPlatformRequest
    * @return ScaleBlockchainPlatformResponse
    * @throws OciError when an error occurs
@@ -1428,9 +1497,11 @@ export class BlockchainPlatformClient {
       "opc-retry-token": scaleBlockchainPlatformRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      scaleBlockchainPlatformRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scaleBlockchainPlatformRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1473,6 +1544,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Start a Blockchain Platform
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StartBlockchainPlatformRequest
    * @return StartBlockchainPlatformResponse
    * @throws OciError when an error occurs
@@ -1496,9 +1568,11 @@ export class BlockchainPlatformClient {
       "opc-retry-token": startBlockchainPlatformRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      startBlockchainPlatformRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startBlockchainPlatformRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1536,6 +1610,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Stop a Blockchain Platform
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StopBlockchainPlatformRequest
    * @return StopBlockchainPlatformResponse
    * @throws OciError when an error occurs
@@ -1559,9 +1634,11 @@ export class BlockchainPlatformClient {
       "opc-retry-token": stopBlockchainPlatformRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      stopBlockchainPlatformRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopBlockchainPlatformRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1599,6 +1676,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Update a particular of a Blockchain Platform
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBlockchainPlatformRequest
    * @return UpdateBlockchainPlatformResponse
    * @throws OciError when an error occurs
@@ -1622,9 +1700,11 @@ export class BlockchainPlatformClient {
       "opc-retry-token": updateBlockchainPlatformRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateBlockchainPlatformRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBlockchainPlatformRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1667,6 +1747,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Update Blockchain Platform OSN
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateOsnRequest
    * @return UpdateOsnResponse
    * @throws OciError when an error occurs
@@ -1690,9 +1771,11 @@ export class BlockchainPlatformClient {
       "opc-retry-token": updateOsnRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateOsnRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOsnRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1735,6 +1818,7 @@ export class BlockchainPlatformClient {
 
   /**
    * Update Blockchain Platform Peer
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdatePeerRequest
    * @return UpdatePeerResponse
    * @throws OciError when an error occurs
@@ -1758,9 +1842,11 @@ export class BlockchainPlatformClient {
       "opc-retry-token": updatePeerRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePeerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePeerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

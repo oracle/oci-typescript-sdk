@@ -65,6 +65,11 @@ export interface SummarizeHostInsightResourceStatisticsRequest extends common.Ba
    */
   "id"?: Array<string>;
   /**
+   * Optional list of exadata insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "exadataInsightId"?: Array<string>;
+  /**
    * Percentile values of daily usage to be used for computing the aggregate resource usage.
    *
    */

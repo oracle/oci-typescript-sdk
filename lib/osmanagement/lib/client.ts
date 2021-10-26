@@ -26,7 +26,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum EventApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class EventClient {
   protected static serviceEndpointTemplate = "https://osms.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -45,6 +47,15 @@ export class EventClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -111,6 +122,7 @@ export class EventClient {
   /**
    * Delete an event content ZIP archive from the service
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteEventContentRequest
    * @return DeleteEventContentResponse
    * @throws OciError when an error occurs
@@ -136,9 +148,11 @@ export class EventClient {
       "opc-retry-token": deleteEventContentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteEventContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteEventContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -171,6 +185,7 @@ export class EventClient {
 
   /**
    * Gets an Event by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetEventRequest
    * @return GetEventResponse
    * @throws OciError when an error occurs
@@ -194,9 +209,11 @@ export class EventClient {
       "opc-request-id": getEventRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getEventRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEventRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -239,6 +256,7 @@ export class EventClient {
   /**
    * Get additional data about a event as a ZIP archive. The archive content depends on the event eventType.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetEventContentRequest
    * @return GetEventContentResponse
    * @throws OciError when an error occurs
@@ -262,9 +280,11 @@ export class EventClient {
       "opc-request-id": getEventContentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getEventContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEventContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -307,6 +327,7 @@ export class EventClient {
   /**
    * Get summary information about events on this instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetEventReportRequest
    * @return GetEventReportResponse
    * @throws OciError when an error occurs
@@ -332,9 +353,11 @@ export class EventClient {
       "opc-request-id": getEventReportRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getEventReportRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEventReportRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -372,6 +395,7 @@ export class EventClient {
   /**
    * Returns a list of Events.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListEventsRequest
    * @return ListEventsResponse
    * @throws OciError when an error occurs
@@ -402,9 +426,11 @@ export class EventClient {
       "opc-request-id": listEventsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listEventsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEventsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -447,6 +473,7 @@ export class EventClient {
   /**
    * Returns a list of related events. For now pagination is not implemented.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRelatedEventsRequest
    * @return ListRelatedEventsResponse
    * @throws OciError when an error occurs
@@ -475,9 +502,11 @@ export class EventClient {
       "opc-request-id": listRelatedEventsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRelatedEventsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRelatedEventsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -519,6 +548,7 @@ export class EventClient {
 
   /**
    * Updates an existing event associated to a managed instance
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateEventRequest
    * @return UpdateEventResponse
    * @throws OciError when an error occurs
@@ -543,9 +573,11 @@ export class EventClient {
       "if-match": updateEventRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateEventRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateEventRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -593,6 +625,7 @@ export class EventClient {
   /**
    * Upload the event content as a ZIP archive from the managed instance to the service
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UploadEventContentRequest
    * @return UploadEventContentResponse
    * @throws OciError when an error occurs
@@ -618,9 +651,11 @@ export class EventClient {
       "opc-retry-token": uploadEventContentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      uploadEventContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      uploadEventContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -652,7 +687,9 @@ export class EventClient {
   }
 }
 export enum OsManagementApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class OsManagementClient {
   protected static serviceEndpointTemplate = "https://osms.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -672,6 +709,15 @@ export class OsManagementClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -761,6 +807,7 @@ export class OsManagementClient {
   /**
    * Adds a given list of Software Packages to a specific Software Source.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddPackagesToSoftwareSourceRequest
    * @return AddPackagesToSoftwareSourceResponse
    * @throws OciError when an error occurs
@@ -782,9 +829,11 @@ export class OsManagementClient {
       "opc-request-id": addPackagesToSoftwareSourceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addPackagesToSoftwareSourceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addPackagesToSoftwareSourceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -825,6 +874,7 @@ export class OsManagementClient {
    * source has been added, then packages from that software source can be
    * installed on the managed instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachChildSoftwareSourceToManagedInstanceRequest
    * @return AttachChildSoftwareSourceToManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -849,9 +899,11 @@ export class OsManagementClient {
       "opc-retry-token": attachChildSoftwareSourceToManagedInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      attachChildSoftwareSourceToManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachChildSoftwareSourceToManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -893,6 +945,7 @@ export class OsManagementClient {
    * Instance Group which will then apply to all Managed Instances in the
    * group.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachManagedInstanceToManagedInstanceGroupRequest
    * @return AttachManagedInstanceToManagedInstanceGroupResponse
    * @throws OciError when an error occurs
@@ -920,9 +973,11 @@ export class OsManagementClient {
       "opc-retry-token": attachManagedInstanceToManagedInstanceGroupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      attachManagedInstanceToManagedInstanceGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachManagedInstanceToManagedInstanceGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -959,6 +1014,7 @@ export class OsManagementClient {
    * installed on the managed instance. Software sources that have this
    * software source as a parent will be able to be added to this managed instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachParentSoftwareSourceToManagedInstanceRequest
    * @return AttachParentSoftwareSourceToManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -983,9 +1039,11 @@ export class OsManagementClient {
       "opc-retry-token": attachParentSoftwareSourceToManagedInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      attachParentSoftwareSourceToManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachParentSoftwareSourceToManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1025,6 +1083,7 @@ export class OsManagementClient {
    * Moves a resource into a different compartment. When provided, If-Match
    * is checked against ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeManagedInstanceGroupCompartmentRequest
    * @return ChangeManagedInstanceGroupCompartmentResponse
    * @throws OciError when an error occurs
@@ -1051,9 +1110,11 @@ export class OsManagementClient {
       "opc-retry-token": changeManagedInstanceGroupCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeManagedInstanceGroupCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeManagedInstanceGroupCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1093,6 +1154,7 @@ export class OsManagementClient {
    * Moves a resource into a different compartment. When provided, If-Match
    * is checked against ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeScheduledJobCompartmentRequest
    * @return ChangeScheduledJobCompartmentResponse
    * @throws OciError when an error occurs
@@ -1116,9 +1178,11 @@ export class OsManagementClient {
       "opc-retry-token": changeScheduledJobCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeScheduledJobCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeScheduledJobCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1158,6 +1222,7 @@ export class OsManagementClient {
    * Moves a resource into a different compartment. When provided, If-Match
    * is checked against ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeSoftwareSourceCompartmentRequest
    * @return ChangeSoftwareSourceCompartmentResponse
    * @throws OciError when an error occurs
@@ -1181,9 +1246,11 @@ export class OsManagementClient {
       "opc-retry-token": changeSoftwareSourceCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeSoftwareSourceCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSoftwareSourceCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1224,6 +1291,7 @@ export class OsManagementClient {
    * This will not contain any managed instances after it is first created,
    * and they must be added later.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateManagedInstanceGroupRequest
    * @return CreateManagedInstanceGroupResponse
    * @throws OciError when an error occurs
@@ -1244,9 +1312,11 @@ export class OsManagementClient {
       "opc-retry-token": createManagedInstanceGroupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createManagedInstanceGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createManagedInstanceGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1302,6 +1372,7 @@ export class OsManagementClient {
    * as a one-time execution in the future, or as a recurring execution
    * that repeats on a defined interval.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateScheduledJobRequest
    * @return CreateScheduledJobResponse
    * @throws OciError when an error occurs
@@ -1321,9 +1392,11 @@ export class OsManagementClient {
       "opc-retry-token": createScheduledJobRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createScheduledJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createScheduledJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1378,6 +1451,7 @@ export class OsManagementClient {
    * This will not contain any packages after it is first created,
    * and they must be added later.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateSoftwareSourceRequest
    * @return CreateSoftwareSourceResponse
    * @throws OciError when an error occurs
@@ -1398,9 +1472,11 @@ export class OsManagementClient {
       "opc-retry-token": createSoftwareSourceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSoftwareSourceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSoftwareSourceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1453,6 +1529,7 @@ export class OsManagementClient {
   /**
    * Deletes a Managed Instance Group from the management system
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteManagedInstanceGroupRequest
    * @return DeleteManagedInstanceGroupResponse
    * @throws OciError when an error occurs
@@ -1475,9 +1552,11 @@ export class OsManagementClient {
       "if-match": deleteManagedInstanceGroupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteManagedInstanceGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteManagedInstanceGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1511,6 +1590,7 @@ export class OsManagementClient {
   /**
    * Cancels an existing Scheduled Job on the management system
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteScheduledJobRequest
    * @return DeleteScheduledJobResponse
    * @throws OciError when an error occurs
@@ -1532,9 +1612,11 @@ export class OsManagementClient {
       "if-match": deleteScheduledJobRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteScheduledJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteScheduledJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1568,6 +1650,7 @@ export class OsManagementClient {
   /**
    * Deletes a custom Software Source on the management system
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSoftwareSourceRequest
    * @return DeleteSoftwareSourceResponse
    * @throws OciError when an error occurs
@@ -1590,9 +1673,11 @@ export class OsManagementClient {
       "if-match": deleteSoftwareSourceRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSoftwareSourceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSoftwareSourceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1627,6 +1712,7 @@ export class OsManagementClient {
    * Removes a child software source from a managed instance. Packages will no longer be able to be
    * installed from these software sources.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetachChildSoftwareSourceFromManagedInstanceRequest
    * @return DetachChildSoftwareSourceFromManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -1651,9 +1737,11 @@ export class OsManagementClient {
       "opc-retry-token": detachChildSoftwareSourceFromManagedInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detachChildSoftwareSourceFromManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachChildSoftwareSourceFromManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1692,6 +1780,7 @@ export class OsManagementClient {
   /**
    * Removes a Managed Instance from a Managed Instance Group.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetachManagedInstanceFromManagedInstanceGroupRequest
    * @return DetachManagedInstanceFromManagedInstanceGroupResponse
    * @throws OciError when an error occurs
@@ -1719,9 +1808,11 @@ export class OsManagementClient {
       "opc-retry-token": detachManagedInstanceFromManagedInstanceGroupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detachManagedInstanceFromManagedInstanceGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachManagedInstanceFromManagedInstanceGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1756,6 +1847,7 @@ export class OsManagementClient {
    * Removes a software source from a managed instance. All child software sources will also be removed
    * from the managed instance. Packages will no longer be able to be installed from these software sources.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetachParentSoftwareSourceFromManagedInstanceRequest
    * @return DetachParentSoftwareSourceFromManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -1780,9 +1872,11 @@ export class OsManagementClient {
       "opc-retry-token": detachParentSoftwareSourceFromManagedInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detachParentSoftwareSourceFromManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachParentSoftwareSourceFromManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1821,6 +1915,7 @@ export class OsManagementClient {
   /**
    * Returns a specific erratum.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetErratumRequest
    * @return GetErratumResponse
    * @throws OciError when an error occurs
@@ -1841,9 +1936,11 @@ export class OsManagementClient {
       "opc-request-id": getErratumRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getErratumRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getErratumRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1881,6 +1978,7 @@ export class OsManagementClient {
   /**
    * Returns a specific Managed Instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagedInstanceRequest
    * @return GetManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -1901,9 +1999,11 @@ export class OsManagementClient {
       "opc-request-id": getManagedInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1946,6 +2046,7 @@ export class OsManagementClient {
   /**
    * Returns a specific Managed Instance Group.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagedInstanceGroupRequest
    * @return GetManagedInstanceGroupResponse
    * @throws OciError when an error occurs
@@ -1967,9 +2068,11 @@ export class OsManagementClient {
       "opc-request-id": getManagedInstanceGroupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getManagedInstanceGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getManagedInstanceGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2017,6 +2120,7 @@ export class OsManagementClient {
   /**
    * Gets the detailed information for the Scheduled Job with the given ID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetScheduledJobRequest
    * @return GetScheduledJobResponse
    * @throws OciError when an error occurs
@@ -2037,9 +2141,11 @@ export class OsManagementClient {
       "opc-request-id": getScheduledJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getScheduledJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getScheduledJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2087,6 +2193,7 @@ export class OsManagementClient {
   /**
    * Returns a specific Software Package.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSoftwarePackageRequest
    * @return GetSoftwarePackageResponse
    * @throws OciError when an error occurs
@@ -2108,9 +2215,11 @@ export class OsManagementClient {
       "opc-request-id": getSoftwarePackageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSoftwarePackageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSoftwarePackageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2148,6 +2257,7 @@ export class OsManagementClient {
   /**
    * Returns a specific Software Source.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSoftwareSourceRequest
    * @return GetSoftwareSourceResponse
    * @throws OciError when an error occurs
@@ -2168,9 +2278,11 @@ export class OsManagementClient {
       "opc-request-id": getSoftwareSourceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSoftwareSourceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSoftwareSourceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2218,6 +2330,7 @@ export class OsManagementClient {
   /**
    * Returns a Windows Update object.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWindowsUpdateRequest
    * @return GetWindowsUpdateResponse
    * @throws OciError when an error occurs
@@ -2238,9 +2351,11 @@ export class OsManagementClient {
       "opc-request-id": getWindowsUpdateRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWindowsUpdateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWindowsUpdateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2277,6 +2392,7 @@ export class OsManagementClient {
 
   /**
    * Gets the detailed information for the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -2297,9 +2413,11 @@ export class OsManagementClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2347,6 +2465,7 @@ export class OsManagementClient {
   /**
    * Install all of the available package updates for the managed instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param InstallAllPackageUpdatesOnManagedInstanceRequest
    * @return InstallAllPackageUpdatesOnManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -2373,9 +2492,11 @@ export class OsManagementClient {
       "opc-retry-token": installAllPackageUpdatesOnManagedInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      installAllPackageUpdatesOnManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      installAllPackageUpdatesOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2414,6 +2535,7 @@ export class OsManagementClient {
   /**
    * Install all of the available updates for the Managed Instance Group.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param InstallAllUpdatesOnManagedInstanceGroupRequest
    * @return InstallAllUpdatesOnManagedInstanceGroupResponse
    * @throws OciError when an error occurs
@@ -2441,9 +2563,11 @@ export class OsManagementClient {
       "opc-retry-token": installAllUpdatesOnManagedInstanceGroupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      installAllUpdatesOnManagedInstanceGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      installAllUpdatesOnManagedInstanceGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2482,6 +2606,7 @@ export class OsManagementClient {
   /**
    * Install all of the available Windows updates for the managed instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param InstallAllWindowsUpdatesOnManagedInstanceRequest
    * @return InstallAllWindowsUpdatesOnManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -2508,9 +2633,11 @@ export class OsManagementClient {
       "opc-retry-token": installAllWindowsUpdatesOnManagedInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      installAllWindowsUpdatesOnManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      installAllWindowsUpdatesOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2549,6 +2676,7 @@ export class OsManagementClient {
   /**
    * Installs a package on a managed instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param InstallPackageOnManagedInstanceRequest
    * @return InstallPackageOnManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -2573,9 +2701,11 @@ export class OsManagementClient {
       "opc-retry-token": installPackageOnManagedInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      installPackageOnManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      installPackageOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2614,6 +2744,7 @@ export class OsManagementClient {
   /**
    * Updates a package on a managed instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param InstallPackageUpdateOnManagedInstanceRequest
    * @return InstallPackageUpdateOnManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -2640,9 +2771,11 @@ export class OsManagementClient {
       "opc-retry-token": installPackageUpdateOnManagedInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      installPackageUpdateOnManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      installPackageUpdateOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2681,6 +2814,7 @@ export class OsManagementClient {
   /**
    * Installs a Windows update on a managed instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param InstallWindowsUpdateOnManagedInstanceRequest
    * @return InstallWindowsUpdateOnManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -2707,9 +2841,11 @@ export class OsManagementClient {
       "opc-retry-token": installWindowsUpdateOnManagedInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      installWindowsUpdateOnManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      installWindowsUpdateOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2748,6 +2884,7 @@ export class OsManagementClient {
   /**
    * Returns a list of packages available for install on the Managed Instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAvailablePackagesForManagedInstanceRequest
    * @return ListAvailablePackagesForManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -2778,9 +2915,11 @@ export class OsManagementClient {
       "opc-request-id": listAvailablePackagesForManagedInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAvailablePackagesForManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAvailablePackagesForManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2875,6 +3014,7 @@ export class OsManagementClient {
   /**
    * Returns a list of available software sources for a Managed Instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAvailableSoftwareSourcesForManagedInstanceRequest
    * @return ListAvailableSoftwareSourcesForManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -2905,9 +3045,11 @@ export class OsManagementClient {
       "opc-request-id": listAvailableSoftwareSourcesForManagedInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAvailableSoftwareSourcesForManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAvailableSoftwareSourcesForManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3010,6 +3152,7 @@ export class OsManagementClient {
   /**
    * Returns a list of available updates for a Managed Instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAvailableUpdatesForManagedInstanceRequest
    * @return ListAvailableUpdatesForManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -3040,9 +3183,11 @@ export class OsManagementClient {
       "opc-request-id": listAvailableUpdatesForManagedInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAvailableUpdatesForManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAvailableUpdatesForManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3137,6 +3282,7 @@ export class OsManagementClient {
   /**
    * Returns a list of available Windows updates for a Managed Instance. This is only applicable to Windows instances.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAvailableWindowsUpdatesForManagedInstanceRequest
    * @return ListAvailableWindowsUpdatesForManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -3169,9 +3315,11 @@ export class OsManagementClient {
       "opc-request-id": listAvailableWindowsUpdatesForManagedInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAvailableWindowsUpdatesForManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAvailableWindowsUpdatesForManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3270,6 +3418,7 @@ export class OsManagementClient {
   /**
    * Returns a list of all of the currently available Errata in the system
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListErrataRequest
    * @return ListErrataResponse
    * @throws OciError when an error occurs
@@ -3298,9 +3447,11 @@ export class OsManagementClient {
       "opc-request-id": listErrataRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listErrataRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listErrataRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3395,6 +3546,7 @@ export class OsManagementClient {
   /**
    * Returns a list of errata relevant to the Managed Instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagedInstanceErrataRequest
    * @return ListManagedInstanceErrataResponse
    * @throws OciError when an error occurs
@@ -3423,9 +3575,11 @@ export class OsManagementClient {
       "opc-request-id": listManagedInstanceErrataRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagedInstanceErrataRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagedInstanceErrataRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3520,6 +3674,7 @@ export class OsManagementClient {
   /**
    * Returns a list of all Managed Instance Groups.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagedInstanceGroupsRequest
    * @return ListManagedInstanceGroupsResponse
    * @throws OciError when an error occurs
@@ -3548,9 +3703,11 @@ export class OsManagementClient {
       "opc-request-id": listManagedInstanceGroupsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagedInstanceGroupsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagedInstanceGroupsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3645,6 +3802,7 @@ export class OsManagementClient {
   /**
    * Returns a list of all Managed Instances.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagedInstancesRequest
    * @return ListManagedInstancesResponse
    * @throws OciError when an error occurs
@@ -3672,9 +3830,11 @@ export class OsManagementClient {
       "opc-request-id": listManagedInstancesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagedInstancesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagedInstancesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3769,6 +3929,7 @@ export class OsManagementClient {
   /**
    * Returns a list of installed packages on the Managed Instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPackagesInstalledOnManagedInstanceRequest
    * @return ListPackagesInstalledOnManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -3799,9 +3960,11 @@ export class OsManagementClient {
       "opc-request-id": listPackagesInstalledOnManagedInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPackagesInstalledOnManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPackagesInstalledOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3896,6 +4059,7 @@ export class OsManagementClient {
   /**
    * Returns a list of all of the currently active Scheduled Jobs in the system
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListScheduledJobsRequest
    * @return ListScheduledJobsResponse
    * @throws OciError when an error occurs
@@ -3927,9 +4091,11 @@ export class OsManagementClient {
       "opc-request-id": listScheduledJobsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listScheduledJobsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listScheduledJobsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4024,6 +4190,7 @@ export class OsManagementClient {
   /**
    * Lists Software Packages in a Software Source
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSoftwareSourcePackagesRequest
    * @return ListSoftwareSourcePackagesResponse
    * @throws OciError when an error occurs
@@ -4052,9 +4219,11 @@ export class OsManagementClient {
       "opc-request-id": listSoftwareSourcePackagesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSoftwareSourcePackagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSoftwareSourcePackagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4149,6 +4318,7 @@ export class OsManagementClient {
   /**
    * Returns a list of all Software Sources.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSoftwareSourcesRequest
    * @return ListSoftwareSourcesResponse
    * @throws OciError when an error occurs
@@ -4175,9 +4345,11 @@ export class OsManagementClient {
       "opc-request-id": listSoftwareSourcesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSoftwareSourcesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSoftwareSourcesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4272,6 +4444,7 @@ export class OsManagementClient {
   /**
    * Returns a list of all of the Scheduled Jobs whose next execution time is at or before the specified time.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListUpcomingScheduledJobsRequest
    * @return ListUpcomingScheduledJobsResponse
    * @throws OciError when an error occurs
@@ -4303,9 +4476,11 @@ export class OsManagementClient {
       "opc-request-id": listUpcomingScheduledJobsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listUpcomingScheduledJobsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listUpcomingScheduledJobsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4400,6 +4575,7 @@ export class OsManagementClient {
   /**
    * Returns a list of Windows Updates.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWindowsUpdatesRequest
    * @return ListWindowsUpdatesResponse
    * @throws OciError when an error occurs
@@ -4425,9 +4601,11 @@ export class OsManagementClient {
       "opc-request-id": listWindowsUpdatesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWindowsUpdatesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWindowsUpdatesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4522,6 +4700,7 @@ export class OsManagementClient {
   /**
    * Returns a list of installed Windows updates for a Managed Instance. This is only applicable to Windows instances.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWindowsUpdatesInstalledOnManagedInstanceRequest
    * @return ListWindowsUpdatesInstalledOnManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -4552,9 +4731,11 @@ export class OsManagementClient {
       "opc-request-id": listWindowsUpdatesInstalledOnManagedInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWindowsUpdatesInstalledOnManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWindowsUpdatesInstalledOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4652,6 +4833,7 @@ export class OsManagementClient {
 
   /**
    * Gets the errors for the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -4678,9 +4860,11 @@ export class OsManagementClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4779,6 +4963,7 @@ export class OsManagementClient {
 
   /**
    * Lists the log entries for the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -4804,9 +4989,11 @@ export class OsManagementClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4906,6 +5093,7 @@ export class OsManagementClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -4933,9 +5121,11 @@ export class OsManagementClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5030,6 +5220,7 @@ export class OsManagementClient {
   /**
    * Removes an installed package from a managed instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemovePackageFromManagedInstanceRequest
    * @return RemovePackageFromManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -5054,9 +5245,11 @@ export class OsManagementClient {
       "opc-retry-token": removePackageFromManagedInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removePackageFromManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removePackageFromManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5095,6 +5288,7 @@ export class OsManagementClient {
   /**
    * Removes a given list of Software Packages from a specific Software Source.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemovePackagesFromSoftwareSourceRequest
    * @return RemovePackagesFromSoftwareSourceResponse
    * @throws OciError when an error occurs
@@ -5116,9 +5310,11 @@ export class OsManagementClient {
       "opc-request-id": removePackagesFromSoftwareSourceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removePackagesFromSoftwareSourceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removePackagesFromSoftwareSourceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5158,6 +5354,7 @@ export class OsManagementClient {
    * This will trigger an already created Scheduled Job to being executing
    * immediately instead of waiting for its next regularly scheduled time.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RunScheduledJobNowRequest
    * @return RunScheduledJobNowResponse
    * @throws OciError when an error occurs
@@ -5180,9 +5377,11 @@ export class OsManagementClient {
       "opc-retry-token": runScheduledJobNowRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      runScheduledJobNowRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      runScheduledJobNowRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5222,6 +5421,7 @@ export class OsManagementClient {
    * Searches all of the available Software Sources and returns any/all Software Packages matching
    * the search criteria.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SearchSoftwarePackagesRequest
    * @return SearchSoftwarePackagesResponse
    * @throws OciError when an error occurs
@@ -5249,9 +5449,11 @@ export class OsManagementClient {
       "opc-request-id": searchSoftwarePackagesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      searchSoftwarePackagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchSoftwarePackagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5347,6 +5549,7 @@ export class OsManagementClient {
    * This will force an already created Scheduled Job to skip its
    * next regularly scheduled execution
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SkipNextScheduledJobExecutionRequest
    * @return SkipNextScheduledJobExecutionResponse
    * @throws OciError when an error occurs
@@ -5370,9 +5573,11 @@ export class OsManagementClient {
       "opc-retry-token": skipNextScheduledJobExecutionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      skipNextScheduledJobExecutionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      skipNextScheduledJobExecutionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5411,6 +5616,7 @@ export class OsManagementClient {
   /**
    * Updates a specific Managed Instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateManagedInstanceRequest
    * @return UpdateManagedInstanceResponse
    * @throws OciError when an error occurs
@@ -5433,9 +5639,11 @@ export class OsManagementClient {
       "if-match": updateManagedInstanceRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateManagedInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5483,6 +5691,7 @@ export class OsManagementClient {
   /**
    * Updates a specific Managed Instance Group.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateManagedInstanceGroupRequest
    * @return UpdateManagedInstanceGroupResponse
    * @throws OciError when an error occurs
@@ -5505,9 +5714,11 @@ export class OsManagementClient {
       "if-match": updateManagedInstanceGroupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateManagedInstanceGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateManagedInstanceGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5555,6 +5766,7 @@ export class OsManagementClient {
   /**
    * Updates an existing Scheduled Job on the management system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateScheduledJobRequest
    * @return UpdateScheduledJobResponse
    * @throws OciError when an error occurs
@@ -5576,9 +5788,11 @@ export class OsManagementClient {
       "if-match": updateScheduledJobRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateScheduledJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateScheduledJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5626,6 +5840,7 @@ export class OsManagementClient {
   /**
    * Updates an existing custom Software Source on the management system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSoftwareSourceRequest
    * @return UpdateSoftwareSourceResponse
    * @throws OciError when an error occurs
@@ -5648,9 +5863,11 @@ export class OsManagementClient {
       "if-match": updateSoftwareSourceRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSoftwareSourceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSoftwareSourceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -35,6 +35,14 @@ export interface ListPublishedObjectsRequest extends common.BaseRequest {
    */
   "name"?: string;
   /**
+   * This parameter can be used to filter objects by the names starting with the given value.
+   */
+  "nameStartsWith"?: string;
+  /**
+   * This parameter can be used to filter objects by the names that match partially or fully with the given value.
+   */
+  "nameContains"?: string;
+  /**
    * Used to filter by the identifier of the published object.
    *
    */

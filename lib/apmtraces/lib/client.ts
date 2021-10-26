@@ -24,7 +24,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum QueryApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class QueryClient {
   protected static serviceEndpointTemplate = "https://apm-trace.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -43,6 +45,15 @@ export class QueryClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -110,6 +121,7 @@ export class QueryClient {
    * Returns a list of predefined quick pick queries intended to assist the user
    * to choose a query to run.  There is no sorting applied on the results.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListQuickPicksRequest
    * @return ListQuickPicksResponse
    * @throws OciError when an error occurs
@@ -132,9 +144,11 @@ export class QueryClient {
       "opc-request-id": listQuickPicksRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listQuickPicksRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listQuickPicksRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -237,6 +251,7 @@ export class QueryClient {
    * Further query results are grouped by the attributes specified in the group by clause.  Finally,
    * ordering (asc/desc) is done by the specified attributes in the order by clause.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param QueryRequest
    * @return QueryResponse
    * @throws OciError when an error occurs
@@ -259,9 +274,11 @@ export class QueryClient {
       "opc-request-id": queryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      queryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      queryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -319,6 +336,7 @@ export class QueryClient {
    * Further query results are grouped by the attributes specified in the group by clause.  Finally,
    * ordering (asc/desc) is done by the specified attributes in the order by clause.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param QueryOldRequest
    * @return QueryOldResponse
    * @throws OciError when an error occurs
@@ -343,9 +361,11 @@ export class QueryClient {
       "opc-request-id": queryOldRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      queryOldRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      queryOldRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -396,7 +416,9 @@ export class QueryClient {
   }
 }
 export enum TraceApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class TraceClient {
   protected static serviceEndpointTemplate = "https://apm-trace.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -415,6 +437,15 @@ export class TraceClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -481,6 +512,7 @@ export class TraceClient {
   /**
    * Get the span details identified by spanId
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSpanRequest
    * @return GetSpanResponse
    * @throws OciError when an error occurs
@@ -504,9 +536,11 @@ export class TraceClient {
       "opc-request-id": getSpanRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSpanRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSpanRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -544,6 +578,7 @@ export class TraceClient {
   /**
    * Get the trace details identified by traceId
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTraceRequest
    * @return GetTraceResponse
    * @throws OciError when an error occurs
@@ -566,9 +601,11 @@ export class TraceClient {
       "opc-request-id": getTraceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTraceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTraceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

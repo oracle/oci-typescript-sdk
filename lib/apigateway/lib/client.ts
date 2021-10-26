@@ -29,7 +29,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum ApiGatewayApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ApiGatewayClient {
   protected static serviceEndpointTemplate = "https://apigateway.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -49,6 +51,15 @@ export class ApiGatewayClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -137,6 +148,7 @@ export class ApiGatewayClient {
 
   /**
    * Changes the API compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeApiCompartmentRequest
    * @return ChangeApiCompartmentResponse
    * @throws OciError when an error occurs
@@ -159,9 +171,11 @@ export class ApiGatewayClient {
       "opc-request-id": changeApiCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeApiCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeApiCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -204,6 +218,7 @@ export class ApiGatewayClient {
 
   /**
    * Changes the certificate compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCertificateCompartmentRequest
    * @return ChangeCertificateCompartmentResponse
    * @throws OciError when an error occurs
@@ -227,9 +242,11 @@ export class ApiGatewayClient {
       "opc-request-id": changeCertificateCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeCertificateCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCertificateCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -268,6 +285,7 @@ export class ApiGatewayClient {
   /**
    * Creates a new API.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateApiRequest
    * @return CreateApiResponse
    * @throws OciError when an error occurs
@@ -287,9 +305,11 @@ export class ApiGatewayClient {
       "opc-request-id": createApiRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createApiRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createApiRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -347,6 +367,7 @@ export class ApiGatewayClient {
   /**
    * Creates a new Certificate.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateCertificateRequest
    * @return CreateCertificateResponse
    * @throws OciError when an error occurs
@@ -366,9 +387,11 @@ export class ApiGatewayClient {
       "opc-request-id": createCertificateRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCertificateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCertificateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -425,6 +448,7 @@ export class ApiGatewayClient {
 
   /**
    * Creates a new SDK.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateSdkRequest
    * @return CreateSdkResponse
    * @throws OciError when an error occurs
@@ -444,9 +468,11 @@ export class ApiGatewayClient {
       "opc-request-id": createSdkRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSdkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSdkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -503,6 +529,7 @@ export class ApiGatewayClient {
 
   /**
    * Deletes the API with the given identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteApiRequest
    * @return DeleteApiResponse
    * @throws OciError when an error occurs
@@ -524,9 +551,11 @@ export class ApiGatewayClient {
       "opc-request-id": deleteApiRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteApiRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteApiRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -564,6 +593,7 @@ export class ApiGatewayClient {
 
   /**
    * Deletes the certificate with the given identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCertificateRequest
    * @return DeleteCertificateResponse
    * @throws OciError when an error occurs
@@ -585,9 +615,11 @@ export class ApiGatewayClient {
       "opc-request-id": deleteCertificateRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCertificateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCertificateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -625,6 +657,7 @@ export class ApiGatewayClient {
 
   /**
    * Deletes provided SDK.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSdkRequest
    * @return DeleteSdkResponse
    * @throws OciError when an error occurs
@@ -646,9 +679,11 @@ export class ApiGatewayClient {
       "if-match": deleteSdkRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSdkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSdkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -686,6 +721,7 @@ export class ApiGatewayClient {
 
   /**
    * Gets an API by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetApiRequest
    * @return GetApiResponse
    * @throws OciError when an error occurs
@@ -704,9 +740,11 @@ export class ApiGatewayClient {
       "opc-request-id": getApiRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getApiRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getApiRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -748,6 +786,7 @@ export class ApiGatewayClient {
 
   /**
    * Get the raw API content.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetApiContentRequest
    * @return GetApiContentResponse
    * @throws OciError when an error occurs
@@ -770,9 +809,11 @@ export class ApiGatewayClient {
       "range": getApiContentRequest.range
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getApiContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getApiContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -819,6 +860,7 @@ export class ApiGatewayClient {
 
   /**
    * Gets an API Deployment specification by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetApiDeploymentSpecificationRequest
    * @return GetApiDeploymentSpecificationResponse
    * @throws OciError when an error occurs
@@ -841,9 +883,11 @@ export class ApiGatewayClient {
       "if-match": getApiDeploymentSpecificationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getApiDeploymentSpecificationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getApiDeploymentSpecificationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -885,6 +929,7 @@ export class ApiGatewayClient {
 
   /**
    * Gets the API validation results.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetApiValidationsRequest
    * @return GetApiValidationsResponse
    * @throws OciError when an error occurs
@@ -906,9 +951,11 @@ export class ApiGatewayClient {
       "if-match": getApiValidationsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getApiValidationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getApiValidationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -950,6 +997,7 @@ export class ApiGatewayClient {
 
   /**
    * Gets a certificate by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCertificateRequest
    * @return GetCertificateResponse
    * @throws OciError when an error occurs
@@ -970,9 +1018,11 @@ export class ApiGatewayClient {
       "opc-request-id": getCertificateRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCertificateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCertificateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1014,6 +1064,7 @@ export class ApiGatewayClient {
 
   /**
    * Return object store downloadable URL and metadata.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSdkRequest
    * @return GetSdkResponse
    * @throws OciError when an error occurs
@@ -1032,9 +1083,11 @@ export class ApiGatewayClient {
       "opc-request-id": getSdkRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSdkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSdkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1077,6 +1130,7 @@ export class ApiGatewayClient {
   /**
    * Returns a list of APIs.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListApisRequest
    * @return ListApisResponse
    * @throws OciError when an error occurs
@@ -1103,9 +1157,11 @@ export class ApiGatewayClient {
       "opc-request-id": listApisRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listApisRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listApisRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1153,6 +1209,7 @@ export class ApiGatewayClient {
   /**
    * Returns a list of certificates.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCertificatesRequest
    * @return ListCertificatesResponse
    * @throws OciError when an error occurs
@@ -1179,9 +1236,11 @@ export class ApiGatewayClient {
       "opc-request-id": listCertificatesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCertificatesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCertificatesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1228,6 +1287,7 @@ export class ApiGatewayClient {
 
   /**
    * Lists programming languages in which SDK can be generated.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSdkLanguageTypesRequest
    * @return ListSdkLanguageTypesResponse
    * @throws OciError when an error occurs
@@ -1253,9 +1313,11 @@ export class ApiGatewayClient {
       "opc-request-id": listSdkLanguageTypesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSdkLanguageTypesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSdkLanguageTypesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1302,6 +1364,7 @@ export class ApiGatewayClient {
 
   /**
    * Returns list of generated SDKs.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSdksRequest
    * @return ListSdksResponse
    * @throws OciError when an error occurs
@@ -1329,9 +1392,11 @@ export class ApiGatewayClient {
       "opc-request-id": listSdksRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSdksRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSdksRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1378,6 +1443,7 @@ export class ApiGatewayClient {
 
   /**
    * Updates the API with the given identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateApiRequest
    * @return UpdateApiResponse
    * @throws OciError when an error occurs
@@ -1399,9 +1465,11 @@ export class ApiGatewayClient {
       "opc-request-id": updateApiRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateApiRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateApiRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1444,6 +1512,7 @@ export class ApiGatewayClient {
 
   /**
    * Updates a certificate with the given identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCertificateRequest
    * @return UpdateCertificateResponse
    * @throws OciError when an error occurs
@@ -1465,9 +1534,11 @@ export class ApiGatewayClient {
       "opc-request-id": updateCertificateRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCertificateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCertificateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1510,6 +1581,7 @@ export class ApiGatewayClient {
 
   /**
    * Updates the SDK with the given identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSdkRequest
    * @return UpdateSdkResponse
    * @throws OciError when an error occurs
@@ -1531,9 +1603,11 @@ export class ApiGatewayClient {
       "opc-request-id": updateSdkRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSdkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSdkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1570,7 +1644,9 @@ export class ApiGatewayClient {
   }
 }
 export enum DeploymentApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DeploymentClient {
   protected static serviceEndpointTemplate = "https://apigateway.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -1590,6 +1666,15 @@ export class DeploymentClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -1678,6 +1763,7 @@ export class DeploymentClient {
 
   /**
    * Changes the deployment compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDeploymentCompartmentRequest
    * @return ChangeDeploymentCompartmentResponse
    * @throws OciError when an error occurs
@@ -1701,9 +1787,11 @@ export class DeploymentClient {
       "opc-request-id": changeDeploymentCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDeploymentCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDeploymentCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1747,6 +1835,7 @@ export class DeploymentClient {
   /**
    * Creates a new deployment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDeploymentRequest
    * @return CreateDeploymentResponse
    * @throws OciError when an error occurs
@@ -1766,9 +1855,11 @@ export class DeploymentClient {
       "opc-request-id": createDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1825,6 +1916,7 @@ export class DeploymentClient {
 
   /**
    * Deletes the deployment with the given identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDeploymentRequest
    * @return DeleteDeploymentResponse
    * @throws OciError when an error occurs
@@ -1846,9 +1938,11 @@ export class DeploymentClient {
       "opc-request-id": deleteDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1886,6 +1980,7 @@ export class DeploymentClient {
 
   /**
    * Gets a deployment by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDeploymentRequest
    * @return GetDeploymentResponse
    * @throws OciError when an error occurs
@@ -1906,9 +2001,11 @@ export class DeploymentClient {
       "opc-request-id": getDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1951,6 +2048,7 @@ export class DeploymentClient {
   /**
    * Returns a list of deployments.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDeploymentsRequest
    * @return ListDeploymentsResponse
    * @throws OciError when an error occurs
@@ -1978,9 +2076,11 @@ export class DeploymentClient {
       "opc-request-id": listDeploymentsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDeploymentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeploymentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2027,6 +2127,7 @@ export class DeploymentClient {
 
   /**
    * Updates the deployment with the given identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDeploymentRequest
    * @return UpdateDeploymentResponse
    * @throws OciError when an error occurs
@@ -2048,9 +2149,11 @@ export class DeploymentClient {
       "opc-request-id": updateDeploymentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDeploymentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2092,7 +2195,9 @@ export class DeploymentClient {
   }
 }
 export enum GatewayApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class GatewayClient {
   protected static serviceEndpointTemplate = "https://apigateway.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -2112,6 +2217,15 @@ export class GatewayClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -2200,6 +2314,7 @@ export class GatewayClient {
 
   /**
    * Changes the gateway compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeGatewayCompartmentRequest
    * @return ChangeGatewayCompartmentResponse
    * @throws OciError when an error occurs
@@ -2222,9 +2337,11 @@ export class GatewayClient {
       "opc-request-id": changeGatewayCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeGatewayCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeGatewayCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2268,6 +2385,7 @@ export class GatewayClient {
   /**
    * Creates a new gateway.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateGatewayRequest
    * @return CreateGatewayResponse
    * @throws OciError when an error occurs
@@ -2287,9 +2405,11 @@ export class GatewayClient {
       "opc-request-id": createGatewayRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2346,6 +2466,7 @@ export class GatewayClient {
 
   /**
    * Deletes the gateway with the given identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteGatewayRequest
    * @return DeleteGatewayResponse
    * @throws OciError when an error occurs
@@ -2367,9 +2488,11 @@ export class GatewayClient {
       "opc-request-id": deleteGatewayRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2407,6 +2530,7 @@ export class GatewayClient {
 
   /**
    * Gets a gateway by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetGatewayRequest
    * @return GetGatewayResponse
    * @throws OciError when an error occurs
@@ -2427,9 +2551,11 @@ export class GatewayClient {
       "opc-request-id": getGatewayRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2472,6 +2598,7 @@ export class GatewayClient {
   /**
    * Returns a list of gateways.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListGatewaysRequest
    * @return ListGatewaysResponse
    * @throws OciError when an error occurs
@@ -2499,9 +2626,11 @@ export class GatewayClient {
       "opc-request-id": listGatewaysRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listGatewaysRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listGatewaysRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2548,6 +2677,7 @@ export class GatewayClient {
 
   /**
    * Updates the gateway with the given identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateGatewayRequest
    * @return UpdateGatewayResponse
    * @throws OciError when an error occurs
@@ -2569,9 +2699,11 @@ export class GatewayClient {
       "opc-request-id": updateGatewayRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2613,7 +2745,9 @@ export class GatewayClient {
   }
 }
 export enum WorkRequestsApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class WorkRequestsClient {
   protected static serviceEndpointTemplate = "https://apigateway.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -2633,6 +2767,15 @@ export class WorkRequestsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -2721,6 +2864,7 @@ export class WorkRequestsClient {
 
   /**
    * Cancels the work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
@@ -2743,9 +2887,11 @@ export class WorkRequestsClient {
       "opc-request-id": cancelWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2778,6 +2924,7 @@ export class WorkRequestsClient {
 
   /**
    * Gets the status of the work request with the given identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -2798,9 +2945,11 @@ export class WorkRequestsClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2848,6 +2997,7 @@ export class WorkRequestsClient {
   /**
    * Returns a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -2874,9 +3024,11 @@ export class WorkRequestsClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2924,6 +3076,7 @@ export class WorkRequestsClient {
   /**
    * Returns a (paginated) list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -2949,9 +3102,11 @@ export class WorkRequestsClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2999,6 +3154,7 @@ export class WorkRequestsClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -3024,9 +3180,11 @@ export class WorkRequestsClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

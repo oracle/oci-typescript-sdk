@@ -26,7 +26,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum EventsApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class EventsClient {
   protected static serviceEndpointTemplate = "https://events.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -46,6 +48,15 @@ export class EventsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -136,6 +147,7 @@ export class EventsClient {
    * Moves a rule into a different compartment within the same tenancy. For information about moving
    * resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeRuleCompartmentRequest
    * @return ChangeRuleCompartmentResponse
    * @throws OciError when an error occurs
@@ -158,9 +170,11 @@ export class EventsClient {
       "opc-retry-token": changeRuleCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeRuleCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRuleCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -199,6 +213,7 @@ export class EventsClient {
   /**
    * Creates a new rule.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRuleRequest
    * @return CreateRuleResponse
    * @throws OciError when an error occurs
@@ -218,9 +233,11 @@ export class EventsClient {
       "opc-request-id": createRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -267,6 +284,7 @@ export class EventsClient {
 
   /**
    * Deletes a rule.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRuleRequest
    * @return DeleteRuleResponse
    * @throws OciError when an error occurs
@@ -288,9 +306,11 @@ export class EventsClient {
       "opc-request-id": deleteRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -323,6 +343,7 @@ export class EventsClient {
 
   /**
    * Retrieves a rule.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRuleRequest
    * @return GetRuleResponse
    * @throws OciError when an error occurs
@@ -343,9 +364,11 @@ export class EventsClient {
       "opc-request-id": getRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -388,6 +411,7 @@ export class EventsClient {
   /**
    * Lists rules for this compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRulesRequest
    * @return ListRulesResponse
    * @throws OciError when an error occurs
@@ -414,9 +438,11 @@ export class EventsClient {
       "opc-request-id": listRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -511,6 +537,7 @@ export class EventsClient {
   /**
    * Updates a rule.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRuleRequest
    * @return UpdateRuleResponse
    * @throws OciError when an error occurs
@@ -532,9 +559,11 @@ export class EventsClient {
       "opc-request-id": updateRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

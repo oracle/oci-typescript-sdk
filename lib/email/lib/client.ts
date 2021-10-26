@@ -30,7 +30,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum EmailApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class EmailClient {
   protected static serviceEndpointTemplate = "https://ctrl.email.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -50,6 +52,15 @@ export class EmailClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -144,6 +155,7 @@ export class EmailClient {
    * <p>
    **Note:** All Dkim objects associated with this email domain will also be moved into the provided compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeEmailDomainCompartmentRequest
    * @return ChangeEmailDomainCompartmentResponse
    * @throws OciError when an error occurs
@@ -167,9 +179,11 @@ export class EmailClient {
       "opc-retry-token": changeEmailDomainCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeEmailDomainCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeEmailDomainCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -212,6 +226,7 @@ export class EmailClient {
 
   /**
    * Moves a sender into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeSenderCompartmentRequest
    * @return ChangeSenderCompartmentResponse
    * @throws OciError when an error occurs
@@ -233,9 +248,11 @@ export class EmailClient {
       "opc-request-id": changeSenderCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeSenderCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSenderCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -278,6 +295,7 @@ export class EmailClient {
    * When a second DKIM is applied, all senders will seamlessly pick up the new key
    * without interruption in signing.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDkimRequest
    * @return CreateDkimResponse
    * @throws OciError when an error occurs
@@ -297,9 +315,11 @@ export class EmailClient {
       "opc-request-id": createDkimRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDkimRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDkimRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -361,6 +381,7 @@ export class EmailClient {
 
   /**
    * Creates a new email domain. Avoid entering confidential information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateEmailDomainRequest
    * @return CreateEmailDomainResponse
    * @throws OciError when an error occurs
@@ -380,9 +401,11 @@ export class EmailClient {
       "opc-retry-token": createEmailDomainRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createEmailDomainRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createEmailDomainRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -444,6 +467,7 @@ export class EmailClient {
 
   /**
    * Creates a sender for a tenancy in a given compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateSenderRequest
    * @return CreateSenderResponse
    * @throws OciError when an error occurs
@@ -462,9 +486,11 @@ export class EmailClient {
       "opc-request-id": createSenderRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSenderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSenderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -515,6 +541,7 @@ export class EmailClient {
    * \"MANUAL\" in the `reason` field. *Note:* All email addresses added to the
    * suppression list are normalized to include only lowercase letters.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateSuppressionRequest
    * @return CreateSuppressionResponse
    * @throws OciError when an error occurs
@@ -533,9 +560,11 @@ export class EmailClient {
       "opc-request-id": createSuppressionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSuppressionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSuppressionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -583,6 +612,7 @@ export class EmailClient {
    * in-transit mail to be validated.
    * Consider instead of deletion creating a new DKIM for this domain so the signing can be rotated to it.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDkimRequest
    * @return DeleteDkimResponse
    * @throws OciError when an error occurs
@@ -604,9 +634,11 @@ export class EmailClient {
       "opc-request-id": deleteDkimRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDkimRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDkimRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -644,6 +676,7 @@ export class EmailClient {
 
   /**
    * Deletes a email domain.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteEmailDomainRequest
    * @return DeleteEmailDomainResponse
    * @throws OciError when an error occurs
@@ -665,9 +698,11 @@ export class EmailClient {
       "opc-request-id": deleteEmailDomainRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteEmailDomainRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteEmailDomainRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -707,6 +742,7 @@ export class EmailClient {
    * Deletes an approved sender for a tenancy in a given compartment for a
    * provided `senderId`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSenderRequest
    * @return DeleteSenderResponse
    * @throws OciError when an error occurs
@@ -728,9 +764,11 @@ export class EmailClient {
       "opc-request-id": deleteSenderRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSenderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSenderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -765,6 +803,7 @@ export class EmailClient {
    * Removes a suppressed recipient email address from the suppression list
    * for a tenancy in a given compartment for a provided `suppressionId`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSuppressionRequest
    * @return DeleteSuppressionResponse
    * @throws OciError when an error occurs
@@ -785,9 +824,11 @@ export class EmailClient {
       "opc-request-id": deleteSuppressionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSuppressionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSuppressionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -820,6 +861,7 @@ export class EmailClient {
 
   /**
    * Retrieves the specified DKIM.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDkimRequest
    * @return GetDkimResponse
    * @throws OciError when an error occurs
@@ -840,9 +882,11 @@ export class EmailClient {
       "opc-request-id": getDkimRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDkimRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDkimRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -884,6 +928,7 @@ export class EmailClient {
 
   /**
    * Retrieves the specified email domain.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetEmailDomainRequest
    * @return GetEmailDomainResponse
    * @throws OciError when an error occurs
@@ -904,9 +949,11 @@ export class EmailClient {
       "opc-request-id": getEmailDomainRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getEmailDomainRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEmailDomainRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -948,6 +995,7 @@ export class EmailClient {
 
   /**
    * Gets an approved sender for a given `senderId`.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSenderRequest
    * @return GetSenderResponse
    * @throws OciError when an error occurs
@@ -968,9 +1016,11 @@ export class EmailClient {
       "opc-request-id": getSenderRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSenderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSenderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1014,6 +1064,7 @@ export class EmailClient {
    * Gets the details of a suppressed recipient email address for a given
    * `suppressionId`. Each suppression is given a unique OCID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSuppressionRequest
    * @return GetSuppressionResponse
    * @throws OciError when an error occurs
@@ -1034,9 +1085,11 @@ export class EmailClient {
       "opc-request-id": getSuppressionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSuppressionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSuppressionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1073,6 +1126,7 @@ export class EmailClient {
 
   /**
    * Gets the status of the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1093,9 +1147,11 @@ export class EmailClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1137,6 +1193,7 @@ export class EmailClient {
 
   /**
    * Lists DKIMs for a email domain.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDkimsRequest
    * @return ListDkimsResponse
    * @throws OciError when an error occurs
@@ -1164,9 +1221,11 @@ export class EmailClient {
       "opc-request-id": listDkimsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDkimsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDkimsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1208,6 +1267,7 @@ export class EmailClient {
 
   /**
    * Lists email domains in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListEmailDomainsRequest
    * @return ListEmailDomainsResponse
    * @throws OciError when an error occurs
@@ -1235,9 +1295,11 @@ export class EmailClient {
       "opc-request-id": listEmailDomainsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listEmailDomainsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEmailDomainsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1280,6 +1342,7 @@ export class EmailClient {
   /**
    * Gets a collection of approved sender email addresses and sender IDs.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSendersRequest
    * @return ListSendersResponse
    * @throws OciError when an error occurs
@@ -1307,9 +1370,11 @@ export class EmailClient {
       "opc-request-id": listSendersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSendersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSendersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1416,6 +1481,7 @@ export class EmailClient {
    * `compartmentId` for suppressions must be a tenancy OCID. The returned list
    * is sorted by creation time in descending order.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSuppressionsRequest
    * @return ListSuppressionsResponse
    * @throws OciError when an error occurs
@@ -1443,9 +1509,11 @@ export class EmailClient {
       "opc-request-id": listSuppressionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSuppressionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSuppressionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1545,6 +1613,7 @@ export class EmailClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1568,9 +1637,11 @@ export class EmailClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1613,6 +1684,7 @@ export class EmailClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1636,9 +1708,11 @@ export class EmailClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1681,6 +1755,7 @@ export class EmailClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1704,9 +1779,11 @@ export class EmailClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1748,6 +1825,7 @@ export class EmailClient {
 
   /**
    * Modifies a DKIM.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDkimRequest
    * @return UpdateDkimResponse
    * @throws OciError when an error occurs
@@ -1769,9 +1847,11 @@ export class EmailClient {
       "opc-request-id": updateDkimRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDkimRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDkimRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1814,6 +1894,7 @@ export class EmailClient {
 
   /**
    * Modifies a email domain.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateEmailDomainRequest
    * @return UpdateEmailDomainResponse
    * @throws OciError when an error occurs
@@ -1835,9 +1916,11 @@ export class EmailClient {
       "opc-request-id": updateEmailDomainRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateEmailDomainRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateEmailDomainRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1884,6 +1967,7 @@ export class EmailClient {
    * include the full set of tags for the sender, partial updates are not permitted.
    * For more information about tagging, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSenderRequest
    * @return UpdateSenderResponse
    * @throws OciError when an error occurs
@@ -1905,9 +1989,11 @@ export class EmailClient {
       "opc-request-id": updateSenderRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSenderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSenderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -25,7 +25,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum FunctionsInvokeApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class FunctionsInvokeClient {
   protected static serviceEndpointTemplate = "https://functions.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -44,6 +46,15 @@ export class FunctionsInvokeClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -72,6 +83,7 @@ export class FunctionsInvokeClient {
 
   /**
    * Invokes a function
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param InvokeFunctionRequest
    * @return InvokeFunctionResponse
    * @throws OciError when an error occurs
@@ -93,9 +105,11 @@ export class FunctionsInvokeClient {
       "opc-request-id": invokeFunctionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      invokeFunctionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      invokeFunctionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -133,7 +147,9 @@ export class FunctionsInvokeClient {
   }
 }
 export enum FunctionsManagementApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class FunctionsManagementClient {
   protected static serviceEndpointTemplate = "https://functions.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -153,6 +169,15 @@ export class FunctionsManagementClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -244,6 +269,7 @@ export class FunctionsManagementClient {
    * Moves an application into a different compartment within the same tenancy.
    * For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeApplicationCompartmentRequest
    * @return ChangeApplicationCompartmentResponse
    * @throws OciError when an error occurs
@@ -268,9 +294,11 @@ export class FunctionsManagementClient {
       "opc-request-id": changeApplicationCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeApplicationCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeApplicationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -308,6 +336,7 @@ export class FunctionsManagementClient {
 
   /**
    * Creates a new application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateApplicationRequest
    * @return CreateApplicationResponse
    * @throws OciError when an error occurs
@@ -327,9 +356,11 @@ export class FunctionsManagementClient {
       "opc-request-id": createApplicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -376,6 +407,7 @@ export class FunctionsManagementClient {
 
   /**
    * Creates a new function.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateFunctionRequest
    * @return CreateFunctionResponse
    * @throws OciError when an error occurs
@@ -395,9 +427,11 @@ export class FunctionsManagementClient {
       "opc-request-id": createFunctionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createFunctionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createFunctionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -444,6 +478,7 @@ export class FunctionsManagementClient {
 
   /**
    * Deletes an application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteApplicationRequest
    * @return DeleteApplicationResponse
    * @throws OciError when an error occurs
@@ -466,9 +501,11 @@ export class FunctionsManagementClient {
       "opc-request-id": deleteApplicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -501,6 +538,7 @@ export class FunctionsManagementClient {
 
   /**
    * Deletes a function.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteFunctionRequest
    * @return DeleteFunctionResponse
    * @throws OciError when an error occurs
@@ -523,9 +561,11 @@ export class FunctionsManagementClient {
       "opc-request-id": deleteFunctionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteFunctionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteFunctionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -558,6 +598,7 @@ export class FunctionsManagementClient {
 
   /**
    * Retrieves an application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetApplicationRequest
    * @return GetApplicationResponse
    * @throws OciError when an error occurs
@@ -579,9 +620,11 @@ export class FunctionsManagementClient {
       "opc-request-id": getApplicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -623,6 +666,7 @@ export class FunctionsManagementClient {
 
   /**
    * Retrieves a function.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetFunctionRequest
    * @return GetFunctionResponse
    * @throws OciError when an error occurs
@@ -643,9 +687,11 @@ export class FunctionsManagementClient {
       "opc-request-id": getFunctionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getFunctionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFunctionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -687,6 +733,7 @@ export class FunctionsManagementClient {
 
   /**
    * Lists applications for a compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListApplicationsRequest
    * @return ListApplicationsResponse
    * @throws OciError when an error occurs
@@ -715,9 +762,11 @@ export class FunctionsManagementClient {
       "opc-request-id": listApplicationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listApplicationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listApplicationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -811,6 +860,7 @@ export class FunctionsManagementClient {
 
   /**
    * Lists functions for an application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListFunctionsRequest
    * @return ListFunctionsResponse
    * @throws OciError when an error occurs
@@ -839,9 +889,11 @@ export class FunctionsManagementClient {
       "opc-request-id": listFunctionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listFunctionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFunctionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -935,6 +987,7 @@ export class FunctionsManagementClient {
 
   /**
    * Modifies an application
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateApplicationRequest
    * @return UpdateApplicationResponse
    * @throws OciError when an error occurs
@@ -957,9 +1010,11 @@ export class FunctionsManagementClient {
       "opc-request-id": updateApplicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1006,6 +1061,7 @@ export class FunctionsManagementClient {
 
   /**
    * Modifies a function
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateFunctionRequest
    * @return UpdateFunctionResponse
    * @throws OciError when an error occurs
@@ -1028,9 +1084,11 @@ export class FunctionsManagementClient {
       "opc-request-id": updateFunctionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateFunctionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateFunctionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

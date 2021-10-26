@@ -46,6 +46,10 @@ export interface DatabaseConfigurationSummary {
    */
   "databaseVersion": string;
   /**
+   * Name of the CDB.Only applies to PDB.
+   */
+  "cdbName": string;
+  /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *

@@ -26,7 +26,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum DatabaseApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DatabaseClient {
   protected static serviceEndpointTemplate = "https://database.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -46,6 +48,15 @@ export class DatabaseClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -139,6 +150,7 @@ export class DatabaseClient {
   /**
    * Activates the specified Exadata infrastructure resource. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ActivateExadataInfrastructureRequest
    * @return ActivateExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -161,9 +173,11 @@ export class DatabaseClient {
       "opc-retry-token": activateExadataInfrastructureRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      activateExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -216,6 +230,7 @@ export class DatabaseClient {
   /**
    * Makes the storage capacity from additional storage servers available for VM Cluster consumption. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddStorageCapacityExadataInfrastructureRequest
    * @return AddStorageCapacityExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -242,9 +257,11 @@ export class DatabaseClient {
       "opc-retry-token": addStorageCapacityExadataInfrastructureRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addStorageCapacityExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addStorageCapacityExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -292,6 +309,7 @@ export class DatabaseClient {
   /**
    * Add Virtual Machines to the VM cluster. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddVirtualMachineToVmClusterRequest
    * @return AddVirtualMachineToVmClusterResponse
    * @throws OciError when an error occurs
@@ -315,9 +333,11 @@ export class DatabaseClient {
       "if-match": addVirtualMachineToVmClusterRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addVirtualMachineToVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addVirtualMachineToVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -370,6 +390,7 @@ export class DatabaseClient {
   /**
    * Initiates a data refresh for an Autonomous Database refreshable clone. Data is refreshed from the source database to the point of a specified timestamp.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AutonomousDatabaseManualRefreshRequest
    * @return AutonomousDatabaseManualRefreshResponse
    * @throws OciError when an error occurs
@@ -393,9 +414,11 @@ export class DatabaseClient {
       "opc-request-id": autonomousDatabaseManualRefreshRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      autonomousDatabaseManualRefreshRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      autonomousDatabaseManualRefreshRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -450,6 +473,7 @@ export class DatabaseClient {
    * For more information about moving Autonomous Container Databases, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeAutonomousContainerDatabaseCompartmentRequest
    * @return ChangeAutonomousContainerDatabaseCompartmentResponse
    * @throws OciError when an error occurs
@@ -476,9 +500,11 @@ export class DatabaseClient {
       "if-match": changeAutonomousContainerDatabaseCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeAutonomousContainerDatabaseCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAutonomousContainerDatabaseCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -530,6 +556,7 @@ export class DatabaseClient {
    * For more information about moving Autonomous Databases, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeAutonomousDatabaseCompartmentRequest
    * @return ChangeAutonomousDatabaseCompartmentResponse
    * @throws OciError when an error occurs
@@ -553,9 +580,11 @@ export class DatabaseClient {
       "if-match": changeAutonomousDatabaseCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeAutonomousDatabaseCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAutonomousDatabaseCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -606,6 +635,7 @@ export class DatabaseClient {
    * For more information, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeAutonomousExadataInfrastructureCompartmentRequest
    * @return ChangeAutonomousExadataInfrastructureCompartmentResponse
    * @throws OciError when an error occurs
@@ -632,9 +662,11 @@ export class DatabaseClient {
       "if-match": changeAutonomousExadataInfrastructureCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeAutonomousExadataInfrastructureCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAutonomousExadataInfrastructureCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -685,6 +717,7 @@ export class DatabaseClient {
    * To move an Autonomous VM cluster and its dependent resources to another compartment, use the
    * {@link #changeAutonomousVmClusterCompartment(ChangeAutonomousVmClusterCompartmentRequest) changeAutonomousVmClusterCompartment} operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeAutonomousVmClusterCompartmentRequest
    * @return ChangeAutonomousVmClusterCompartmentResponse
    * @throws OciError when an error occurs
@@ -708,9 +741,11 @@ export class DatabaseClient {
       "if-match": changeAutonomousVmClusterCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeAutonomousVmClusterCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAutonomousVmClusterCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -756,6 +791,7 @@ export class DatabaseClient {
    * For more information, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeBackupDestinationCompartmentRequest
    * @return ChangeBackupDestinationCompartmentResponse
    * @throws OciError when an error occurs
@@ -779,9 +815,11 @@ export class DatabaseClient {
       "if-match": changeBackupDestinationCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeBackupDestinationCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeBackupDestinationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -830,6 +868,7 @@ export class DatabaseClient {
   /**
    * Moves a cloud Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud Service instances only. For more information about moving resources to a different compartment, see [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCloudExadataInfrastructureCompartmentRequest
    * @return ChangeCloudExadataInfrastructureCompartmentResponse
    * @throws OciError when an error occurs
@@ -856,9 +895,11 @@ export class DatabaseClient {
       "if-match": changeCloudExadataInfrastructureCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeCloudExadataInfrastructureCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCloudExadataInfrastructureCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -902,6 +943,7 @@ export class DatabaseClient {
   /**
    * Moves a cloud VM cluster and its dependent resources to another compartment. Applies to Exadata Cloud Service instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCloudVmClusterCompartmentRequest
    * @return ChangeCloudVmClusterCompartmentResponse
    * @throws OciError when an error occurs
@@ -925,9 +967,11 @@ export class DatabaseClient {
       "if-match": changeCloudVmClusterCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeCloudVmClusterCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCloudVmClusterCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -973,6 +1017,7 @@ export class DatabaseClient {
    * For more information about moving Databse Software Images, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDatabaseSoftwareImageCompartmentRequest
    * @return ChangeDatabaseSoftwareImageCompartmentResponse
    * @throws OciError when an error occurs
@@ -997,9 +1042,11 @@ export class DatabaseClient {
       "if-match": changeDatabaseSoftwareImageCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDatabaseSoftwareImageCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDatabaseSoftwareImageCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1050,6 +1097,7 @@ export class DatabaseClient {
    * For more information about moving DB systems, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDbSystemCompartmentRequest
    * @return ChangeDbSystemCompartmentResponse
    * @throws OciError when an error occurs
@@ -1073,9 +1121,11 @@ export class DatabaseClient {
       "if-match": changeDbSystemCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDbSystemCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDbSystemCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1125,6 +1175,7 @@ export class DatabaseClient {
    * Moves an Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud@Customer instances only.
    * To move an Exadata Cloud Service infrastructure resource to another compartment, use the  {@link #changeCloudExadataInfrastructureCompartment(ChangeCloudExadataInfrastructureCompartmentRequest) changeCloudExadataInfrastructureCompartment} operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeExadataInfrastructureCompartmentRequest
    * @return ChangeExadataInfrastructureCompartmentResponse
    * @throws OciError when an error occurs
@@ -1149,9 +1200,11 @@ export class DatabaseClient {
       "if-match": changeExadataInfrastructureCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeExadataInfrastructureCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeExadataInfrastructureCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1198,6 +1251,7 @@ export class DatabaseClient {
    * For more information about moving external container databases, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeExternalContainerDatabaseCompartmentRequest
    * @return ChangeExternalContainerDatabaseCompartmentResponse
    * @throws OciError when an error occurs
@@ -1224,9 +1278,11 @@ export class DatabaseClient {
       "if-match": changeExternalContainerDatabaseCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeExternalContainerDatabaseCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeExternalContainerDatabaseCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1277,6 +1333,7 @@ export class DatabaseClient {
    * For more information about moving external non-container databases, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeExternalNonContainerDatabaseCompartmentRequest
    * @return ChangeExternalNonContainerDatabaseCompartmentResponse
    * @throws OciError when an error occurs
@@ -1303,9 +1360,11 @@ export class DatabaseClient {
       "if-match": changeExternalNonContainerDatabaseCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeExternalNonContainerDatabaseCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeExternalNonContainerDatabaseCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1358,6 +1417,7 @@ export class DatabaseClient {
    * For more information about moving external pluggable databases, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeExternalPluggableDatabaseCompartmentRequest
    * @return ChangeExternalPluggableDatabaseCompartmentResponse
    * @throws OciError when an error occurs
@@ -1384,9 +1444,11 @@ export class DatabaseClient {
       "if-match": changeExternalPluggableDatabaseCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeExternalPluggableDatabaseCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeExternalPluggableDatabaseCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1437,6 +1499,7 @@ export class DatabaseClient {
    * For more information about moving key stores, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeKeyStoreCompartmentRequest
    * @return ChangeKeyStoreCompartmentResponse
    * @throws OciError when an error occurs
@@ -1460,9 +1523,11 @@ export class DatabaseClient {
       "if-match": changeKeyStoreCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeKeyStoreCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeKeyStoreCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1507,6 +1572,7 @@ export class DatabaseClient {
    * Moves a VM cluster and its dependent resources to another compartment. Applies to Exadata Cloud@Customer instances only.
    * To move a cloud VM cluster in an Exadata Cloud Service instance to another compartment, use the {@link #changeCloudVmClusterCompartment(ChangeCloudVmClusterCompartmentRequest) changeCloudVmClusterCompartment} operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVmClusterCompartmentRequest
    * @return ChangeVmClusterCompartmentResponse
    * @throws OciError when an error occurs
@@ -1530,9 +1596,11 @@ export class DatabaseClient {
       "if-match": changeVmClusterCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeVmClusterCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeVmClusterCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1577,6 +1645,7 @@ export class DatabaseClient {
    * Check the status of the external database connection specified in this connector.
    * This operation will refresh the connectionStatus and timeConnectionStatusLastUpdated fields.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CheckExternalDatabaseConnectorConnectionStatusRequest
    * @return CheckExternalDatabaseConnectorConnectionStatusResponse
    * @throws OciError when an error occurs
@@ -1603,9 +1672,11 @@ export class DatabaseClient {
       "if-match": checkExternalDatabaseConnectorConnectionStatusRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      checkExternalDatabaseConnectorConnectionStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      checkExternalDatabaseConnectorConnectionStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1652,6 +1723,7 @@ export class DatabaseClient {
    * <p>
    **Note:** This API is used by an Oracle Cloud Infrastructure Python script that is packaged with the Oracle Cloud Infrastructure CLI. Oracle recommends that you use the script instead using the API directly. See [Migrating an On-Premises Database to Oracle Cloud Infrastructure by Creating a Backup in the Cloud](https://docs.cloud.oracle.com/Content/Database/Tasks/mig-onprembackup.htm) for more information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CompleteExternalBackupJobRequest
    * @return CompleteExternalBackupJobResponse
    * @throws OciError when an error occurs
@@ -1674,9 +1746,11 @@ export class DatabaseClient {
       "opc-retry-token": completeExternalBackupJobRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      completeExternalBackupJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      completeExternalBackupJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1729,6 +1803,7 @@ export class DatabaseClient {
   /**
    * Configures the Autonomous Database Vault service [key](https://docs.cloud.oracle.com/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ConfigureAutonomousDatabaseVaultKeyRequest
    * @return ConfigureAutonomousDatabaseVaultKeyResponse
    * @throws OciError when an error occurs
@@ -1752,9 +1827,11 @@ export class DatabaseClient {
       "opc-retry-token": configureAutonomousDatabaseVaultKeyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      configureAutonomousDatabaseVaultKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      configureAutonomousDatabaseVaultKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1799,6 +1876,7 @@ export class DatabaseClient {
   /**
    * Converts a non-container database to a pluggable database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ConvertToPdbRequest
    * @return ConvertToPdbResponse
    * @throws OciError when an error occurs
@@ -1820,9 +1898,11 @@ export class DatabaseClient {
       "opc-request-id": convertToPdbRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      convertToPdbRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      convertToPdbRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1875,6 +1955,7 @@ export class DatabaseClient {
   /**
    * Creates an Autonomous Container Database in the specified Autonomous Exadata Infrastructure.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAutonomousContainerDatabaseRequest
    * @return CreateAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
@@ -1894,9 +1975,11 @@ export class DatabaseClient {
       "opc-retry-token": createAutonomousContainerDatabaseRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAutonomousContainerDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAutonomousContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1949,6 +2032,7 @@ export class DatabaseClient {
   /**
    * Creates a new Autonomous Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAutonomousDatabaseRequest
    * @return CreateAutonomousDatabaseResponse
    * @throws OciError when an error occurs
@@ -1969,9 +2053,11 @@ export class DatabaseClient {
       "opc-request-id": createAutonomousDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAutonomousDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAutonomousDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2024,6 +2110,7 @@ export class DatabaseClient {
   /**
    * Creates a new Autonomous Database backup for the specified database based on the provided request parameters.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAutonomousDatabaseBackupRequest
    * @return CreateAutonomousDatabaseBackupResponse
    * @throws OciError when an error occurs
@@ -2044,9 +2131,11 @@ export class DatabaseClient {
       "opc-request-id": createAutonomousDatabaseBackupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAutonomousDatabaseBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAutonomousDatabaseBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2099,6 +2188,7 @@ export class DatabaseClient {
   /**
    * Creates an Autonomous VM cluster for Exadata Cloud@Customer.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAutonomousVmClusterRequest
    * @return CreateAutonomousVmClusterResponse
    * @throws OciError when an error occurs
@@ -2119,9 +2209,11 @@ export class DatabaseClient {
       "opc-request-id": createAutonomousVmClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAutonomousVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAutonomousVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2174,6 +2266,7 @@ export class DatabaseClient {
   /**
    * Creates a new backup in the specified database based on the request parameters you provide. If you previously used RMAN or dbcli to configure backups and then you switch to using the Console or the API for backups, a new backup configuration is created and associated with your database. This means that you can no longer rely on your previously configured unmanaged backups to work.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateBackupRequest
    * @return CreateBackupResponse
    * @throws OciError when an error occurs
@@ -2192,9 +2285,11 @@ export class DatabaseClient {
       "opc-retry-token": createBackupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2247,6 +2342,7 @@ export class DatabaseClient {
   /**
    * Creates a backup destination in an Exadata Cloud@Customer system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateBackupDestinationRequest
    * @return CreateBackupDestinationResponse
    * @throws OciError when an error occurs
@@ -2266,9 +2362,11 @@ export class DatabaseClient {
       "opc-request-id": createBackupDestinationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createBackupDestinationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBackupDestinationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2316,6 +2414,7 @@ export class DatabaseClient {
   /**
    * Creates a cloud Exadata infrastructure resource. This resource is used to create an [Exadata Cloud Service](https://docs.cloud.oracle.com/Content/Database/Concepts/exaoverview.htm) instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateCloudExadataInfrastructureRequest
    * @return CreateCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -2336,9 +2435,11 @@ export class DatabaseClient {
       "opc-request-id": createCloudExadataInfrastructureRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCloudExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCloudExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2391,6 +2492,7 @@ export class DatabaseClient {
   /**
    * Creates a cloud VM cluster.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateCloudVmClusterRequest
    * @return CreateCloudVmClusterResponse
    * @throws OciError when an error occurs
@@ -2410,9 +2512,11 @@ export class DatabaseClient {
       "opc-request-id": createCloudVmClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCloudVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCloudVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2467,6 +2571,7 @@ export class DatabaseClient {
    * After the console connection has been created and is available,
    * you connect to the console using SSH.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateConsoleConnectionRequest
    * @return CreateConsoleConnectionResponse
    * @throws OciError when an error occurs
@@ -2487,9 +2592,11 @@ export class DatabaseClient {
       "opc-retry-token": createConsoleConnectionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createConsoleConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createConsoleConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2544,6 +2651,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
 * resource in the Console. For more information, see
 * [Resource Identifiers](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateDataGuardAssociationRequest
      * @return CreateDataGuardAssociationResponse
      * @throws OciError when an error occurs
@@ -2565,9 +2673,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-retry-token": createDataGuardAssociationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDataGuardAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDataGuardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2620,6 +2730,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   /**
    * Creates a new database in the specified Database Home. If the database version is provided, it must match the version of the Database Home. Applies to Exadata and Exadata Cloud@Customer systems.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDatabaseRequest
    * @return CreateDatabaseResponse
    * @throws OciError when an error occurs
@@ -2639,9 +2750,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": createDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2694,6 +2807,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   /**
    * create database software image in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDatabaseSoftwareImageRequest
    * @return CreateDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
@@ -2713,9 +2827,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-retry-token": createDatabaseSoftwareImageRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDatabaseSoftwareImageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDatabaseSoftwareImageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2768,6 +2884,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   /**
    * Creates a new Database Home in the specified database system based on the request parameters you provide. Applies to bare metal DB systems, Exadata systems, and Exadata Cloud@Customer systems.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDbHomeRequest
    * @return CreateDbHomeResponse
    * @throws OciError when an error occurs
@@ -2786,9 +2903,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-retry-token": createDbHomeRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDbHomeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDbHomeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2842,6 +2961,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * Creates an Exadata infrastructure resource. Applies to Exadata Cloud@Customer instances only.
    * To create an Exadata Cloud Service infrastructure resource, use the  {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructureRequest) createCloudExadataInfrastructure} operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateExadataInfrastructureRequest
    * @return CreateExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -2862,9 +2982,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": createExadataInfrastructureRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2919,6 +3041,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * <p>
    **Note:** This API is used by an Oracle Cloud Infrastructure Python script that is packaged with the Oracle Cloud Infrastructure CLI. Oracle recommends that you use the script instead using the API directly. See [Migrating an On-Premises Database to Oracle Cloud Infrastructure by Creating a Backup in the Cloud](https://docs.cloud.oracle.com/Content/Database/Tasks/mig-onprembackup.htm) for more information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateExternalBackupJobRequest
    * @return CreateExternalBackupJobResponse
    * @throws OciError when an error occurs
@@ -2937,9 +3060,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-retry-token": createExternalBackupJobRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createExternalBackupJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExternalBackupJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2991,6 +3116,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
 
   /**
    * Creates a new external container database resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateExternalContainerDatabaseRequest
    * @return CreateExternalContainerDatabaseResponse
    * @throws OciError when an error occurs
@@ -3011,9 +3137,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": createExternalContainerDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createExternalContainerDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExternalContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3065,6 +3193,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
 
   /**
    * Creates a new external database connector.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateExternalDatabaseConnectorRequest
    * @return CreateExternalDatabaseConnectorResponse
    * @throws OciError when an error occurs
@@ -3085,9 +3214,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": createExternalDatabaseConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createExternalDatabaseConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExternalDatabaseConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3140,6 +3271,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   /**
    * Creates a new ExternalNonContainerDatabase resource
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateExternalNonContainerDatabaseRequest
    * @return CreateExternalNonContainerDatabaseResponse
    * @throws OciError when an error occurs
@@ -3160,9 +3292,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": createExternalNonContainerDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createExternalNonContainerDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExternalNonContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3216,6 +3350,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * Registers a new {@link #createExternalPluggableDatabaseDetails(CreateExternalPluggableDatabaseDetailsRequest) createExternalPluggableDatabaseDetails}
    * resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateExternalPluggableDatabaseRequest
    * @return CreateExternalPluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -3236,9 +3371,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": createExternalPluggableDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createExternalPluggableDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExternalPluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3291,6 +3428,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   /**
    * Creates a Key Store.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateKeyStoreRequest
    * @return CreateKeyStoreResponse
    * @throws OciError when an error occurs
@@ -3310,9 +3448,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": createKeyStoreRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createKeyStoreRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createKeyStoreRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3361,6 +3501,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * Creates and starts a pluggable database in the specified container database.
    * Use the [StartPluggableDatabase](#/en/database/latest/PluggableDatabase/StartPluggableDatabase] and [StopPluggableDatabase](#/en/database/latest/PluggableDatabase/StopPluggableDatabase] APIs to start and stop the pluggable database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePluggableDatabaseRequest
    * @return CreatePluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -3380,9 +3521,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": createPluggableDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPluggableDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3435,6 +3578,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   /**
    * Creates an Exadata Cloud@Customer VM cluster.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateVmClusterRequest
    * @return CreateVmClusterResponse
    * @throws OciError when an error occurs
@@ -3454,9 +3598,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": createVmClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3510,6 +3656,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * Creates the VM cluster network. Applies to Exadata Cloud@Customer instances only.
    * To create a cloud VM cluster in an Exadata Cloud Service instance, use the {@link #createCloudVmCluster(CreateCloudVmClusterRequest) createCloudVmCluster} operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateVmClusterNetworkRequest
    * @return CreateVmClusterNetworkResponse
    * @throws OciError when an error occurs
@@ -3531,9 +3678,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": createVmClusterNetworkRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVmClusterNetworkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVmClusterNetworkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3598,6 +3747,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * to remove its resources from billing and quotas.
    * *Virtual machine DB systems* - Stopping a node stops billing for all OCPUs associated with that node, and billing resumes when you restart the node.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DbNodeActionRequest
    * @return DbNodeActionResponse
    * @throws OciError when an error occurs
@@ -3621,9 +3771,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "if-match": dbNodeActionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      dbNodeActionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      dbNodeActionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3671,6 +3823,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   /**
    * Deletes the specified Autonomous Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAutonomousDatabaseRequest
    * @return DeleteAutonomousDatabaseResponse
    * @throws OciError when an error occurs
@@ -3693,9 +3846,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": deleteAutonomousDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAutonomousDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAutonomousDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3734,6 +3889,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   /**
    * Deletes the specified Autonomous VM cluster in an Exadata Cloud@Customer system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAutonomousVmClusterRequest
    * @return DeleteAutonomousVmClusterResponse
    * @throws OciError when an error occurs
@@ -3756,9 +3912,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": deleteAutonomousVmClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAutonomousVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAutonomousVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3796,6 +3954,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
 
   /**
    * Deletes a full backup. You cannot delete automatic backups using this API.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBackupRequest
    * @return DeleteBackupResponse
    * @throws OciError when an error occurs
@@ -3816,9 +3975,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "if-match": deleteBackupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3857,6 +4018,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   /**
    * Deletes a backup destination in an Exadata Cloud@Customer system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBackupDestinationRequest
    * @return DeleteBackupDestinationResponse
    * @throws OciError when an error occurs
@@ -3878,9 +4040,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": deleteBackupDestinationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteBackupDestinationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBackupDestinationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3914,6 +4078,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   /**
    * Deletes the cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCloudExadataInfrastructureRequest
    * @return DeleteCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -3939,9 +4104,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": deleteCloudExadataInfrastructureRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCloudExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCloudExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3980,6 +4147,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   /**
    * Deletes the specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCloudVmClusterRequest
    * @return DeleteCloudVmClusterResponse
    * @throws OciError when an error occurs
@@ -4001,9 +4169,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "opc-request-id": deleteCloudVmClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCloudVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCloudVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4041,6 +4211,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
 
   /**
    * Deletes the specified database node console connection.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteConsoleConnectionRequest
    * @return DeleteConsoleConnectionResponse
    * @throws OciError when an error occurs
@@ -4062,9 +4233,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "if-match": deleteConsoleConnectionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteConsoleConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteConsoleConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4100,6 +4273,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
 * <p>
 The data in this database is local to the Exadata system and will be lost when the database is deleted. Oracle recommends that you back up any data in the Exadata system prior to deleting it. You can use the `performFinalBackup` parameter to have the Exadata system database backed up before it is deleted.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteDatabaseRequest
      * @return DeleteDatabaseResponse
      * @throws OciError when an error occurs
@@ -4123,9 +4297,11 @@ The data in this database is local to the Exadata system and will be lost when t
       "opc-request-id": deleteDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4163,6 +4339,7 @@ The data in this database is local to the Exadata system and will be lost when t
 
   /**
    * Delete a database software image
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDatabaseSoftwareImageRequest
    * @return DeleteDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
@@ -4184,9 +4361,11 @@ The data in this database is local to the Exadata system and will be lost when t
       "if-match": deleteDatabaseSoftwareImageRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDatabaseSoftwareImageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDatabaseSoftwareImageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4227,6 +4406,7 @@ The data in this database is local to the Exadata system and will be lost when t
 * <p>
 Oracle recommends that you use the `performFinalBackup` parameter to back up any data on a bare metal DB system before you delete a Database Home. On an Exadata Cloud@Customer system or an Exadata Cloud Service system, you can delete a Database Home only when there are no databases in it and therefore you cannot use the `performFinalBackup` parameter to back up data.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteDbHomeRequest
      * @return DeleteDbHomeResponse
      * @throws OciError when an error occurs
@@ -4249,9 +4429,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": deleteDbHomeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDbHomeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDbHomeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4290,6 +4472,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Deletes the Exadata Cloud@Customer infrastructure.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExadataInfrastructureRequest
    * @return DeleteExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -4312,9 +4495,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-request-id": deleteExadataInfrastructureRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4355,6 +4540,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * resource. Any external pluggable databases registered under this container database must be deleted in
    * your Oracle Cloud Infrastructure tenancy prior to this operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExternalContainerDatabaseRequest
    * @return DeleteExternalContainerDatabaseResponse
    * @throws OciError when an error occurs
@@ -4378,9 +4564,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": deleteExternalContainerDatabaseRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteExternalContainerDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExternalContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4421,6 +4609,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * Any services enabled using the external database connector must be
    * deleted prior to this operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExternalDatabaseConnectorRequest
    * @return DeleteExternalDatabaseConnectorResponse
    * @throws OciError when an error occurs
@@ -4444,9 +4633,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-request-id": deleteExternalDatabaseConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteExternalDatabaseConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExternalDatabaseConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4485,6 +4676,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Deletes the Oracle Cloud Infrastructure resource representing an external non-container database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExternalNonContainerDatabaseRequest
    * @return DeleteExternalNonContainerDatabaseResponse
    * @throws OciError when an error occurs
@@ -4508,9 +4700,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-request-id": deleteExternalNonContainerDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteExternalNonContainerDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExternalNonContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4550,6 +4744,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * Deletes the {@link #createExternalPluggableDatabaseDetails(CreateExternalPluggableDatabaseDetailsRequest) createExternalPluggableDatabaseDetails}.
    * resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExternalPluggableDatabaseRequest
    * @return DeleteExternalPluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -4573,9 +4768,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": deleteExternalPluggableDatabaseRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteExternalPluggableDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExternalPluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4614,6 +4811,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Deletes a key store.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteKeyStoreRequest
    * @return DeleteKeyStoreResponse
    * @throws OciError when an error occurs
@@ -4635,9 +4833,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-request-id": deleteKeyStoreRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteKeyStoreRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteKeyStoreRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4670,6 +4870,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
 
   /**
    * Deletes the specified pluggable database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePluggableDatabaseRequest
    * @return DeletePluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -4691,9 +4892,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-request-id": deletePluggableDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePluggableDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4732,6 +4935,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Deletes the specified VM cluster. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVmClusterRequest
    * @return DeleteVmClusterResponse
    * @throws OciError when an error occurs
@@ -4753,9 +4957,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-request-id": deleteVmClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4795,6 +5001,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * Deletes the specified VM cluster network. Applies to Exadata Cloud@Customer instances only.
    * To delete a cloud VM cluster in an Exadata Cloud Service instance, use the {@link #deleteCloudVmCluster(DeleteCloudVmClusterRequest) deleteCloudVmCluster} operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVmClusterNetworkRequest
    * @return DeleteVmClusterNetworkResponse
    * @throws OciError when an error occurs
@@ -4817,9 +5024,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-request-id": deleteVmClusterNetworkRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVmClusterNetworkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVmClusterNetworkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4859,6 +5068,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Asynchronously deregisters this Autonomous Database with Data Safe.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeregisterAutonomousDatabaseDataSafeRequest
    * @return DeregisterAutonomousDatabaseDataSafeResponse
    * @throws OciError when an error occurs
@@ -4880,9 +5090,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-request-id": deregisterAutonomousDatabaseDataSafeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deregisterAutonomousDatabaseDataSafeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deregisterAutonomousDatabaseDataSafeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4926,6 +5138,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Disables Operations Insights for the Autonomous Database resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableAutonomousDatabaseOperationsInsightsRequest
    * @return DisableAutonomousDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
@@ -4950,9 +5163,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-request-id": disableAutonomousDatabaseOperationsInsightsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      disableAutonomousDatabaseOperationsInsightsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableAutonomousDatabaseOperationsInsightsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4991,6 +5206,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Disables the Database Management service for the database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableDatabaseManagementRequest
    * @return DisableDatabaseManagementResponse
    * @throws OciError when an error occurs
@@ -5014,9 +5230,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": disableDatabaseManagementRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      disableDatabaseManagementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5064,6 +5282,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Disable Database Management service for the external container database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableExternalContainerDatabaseDatabaseManagementRequest
    * @return DisableExternalContainerDatabaseDatabaseManagementResponse
    * @throws OciError when an error occurs
@@ -5090,9 +5309,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": disableExternalContainerDatabaseDatabaseManagementRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      disableExternalContainerDatabaseDatabaseManagementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalContainerDatabaseDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5139,6 +5360,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * For more information about the Database Management Service, see
    * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableExternalNonContainerDatabaseDatabaseManagementRequest
    * @return DisableExternalNonContainerDatabaseDatabaseManagementResponse
    * @throws OciError when an error occurs
@@ -5165,9 +5387,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": disableExternalNonContainerDatabaseDatabaseManagementRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      disableExternalNonContainerDatabaseDatabaseManagementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalNonContainerDatabaseDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5212,6 +5436,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Disable Operations Insights for the external non-container database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableExternalNonContainerDatabaseOperationsInsightsRequest
    * @return DisableExternalNonContainerDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
@@ -5238,9 +5463,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": disableExternalNonContainerDatabaseOperationsInsightsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      disableExternalNonContainerDatabaseOperationsInsightsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalNonContainerDatabaseOperationsInsightsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5287,6 +5514,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * For more information about the Database Management Service, see
    * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableExternalPluggableDatabaseDatabaseManagementRequest
    * @return DisableExternalPluggableDatabaseDatabaseManagementResponse
    * @throws OciError when an error occurs
@@ -5313,9 +5541,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": disableExternalPluggableDatabaseDatabaseManagementRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      disableExternalPluggableDatabaseDatabaseManagementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalPluggableDatabaseDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5360,6 +5590,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Disable Operations Insights for the external pluggable database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableExternalPluggableDatabaseOperationsInsightsRequest
    * @return DisableExternalPluggableDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
@@ -5386,9 +5617,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": disableExternalPluggableDatabaseOperationsInsightsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      disableExternalPluggableDatabaseOperationsInsightsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalPluggableDatabaseOperationsInsightsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5433,6 +5666,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Downloads the configuration file for the specified Exadata Cloud@Customer infrastructure.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DownloadExadataInfrastructureConfigFileRequest
    * @return DownloadExadataInfrastructureConfigFileResponse
    * @throws OciError when an error occurs
@@ -5458,9 +5692,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-retry-token": downloadExadataInfrastructureConfigFileRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      downloadExadataInfrastructureConfigFileRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadExadataInfrastructureConfigFileRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5513,6 +5749,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Downloads the network validation report file for the specified VM cluster network. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DownloadValidationReportRequest
    * @return DownloadValidationReportResponse
    * @throws OciError when an error occurs
@@ -5536,9 +5773,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-retry-token": downloadValidationReportRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      downloadValidationReportRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadValidationReportRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5592,6 +5831,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Downloads the configuration file for the specified VM cluster network. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DownloadVmClusterNetworkConfigFileRequest
    * @return DownloadVmClusterNetworkConfigFileResponse
    * @throws OciError when an error occurs
@@ -5616,9 +5856,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-retry-token": downloadVmClusterNetworkConfigFileRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      downloadVmClusterNetworkConfigFileRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadVmClusterNetworkConfigFileRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5672,6 +5914,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Enables the specified Autonomous Database with Operations Insights.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableAutonomousDatabaseOperationsInsightsRequest
    * @return EnableAutonomousDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
@@ -5696,9 +5939,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-request-id": enableAutonomousDatabaseOperationsInsightsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      enableAutonomousDatabaseOperationsInsightsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableAutonomousDatabaseOperationsInsightsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5736,6 +5981,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
 
   /**
    * Enables the Database Management service for an Oracle Database located in Oracle Cloud Infrastructure. This service allows the database to access tools including Metrics and Performance hub. Database Management is enabled at the container database (CDB) level.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableDatabaseManagementRequest
    * @return EnableDatabaseManagementResponse
    * @throws OciError when an error occurs
@@ -5759,9 +6005,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": enableDatabaseManagementRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      enableDatabaseManagementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5816,6 +6064,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * For more information about the Database Management Service, see
    * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableExternalContainerDatabaseDatabaseManagementRequest
    * @return EnableExternalContainerDatabaseDatabaseManagementResponse
    * @throws OciError when an error occurs
@@ -5842,9 +6091,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": enableExternalContainerDatabaseDatabaseManagementRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      enableExternalContainerDatabaseDatabaseManagementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalContainerDatabaseDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5896,6 +6147,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * For more information about the Database Management Service, see
    * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableExternalNonContainerDatabaseDatabaseManagementRequest
    * @return EnableExternalNonContainerDatabaseDatabaseManagementResponse
    * @throws OciError when an error occurs
@@ -5922,9 +6174,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": enableExternalNonContainerDatabaseDatabaseManagementRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      enableExternalNonContainerDatabaseDatabaseManagementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalNonContainerDatabaseDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5974,6 +6228,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Enable Operations Insights for the external non-container database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableExternalNonContainerDatabaseOperationsInsightsRequest
    * @return EnableExternalNonContainerDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
@@ -6000,9 +6255,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": enableExternalNonContainerDatabaseOperationsInsightsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      enableExternalNonContainerDatabaseOperationsInsightsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalNonContainerDatabaseOperationsInsightsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6054,6 +6311,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * For more information about the Database Management Service, see
    * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableExternalPluggableDatabaseDatabaseManagementRequest
    * @return EnableExternalPluggableDatabaseDatabaseManagementResponse
    * @throws OciError when an error occurs
@@ -6080,9 +6338,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": enableExternalPluggableDatabaseDatabaseManagementRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      enableExternalPluggableDatabaseDatabaseManagementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalPluggableDatabaseDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6132,6 +6392,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Enable Operations Insights for the external pluggable database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableExternalPluggableDatabaseOperationsInsightsRequest
    * @return EnableExternalPluggableDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
@@ -6158,9 +6419,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "if-match": enableExternalPluggableDatabaseOperationsInsightsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      enableExternalPluggableDatabaseOperationsInsightsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalPluggableDatabaseOperationsInsightsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6210,6 +6473,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Initiates a failover the specified Autonomous Database to a standby. To perform a failover to a standby located in a remote region, specify the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the remote standby using the `peerDbId` parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param FailOverAutonomousDatabaseRequest
    * @return FailOverAutonomousDatabaseResponse
    * @throws OciError when an error occurs
@@ -6235,9 +6499,11 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "opc-request-id": failOverAutonomousDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      failOverAutonomousDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      failOverAutonomousDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6287,6 +6553,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
 * <p>
 A failover can result in data loss, depending on the protection mode in effect at the time the primary Autonomous Container Database fails.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param FailoverAutonomousContainerDatabaseDataguardAssociationRequest
      * @return FailoverAutonomousContainerDatabaseDataguardAssociationResponse
      * @throws OciError when an error occurs
@@ -6313,9 +6580,11 @@ A failover can result in data loss, depending on the protection mode in effect a
       "if-match": failoverAutonomousContainerDatabaseDataguardAssociationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      failoverAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      failoverAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6370,6 +6639,7 @@ A failover can result in data loss, depending on the protection mode in effect a
 A failover might result in data loss depending on the protection mode in effect at the time of the primary
 * database failure.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param FailoverDataGuardAssociationRequest
      * @return FailoverDataGuardAssociationResponse
      * @throws OciError when an error occurs
@@ -6392,9 +6662,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "if-match": failoverDataGuardAssociationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      failoverDataGuardAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      failoverDataGuardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6448,6 +6720,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Creates and downloads a wallet for the specified Autonomous Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GenerateAutonomousDatabaseWalletRequest
    * @return GenerateAutonomousDatabaseWalletResponse
    * @throws OciError when an error occurs
@@ -6470,9 +6743,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-retry-token": generateAutonomousDatabaseWalletRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      generateAutonomousDatabaseWalletRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateAutonomousDatabaseWalletRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6530,6 +6805,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Generates a recommended Cloud@Customer VM cluster network configuration.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GenerateRecommendedVmClusterNetworkRequest
    * @return GenerateRecommendedVmClusterNetworkResponse
    * @throws OciError when an error occurs
@@ -6553,9 +6829,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-retry-token": generateRecommendedVmClusterNetworkRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      generateRecommendedVmClusterNetworkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateRecommendedVmClusterNetworkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6603,6 +6881,7 @@ A failover might result in data loss depending on the protection mode in effect 
 
   /**
    * Gets information about the specified Autonomous Container Database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousContainerDatabaseRequest
    * @return GetAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
@@ -6624,9 +6903,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutonomousContainerDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6669,6 +6950,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets an Autonomous Container Database enabled with Autonomous Data Guard associated with the specified Autonomous Container Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousContainerDatabaseDataguardAssociationRequest
    * @return GetAutonomousContainerDatabaseDataguardAssociationResponse
    * @throws OciError when an error occurs
@@ -6694,9 +6976,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6740,6 +7024,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets the details of the specified Autonomous Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousDatabaseRequest
    * @return GetAutonomousDatabaseResponse
    * @throws OciError when an error occurs
@@ -6760,9 +7045,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getAutonomousDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutonomousDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6804,6 +7091,7 @@ A failover might result in data loss depending on the protection mode in effect 
 
   /**
    * Gets information about the specified Autonomous Database backup.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousDatabaseBackupRequest
    * @return GetAutonomousDatabaseBackupResponse
    * @throws OciError when an error occurs
@@ -6825,9 +7113,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getAutonomousDatabaseBackupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutonomousDatabaseBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousDatabaseBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6870,6 +7160,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets an Autonomous Data Guard-enabled database associated with the specified Autonomous Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousDatabaseDataguardAssociationRequest
    * @return GetAutonomousDatabaseDataguardAssociationResponse
    * @throws OciError when an error occurs
@@ -6896,9 +7187,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getAutonomousDatabaseDataguardAssociationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutonomousDatabaseDataguardAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousDatabaseDataguardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6942,6 +7235,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets the Autonomous Database regional wallet details.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousDatabaseRegionalWalletRequest
    * @return GetAutonomousDatabaseRegionalWalletResponse
    * @throws OciError when an error occurs
@@ -6961,9 +7255,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getAutonomousDatabaseRegionalWalletRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutonomousDatabaseRegionalWalletRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousDatabaseRegionalWalletRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7001,6 +7297,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets the wallet details for the specified Autonomous Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousDatabaseWalletRequest
    * @return GetAutonomousDatabaseWalletResponse
    * @throws OciError when an error occurs
@@ -7022,9 +7319,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getAutonomousDatabaseWalletRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutonomousDatabaseWalletRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousDatabaseWalletRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7061,6 +7360,7 @@ A failover might result in data loss depending on the protection mode in effect 
 
   /**
    * Gets information about the specified Autonomous Exadata Infrastructure resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousExadataInfrastructureRequest
    * @return GetAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -7082,9 +7382,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutonomousExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7126,6 +7428,7 @@ A failover might result in data loss depending on the protection mode in effect 
 
   /**
    * Gets information about a specific autonomous patch.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousPatchRequest
    * @return GetAutonomousPatchResponse
    * @throws OciError when an error occurs
@@ -7145,9 +7448,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutonomousPatchRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousPatchRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7189,6 +7494,7 @@ A failover might result in data loss depending on the protection mode in effect 
 
   /**
    * Gets information about the specified Autonomous VM cluster for an Exadata Cloud@Customer system.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousVmClusterRequest
    * @return GetAutonomousVmClusterResponse
    * @throws OciError when an error occurs
@@ -7209,9 +7515,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getAutonomousVmClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutonomousVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7253,6 +7561,7 @@ A failover might result in data loss depending on the protection mode in effect 
 
   /**
    * Gets information about the specified backup.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBackupRequest
    * @return GetBackupResponse
    * @throws OciError when an error occurs
@@ -7272,9 +7581,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7317,6 +7628,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets information about the specified backup destination in an Exadata Cloud@Customer system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBackupDestinationRequest
    * @return GetBackupDestinationResponse
    * @throws OciError when an error occurs
@@ -7337,9 +7649,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getBackupDestinationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBackupDestinationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBackupDestinationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7382,6 +7696,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets information about the specified cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCloudExadataInfrastructureRequest
    * @return GetCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -7404,9 +7719,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getCloudExadataInfrastructureRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCloudExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7449,6 +7766,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets information about the specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCloudVmClusterRequest
    * @return GetCloudVmClusterResponse
    * @throws OciError when an error occurs
@@ -7469,9 +7787,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getCloudVmClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCloudVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7515,6 +7835,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * Gets the IORM configuration for the specified cloud VM cluster in an Exadata Cloud Service instance.
    * If you have not specified an IORM configuration, the default configuration is returned.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCloudVmClusterIormConfigRequest
    * @return GetCloudVmClusterIormConfigResponse
    * @throws OciError when an error occurs
@@ -7536,9 +7857,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getCloudVmClusterIormConfigRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCloudVmClusterIormConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudVmClusterIormConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7581,6 +7904,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets information about a specified maintenance update package for a cloud VM cluster. Applies to Exadata Cloud Service instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCloudVmClusterUpdateRequest
    * @return GetCloudVmClusterUpdateResponse
    * @throws OciError when an error occurs
@@ -7602,9 +7926,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getCloudVmClusterUpdateRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCloudVmClusterUpdateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudVmClusterUpdateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7642,6 +7968,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets the maintenance update history details for the specified update history entry. Applies to Exadata Cloud Service instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCloudVmClusterUpdateHistoryEntryRequest
    * @return GetCloudVmClusterUpdateHistoryEntryResponse
    * @throws OciError when an error occurs
@@ -7664,9 +7991,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getCloudVmClusterUpdateHistoryEntryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCloudVmClusterUpdateHistoryEntryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudVmClusterUpdateHistoryEntryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7708,6 +8037,7 @@ A failover might result in data loss depending on the protection mode in effect 
 
   /**
    * Gets the specified database node console connection's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConsoleConnectionRequest
    * @return GetConsoleConnectionResponse
    * @throws OciError when an error occurs
@@ -7728,9 +8058,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getConsoleConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConsoleConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7773,6 +8105,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets the specified Data Guard association's configuration information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataGuardAssociationRequest
    * @return GetDataGuardAssociationResponse
    * @throws OciError when an error occurs
@@ -7793,9 +8126,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDataGuardAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataGuardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7837,6 +8172,7 @@ A failover might result in data loss depending on the protection mode in effect 
 
   /**
    * Gets information about the specified database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDatabaseRequest
    * @return GetDatabaseResponse
    * @throws OciError when an error occurs
@@ -7856,9 +8192,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7900,6 +8238,7 @@ A failover might result in data loss depending on the protection mode in effect 
 
   /**
    * Gets information about the specified database software image.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDatabaseSoftwareImageRequest
    * @return GetDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
@@ -7920,9 +8259,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDatabaseSoftwareImageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseSoftwareImageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7965,6 +8306,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * gets the upgrade history for a specified database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDatabaseUpgradeHistoryEntryRequest
    * @return GetDatabaseUpgradeHistoryEntryResponse
    * @throws OciError when an error occurs
@@ -7987,9 +8329,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getDatabaseUpgradeHistoryEntryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDatabaseUpgradeHistoryEntryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseUpgradeHistoryEntryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8026,6 +8370,7 @@ A failover might result in data loss depending on the protection mode in effect 
 
   /**
    * Gets information about the specified Database Home.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDbHomeRequest
    * @return GetDbHomeResponse
    * @throws OciError when an error occurs
@@ -8045,9 +8390,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDbHomeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbHomeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8090,6 +8437,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets information about a specified patch package.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDbHomePatchRequest
    * @return GetDbHomePatchResponse
    * @throws OciError when an error occurs
@@ -8110,9 +8458,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDbHomePatchRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbHomePatchRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8150,6 +8500,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets the patch history details for the specified patchHistoryEntryId
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDbHomePatchHistoryEntryRequest
    * @return GetDbHomePatchHistoryEntryResponse
    * @throws OciError when an error occurs
@@ -8171,9 +8522,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDbHomePatchHistoryEntryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbHomePatchHistoryEntryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8215,6 +8568,7 @@ A failover might result in data loss depending on the protection mode in effect 
 
   /**
    * Gets information about the specified database node.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDbNodeRequest
    * @return GetDbNodeResponse
    * @throws OciError when an error occurs
@@ -8234,9 +8588,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDbNodeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbNodeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8279,6 +8635,7 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
    * Gets information about the Exadata Db server.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDbServerRequest
    * @return GetDbServerResponse
    * @throws OciError when an error occurs
@@ -8301,9 +8658,11 @@ A failover might result in data loss depending on the protection mode in effect 
       "opc-request-id": getDbServerRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDbServerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbServerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8350,6 +8709,7 @@ A failover might result in data loss depending on the protection mode in effect 
 * <p>
 For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetDbSystemRequest
      * @return GetDbSystemResponse
      * @throws OciError when an error occurs
@@ -8369,9 +8729,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDbSystemRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8414,6 +8776,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Gets information the specified patch.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDbSystemPatchRequest
    * @return GetDbSystemPatchResponse
    * @throws OciError when an error occurs
@@ -8434,9 +8797,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDbSystemPatchRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbSystemPatchRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8474,6 +8839,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Gets the details of the specified patch operation on the specified DB system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDbSystemPatchHistoryEntryRequest
    * @return GetDbSystemPatchHistoryEntryResponse
    * @throws OciError when an error occurs
@@ -8495,9 +8861,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDbSystemPatchHistoryEntryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbSystemPatchHistoryEntryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8541,6 +8909,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * Gets information about the specified Exadata infrastructure. Applies to Exadata Cloud@Customer instances only.
    * To get information on an Exadata Cloud Service infrastructure resource, use the  {@link #getCloudExadataInfrastructure(GetCloudExadataInfrastructureRequest) getCloudExadataInfrastructure} operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExadataInfrastructureRequest
    * @return GetExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -8562,9 +8931,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": getExadataInfrastructureRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8607,6 +8978,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Gets details of the available and consumed OCPUs for the specified Autonomous Exadata Infrastructure resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExadataInfrastructureOcpusRequest
    * @return GetExadataInfrastructureOcpusResponse
    * @throws OciError when an error occurs
@@ -8629,9 +9001,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": getExadataInfrastructureOcpusRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getExadataInfrastructureOcpusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExadataInfrastructureOcpusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8677,6 +9051,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getCloudVmClusterIormConfig} API is used for this operation with Exadata systems using the
 * new resource model.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetExadataIormConfigRequest
      * @return GetExadataIormConfigResponse
      * @throws OciError when an error occurs
@@ -8697,9 +9072,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "opc-request-id": getExadataIormConfigRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getExadataIormConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExadataIormConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8739,6 +9116,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * <p>
    **Note:** This API is used by an Oracle Cloud Infrastructure Python script that is packaged with the Oracle Cloud Infrastructure CLI. Oracle recommends that you use the script instead using the API directly. See [Migrating an On-Premises Database to Oracle Cloud Infrastructure by Creating a Backup in the Cloud](https://docs.cloud.oracle.com/Content/Database/Tasks/mig-onprembackup.htm) for more information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExternalBackupJobRequest
    * @return GetExternalBackupJobResponse
    * @throws OciError when an error occurs
@@ -8758,9 +9136,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getExternalBackupJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalBackupJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8802,6 +9182,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
 
   /**
    * Gets information about the specified external container database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExternalContainerDatabaseRequest
    * @return GetExternalContainerDatabaseResponse
    * @throws OciError when an error occurs
@@ -8824,9 +9205,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "opc-request-id": getExternalContainerDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getExternalContainerDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8868,6 +9251,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
 
   /**
    * Gets information about the specified external database connector.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExternalDatabaseConnectorRequest
    * @return GetExternalDatabaseConnectorResponse
    * @throws OciError when an error occurs
@@ -8890,9 +9274,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "opc-request-id": getExternalDatabaseConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getExternalDatabaseConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalDatabaseConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8934,6 +9320,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
 
   /**
    * Gets information about a specific external non-container database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExternalNonContainerDatabaseRequest
    * @return GetExternalNonContainerDatabaseResponse
    * @throws OciError when an error occurs
@@ -8956,9 +9343,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "opc-request-id": getExternalNonContainerDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getExternalNonContainerDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalNonContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9002,6 +9391,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * Gets information about a specific
    * {@link #createExternalPluggableDatabaseDetails(CreateExternalPluggableDatabaseDetailsRequest) createExternalPluggableDatabaseDetails} resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExternalPluggableDatabaseRequest
    * @return GetExternalPluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -9024,9 +9414,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "opc-request-id": getExternalPluggableDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getExternalPluggableDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalPluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9069,6 +9461,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   /**
    * Gets information about the specified key store.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetKeyStoreRequest
    * @return GetKeyStoreResponse
    * @throws OciError when an error occurs
@@ -9089,9 +9482,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "opc-request-id": getKeyStoreRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getKeyStoreRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getKeyStoreRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9133,6 +9528,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
 
   /**
    * Gets information about the specified maintenance run.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMaintenanceRunRequest
    * @return GetMaintenanceRunResponse
    * @throws OciError when an error occurs
@@ -9152,9 +9548,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getMaintenanceRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMaintenanceRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9197,6 +9595,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   /**
    * Gets the details of operations performed to convert the specified database from non-container (non-CDB) to pluggable (PDB).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPdbConversionHistoryEntryRequest
    * @return GetPdbConversionHistoryEntryResponse
    * @throws OciError when an error occurs
@@ -9220,9 +9619,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "opc-request-id": getPdbConversionHistoryEntryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPdbConversionHistoryEntryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPdbConversionHistoryEntryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9259,6 +9660,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
 
   /**
    * Gets information about the specified pluggable database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPluggableDatabaseRequest
    * @return GetPluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -9278,9 +9680,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPluggableDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9323,6 +9727,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   /**
    * Gets information about the VM cluster. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVmClusterRequest
    * @return GetVmClusterResponse
    * @throws OciError when an error occurs
@@ -9343,9 +9748,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "opc-request-id": getVmClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9389,6 +9796,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * Gets information about the specified VM cluster network. Applies to Exadata Cloud@Customer instances only.
    * To get information about a cloud VM cluster in an Exadata Cloud Service instance, use the {@link #getCloudVmCluster(GetCloudVmClusterRequest) getCloudVmCluster} operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVmClusterNetworkRequest
    * @return GetVmClusterNetworkResponse
    * @throws OciError when an error occurs
@@ -9410,9 +9818,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "opc-request-id": getVmClusterNetworkRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVmClusterNetworkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVmClusterNetworkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9456,6 +9866,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   /**
    * Gets information about a specified patch package.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVmClusterPatchRequest
    * @return GetVmClusterPatchResponse
    * @throws OciError when an error occurs
@@ -9476,9 +9887,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVmClusterPatchRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVmClusterPatchRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9516,6 +9929,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   /**
    * Gets the patch history details for the specified patch history entry.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVmClusterPatchHistoryEntryRequest
    * @return GetVmClusterPatchHistoryEntryResponse
    * @throws OciError when an error occurs
@@ -9537,9 +9951,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVmClusterPatchHistoryEntryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVmClusterPatchHistoryEntryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9582,6 +9998,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   /**
    * Gets information about a specified maintenance update package for a VM cluster. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVmClusterUpdateRequest
    * @return GetVmClusterUpdateResponse
    * @throws OciError when an error occurs
@@ -9603,9 +10020,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "opc-request-id": getVmClusterUpdateRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVmClusterUpdateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVmClusterUpdateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9643,6 +10062,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   /**
    * Gets the maintenance update history details for the specified update history entry. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVmClusterUpdateHistoryEntryRequest
    * @return GetVmClusterUpdateHistoryEntryResponse
    * @throws OciError when an error occurs
@@ -9665,9 +10085,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "opc-request-id": getVmClusterUpdateHistoryEntryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVmClusterUpdateHistoryEntryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVmClusterUpdateHistoryEntryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9710,6 +10132,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   /**
    * Creates a new Autonomous Exadata Infrastructure in the specified compartment and availability domain.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param LaunchAutonomousExadataInfrastructureRequest
    * @return LaunchAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -9729,9 +10152,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       "opc-retry-token": launchAutonomousExadataInfrastructureRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      launchAutonomousExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      launchAutonomousExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9794,6 +10219,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 * <p>
 Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructureRequest) createCloudExadataInfrastructure} and {@link #createCloudVmCluster(CreateCloudVmClusterRequest) createCloudVmCluster} APIs to provision a new Exadata Cloud Service instance.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param LaunchDbSystemRequest
      * @return LaunchDbSystemResponse
      * @throws OciError when an error occurs
@@ -9812,9 +10238,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-retry-token": launchDbSystemRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      launchDbSystemRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      launchDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9867,6 +10295,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets a list of the Autonomous Container Databases with Autonomous Data Guard-enabled associated with the specified Autonomous Container Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousContainerDatabaseDataguardAssociationsRequest
    * @return ListAutonomousContainerDatabaseDataguardAssociationsResponse
    * @throws OciError when an error occurs
@@ -9893,9 +10322,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutonomousContainerDatabaseDataguardAssociationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousContainerDatabaseDataguardAssociationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9999,6 +10430,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets a list of the Autonomous Container Databases in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousContainerDatabasesRequest
    * @return ListAutonomousContainerDatabasesResponse
    * @throws OciError when an error occurs
@@ -10031,9 +10463,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutonomousContainerDatabasesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousContainerDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10128,6 +10562,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets a list of Autonomous Database backups based on either the `autonomousDatabaseId` or `compartmentId` specified as a query parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDatabaseBackupsRequest
    * @return ListAutonomousDatabaseBackupsResponse
    * @throws OciError when an error occurs
@@ -10156,9 +10591,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listAutonomousDatabaseBackupsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutonomousDatabaseBackupsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousDatabaseBackupsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10253,6 +10690,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Lists the Autonomous Database clones for the specified Autonomous Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDatabaseClonesRequest
    * @return ListAutonomousDatabaseClonesResponse
    * @throws OciError when an error occurs
@@ -10283,9 +10721,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listAutonomousDatabaseClonesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutonomousDatabaseClonesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousDatabaseClonesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10380,6 +10820,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets a list of the Autonomous Data Guard-enabled databases associated with the specified Autonomous Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDatabaseDataguardAssociationsRequest
    * @return ListAutonomousDatabaseDataguardAssociationsResponse
    * @throws OciError when an error occurs
@@ -10406,9 +10847,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutonomousDatabaseDataguardAssociationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousDatabaseDataguardAssociationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10503,6 +10946,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets a list of Autonomous Databases based on the query parameters specified.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDatabasesRequest
    * @return ListAutonomousDatabasesResponse
    * @throws OciError when an error occurs
@@ -10536,9 +10980,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listAutonomousDatabasesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutonomousDatabasesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10634,6 +11080,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * Gets a list of supported Autonomous Database versions. Note that preview version software is only available for
    * databases with [shared Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adboverview.htm#AEI).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDbPreviewVersionsRequest
    * @return ListAutonomousDbPreviewVersionsResponse
    * @throws OciError when an error occurs
@@ -10659,9 +11106,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listAutonomousDbPreviewVersionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutonomousDbPreviewVersionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousDbPreviewVersionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10755,6 +11204,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
 
   /**
    * Gets a list of supported Autonomous Database versions.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDbVersionsRequest
    * @return ListAutonomousDbVersionsResponse
    * @throws OciError when an error occurs
@@ -10780,9 +11230,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listAutonomousDbVersionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutonomousDbVersionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousDbVersionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10876,6 +11328,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
 
   /**
    * Gets a list of the shapes that can be used to launch a new Autonomous Exadata Infrastructure resource. The shape determines resources to allocate (CPU cores, memory and storage).
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousExadataInfrastructureShapesRequest
    * @return ListAutonomousExadataInfrastructureShapesResponse
    * @throws OciError when an error occurs
@@ -10902,9 +11355,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listAutonomousExadataInfrastructureShapesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutonomousExadataInfrastructureShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousExadataInfrastructureShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10999,6 +11454,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets a list of the Autonomous Exadata Infrastructures in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousExadataInfrastructuresRequest
    * @return ListAutonomousExadataInfrastructuresResponse
    * @throws OciError when an error occurs
@@ -11026,9 +11482,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutonomousExadataInfrastructuresRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousExadataInfrastructuresRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11123,6 +11581,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets a list of Exadata Cloud@Customer Autonomous VM clusters in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousVmClustersRequest
    * @return ListAutonomousVmClustersResponse
    * @throws OciError when an error occurs
@@ -11151,9 +11610,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listAutonomousVmClustersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutonomousVmClustersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousVmClustersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11248,6 +11709,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets a list of backup destinations in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBackupDestinationRequest
    * @return ListBackupDestinationResponse
    * @throws OciError when an error occurs
@@ -11271,9 +11733,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listBackupDestinationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBackupDestinationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBackupDestinationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11373,6 +11837,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets a list of backups based on the `databaseId` or `compartmentId` specified. Either one of these query parameters must be provided.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBackupsRequest
    * @return ListBackupsResponse
    * @throws OciError when an error occurs
@@ -11395,9 +11860,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBackupsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBackupsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11492,6 +11959,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets a list of the cloud Exadata infrastructure resources in the specified compartment. Applies to Exadata Cloud Service instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCloudExadataInfrastructuresRequest
    * @return ListCloudExadataInfrastructuresResponse
    * @throws OciError when an error occurs
@@ -11519,9 +11987,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listCloudExadataInfrastructuresRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCloudExadataInfrastructuresRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudExadataInfrastructuresRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11616,6 +12086,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets the history of the maintenance update actions performed on the specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCloudVmClusterUpdateHistoryEntriesRequest
    * @return ListCloudVmClusterUpdateHistoryEntriesResponse
    * @throws OciError when an error occurs
@@ -11641,9 +12112,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listCloudVmClusterUpdateHistoryEntriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCloudVmClusterUpdateHistoryEntriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudVmClusterUpdateHistoryEntriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11738,6 +12211,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Lists the maintenance updates that can be applied to the specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCloudVmClusterUpdatesRequest
    * @return ListCloudVmClusterUpdatesResponse
    * @throws OciError when an error occurs
@@ -11763,9 +12237,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listCloudVmClusterUpdatesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCloudVmClusterUpdatesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudVmClusterUpdatesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11860,6 +12336,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets a list of the cloud VM clusters in the specified compartment. Applies to Exadata Cloud Service instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCloudVmClustersRequest
    * @return ListCloudVmClustersResponse
    * @throws OciError when an error occurs
@@ -11887,9 +12364,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listCloudVmClustersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCloudVmClustersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudVmClustersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11984,6 +12463,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Lists the console connections for the specified database node.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListConsoleConnectionsRequest
    * @return ListConsoleConnectionsResponse
    * @throws OciError when an error occurs
@@ -12003,9 +12483,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listConsoleConnectionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConsoleConnectionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12048,6 +12530,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Lists the patches applicable to the requested container database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListContainerDatabasePatchesRequest
    * @return ListContainerDatabasePatchesResponse
    * @throws OciError when an error occurs
@@ -12073,9 +12556,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listContainerDatabasePatchesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listContainerDatabasePatchesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12170,6 +12655,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Lists all Data Guard associations for the specified database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataGuardAssociationsRequest
    * @return ListDataGuardAssociationsResponse
    * @throws OciError when an error occurs
@@ -12193,9 +12679,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDataGuardAssociationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataGuardAssociationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12290,6 +12778,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets a list of the database software images in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDatabaseSoftwareImagesRequest
    * @return ListDatabaseSoftwareImagesResponse
    * @throws OciError when an error occurs
@@ -12319,9 +12808,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDatabaseSoftwareImagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseSoftwareImagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12416,6 +12907,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets the upgrade history for a specified database in a bare metal or virtual machine DB system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDatabaseUpgradeHistoryEntriesRequest
    * @return ListDatabaseUpgradeHistoryEntriesResponse
    * @throws OciError when an error occurs
@@ -12444,9 +12936,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listDatabaseUpgradeHistoryEntriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDatabaseUpgradeHistoryEntriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseUpgradeHistoryEntriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12541,6 +13035,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets a list of the databases in the specified Database Home.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDatabasesRequest
    * @return ListDatabasesResponse
    * @throws OciError when an error occurs
@@ -12568,9 +13063,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDatabasesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12665,6 +13162,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Lists the history of patch operations on the specified Database Home.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDbHomePatchHistoryEntriesRequest
    * @return ListDbHomePatchHistoryEntriesResponse
    * @throws OciError when an error occurs
@@ -12688,9 +13186,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDbHomePatchHistoryEntriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbHomePatchHistoryEntriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12785,6 +13285,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Lists patches applicable to the requested Database Home.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDbHomePatchesRequest
    * @return ListDbHomePatchesResponse
    * @throws OciError when an error occurs
@@ -12807,9 +13308,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDbHomePatchesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbHomePatchesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12904,6 +13407,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Lists the Database Homes in the specified DB system and compartment. A Database Home is a directory where Oracle Database software is installed.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDbHomesRequest
    * @return ListDbHomesResponse
    * @throws OciError when an error occurs
@@ -12933,9 +13437,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDbHomesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbHomesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13030,6 +13536,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Lists the database nodes in the specified DB system and compartment. A database node is a server running database software.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDbNodesRequest
    * @return ListDbNodesResponse
    * @throws OciError when an error occurs
@@ -13057,9 +13564,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDbNodesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbNodesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13154,6 +13663,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Lists the Exadata DB servers in the ExadataInfrastructureId and specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDbServersRequest
    * @return ListDbServersResponse
    * @throws OciError when an error occurs
@@ -13181,9 +13691,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "opc-request-id": listDbServersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDbServersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbServersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13278,6 +13790,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Gets the history of the patch actions performed on the specified DB system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDbSystemPatchHistoryEntriesRequest
    * @return ListDbSystemPatchHistoryEntriesResponse
    * @throws OciError when an error occurs
@@ -13301,9 +13814,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDbSystemPatchHistoryEntriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbSystemPatchHistoryEntriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13398,6 +13913,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
    * Lists the patches applicable to the specified DB system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDbSystemPatchesRequest
    * @return ListDbSystemPatchesResponse
    * @throws OciError when an error occurs
@@ -13420,9 +13936,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDbSystemPatchesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbSystemPatchesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13516,6 +14034,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
 
   /**
    * Gets a list of the shapes that can be used to launch a new DB system. The shape determines resources to allocate to the DB system - CPU cores and memory for VM shapes; CPU cores, memory and storage for non-VM (or bare metal) shapes.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDbSystemShapesRequest
    * @return ListDbSystemShapesResponse
    * @throws OciError when an error occurs
@@ -13538,9 +14057,11 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDbSystemShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbSystemShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13639,6 +14160,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
 * <p>
 For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListDbSystemsRequest
      * @return ListDbSystemsResponse
      * @throws OciError when an error occurs
@@ -13666,9 +14188,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDbSystemsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbSystemsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13762,6 +14286,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Gets a list of supported Oracle Database versions.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDbVersionsRequest
    * @return ListDbVersionsResponse
    * @throws OciError when an error occurs
@@ -13788,9 +14313,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDbVersionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbVersionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13886,6 +14413,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * Lists the Exadata infrastructure resources in the specified compartment. Applies to Exadata Cloud@Customer instances only.
    * To list the Exadata Cloud Service infrastructure resources in a compartment, use the  {@link #listCloudExadataInfrastructures(ListCloudExadataInfrastructuresRequest) listCloudExadataInfrastructures} operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListExadataInfrastructuresRequest
    * @return ListExadataInfrastructuresResponse
    * @throws OciError when an error occurs
@@ -13913,9 +14441,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": listExadataInfrastructuresRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listExadataInfrastructuresRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExadataInfrastructuresRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14010,6 +14540,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Gets a list of the external container databases in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListExternalContainerDatabasesRequest
    * @return ListExternalContainerDatabasesResponse
    * @throws OciError when an error occurs
@@ -14037,9 +14568,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": listExternalContainerDatabasesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listExternalContainerDatabasesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalContainerDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14134,6 +14667,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Gets a list of the external database connectors in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListExternalDatabaseConnectorsRequest
    * @return ListExternalDatabaseConnectorsResponse
    * @throws OciError when an error occurs
@@ -14162,9 +14696,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": listExternalDatabaseConnectorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listExternalDatabaseConnectorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalDatabaseConnectorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14259,6 +14795,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Gets a list of the ExternalNonContainerDatabases in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListExternalNonContainerDatabasesRequest
    * @return ListExternalNonContainerDatabasesResponse
    * @throws OciError when an error occurs
@@ -14286,9 +14823,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": listExternalNonContainerDatabasesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listExternalNonContainerDatabasesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalNonContainerDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14384,6 +14923,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * Gets a list of the {@link #createExternalPluggableDatabaseDetails(CreateExternalPluggableDatabaseDetailsRequest) createExternalPluggableDatabaseDetails}
    * resources in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListExternalPluggableDatabasesRequest
    * @return ListExternalPluggableDatabasesResponse
    * @throws OciError when an error occurs
@@ -14413,9 +14953,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": listExternalPluggableDatabasesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listExternalPluggableDatabasesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalPluggableDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14509,6 +15051,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Gets a list of the flex components that can be used to launch a new DB system. The flex component determines resources to allocate to the DB system - Database Servers and Storage Servers.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListFlexComponentsRequest
    * @return ListFlexComponentsResponse
    * @throws OciError when an error occurs
@@ -14533,9 +15076,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listFlexComponentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFlexComponentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14577,6 +15122,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Gets a list of supported GI versions for the Exadata Cloud@Customer VM cluster.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListGiVersionsRequest
    * @return ListGiVersionsResponse
    * @throws OciError when an error occurs
@@ -14600,9 +15146,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listGiVersionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listGiVersionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14697,6 +15245,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Gets a list of key stores in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListKeyStoresRequest
    * @return ListKeyStoresResponse
    * @throws OciError when an error occurs
@@ -14719,9 +15268,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": listKeyStoresRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listKeyStoresRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listKeyStoresRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14816,6 +15367,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Gets a list of the maintenance runs in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListMaintenanceRunsRequest
    * @return ListMaintenanceRunsResponse
    * @throws OciError when an error occurs
@@ -14844,9 +15396,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listMaintenanceRunsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaintenanceRunsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14941,6 +15495,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Gets the pluggable database conversion history for a specified database in a bare metal or virtual machine DB system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPdbConversionHistoryEntriesRequest
    * @return ListPdbConversionHistoryEntriesResponse
    * @throws OciError when an error occurs
@@ -14969,9 +15524,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": listPdbConversionHistoryEntriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPdbConversionHistoryEntriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPdbConversionHistoryEntriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15066,6 +15623,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Gets a list of the pluggable databases in a database or compartment. You must provide either a `databaseId` or `compartmentId` value.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPluggableDatabasesRequest
    * @return ListPluggableDatabasesResponse
    * @throws OciError when an error occurs
@@ -15092,9 +15650,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPluggableDatabasesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPluggableDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15189,6 +15749,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Gets a list of the VM cluster networks in the specified compartment. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVmClusterNetworksRequest
    * @return ListVmClusterNetworksResponse
    * @throws OciError when an error occurs
@@ -15217,9 +15778,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": listVmClusterNetworksRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVmClusterNetworksRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVmClusterNetworksRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15314,6 +15877,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Gets the history of the patch actions performed on the specified VM cluster in an Exadata Cloud@Customer system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVmClusterPatchHistoryEntriesRequest
    * @return ListVmClusterPatchHistoryEntriesResponse
    * @throws OciError when an error occurs
@@ -15337,9 +15901,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVmClusterPatchHistoryEntriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVmClusterPatchHistoryEntriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15434,6 +16000,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Lists the patches applicable to the specified VM cluster in an Exadata Cloud@Customer system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVmClusterPatchesRequest
    * @return ListVmClusterPatchesResponse
    * @throws OciError when an error occurs
@@ -15456,9 +16023,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVmClusterPatchesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVmClusterPatchesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15553,6 +16122,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Gets the history of the maintenance update actions performed on the specified VM cluster. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVmClusterUpdateHistoryEntriesRequest
    * @return ListVmClusterUpdateHistoryEntriesResponse
    * @throws OciError when an error occurs
@@ -15579,9 +16149,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": listVmClusterUpdateHistoryEntriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVmClusterUpdateHistoryEntriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVmClusterUpdateHistoryEntriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15676,6 +16248,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Lists the maintenance updates that can be applied to the specified VM cluster. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVmClusterUpdatesRequest
    * @return ListVmClusterUpdatesResponse
    * @throws OciError when an error occurs
@@ -15701,9 +16274,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": listVmClusterUpdatesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVmClusterUpdatesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVmClusterUpdatesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15799,6 +16374,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * Lists the VM clusters in the specified compartment. Applies to Exadata Cloud@Customer instances only.
    * To list the cloud VM clusters in an Exadata Cloud Service instance, use the {@link #listCloudVmClusters(ListCloudVmClustersRequest) listCloudVmClusters} operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVmClustersRequest
    * @return ListVmClustersResponse
    * @throws OciError when an error occurs
@@ -15826,9 +16402,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": listVmClustersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVmClustersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVmClustersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15923,6 +16501,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Clones and starts a pluggable database (PDB) in the same database (CDB) as the source PDB. The source PDB must be in the `READ_WRITE` openMode to perform the clone operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param LocalClonePluggableDatabaseRequest
    * @return LocalClonePluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -15946,9 +16525,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-retry-token": localClonePluggableDatabaseRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      localClonePluggableDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      localClonePluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16002,6 +16583,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * Migrates the Exadata DB system to the new [Exadata resource model](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model).
    * All related resources will be migrated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param MigrateExadataDbSystemResourceModelRequest
    * @return MigrateExadataDbSystemResourceModelResponse
    * @throws OciError when an error occurs
@@ -16025,9 +16607,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-retry-token": migrateExadataDbSystemResourceModelRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      migrateExadataDbSystemResourceModelRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      migrateExadataDbSystemResourceModelRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16074,6 +16658,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Changes encryption key management from customer-managed, using the [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm), to Oracle-managed.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param MigrateVaultKeyRequest
    * @return MigrateVaultKeyResponse
    * @throws OciError when an error occurs
@@ -16096,9 +16681,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": migrateVaultKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      migrateVaultKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      migrateVaultKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16150,6 +16737,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Updates one or more attributes of the Database Management service for the database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ModifyDatabaseManagementRequest
    * @return ModifyDatabaseManagementResponse
    * @throws OciError when an error occurs
@@ -16173,9 +16761,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": modifyDatabaseManagementRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      modifyDatabaseManagementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      modifyDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16228,6 +16818,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Asynchronously registers this Autonomous Database with Data Safe.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RegisterAutonomousDatabaseDataSafeRequest
    * @return RegisterAutonomousDatabaseDataSafeResponse
    * @throws OciError when an error occurs
@@ -16249,9 +16840,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": registerAutonomousDatabaseDataSafeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      registerAutonomousDatabaseDataSafeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      registerAutonomousDatabaseDataSafeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16295,6 +16888,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Reinstates a disabled standby Autonomous Container Database, identified by the autonomousContainerDatabaseId parameter, to an active standby Autonomous Container Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ReinstateAutonomousContainerDatabaseDataguardAssociationRequest
    * @return ReinstateAutonomousContainerDatabaseDataguardAssociationResponse
    * @throws OciError when an error occurs
@@ -16321,9 +16915,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": reinstateAutonomousContainerDatabaseDataguardAssociationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      reinstateAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      reinstateAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16374,6 +16970,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Reinstates the database identified by the `databaseId` parameter into the standby role in a Data Guard association.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ReinstateDataGuardAssociationRequest
    * @return ReinstateDataGuardAssociationResponse
    * @throws OciError when an error occurs
@@ -16396,9 +16993,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": reinstateDataGuardAssociationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      reinstateDataGuardAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      reinstateDataGuardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16452,6 +17051,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Clones a pluggable database (PDB) to a different database from the source PDB. The cloned PDB will be started upon completion of the clone operation. The source PDB must be in the `READ_WRITE` openMode when performing the clone.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoteClonePluggableDatabaseRequest
    * @return RemoteClonePluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -16475,9 +17075,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-retry-token": remoteClonePluggableDatabaseRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      remoteClonePluggableDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      remoteClonePluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16530,6 +17132,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Remove Virtual Machines from the VM cluster. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveVirtualMachineFromVmClusterRequest
    * @return RemoveVirtualMachineFromVmClusterResponse
    * @throws OciError when an error occurs
@@ -16553,9 +17156,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": removeVirtualMachineFromVmClusterRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeVirtualMachineFromVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeVirtualMachineFromVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16608,6 +17213,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Rolling restarts the specified Autonomous Container Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestartAutonomousContainerDatabaseRequest
    * @return RestartAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
@@ -16631,9 +17237,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": restartAutonomousContainerDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restartAutonomousContainerDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restartAutonomousContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16681,6 +17289,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Restarts the specified Autonomous Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestartAutonomousDatabaseRequest
    * @return RestartAutonomousDatabaseResponse
    * @throws OciError when an error occurs
@@ -16702,9 +17311,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": restartAutonomousDatabaseRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restartAutonomousDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restartAutonomousDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16752,6 +17363,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Restores an Autonomous Database based on the provided request parameters.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestoreAutonomousDatabaseRequest
    * @return RestoreAutonomousDatabaseResponse
    * @throws OciError when an error occurs
@@ -16773,9 +17385,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": restoreAutonomousDatabaseRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restoreAutonomousDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restoreAutonomousDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16828,6 +17442,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Restore a Database based on the request parameters you provide.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestoreDatabaseRequest
    * @return RestoreDatabaseResponse
    * @throws OciError when an error occurs
@@ -16848,9 +17463,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": restoreDatabaseRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restoreDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restoreDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16902,6 +17519,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Creates a new version of an existing [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RotateAutonomousContainerDatabaseEncryptionKeyRequest
    * @return RotateAutonomousContainerDatabaseEncryptionKeyResponse
    * @throws OciError when an error occurs
@@ -16928,9 +17546,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": rotateAutonomousContainerDatabaseEncryptionKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      rotateAutonomousContainerDatabaseEncryptionKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rotateAutonomousContainerDatabaseEncryptionKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16977,6 +17597,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Rotate existing AutonomousDatabase [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RotateAutonomousDatabaseEncryptionKeyRequest
    * @return RotateAutonomousDatabaseEncryptionKeyResponse
    * @throws OciError when an error occurs
@@ -17000,9 +17621,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": rotateAutonomousDatabaseEncryptionKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      rotateAutonomousDatabaseEncryptionKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rotateAutonomousDatabaseEncryptionKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17050,6 +17673,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Rotates Oracle REST Data Services (ORDS) certs for an Autonomous Exadata Infrastructure resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RotateOrdsCertsRequest
    * @return RotateOrdsCertsResponse
    * @throws OciError when an error occurs
@@ -17073,9 +17697,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": rotateOrdsCertsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      rotateOrdsCertsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rotateOrdsCertsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17115,6 +17741,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Rotates SSL certs for an Autonomous Exadata Infrastructure resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RotateSslCertsRequest
    * @return RotateSslCertsResponse
    * @throws OciError when an error occurs
@@ -17137,9 +17764,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": rotateSslCertsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      rotateSslCertsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rotateSslCertsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17178,6 +17807,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Creates a new version of an existing [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RotateVaultKeyRequest
    * @return RotateVaultKeyResponse
    * @throws OciError when an error occurs
@@ -17200,9 +17830,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": rotateVaultKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      rotateVaultKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rotateVaultKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17251,6 +17883,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * Scans for pluggable databases in the specified external container database.
    * This operation will return un-registered pluggable databases in the `GetWorkRequest` operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ScanExternalContainerDatabasePluggableDatabasesRequest
    * @return ScanExternalContainerDatabasePluggableDatabasesResponse
    * @throws OciError when an error occurs
@@ -17279,9 +17912,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-retry-token": scanExternalContainerDatabasePluggableDatabasesRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      scanExternalContainerDatabasePluggableDatabasesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scanExternalContainerDatabasePluggableDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17321,6 +17956,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Starts the specified Autonomous Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StartAutonomousDatabaseRequest
    * @return StartAutonomousDatabaseResponse
    * @throws OciError when an error occurs
@@ -17341,9 +17977,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": startAutonomousDatabaseRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      startAutonomousDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startAutonomousDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17390,6 +18028,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Starts a stopped pluggable database. The `openMode` value of the pluggable database will be `READ_WRITE` upon completion.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StartPluggableDatabaseRequest
    * @return StartPluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -17412,9 +18051,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-retry-token": startPluggableDatabaseRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      startPluggableDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startPluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17462,6 +18103,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Stops the specified Autonomous Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StopAutonomousDatabaseRequest
    * @return StopAutonomousDatabaseResponse
    * @throws OciError when an error occurs
@@ -17483,9 +18125,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": stopAutonomousDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      stopAutonomousDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopAutonomousDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17532,6 +18176,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Stops a pluggable database. The `openMode` value of the pluggable database will be `MOUNTED` upon completion.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StopPluggableDatabaseRequest
    * @return StopPluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -17554,9 +18199,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-retry-token": stopPluggableDatabaseRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      stopPluggableDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopPluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17606,6 +18253,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 * <p>
 A switchover incurs no data loss.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest
      * @return SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse
      * @throws OciError when an error occurs
@@ -17632,9 +18280,11 @@ A switchover incurs no data loss.
       "if-match": switchoverAutonomousContainerDatabaseDataguardAssociationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      switchoverAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      switchoverAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17685,6 +18335,7 @@ A switchover incurs no data loss.
   /**
    * Initiates a switchover of the specified Autonomous Database to the associated standby database. Applicable only to databases with Autonomous Data Guard enabled. To perform a switchover to a standby located in a remote region, specify the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the remote standby using the `peerDbId` parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SwitchoverAutonomousDatabaseRequest
    * @return SwitchoverAutonomousDatabaseResponse
    * @throws OciError when an error occurs
@@ -17710,9 +18361,11 @@ A switchover incurs no data loss.
       "opc-request-id": switchoverAutonomousDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      switchoverAutonomousDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      switchoverAutonomousDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17763,6 +18416,7 @@ A switchover incurs no data loss.
 * <p>
 A switchover guarantees no data loss.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param SwitchoverDataGuardAssociationRequest
      * @return SwitchoverDataGuardAssociationResponse
      * @throws OciError when an error occurs
@@ -17785,9 +18439,11 @@ A switchover guarantees no data loss.
       "if-match": switchoverDataGuardAssociationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      switchoverDataGuardAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      switchoverDataGuardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17840,6 +18496,7 @@ A switchover guarantees no data loss.
 
   /**
    * Terminates an Autonomous Container Database, which permanently deletes the container database and any databases within the container database. The database data is local to the Autonomous Exadata Infrastructure and will be lost when the container database is terminated. Oracle recommends that you back up any data in the Autonomous Container Database prior to terminating it.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param TerminateAutonomousContainerDatabaseRequest
    * @return TerminateAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
@@ -17862,9 +18519,11 @@ A switchover guarantees no data loss.
       "if-match": terminateAutonomousContainerDatabaseRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      terminateAutonomousContainerDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      terminateAutonomousContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17902,6 +18561,7 @@ A switchover guarantees no data loss.
 
   /**
    * Terminates an Autonomous Exadata Infrastructure, which permanently deletes the infrastructure resource and any container databases and databases contained in the resource. The database data is local to the Autonomous Exadata Infrastructure and will be lost when the system is terminated. Oracle recommends that you back up any data in the Autonomous Exadata Infrastructure prior to terminating it.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param TerminateAutonomousExadataInfrastructureRequest
    * @return TerminateAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -17926,9 +18586,11 @@ A switchover guarantees no data loss.
       "if-match": terminateAutonomousExadataInfrastructureRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      terminateAutonomousExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      terminateAutonomousExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17971,6 +18633,7 @@ A switchover guarantees no data loss.
 * <p>
 For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param TerminateDbSystemRequest
      * @return TerminateDbSystemResponse
      * @throws OciError when an error occurs
@@ -17991,9 +18654,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": terminateDbSystemRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      terminateDbSystemRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      terminateDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18031,6 +18696,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Updates the properties of an Autonomous Container Database, such as the OCPU core count and storage size.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousContainerDatabaseRequest
    * @return UpdateAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
@@ -18053,9 +18719,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": updateAutonomousContainerDatabaseRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAutonomousContainerDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAutonomousContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18108,6 +18776,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Updates one or more attributes of the specified Autonomous Database. See the UpdateAutonomousDatabaseDetails resource for a full list of attributes that can be updated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousDatabaseRequest
    * @return UpdateAutonomousDatabaseResponse
    * @throws OciError when an error occurs
@@ -18130,9 +18799,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": updateAutonomousDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAutonomousDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAutonomousDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18185,6 +18856,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Updates the Autonomous Database regional wallet.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousDatabaseRegionalWalletRequest
    * @return UpdateAutonomousDatabaseRegionalWalletResponse
    * @throws OciError when an error occurs
@@ -18204,9 +18876,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": updateAutonomousDatabaseRegionalWalletRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAutonomousDatabaseRegionalWalletRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAutonomousDatabaseRegionalWalletRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18250,6 +18924,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Updates the wallet for the specified Autonomous Database.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousDatabaseWalletRequest
    * @return UpdateAutonomousDatabaseWalletResponse
    * @throws OciError when an error occurs
@@ -18271,9 +18946,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": updateAutonomousDatabaseWalletRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAutonomousDatabaseWalletRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAutonomousDatabaseWalletRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18316,6 +18993,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Updates the properties of an Autonomous Exadata Infrastructure, such as the CPU core count.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousExadataInfrastructureRequest
    * @return UpdateAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -18338,9 +19016,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": updateAutonomousExadataInfrastructureRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAutonomousExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAutonomousExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18393,6 +19073,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Updates the specified Autonomous VM cluster for the Exadata Cloud@Customer system.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousVmClusterRequest
    * @return UpdateAutonomousVmClusterResponse
    * @throws OciError when an error occurs
@@ -18415,9 +19096,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": updateAutonomousVmClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAutonomousVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAutonomousVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18472,6 +19155,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * - For a RECOVERY_APPLIANCE backup destination, updates the connection string and/or the list of VPC users.
    * - For an NFS backup destination, updates the NFS location.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBackupDestinationRequest
    * @return UpdateBackupDestinationResponse
    * @throws OciError when an error occurs
@@ -18493,9 +19177,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": updateBackupDestinationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateBackupDestinationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBackupDestinationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18543,6 +19229,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Updates the Cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCloudExadataInfrastructureRequest
    * @return UpdateCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -18566,9 +19253,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": updateCloudExadataInfrastructureRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCloudExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18621,6 +19310,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Updates the specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCloudVmClusterRequest
    * @return UpdateCloudVmClusterResponse
    * @throws OciError when an error occurs
@@ -18642,9 +19332,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": updateCloudVmClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCloudVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18697,6 +19389,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Updates the IORM settings for the specified cloud VM cluster in an Exadata Cloud Service instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCloudVmClusterIormConfigRequest
    * @return UpdateCloudVmClusterIormConfigResponse
    * @throws OciError when an error occurs
@@ -18719,9 +19412,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": updateCloudVmClusterIormConfigRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCloudVmClusterIormConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudVmClusterIormConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18774,6 +19469,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Updates the Data Guard association the specified database. This API can be used to change the `protectionMode` and `transportType` of the Data Guard association.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDataGuardAssociationRequest
    * @return UpdateDataGuardAssociationResponse
    * @throws OciError when an error occurs
@@ -18797,9 +19493,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": updateDataGuardAssociationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDataGuardAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDataGuardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18852,6 +19550,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
    * Update the specified database based on the request parameters provided.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDatabaseRequest
    * @return UpdateDatabaseResponse
    * @throws OciError when an error occurs
@@ -18872,9 +19571,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": updateDatabaseRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18926,6 +19627,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Updates the properties of a Database Software Image, like Display Nmae
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDatabaseSoftwareImageRequest
    * @return UpdateDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
@@ -18947,9 +19649,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": updateDatabaseSoftwareImageRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDatabaseSoftwareImageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDatabaseSoftwareImageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18996,6 +19700,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Patches the specified Database Home.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDbHomeRequest
    * @return UpdateDbHomeResponse
    * @throws OciError when an error occurs
@@ -19016,9 +19721,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": updateDbHomeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDbHomeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDbHomeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19075,6 +19782,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 * <p>
 For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateDbSystemRequest
      * @return UpdateDbSystemResponse
      * @throws OciError when an error occurs
@@ -19095,9 +19803,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "if-match": updateDbSystemRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDbSystemRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19151,6 +19861,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * Updates the Exadata infrastructure resource. Applies to Exadata Cloud@Customer instances only.
    * To update an Exadata Cloud Service infrastructure resource, use the  {@link #updateCloudExadataInfrastructure(UpdateCloudExadataInfrastructureRequest) updateCloudExadataInfrastructure} operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateExadataInfrastructureRequest
    * @return UpdateExadataInfrastructureResponse
    * @throws OciError when an error occurs
@@ -19173,9 +19884,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "opc-request-id": updateExadataInfrastructureRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateExadataInfrastructureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19235,6 +19948,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest) updateCloudVmClusterIormConfig} API is used for Exadata systems using the
 * new resource model.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateExadataIormConfigRequest
      * @return UpdateExadataIormConfigResponse
      * @throws OciError when an error occurs
@@ -19256,9 +19970,11 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       "if-match": updateExadataIormConfigRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateExadataIormConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExadataIormConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19313,6 +20029,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * an {@link #createExternalContainerDatabaseDetails(CreateExternalContainerDatabaseDetailsRequest) createExternalContainerDatabaseDetails} resource,
    * such as the display name.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateExternalContainerDatabaseRequest
    * @return UpdateExternalContainerDatabaseResponse
    * @throws OciError when an error occurs
@@ -19336,9 +20053,11 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       "opc-request-id": updateExternalContainerDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateExternalContainerDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19390,6 +20109,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
 
   /**
    * Updates the properties of an external database connector, such as the display name.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateExternalDatabaseConnectorRequest
    * @return UpdateExternalDatabaseConnectorResponse
    * @throws OciError when an error occurs
@@ -19413,9 +20133,11 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       "opc-request-id": updateExternalDatabaseConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateExternalDatabaseConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalDatabaseConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19467,6 +20189,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
 
   /**
    * Updates the properties of an external non-container database, such as the display name.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateExternalNonContainerDatabaseRequest
    * @return UpdateExternalNonContainerDatabaseResponse
    * @throws OciError when an error occurs
@@ -19490,9 +20213,11 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       "opc-request-id": updateExternalNonContainerDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateExternalNonContainerDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalNonContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19547,6 +20272,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * {@link #createExternalPluggableDatabaseDetails(CreateExternalPluggableDatabaseDetailsRequest) createExternalPluggableDatabaseDetails} resource,
    * such as the display name.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateExternalPluggableDatabaseRequest
    * @return UpdateExternalPluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -19570,9 +20296,11 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       "opc-request-id": updateExternalPluggableDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateExternalPluggableDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalPluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19625,6 +20353,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   /**
    * If no database is associated with the key store, edit the key store.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateKeyStoreRequest
    * @return UpdateKeyStoreResponse
    * @throws OciError when an error occurs
@@ -19646,9 +20375,11 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       "opc-request-id": updateKeyStoreRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateKeyStoreRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateKeyStoreRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19695,6 +20426,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
 
   /**
    * Updates the properties of a maintenance run, such as the state of a maintenance run.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateMaintenanceRunRequest
    * @return UpdateMaintenanceRunResponse
    * @throws OciError when an error occurs
@@ -19715,9 +20447,11 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       "if-match": updateMaintenanceRunRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateMaintenanceRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMaintenanceRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19764,6 +20498,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
 
   /**
    * Updates the specified pluggable database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdatePluggableDatabaseRequest
    * @return UpdatePluggableDatabaseResponse
    * @throws OciError when an error occurs
@@ -19784,9 +20519,11 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       "if-match": updatePluggableDatabaseRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePluggableDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19839,6 +20576,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   /**
    * Updates the specified VM cluster. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateVmClusterRequest
    * @return UpdateVmClusterResponse
    * @throws OciError when an error occurs
@@ -19860,9 +20598,11 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       "opc-request-id": updateVmClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVmClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19916,6 +20656,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * Updates the specified VM cluster network. Applies to Exadata Cloud@Customer instances only.
    * To update a cloud VM cluster in an Exadata Cloud Service instance, use the {@link #updateCloudVmCluster(UpdateCloudVmClusterRequest) updateCloudVmCluster} operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateVmClusterNetworkRequest
    * @return UpdateVmClusterNetworkResponse
    * @throws OciError when an error occurs
@@ -19938,9 +20679,11 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       "opc-request-id": updateVmClusterNetworkRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVmClusterNetworkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVmClusterNetworkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19994,6 +20737,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   /**
    * Upgrades the specified Oracle Database instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpgradeDatabaseRequest
    * @return UpgradeDatabaseResponse
    * @throws OciError when an error occurs
@@ -20015,9 +20759,11 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       "opc-request-id": upgradeDatabaseRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      upgradeDatabaseRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      upgradeDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20070,6 +20816,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   /**
    * Validates the specified VM cluster network. Applies to Exadata Cloud@Customer instances only.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ValidateVmClusterNetworkRequest
    * @return ValidateVmClusterNetworkResponse
    * @throws OciError when an error occurs
@@ -20093,9 +20840,11 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       "opc-retry-token": validateVmClusterNetworkRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      validateVmClusterNetworkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateVmClusterNetworkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

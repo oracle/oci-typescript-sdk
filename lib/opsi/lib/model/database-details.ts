@@ -49,6 +49,10 @@ export interface DatabaseDetails {
    * Array of hostname and instance name.
    */
   "instances"?: Array<model.HostInstanceMap>;
+  /**
+   * Name of the CDB.Only applies to PDB.
+   */
+  "cdbName"?: string;
 }
 
 export namespace DatabaseDetails {

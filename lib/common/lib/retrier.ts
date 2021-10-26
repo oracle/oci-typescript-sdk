@@ -67,9 +67,23 @@ export class DefaultRetryCondition {
 const NO_RETRY_MAXIMUM_NUMBER_OF_ATTEMPTS = 1;
 const NO_RETRY_MAXIMUM_DELAY_IN_SECONDS = 30;
 
+const OCI_SDK_DEFAULT_RETRY_MAXIMUM_NUMBER_OF_ATTEMPTS = 8;
+const OCI_SDK_DEFAULT_RETRY_MAXIMUM_DELAY_IN_SECONDS = 30;
+
 export const NoRetryConfigurationDetails: RetryConfigurationDetails = {
   terminationStrategy: new MaxAttemptsTerminationStrategy(NO_RETRY_MAXIMUM_NUMBER_OF_ATTEMPTS),
   delayStrategy: new ExponentialBackoffDelayStrategyWithJitter(NO_RETRY_MAXIMUM_DELAY_IN_SECONDS),
+  retryCondition: DefaultRetryCondition.shouldBeRetried,
+  backupBinaryBody: false
+};
+
+export const OciSdkDefaultRetryConfiguration: RetryConfigurationDetails = {
+  terminationStrategy: new MaxAttemptsTerminationStrategy(
+    OCI_SDK_DEFAULT_RETRY_MAXIMUM_NUMBER_OF_ATTEMPTS
+  ),
+  delayStrategy: new ExponentialBackoffDelayStrategyWithJitter(
+    OCI_SDK_DEFAULT_RETRY_MAXIMUM_DELAY_IN_SECONDS
+  ),
   retryCondition: DefaultRetryCondition.shouldBeRetried,
   backupBinaryBody: false
 };
@@ -78,18 +92,29 @@ export class GenericRetrier {
   private _retryConfiguration: RetryConfigurationDetails;
   private _logger: Logger = (undefined as unknown) as Logger;
   private static OPC_CLIENT_RETRIES_HEADER = "opc-client-retries";
+  private static OCI_SDK_DEFAULT_RETRY_ENABLED = "OCI_SDK_DEFAULT_RETRY_ENABLED";
+
   constructor(retryConfiguration: RetryConfiguration) {
     const preferredRetryConfig = { ...NoRetryConfigurationDetails, ...retryConfiguration };
     this._retryConfiguration = preferredRetryConfig;
   }
 
-  private static DefaultRetryConfiguration: RetryConfigurationDetails = NoRetryConfigurationDetails;
+  static get envVariableCheckForDefaultRetry(): RetryConfiguration | null {
+    if (process.env[GenericRetrier.OCI_SDK_DEFAULT_RETRY_ENABLED] === BooleanString.FALSE) {
+      return NoRetryConfigurationDetails;
+    } else if (process.env[GenericRetrier.OCI_SDK_DEFAULT_RETRY_ENABLED] === BooleanString.TRUE) {
+      return OciSdkDefaultRetryConfiguration;
+    } else return null;
+  }
 
-  static get defaultRetryConfiguration(): RetryConfiguration {
+  private static DefaultRetryConfiguration: RetryConfiguration | null =
+    GenericRetrier.envVariableCheckForDefaultRetry;
+
+  static get defaultRetryConfiguration(): RetryConfiguration | null {
     return GenericRetrier.DefaultRetryConfiguration;
   }
 
-  static set defaultRetryConfiguration(retryConfig: RetryConfiguration) {
+  static set defaultRetryConfiguration(retryConfig: RetryConfiguration | null) {
     GenericRetrier.DefaultRetryConfiguration = {
       ...GenericRetrier.DefaultRetryConfiguration,
       ...retryConfig
@@ -110,12 +135,15 @@ export class GenericRetrier {
 
   public static createPreferredRetrier(
     clientRetryConfiguration?: RetryConfiguration,
-    requestRetryConfiguration?: RetryConfiguration
+    requestRetryConfiguration?: RetryConfiguration,
+    specRetryConfiguration?: RetryConfiguration
   ): GenericRetrier {
-    let retryConfigToUse = [requestRetryConfiguration, clientRetryConfiguration, {}].filter(
-      configuration => configuration !== null && configuration !== undefined
-    )[0];
-    retryConfigToUse = { ...GenericRetrier.defaultRetryConfiguration, ...retryConfigToUse };
+    let retryConfigToUse = [
+      requestRetryConfiguration,
+      clientRetryConfiguration,
+      GenericRetrier.defaultRetryConfiguration
+    ].filter(configuration => configuration !== null && configuration !== undefined)[0];
+    retryConfigToUse = { ...specRetryConfiguration, ...retryConfigToUse };
     return new GenericRetrier(retryConfigToUse);
   }
 

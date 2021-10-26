@@ -26,7 +26,7 @@ export interface SddcSummary {
    */
   "id": string;
   /**
-   * The availability domain that the SDDC's ESXi hosts are running in.
+   * The availability domain that the SDDC's ESXi hosts are running in. For Multi-AD SDDC, it is `multi-AD`.
    *
    */
   "computeAvailabilityDomain": string;

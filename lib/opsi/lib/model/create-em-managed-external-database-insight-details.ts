@@ -34,6 +34,10 @@ export interface CreateEmManagedExternalDatabaseInsightDetails
    * Enterprise Manager Entity Unique Identifier
    */
   "enterpriseManagerEntityIdentifier": string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata insight.
+   */
+  "exadataInsightId"?: string;
 
   "entitySource": string;
 }

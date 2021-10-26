@@ -48,16 +48,38 @@ export interface ResourceStatistics {
    * Change in resource utilization in percentage Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usageChangePercent": number;
+  /**
+   * Array of instance metrics
+   */
+  "instanceMetrics"?: Array<model.InstanceMetrics>;
 }
 
 export namespace ResourceStatistics {
   export function getJsonObj(obj: ResourceStatistics): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "instanceMetrics": obj.instanceMetrics
+          ? obj.instanceMetrics.map(item => {
+              return model.InstanceMetrics.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ResourceStatistics): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "instanceMetrics": obj.instanceMetrics
+          ? obj.instanceMetrics.map(item => {
+              return model.InstanceMetrics.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

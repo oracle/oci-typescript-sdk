@@ -28,7 +28,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum ApplicationMigrationApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ApplicationMigrationClient {
   protected static serviceEndpointTemplate =
     "https://applicationmigration.{region}.oci.{secondLevelDomain}";
@@ -49,6 +51,15 @@ export class ApplicationMigrationClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -142,6 +153,7 @@ export class ApplicationMigrationClient {
 * <p>
 When you cancel a work request, the state of the work request changes to cancelling, and then to the cancelled state.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CancelWorkRequestRequest
      * @return CancelWorkRequestResponse
      * @throws OciError when an error occurs
@@ -164,9 +176,11 @@ When you cancel a work request, the state of the work request changes to cancell
       "if-match": cancelWorkRequestRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -201,6 +215,7 @@ When you cancel a work request, the state of the work request changes to cancell
    * Moves the specified migration into a different compartment within the same tenancy. For information about moving resources between compartments,
    * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeMigrationCompartmentRequest
    * @return ChangeMigrationCompartmentResponse
    * @throws OciError when an error occurs
@@ -224,9 +239,11 @@ When you cancel a work request, the state of the work request changes to cancell
       "opc-retry-token": changeMigrationCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeMigrationCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMigrationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -271,6 +288,7 @@ When you cancel a work request, the state of the work request changes to cancell
    * Moves the specified source into a different compartment within the same tenancy. For information about moving resources
    * between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeSourceCompartmentRequest
    * @return ChangeSourceCompartmentResponse
    * @throws OciError when an error occurs
@@ -294,9 +312,11 @@ When you cancel a work request, the state of the work request changes to cancell
       "opc-retry-token": changeSourceCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeSourceCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSourceCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -360,6 +380,7 @@ To track the progress of this operation, you can monitor the status of the Creat
 * by using the <code>{@link #getWorkRequest(GetWorkRequestRequest) getWorkRequest}</code> REST API operation on the work request or by viewing the status of the work request in
 * the console.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateMigrationRequest
      * @return CreateMigrationResponse
      * @throws OciError when an error occurs
@@ -380,9 +401,11 @@ To track the progress of this operation, you can monitor the status of the Creat
       "opc-retry-token": createMigrationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createMigrationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMigrationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -451,6 +474,7 @@ To track the progress of the operation, you can monitor the status of the Create
 Ensure that the state of the source has changed to <code>ACTIVE</code>, before you retrieve the list of applications from 
 * the source environment using the <code>{@link #listSourceApplications(ListSourceApplicationsRequest) listSourceApplications}</code> REST API call.        
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateSourceRequest
      * @return CreateSourceResponse
      * @throws OciError when an error occurs
@@ -471,9 +495,11 @@ Ensure that the state of the source has changed to <code>ACTIVE</code>, before y
       "opc-retry-token": createSourceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSourceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSourceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -530,6 +556,7 @@ If you have migrated the application or for any other reason if you no longer re
 * relevant migration. You can delete a migration, irrespective of its state. If any work request is being processed for the migration
 * that you want to delete, then the associated work requests are cancelled and then the migration is deleted.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteMigrationRequest
      * @return DeleteMigrationResponse
      * @throws OciError when an error occurs
@@ -552,9 +579,11 @@ If you have migrated the application or for any other reason if you no longer re
       "if-match": deleteMigrationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteMigrationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMigrationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -597,6 +626,7 @@ Before deleting a source, you must delete all the migrations associated with the
 * If you have migrated all the required applications in a source or for any other reason you no longer require a source, then you can
 * delete the relevant source.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteSourceRequest
      * @return DeleteSourceResponse
      * @throws OciError when an error occurs
@@ -619,9 +649,11 @@ Before deleting a source, you must delete all the migrations associated with the
       "if-match": deleteSourceRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSourceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSourceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -659,6 +691,7 @@ Before deleting a source, you must delete all the migrations associated with the
 
   /**
    * Retrieves details of the specified migration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMigrationRequest
    * @return GetMigrationResponse
    * @throws OciError when an error occurs
@@ -680,9 +713,11 @@ Before deleting a source, you must delete all the migrations associated with the
       "opc-request-id": getMigrationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getMigrationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMigrationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -725,6 +760,7 @@ Before deleting a source, you must delete all the migrations associated with the
   /**
    * Retrieves details of the specified source. Specify the OCID of the source for which you want to retrieve details.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSourceRequest
    * @return GetSourceResponse
    * @throws OciError when an error occurs
@@ -745,9 +781,11 @@ Before deleting a source, you must delete all the migrations associated with the
       "opc-request-id": getSourceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSourceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSourceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -789,6 +827,7 @@ Before deleting a source, you must delete all the migrations associated with the
 
   /**
    * Gets the details of the specified work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -810,9 +849,11 @@ Before deleting a source, you must delete all the migrations associated with the
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -855,6 +896,7 @@ Before deleting a source, you must delete all the migrations associated with the
   /**
    * Retrieves details of all the migrations that are available in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListMigrationsRequest
    * @return ListMigrationsResponse
    * @throws OciError when an error occurs
@@ -883,9 +925,11 @@ Before deleting a source, you must delete all the migrations associated with the
       "opc-request-id": listMigrationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listMigrationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMigrationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -982,6 +1026,7 @@ Before deleting a source, you must delete all the migrations associated with the
    * This list is generated dynamically by interrogating the source and the list changes as applications are started or
    * stopped in the source environment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSourceApplicationsRequest
    * @return ListSourceApplicationsResponse
    * @throws OciError when an error occurs
@@ -1010,9 +1055,11 @@ Before deleting a source, you must delete all the migrations associated with the
       "opc-request-id": listSourceApplicationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSourceApplicationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSourceApplicationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1110,6 +1157,7 @@ Before deleting a source, you must delete all the migrations associated with the
    * To filter the retrieved results, you can pass one or more of the following query parameters, by appending them to the URI
    * as shown in the following example.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSourcesRequest
    * @return ListSourcesResponse
    * @throws OciError when an error occurs
@@ -1137,9 +1185,11 @@ Before deleting a source, you must delete all the migrations associated with the
       "opc-request-id": listSourcesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSourcesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSourcesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1234,6 +1284,7 @@ Before deleting a source, you must delete all the migrations associated with the
   /**
    * Retrieves details of the errors encountered while executing an operation that is tracked by the specified work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1259,9 +1310,11 @@ Before deleting a source, you must delete all the migrations associated with the
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1356,6 +1409,7 @@ Before deleting a source, you must delete all the migrations associated with the
   /**
    * Retrieves logs for the specified work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1381,9 +1435,11 @@ Before deleting a source, you must delete all the migrations associated with the
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1478,6 +1534,7 @@ Before deleting a source, you must delete all the migrations associated with the
   /**
    * Retrieves details of all the work requests and match the specified query criteria. To filter the retrieved results, you can pass one or more of the following query parameters, by appending them to the URI as shown in the following example.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1502,9 +1559,11 @@ Before deleting a source, you must delete all the migrations associated with the
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1609,6 +1668,7 @@ To track the progress of the operation, you can monitor the status of the Migrat
 * When this work request is processed successfully, Application Migration creates the required resources in the target environment
 * and the state of the migration changes to <code>MIGRATION_SUCCEEDED</code>.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param MigrateApplicationRequest
      * @return MigrateApplicationResponse
      * @throws OciError when an error occurs
@@ -1632,9 +1692,11 @@ To track the progress of the operation, you can monitor the status of the Migrat
       "opc-retry-token": migrateApplicationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      migrateApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      migrateApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1701,6 +1763,7 @@ To track the progress of the operation, you can monitor the status of the Update
 When the migration has been updated, the state of the migration changes to <code>READY</code>. After updating the migration,
 * you can start the migration whenever you are ready.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateMigrationRequest
      * @return UpdateMigrationResponse
      * @throws OciError when an error occurs
@@ -1724,9 +1787,11 @@ When the migration has been updated, the state of the migration changes to <code
       "if-match": updateMigrationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateMigrationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMigrationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1773,6 +1838,7 @@ When the migration has been updated, the state of the migration changes to <code
    * <p>
    **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSourceRequest
    * @return UpdateSourceResponse
    * @throws OciError when an error occurs
@@ -1795,9 +1861,11 @@ When the migration has been updated, the state of the migration changes to <code
       "if-match": updateSourceRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSourceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSourceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

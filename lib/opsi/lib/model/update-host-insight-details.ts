@@ -43,6 +43,11 @@ export namespace UpdateHostInsightDetails {
 
     if ("entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "EM_MANAGED_EXTERNAL_HOST":
+          return model.UpdateEmManagedExternalHostInsightDetails.getJsonObj(
+            <model.UpdateEmManagedExternalHostInsightDetails>(<object>jsonObj),
+            true
+          );
         case "MACS_MANAGED_EXTERNAL_HOST":
           return model.UpdateMacsManagedExternalHostInsightDetails.getJsonObj(
             <model.UpdateMacsManagedExternalHostInsightDetails>(<object>jsonObj),
@@ -59,6 +64,11 @@ export namespace UpdateHostInsightDetails {
 
     if ("entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "EM_MANAGED_EXTERNAL_HOST":
+          return model.UpdateEmManagedExternalHostInsightDetails.getDeserializedJsonObj(
+            <model.UpdateEmManagedExternalHostInsightDetails>(<object>jsonObj),
+            true
+          );
         case "MACS_MANAGED_EXTERNAL_HOST":
           return model.UpdateMacsManagedExternalHostInsightDetails.getDeserializedJsonObj(
             <model.UpdateMacsManagedExternalHostInsightDetails>(<object>jsonObj),

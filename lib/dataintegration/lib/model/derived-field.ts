@@ -1,6 +1,6 @@
 /**
  * Data Integration API
- * Use the Data Integration Service APIs to perform common extract, load, and transform (ETL) tasks.
+ * Use the Data Integration API to organize your data integration projects, create data flows, pipelines and tasks, and then publish, schedule, and run tasks that extract, transform, and load data. For more information, see [Data Integration](https://docs.oracle.com/iaas/data-integration/home.htm).
  * OpenAPI spec version: 20200430
  * Contact: di_dis_ww_grp@oracle.com
  *
@@ -23,6 +23,10 @@ export interface DerivedField extends model.TypedObject {
    * The type of the field.
    */
   "type"?: string;
+  /**
+   * Specifies whether to use inferred expression output type as output type of the derived field. Default value of this flag is false.
+   */
+  "isUseInferredType"?: boolean;
   /**
    * Labels are keywords or labels that you can add to data assets, dataflows and so on. You can define your own labels and use them to categorize content.
    */

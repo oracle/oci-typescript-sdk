@@ -23,7 +23,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum SecretsApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class SecretsClient {
   protected static serviceEndpointTemplate =
     "https://secrets.vaults.{region}.oci.{secondLevelDomain}";
@@ -43,6 +45,15 @@ export class SecretsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -110,6 +121,7 @@ export class SecretsClient {
    * Gets a secret bundle that matches either the specified `stage`, `secretVersionName`, or `versionNumber` parameter.
    * If none of these parameters are provided, the bundle for the secret version marked as `CURRENT` will be returned.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSecretBundleRequest
    * @return GetSecretBundleResponse
    * @throws OciError when an error occurs
@@ -134,9 +146,11 @@ export class SecretsClient {
       "opc-request-id": getSecretBundleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSecretBundleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSecretBundleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -180,6 +194,7 @@ export class SecretsClient {
    * Gets a secret bundle by secret name and vault ID, and secret version that matches either the specified `stage`, `secretVersionName`, or `versionNumber` parameter.
    * If none of these parameters are provided, the bundle for the secret version marked as `CURRENT` is returned.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSecretBundleByNameRequest
    * @return GetSecretBundleByNameResponse
    * @throws OciError when an error occurs
@@ -204,9 +219,11 @@ export class SecretsClient {
       "opc-request-id": getSecretBundleByNameRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSecretBundleByNameRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSecretBundleByNameRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -243,6 +260,7 @@ export class SecretsClient {
 
   /**
    * Lists all secret bundle versions for the specified secret.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSecretBundleVersionsRequest
    * @return ListSecretBundleVersionsResponse
    * @throws OciError when an error occurs
@@ -268,9 +286,11 @@ export class SecretsClient {
       "opc-request-id": listSecretBundleVersionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSecretBundleVersionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSecretBundleVersionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
