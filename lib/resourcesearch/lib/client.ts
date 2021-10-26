@@ -23,7 +23,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum ResourceSearchApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ResourceSearchClient {
   protected static serviceEndpointTemplate = "https://query.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -42,6 +44,15 @@ export class ResourceSearchClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -108,6 +119,7 @@ export class ResourceSearchClient {
   /**
    * Gets detailed information about a resource type by using the resource type name.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetResourceTypeRequest
    * @return GetResourceTypeResponse
    * @throws OciError when an error occurs
@@ -128,9 +140,11 @@ export class ResourceSearchClient {
       "opc-request-id": getResourceTypeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getResourceTypeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getResourceTypeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -168,6 +182,7 @@ export class ResourceSearchClient {
   /**
    * Lists all resource types that you can search or query for.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResourceTypesRequest
    * @return ListResourceTypesResponse
    * @throws OciError when an error occurs
@@ -189,9 +204,11 @@ export class ResourceSearchClient {
       "opc-request-id": listResourceTypesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listResourceTypesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResourceTypesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -288,6 +305,7 @@ export class ResourceSearchClient {
    * Results include resources that you have permission to view and can span different resource types.
    * You can also sort results based on a specified resource attribute.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SearchResourcesRequest
    * @return SearchResourcesResponse
    * @throws OciError when an error occurs
@@ -310,9 +328,11 @@ export class ResourceSearchClient {
       "opc-request-id": searchResourcesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      searchResourcesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchResourcesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

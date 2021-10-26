@@ -25,7 +25,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum RoverClusterApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class RoverClusterClient {
   protected static serviceEndpointTemplate = "https://rover.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -45,6 +47,15 @@ export class RoverClusterClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -133,6 +144,7 @@ export class RoverClusterClient {
 
   /**
    * Moves a cluster into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeRoverClusterCompartmentRequest
    * @return ChangeRoverClusterCompartmentResponse
    * @throws OciError when an error occurs
@@ -156,9 +168,11 @@ export class RoverClusterClient {
       "opc-retry-token": changeRoverClusterCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeRoverClusterCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRoverClusterCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -197,6 +211,7 @@ export class RoverClusterClient {
   /**
    * Creates a new RoverCluster.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRoverClusterRequest
    * @return CreateRoverClusterResponse
    * @throws OciError when an error occurs
@@ -216,9 +231,11 @@ export class RoverClusterClient {
       "opc-request-id": createRoverClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createRoverClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRoverClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -265,6 +282,7 @@ export class RoverClusterClient {
 
   /**
    * Deletes a RoverCluster resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRoverClusterRequest
    * @return DeleteRoverClusterResponse
    * @throws OciError when an error occurs
@@ -286,9 +304,11 @@ export class RoverClusterClient {
       "opc-request-id": deleteRoverClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteRoverClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRoverClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -321,6 +341,7 @@ export class RoverClusterClient {
 
   /**
    * Gets a RoverCluster by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRoverClusterRequest
    * @return GetRoverClusterResponse
    * @throws OciError when an error occurs
@@ -341,9 +362,11 @@ export class RoverClusterClient {
       "opc-request-id": getRoverClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRoverClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRoverClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -385,6 +408,7 @@ export class RoverClusterClient {
 
   /**
    * Get the certificate for a rover cluster
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRoverClusterCertificateRequest
    * @return GetRoverClusterCertificateResponse
    * @throws OciError when an error occurs
@@ -406,9 +430,11 @@ export class RoverClusterClient {
       "opc-request-id": getRoverClusterCertificateRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRoverClusterCertificateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRoverClusterCertificateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -451,6 +477,7 @@ export class RoverClusterClient {
   /**
    * Returns a list of RoverClusters.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRoverClustersRequest
    * @return ListRoverClustersResponse
    * @throws OciError when an error occurs
@@ -477,9 +504,11 @@ export class RoverClusterClient {
       "opc-request-id": listRoverClustersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRoverClustersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRoverClustersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -526,6 +555,7 @@ export class RoverClusterClient {
 
   /**
    * Updates the RoverCluster
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRoverClusterRequest
    * @return UpdateRoverClusterResponse
    * @throws OciError when an error occurs
@@ -547,9 +577,11 @@ export class RoverClusterClient {
       "opc-request-id": updateRoverClusterRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRoverClusterRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRoverClusterRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -595,7 +627,9 @@ export class RoverClusterClient {
   }
 }
 export enum RoverEntitlementApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class RoverEntitlementClient {
   protected static serviceEndpointTemplate = "https://rover.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -615,6 +649,15 @@ export class RoverEntitlementClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -703,6 +746,7 @@ export class RoverEntitlementClient {
 
   /**
    * Moves an entitlement into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeRoverEntitlementCompartmentRequest
    * @return ChangeRoverEntitlementCompartmentResponse
    * @throws OciError when an error occurs
@@ -728,9 +772,11 @@ export class RoverEntitlementClient {
       "opc-retry-token": changeRoverEntitlementCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeRoverEntitlementCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRoverEntitlementCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -768,6 +814,7 @@ export class RoverEntitlementClient {
 
   /**
    * Create the Entitlement to use a Rover Device. It requires some offline process of review and signatures before request is granted.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRoverEntitlementRequest
    * @return CreateRoverEntitlementResponse
    * @throws OciError when an error occurs
@@ -788,9 +835,11 @@ export class RoverEntitlementClient {
       "opc-request-id": createRoverEntitlementRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createRoverEntitlementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRoverEntitlementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -837,6 +886,7 @@ export class RoverEntitlementClient {
 
   /**
    * Deletes a rover entitlement
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRoverEntitlementRequest
    * @return DeleteRoverEntitlementResponse
    * @throws OciError when an error occurs
@@ -860,9 +910,11 @@ export class RoverEntitlementClient {
       "if-match": deleteRoverEntitlementRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteRoverEntitlementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRoverEntitlementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -895,6 +947,7 @@ export class RoverEntitlementClient {
 
   /**
    * Describes the Rover Device Entitlement in detail
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRoverEntitlementRequest
    * @return GetRoverEntitlementResponse
    * @throws OciError when an error occurs
@@ -919,9 +972,11 @@ export class RoverEntitlementClient {
       "opc-request-id": getRoverEntitlementRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRoverEntitlementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRoverEntitlementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -963,6 +1018,7 @@ export class RoverEntitlementClient {
 
   /**
    * Returns a list of RoverEntitlements.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRoverEntitlementsRequest
    * @return ListRoverEntitlementsResponse
    * @throws OciError when an error occurs
@@ -991,9 +1047,11 @@ export class RoverEntitlementClient {
       "opc-request-id": listRoverEntitlementsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRoverEntitlementsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRoverEntitlementsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1040,6 +1098,7 @@ export class RoverEntitlementClient {
 
   /**
    * Updates the RoverEntitlement
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRoverEntitlementRequest
    * @return UpdateRoverEntitlementResponse
    * @throws OciError when an error occurs
@@ -1062,9 +1121,11 @@ export class RoverEntitlementClient {
       "opc-request-id": updateRoverEntitlementRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRoverEntitlementRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRoverEntitlementRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1110,7 +1171,9 @@ export class RoverEntitlementClient {
   }
 }
 export enum RoverNodeApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class RoverNodeClient {
   protected static serviceEndpointTemplate = "https://rover.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -1130,6 +1193,15 @@ export class RoverNodeClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -1218,6 +1290,7 @@ export class RoverNodeClient {
 
   /**
    * Moves a rover node into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeRoverNodeCompartmentRequest
    * @return ChangeRoverNodeCompartmentResponse
    * @throws OciError when an error occurs
@@ -1241,9 +1314,11 @@ export class RoverNodeClient {
       "opc-retry-token": changeRoverNodeCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeRoverNodeCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRoverNodeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1282,6 +1357,7 @@ export class RoverNodeClient {
   /**
    * Creates a new RoverNode.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRoverNodeRequest
    * @return CreateRoverNodeResponse
    * @throws OciError when an error occurs
@@ -1301,9 +1377,11 @@ export class RoverNodeClient {
       "opc-request-id": createRoverNodeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createRoverNodeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRoverNodeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1350,6 +1428,7 @@ export class RoverNodeClient {
 
   /**
    * Deletes a RoverNode resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRoverNodeRequest
    * @return DeleteRoverNodeResponse
    * @throws OciError when an error occurs
@@ -1371,9 +1450,11 @@ export class RoverNodeClient {
       "opc-request-id": deleteRoverNodeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteRoverNodeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRoverNodeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1406,6 +1487,7 @@ export class RoverNodeClient {
 
   /**
    * Gets a RoverNode by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRoverNodeRequest
    * @return GetRoverNodeResponse
    * @throws OciError when an error occurs
@@ -1426,9 +1508,11 @@ export class RoverNodeClient {
       "opc-request-id": getRoverNodeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRoverNodeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRoverNodeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1470,6 +1554,7 @@ export class RoverNodeClient {
 
   /**
    * Get the certificate for a rover node
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRoverNodeCertificateRequest
    * @return GetRoverNodeCertificateResponse
    * @throws OciError when an error occurs
@@ -1491,9 +1576,11 @@ export class RoverNodeClient {
       "opc-request-id": getRoverNodeCertificateRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRoverNodeCertificateRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRoverNodeCertificateRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1535,6 +1622,7 @@ export class RoverNodeClient {
 
   /**
    * Get the data encryption key for a rover node.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRoverNodeEncryptionKeyRequest
    * @return GetRoverNodeEncryptionKeyResponse
    * @throws OciError when an error occurs
@@ -1556,9 +1644,11 @@ export class RoverNodeClient {
       "opc-request-id": getRoverNodeEncryptionKeyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRoverNodeEncryptionKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRoverNodeEncryptionKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1600,6 +1690,7 @@ export class RoverNodeClient {
 
   /**
    * Get the resource principal token for a rover node
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRoverNodeGetRptRequest
    * @return GetRoverNodeGetRptResponse
    * @throws OciError when an error occurs
@@ -1621,9 +1712,11 @@ export class RoverNodeClient {
       "opc-request-id": getRoverNodeGetRptRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRoverNodeGetRptRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRoverNodeGetRptRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1666,6 +1759,7 @@ export class RoverNodeClient {
   /**
    * Returns a list of RoverNodes.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRoverNodesRequest
    * @return ListRoverNodesResponse
    * @throws OciError when an error occurs
@@ -1692,9 +1786,11 @@ export class RoverNodeClient {
       "opc-request-id": listRoverNodesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRoverNodesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRoverNodesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1741,6 +1837,7 @@ export class RoverNodeClient {
 
   /**
    * Get the resource principal public key for a rover node
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RoverNodeActionSetKeyRequest
    * @return RoverNodeActionSetKeyResponse
    * @throws OciError when an error occurs
@@ -1764,9 +1861,11 @@ export class RoverNodeClient {
       "opc-retry-token": roverNodeActionSetKeyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      roverNodeActionSetKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      roverNodeActionSetKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1813,6 +1912,7 @@ export class RoverNodeClient {
 
   /**
    * Updates the RoverNode
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRoverNodeRequest
    * @return UpdateRoverNodeResponse
    * @throws OciError when an error occurs
@@ -1834,9 +1934,11 @@ export class RoverNodeClient {
       "opc-request-id": updateRoverNodeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRoverNodeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRoverNodeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

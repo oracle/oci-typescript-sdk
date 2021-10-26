@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface CreateSddcDetails {
   /**
-   * The availability domain to create the SDDC's ESXi hosts in.
+   * The availability domain to create the SDDC's ESXi hosts in. For multi-AD SDDC deployment, set to `multi-AD`.
    *
    */
   "computeAvailabilityDomain": string;

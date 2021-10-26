@@ -26,7 +26,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum HealthChecksApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class HealthChecksClient {
   protected static serviceEndpointTemplate =
     "https://healthchecks.{region}.oci.{secondLevelDomain}";
@@ -46,6 +48,15 @@ export class HealthChecksClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -113,6 +124,7 @@ export class HealthChecksClient {
    * Moves a monitor into a different compartment. When provided, `If-Match` is checked
    * against ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeHttpMonitorCompartmentRequest
    * @return ChangeHttpMonitorCompartmentResponse
    * @throws OciError when an error occurs
@@ -136,9 +148,11 @@ export class HealthChecksClient {
       "opc-retry-token": changeHttpMonitorCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeHttpMonitorCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeHttpMonitorCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -178,6 +192,7 @@ export class HealthChecksClient {
    * Moves a monitor into a different compartment. When provided, `If-Match` is checked
    * against ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangePingMonitorCompartmentRequest
    * @return ChangePingMonitorCompartmentResponse
    * @throws OciError when an error occurs
@@ -201,9 +216,11 @@ export class HealthChecksClient {
       "opc-retry-token": changePingMonitorCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changePingMonitorCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changePingMonitorCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -244,6 +261,7 @@ export class HealthChecksClient {
    * and probes will be initiated from each vantage point to each of the targets at the frequency
    * specified by `intervalInSeconds`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateHttpMonitorRequest
    * @return CreateHttpMonitorResponse
    * @throws OciError when an error occurs
@@ -263,9 +281,11 @@ export class HealthChecksClient {
       "opc-retry-token": createHttpMonitorRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createHttpMonitorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createHttpMonitorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -321,6 +341,7 @@ export class HealthChecksClient {
    * <p>
    *Note:* On-demand probe configurations are not saved.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateOnDemandHttpProbeRequest
    * @return CreateOnDemandHttpProbeResponse
    * @throws OciError when an error occurs
@@ -340,9 +361,11 @@ export class HealthChecksClient {
       "opc-request-id": createOnDemandHttpProbeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createOnDemandHttpProbeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOnDemandHttpProbeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -393,6 +416,7 @@ export class HealthChecksClient {
    * <p>
    *Note:* The on-demand probe configuration is not saved.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateOnDemandPingProbeRequest
    * @return CreateOnDemandPingProbeResponse
    * @throws OciError when an error occurs
@@ -412,9 +436,11 @@ export class HealthChecksClient {
       "opc-request-id": createOnDemandPingProbeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createOnDemandPingProbeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOnDemandPingProbeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -464,6 +490,7 @@ export class HealthChecksClient {
    * and probes will be initiated from each vantage point to each of the targets at the frequency
    * specified by `intervalInSeconds`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePingMonitorRequest
    * @return CreatePingMonitorResponse
    * @throws OciError when an error occurs
@@ -483,9 +510,11 @@ export class HealthChecksClient {
       "opc-retry-token": createPingMonitorRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPingMonitorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPingMonitorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -539,6 +568,7 @@ export class HealthChecksClient {
    * Deletes the HTTP monitor and its configuration. All future probes of this
    * monitor are stopped. Results associated with the monitor are not deleted.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteHttpMonitorRequest
    * @return DeleteHttpMonitorResponse
    * @throws OciError when an error occurs
@@ -560,9 +590,11 @@ export class HealthChecksClient {
       "if-match": deleteHttpMonitorRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteHttpMonitorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteHttpMonitorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -597,6 +629,7 @@ export class HealthChecksClient {
    * Deletes the ping monitor and its configuration. All future probes of this
    * monitor are stopped. Results associated with the monitor are not deleted.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePingMonitorRequest
    * @return DeletePingMonitorResponse
    * @throws OciError when an error occurs
@@ -618,9 +651,11 @@ export class HealthChecksClient {
       "if-match": deletePingMonitorRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePingMonitorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePingMonitorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -654,6 +689,7 @@ export class HealthChecksClient {
   /**
    * Gets the configuration for the specified monitor.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetHttpMonitorRequest
    * @return GetHttpMonitorResponse
    * @throws OciError when an error occurs
@@ -675,9 +711,11 @@ export class HealthChecksClient {
       "if-none-match": getHttpMonitorRequest.ifNoneMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getHttpMonitorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHttpMonitorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -720,6 +758,7 @@ export class HealthChecksClient {
   /**
    * Gets the configuration for the specified ping monitor.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPingMonitorRequest
    * @return GetPingMonitorResponse
    * @throws OciError when an error occurs
@@ -741,9 +780,11 @@ export class HealthChecksClient {
       "if-none-match": getPingMonitorRequest.ifNoneMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPingMonitorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPingMonitorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -786,6 +827,7 @@ export class HealthChecksClient {
   /**
    * Gets information about all vantage points available to the user.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListHealthChecksVantagePointsRequest
    * @return ListHealthChecksVantagePointsResponse
    * @throws OciError when an error occurs
@@ -812,9 +854,11 @@ export class HealthChecksClient {
       "opc-request-id": listHealthChecksVantagePointsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listHealthChecksVantagePointsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHealthChecksVantagePointsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -909,6 +953,7 @@ export class HealthChecksClient {
   /**
    * Gets a list of HTTP monitors.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListHttpMonitorsRequest
    * @return ListHttpMonitorsResponse
    * @throws OciError when an error occurs
@@ -935,9 +980,11 @@ export class HealthChecksClient {
       "opc-request-id": listHttpMonitorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listHttpMonitorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHttpMonitorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1034,6 +1081,7 @@ export class HealthChecksClient {
    * the `probeConfigurationId` is the OCID of either a monitor or an
    * on-demand probe.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListHttpProbeResultsRequest
    * @return ListHttpProbeResultsResponse
    * @throws OciError when an error occurs
@@ -1062,9 +1110,11 @@ export class HealthChecksClient {
       "opc-request-id": listHttpProbeResultsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listHttpProbeResultsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHttpProbeResultsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1162,6 +1212,7 @@ export class HealthChecksClient {
 Results are paginated based on `page` and `limit`.  The `opc-next-page` header provides
 * a URL for fetching the next page.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListPingMonitorsRequest
      * @return ListPingMonitorsResponse
      * @throws OciError when an error occurs
@@ -1188,9 +1239,11 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       "opc-request-id": listPingMonitorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPingMonitorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPingMonitorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1291,6 +1344,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
 * results.  If `sortOrder` is unspecified, results are sorted in ascending order by
 * `startTime`.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListPingProbeResultsRequest
      * @return ListPingProbeResultsResponse
      * @throws OciError when an error occurs
@@ -1319,9 +1373,11 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       "opc-request-id": listPingProbeResultsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPingProbeResultsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPingProbeResultsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1418,6 +1474,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
    * specified in the request body will be updated; all other configuration
    * properties will remain unchanged.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateHttpMonitorRequest
    * @return UpdateHttpMonitorResponse
    * @throws OciError when an error occurs
@@ -1439,9 +1496,11 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       "if-match": updateHttpMonitorRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateHttpMonitorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateHttpMonitorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1491,6 +1550,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
    * specified in the request body will be updated; all other configuration properties
    * will remain unchanged.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdatePingMonitorRequest
    * @return UpdatePingMonitorResponse
    * @throws OciError when an error occurs
@@ -1512,9 +1572,11 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       "if-match": updatePingMonitorRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePingMonitorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePingMonitorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -26,7 +26,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum EsxiHostApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class EsxiHostClient {
   protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -46,6 +48,15 @@ export class EsxiHostClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -140,6 +151,7 @@ export class EsxiHostClient {
 Use the {@link WorkRequest} operations to track the
 * creation of the ESXi host.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateEsxiHostRequest
      * @return CreateEsxiHostResponse
      * @throws OciError when an error occurs
@@ -159,9 +171,11 @@ Use the {@link WorkRequest} operations to track the
       "opc-request-id": createEsxiHostRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createEsxiHostRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createEsxiHostRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -218,6 +232,7 @@ When you delete an ESXi host, Oracle does not remove the node
 Use the {@link WorkRequest} operations to track the
 * deletion of the ESXi host.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteEsxiHostRequest
      * @return DeleteEsxiHostResponse
      * @throws OciError when an error occurs
@@ -239,9 +254,11 @@ Use the {@link WorkRequest} operations to track the
       "opc-request-id": deleteEsxiHostRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteEsxiHostRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteEsxiHostRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -279,6 +296,7 @@ Use the {@link WorkRequest} operations to track the
 
   /**
    * Gets the specified ESXi host's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetEsxiHostRequest
    * @return GetEsxiHostResponse
    * @throws OciError when an error occurs
@@ -299,9 +317,11 @@ Use the {@link WorkRequest} operations to track the
       "opc-request-id": getEsxiHostRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getEsxiHostRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEsxiHostRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -352,6 +372,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
 * ESXi hosts, you can specify the OCID of the Compute instance, not the
 * ESXi host OCID.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListEsxiHostsRequest
      * @return ListEsxiHostsResponse
      * @throws OciError when an error occurs
@@ -379,9 +400,11 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
       "opc-request-id": listEsxiHostsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listEsxiHostsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEsxiHostsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -423,6 +446,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
 
   /**
    * Updates the specified ESXi host.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateEsxiHostRequest
    * @return UpdateEsxiHostResponse
    * @throws OciError when an error occurs
@@ -444,9 +468,11 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
       "opc-request-id": updateEsxiHostRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateEsxiHostRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateEsxiHostRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -492,7 +518,9 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
   }
 }
 export enum SddcApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class SddcClient {
   protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -512,6 +540,15 @@ export class SddcClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -601,6 +638,7 @@ export class SddcClient {
   /**
    * Cancel the pending SDDC downgrade from HCX Enterprise to HCX Advanced.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelDowngradeHcxRequest
    * @return CancelDowngradeHcxResponse
    * @throws OciError when an error occurs
@@ -623,9 +661,11 @@ export class SddcClient {
       "opc-request-id": cancelDowngradeHcxRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelDowngradeHcxRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelDowngradeHcxRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -666,6 +706,7 @@ export class SddcClient {
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeSddcCompartmentRequest
    * @return ChangeSddcCompartmentResponse
    * @throws OciError when an error occurs
@@ -688,9 +729,11 @@ export class SddcClient {
       "opc-retry-token": changeSddcCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeSddcCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSddcCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -734,6 +777,7 @@ Use the {@link WorkRequest} operations to track the
 * <p>
 **Important:** You must configure the SDDC's networking resources with the security rules detailed in [Security Rules for Oracle Cloud VMware Solution SDDCs](https://docs.cloud.oracle.com/iaas/Content/VMware/Reference/ocvssecurityrules.htm). Otherwise, provisioning the SDDC will fail. The rules are based on the requirements set by VMware.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateSddcRequest
      * @return CreateSddcResponse
      * @throws OciError when an error occurs
@@ -753,9 +797,11 @@ Use the {@link WorkRequest} operations to track the
       "opc-request-id": createSddcRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSddcRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSddcRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -804,6 +850,7 @@ Use the {@link WorkRequest} operations to track the
 Use the {@link WorkRequest} operations to track the
 * deletion of the SDDC.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteSddcRequest
      * @return DeleteSddcResponse
      * @throws OciError when an error occurs
@@ -825,9 +872,11 @@ Use the {@link WorkRequest} operations to track the
       "opc-request-id": deleteSddcRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSddcRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSddcRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -869,6 +918,7 @@ Use the {@link WorkRequest} operations to track the
    * Downgrade remains in a `PENDING` state until the end of the current billing cycle. You can use {@link #cancelDowngradeHcx(CancelDowngradeHcxRequest) cancelDowngradeHcx}
    * to cancel the downgrade while it's still in a `PENDING` state.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DowngradeHcxRequest
    * @return DowngradeHcxResponse
    * @throws OciError when an error occurs
@@ -891,9 +941,11 @@ Use the {@link WorkRequest} operations to track the
       "opc-request-id": downgradeHcxRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      downgradeHcxRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downgradeHcxRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -936,6 +988,7 @@ Use the {@link WorkRequest} operations to track the
 
   /**
    * Gets the specified SDDC's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSddcRequest
    * @return GetSddcResponse
    * @throws OciError when an error occurs
@@ -956,9 +1009,11 @@ Use the {@link WorkRequest} operations to track the
       "opc-request-id": getSddcRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSddcRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSddcRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1002,6 +1057,7 @@ Use the {@link WorkRequest} operations to track the
    * Lists the SDDCs in the specified compartment. The list can be
    * filtered by display name or availability domain.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSddcsRequest
    * @return ListSddcsResponse
    * @throws OciError when an error occurs
@@ -1029,9 +1085,11 @@ Use the {@link WorkRequest} operations to track the
       "opc-request-id": listSddcsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSddcsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSddcsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1074,6 +1132,7 @@ Use the {@link WorkRequest} operations to track the
   /**
    * Lists supported SKUs.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSupportedSkusRequest
    * @return ListSupportedSkusResponse
    * @throws OciError when an error occurs
@@ -1096,9 +1155,11 @@ Use the {@link WorkRequest} operations to track the
       "opc-request-id": listSupportedSkusRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSupportedSkusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSupportedSkusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1142,6 +1203,7 @@ Use the {@link WorkRequest} operations to track the
    * Lists the versions of bundled VMware software supported by the Oracle Cloud
    * VMware Solution.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSupportedVmwareSoftwareVersionsRequest
    * @return ListSupportedVmwareSoftwareVersionsResponse
    * @throws OciError when an error occurs
@@ -1165,9 +1227,11 @@ Use the {@link WorkRequest} operations to track the
       "opc-request-id": listSupportedVmwareSoftwareVersionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSupportedVmwareSoftwareVersionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSupportedVmwareSoftwareVersionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1209,6 +1273,7 @@ Use the {@link WorkRequest} operations to track the
 
   /**
    * Refresh HCX on-premise licenses status of the specified SDDC.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RefreshHcxLicenseStatusRequest
    * @return RefreshHcxLicenseStatusResponse
    * @throws OciError when an error occurs
@@ -1231,9 +1296,11 @@ Use the {@link WorkRequest} operations to track the
       "opc-request-id": refreshHcxLicenseStatusRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      refreshHcxLicenseStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      refreshHcxLicenseStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1277,6 +1344,7 @@ Use the {@link WorkRequest} operations to track the
    * the SDDC. For more information, see
    * {@link #updateSddcDetails(UpdateSddcDetailsRequest) updateSddcDetails}.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSddcRequest
    * @return UpdateSddcResponse
    * @throws OciError when an error occurs
@@ -1298,9 +1366,11 @@ Use the {@link WorkRequest} operations to track the
       "opc-request-id": updateSddcRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSddcRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSddcRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1348,6 +1418,7 @@ Use the {@link WorkRequest} operations to track the
   /**
    * Upgrade the specified SDDC from HCX Advanced to HCX Enterprise.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpgradeHcxRequest
    * @return UpgradeHcxResponse
    * @throws OciError when an error occurs
@@ -1370,9 +1441,11 @@ Use the {@link WorkRequest} operations to track the
       "opc-request-id": upgradeHcxRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      upgradeHcxRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      upgradeHcxRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1409,7 +1482,9 @@ Use the {@link WorkRequest} operations to track the
   }
 }
 export enum WorkRequestApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class WorkRequestClient {
   protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -1429,6 +1504,15 @@ export class WorkRequestClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -1517,6 +1601,7 @@ export class WorkRequestClient {
 
   /**
    * Gets the specified work request's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1537,9 +1622,11 @@ export class WorkRequestClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1582,6 +1669,7 @@ export class WorkRequestClient {
   /**
    * Lists the errors for the specified work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1606,9 +1694,11 @@ export class WorkRequestClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1651,6 +1741,7 @@ export class WorkRequestClient {
   /**
    * Lists the logs for the specified work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1674,9 +1765,11 @@ export class WorkRequestClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1719,6 +1812,7 @@ export class WorkRequestClient {
   /**
    * Lists the work requests in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1742,9 +1836,11 @@ export class WorkRequestClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

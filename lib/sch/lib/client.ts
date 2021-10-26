@@ -26,7 +26,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum ServiceConnectorApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ServiceConnectorClient {
   protected static serviceEndpointTemplate =
     "https://service-connector-hub.{region}.oci.{secondLevelDomain}";
@@ -47,6 +49,15 @@ export class ServiceConnectorClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -142,6 +153,7 @@ After you send your request, the service connector's state is temporarily
 * connectors, see
 * [To activate a service connector](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/managingconnectors.htm#activate).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ActivateServiceConnectorRequest
      * @return ActivateServiceConnectorResponse
      * @throws OciError when an error occurs
@@ -165,9 +177,11 @@ After you send your request, the service connector's state is temporarily
       "opc-request-id": activateServiceConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      activateServiceConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateServiceConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -210,6 +224,7 @@ After you send your request, the service connector's state is temporarily
 * <p>
 When provided, If-Match is checked against ETag values of the resource.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeServiceConnectorCompartmentRequest
      * @return ChangeServiceConnectorCompartmentResponse
      * @throws OciError when an error occurs
@@ -234,9 +249,11 @@ When provided, If-Match is checked against ETag values of the resource.
       "opc-request-id": changeServiceConnectorCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeServiceConnectorCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeServiceConnectorCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -297,6 +314,7 @@ After you send your request, the new service connector's state is temporarily
 * activating service connectors, see
 * [To activate or deactivate a service connector](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/overview.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateServiceConnectorRequest
      * @return CreateServiceConnectorResponse
      * @throws OciError when an error occurs
@@ -317,9 +335,11 @@ After you send your request, the new service connector's state is temporarily
       "opc-request-id": createServiceConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createServiceConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createServiceConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -368,6 +388,7 @@ After you send your request, the service connector's state is temporarily
 * For instructions on deactivating service connectors, see
 * [To deactivate a service connector](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/managingconnectors.htm#deactivate).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeactivateServiceConnectorRequest
      * @return DeactivateServiceConnectorResponse
      * @throws OciError when an error occurs
@@ -391,9 +412,11 @@ After you send your request, the service connector's state is temporarily
       "opc-request-id": deactivateServiceConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deactivateServiceConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deactivateServiceConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -435,6 +458,7 @@ After you send your request, the service connector's state is temporarily
 After you send your request, the service connector's state is temporarily
 * DELETING and any data transfer stops. The state then changes to DELETED.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteServiceConnectorRequest
      * @return DeleteServiceConnectorResponse
      * @throws OciError when an error occurs
@@ -457,9 +481,11 @@ After you send your request, the service connector's state is temporarily
       "opc-request-id": deleteServiceConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteServiceConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteServiceConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -498,6 +524,7 @@ After you send your request, the service connector's state is temporarily
   /**
    * Gets the specified service connector's configuration information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetServiceConnectorRequest
    * @return GetServiceConnectorResponse
    * @throws OciError when an error occurs
@@ -519,9 +546,11 @@ After you send your request, the service connector's state is temporarily
       "opc-request-id": getServiceConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getServiceConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getServiceConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -564,6 +593,7 @@ After you send your request, the service connector's state is temporarily
   /**
    * Gets the details of the specified work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -584,9 +614,11 @@ After you send your request, the service connector's state is temporarily
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -629,6 +661,7 @@ After you send your request, the service connector's state is temporarily
   /**
    * Lists service connectors in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListServiceConnectorsRequest
    * @return ListServiceConnectorsResponse
    * @throws OciError when an error occurs
@@ -656,9 +689,11 @@ After you send your request, the service connector's state is temporarily
       "opc-request-id": listServiceConnectorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listServiceConnectorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listServiceConnectorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -706,6 +741,7 @@ After you send your request, the service connector's state is temporarily
   /**
    * Lists work request errors for the specified work request. Results are paginated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -730,9 +766,11 @@ After you send your request, the service connector's state is temporarily
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -780,6 +818,7 @@ After you send your request, the service connector's state is temporarily
   /**
    * Lists logs for the specified work request. Results are paginated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -804,9 +843,11 @@ After you send your request, the service connector's state is temporarily
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -854,6 +895,7 @@ After you send your request, the service connector's state is temporarily
   /**
    * Lists the work requests in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -877,9 +919,11 @@ After you send your request, the service connector's state is temporarily
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -931,6 +975,7 @@ After you send your request, the service connector's state is temporarily
 * UPDATING and any data transfer pauses. The state then changes back to its
 * original value: if ACTIVE, then data transfer resumes.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateServiceConnectorRequest
      * @return UpdateServiceConnectorResponse
      * @throws OciError when an error occurs
@@ -953,9 +998,11 @@ After you send your request, the service connector's state is temporarily
       "opc-request-id": updateServiceConnectorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateServiceConnectorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateServiceConnectorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -23,7 +23,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum DataLabelingApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DataLabelingClient {
   protected static serviceEndpointTemplate =
     "https://datalabeling-dp.{region}.oci.{secondLevelDomain}";
@@ -44,6 +46,15 @@ export class DataLabelingClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -133,6 +144,7 @@ export class DataLabelingClient {
   /**
    * Creates an annotation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAnnotationRequest
    * @return CreateAnnotationResponse
    * @throws OciError when an error occurs
@@ -152,9 +164,11 @@ export class DataLabelingClient {
       "opc-request-id": createAnnotationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAnnotationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAnnotationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -202,6 +216,7 @@ export class DataLabelingClient {
   /**
    * Creates a Record.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRecordRequest
    * @return CreateRecordResponse
    * @throws OciError when an error occurs
@@ -221,9 +236,11 @@ export class DataLabelingClient {
       "opc-request-id": createRecordRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createRecordRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRecordRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -271,6 +288,7 @@ export class DataLabelingClient {
   /**
    * Deletes an Annotation resource by identifier
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAnnotationRequest
    * @return DeleteAnnotationResponse
    * @throws OciError when an error occurs
@@ -292,9 +310,11 @@ export class DataLabelingClient {
       "opc-request-id": deleteAnnotationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAnnotationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAnnotationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -328,6 +348,7 @@ export class DataLabelingClient {
   /**
    * Deletes a Record resource by identifier
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRecordRequest
    * @return DeleteRecordResponse
    * @throws OciError when an error occurs
@@ -349,9 +370,11 @@ export class DataLabelingClient {
       "opc-request-id": deleteRecordRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteRecordRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRecordRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -385,6 +408,7 @@ export class DataLabelingClient {
   /**
    * Gets an Annotation
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAnnotationRequest
    * @return GetAnnotationResponse
    * @throws OciError when an error occurs
@@ -405,9 +429,11 @@ export class DataLabelingClient {
       "opc-request-id": getAnnotationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAnnotationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAnnotationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -449,6 +475,7 @@ export class DataLabelingClient {
 
   /**
    * Gets a Dataset by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDatasetRequest
    * @return GetDatasetResponse
    * @throws OciError when an error occurs
@@ -469,9 +496,11 @@ export class DataLabelingClient {
       "opc-request-id": getDatasetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDatasetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatasetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -514,6 +543,7 @@ export class DataLabelingClient {
   /**
    * Gets a record
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRecordRequest
    * @return GetRecordResponse
    * @throws OciError when an error occurs
@@ -534,9 +564,11 @@ export class DataLabelingClient {
       "opc-request-id": getRecordRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRecordRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRecordRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -579,6 +611,7 @@ export class DataLabelingClient {
   /**
    * Retrieves the content of the record from the Dataset source.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRecordContentRequest
    * @return GetRecordContentResponse
    * @throws OciError when an error occurs
@@ -600,9 +633,11 @@ export class DataLabelingClient {
       "if-none-match": getRecordContentRequest.ifNoneMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRecordContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRecordContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -665,6 +700,7 @@ export class DataLabelingClient {
   /**
    * Retrieves the preview of the record content from the Dataset source.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRecordPreviewContentRequest
    * @return GetRecordPreviewContentResponse
    * @throws OciError when an error occurs
@@ -687,9 +723,11 @@ export class DataLabelingClient {
       "if-none-match": getRecordPreviewContentRequest.ifNoneMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRecordPreviewContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRecordPreviewContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -752,6 +790,7 @@ export class DataLabelingClient {
   /**
    * Returns a list of Annotations.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAnnotationsRequest
    * @return ListAnnotationsResponse
    * @throws OciError when an error occurs
@@ -783,9 +822,11 @@ export class DataLabelingClient {
       "opc-request-id": listAnnotationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAnnotationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAnnotationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -828,6 +869,7 @@ export class DataLabelingClient {
   /**
    * List Record in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRecordsRequest
    * @return ListRecordsResponse
    * @throws OciError when an error occurs
@@ -858,9 +900,11 @@ export class DataLabelingClient {
       "opc-request-id": listRecordsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRecordsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRecordsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -903,6 +947,7 @@ export class DataLabelingClient {
   /**
    * Summarize annotations created for a given dataset
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeAnnotationAnalyticsRequest
    * @return SummarizeAnnotationAnalyticsResponse
    * @throws OciError when an error occurs
@@ -932,9 +977,11 @@ export class DataLabelingClient {
       "opc-request-id": summarizeAnnotationAnalyticsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeAnnotationAnalyticsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAnnotationAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -977,6 +1024,7 @@ export class DataLabelingClient {
   /**
    * Summarize records created for a given dataset
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeRecordAnalyticsRequest
    * @return SummarizeRecordAnalyticsResponse
    * @throws OciError when an error occurs
@@ -1005,9 +1053,11 @@ export class DataLabelingClient {
       "opc-request-id": summarizeRecordAnalyticsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeRecordAnalyticsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeRecordAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1050,6 +1100,7 @@ export class DataLabelingClient {
   /**
    * Updates an annotation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAnnotationRequest
    * @return UpdateAnnotationResponse
    * @throws OciError when an error occurs
@@ -1071,9 +1122,11 @@ export class DataLabelingClient {
       "opc-request-id": updateAnnotationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAnnotationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAnnotationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1121,6 +1174,7 @@ export class DataLabelingClient {
   /**
    * Updates record.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRecordRequest
    * @return UpdateRecordResponse
    * @throws OciError when an error occurs
@@ -1142,9 +1196,11 @@ export class DataLabelingClient {
       "opc-request-id": updateRecordRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRecordRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRecordRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -23,7 +23,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum ServiceCatalogApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ServiceCatalogClient {
   protected static serviceEndpointTemplate =
     "https://service-catalog.{region}.oci.{secondLevelDomain}";
@@ -44,6 +46,15 @@ export class ServiceCatalogClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -132,6 +143,7 @@ export class ServiceCatalogClient {
 
   /**
    * Replace all associations of a given service catalog in one bulk transaction.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param BulkReplaceServiceCatalogAssociationsRequest
    * @return BulkReplaceServiceCatalogAssociationsResponse
    * @throws OciError when an error occurs
@@ -156,9 +168,11 @@ export class ServiceCatalogClient {
       "opc-request-id": bulkReplaceServiceCatalogAssociationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      bulkReplaceServiceCatalogAssociationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkReplaceServiceCatalogAssociationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -196,6 +210,7 @@ export class ServiceCatalogClient {
 
   /**
    * Moves the specified private application from one compartment to another.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangePrivateApplicationCompartmentRequest
    * @return ChangePrivateApplicationCompartmentResponse
    * @throws OciError when an error occurs
@@ -220,9 +235,11 @@ export class ServiceCatalogClient {
       "if-match": changePrivateApplicationCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changePrivateApplicationCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changePrivateApplicationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -265,6 +282,7 @@ export class ServiceCatalogClient {
 
   /**
    * Moves the specified service catalog from one compartment to another.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeServiceCatalogCompartmentRequest
    * @return ChangeServiceCatalogCompartmentResponse
    * @throws OciError when an error occurs
@@ -287,9 +305,11 @@ export class ServiceCatalogClient {
       "if-match": changeServiceCatalogCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeServiceCatalogCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeServiceCatalogCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -327,6 +347,7 @@ export class ServiceCatalogClient {
 
   /**
    * Creates a private application along with a single package to be hosted.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePrivateApplicationRequest
    * @return CreatePrivateApplicationResponse
    * @throws OciError when an error occurs
@@ -347,9 +368,11 @@ export class ServiceCatalogClient {
       "opc-request-id": createPrivateApplicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPrivateApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPrivateApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -401,6 +424,7 @@ export class ServiceCatalogClient {
 
   /**
    * Creates a brand new service catalog in a given compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateServiceCatalogRequest
    * @return CreateServiceCatalogResponse
    * @throws OciError when an error occurs
@@ -421,9 +445,11 @@ export class ServiceCatalogClient {
       "opc-request-id": createServiceCatalogRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createServiceCatalogRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createServiceCatalogRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -470,6 +496,7 @@ export class ServiceCatalogClient {
 
   /**
    * Creates an association between service catalog and a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateServiceCatalogAssociationRequest
    * @return CreateServiceCatalogAssociationResponse
    * @throws OciError when an error occurs
@@ -490,9 +517,11 @@ export class ServiceCatalogClient {
       "opc-request-id": createServiceCatalogAssociationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createServiceCatalogAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createServiceCatalogAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -539,6 +568,7 @@ export class ServiceCatalogClient {
 
   /**
    * Deletes an existing private application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePrivateApplicationRequest
    * @return DeletePrivateApplicationResponse
    * @throws OciError when an error occurs
@@ -561,9 +591,11 @@ export class ServiceCatalogClient {
       "opc-request-id": deletePrivateApplicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePrivateApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePrivateApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -601,6 +633,7 @@ export class ServiceCatalogClient {
 
   /**
    * Deletes the specified service catalog from the compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteServiceCatalogRequest
    * @return DeleteServiceCatalogResponse
    * @throws OciError when an error occurs
@@ -623,9 +656,11 @@ export class ServiceCatalogClient {
       "opc-request-id": deleteServiceCatalogRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteServiceCatalogRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteServiceCatalogRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -658,6 +693,7 @@ export class ServiceCatalogClient {
 
   /**
    * Removes an association between service catalog and a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteServiceCatalogAssociationRequest
    * @return DeleteServiceCatalogAssociationResponse
    * @throws OciError when an error occurs
@@ -681,9 +717,11 @@ export class ServiceCatalogClient {
       "opc-request-id": deleteServiceCatalogAssociationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteServiceCatalogAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteServiceCatalogAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -716,6 +754,7 @@ export class ServiceCatalogClient {
 
   /**
    * Gets the details of the specified private application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPrivateApplicationRequest
    * @return GetPrivateApplicationResponse
    * @throws OciError when an error occurs
@@ -737,9 +776,11 @@ export class ServiceCatalogClient {
       "opc-request-id": getPrivateApplicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPrivateApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPrivateApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -781,6 +822,7 @@ export class ServiceCatalogClient {
 
   /**
    * Downloads the binary payload of the logo image of the private application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPrivateApplicationActionDownloadLogoRequest
    * @return GetPrivateApplicationActionDownloadLogoResponse
    * @throws OciError when an error occurs
@@ -804,9 +846,11 @@ export class ServiceCatalogClient {
       "opc-request-id": getPrivateApplicationActionDownloadLogoRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPrivateApplicationActionDownloadLogoRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPrivateApplicationActionDownloadLogoRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -843,6 +887,7 @@ export class ServiceCatalogClient {
 
   /**
    * Gets the details of a specific package within a given private application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPrivateApplicationPackageRequest
    * @return GetPrivateApplicationPackageResponse
    * @throws OciError when an error occurs
@@ -865,9 +910,11 @@ export class ServiceCatalogClient {
       "opc-request-id": getPrivateApplicationPackageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPrivateApplicationPackageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPrivateApplicationPackageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -909,6 +956,7 @@ export class ServiceCatalogClient {
 
   /**
    * Downloads the configuration that was used to create the private application package.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPrivateApplicationPackageActionDownloadConfigRequest
    * @return GetPrivateApplicationPackageActionDownloadConfigResponse
    * @throws OciError when an error occurs
@@ -933,9 +981,11 @@ export class ServiceCatalogClient {
       "opc-request-id": getPrivateApplicationPackageActionDownloadConfigRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPrivateApplicationPackageActionDownloadConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPrivateApplicationPackageActionDownloadConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -972,6 +1022,7 @@ export class ServiceCatalogClient {
 
   /**
    * Gets detailed information about the service catalog including name, compartmentId
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetServiceCatalogRequest
    * @return GetServiceCatalogResponse
    * @throws OciError when an error occurs
@@ -992,9 +1043,11 @@ export class ServiceCatalogClient {
       "opc-request-id": getServiceCatalogRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getServiceCatalogRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getServiceCatalogRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1036,6 +1089,7 @@ export class ServiceCatalogClient {
 
   /**
    * Gets detailed information about specific service catalog association.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetServiceCatalogAssociationRequest
    * @return GetServiceCatalogAssociationResponse
    * @throws OciError when an error occurs
@@ -1058,9 +1112,11 @@ export class ServiceCatalogClient {
       "opc-request-id": getServiceCatalogAssociationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getServiceCatalogAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getServiceCatalogAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1102,6 +1158,7 @@ export class ServiceCatalogClient {
 
   /**
    * Gets the status of the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1122,9 +1179,11 @@ export class ServiceCatalogClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1174,6 +1233,7 @@ export class ServiceCatalogClient {
    * If no parameter is specified, all catalogs from all compartments in
    * the tenancy will be scanned for any type of content.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListApplicationsRequest
    * @return ListApplicationsResponse
    * @throws OciError when an error occurs
@@ -1205,9 +1265,11 @@ export class ServiceCatalogClient {
       "opc-request-id": listApplicationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listApplicationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listApplicationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1249,6 +1311,7 @@ export class ServiceCatalogClient {
 
   /**
    * Lists the packages in the specified private application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPrivateApplicationPackagesRequest
    * @return ListPrivateApplicationPackagesResponse
    * @throws OciError when an error occurs
@@ -1278,9 +1341,11 @@ export class ServiceCatalogClient {
       "opc-request-id": listPrivateApplicationPackagesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPrivateApplicationPackagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPrivateApplicationPackagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1322,6 +1387,7 @@ export class ServiceCatalogClient {
 
   /**
    * Lists all the private applications in a given compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPrivateApplicationsRequest
    * @return ListPrivateApplicationsResponse
    * @throws OciError when an error occurs
@@ -1349,9 +1415,11 @@ export class ServiceCatalogClient {
       "opc-request-id": listPrivateApplicationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPrivateApplicationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPrivateApplicationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1393,6 +1461,7 @@ export class ServiceCatalogClient {
 
   /**
    * Lists all the resource associations for a specific service catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListServiceCatalogAssociationsRequest
    * @return ListServiceCatalogAssociationsResponse
    * @throws OciError when an error occurs
@@ -1422,9 +1491,11 @@ export class ServiceCatalogClient {
       "opc-request-id": listServiceCatalogAssociationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listServiceCatalogAssociationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listServiceCatalogAssociationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1466,6 +1537,7 @@ export class ServiceCatalogClient {
 
   /**
    * Lists all the service catalogs in the given compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListServiceCatalogsRequest
    * @return ListServiceCatalogsResponse
    * @throws OciError when an error occurs
@@ -1493,9 +1565,11 @@ export class ServiceCatalogClient {
       "opc-request-id": listServiceCatalogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listServiceCatalogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listServiceCatalogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1538,6 +1612,7 @@ export class ServiceCatalogClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1564,9 +1639,11 @@ export class ServiceCatalogClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1609,6 +1686,7 @@ export class ServiceCatalogClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1635,9 +1713,11 @@ export class ServiceCatalogClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1680,6 +1760,7 @@ export class ServiceCatalogClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1707,9 +1788,11 @@ export class ServiceCatalogClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1751,6 +1834,7 @@ export class ServiceCatalogClient {
 
   /**
    * Updates the details of an existing private application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdatePrivateApplicationRequest
    * @return UpdatePrivateApplicationResponse
    * @throws OciError when an error occurs
@@ -1773,9 +1857,11 @@ export class ServiceCatalogClient {
       "if-match": updatePrivateApplicationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePrivateApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePrivateApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1827,6 +1913,7 @@ export class ServiceCatalogClient {
 
   /**
    * Updates the details of a previously created service catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateServiceCatalogRequest
    * @return UpdateServiceCatalogResponse
    * @throws OciError when an error occurs
@@ -1849,9 +1936,11 @@ export class ServiceCatalogClient {
       "if-match": updateServiceCatalogRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateServiceCatalogRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateServiceCatalogRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

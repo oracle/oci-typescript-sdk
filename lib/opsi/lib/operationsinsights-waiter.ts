@@ -65,6 +65,25 @@ export class OperationsInsightsWaiter {
   }
 
   /**
+   * Waits forExadataInsight till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetExadataInsightResponse | null (null in case of 404 response)
+   */
+  public async forExadataInsight(
+    request: serviceRequests.GetExadataInsightRequest,
+    ...targetStates: models.ExadataInsightLifecycleState[]
+  ): Promise<serviceResponses.GetExadataInsightResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getExadataInsight(request),
+      response => targetStates.includes(response.exadataInsight.lifecycleState!),
+      targetStates.includes(models.ExadataInsightLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forHostInsight till it reaches any of the provided states
    *
    * @param request the request to send

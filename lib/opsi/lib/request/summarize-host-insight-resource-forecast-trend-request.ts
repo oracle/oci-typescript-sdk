@@ -65,6 +65,11 @@ export interface SummarizeHostInsightResourceForecastTrendRequest extends common
    */
   "id"?: Array<string>;
   /**
+   * Optional list of exadata insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "exadataInsightId"?: Array<string>;
+  /**
    * Choose the type of statistic metric data to be used for forecasting.
    */
   "statistic"?: SummarizeHostInsightResourceForecastTrendRequest.Statistic;

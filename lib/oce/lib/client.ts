@@ -24,7 +24,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum OceInstanceApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class OceInstanceClient {
   protected static serviceEndpointTemplate = "https://cp.oce.{region}.ocp.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -44,6 +46,15 @@ export class OceInstanceClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -132,6 +143,7 @@ export class OceInstanceClient {
 
   /**
    * Moves a OceInstance into a different compartment
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeOceInstanceCompartmentRequest
    * @return ChangeOceInstanceCompartmentResponse
    * @throws OciError when an error occurs
@@ -155,9 +167,11 @@ export class OceInstanceClient {
       "opc-retry-token": changeOceInstanceCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeOceInstanceCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeOceInstanceCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -201,6 +215,7 @@ export class OceInstanceClient {
   /**
    * Creates a new OceInstance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateOceInstanceRequest
    * @return CreateOceInstanceResponse
    * @throws OciError when an error occurs
@@ -220,9 +235,11 @@ export class OceInstanceClient {
       "opc-request-id": createOceInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createOceInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOceInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -265,6 +282,7 @@ export class OceInstanceClient {
 
   /**
    * Deletes a OceInstance resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteOceInstanceRequest
    * @return DeleteOceInstanceResponse
    * @throws OciError when an error occurs
@@ -286,9 +304,11 @@ export class OceInstanceClient {
       "opc-request-id": deleteOceInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteOceInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOceInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -326,6 +346,7 @@ export class OceInstanceClient {
 
   /**
    * Gets a OceInstance by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOceInstanceRequest
    * @return GetOceInstanceResponse
    * @throws OciError when an error occurs
@@ -346,9 +367,11 @@ export class OceInstanceClient {
       "opc-request-id": getOceInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getOceInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOceInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -390,6 +413,7 @@ export class OceInstanceClient {
 
   /**
    * Gets the status of the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -410,9 +434,11 @@ export class OceInstanceClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -460,6 +486,7 @@ export class OceInstanceClient {
   /**
    * Returns a list of OceInstances.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListOceInstancesRequest
    * @return ListOceInstancesResponse
    * @throws OciError when an error occurs
@@ -487,9 +514,11 @@ export class OceInstanceClient {
       "opc-request-id": listOceInstancesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listOceInstancesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOceInstancesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -584,6 +613,7 @@ export class OceInstanceClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -608,9 +638,11 @@ export class OceInstanceClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -705,6 +737,7 @@ export class OceInstanceClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -728,9 +761,11 @@ export class OceInstanceClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -825,6 +860,7 @@ export class OceInstanceClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -848,9 +884,11 @@ export class OceInstanceClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -944,6 +982,7 @@ export class OceInstanceClient {
 
   /**
    * Updates the OceInstance
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateOceInstanceRequest
    * @return UpdateOceInstanceResponse
    * @throws OciError when an error occurs
@@ -965,9 +1004,11 @@ export class OceInstanceClient {
       "opc-request-id": updateOceInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateOceInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOceInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

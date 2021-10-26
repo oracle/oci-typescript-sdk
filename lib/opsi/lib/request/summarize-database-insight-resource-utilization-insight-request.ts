@@ -71,6 +71,11 @@ export interface SummarizeDatabaseInsightResourceUtilizationInsightRequest
    */
   "id"?: Array<string>;
   /**
+   * Optional list of exadata insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "exadataInsightId"?: Array<string>;
+  /**
    * Number of days used for utilization forecast analysis.
    *
    */

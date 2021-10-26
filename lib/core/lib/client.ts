@@ -33,7 +33,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum BlockstorageApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class BlockstorageClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -53,6 +55,15 @@ export class BlockstorageClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -148,6 +159,7 @@ export class BlockstorageClient {
    * For information about moving resources between compartments,
    * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeBootVolumeBackupCompartmentRequest
    * @return ChangeBootVolumeBackupCompartmentResponse
    * @throws OciError when an error occurs
@@ -169,9 +181,11 @@ export class BlockstorageClient {
       "opc-request-id": changeBootVolumeBackupCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeBootVolumeBackupCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeBootVolumeBackupCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -217,6 +231,7 @@ export class BlockstorageClient {
    * For information about moving resources between compartments,
    * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeBootVolumeCompartmentRequest
    * @return ChangeBootVolumeCompartmentResponse
    * @throws OciError when an error occurs
@@ -238,9 +253,11 @@ export class BlockstorageClient {
       "opc-request-id": changeBootVolumeCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeBootVolumeCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeBootVolumeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -286,6 +303,7 @@ export class BlockstorageClient {
    * For information about moving resources between compartments,
    * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVolumeBackupCompartmentRequest
    * @return ChangeVolumeBackupCompartmentResponse
    * @throws OciError when an error occurs
@@ -307,9 +325,11 @@ export class BlockstorageClient {
       "opc-request-id": changeVolumeBackupCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeVolumeBackupCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeVolumeBackupCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -355,6 +375,7 @@ export class BlockstorageClient {
    * For information about moving resources between compartments,
    * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVolumeCompartmentRequest
    * @return ChangeVolumeCompartmentResponse
    * @throws OciError when an error occurs
@@ -376,9 +397,11 @@ export class BlockstorageClient {
       "opc-request-id": changeVolumeCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeVolumeCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeVolumeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -424,6 +447,7 @@ export class BlockstorageClient {
    * For information about moving resources between compartments,
    * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVolumeGroupBackupCompartmentRequest
    * @return ChangeVolumeGroupBackupCompartmentResponse
    * @throws OciError when an error occurs
@@ -445,9 +469,11 @@ export class BlockstorageClient {
       "opc-request-id": changeVolumeGroupBackupCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeVolumeGroupBackupCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeVolumeGroupBackupCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -493,6 +519,7 @@ export class BlockstorageClient {
    * For information about moving resources between compartments,
    * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVolumeGroupCompartmentRequest
    * @return ChangeVolumeGroupCompartmentResponse
    * @throws OciError when an error occurs
@@ -514,9 +541,11 @@ export class BlockstorageClient {
       "opc-request-id": changeVolumeGroupCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeVolumeGroupCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeVolumeGroupCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -561,6 +590,7 @@ export class BlockstorageClient {
    * Creates a boot volume backup copy in specified region. For general information about volume backups,
    * see [Overview of Boot Volume Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/bootvolumebackups.htm)
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CopyBootVolumeBackupRequest
    * @return CopyBootVolumeBackupResponse
    * @throws OciError when an error occurs
@@ -583,9 +613,11 @@ export class BlockstorageClient {
       "opc-request-id": copyBootVolumeBackupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      copyBootVolumeBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      copyBootVolumeBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -649,6 +681,7 @@ export class BlockstorageClient {
    * Creates a volume backup copy in specified region. For general information about volume backups,
    * see [Overview of Block Volume Service Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/blockvolumebackups.htm)
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CopyVolumeBackupRequest
    * @return CopyVolumeBackupResponse
    * @throws OciError when an error occurs
@@ -670,9 +703,11 @@ export class BlockstorageClient {
       "opc-request-id": copyVolumeBackupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      copyVolumeBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      copyVolumeBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -736,6 +771,7 @@ export class BlockstorageClient {
    * Creates a volume group backup copy in specified region. For general information about volume group backups,
    * see [Overview of Block Volume Service Backups](https://docs.cloud.oracle.com/Content/Block/Concepts/blockvolumebackups.htm)
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CopyVolumeGroupBackupRequest
    * @return CopyVolumeGroupBackupResponse
    * @throws OciError when an error occurs
@@ -758,9 +794,11 @@ export class BlockstorageClient {
       "opc-request-id": copyVolumeGroupBackupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      copyVolumeGroupBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      copyVolumeGroupBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -811,6 +849,7 @@ export class BlockstorageClient {
    * You may optionally specify a *display name* for the volume, which is simply a friendly name or
    * description. It does not have to be unique, and you can change it. Avoid entering confidential information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateBootVolumeRequest
    * @return CreateBootVolumeResponse
    * @throws OciError when an error occurs
@@ -829,9 +868,11 @@ export class BlockstorageClient {
       "opc-retry-token": createBootVolumeRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createBootVolumeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBootVolumeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -884,6 +925,7 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
 * When the data is imaged, it goes into a CREATING state.
 * After the backup is fully uploaded to the cloud, it goes into an AVAILABLE state.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateBootVolumeBackupRequest
      * @return CreateBootVolumeBackupResponse
      * @throws OciError when an error occurs
@@ -903,9 +945,11 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
       "opc-retry-token": createBootVolumeBackupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createBootVolumeBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBootVolumeBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -966,6 +1010,7 @@ A volume and instance can be in separate compartments but must be in the same av
 You may optionally specify a *display name* for the volume, which is simply a friendly name or
 * description. It does not have to be unique, and you can change it. Avoid entering confidential information.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateVolumeRequest
      * @return CreateVolumeResponse
      * @throws OciError when an error occurs
@@ -984,9 +1029,11 @@ You may optionally specify a *display name* for the volume, which is simply a fr
       "opc-retry-token": createVolumeRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVolumeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVolumeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1039,6 +1086,7 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
 * When the data is imaged, it goes into a CREATING state.
 * After the backup is fully uploaded to the cloud, it goes into an AVAILABLE state.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateVolumeBackupRequest
      * @return CreateVolumeBackupResponse
      * @throws OciError when an error occurs
@@ -1057,9 +1105,11 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
       "opc-retry-token": createVolumeBackupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVolumeBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVolumeBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1110,6 +1160,7 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
 For more information about Oracle defined backup policies and user defined backup policies,
 * see [Policy-Based Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/schedulingvolumebackups.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateVolumeBackupPolicyRequest
      * @return CreateVolumeBackupPolicyResponse
      * @throws OciError when an error occurs
@@ -1130,9 +1181,11 @@ For more information about Oracle defined backup policies and user defined backu
       "opc-request-id": createVolumeBackupPolicyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVolumeBackupPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVolumeBackupPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1182,6 +1235,7 @@ For more information about Oracle defined backup policies and user defined backu
    * only have one backup policy assigned to it. If this operation is used for a volume that already
    * has a different backup policy assigned, the prior backup policy will be silently unassigned.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateVolumeBackupPolicyAssignmentRequest
    * @return CreateVolumeBackupPolicyAssignmentResponse
    * @throws OciError when an error occurs
@@ -1200,9 +1254,11 @@ For more information about Oracle defined backup policies and user defined backu
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVolumeBackupPolicyAssignmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVolumeBackupPolicyAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1256,6 +1312,7 @@ For more information about Oracle defined backup policies and user defined backu
 * <p>
 For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateVolumeGroupRequest
      * @return CreateVolumeGroupResponse
      * @throws OciError when an error occurs
@@ -1274,9 +1331,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "opc-retry-token": createVolumeGroupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVolumeGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVolumeGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1325,6 +1384,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * Creates a new backup volume group of the specified volume group.
    * For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateVolumeGroupBackupRequest
    * @return CreateVolumeGroupBackupResponse
    * @throws OciError when an error occurs
@@ -1344,9 +1404,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "opc-retry-token": createVolumeGroupBackupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVolumeGroupBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVolumeGroupBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1397,6 +1459,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * [Disconnecting From a Boot Volume](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/deletingbootvolume.htm).
    * **Warning:** All data on the boot volume will be permanently lost when the boot volume is deleted.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBootVolumeRequest
    * @return DeleteBootVolumeResponse
    * @throws OciError when an error occurs
@@ -1417,9 +1480,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": deleteBootVolumeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteBootVolumeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBootVolumeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1452,6 +1517,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Deletes a boot volume backup.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBootVolumeBackupRequest
    * @return DeleteBootVolumeBackupResponse
    * @throws OciError when an error occurs
@@ -1473,9 +1539,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": deleteBootVolumeBackupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteBootVolumeBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBootVolumeBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1509,6 +1577,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   /**
    * Removes the specified boot volume's assigned Key Management encryption key.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBootVolumeKmsKeyRequest
    * @return DeleteBootVolumeKmsKeyResponse
    * @throws OciError when an error occurs
@@ -1530,9 +1599,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": deleteBootVolumeKmsKeyRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteBootVolumeKmsKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBootVolumeKmsKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1569,6 +1640,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * [Disconnecting From a Volume](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/disconnectingfromavolume.htm).
    * **Warning:** All data on the volume will be permanently lost when the volume is deleted.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVolumeRequest
    * @return DeleteVolumeResponse
    * @throws OciError when an error occurs
@@ -1589,9 +1661,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": deleteVolumeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVolumeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVolumeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1624,6 +1698,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Deletes a volume backup.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVolumeBackupRequest
    * @return DeleteVolumeBackupResponse
    * @throws OciError when an error occurs
@@ -1644,9 +1719,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": deleteVolumeBackupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVolumeBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVolumeBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1684,6 +1761,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 * <p>
  Avoid entering confidential information.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteVolumeBackupPolicyRequest
      * @return DeleteVolumeBackupPolicyResponse
      * @throws OciError when an error occurs
@@ -1706,9 +1784,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": deleteVolumeBackupPolicyRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVolumeBackupPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVolumeBackupPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1741,6 +1821,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Deletes a volume backup policy assignment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVolumeBackupPolicyAssignmentRequest
    * @return DeleteVolumeBackupPolicyAssignmentResponse
    * @throws OciError when an error occurs
@@ -1762,9 +1843,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": deleteVolumeBackupPolicyAssignmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVolumeBackupPolicyAssignmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVolumeBackupPolicyAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1799,6 +1882,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * Deletes the specified volume group. Individual volumes are not deleted, only the volume group is deleted.
    * For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVolumeGroupRequest
    * @return DeleteVolumeGroupResponse
    * @throws OciError when an error occurs
@@ -1819,9 +1903,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": deleteVolumeGroupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVolumeGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVolumeGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1856,6 +1942,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * Deletes a volume group backup. This operation deletes all the backups in
    * the volume group. For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVolumeGroupBackupRequest
    * @return DeleteVolumeGroupBackupResponse
    * @throws OciError when an error occurs
@@ -1877,9 +1964,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": deleteVolumeGroupBackupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVolumeGroupBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVolumeGroupBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1913,6 +2002,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   /**
    * Removes the specified volume's assigned Key Management encryption key.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVolumeKmsKeyRequest
    * @return DeleteVolumeKmsKeyResponse
    * @throws OciError when an error occurs
@@ -1933,9 +2023,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": deleteVolumeKmsKeyRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVolumeKmsKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVolumeKmsKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1968,6 +2060,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Gets information for the specified block volume replica.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBlockVolumeReplicaRequest
    * @return GetBlockVolumeReplicaResponse
    * @throws OciError when an error occurs
@@ -1988,9 +2081,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBlockVolumeReplicaRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBlockVolumeReplicaRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2032,6 +2127,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Gets information for the specified boot volume.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBootVolumeRequest
    * @return GetBootVolumeResponse
    * @throws OciError when an error occurs
@@ -2051,9 +2147,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBootVolumeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBootVolumeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2095,6 +2193,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Gets information for the specified boot volume backup.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBootVolumeBackupRequest
    * @return GetBootVolumeBackupResponse
    * @throws OciError when an error occurs
@@ -2114,9 +2213,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBootVolumeBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBootVolumeBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2159,6 +2260,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   /**
    * Gets the Key Management encryption key assigned to the specified boot volume.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBootVolumeKmsKeyRequest
    * @return GetBootVolumeKmsKeyResponse
    * @throws OciError when an error occurs
@@ -2179,9 +2281,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": getBootVolumeKmsKeyRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBootVolumeKmsKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBootVolumeKmsKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2223,6 +2327,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Gets information for the specified boot volume replica.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBootVolumeReplicaRequest
    * @return GetBootVolumeReplicaResponse
    * @throws OciError when an error occurs
@@ -2243,9 +2348,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBootVolumeReplicaRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBootVolumeReplicaRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2287,6 +2394,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Gets information for the specified volume.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVolumeRequest
    * @return GetVolumeResponse
    * @throws OciError when an error occurs
@@ -2306,9 +2414,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVolumeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVolumeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2350,6 +2460,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Gets information for the specified volume backup.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVolumeBackupRequest
    * @return GetVolumeBackupResponse
    * @throws OciError when an error occurs
@@ -2369,9 +2480,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVolumeBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVolumeBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2413,6 +2526,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Gets information for the specified volume backup policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVolumeBackupPolicyRequest
    * @return GetVolumeBackupPolicyResponse
    * @throws OciError when an error occurs
@@ -2433,9 +2547,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVolumeBackupPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVolumeBackupPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2480,6 +2596,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * `assetId` query parameter is required, and the returned list will contain at most
    * one item, since volume can only have one volume backup policy assigned at a time.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVolumeBackupPolicyAssetAssignmentRequest
    * @return GetVolumeBackupPolicyAssetAssignmentResponse
    * @throws OciError when an error occurs
@@ -2504,9 +2621,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVolumeBackupPolicyAssetAssignmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVolumeBackupPolicyAssetAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2600,6 +2719,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Gets information for the specified volume backup policy assignment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVolumeBackupPolicyAssignmentRequest
    * @return GetVolumeBackupPolicyAssignmentResponse
    * @throws OciError when an error occurs
@@ -2620,9 +2740,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVolumeBackupPolicyAssignmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVolumeBackupPolicyAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2664,6 +2786,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Gets information for the specified volume group. For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVolumeGroupRequest
    * @return GetVolumeGroupResponse
    * @throws OciError when an error occurs
@@ -2683,9 +2806,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVolumeGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVolumeGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2727,6 +2852,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Gets information for the specified volume group backup. For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVolumeGroupBackupRequest
    * @return GetVolumeGroupBackupResponse
    * @throws OciError when an error occurs
@@ -2747,9 +2873,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVolumeGroupBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVolumeGroupBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2792,6 +2920,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   /**
    * Gets the Key Management encryption key assigned to the specified volume.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVolumeKmsKeyRequest
    * @return GetVolumeKmsKeyResponse
    * @throws OciError when an error occurs
@@ -2812,9 +2941,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": getVolumeKmsKeyRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVolumeKmsKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVolumeKmsKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2857,6 +2988,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   /**
    * Lists the block volume replicas in the specified compartment and availability domain.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBlockVolumeReplicasRequest
    * @return ListBlockVolumeReplicasResponse
    * @throws OciError when an error occurs
@@ -2884,9 +3016,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBlockVolumeReplicasRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBlockVolumeReplicasRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2981,6 +3115,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   /**
    * Lists the boot volume backups in the specified compartment. You can filter the results by boot volume.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBootVolumeBackupsRequest
    * @return ListBootVolumeBackupsResponse
    * @throws OciError when an error occurs
@@ -3009,9 +3144,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBootVolumeBackupsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBootVolumeBackupsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3106,6 +3243,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   /**
    * Lists the boot volume replicas in the specified compartment and availability domain.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBootVolumeReplicasRequest
    * @return ListBootVolumeReplicasResponse
    * @throws OciError when an error occurs
@@ -3133,9 +3271,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBootVolumeReplicasRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBootVolumeReplicasRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3230,6 +3370,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   /**
    * Lists the boot volumes in the specified compartment and availability domain.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBootVolumesRequest
    * @return ListBootVolumesResponse
    * @throws OciError when an error occurs
@@ -3253,9 +3394,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBootVolumesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBootVolumesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3353,6 +3496,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 For more information about Oracle defined backup policies and user defined backup policies,
 * see [Policy-Based Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/schedulingvolumebackups.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListVolumeBackupPoliciesRequest
      * @return ListVolumeBackupPoliciesResponse
      * @throws OciError when an error occurs
@@ -3375,9 +3519,11 @@ For more information about Oracle defined backup policies and user defined backu
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVolumeBackupPoliciesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVolumeBackupPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3472,6 +3618,7 @@ For more information about Oracle defined backup policies and user defined backu
   /**
    * Lists the volume backups in the specified compartment. You can filter the results by volume.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVolumeBackupsRequest
    * @return ListVolumeBackupsResponse
    * @throws OciError when an error occurs
@@ -3499,9 +3646,11 @@ For more information about Oracle defined backup policies and user defined backu
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVolumeBackupsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVolumeBackupsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3597,6 +3746,7 @@ For more information about Oracle defined backup policies and user defined backu
    * Lists the volume group backups in the specified compartment. You can filter the results by volume group.
    * For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVolumeGroupBackupsRequest
    * @return ListVolumeGroupBackupsResponse
    * @throws OciError when an error occurs
@@ -3623,9 +3773,11 @@ For more information about Oracle defined backup policies and user defined backu
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVolumeGroupBackupsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVolumeGroupBackupsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3721,6 +3873,7 @@ For more information about Oracle defined backup policies and user defined backu
    * Lists the volume groups in the specified compartment and availability domain.
    * For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVolumeGroupsRequest
    * @return ListVolumeGroupsResponse
    * @throws OciError when an error occurs
@@ -3747,9 +3900,11 @@ For more information about Oracle defined backup policies and user defined backu
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVolumeGroupsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVolumeGroupsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3844,6 +3999,7 @@ For more information about Oracle defined backup policies and user defined backu
   /**
    * Lists the volumes in the specified compartment and availability domain.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVolumesRequest
    * @return ListVolumesResponse
    * @throws OciError when an error occurs
@@ -3871,9 +4027,11 @@ For more information about Oracle defined backup policies and user defined backu
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVolumesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVolumesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3965,6 +4123,7 @@ For more information about Oracle defined backup policies and user defined backu
 
   /**
    * Updates the specified boot volume's display name, defined tags, and free-form tags.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBootVolumeRequest
    * @return UpdateBootVolumeResponse
    * @throws OciError when an error occurs
@@ -3985,9 +4144,11 @@ For more information about Oracle defined backup policies and user defined backu
       "if-match": updateBootVolumeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateBootVolumeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBootVolumeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4036,6 +4197,7 @@ For more information about Oracle defined backup policies and user defined backu
    * Updates the display name for the specified boot volume backup.
    * Avoid entering confidential information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBootVolumeBackupRequest
    * @return UpdateBootVolumeBackupResponse
    * @throws OciError when an error occurs
@@ -4057,9 +4219,11 @@ For more information about Oracle defined backup policies and user defined backu
       "if-match": updateBootVolumeBackupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateBootVolumeBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBootVolumeBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4102,6 +4266,7 @@ For more information about Oracle defined backup policies and user defined backu
   /**
    * Updates the specified volume with a new Key Management master encryption key.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBootVolumeKmsKeyRequest
    * @return UpdateBootVolumeKmsKeyResponse
    * @throws OciError when an error occurs
@@ -4123,9 +4288,11 @@ For more information about Oracle defined backup policies and user defined backu
       "if-match": updateBootVolumeKmsKeyRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateBootVolumeKmsKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBootVolumeKmsKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4174,6 +4341,7 @@ For more information about Oracle defined backup policies and user defined backu
    * Updates the specified volume's display name.
    * Avoid entering confidential information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateVolumeRequest
    * @return UpdateVolumeResponse
    * @throws OciError when an error occurs
@@ -4194,9 +4362,11 @@ For more information about Oracle defined backup policies and user defined backu
       "if-match": updateVolumeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVolumeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVolumeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4245,6 +4415,7 @@ For more information about Oracle defined backup policies and user defined backu
    * Updates the display name for the specified volume backup.
    * Avoid entering confidential information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateVolumeBackupRequest
    * @return UpdateVolumeBackupResponse
    * @throws OciError when an error occurs
@@ -4265,9 +4436,11 @@ For more information about Oracle defined backup policies and user defined backu
       "if-match": updateVolumeBackupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVolumeBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVolumeBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4314,6 +4487,7 @@ For more information about Oracle defined backup policies and user defined backu
 * <p>
  Avoid entering confidential information.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateVolumeBackupPolicyRequest
      * @return UpdateVolumeBackupPolicyResponse
      * @throws OciError when an error occurs
@@ -4337,9 +4511,11 @@ For more information about Oracle defined backup policies and user defined backu
       "opc-retry-token": updateVolumeBackupPolicyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVolumeBackupPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVolumeBackupPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4392,6 +4568,7 @@ For more information about Oracle defined backup policies and user defined backu
 * <p>
 For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateVolumeGroupRequest
      * @return UpdateVolumeGroupResponse
      * @throws OciError when an error occurs
@@ -4412,9 +4589,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": updateVolumeGroupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVolumeGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVolumeGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4461,6 +4640,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Updates the display name for the specified volume group backup. For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateVolumeGroupBackupRequest
    * @return UpdateVolumeGroupBackupResponse
    * @throws OciError when an error occurs
@@ -4482,9 +4662,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": updateVolumeGroupBackupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVolumeGroupBackupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVolumeGroupBackupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4527,6 +4709,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   /**
    * Updates the specified volume with a new Key Management master encryption key.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateVolumeKmsKeyRequest
    * @return UpdateVolumeKmsKeyResponse
    * @throws OciError when an error occurs
@@ -4547,9 +4730,11 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "if-match": updateVolumeKmsKeyRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVolumeKmsKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVolumeKmsKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4595,7 +4780,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 }
 export enum ComputeApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ComputeClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -4615,6 +4802,15 @@ export class ComputeClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -4707,6 +4903,7 @@ export class ComputeClient {
 
   /**
    * Accept the changes to the PCR values in the Measured Boot Report.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AcceptShieldedIntegrityPolicyRequest
    * @return AcceptShieldedIntegrityPolicyResponse
    * @throws OciError when an error occurs
@@ -4730,9 +4927,11 @@ export class ComputeClient {
       "opc-retry-token": acceptShieldedIntegrityPolicyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      acceptShieldedIntegrityPolicyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      acceptShieldedIntegrityPolicyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4765,6 +4964,7 @@ export class ComputeClient {
 
   /**
    * Adds a shape to the compatible shapes list for the image.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddImageShapeCompatibilityEntryRequest
    * @return AddImageShapeCompatibilityEntryResponse
    * @throws OciError when an error occurs
@@ -4786,9 +4986,11 @@ export class ComputeClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addImageShapeCompatibilityEntryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addImageShapeCompatibilityEntryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4831,6 +5033,7 @@ export class ComputeClient {
   /**
    * Attaches the specified boot volume to the specified instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachBootVolumeRequest
    * @return AttachBootVolumeResponse
    * @throws OciError when an error occurs
@@ -4849,9 +5052,11 @@ export class ComputeClient {
       "opc-retry-token": attachBootVolumeRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      attachBootVolumeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachBootVolumeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4901,6 +5106,7 @@ export class ComputeClient {
    * For more information about secondary VNICs, see
    * [Virtual Network Interface Cards (VNICs)](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachVnicRequest
    * @return AttachVnicResponse
    * @throws OciError when an error occurs
@@ -4919,9 +5125,11 @@ export class ComputeClient {
       "opc-retry-token": attachVnicRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      attachVnicRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachVnicRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4969,6 +5177,7 @@ export class ComputeClient {
   /**
    * Attaches the specified storage volume to the specified instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachVolumeRequest
    * @return AttachVolumeResponse
    * @throws OciError when an error occurs
@@ -4987,9 +5196,11 @@ export class ComputeClient {
       "opc-retry-token": attachVolumeRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      attachVolumeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachVolumeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5053,6 +5264,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
 * 4. Optionally, use `DeleteConsoleHistory` to delete the console history metadata
 * and the console history data.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CaptureConsoleHistoryRequest
      * @return CaptureConsoleHistoryResponse
      * @throws OciError when an error occurs
@@ -5071,9 +5283,11 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       "opc-retry-token": captureConsoleHistoryRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      captureConsoleHistoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      captureConsoleHistoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5123,6 +5337,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
    * moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeComputeCapacityReservationCompartmentRequest
    * @return ChangeComputeCapacityReservationCompartmentResponse
    * @throws OciError when an error occurs
@@ -5149,9 +5364,11 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       "opc-retry-token": changeComputeCapacityReservationCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeComputeCapacityReservationCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeComputeCapacityReservationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5197,6 +5414,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
    * For information about moving resources between compartments, see
    *         [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeComputeImageCapabilitySchemaCompartmentRequest
    * @return ChangeComputeImageCapabilitySchemaCompartmentResponse
    * @throws OciError when an error occurs
@@ -5223,9 +5441,11 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       "opc-retry-token": changeComputeImageCapabilitySchemaCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeComputeImageCapabilitySchemaCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeComputeImageCapabilitySchemaCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5264,6 +5484,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
 
   /**
    * Moves a dedicated virtual machine host from one compartment to another.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDedicatedVmHostCompartmentRequest
    * @return ChangeDedicatedVmHostCompartmentResponse
    * @throws OciError when an error occurs
@@ -5287,9 +5508,11 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       "opc-retry-token": changeDedicatedVmHostCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDedicatedVmHostCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDedicatedVmHostCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5340,6 +5563,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
    * resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeImageCompartmentRequest
    * @return ChangeImageCompartmentResponse
    * @throws OciError when an error occurs
@@ -5362,9 +5586,11 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       "opc-retry-token": changeImageCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeImageCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeImageCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5413,6 +5639,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
 When you move an instance to a different compartment, associated resources such as boot volumes and VNICs
 * are not moved.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeInstanceCompartmentRequest
      * @return ChangeInstanceCompartmentResponse
      * @throws OciError when an error occurs
@@ -5436,9 +5663,11 @@ When you move an instance to a different compartment, associated resources such 
       "opc-retry-token": changeInstanceCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeInstanceCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeInstanceCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5487,6 +5716,7 @@ When you move an instance to a different compartment, associated resources such 
   /**
    * Create a subscription for listing resource version for a compartment. It will take some time to propagate to all regions.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAppCatalogSubscriptionRequest
    * @return CreateAppCatalogSubscriptionResponse
    * @throws OciError when an error occurs
@@ -5506,9 +5736,11 @@ When you move an instance to a different compartment, associated resources such 
       "opc-retry-token": createAppCatalogSubscriptionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAppCatalogSubscriptionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAppCatalogSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5560,6 +5792,7 @@ When you move an instance to a different compartment, associated resources such 
    * and you won't get out of capacity errors.
    * For more information, see [Reserved Capacity](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/reserve-capacity.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateComputeCapacityReservationRequest
    * @return CreateComputeCapacityReservationResponse
    * @throws OciError when an error occurs
@@ -5580,9 +5813,11 @@ When you move an instance to a different compartment, associated resources such 
       "opc-retry-token": createComputeCapacityReservationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createComputeCapacityReservationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createComputeCapacityReservationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5640,6 +5875,7 @@ When you move an instance to a different compartment, associated resources such 
   /**
    * Creates compute image capability schema.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateComputeImageCapabilitySchemaRequest
    * @return CreateComputeImageCapabilitySchemaResponse
    * @throws OciError when an error occurs
@@ -5659,9 +5895,11 @@ When you move an instance to a different compartment, associated resources such 
       "opc-retry-token": createComputeImageCapabilitySchemaRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createComputeImageCapabilitySchemaRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createComputeImageCapabilitySchemaRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5712,6 +5950,7 @@ When you move an instance to a different compartment, associated resources such 
    * that are a single tenant and not shared with other customers.
    * For more information, see [Dedicated Virtual Machine Hosts](https://docs.cloud.oracle.com/iaas/Content/Compute/Concepts/dedicatedvmhosts.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDedicatedVmHostRequest
    * @return CreateDedicatedVmHostResponse
    * @throws OciError when an error occurs
@@ -5731,9 +5970,11 @@ When you move an instance to a different compartment, associated resources such 
       "opc-retry-token": createDedicatedVmHostRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDedicatedVmHostRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDedicatedVmHostRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5808,6 +6049,7 @@ You may optionally specify a *display name* for the image, which is simply a fri
 * It does not have to be unique, and you can change it. See {@link #updateImage(UpdateImageRequest) updateImage}.
 * Avoid entering confidential information.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateImageRequest
      * @return CreateImageResponse
      * @throws OciError when an error occurs
@@ -5826,9 +6068,11 @@ You may optionally specify a *display name* for the image, which is simply a fri
       "opc-retry-token": createImageRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createImageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createImageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5885,6 +6129,7 @@ You may optionally specify a *display name* for the image, which is simply a fri
 * <p>
 For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.cloud.oracle.com/iaas/Content/Compute/References/serialconsole.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateInstanceConsoleConnectionRequest
      * @return CreateInstanceConsoleConnectionResponse
      * @throws OciError when an error occurs
@@ -5904,9 +6149,11 @@ For more information about instance console connections, see [Troubleshooting In
       "opc-retry-token": createInstanceConsoleConnectionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createInstanceConsoleConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createInstanceConsoleConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5953,6 +6200,7 @@ For more information about instance console connections, see [Troubleshooting In
 
   /**
    * Delete a subscription for a listing resource version for a compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAppCatalogSubscriptionRequest
    * @return DeleteAppCatalogSubscriptionResponse
    * @throws OciError when an error occurs
@@ -5975,9 +6223,11 @@ For more information about instance console connections, see [Troubleshooting In
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAppCatalogSubscriptionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAppCatalogSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6010,6 +6260,7 @@ For more information about instance console connections, see [Troubleshooting In
 
   /**
    * Deletes the specified compute capacity reservation.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteComputeCapacityReservationRequest
    * @return DeleteComputeCapacityReservationResponse
    * @throws OciError when an error occurs
@@ -6032,9 +6283,11 @@ For more information about instance console connections, see [Troubleshooting In
       "if-match": deleteComputeCapacityReservationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteComputeCapacityReservationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteComputeCapacityReservationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6073,6 +6326,7 @@ For more information about instance console connections, see [Troubleshooting In
   /**
    * Deletes the specified Compute Image Capability Schema
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteComputeImageCapabilitySchemaRequest
    * @return DeleteComputeImageCapabilitySchemaResponse
    * @throws OciError when an error occurs
@@ -6095,9 +6349,11 @@ For more information about instance console connections, see [Troubleshooting In
       "if-match": deleteComputeImageCapabilitySchemaRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteComputeImageCapabilitySchemaRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteComputeImageCapabilitySchemaRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6131,6 +6387,7 @@ For more information about instance console connections, see [Troubleshooting In
   /**
    * Deletes the specified console history metadata and the console history data.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteConsoleHistoryRequest
    * @return DeleteConsoleHistoryResponse
    * @throws OciError when an error occurs
@@ -6151,9 +6408,11 @@ For more information about instance console connections, see [Troubleshooting In
       "if-match": deleteConsoleHistoryRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteConsoleHistoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteConsoleHistoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6190,6 +6449,7 @@ For more information about instance console connections, see [Troubleshooting In
 If any VM instances are assigned to the dedicated virtual machine host,
 * the delete operation will fail and the service will return a 409 response code.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteDedicatedVmHostRequest
      * @return DeleteDedicatedVmHostResponse
      * @throws OciError when an error occurs
@@ -6210,9 +6470,11 @@ If any VM instances are assigned to the dedicated virtual machine host,
       "opc-request-id": deleteDedicatedVmHostRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDedicatedVmHostRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDedicatedVmHostRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6250,6 +6512,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
 
   /**
    * Deletes an image.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteImageRequest
    * @return DeleteImageResponse
    * @throws OciError when an error occurs
@@ -6270,9 +6533,11 @@ If any VM instances are assigned to the dedicated virtual machine host,
       "if-match": deleteImageRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteImageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteImageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6305,6 +6570,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
 
   /**
    * Deletes the specified instance console connection.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteInstanceConsoleConnectionRequest
    * @return DeleteInstanceConsoleConnectionResponse
    * @throws OciError when an error occurs
@@ -6327,9 +6593,11 @@ If any VM instances are assigned to the dedicated virtual machine host,
       "if-match": deleteInstanceConsoleConnectionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteInstanceConsoleConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteInstanceConsoleConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6366,6 +6634,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
 This is an asynchronous operation. The attachment's `lifecycleState` will change to DETACHING temporarily
 * until the attachment is completely removed.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DetachBootVolumeRequest
      * @return DetachBootVolumeResponse
      * @throws OciError when an error occurs
@@ -6386,9 +6655,11 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
       "if-match": detachBootVolumeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detachBootVolumeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachBootVolumeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6431,6 +6702,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
    * deleting the VNIC causes that route rule to blackhole and the traffic
    * will be dropped.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetachVnicRequest
    * @return DetachVnicResponse
    * @throws OciError when an error occurs
@@ -6451,9 +6723,11 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
       "if-match": detachVnicRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detachVnicRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachVnicRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6490,6 +6764,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
 This is an asynchronous operation. The attachment's `lifecycleState` will change to DETACHING temporarily
 * until the attachment is completely removed.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DetachVolumeRequest
      * @return DetachVolumeResponse
      * @throws OciError when an error occurs
@@ -6510,9 +6785,11 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
       "if-match": detachVolumeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detachVolumeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachVolumeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6555,6 +6832,7 @@ To perform an image export, you need write access to the Object Storage bucket f
 See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm#URLs) and [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm)
 * for constructing URLs for image import/export.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ExportImageRequest
      * @return ExportImageResponse
      * @throws OciError when an error occurs
@@ -6576,9 +6854,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "if-match": exportImageRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      exportImageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportImageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6630,6 +6910,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets the specified listing.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAppCatalogListingRequest
    * @return GetAppCatalogListingResponse
    * @throws OciError when an error occurs
@@ -6649,9 +6930,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAppCatalogListingRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAppCatalogListingRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6693,6 +6976,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Retrieves the agreements for a particular resource version of a listing.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAppCatalogListingAgreementsRequest
    * @return GetAppCatalogListingAgreementsResponse
    * @throws OciError when an error occurs
@@ -6714,9 +6998,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAppCatalogListingAgreementsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAppCatalogListingAgreementsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6758,6 +7044,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets the specified listing resource version.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAppCatalogListingResourceVersionRequest
    * @return GetAppCatalogListingResourceVersionResponse
    * @throws OciError when an error occurs
@@ -6779,9 +7066,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAppCatalogListingResourceVersionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAppCatalogListingResourceVersionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6823,6 +7112,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets information about the specified boot volume attachment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBootVolumeAttachmentRequest
    * @return GetBootVolumeAttachmentResponse
    * @throws OciError when an error occurs
@@ -6842,9 +7132,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBootVolumeAttachmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBootVolumeAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6886,6 +7178,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets information about the specified compute capacity reservation.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetComputeCapacityReservationRequest
    * @return GetComputeCapacityReservationResponse
    * @throws OciError when an error occurs
@@ -6907,9 +7200,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "opc-request-id": getComputeCapacityReservationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getComputeCapacityReservationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getComputeCapacityReservationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6951,6 +7246,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets the specified Compute Global Image Capability Schema
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetComputeGlobalImageCapabilitySchemaRequest
    * @return GetComputeGlobalImageCapabilitySchemaResponse
    * @throws OciError when an error occurs
@@ -6972,9 +7268,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getComputeGlobalImageCapabilitySchemaRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getComputeGlobalImageCapabilitySchemaRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7016,6 +7314,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets the specified Compute Global Image Capability Schema Version
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetComputeGlobalImageCapabilitySchemaVersionRequest
    * @return GetComputeGlobalImageCapabilitySchemaVersionResponse
    * @throws OciError when an error occurs
@@ -7041,9 +7340,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getComputeGlobalImageCapabilitySchemaVersionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getComputeGlobalImageCapabilitySchemaVersionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7087,6 +7388,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   /**
    * Gets the specified Compute Image Capability Schema
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetComputeImageCapabilitySchemaRequest
    * @return GetComputeImageCapabilitySchemaResponse
    * @throws OciError when an error occurs
@@ -7110,9 +7412,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getComputeImageCapabilitySchemaRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getComputeImageCapabilitySchemaRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7157,6 +7461,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * See {@link #captureConsoleHistory(CaptureConsoleHistoryRequest) captureConsoleHistory}
    * for details about using the console history operations.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConsoleHistoryRequest
    * @return GetConsoleHistoryResponse
    * @throws OciError when an error occurs
@@ -7176,9 +7481,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getConsoleHistoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConsoleHistoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7223,6 +7530,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * See {@link #captureConsoleHistory(CaptureConsoleHistoryRequest) captureConsoleHistory}
    * for details about using the console history operations.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConsoleHistoryContentRequest
    * @return GetConsoleHistoryContentResponse
    * @throws OciError when an error occurs
@@ -7245,9 +7553,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getConsoleHistoryContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConsoleHistoryContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7289,6 +7599,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets information about the specified dedicated virtual machine host.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDedicatedVmHostRequest
    * @return GetDedicatedVmHostResponse
    * @throws OciError when an error occurs
@@ -7309,9 +7620,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "opc-request-id": getDedicatedVmHostRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDedicatedVmHostRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDedicatedVmHostRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7353,6 +7666,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets the specified image.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetImageRequest
    * @return GetImageResponse
    * @throws OciError when an error occurs
@@ -7372,9 +7686,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getImageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getImageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7416,6 +7732,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Retrieves an image shape compatibility entry.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetImageShapeCompatibilityEntryRequest
    * @return GetImageShapeCompatibilityEntryResponse
    * @throws OciError when an error occurs
@@ -7438,9 +7755,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "opc-request-id": getImageShapeCompatibilityEntryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getImageShapeCompatibilityEntryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getImageShapeCompatibilityEntryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7477,6 +7796,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets information about the specified instance.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInstanceRequest
    * @return GetInstanceResponse
    * @throws OciError when an error occurs
@@ -7496,9 +7816,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7540,6 +7862,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets the specified instance console connection's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInstanceConsoleConnectionRequest
    * @return GetInstanceConsoleConnectionResponse
    * @throws OciError when an error occurs
@@ -7561,9 +7884,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getInstanceConsoleConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInstanceConsoleConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7600,6 +7925,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets the measured boot report for this Shielded Instance.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMeasuredBootReportRequest
    * @return GetMeasuredBootReportResponse
    * @throws OciError when an error occurs
@@ -7620,9 +7946,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "opc-request-id": getMeasuredBootReportRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getMeasuredBootReportRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMeasuredBootReportRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7665,6 +7993,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   /**
    * Gets the information for the specified VNIC attachment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVnicAttachmentRequest
    * @return GetVnicAttachmentResponse
    * @throws OciError when an error occurs
@@ -7684,9 +8013,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVnicAttachmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVnicAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7728,6 +8059,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets information about the specified volume attachment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVolumeAttachmentRequest
    * @return GetVolumeAttachmentResponse
    * @throws OciError when an error occurs
@@ -7747,9 +8079,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVolumeAttachmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVolumeAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7793,6 +8127,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * Gets the generated credentials for the instance. Only works for instances that require a password to log in, such as Windows.
    * For certain operating systems, users will be forced to change the initial credentials.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWindowsInstanceInitialCredentialsRequest
    * @return GetWindowsInstanceInitialCredentialsResponse
    * @throws OciError when an error occurs
@@ -7813,9 +8148,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWindowsInstanceInitialCredentialsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWindowsInstanceInitialCredentialsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7880,6 +8217,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 * For more information about managing instance lifecycle states, see
 * [Stopping and Starting an Instance](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/restartinginstance.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param InstanceActionRequest
      * @return InstanceActionResponse
      * @throws OciError when an error occurs
@@ -7903,9 +8241,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "if-match": instanceActionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      instanceActionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      instanceActionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7986,6 +8326,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
 * with the signature. To get the image ID for the LaunchInstance operation, call
 * {@link #getAppCatalogListingResourceVersion(GetAppCatalogListingResourceVersionRequest) getAppCatalogListingResourceVersion}.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param LaunchInstanceRequest
      * @return LaunchInstanceResponse
      * @throws OciError when an error occurs
@@ -8004,9 +8345,11 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "opc-retry-token": launchInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      launchInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      launchInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8058,6 +8401,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
 
   /**
    * Gets all resource versions for a particular listing.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAppCatalogListingResourceVersionsRequest
    * @return ListAppCatalogListingResourceVersionsResponse
    * @throws OciError when an error occurs
@@ -8082,9 +8426,11 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAppCatalogListingResourceVersionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAppCatalogListingResourceVersionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8178,6 +8524,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
 
   /**
    * Lists the published listings.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAppCatalogListingsRequest
    * @return ListAppCatalogListingsResponse
    * @throws OciError when an error occurs
@@ -8202,9 +8549,11 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAppCatalogListingsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAppCatalogListingsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8298,6 +8647,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
 
   /**
    * Lists subscriptions for a compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAppCatalogSubscriptionsRequest
    * @return ListAppCatalogSubscriptionsResponse
    * @throws OciError when an error occurs
@@ -8323,9 +8673,11 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAppCatalogSubscriptionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAppCatalogSubscriptionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8421,6 +8773,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
    * Lists the boot volume attachments in the specified compartment. You can filter the
    * list by specifying an instance OCID, boot volume OCID, or both.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBootVolumeAttachmentsRequest
    * @return ListBootVolumeAttachmentsResponse
    * @throws OciError when an error occurs
@@ -8446,9 +8799,11 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBootVolumeAttachmentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBootVolumeAttachmentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8543,6 +8898,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   /**
    * Lists the shapes that can be reserved within the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListComputeCapacityReservationInstanceShapesRequest
    * @return ListComputeCapacityReservationInstanceShapesResponse
    * @throws OciError when an error occurs
@@ -8572,9 +8928,11 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "opc-request-id": listComputeCapacityReservationInstanceShapesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listComputeCapacityReservationInstanceShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeCapacityReservationInstanceShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8673,6 +9031,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   /**
    * Lists the instances launched under a capacity reservation. You can filter results by specifying criteria.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListComputeCapacityReservationInstancesRequest
    * @return ListComputeCapacityReservationInstancesResponse
    * @throws OciError when an error occurs
@@ -8702,9 +9061,11 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "opc-request-id": listComputeCapacityReservationInstancesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listComputeCapacityReservationInstancesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeCapacityReservationInstancesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8802,6 +9163,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
 You can limit the list by specifying a compute capacity reservation display name
 * (the list will include all the identically-named compute capacity reservations in the compartment).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListComputeCapacityReservationsRequest
      * @return ListComputeCapacityReservationsResponse
      * @throws OciError when an error occurs
@@ -8830,9 +9192,11 @@ You can limit the list by specifying a compute capacity reservation display name
       "opc-request-id": listComputeCapacityReservationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listComputeCapacityReservationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeCapacityReservationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8927,6 +9291,7 @@ You can limit the list by specifying a compute capacity reservation display name
   /**
    * Lists Compute Global Image Capability Schema versions in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListComputeGlobalImageCapabilitySchemaVersionsRequest
    * @return ListComputeGlobalImageCapabilitySchemaVersionsResponse
    * @throws OciError when an error occurs
@@ -8956,9 +9321,11 @@ You can limit the list by specifying a compute capacity reservation display name
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listComputeGlobalImageCapabilitySchemaVersionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeGlobalImageCapabilitySchemaVersionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9061,6 +9428,7 @@ You can limit the list by specifying a compute capacity reservation display name
   /**
    * Lists Compute Global Image Capability Schema in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListComputeGlobalImageCapabilitySchemasRequest
    * @return ListComputeGlobalImageCapabilitySchemasResponse
    * @throws OciError when an error occurs
@@ -9086,9 +9454,11 @@ You can limit the list by specifying a compute capacity reservation display name
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listComputeGlobalImageCapabilitySchemasRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeGlobalImageCapabilitySchemasRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9183,6 +9553,7 @@ You can limit the list by specifying a compute capacity reservation display name
   /**
    * Lists Compute Image Capability Schema in the specified compartment. You can also query by a specific imageId.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListComputeImageCapabilitySchemasRequest
    * @return ListComputeImageCapabilitySchemasResponse
    * @throws OciError when an error occurs
@@ -9209,9 +9580,11 @@ You can limit the list by specifying a compute capacity reservation display name
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listComputeImageCapabilitySchemasRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeImageCapabilitySchemasRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9306,6 +9679,7 @@ You can limit the list by specifying a compute capacity reservation display name
   /**
    * Lists the console history metadata for the specified compartment or instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListConsoleHistoriesRequest
    * @return ListConsoleHistoriesResponse
    * @throws OciError when an error occurs
@@ -9332,9 +9706,11 @@ You can limit the list by specifying a compute capacity reservation display name
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listConsoleHistoriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConsoleHistoriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9430,6 +9806,7 @@ You can limit the list by specifying a compute capacity reservation display name
    * Lists the shapes that can be used to launch a virtual machine instance on a dedicated virtual machine host within the specified compartment.
    * You can filter the list by compatibility with a specific dedicated virtual machine host shape.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDedicatedVmHostInstanceShapesRequest
    * @return ListDedicatedVmHostInstanceShapesResponse
    * @throws OciError when an error occurs
@@ -9455,9 +9832,11 @@ You can limit the list by specifying a compute capacity reservation display name
       "opc-request-id": listDedicatedVmHostInstanceShapesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDedicatedVmHostInstanceShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDedicatedVmHostInstanceShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9552,6 +9931,7 @@ You can limit the list by specifying a compute capacity reservation display name
   /**
    * Returns the list of instances on the dedicated virtual machine hosts that match the specified criteria.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDedicatedVmHostInstancesRequest
    * @return ListDedicatedVmHostInstancesResponse
    * @throws OciError when an error occurs
@@ -9580,9 +9960,11 @@ You can limit the list by specifying a compute capacity reservation display name
       "opc-request-id": listDedicatedVmHostInstancesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDedicatedVmHostInstancesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDedicatedVmHostInstancesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9677,6 +10059,7 @@ You can limit the list by specifying a compute capacity reservation display name
   /**
    * Lists the shapes that can be used to launch a dedicated virtual machine host within the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDedicatedVmHostShapesRequest
    * @return ListDedicatedVmHostShapesResponse
    * @throws OciError when an error occurs
@@ -9702,9 +10085,11 @@ You can limit the list by specifying a compute capacity reservation display name
       "opc-request-id": listDedicatedVmHostShapesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDedicatedVmHostShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDedicatedVmHostShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9802,6 +10187,7 @@ You can limit the list by specifying a compute capacity reservation display name
 You can limit the list by specifying a dedicated virtual machine host display name. The list will include all the identically-named
 * dedicated virtual machine hosts in the compartment.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListDedicatedVmHostsRequest
      * @return ListDedicatedVmHostsResponse
      * @throws OciError when an error occurs
@@ -9834,9 +10220,11 @@ You can limit the list by specifying a dedicated virtual machine host display na
       "opc-request-id": listDedicatedVmHostsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDedicatedVmHostsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDedicatedVmHostsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9930,6 +10318,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
 
   /**
    * Lists the compatible shapes for the specified image.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListImageShapeCompatibilityEntriesRequest
    * @return ListImageShapeCompatibilityEntriesResponse
    * @throws OciError when an error occurs
@@ -9954,9 +10343,11 @@ You can limit the list by specifying a dedicated virtual machine host display na
       "opc-request-id": listImageShapeCompatibilityEntriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listImageShapeCompatibilityEntriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listImageShapeCompatibilityEntriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10058,6 +10449,7 @@ The list of images that's returned is ordered to first show all
 * platform images, then all custom images. The order of images might
 * change when new images are released.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListImagesRequest
      * @return ListImagesResponse
      * @throws OciError when an error occurs
@@ -10086,9 +10478,11 @@ The list of images that's returned is ordered to first show all
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listImagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listImagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10183,6 +10577,7 @@ The list of images that's returned is ordered to first show all
 * <p>
 For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.cloud.oracle.com/iaas/Content/Compute/References/serialconsole.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListInstanceConsoleConnectionsRequest
      * @return ListInstanceConsoleConnectionsResponse
      * @throws OciError when an error occurs
@@ -10206,9 +10601,11 @@ For more information about instance console connections, see [Troubleshooting In
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listInstanceConsoleConnectionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstanceConsoleConnectionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10302,6 +10699,7 @@ For more information about instance console connections, see [Troubleshooting In
 
   /**
    * Gets a list of all the devices for given instance. You can optionally filter results by device availability.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInstanceDevicesRequest
    * @return ListInstanceDevicesResponse
    * @throws OciError when an error occurs
@@ -10329,9 +10727,11 @@ For more information about instance console connections, see [Troubleshooting In
       "opc-request-id": listInstanceDevicesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listInstanceDevicesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstanceDevicesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10428,6 +10828,7 @@ For more information about instance console connections, see [Troubleshooting In
    * You can filter the results by specifying an instance name (the list will include all the identically-named
    * instances in the compartment).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInstancesRequest
    * @return ListInstancesResponse
    * @throws OciError when an error occurs
@@ -10455,9 +10856,11 @@ For more information about instance console connections, see [Troubleshooting In
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listInstancesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstancesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10553,6 +10956,7 @@ For more information about instance console connections, see [Troubleshooting In
    * Lists the shapes that can be used to launch an instance within the specified compartment. You can
    * filter the list by compatibility with a specific image.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListShapesRequest
    * @return ListShapesResponse
    * @throws OciError when an error occurs
@@ -10576,9 +10980,11 @@ For more information about instance console connections, see [Troubleshooting In
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10673,6 +11079,7 @@ For more information about instance console connections, see [Troubleshooting In
    * resides in the same compartment as the attached instance. The list can be
    * filtered by instance, VNIC, or availability domain.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVnicAttachmentsRequest
    * @return ListVnicAttachmentsResponse
    * @throws OciError when an error occurs
@@ -10697,9 +11104,11 @@ For more information about instance console connections, see [Troubleshooting In
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVnicAttachmentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVnicAttachmentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10798,6 +11207,7 @@ For more information about instance console connections, see [Troubleshooting In
 Currently, the only supported volume attachment type are {@link IScsiVolumeAttachment} and
 * {@link ParavirtualizedVolumeAttachment}.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListVolumeAttachmentsRequest
      * @return ListVolumeAttachmentsResponse
      * @throws OciError when an error occurs
@@ -10822,9 +11232,11 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVolumeAttachmentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVolumeAttachmentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10918,6 +11330,7 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
 
   /**
    * Removes a shape from the compatible shapes list for the image.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveImageShapeCompatibilityEntryRequest
    * @return RemoveImageShapeCompatibilityEntryResponse
    * @throws OciError when an error occurs
@@ -10939,9 +11352,11 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeImageShapeCompatibilityEntryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeImageShapeCompatibilityEntryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10982,6 +11397,7 @@ To preserve the boot volume associated with the instance, specify `true` for `Pr
 This is an asynchronous operation. The instance's `lifecycleState` will change to TERMINATING temporarily
 * until the instance is completely removed.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param TerminateInstanceRequest
      * @return TerminateInstanceResponse
      * @throws OciError when an error occurs
@@ -11004,9 +11420,11 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
       "if-match": terminateInstanceRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      terminateInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      terminateInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11043,6 +11461,7 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
 * <p>
 The update also modifies the reservation configurations of the specified compute capacity reservation.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateComputeCapacityReservationRequest
      * @return UpdateComputeCapacityReservationResponse
      * @throws OciError when an error occurs
@@ -11065,9 +11484,11 @@ The update also modifies the reservation configurations of the specified compute
       "opc-request-id": updateComputeCapacityReservationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateComputeCapacityReservationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateComputeCapacityReservationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11111,6 +11532,7 @@ The update also modifies the reservation configurations of the specified compute
   /**
    * Updates the specified Compute Image Capability Schema
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateComputeImageCapabilitySchemaRequest
    * @return UpdateComputeImageCapabilitySchemaResponse
    * @throws OciError when an error occurs
@@ -11133,9 +11555,11 @@ The update also modifies the reservation configurations of the specified compute
       "if-match": updateComputeImageCapabilitySchemaRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateComputeImageCapabilitySchemaRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateComputeImageCapabilitySchemaRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11182,6 +11606,7 @@ The update also modifies the reservation configurations of the specified compute
 
   /**
    * Updates the specified console history metadata.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateConsoleHistoryRequest
    * @return UpdateConsoleHistoryResponse
    * @throws OciError when an error occurs
@@ -11202,9 +11627,11 @@ The update also modifies the reservation configurations of the specified compute
       "if-match": updateConsoleHistoryRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateConsoleHistoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateConsoleHistoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11253,6 +11680,7 @@ The update also modifies the reservation configurations of the specified compute
    * Updates the displayName, freeformTags, and definedTags attributes for the specified dedicated virtual machine host.
    * If an attribute value is not included, it will not be updated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDedicatedVmHostRequest
    * @return UpdateDedicatedVmHostResponse
    * @throws OciError when an error occurs
@@ -11275,9 +11703,11 @@ The update also modifies the reservation configurations of the specified compute
       "opc-retry-token": updateDedicatedVmHostRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDedicatedVmHostRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDedicatedVmHostRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11325,6 +11755,7 @@ The update also modifies the reservation configurations of the specified compute
   /**
    * Updates the display name of the image. Avoid entering confidential information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateImageRequest
    * @return UpdateImageResponse
    * @throws OciError when an error occurs
@@ -11346,9 +11777,11 @@ The update also modifies the reservation configurations of the specified compute
       "if-match": updateImageRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateImageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateImageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11402,6 +11835,7 @@ Changes to metadata fields will be reflected in the instance metadata service (t
 * <p>
 The OCID of the instance remains the same.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateInstanceRequest
      * @return UpdateInstanceResponse
      * @throws OciError when an error occurs
@@ -11423,9 +11857,11 @@ The OCID of the instance remains the same.
       "if-match": updateInstanceRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11477,6 +11913,7 @@ The OCID of the instance remains the same.
 
   /**
    * Updates the defined tags and free-form tags for the specified instance console connection.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateInstanceConsoleConnectionRequest
    * @return UpdateInstanceConsoleConnectionResponse
    * @throws OciError when an error occurs
@@ -11500,9 +11937,11 @@ The OCID of the instance remains the same.
       "if-match": updateInstanceConsoleConnectionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateInstanceConsoleConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateInstanceConsoleConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11549,6 +11988,7 @@ The OCID of the instance remains the same.
 
   /**
    * Updates information about the specified volume attachment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateVolumeAttachmentRequest
    * @return UpdateVolumeAttachmentResponse
    * @throws OciError when an error occurs
@@ -11570,9 +12010,11 @@ The OCID of the instance remains the same.
       "if-match": updateVolumeAttachmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVolumeAttachmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVolumeAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11618,7 +12060,9 @@ The OCID of the instance remains the same.
   }
 }
 export enum ComputeManagementApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ComputeManagementClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -11638,6 +12082,15 @@ export class ComputeManagementClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -11733,6 +12186,7 @@ export class ComputeManagementClient {
    * that an instance must meet before you can attach it to a pool, see
    * [Attaching an Instance to an Instance Pool](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/updatinginstancepool.htm#attach-instance).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachInstancePoolInstanceRequest
    * @return AttachInstancePoolInstanceResponse
    * @throws OciError when an error occurs
@@ -11754,9 +12208,11 @@ export class ComputeManagementClient {
       "opc-retry-token": attachInstancePoolInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      attachInstancePoolInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachInstancePoolInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11814,6 +12270,7 @@ export class ComputeManagementClient {
   /**
    * Attach a load balancer to the instance pool.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachLoadBalancerRequest
    * @return AttachLoadBalancerResponse
    * @throws OciError when an error occurs
@@ -11836,9 +12293,11 @@ export class ComputeManagementClient {
       "if-match": attachLoadBalancerRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      attachLoadBalancerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachLoadBalancerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11891,6 +12350,7 @@ export class ComputeManagementClient {
 When you move a cluster network to a different compartment, associated resources such as the instances
 * in the cluster network, boot volumes, and VNICs are not moved.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeClusterNetworkCompartmentRequest
      * @return ChangeClusterNetworkCompartmentResponse
      * @throws OciError when an error occurs
@@ -11916,9 +12376,11 @@ When you move a cluster network to a different compartment, associated resources
       "opc-retry-token": changeClusterNetworkCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeClusterNetworkCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeClusterNetworkCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -11974,6 +12436,7 @@ When you move an instance configuration to a different compartment, associated r
 * you should instead create a new instance configuration in the target compartment using
 * [CreateInstanceConfiguration](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConfiguration/CreateInstanceConfiguration).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeInstanceConfigurationCompartmentRequest
      * @return ChangeInstanceConfigurationCompartmentResponse
      * @throws OciError when an error occurs
@@ -12000,9 +12463,11 @@ When you move an instance configuration to a different compartment, associated r
       "opc-retry-token": changeInstanceConfigurationCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeInstanceConfigurationCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeInstanceConfigurationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12051,6 +12516,7 @@ When you move an instance configuration to a different compartment, associated r
 When you move an instance pool to a different compartment, associated resources such as the instances in
 * the pool, boot volumes, VNICs, and autoscaling configurations are not moved.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeInstancePoolCompartmentRequest
      * @return ChangeInstancePoolCompartmentResponse
      * @throws OciError when an error occurs
@@ -12074,9 +12540,11 @@ When you move an instance pool to a different compartment, associated resources 
       "opc-retry-token": changeInstancePoolCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeInstancePoolCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeInstancePoolCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12121,6 +12589,7 @@ When you move an instance pool to a different compartment, associated resources 
    * Creates a cluster network. For more information about cluster networks, see
    * [Managing Cluster Networks](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateClusterNetworkRequest
    * @return CreateClusterNetworkResponse
    * @throws OciError when an error occurs
@@ -12140,9 +12609,11 @@ When you move an instance pool to a different compartment, associated resources 
       "opc-retry-token": createClusterNetworkRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createClusterNetworkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createClusterNetworkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12196,6 +12667,7 @@ When you move an instance pool to a different compartment, associated resources 
    * Creates an instance configuration. An instance configuration is a template that defines the
    * settings to use when creating Compute instances.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateInstanceConfigurationRequest
    * @return CreateInstanceConfigurationResponse
    * @throws OciError when an error occurs
@@ -12215,9 +12687,11 @@ When you move an instance pool to a different compartment, associated resources 
       "opc-retry-token": createInstanceConfigurationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createInstanceConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createInstanceConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12264,6 +12738,7 @@ When you move an instance pool to a different compartment, associated resources 
 
   /**
    * Create an instance pool.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateInstancePoolRequest
    * @return CreateInstancePoolResponse
    * @throws OciError when an error occurs
@@ -12283,9 +12758,11 @@ When you move an instance pool to a different compartment, associated resources 
       "opc-retry-token": createInstancePoolRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createInstancePoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createInstancePoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12332,6 +12809,7 @@ When you move an instance pool to a different compartment, associated resources 
 
   /**
    * Deletes an instance configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteInstanceConfigurationRequest
    * @return DeleteInstanceConfigurationResponse
    * @throws OciError when an error occurs
@@ -12353,9 +12831,11 @@ When you move an instance pool to a different compartment, associated resources 
       "if-match": deleteInstanceConfigurationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteInstanceConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteInstanceConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12389,6 +12869,7 @@ When you move an instance pool to a different compartment, associated resources 
   /**
    * Detaches an instance from an instance pool.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetachInstancePoolInstanceRequest
    * @return DetachInstancePoolInstanceResponse
    * @throws OciError when an error occurs
@@ -12410,9 +12891,11 @@ When you move an instance pool to a different compartment, associated resources 
       "opc-retry-token": detachInstancePoolInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detachInstancePoolInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachInstancePoolInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12456,6 +12939,7 @@ When you move an instance pool to a different compartment, associated resources 
   /**
    * Detach a load balancer from the instance pool.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetachLoadBalancerRequest
    * @return DetachLoadBalancerResponse
    * @throws OciError when an error occurs
@@ -12478,9 +12962,11 @@ When you move an instance pool to a different compartment, associated resources 
       "if-match": detachLoadBalancerRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detachLoadBalancerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachLoadBalancerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12527,6 +13013,7 @@ When you move an instance pool to a different compartment, associated resources 
 
   /**
    * Gets information about the specified cluster network.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetClusterNetworkRequest
    * @return GetClusterNetworkResponse
    * @throws OciError when an error occurs
@@ -12547,9 +13034,11 @@ When you move an instance pool to a different compartment, associated resources 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getClusterNetworkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getClusterNetworkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12591,6 +13080,7 @@ When you move an instance pool to a different compartment, associated resources 
 
   /**
    * Gets the specified instance configuration
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInstanceConfigurationRequest
    * @return GetInstanceConfigurationResponse
    * @throws OciError when an error occurs
@@ -12611,9 +13101,11 @@ When you move an instance pool to a different compartment, associated resources 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getInstanceConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInstanceConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12655,6 +13147,7 @@ When you move an instance pool to a different compartment, associated resources 
 
   /**
    * Gets the specified instance pool
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInstancePoolRequest
    * @return GetInstancePoolResponse
    * @throws OciError when an error occurs
@@ -12675,9 +13168,11 @@ When you move an instance pool to a different compartment, associated resources 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getInstancePoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInstancePoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12719,6 +13214,7 @@ When you move an instance pool to a different compartment, associated resources 
 
   /**
    * Gets information about an instance that belongs to an instance pool.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInstancePoolInstanceRequest
    * @return GetInstancePoolInstanceResponse
    * @throws OciError when an error occurs
@@ -12740,9 +13236,11 @@ When you move an instance pool to a different compartment, associated resources 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getInstancePoolInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInstancePoolInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12785,6 +13283,7 @@ When you move an instance pool to a different compartment, associated resources 
   /**
    * Gets information about a load balancer that is attached to the specified instance pool.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInstancePoolLoadBalancerAttachmentRequest
    * @return GetInstancePoolLoadBalancerAttachmentResponse
    * @throws OciError when an error occurs
@@ -12809,9 +13308,11 @@ When you move an instance pool to a different compartment, associated resources 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getInstancePoolLoadBalancerAttachmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInstancePoolLoadBalancerAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12856,6 +13357,7 @@ If the instance configuration does not include all of the parameters that are
 * For more information, see the {@link InstanceConfiguration}
 * resource.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param LaunchInstanceConfigurationRequest
      * @return LaunchInstanceConfigurationResponse
      * @throws OciError when an error occurs
@@ -12877,9 +13379,11 @@ If the instance configuration does not include all of the parameters that are
       "opc-retry-token": launchInstanceConfigurationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      launchInstanceConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      launchInstanceConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -12931,6 +13435,7 @@ If the instance configuration does not include all of the parameters that are
 
   /**
    * Lists the instances in the specified cluster network.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListClusterNetworkInstancesRequest
    * @return ListClusterNetworkInstancesResponse
    * @throws OciError when an error occurs
@@ -12958,9 +13463,11 @@ If the instance configuration does not include all of the parameters that are
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listClusterNetworkInstancesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listClusterNetworkInstancesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13054,6 +13561,7 @@ If the instance configuration does not include all of the parameters that are
 
   /**
    * Lists the cluster networks in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListClusterNetworksRequest
    * @return ListClusterNetworksResponse
    * @throws OciError when an error occurs
@@ -13080,9 +13588,11 @@ If the instance configuration does not include all of the parameters that are
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listClusterNetworksRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listClusterNetworksRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13177,6 +13687,7 @@ If the instance configuration does not include all of the parameters that are
   /**
    * Lists the instance configurations in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInstanceConfigurationsRequest
    * @return ListInstanceConfigurationsResponse
    * @throws OciError when an error occurs
@@ -13201,9 +13712,11 @@ If the instance configuration does not include all of the parameters that are
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listInstanceConfigurationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstanceConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13297,6 +13810,7 @@ If the instance configuration does not include all of the parameters that are
 
   /**
    * List the instances in the specified instance pool.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInstancePoolInstancesRequest
    * @return ListInstancePoolInstancesResponse
    * @throws OciError when an error occurs
@@ -13324,9 +13838,11 @@ If the instance configuration does not include all of the parameters that are
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listInstancePoolInstancesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstancePoolInstancesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13420,6 +13936,7 @@ If the instance configuration does not include all of the parameters that are
 
   /**
    * Lists the instance pools in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInstancePoolsRequest
    * @return ListInstancePoolsResponse
    * @throws OciError when an error occurs
@@ -13446,9 +13963,11 @@ If the instance configuration does not include all of the parameters that are
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listInstancePoolsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstancePoolsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13544,6 +14063,7 @@ If the instance configuration does not include all of the parameters that are
    * Performs the reset (immediate power off and power on) action on the specified instance pool,
    * which performs the action on all the instances in the pool.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ResetInstancePoolRequest
    * @return ResetInstancePoolResponse
    * @throws OciError when an error occurs
@@ -13566,9 +14086,11 @@ If the instance configuration does not include all of the parameters that are
       "if-match": resetInstancePoolRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      resetInstancePoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      resetInstancePoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13615,6 +14137,7 @@ If the instance configuration does not include all of the parameters that are
 Softreset gracefully reboots the instances by sending a shutdown command to the operating systems.
 * After waiting 15 minutes for the OS to shut down, the instances are powered off and then powered back on.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param SoftresetInstancePoolRequest
      * @return SoftresetInstancePoolResponse
      * @throws OciError when an error occurs
@@ -13637,9 +14160,11 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
       "if-match": softresetInstancePoolRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      softresetInstancePoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      softresetInstancePoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13683,6 +14208,7 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
    * Performs the start (power on) action on the specified instance pool,
    * which performs the action on all the instances in the pool.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StartInstancePoolRequest
    * @return StartInstancePoolResponse
    * @throws OciError when an error occurs
@@ -13705,9 +14231,11 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
       "if-match": startInstancePoolRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      startInstancePoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startInstancePoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13751,6 +14279,7 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
    * Performs the stop (immediate power off) action on the specified instance pool,
    * which performs the action on all the instances in the pool.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StopInstancePoolRequest
    * @return StopInstancePoolResponse
    * @throws OciError when an error occurs
@@ -13773,9 +14302,11 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
       "if-match": stopInstancePoolRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      stopInstancePoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopInstancePoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13821,6 +14352,7 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
 When you delete a cluster network, all of its resources are permanently deleted,
 * including associated instances and instance pools.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param TerminateClusterNetworkRequest
      * @return TerminateClusterNetworkResponse
      * @throws OciError when an error occurs
@@ -13842,9 +14374,11 @@ When you delete a cluster network, all of its resources are permanently deleted,
       "if-match": terminateClusterNetworkRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      terminateClusterNetworkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      terminateClusterNetworkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13890,6 +14424,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
 * asynchronously after the pool is deleted. You can also manually delete the autoscaling configuration using
 * the `DeleteAutoScalingConfiguration` operation in the Autoscaling API.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param TerminateInstancePoolRequest
      * @return TerminateInstancePoolResponse
      * @throws OciError when an error occurs
@@ -13911,9 +14446,11 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
       "if-match": terminateInstancePoolRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      terminateInstancePoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      terminateInstancePoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -13947,6 +14484,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
   /**
    * Updates the specified cluster network. The OCID of the cluster network remains the same.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateClusterNetworkRequest
    * @return UpdateClusterNetworkResponse
    * @throws OciError when an error occurs
@@ -13969,9 +14507,11 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
       "if-match": updateClusterNetworkRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateClusterNetworkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateClusterNetworkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14018,6 +14558,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
 
   /**
    * Updates the free-form tags, defined tags, and display name of an instance configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateInstanceConfigurationRequest
    * @return UpdateInstanceConfigurationResponse
    * @throws OciError when an error occurs
@@ -14040,9 +14581,11 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
       "if-match": updateInstanceConfigurationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateInstanceConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateInstanceConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14092,6 +14635,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
 * <p>
 The OCID of the instance pool remains the same.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateInstancePoolRequest
      * @return UpdateInstancePoolResponse
      * @throws OciError when an error occurs
@@ -14114,9 +14658,11 @@ The OCID of the instance pool remains the same.
       "if-match": updateInstancePoolRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateInstancePoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateInstancePoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14162,7 +14708,9 @@ The OCID of the instance pool remains the same.
   }
 }
 export enum VirtualNetworkApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class VirtualNetworkClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -14182,6 +14730,15 @@ export class VirtualNetworkClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -14275,6 +14832,7 @@ export class VirtualNetworkClient {
   /**
    * Adds one or more route distribution statements to the specified route distribution.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddDrgRouteDistributionStatementsRequest
    * @return AddDrgRouteDistributionStatementsResponse
    * @throws OciError when an error occurs
@@ -14297,9 +14855,11 @@ export class VirtualNetworkClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addDrgRouteDistributionStatementsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDrgRouteDistributionStatementsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14343,6 +14903,7 @@ export class VirtualNetworkClient {
   /**
    * Adds one or more static route rules to the specified DRG route table.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddDrgRouteRulesRequest
    * @return AddDrgRouteRulesResponse
    * @throws OciError when an error occurs
@@ -14363,9 +14924,11 @@ export class VirtualNetworkClient {
       "opc-retry-token": addDrgRouteRulesRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addDrgRouteRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDrgRouteRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14409,6 +14972,7 @@ export class VirtualNetworkClient {
    * Add an IPv6 CIDR to a VCN. The VCN size is always /56 and assigned by Oracle.
    * Once added the IPv6 CIDR block cannot be removed or modified.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddIpv6VcnCidrRequest
    * @return AddIpv6VcnCidrResponse
    * @throws OciError when an error occurs
@@ -14431,9 +14995,11 @@ export class VirtualNetworkClient {
       "if-match": addIpv6VcnCidrRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addIpv6VcnCidrRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addIpv6VcnCidrRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14472,6 +15038,7 @@ export class VirtualNetworkClient {
   /**
    * Adds one or more security rules to the specified network security group.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddNetworkSecurityGroupSecurityRulesRequest
    * @return AddNetworkSecurityGroupSecurityRulesResponse
    * @throws OciError when an error occurs
@@ -14494,9 +15061,11 @@ export class VirtualNetworkClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addNetworkSecurityGroupSecurityRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addNetworkSecurityGroupSecurityRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14541,6 +15110,7 @@ export class VirtualNetworkClient {
 * <p>
 The CIDR block (or subrange) must not overlap with any other CIDR block already added to this or any other public IP pool.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param AddPublicIpPoolCapacityRequest
      * @return AddPublicIpPoolCapacityResponse
      * @throws OciError when an error occurs
@@ -14563,9 +15133,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": addPublicIpPoolCapacityRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addPublicIpPoolCapacityRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addPublicIpPoolCapacityRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14619,6 +15191,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
 * <p>
 **Note:** Adding a CIDR block places your VCN in an updating state until the changes are complete. You cannot create or update the VCN's subnets, VLANs, LPGs, or route tables during this operation. The time to completion can take a few minutes. You can use the `GetWorkRequest` operation to check the status of the update.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param AddVcnCidrRequest
      * @return AddVcnCidrResponse
      * @throws OciError when an error occurs
@@ -14641,9 +15214,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "if-match": addVcnCidrRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addVcnCidrRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addVcnCidrRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14688,6 +15263,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * Begins BGP route advertisements for the BYOIP CIDR block you imported to the Oracle Cloud.
    * The `ByoipRange` resource must be in the PROVISIONED state before the BYOIP CIDR block routes can be advertised with BGP.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AdvertiseByoipRangeRequest
    * @return AdvertiseByoipRangeResponse
    * @throws OciError when an error occurs
@@ -14709,9 +15285,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-request-id": advertiseByoipRangeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      advertiseByoipRangeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      advertiseByoipRangeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14754,6 +15332,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * the entire existing list of enabled `Service` objects with the list that you provide in the
    * `Update` call.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachServiceIdRequest
    * @return AttachServiceIdResponse
    * @throws OciError when an error occurs
@@ -14774,9 +15353,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "if-match": attachServiceIdRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      attachServiceIdRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachServiceIdRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14822,6 +15403,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * to add prefixes to the virtual circuit. Oracle must verify the customer's ownership
    * of each prefix before traffic for that prefix will flow across the virtual circuit.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param BulkAddVirtualCircuitPublicPrefixesRequest
    * @return BulkAddVirtualCircuitPublicPrefixesResponse
    * @throws OciError when an error occurs
@@ -14844,9 +15426,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      bulkAddVirtualCircuitPublicPrefixesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkAddVirtualCircuitPublicPrefixesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14882,6 +15466,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * to remove prefixes from the virtual circuit. When the virtual circuit's state switches
    * back to PROVISIONED, Oracle stops advertising the specified prefixes across the connection.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param BulkDeleteVirtualCircuitPublicPrefixesRequest
    * @return BulkDeleteVirtualCircuitPublicPrefixesResponse
    * @throws OciError when an error occurs
@@ -14904,9 +15489,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      bulkDeleteVirtualCircuitPublicPrefixesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkDeleteVirtualCircuitPublicPrefixesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -14941,6 +15528,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeByoipRangeCompartmentRequest
    * @return ChangeByoipRangeCompartmentResponse
    * @throws OciError when an error occurs
@@ -14963,9 +15551,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeByoipRangeCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeByoipRangeCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeByoipRangeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15006,6 +15596,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCpeCompartmentRequest
    * @return ChangeCpeCompartmentResponse
    * @throws OciError when an error occurs
@@ -15028,9 +15619,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeCpeCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeCpeCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCpeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15076,6 +15669,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCrossConnectCompartmentRequest
    * @return ChangeCrossConnectCompartmentResponse
    * @throws OciError when an error occurs
@@ -15098,9 +15692,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeCrossConnectCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeCrossConnectCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCrossConnectCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15146,6 +15742,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCrossConnectGroupCompartmentRequest
    * @return ChangeCrossConnectGroupCompartmentResponse
    * @throws OciError when an error occurs
@@ -15170,9 +15767,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeCrossConnectGroupCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeCrossConnectGroupCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCrossConnectGroupCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15218,6 +15817,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDhcpOptionsCompartmentRequest
    * @return ChangeDhcpOptionsCompartmentResponse
    * @throws OciError when an error occurs
@@ -15240,9 +15840,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeDhcpOptionsCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDhcpOptionsCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDhcpOptionsCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15288,6 +15890,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDrgCompartmentRequest
    * @return ChangeDrgCompartmentResponse
    * @throws OciError when an error occurs
@@ -15310,9 +15913,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeDrgCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDrgCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDrgCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15363,6 +15968,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeIPSecConnectionCompartmentRequest
    * @return ChangeIPSecConnectionCompartmentResponse
    * @throws OciError when an error occurs
@@ -15385,9 +15991,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeIPSecConnectionCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeIPSecConnectionCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeIPSecConnectionCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15433,6 +16041,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeInternetGatewayCompartmentRequest
    * @return ChangeInternetGatewayCompartmentResponse
    * @throws OciError when an error occurs
@@ -15455,9 +16064,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeInternetGatewayCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeInternetGatewayCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeInternetGatewayCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15503,6 +16114,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeLocalPeeringGatewayCompartmentRequest
    * @return ChangeLocalPeeringGatewayCompartmentResponse
    * @throws OciError when an error occurs
@@ -15527,9 +16139,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeLocalPeeringGatewayCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeLocalPeeringGatewayCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeLocalPeeringGatewayCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15575,6 +16189,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeNatGatewayCompartmentRequest
    * @return ChangeNatGatewayCompartmentResponse
    * @throws OciError when an error occurs
@@ -15597,9 +16212,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeNatGatewayCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeNatGatewayCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeNatGatewayCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15644,6 +16261,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * Moves a network security group into a different compartment within the same tenancy. For
    * information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeNetworkSecurityGroupCompartmentRequest
    * @return ChangeNetworkSecurityGroupCompartmentResponse
    * @throws OciError when an error occurs
@@ -15669,9 +16287,11 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeNetworkSecurityGroupCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeNetworkSecurityGroupCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeNetworkSecurityGroupCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15720,6 +16340,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
 This operation applies only to reserved public IPs. Ephemeral public IPs always belong to the
 * same compartment as their VNIC and move accordingly.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangePublicIpCompartmentRequest
      * @return ChangePublicIpCompartmentResponse
      * @throws OciError when an error occurs
@@ -15742,9 +16363,11 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       "opc-retry-token": changePublicIpCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changePublicIpCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changePublicIpCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15790,6 +16413,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangePublicIpPoolCompartmentRequest
    * @return ChangePublicIpPoolCompartmentResponse
    * @throws OciError when an error occurs
@@ -15812,9 +16436,11 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       "opc-retry-token": changePublicIpPoolCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changePublicIpPoolCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changePublicIpPoolCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15855,6 +16481,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeRemotePeeringConnectionCompartmentRequest
    * @return ChangeRemotePeeringConnectionCompartmentResponse
    * @throws OciError when an error occurs
@@ -15880,9 +16507,11 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       "opc-retry-token": changeRemotePeeringConnectionCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeRemotePeeringConnectionCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRemotePeeringConnectionCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15928,6 +16557,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeRouteTableCompartmentRequest
    * @return ChangeRouteTableCompartmentResponse
    * @throws OciError when an error occurs
@@ -15950,9 +16580,11 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       "opc-retry-token": changeRouteTableCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeRouteTableCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRouteTableCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -15998,6 +16630,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeSecurityListCompartmentRequest
    * @return ChangeSecurityListCompartmentResponse
    * @throws OciError when an error occurs
@@ -16020,9 +16653,11 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       "opc-retry-token": changeSecurityListCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeSecurityListCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSecurityListCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16068,6 +16703,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeServiceGatewayCompartmentRequest
    * @return ChangeServiceGatewayCompartmentResponse
    * @throws OciError when an error occurs
@@ -16090,9 +16726,11 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       "opc-retry-token": changeServiceGatewayCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeServiceGatewayCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeServiceGatewayCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16138,6 +16776,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeSubnetCompartmentRequest
    * @return ChangeSubnetCompartmentResponse
    * @throws OciError when an error occurs
@@ -16160,9 +16799,11 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       "opc-retry-token": changeSubnetCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeSubnetCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSubnetCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16213,6 +16854,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVcnCompartmentRequest
    * @return ChangeVcnCompartmentResponse
    * @throws OciError when an error occurs
@@ -16235,9 +16877,11 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       "opc-retry-token": changeVcnCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeVcnCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeVcnCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16288,6 +16932,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVirtualCircuitCompartmentRequest
    * @return ChangeVirtualCircuitCompartmentResponse
    * @throws OciError when an error occurs
@@ -16310,9 +16955,11 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       "opc-retry-token": changeVirtualCircuitCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeVirtualCircuitCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeVirtualCircuitCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16358,6 +17005,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
    * For information about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVlanCompartmentRequest
    * @return ChangeVlanCompartmentResponse
    * @throws OciError when an error occurs
@@ -16381,9 +17029,11 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       "opc-retry-token": changeVlanCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeVlanCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeVlanCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16434,6 +17084,7 @@ This operation must be called by the VCN administrator who is designated as
 * operation will fail. For more information, see
 * [VCN Peering](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/VCNpeering.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ConnectLocalPeeringGatewaysRequest
      * @return ConnectLocalPeeringGatewaysResponse
      * @throws OciError when an error occurs
@@ -16454,9 +17105,11 @@ This operation must be called by the VCN administrator who is designated as
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      connectLocalPeeringGatewaysRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      connectLocalPeeringGatewaysRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16502,6 +17155,7 @@ This operation must be called by the VCN administrator who is designated as
 * operation will fail. For more information, see
 * [VCN Peering](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/VCNpeering.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ConnectRemotePeeringConnectionsRequest
      * @return ConnectRemotePeeringConnectionsResponse
      * @throws OciError when an error occurs
@@ -16523,9 +17177,11 @@ This operation must be called by the VCN administrator who is designated as
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      connectRemotePeeringConnectionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      connectRemotePeeringConnectionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16564,6 +17220,7 @@ This operation must be called by the VCN administrator who is designated as
   /**
    * Creates a subrange of the BYOIP CIDR block.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateByoipRangeRequest
    * @return CreateByoipRangeResponse
    * @throws OciError when an error occurs
@@ -16583,9 +17240,11 @@ This operation must be called by the VCN administrator who is designated as
       "opc-retry-token": createByoipRangeRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createByoipRangeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createByoipRangeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16647,6 +17306,7 @@ You must provide the public IP address of your on-premises router. See
 You may optionally specify a *display name* for the CPE, otherwise a default is provided. It does not have to
 * be unique, and you can change it. Avoid entering confidential information.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateCpeRequest
      * @return CreateCpeResponse
      * @throws OciError when an error occurs
@@ -16665,9 +17325,11 @@ You may optionally specify a *display name* for the CPE, otherwise a default is 
       "opc-retry-token": createCpeRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCpeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCpeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16733,6 +17395,7 @@ For the purposes of access control, you must provide the [OCID](https://docs.clo
 You may optionally specify a *display name* for the cross-connect.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateCrossConnectRequest
      * @return CreateCrossConnectResponse
      * @throws OciError when an error occurs
@@ -16752,9 +17415,11 @@ You may optionally specify a *display name* for the cross-connect.
       "opc-retry-token": createCrossConnectRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCrossConnectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCrossConnectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16816,6 +17481,7 @@ For the purposes of access control, you must provide the [OCID](https://docs.clo
 You may optionally specify a *display name* for the cross-connect group.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateCrossConnectGroupRequest
      * @return CreateCrossConnectGroupResponse
      * @throws OciError when an error occurs
@@ -16835,9 +17501,11 @@ You may optionally specify a *display name* for the cross-connect group.
       "opc-retry-token": createCrossConnectGroupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCrossConnectGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCrossConnectGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16896,6 +17564,7 @@ For the purposes of access control, you must provide the [OCID](https://docs.clo
 You may optionally specify a *display name* for the set of DHCP options, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateDhcpOptionsRequest
      * @return CreateDhcpOptionsResponse
      * @throws OciError when an error occurs
@@ -16914,9 +17583,11 @@ You may optionally specify a *display name* for the set of DHCP options, otherwi
       "opc-retry-token": createDhcpOptionsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDhcpOptionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDhcpOptionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -16975,6 +17646,7 @@ For the purposes of access control, you must provide the OCID of the compartment
 You may optionally specify a *display name* for the DRG, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateDrgRequest
      * @return CreateDrgResponse
      * @throws OciError when an error occurs
@@ -16993,9 +17665,11 @@ You may optionally specify a *display name* for the DRG, otherwise a default is 
       "opc-retry-token": createDrgRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDrgRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDrgRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17053,6 +17727,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
 * For more information about compartments and access control, see
 * [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateDrgAttachmentRequest
      * @return CreateDrgAttachmentResponse
      * @throws OciError when an error occurs
@@ -17072,9 +17747,11 @@ For the purposes of access control, the DRG attachment is automatically placed i
       "opc-retry-token": createDrgAttachmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDrgAttachmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDrgAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17125,6 +17802,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
    * Assign the route distribution as an export distribution to a DRG attachment
    * using the `UpdateDrgAttachment` or `CreateDrgAttachment` operations.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDrgRouteDistributionRequest
    * @return CreateDrgRouteDistributionResponse
    * @throws OciError when an error occurs
@@ -17144,9 +17822,11 @@ For the purposes of access control, the DRG attachment is automatically placed i
       "opc-retry-token": createDrgRouteDistributionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDrgRouteDistributionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDrgRouteDistributionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17195,6 +17875,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
    * Creates a new DRG route table for the specified DRG. Assign the DRG route table to a DRG attachment
    * using the `UpdateDrgAttachment` or `CreateDrgAttachment` operations.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDrgRouteTableRequest
    * @return CreateDrgRouteTableResponse
    * @throws OciError when an error occurs
@@ -17214,9 +17895,11 @@ For the purposes of access control, the DRG attachment is automatically placed i
       "opc-retry-token": createDrgRouteTableRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDrgRouteTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDrgRouteTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17291,6 +17974,7 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
 * (that is, the pre-shared key). For more information, see
 * [Configuring Your On-Premises Router for an IPSec VPN](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/configuringCPE.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateIPSecConnectionRequest
      * @return CreateIPSecConnectionResponse
      * @throws OciError when an error occurs
@@ -17310,9 +17994,11 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
       "opc-retry-token": createIPSecConnectionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createIPSecConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createIPSecConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17379,6 +18065,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
 * use {@link #updateInternetGateway(UpdateInternetGatewayRequest) updateInternetGateway} to easily disable/enable
 * the gateway without changing the route rule.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateInternetGatewayRequest
      * @return CreateInternetGatewayResponse
      * @throws OciError when an error occurs
@@ -17398,9 +18085,11 @@ You must specify whether the internet gateway is enabled when you create it. If 
       "opc-retry-token": createInternetGatewayRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createInternetGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createInternetGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17448,6 +18137,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
   /**
    * Creates an IPv6 for the specified VNIC.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateIpv6Request
    * @return CreateIpv6Response
    * @throws OciError when an error occurs
@@ -17467,9 +18157,11 @@ You must specify whether the internet gateway is enabled when you create it. If 
       "opc-retry-token": createIpv6Request.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createIpv6Request.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createIpv6Request.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17517,6 +18209,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
   /**
    * Creates a new local peering gateway (LPG) for the specified VCN.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateLocalPeeringGatewayRequest
    * @return CreateLocalPeeringGatewayResponse
    * @throws OciError when an error occurs
@@ -17536,9 +18229,11 @@ You must specify whether the internet gateway is enabled when you create it. If 
       "opc-retry-token": createLocalPeeringGatewayRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createLocalPeeringGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createLocalPeeringGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17587,6 +18282,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
    * Creates a new NAT gateway for the specified VCN. You must also set up a route rule with the
    * NAT gateway as the rule's target. See {@link RouteTable}.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateNatGatewayRequest
    * @return CreateNatGatewayResponse
    * @throws OciError when an error occurs
@@ -17605,9 +18301,11 @@ You must specify whether the internet gateway is enabled when you create it. If 
       "opc-retry-token": createNatGatewayRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createNatGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNatGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17655,6 +18353,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
   /**
    * Creates a new network security group for the specified VCN.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateNetworkSecurityGroupRequest
    * @return CreateNetworkSecurityGroupResponse
    * @throws OciError when an error occurs
@@ -17674,9 +18373,11 @@ You must specify whether the internet gateway is enabled when you create it. If 
       "opc-retry-token": createNetworkSecurityGroupRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createNetworkSecurityGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNetworkSecurityGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17726,6 +18427,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
    * For more information about secondary private IPs, see
    * [IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIPaddresses.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePrivateIpRequest
    * @return CreatePrivateIpResponse
    * @throws OciError when an error occurs
@@ -17744,9 +18446,11 @@ You must specify whether the internet gateway is enabled when you create it. If 
       "opc-retry-token": createPrivateIpRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPrivateIpRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPrivateIpRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17814,6 +18518,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
 * asynchronous. Poll the public IP's `lifecycleState` to determine if the assignment
 * succeeded.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreatePublicIpRequest
      * @return CreatePublicIpResponse
      * @throws OciError when an error occurs
@@ -17832,9 +18537,11 @@ Also, for reserved public IPs, the optional assignment part of this operation is
       "opc-retry-token": createPublicIpRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPublicIpRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPublicIpRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17882,6 +18589,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
   /**
    * Creates a public IP pool.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePublicIpPoolRequest
    * @return CreatePublicIpPoolResponse
    * @throws OciError when an error occurs
@@ -17902,9 +18610,11 @@ Also, for reserved public IPs, the optional assignment part of this operation is
       "opc-retry-token": createPublicIpPoolRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPublicIpPoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPublicIpPoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -17952,6 +18662,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
   /**
    * Creates a new remote peering connection (RPC) for the specified DRG.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRemotePeeringConnectionRequest
    * @return CreateRemotePeeringConnectionResponse
    * @throws OciError when an error occurs
@@ -17971,9 +18682,11 @@ Also, for reserved public IPs, the optional assignment part of this operation is
       "opc-retry-token": createRemotePeeringConnectionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createRemotePeeringConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRemotePeeringConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18035,6 +18748,7 @@ For the purposes of access control, you must provide the OCID of the compartment
 You may optionally specify a *display name* for the route table, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateRouteTableRequest
      * @return CreateRouteTableResponse
      * @throws OciError when an error occurs
@@ -18053,9 +18767,11 @@ You may optionally specify a *display name* for the route table, otherwise a def
       "opc-retry-token": createRouteTableRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createRouteTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRouteTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18116,6 +18832,7 @@ For the purposes of access control, you must provide the OCID of the compartment
 You may optionally specify a *display name* for the security list, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateSecurityListRequest
      * @return CreateSecurityListResponse
      * @throws OciError when an error occurs
@@ -18135,9 +18852,11 @@ You may optionally specify a *display name* for the security list, otherwise a d
       "opc-retry-token": createSecurityListRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSecurityListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSecurityListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18193,6 +18912,7 @@ For the purposes of access control, you must provide the OCID of the compartment
 You may optionally specify a *display name* for the service gateway, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateServiceGatewayRequest
      * @return CreateServiceGatewayResponse
      * @throws OciError when an error occurs
@@ -18212,9 +18932,11 @@ You may optionally specify a *display name* for the service gateway, otherwise a
       "opc-retry-token": createServiceGatewayRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createServiceGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createServiceGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18287,6 +19009,7 @@ You can also add a DNS label for the subnet, which is required if you want the I
 * VCN Resolver to resolve hostnames for instances in the subnet. For more information, see
 * [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateSubnetRequest
      * @return CreateSubnetResponse
      * @throws OciError when an error occurs
@@ -18305,9 +19028,11 @@ You can also add a DNS label for the subnet, which is required if you want the I
       "opc-retry-token": createSubnetRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSubnetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSubnetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18387,6 +19112,7 @@ The VCN and subnets you create are not accessible until you attach an internet g
 * or FastConnect. For more information, see
 * [Overview of the Networking Service](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/overview.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateVcnRequest
      * @return CreateVcnResponse
      * @throws OciError when an error occurs
@@ -18405,9 +19131,11 @@ The VCN and subnets you create are not accessible until you attach an internet g
       "opc-retry-token": createVcnRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVcnRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVcnRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18475,6 +19203,7 @@ You may optionally specify a *display name* for the virtual circuit.
 * traffic will not flow. For more information, see
 * [Route Tables](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateVirtualCircuitRequest
      * @return CreateVirtualCircuitResponse
      * @throws OciError when an error occurs
@@ -18494,9 +19223,11 @@ You may optionally specify a *display name* for the virtual circuit.
       "opc-retry-token": createVirtualCircuitRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVirtualCircuitRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVirtualCircuitRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18544,6 +19275,7 @@ You may optionally specify a *display name* for the virtual circuit.
   /**
    * Creates a VLAN in the specified VCN and the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateVlanRequest
    * @return CreateVlanResponse
    * @throws OciError when an error occurs
@@ -18563,9 +19295,11 @@ You may optionally specify a *display name* for the virtual circuit.
       "opc-request-id": createVlanRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createVlanRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVlanRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18617,6 +19351,7 @@ You may optionally specify a *display name* for the virtual circuit.
    * You must specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * If the `ByoipRange` resource is currently in the PROVISIONED or ACTIVE state, it will be de-provisioned and then deleted.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteByoipRangeRequest
    * @return DeleteByoipRangeResponse
    * @throws OciError when an error occurs
@@ -18638,9 +19373,11 @@ You may optionally specify a *display name* for the virtual circuit.
       "if-match": deleteByoipRangeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteByoipRangeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteByoipRangeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18681,6 +19418,7 @@ You may optionally specify a *display name* for the virtual circuit.
    * operation. The CPE's `lifecycleState` will change to TERMINATING temporarily until the CPE is completely
    * removed.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCpeRequest
    * @return DeleteCpeResponse
    * @throws OciError when an error occurs
@@ -18701,9 +19439,11 @@ You may optionally specify a *display name* for the virtual circuit.
       "if-match": deleteCpeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCpeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCpeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18738,6 +19478,7 @@ You may optionally specify a *display name* for the virtual circuit.
    * Deletes the specified cross-connect. It must not be mapped to a
    * {@link VirtualCircuit}.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCrossConnectRequest
    * @return DeleteCrossConnectResponse
    * @throws OciError when an error occurs
@@ -18759,9 +19500,11 @@ You may optionally specify a *display name* for the virtual circuit.
       "if-match": deleteCrossConnectRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCrossConnectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCrossConnectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18797,6 +19540,7 @@ You may optionally specify a *display name* for the virtual circuit.
    * cross-connects, and it cannot be mapped to a
    * {@link VirtualCircuit}.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCrossConnectGroupRequest
    * @return DeleteCrossConnectGroupResponse
    * @throws OciError when an error occurs
@@ -18818,9 +19562,11 @@ You may optionally specify a *display name* for the virtual circuit.
       "if-match": deleteCrossConnectGroupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCrossConnectGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCrossConnectGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18858,6 +19604,7 @@ You may optionally specify a *display name* for the virtual circuit.
 This is an asynchronous operation. The state of the set of options will switch to TERMINATING temporarily
 * until the set is completely removed.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteDhcpOptionsRequest
      * @return DeleteDhcpOptionsResponse
      * @throws OciError when an error occurs
@@ -18878,9 +19625,11 @@ This is an asynchronous operation. The state of the set of options will switch t
       "if-match": deleteDhcpOptionsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDhcpOptionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDhcpOptionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18917,6 +19666,7 @@ This is an asynchronous operation. The state of the set of options will switch t
    * operation. The DRG's `lifecycleState` will change to TERMINATING temporarily until the DRG is completely
    * removed.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDrgRequest
    * @return DeleteDrgResponse
    * @throws OciError when an error occurs
@@ -18937,9 +19687,11 @@ This is an asynchronous operation. The state of the set of options will switch t
       "if-match": deleteDrgRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDrgRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDrgRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -18975,6 +19727,7 @@ This is an asynchronous operation. The state of the set of options will switch t
    * operation. The attachment's `lifecycleState` will temporarily change to DETACHING until the attachment
    * is completely removed.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDrgAttachmentRequest
    * @return DeleteDrgAttachmentResponse
    * @throws OciError when an error occurs
@@ -18996,9 +19749,11 @@ This is an asynchronous operation. The state of the set of options will switch t
       "if-match": deleteDrgAttachmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDrgAttachmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDrgAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19034,6 +19789,7 @@ This is an asynchronous operation. The state of the set of options will switch t
 * <p>
 Remove the DRG route distribution from a DRG attachment or DRG route table by using the \"RemoveExportDrgRouteDistribution\" or \"RemoveImportDrgRouteDistribution' operations.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteDrgRouteDistributionRequest
      * @return DeleteDrgRouteDistributionResponse
      * @throws OciError when an error occurs
@@ -19055,9 +19811,11 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
       "if-match": deleteDrgRouteDistributionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDrgRouteDistributionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDrgRouteDistributionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19091,6 +19849,7 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
   /**
    * Deletes the specified DRG route table. There must not be any DRG attachments assigned.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDrgRouteTableRequest
    * @return DeleteDrgRouteTableResponse
    * @throws OciError when an error occurs
@@ -19112,9 +19871,11 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
       "if-match": deleteDrgRouteTableRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDrgRouteTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDrgRouteTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19155,6 +19916,7 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
 This is an asynchronous operation. The connection's `lifecycleState` will change to TERMINATING temporarily
 * until the connection is completely removed.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteIPSecConnectionRequest
      * @return DeleteIPSecConnectionResponse
      * @throws OciError when an error occurs
@@ -19176,9 +19938,11 @@ This is an asynchronous operation. The connection's `lifecycleState` will change
       "if-match": deleteIPSecConnectionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteIPSecConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteIPSecConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19216,6 +19980,7 @@ This is an asynchronous operation. The connection's `lifecycleState` will change
 This is an asynchronous operation. The gateway's `lifecycleState` will change to TERMINATING temporarily
 * until the gateway is completely removed.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteInternetGatewayRequest
      * @return DeleteInternetGatewayResponse
      * @throws OciError when an error occurs
@@ -19237,9 +20002,11 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
       "if-match": deleteInternetGatewayRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteInternetGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteInternetGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19274,6 +20041,7 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
    * Unassigns and deletes the specified IPv6. You must specify the object's [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    * The IPv6 address is returned to the subnet's pool of available addresses.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteIpv6Request
    * @return DeleteIpv6Response
    * @throws OciError when an error occurs
@@ -19295,9 +20063,11 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
       "opc-request-id": deleteIpv6Request.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteIpv6Request.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteIpv6Request.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19334,6 +20104,7 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
 This is an asynchronous operation; the local peering gateway's `lifecycleState` changes to TERMINATING temporarily
 * until the local peering gateway is completely removed.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteLocalPeeringGatewayRequest
      * @return DeleteLocalPeeringGatewayResponse
      * @throws OciError when an error occurs
@@ -19355,9 +20126,11 @@ This is an asynchronous operation; the local peering gateway's `lifecycleState` 
       "if-match": deleteLocalPeeringGatewayRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteLocalPeeringGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteLocalPeeringGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19395,6 +20168,7 @@ This is an asynchronous operation; the local peering gateway's `lifecycleState` 
 This is an asynchronous operation. The NAT gateway's `lifecycleState` will change to
 * TERMINATING temporarily until the NAT gateway is completely removed.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteNatGatewayRequest
      * @return DeleteNatGatewayResponse
      * @throws OciError when an error occurs
@@ -19415,9 +20189,11 @@ This is an asynchronous operation. The NAT gateway's `lifecycleState` will chang
       "if-match": deleteNatGatewayRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteNatGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNatGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19457,6 +20233,7 @@ To get a list of the VNICs in a network security group, use
 * contains both the OCID of the VNIC and the OCID of the VNIC's parent resource (for example,
 * the Compute instance that the VNIC is attached to).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteNetworkSecurityGroupRequest
      * @return DeleteNetworkSecurityGroupResponse
      * @throws OciError when an error occurs
@@ -19478,9 +20255,11 @@ To get a list of the VNICs in a network security group, use
       "if-match": deleteNetworkSecurityGroupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteNetworkSecurityGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNetworkSecurityGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19524,6 +20303,7 @@ This operation cannot be used with primary private IPs, which are
 * unassigning it from the VNIC causes that route rule to blackhole and the traffic
 * will be dropped.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeletePrivateIpRequest
      * @return DeletePrivateIpResponse
      * @throws OciError when an error occurs
@@ -19544,9 +20324,11 @@ This operation cannot be used with primary private IPs, which are
       "if-match": deletePrivateIpRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePrivateIpRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePrivateIpRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19594,6 +20376,7 @@ If you want to simply unassign a reserved public IP and return it to your pool
 * of reserved public IPs, instead use
 * {@link #updatePublicIp(UpdatePublicIpRequest) updatePublicIp}.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeletePublicIpRequest
      * @return DeletePublicIpResponse
      * @throws OciError when an error occurs
@@ -19614,9 +20397,11 @@ If you want to simply unassign a reserved public IP and return it to your pool
       "if-match": deletePublicIpRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePublicIpRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePublicIpRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19652,6 +20437,7 @@ If you want to simply unassign a reserved public IP and return it to your pool
    * To delete a public IP pool it must not have any active IP address allocations.
    * You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) when deleting an IP pool.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePublicIpPoolRequest
    * @return DeletePublicIpPoolResponse
    * @throws OciError when an error occurs
@@ -19674,9 +20460,11 @@ If you want to simply unassign a reserved public IP and return it to your pool
       "if-match": deletePublicIpPoolRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePublicIpPoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePublicIpPoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19713,6 +20501,7 @@ If you want to simply unassign a reserved public IP and return it to your pool
 This is an asynchronous operation; the RPC's `lifecycleState` changes to TERMINATING temporarily
 * until the RPC is completely removed.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteRemotePeeringConnectionRequest
      * @return DeleteRemotePeeringConnectionResponse
      * @throws OciError when an error occurs
@@ -19734,9 +20523,11 @@ This is an asynchronous operation; the RPC's `lifecycleState` changes to TERMINA
       "if-match": deleteRemotePeeringConnectionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteRemotePeeringConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRemotePeeringConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19774,6 +20565,7 @@ This is an asynchronous operation; the RPC's `lifecycleState` changes to TERMINA
 This is an asynchronous operation. The route table's `lifecycleState` will change to TERMINATING temporarily
 * until the route table is completely removed.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteRouteTableRequest
      * @return DeleteRouteTableResponse
      * @throws OciError when an error occurs
@@ -19794,9 +20586,11 @@ This is an asynchronous operation. The route table's `lifecycleState` will chang
       "if-match": deleteRouteTableRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteRouteTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRouteTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19834,6 +20628,7 @@ This is an asynchronous operation. The route table's `lifecycleState` will chang
 This is an asynchronous operation. The security list's `lifecycleState` will change to TERMINATING temporarily
 * until the security list is completely removed.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteSecurityListRequest
      * @return DeleteSecurityListResponse
      * @throws OciError when an error occurs
@@ -19855,9 +20650,11 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       "if-match": deleteSecurityListRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSecurityListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSecurityListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19892,6 +20689,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
    * Deletes the specified service gateway. There must not be a route table that lists the service
    * gateway as a target.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteServiceGatewayRequest
    * @return DeleteServiceGatewayResponse
    * @throws OciError when an error occurs
@@ -19913,9 +20711,11 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       "if-match": deleteServiceGatewayRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteServiceGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteServiceGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -19951,6 +20751,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
    * operation. The subnet's `lifecycleState` will change to TERMINATING temporarily. If there are any
    * instances in the subnet, the state will instead change back to AVAILABLE.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSubnetRequest
    * @return DeleteSubnetResponse
    * @throws OciError when an error occurs
@@ -19971,9 +20772,11 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       "if-match": deleteSubnetRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteSubnetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSubnetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20009,6 +20812,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
    * operation. The VCN's `lifecycleState` will change to TERMINATING temporarily until the VCN is completely
    * removed.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVcnRequest
    * @return DeleteVcnResponse
    * @throws OciError when an error occurs
@@ -20029,9 +20833,11 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       "if-match": deleteVcnRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVcnRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVcnRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20069,6 +20875,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
    * make sure to also terminate the connection with
    * the provider, or else the provider may continue to bill you.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVirtualCircuitRequest
    * @return DeleteVirtualCircuitResponse
    * @throws OciError when an error occurs
@@ -20090,9 +20897,11 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       "if-match": deleteVirtualCircuitRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVirtualCircuitRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVirtualCircuitRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20126,6 +20935,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   /**
    * Deletes the specified VLAN, but only if there are no VNICs in the VLAN.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVlanRequest
    * @return DeleteVlanResponse
    * @throws OciError when an error occurs
@@ -20147,9 +20957,11 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       "opc-request-id": deleteVlanRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteVlanRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVlanRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20194,6 +21006,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
    * `Update` call. `UpdateServiceGateway` also lets you block all traffic through the service
    * gateway without having to remove each of the individual `Service` objects.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetachServiceIdRequest
    * @return DetachServiceIdResponse
    * @throws OciError when an error occurs
@@ -20214,9 +21027,11 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       "if-match": detachServiceIdRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detachServiceIdRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachServiceIdRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20259,6 +21074,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   /**
    * Returns a complete list of DRG attachments that belong to a particular DRG.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAllDrgAttachmentsRequest
    * @return GetAllDrgAttachmentsResponse
    * @throws OciError when an error occurs
@@ -20285,9 +21101,11 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       "opc-request-id": getAllDrgAttachmentsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAllDrgAttachmentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAllDrgAttachmentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20382,6 +21200,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   /**
    * Gets the `ByoipRange` resource. You must specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetByoipRangeRequest
    * @return GetByoipRangeResponse
    * @throws OciError when an error occurs
@@ -20402,9 +21221,11 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       "opc-request-id": getByoipRangeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getByoipRangeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getByoipRangeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20446,6 +21267,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
 
   /**
    * Gets the specified CPE's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCpeRequest
    * @return GetCpeResponse
    * @throws OciError when an error occurs
@@ -20463,9 +21285,11 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCpeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCpeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20525,6 +21349,7 @@ The operation returns configuration information for *all* of the
 *   * {@link #getTunnelCpeDeviceConfigContent(GetTunnelCpeDeviceConfigContentRequest) getTunnelCpeDeviceConfigContent}
 *   returns CPE configuration content for a specific tunnel within an IPSec connection.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetCpeDeviceConfigContentRequest
      * @return GetCpeDeviceConfigContentResponse
      * @throws OciError when an error occurs
@@ -20546,9 +21371,11 @@ The operation returns configuration information for *all* of the
       "opc-request-id": getCpeDeviceConfigContentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCpeDeviceConfigContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCpeDeviceConfigContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20594,6 +21421,7 @@ The operation returns configuration information for *all* of the
    *   * {@link #getIpsecCpeDeviceConfigContent(GetIpsecCpeDeviceConfigContentRequest) getIpsecCpeDeviceConfigContent}
    *   * {@link #getTunnelCpeDeviceConfigContent(GetTunnelCpeDeviceConfigContentRequest) getTunnelCpeDeviceConfigContent}
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCpeDeviceShapeRequest
    * @return GetCpeDeviceShapeResponse
    * @throws OciError when an error occurs
@@ -20614,9 +21442,11 @@ The operation returns configuration information for *all* of the
       "opc-request-id": getCpeDeviceShapeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCpeDeviceShapeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCpeDeviceShapeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20653,6 +21483,7 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the specified cross-connect's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCrossConnectRequest
    * @return GetCrossConnectResponse
    * @throws OciError when an error occurs
@@ -20672,9 +21503,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCrossConnectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCrossConnectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20716,6 +21549,7 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the specified cross-connect group's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCrossConnectGroupRequest
    * @return GetCrossConnectGroupResponse
    * @throws OciError when an error occurs
@@ -20736,9 +21570,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCrossConnectGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCrossConnectGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20780,6 +21616,7 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the Letter of Authority for the specified cross-connect.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCrossConnectLetterOfAuthorityRequest
    * @return GetCrossConnectLetterOfAuthorityResponse
    * @throws OciError when an error occurs
@@ -20800,9 +21637,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCrossConnectLetterOfAuthorityRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCrossConnectLetterOfAuthorityRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20840,6 +21679,7 @@ The operation returns configuration information for *all* of the
   /**
    * Gets the status of the specified cross-connect.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCrossConnectStatusRequest
    * @return GetCrossConnectStatusResponse
    * @throws OciError when an error occurs
@@ -20860,9 +21700,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCrossConnectStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCrossConnectStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20899,6 +21741,7 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the specified set of DHCP options.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDhcpOptionsRequest
    * @return GetDhcpOptionsResponse
    * @throws OciError when an error occurs
@@ -20918,9 +21761,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDhcpOptionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDhcpOptionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -20962,6 +21807,7 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the specified DRG's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDrgRequest
    * @return GetDrgResponse
    * @throws OciError when an error occurs
@@ -20979,9 +21825,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDrgRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDrgRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21023,6 +21871,7 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the `DrgAttachment` resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDrgAttachmentRequest
    * @return GetDrgAttachmentResponse
    * @throws OciError when an error occurs
@@ -21042,9 +21891,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDrgAttachmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDrgAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21088,6 +21939,7 @@ The operation returns configuration information for *all* of the
    * Gets the redundancy status for the specified DRG. For more information, see
    * [Redundancy Remedies](https://docs.cloud.oracle.com/iaas/Content/Network/Troubleshoot/drgredundancy.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDrgRedundancyStatusRequest
    * @return GetDrgRedundancyStatusResponse
    * @throws OciError when an error occurs
@@ -21109,9 +21961,11 @@ The operation returns configuration information for *all* of the
       "opc-request-id": getDrgRedundancyStatusRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDrgRedundancyStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDrgRedundancyStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21148,6 +22002,7 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the specified route distribution's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDrgRouteDistributionRequest
    * @return GetDrgRouteDistributionResponse
    * @throws OciError when an error occurs
@@ -21168,9 +22023,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDrgRouteDistributionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDrgRouteDistributionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21212,6 +22069,7 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the specified DRG route table's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDrgRouteTableRequest
    * @return GetDrgRouteTableResponse
    * @throws OciError when an error occurs
@@ -21231,9 +22089,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDrgRouteTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDrgRouteTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21277,6 +22137,7 @@ The operation returns configuration information for *all* of the
    * Gets the specified provider service.
    * For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetFastConnectProviderServiceRequest
    * @return GetFastConnectProviderServiceResponse
    * @throws OciError when an error occurs
@@ -21297,9 +22158,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getFastConnectProviderServiceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFastConnectProviderServiceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21338,6 +22201,7 @@ The operation returns configuration information for *all* of the
    * Gets the specified provider service key's information. Use this operation to validate a
    * provider service key. An invalid key returns a 404 error.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetFastConnectProviderServiceKeyRequest
    * @return GetFastConnectProviderServiceKeyResponse
    * @throws OciError when an error occurs
@@ -21359,9 +22223,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getFastConnectProviderServiceKeyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFastConnectProviderServiceKeyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21402,6 +22268,7 @@ The operation returns configuration information for *all* of the
    * on-premises router. If you want the status of the connection (whether it's up or down), use
    * {@link #getIPSecConnectionTunnel(GetIPSecConnectionTunnelRequest) getIPSecConnectionTunnel}.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIPSecConnectionRequest
    * @return GetIPSecConnectionResponse
    * @throws OciError when an error occurs
@@ -21422,9 +22289,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getIPSecConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIPSecConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21470,6 +22339,7 @@ The operation returns configuration information for *all* of the
    * {@link #getIPSecConnectionTunnel(GetIPSecConnectionTunnelRequest) getIPSecConnectionTunnel}
    * * {@link #getIPSecConnectionTunnelSharedSecret(GetIPSecConnectionTunnelSharedSecretRequest) getIPSecConnectionTunnelSharedSecret}
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIPSecConnectionDeviceConfigRequest
    * @return GetIPSecConnectionDeviceConfigResponse
    * @throws OciError when an error occurs
@@ -21490,9 +22360,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getIPSecConnectionDeviceConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIPSecConnectionDeviceConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21536,6 +22408,7 @@ The operation returns configuration information for *all* of the
    * Deprecated. To get the tunnel status, instead use
    * {@link #getIPSecConnectionTunnel(GetIPSecConnectionTunnelRequest) getIPSecConnectionTunnel}.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIPSecConnectionDeviceStatusRequest
    * @return GetIPSecConnectionDeviceStatusResponse
    * @throws OciError when an error occurs
@@ -21556,9 +22429,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getIPSecConnectionDeviceStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIPSecConnectionDeviceStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21603,6 +22478,7 @@ The operation returns configuration information for *all* of the
    * shared secret (pre-shared key). To retrieve that, use
    * {@link #getIPSecConnectionTunnelSharedSecret(GetIPSecConnectionTunnelSharedSecretRequest) getIPSecConnectionTunnelSharedSecret}.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIPSecConnectionTunnelRequest
    * @return GetIPSecConnectionTunnelResponse
    * @throws OciError when an error occurs
@@ -21624,9 +22500,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getIPSecConnectionTunnelRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIPSecConnectionTunnelRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21670,6 +22548,7 @@ The operation returns configuration information for *all* of the
    * Gets the specified tunnel's shared secret (pre-shared key). To get other information
    * about the tunnel, use {@link #getIPSecConnectionTunnel(GetIPSecConnectionTunnelRequest) getIPSecConnectionTunnel}.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIPSecConnectionTunnelSharedSecretRequest
    * @return GetIPSecConnectionTunnelSharedSecretResponse
    * @throws OciError when an error occurs
@@ -21693,9 +22572,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getIPSecConnectionTunnelSharedSecretRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIPSecConnectionTunnelSharedSecretRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21737,6 +22618,7 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the specified internet gateway's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInternetGatewayRequest
    * @return GetInternetGatewayResponse
    * @throws OciError when an error occurs
@@ -21757,9 +22639,11 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getInternetGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInternetGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21820,6 +22704,7 @@ The operation returns configuration information for all tunnels in the single sp
 *   * {@link #getCpeDeviceConfigContent(GetCpeDeviceConfigContentRequest) getCpeDeviceConfigContent}
 *   returns CPE configuration content for *all* IPSec connections that use a specific CPE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetIpsecCpeDeviceConfigContentRequest
      * @return GetIpsecCpeDeviceConfigContentResponse
      * @throws OciError when an error occurs
@@ -21841,9 +22726,11 @@ The operation returns configuration information for all tunnels in the single sp
       "opc-request-id": getIpsecCpeDeviceConfigContentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getIpsecCpeDeviceConfigContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIpsecCpeDeviceConfigContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21884,6 +22771,7 @@ The operation returns configuration information for all tunnels in the single sp
    * {@link #listIpv6s(ListIpv6sRequest) listIpv6s}
    * with the IPv6 address (for example, 2001:0db8:0123:1111:98fe:dcba:9876:4321) and subnet OCID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIpv6Request
    * @return GetIpv6Response
    * @throws OciError when an error occurs
@@ -21904,9 +22792,11 @@ The operation returns configuration information for all tunnels in the single sp
       "opc-request-id": getIpv6Request.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getIpv6Request.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIpv6Request.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -21948,6 +22838,7 @@ The operation returns configuration information for all tunnels in the single sp
 
   /**
    * Gets the specified local peering gateway's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetLocalPeeringGatewayRequest
    * @return GetLocalPeeringGatewayResponse
    * @throws OciError when an error occurs
@@ -21968,9 +22859,11 @@ The operation returns configuration information for all tunnels in the single sp
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getLocalPeeringGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getLocalPeeringGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22012,6 +22905,7 @@ The operation returns configuration information for all tunnels in the single sp
 
   /**
    * Gets the specified NAT gateway's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetNatGatewayRequest
    * @return GetNatGatewayResponse
    * @throws OciError when an error occurs
@@ -22031,9 +22925,11 @@ The operation returns configuration information for all tunnels in the single sp
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getNatGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNatGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22082,6 +22978,7 @@ To list the VNICs in an NSG, see
 To list the security rules in an NSG, see
 * {@link #listNetworkSecurityGroupSecurityRules(ListNetworkSecurityGroupSecurityRulesRequest) listNetworkSecurityGroupSecurityRules}.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetNetworkSecurityGroupRequest
      * @return GetNetworkSecurityGroupResponse
      * @throws OciError when an error occurs
@@ -22102,9 +22999,11 @@ To list the security rules in an NSG, see
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getNetworkSecurityGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNetworkSecurityGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22146,6 +23045,7 @@ To list the security rules in an NSG, see
 
   /**
    * Gets a virtual networking topology for the current region.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetNetworkingTopologyRequest
    * @return GetNetworkingTopologyResponse
    * @throws OciError when an error occurs
@@ -22171,9 +23071,11 @@ To list the security rules in an NSG, see
       "cache-control": getNetworkingTopologyRequest.cacheControl
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getNetworkingTopologyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNetworkingTopologyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22219,6 +23121,7 @@ To list the security rules in an NSG, see
    * {@link #listPrivateIps(ListPrivateIpsRequest) listPrivateIps}
    * with the private IP address (for example, 10.0.3.3) and subnet OCID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPrivateIpRequest
    * @return GetPrivateIpResponse
    * @throws OciError when an error occurs
@@ -22238,9 +23141,11 @@ To list the security rules in an NSG, see
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPrivateIpRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPrivateIpRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22293,6 +23198,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 * moved to a different private IP, the service returns the public IP object with
 * `lifecycleState` = ASSIGNING and `assignedEntityId` = OCID of the target private IP.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetPublicIpRequest
      * @return GetPublicIpResponse
      * @throws OciError when an error occurs
@@ -22312,9 +23218,11 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPublicIpRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPublicIpRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22361,6 +23269,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * moved to a different private IP, the service returns the public IP object with
    * `lifecycleState` = ASSIGNING and `assignedEntityId` = OCID of the target private IP.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPublicIpByIpAddressRequest
    * @return GetPublicIpByIpAddressResponse
    * @throws OciError when an error occurs
@@ -22379,9 +23288,11 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPublicIpByIpAddressRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPublicIpByIpAddressRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22439,6 +23350,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * service returns the public IP object with `lifecycleState` = ASSIGNING and
    * `assignedEntityId` = OCID of the target private IP.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPublicIpByPrivateIpIdRequest
    * @return GetPublicIpByPrivateIpIdResponse
    * @throws OciError when an error occurs
@@ -22457,9 +23369,11 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPublicIpByPrivateIpIdRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPublicIpByPrivateIpIdRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22507,6 +23421,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   /**
    * Gets the specified `PublicIpPool` object. You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPublicIpPoolRequest
    * @return GetPublicIpPoolResponse
    * @throws OciError when an error occurs
@@ -22527,9 +23442,11 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       "opc-request-id": getPublicIpPoolRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPublicIpPoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPublicIpPoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22572,6 +23489,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   /**
    * Get the specified remote peering connection's information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRemotePeeringConnectionRequest
    * @return GetRemotePeeringConnectionResponse
    * @throws OciError when an error occurs
@@ -22592,9 +23510,11 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRemotePeeringConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRemotePeeringConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22636,6 +23556,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 
   /**
    * Gets the specified route table's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRouteTableRequest
    * @return GetRouteTableResponse
    * @throws OciError when an error occurs
@@ -22655,9 +23576,11 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRouteTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRouteTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22699,6 +23622,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 
   /**
    * Gets the specified security list's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSecurityListRequest
    * @return GetSecurityListResponse
    * @throws OciError when an error occurs
@@ -22718,9 +23642,11 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSecurityListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSecurityListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22763,6 +23689,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   /**
    * Gets the specified {@link Service} object.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetServiceRequest
    * @return GetServiceResponse
    * @throws OciError when an error occurs
@@ -22782,9 +23709,11 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getServiceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getServiceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22826,6 +23755,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 
   /**
    * Gets the specified service gateway's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetServiceGatewayRequest
    * @return GetServiceGatewayResponse
    * @throws OciError when an error occurs
@@ -22845,9 +23775,11 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getServiceGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getServiceGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22889,6 +23821,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
 
   /**
    * Gets the specified subnet's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSubnetRequest
    * @return GetSubnetResponse
    * @throws OciError when an error occurs
@@ -22908,9 +23841,11 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSubnetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSubnetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -22957,6 +23892,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * information specific to the CPE device type), use
    * {@link #getTunnelCpeDeviceConfigContent(GetTunnelCpeDeviceConfigContentRequest) getTunnelCpeDeviceConfigContent}.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTunnelCpeDeviceConfigRequest
    * @return GetTunnelCpeDeviceConfigResponse
    * @throws OciError when an error occurs
@@ -22979,9 +23915,11 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       "opc-request-id": getTunnelCpeDeviceConfigRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTunnelCpeDeviceConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTunnelCpeDeviceConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -23041,6 +23979,7 @@ The operation returns configuration information for only the specified IPSec tun
 *   * {@link #getCpeDeviceConfigContent(GetCpeDeviceConfigContentRequest) getCpeDeviceConfigContent}
 *   returns CPE configuration content for *all* IPSec connections that use a specific CPE.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetTunnelCpeDeviceConfigContentRequest
      * @return GetTunnelCpeDeviceConfigContentResponse
      * @throws OciError when an error occurs
@@ -23063,9 +24002,11 @@ The operation returns configuration information for only the specified IPSec tun
       "opc-request-id": getTunnelCpeDeviceConfigContentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTunnelCpeDeviceConfigContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTunnelCpeDeviceConfigContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -23103,6 +24044,7 @@ The operation returns configuration information for only the specified IPSec tun
   /**
    * Returns the DRG upgrade status. The status can be not updated, in progress, or updated. Also indicates how much of the upgrade is completed.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetUpgradeStatusRequest
    * @return GetUpgradeStatusResponse
    * @throws OciError when an error occurs
@@ -23123,9 +24065,11 @@ The operation returns configuration information for only the specified IPSec tun
       "opc-request-id": getUpgradeStatusRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getUpgradeStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getUpgradeStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -23162,6 +24106,7 @@ The operation returns configuration information for only the specified IPSec tun
 
   /**
    * Gets the specified VCN's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVcnRequest
    * @return GetVcnResponse
    * @throws OciError when an error occurs
@@ -23179,9 +24124,11 @@ The operation returns configuration information for only the specified IPSec tun
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVcnRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVcnRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -23223,6 +24170,7 @@ The operation returns configuration information for only the specified IPSec tun
 
   /**
    * Get the associated DNS resolver information with a vcn
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVcnDnsResolverAssociationRequest
    * @return GetVcnDnsResolverAssociationResponse
    * @throws OciError when an error occurs
@@ -23244,9 +24192,11 @@ The operation returns configuration information for only the specified IPSec tun
       "opc-request-id": getVcnDnsResolverAssociationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVcnDnsResolverAssociationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVcnDnsResolverAssociationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -23288,6 +24238,7 @@ The operation returns configuration information for only the specified IPSec tun
 
   /**
    * Gets a virtual network topology for a given VCN.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVcnTopologyRequest
    * @return GetVcnTopologyResponse
    * @throws OciError when an error occurs
@@ -23313,9 +24264,11 @@ The operation returns configuration information for only the specified IPSec tun
       "cache-control": getVcnTopologyRequest.cacheControl
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVcnTopologyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVcnTopologyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -23357,6 +24310,7 @@ The operation returns configuration information for only the specified IPSec tun
 
   /**
    * Gets the specified virtual circuit's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVirtualCircuitRequest
    * @return GetVirtualCircuitResponse
    * @throws OciError when an error occurs
@@ -23376,9 +24330,11 @@ The operation returns configuration information for only the specified IPSec tun
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVirtualCircuitRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVirtualCircuitRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -23420,6 +24376,7 @@ The operation returns configuration information for only the specified IPSec tun
 
   /**
    * Gets the specified VLAN's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVlanRequest
    * @return GetVlanResponse
    * @throws OciError when an error occurs
@@ -23440,9 +24397,11 @@ The operation returns configuration information for only the specified IPSec tun
       "opc-request-id": getVlanRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVlanRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVlanRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -23488,6 +24447,7 @@ The operation returns configuration information for only the specified IPSec tun
    * {@link #listVnicAttachments(ListVnicAttachmentsRequest) listVnicAttachments}
    * operation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVnicRequest
    * @return GetVnicResponse
    * @throws OciError when an error occurs
@@ -23507,9 +24467,11 @@ The operation returns configuration information for only the specified IPSec tun
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getVnicRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVnicRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -23553,6 +24515,7 @@ The operation returns configuration information for only the specified IPSec tun
    * Lists the regions that support remote VCN peering (which is peering across regions).
    * For more information, see [VCN Peering](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/VCNpeering.htm).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAllowedPeerRegionsForRemotePeeringRequest
    * @return ListAllowedPeerRegionsForRemotePeeringResponse
    * @throws OciError when an error occurs
@@ -23573,9 +24536,11 @@ The operation returns configuration information for only the specified IPSec tun
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAllowedPeerRegionsForRemotePeeringRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAllowedPeerRegionsForRemotePeeringRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -23614,6 +24579,7 @@ The operation returns configuration information for only the specified IPSec tun
    * Lists the subranges of a BYOIP CIDR block currently allocated to an IP pool.
    * Each `ByoipAllocatedRange` object also lists the IP pool where it is allocated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListByoipAllocatedRangesRequest
    * @return ListByoipAllocatedRangesResponse
    * @throws OciError when an error occurs
@@ -23638,9 +24604,11 @@ The operation returns configuration information for only the specified IPSec tun
       "opc-request-id": listByoipAllocatedRangesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listByoipAllocatedRangesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listByoipAllocatedRangesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -23684,6 +24652,7 @@ The operation returns configuration information for only the specified IPSec tun
    * Lists the `ByoipRange` resources in the specified compartment.
    * You can filter the list using query parameters.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListByoipRangesRequest
    * @return ListByoipRangesResponse
    * @throws OciError when an error occurs
@@ -23710,9 +24679,11 @@ The operation returns configuration information for only the specified IPSec tun
       "opc-request-id": listByoipRangesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listByoipRangesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listByoipRangesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -23767,6 +24738,7 @@ For information about generating CPE configuration content, see these operations
 *   * {@link #getIpsecCpeDeviceConfigContent(GetIpsecCpeDeviceConfigContentRequest) getIpsecCpeDeviceConfigContent}
 *   * {@link #getTunnelCpeDeviceConfigContent(GetTunnelCpeDeviceConfigContentRequest) getTunnelCpeDeviceConfigContent}
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListCpeDeviceShapesRequest
      * @return ListCpeDeviceShapesResponse
      * @throws OciError when an error occurs
@@ -23789,9 +24761,11 @@ For information about generating CPE configuration content, see these operations
       "opc-request-id": listCpeDeviceShapesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCpeDeviceShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCpeDeviceShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -23886,6 +24860,7 @@ For information about generating CPE configuration content, see these operations
   /**
    * Lists the customer-premises equipment objects (CPEs) in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCpesRequest
    * @return ListCpesResponse
    * @throws OciError when an error occurs
@@ -23907,9 +24882,11 @@ For information about generating CPE configuration content, see these operations
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCpesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCpesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -24002,6 +24979,7 @@ For information about generating CPE configuration content, see these operations
   /**
    * Lists the cross-connect groups in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCrossConnectGroupsRequest
    * @return ListCrossConnectGroupsResponse
    * @throws OciError when an error occurs
@@ -24028,9 +25006,11 @@ For information about generating CPE configuration content, see these operations
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCrossConnectGroupsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCrossConnectGroupsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -24126,6 +25106,7 @@ For information about generating CPE configuration content, see these operations
    * Lists the available FastConnect locations for cross-connect installation. You need
    * this information so you can specify your desired location when you create a cross-connect.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCrossConnectLocationsRequest
    * @return ListCrossConnectLocationsResponse
    * @throws OciError when an error occurs
@@ -24148,9 +25129,11 @@ For information about generating CPE configuration content, see these operations
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCrossConnectLocationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCrossConnectLocationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -24246,6 +25229,7 @@ For information about generating CPE configuration content, see these operations
    * Lists the Cross Connect mapping Details for the specified
    * virtual circuit.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCrossConnectMappingsRequest
    * @return ListCrossConnectMappingsResponse
    * @throws OciError when an error occurs
@@ -24267,9 +25251,11 @@ For information about generating CPE configuration content, see these operations
       "opc-request-id": listCrossConnectMappingsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCrossConnectMappingsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCrossConnectMappingsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -24308,6 +25294,7 @@ For information about generating CPE configuration content, see these operations
    * Lists the cross-connects in the specified compartment. You can filter the list
    * by specifying the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a cross-connect group.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCrossConnectsRequest
    * @return ListCrossConnectsResponse
    * @throws OciError when an error occurs
@@ -24334,9 +25321,11 @@ For information about generating CPE configuration content, see these operations
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCrossConnectsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCrossConnectsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -24433,6 +25422,7 @@ For information about generating CPE configuration content, see these operations
    * so you can specify your desired port speed (that is, shape) when you create a
    * cross-connect.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCrossconnectPortSpeedShapesRequest
    * @return ListCrossconnectPortSpeedShapesResponse
    * @throws OciError when an error occurs
@@ -24455,9 +25445,11 @@ For information about generating CPE configuration content, see these operations
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCrossconnectPortSpeedShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCrossconnectPortSpeedShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -24555,6 +25547,7 @@ For information about generating CPE configuration content, see these operations
    * The response includes the default set of options that automatically comes with each VCN,
    * plus any other sets you've created.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDhcpOptionsRequest
    * @return ListDhcpOptionsResponse
    * @throws OciError when an error occurs
@@ -24581,9 +25574,11 @@ For information about generating CPE configuration content, see these operations
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDhcpOptionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDhcpOptionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -24683,6 +25678,7 @@ For information about generating CPE configuration content, see these operations
 The LIST API lists DRG attachments by attachment type. It will default to list VCN attachments,
 * but you may request to list ALL attachments of ALL types. 
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListDrgAttachmentsRequest
      * @return ListDrgAttachmentsResponse
      * @throws OciError when an error occurs
@@ -24714,9 +25710,11 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDrgAttachmentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDrgAttachmentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -24810,6 +25808,7 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
 
   /**
    * Lists the statements for the specified route distribution.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDrgRouteDistributionStatementsRequest
    * @return ListDrgRouteDistributionStatementsResponse
    * @throws OciError when an error occurs
@@ -24837,9 +25836,11 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDrgRouteDistributionStatementsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDrgRouteDistributionStatementsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -24937,6 +25938,7 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
 To retrieve the statements in a distribution, use the
 * ListDrgRouteDistributionStatements operation.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListDrgRouteDistributionsRequest
      * @return ListDrgRouteDistributionsResponse
      * @throws OciError when an error occurs
@@ -24963,9 +25965,11 @@ To retrieve the statements in a distribution, use the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDrgRouteDistributionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDrgRouteDistributionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -25059,6 +26063,7 @@ To retrieve the statements in a distribution, use the
 
   /**
    * Lists the route rules in the specified DRG route table.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDrgRouteRulesRequest
    * @return ListDrgRouteRulesResponse
    * @throws OciError when an error occurs
@@ -25082,9 +26087,11 @@ To retrieve the statements in a distribution, use the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDrgRouteRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDrgRouteRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -25181,6 +26188,7 @@ To retrieve the statements in a distribution, use the
 * <p>
 Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListDrgRouteTablesRequest
      * @return ListDrgRouteTablesResponse
      * @throws OciError when an error occurs
@@ -25208,9 +26216,11 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDrgRouteTablesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDrgRouteTablesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -25305,6 +26315,7 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
   /**
    * Lists the DRGs in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDrgsRequest
    * @return ListDrgsResponse
    * @throws OciError when an error occurs
@@ -25326,9 +26337,11 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDrgsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDrgsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -25427,6 +26440,7 @@ For the compartment ID, provide the [OCID](https://docs.cloud.oracle.com/Content
 * <p>
 For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListFastConnectProviderServicesRequest
      * @return ListFastConnectProviderServicesResponse
      * @throws OciError when an error occurs
@@ -25449,9 +26463,11 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/i
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listFastConnectProviderServicesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFastConnectProviderServicesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -25549,6 +26565,7 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/i
 * <p>
 For more information about virtual circuits, see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListFastConnectProviderVirtualCircuitBandwidthShapesRequest
      * @return ListFastConnectProviderVirtualCircuitBandwidthShapesResponse
      * @throws OciError when an error occurs
@@ -25575,9 +26592,11 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listFastConnectProviderVirtualCircuitBandwidthShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFastConnectProviderVirtualCircuitBandwidthShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -25680,6 +26699,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   /**
    * Lists the tunnel information for the specified IPSec connection.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIPSecConnectionTunnelsRequest
    * @return ListIPSecConnectionTunnelsResponse
    * @throws OciError when an error occurs
@@ -25703,9 +26723,11 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listIPSecConnectionTunnelsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIPSecConnectionTunnelsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -25801,6 +26823,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * Lists the IPSec connections for the specified compartment. You can filter the
    * results by DRG or CPE.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIPSecConnectionsRequest
    * @return ListIPSecConnectionsResponse
    * @throws OciError when an error occurs
@@ -25825,9 +26848,11 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listIPSecConnectionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIPSecConnectionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -25923,6 +26948,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * Lists the internet gateways in the specified VCN and the specified compartment.
    * If the VCN ID is not provided, then the list includes the internet gateways from all VCNs in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInternetGatewaysRequest
    * @return ListInternetGatewaysResponse
    * @throws OciError when an error occurs
@@ -25950,9 +26976,11 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listInternetGatewaysRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInternetGatewaysRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -26054,6 +27082,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    *   IPv6 address (for example, 2001:0db8:0123:1111:abcd:ef01:2345:6789) and not its OCID. For comparison,
    *   {@link #getIpv6(GetIpv6Request) getIpv6} requires the OCID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIpv6sRequest
    * @return ListIpv6sResponse
    * @throws OciError when an error occurs
@@ -26078,9 +27107,11 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "opc-request-id": listIpv6sRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listIpv6sRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIpv6sRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -26174,6 +27205,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * Lists the local peering gateways (LPGs) for the specified VCN and specified compartment.
    * If the VCN ID is not provided, then the list includes the LPGs from all VCNs in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListLocalPeeringGatewaysRequest
    * @return ListLocalPeeringGatewaysResponse
    * @throws OciError when an error occurs
@@ -26197,9 +27229,11 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listLocalPeeringGatewaysRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listLocalPeeringGatewaysRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -26295,6 +27329,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * Lists the NAT gateways in the specified compartment. You may optionally specify a VCN OCID
    * to filter the results by VCN.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListNatGatewaysRequest
    * @return ListNatGatewaysResponse
    * @throws OciError when an error occurs
@@ -26321,9 +27356,11 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNatGatewaysRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNatGatewaysRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -26418,6 +27455,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   /**
    * Lists the security rules in the specified network security group.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListNetworkSecurityGroupSecurityRulesRequest
    * @return ListNetworkSecurityGroupSecurityRulesResponse
    * @throws OciError when an error occurs
@@ -26447,9 +27485,11 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNetworkSecurityGroupSecurityRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNetworkSecurityGroupSecurityRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -26544,6 +27584,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   /**
    * Lists the VNICs in the specified network security group.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListNetworkSecurityGroupVnicsRequest
    * @return ListNetworkSecurityGroupVnicsResponse
    * @throws OciError when an error occurs
@@ -26569,9 +27610,11 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNetworkSecurityGroupVnicsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNetworkSecurityGroupVnicsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -26667,6 +27710,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * Lists either the network security groups in the specified compartment, or those associated with the specified VLAN.
    * You must specify either a `vlanId` or a `compartmentId`, but not both. If you specify a `vlanId`, all other parameters are ignored.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListNetworkSecurityGroupsRequest
    * @return ListNetworkSecurityGroupsResponse
    * @throws OciError when an error occurs
@@ -26695,9 +27739,11 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNetworkSecurityGroupsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNetworkSecurityGroupsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -26807,6 +27853,7 @@ If you're listing all the private IPs associated with a given subnet
 If you are an Oracle Cloud VMware Solution customer and have VLANs
 * in your VCN, you can filter the list by VLAN OCID. See {@link Vlan}.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListPrivateIpsRequest
      * @return ListPrivateIpsResponse
      * @throws OciError when an error occurs
@@ -26831,9 +27878,11 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPrivateIpsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPrivateIpsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -26929,6 +27978,7 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
    * Lists the public IP pools in the specified compartment.
    * You can filter the list using query parameters.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPublicIpPoolsRequest
    * @return ListPublicIpPoolsResponse
    * @throws OciError when an error occurs
@@ -26955,9 +28005,11 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
       "opc-request-id": listPublicIpPoolsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPublicIpPoolsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPublicIpPoolsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -27019,6 +28071,7 @@ To list the ephemeral public IPs assigned to private IPs:
 **Note:** An ephemeral public IP assigned to a private IP
 * is always in the same availability domain and compartment as the private IP.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListPublicIpsRequest
      * @return ListPublicIpsResponse
      * @throws OciError when an error occurs
@@ -27044,9 +28097,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPublicIpsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPublicIpsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -27142,6 +28197,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * Lists the remote peering connections (RPCs) for the specified DRG and compartment
    * (the RPC's compartment).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRemotePeeringConnectionsRequest
    * @return ListRemotePeeringConnectionsResponse
    * @throws OciError when an error occurs
@@ -27165,9 +28221,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRemotePeeringConnectionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRemotePeeringConnectionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -27265,6 +28323,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * The response includes the default route table that automatically comes with
    * each VCN in the specified compartment, plus any route tables you've created.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRouteTablesRequest
    * @return ListRouteTablesResponse
    * @throws OciError when an error occurs
@@ -27291,9 +28350,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRouteTablesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRouteTablesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -27389,6 +28450,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * Lists the security lists in the specified VCN and compartment.
    * If the VCN ID is not provided, then the list includes the security lists from all VCNs in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSecurityListsRequest
    * @return ListSecurityListsResponse
    * @throws OciError when an error occurs
@@ -27415,9 +28477,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSecurityListsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSecurityListsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -27513,6 +28577,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * Lists the service gateways in the specified compartment. You may optionally specify a VCN OCID
    * to filter the results by VCN.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListServiceGatewaysRequest
    * @return ListServiceGatewaysResponse
    * @throws OciError when an error occurs
@@ -27539,9 +28604,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listServiceGatewaysRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listServiceGatewaysRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -27637,6 +28704,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * Lists the available {@link Service} objects that you can enable for a
    * service gateway in this region.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListServicesRequest
    * @return ListServicesResponse
    * @throws OciError when an error occurs
@@ -27657,9 +28725,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listServicesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listServicesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -27755,6 +28825,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * Lists the subnets in the specified VCN and the specified compartment.
    * If the VCN ID is not provided, then the list includes the subnets from all VCNs in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSubnetsRequest
    * @return ListSubnetsResponse
    * @throws OciError when an error occurs
@@ -27781,9 +28852,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSubnetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubnetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -27876,6 +28949,7 @@ To list the ephemeral public IPs assigned to private IPs:
   /**
    * Lists the virtual cloud networks (VCNs) in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVcnsRequest
    * @return ListVcnsResponse
    * @throws OciError when an error occurs
@@ -27901,9 +28975,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVcnsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVcnsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -27996,6 +29072,7 @@ To list the ephemeral public IPs assigned to private IPs:
   /**
    * The deprecated operation lists available bandwidth levels for virtual circuits. For the compartment ID, provide the OCID of your tenancy (the root compartment).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVirtualCircuitBandwidthShapesRequest
    * @return ListVirtualCircuitBandwidthShapesResponse
    * @throws OciError when an error occurs
@@ -28020,9 +29097,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVirtualCircuitBandwidthShapesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVirtualCircuitBandwidthShapesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -28118,6 +29197,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * Lists the public IP prefixes and their details for the specified
    * public virtual circuit.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVirtualCircuitPublicPrefixesRequest
    * @return ListVirtualCircuitPublicPrefixesResponse
    * @throws OciError when an error occurs
@@ -28140,9 +29220,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVirtualCircuitPublicPrefixesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVirtualCircuitPublicPrefixesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -28180,6 +29262,7 @@ To list the ephemeral public IPs assigned to private IPs:
   /**
    * Lists the virtual circuits in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVirtualCircuitsRequest
    * @return ListVirtualCircuitsResponse
    * @throws OciError when an error occurs
@@ -28206,9 +29289,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVirtualCircuitsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVirtualCircuitsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -28303,6 +29388,7 @@ To list the ephemeral public IPs assigned to private IPs:
   /**
    * Lists the VLANs in the specified VCN and the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVlansRequest
    * @return ListVlansResponse
    * @throws OciError when an error occurs
@@ -28330,9 +29416,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "opc-request-id": listVlansRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listVlansRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVlansRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -28433,6 +29521,7 @@ To list the ephemeral public IPs assigned to private IPs:
 * <p>
 **Note:** Modifying a CIDR block places your VCN in an updating state until the changes are complete. You cannot create or update the VCN's subnets, VLANs, LPGs, or route tables during this operation. The time to completion can vary depending on the size of your network. Updating a small network could take about a minute, and updating a large network could take up to an hour. You can use the `GetWorkRequest` operation to check the status of the update.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ModifyVcnCidrRequest
      * @return ModifyVcnCidrResponse
      * @throws OciError when an error occurs
@@ -28455,9 +29544,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "if-match": modifyVcnCidrRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      modifyVcnCidrRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      modifyVcnCidrRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -28501,6 +29592,7 @@ To list the ephemeral public IPs assigned to private IPs:
   /**
    * Removes one or more route distribution statements from the specified route distribution's map.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveDrgRouteDistributionStatementsRequest
    * @return RemoveDrgRouteDistributionStatementsResponse
    * @throws OciError when an error occurs
@@ -28523,9 +29615,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeDrgRouteDistributionStatementsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDrgRouteDistributionStatementsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -28565,6 +29659,7 @@ To list the ephemeral public IPs assigned to private IPs:
   /**
    * Removes one or more route rules from the specified DRG route table.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveDrgRouteRulesRequest
    * @return RemoveDrgRouteRulesResponse
    * @throws OciError when an error occurs
@@ -28585,9 +29680,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeDrgRouteRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDrgRouteRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -28626,6 +29723,7 @@ To list the ephemeral public IPs assigned to private IPs:
   /**
    * Removes the export route distribution from the DRG attachment so no routes are advertised to it.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveExportDrgRouteDistributionRequest
    * @return RemoveExportDrgRouteDistributionResponse
    * @throws OciError when an error occurs
@@ -28648,9 +29746,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "if-match": removeExportDrgRouteDistributionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeExportDrgRouteDistributionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeExportDrgRouteDistributionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -28694,6 +29794,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * Removes the import route distribution from the DRG route table so no routes are imported
    * into it.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveImportDrgRouteDistributionRequest
    * @return RemoveImportDrgRouteDistributionResponse
    * @throws OciError when an error occurs
@@ -28716,9 +29817,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "if-match": removeImportDrgRouteDistributionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeImportDrgRouteDistributionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeImportDrgRouteDistributionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -28761,6 +29864,7 @@ To list the ephemeral public IPs assigned to private IPs:
   /**
    * Removes one or more security rules from the specified network security group.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveNetworkSecurityGroupSecurityRulesRequest
    * @return RemoveNetworkSecurityGroupSecurityRulesResponse
    * @throws OciError when an error occurs
@@ -28784,9 +29888,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeNetworkSecurityGroupSecurityRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeNetworkSecurityGroupSecurityRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -28825,6 +29931,7 @@ To list the ephemeral public IPs assigned to private IPs:
   /**
    * Removes a CIDR block from the referenced public IP pool.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemovePublicIpPoolCapacityRequest
    * @return RemovePublicIpPoolCapacityResponse
    * @throws OciError when an error occurs
@@ -28847,9 +29954,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "opc-retry-token": removePublicIpPoolCapacityRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removePublicIpPoolCapacityRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removePublicIpPoolCapacityRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -28901,6 +30010,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * - You cannot remove a CIDR block if an IP address in its range is in use.
    * - Removing a CIDR block places your VCN in an updating state until the changes are complete. You cannot create or update the VCN's subnets, VLANs, LPGs, or route tables during this operation. The time to completion can take a few minutes. You can use the `GetWorkRequest` operation to check the status of the update.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveVcnCidrRequest
    * @return RemoveVcnCidrResponse
    * @throws OciError when an error occurs
@@ -28923,9 +30033,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "if-match": removeVcnCidrRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeVcnCidrRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeVcnCidrRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -28969,6 +30081,7 @@ To list the ephemeral public IPs assigned to private IPs:
   /**
    * Updates the tags or display name associated to the specified BYOIP CIDR block.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateByoipRangeRequest
    * @return UpdateByoipRangeResponse
    * @throws OciError when an error occurs
@@ -28990,9 +30103,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "if-match": updateByoipRangeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateByoipRangeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateByoipRangeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29041,6 +30156,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * Updates the specified CPE's display name or tags.
    * Avoid entering confidential information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCpeRequest
    * @return UpdateCpeResponse
    * @throws OciError when an error occurs
@@ -29061,9 +30177,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "if-match": updateCpeRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCpeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCpeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29110,6 +30228,7 @@ To list the ephemeral public IPs assigned to private IPs:
 
   /**
    * Updates the specified cross-connect.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCrossConnectRequest
    * @return UpdateCrossConnectResponse
    * @throws OciError when an error occurs
@@ -29131,9 +30250,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "if-match": updateCrossConnectRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCrossConnectRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCrossConnectRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29182,6 +30303,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * Updates the specified cross-connect group's display name.
    * Avoid entering confidential information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCrossConnectGroupRequest
    * @return UpdateCrossConnectGroupResponse
    * @throws OciError when an error occurs
@@ -29203,9 +30325,11 @@ To list the ephemeral public IPs assigned to private IPs:
       "if-match": updateCrossConnectGroupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCrossConnectGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCrossConnectGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29256,6 +30380,7 @@ To list the ephemeral public IPs assigned to private IPs:
 * <p>
 Note that the `options` object you provide replaces the entire existing set of options.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateDhcpOptionsRequest
      * @return UpdateDhcpOptionsResponse
      * @throws OciError when an error occurs
@@ -29276,9 +30401,11 @@ Note that the `options` object you provide replaces the entire existing set of o
       "if-match": updateDhcpOptionsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDhcpOptionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDhcpOptionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29326,6 +30453,7 @@ Note that the `options` object you provide replaces the entire existing set of o
   /**
    * Updates the specified DRG's display name or tags. Avoid entering confidential information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDrgRequest
    * @return UpdateDrgResponse
    * @throws OciError when an error occurs
@@ -29346,9 +30474,11 @@ Note that the `options` object you provide replaces the entire existing set of o
       "if-match": updateDrgRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDrgRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDrgRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29397,6 +30527,7 @@ Note that the `options` object you provide replaces the entire existing set of o
    * Updates the display name and routing information for the specified `DrgAttachment`.
    * Avoid entering confidential information.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDrgAttachmentRequest
    * @return UpdateDrgAttachmentResponse
    * @throws OciError when an error occurs
@@ -29418,9 +30549,11 @@ Note that the `options` object you provide replaces the entire existing set of o
       "if-match": updateDrgAttachmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDrgAttachmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDrgAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29468,6 +30601,7 @@ Note that the `options` object you provide replaces the entire existing set of o
   /**
    * Updates the specified route distribution
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDrgRouteDistributionRequest
    * @return UpdateDrgRouteDistributionResponse
    * @throws OciError when an error occurs
@@ -29489,9 +30623,11 @@ Note that the `options` object you provide replaces the entire existing set of o
       "if-match": updateDrgRouteDistributionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDrgRouteDistributionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDrgRouteDistributionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29539,6 +30675,7 @@ Note that the `options` object you provide replaces the entire existing set of o
   /**
    * Updates one or more route distribution statements in the specified route distribution.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDrgRouteDistributionStatementsRequest
    * @return UpdateDrgRouteDistributionStatementsResponse
    * @throws OciError when an error occurs
@@ -29561,9 +30698,11 @@ Note that the `options` object you provide replaces the entire existing set of o
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDrgRouteDistributionStatementsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDrgRouteDistributionStatementsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29607,6 +30746,7 @@ Note that the `options` object you provide replaces the entire existing set of o
   /**
    * Updates one or more route rules in the specified DRG route table.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDrgRouteRulesRequest
    * @return UpdateDrgRouteRulesResponse
    * @throws OciError when an error occurs
@@ -29627,9 +30767,11 @@ Note that the `options` object you provide replaces the entire existing set of o
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDrgRouteRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDrgRouteRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29672,6 +30814,7 @@ Note that the `options` object you provide replaces the entire existing set of o
   /**
    * Updates the specified DRG route table.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDrgRouteTableRequest
    * @return UpdateDrgRouteTableResponse
    * @throws OciError when an error occurs
@@ -29693,9 +30836,11 @@ Note that the `options` object you provide replaces the entire existing set of o
       "if-match": updateDrgRouteTableRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDrgRouteTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDrgRouteTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29746,6 +30891,7 @@ Note that the `options` object you provide replaces the entire existing set of o
 To update an individual IPSec tunnel's attributes, use
 * {@link #updateIPSecConnectionTunnel(UpdateIPSecConnectionTunnelRequest) updateIPSecConnectionTunnel}.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateIPSecConnectionRequest
      * @return UpdateIPSecConnectionResponse
      * @throws OciError when an error occurs
@@ -29767,9 +30913,11 @@ To update an individual IPSec tunnel's attributes, use
       "if-match": updateIPSecConnectionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateIPSecConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateIPSecConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29828,6 +30976,7 @@ To update an individual IPSec tunnel's attributes, use
    *     {@link IPSecConnection} already has at least one valid CIDR
    *     static route.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateIPSecConnectionTunnelRequest
    * @return UpdateIPSecConnectionTunnelResponse
    * @throws OciError when an error occurs
@@ -29851,9 +31000,11 @@ To update an individual IPSec tunnel's attributes, use
       "opc-request-id": updateIPSecConnectionTunnelRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateIPSecConnectionTunnelRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateIPSecConnectionTunnelRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29903,6 +31054,7 @@ To update an individual IPSec tunnel's attributes, use
    * <p>
    **Important:** If you change the shared secret, the tunnel will go down while it's reprovisioned.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateIPSecConnectionTunnelSharedSecretRequest
    * @return UpdateIPSecConnectionTunnelSharedSecretResponse
    * @throws OciError when an error occurs
@@ -29927,9 +31079,11 @@ To update an individual IPSec tunnel's attributes, use
       "if-match": updateIPSecConnectionTunnelSharedSecretRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateIPSecConnectionTunnelSharedSecretRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateIPSecConnectionTunnelSharedSecretRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -29981,6 +31135,7 @@ To update an individual IPSec tunnel's attributes, use
 If the gateway is disabled, that means no traffic will flow to/from the internet even if there's
 * a route rule that enables that traffic.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateInternetGatewayRequest
      * @return UpdateInternetGatewayResponse
      * @throws OciError when an error occurs
@@ -30002,9 +31157,11 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       "if-match": updateInternetGatewayRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateInternetGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateInternetGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -30058,6 +31215,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
    *   * Change the display name for an IPv6.
    *   * Update resource tags for an IPv6.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateIpv6Request
    * @return UpdateIpv6Response
    * @throws OciError when an error occurs
@@ -30079,9 +31237,11 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       "opc-request-id": updateIpv6Request.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateIpv6Request.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateIpv6Request.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -30129,6 +31289,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   /**
    * Updates the specified local peering gateway (LPG).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateLocalPeeringGatewayRequest
    * @return UpdateLocalPeeringGatewayResponse
    * @throws OciError when an error occurs
@@ -30150,9 +31311,11 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       "if-match": updateLocalPeeringGatewayRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateLocalPeeringGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateLocalPeeringGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -30200,6 +31363,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   /**
    * Updates the specified NAT gateway.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateNatGatewayRequest
    * @return UpdateNatGatewayResponse
    * @throws OciError when an error occurs
@@ -30220,9 +31384,11 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       "if-match": updateNatGatewayRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateNatGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNatGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -30284,6 +31450,7 @@ To add or remove security rules from the group, use
 To edit the contents of existing security rules in the group, use
 * {@link #updateNetworkSecurityGroupSecurityRules(UpdateNetworkSecurityGroupSecurityRulesRequest) updateNetworkSecurityGroupSecurityRules}.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateNetworkSecurityGroupRequest
      * @return UpdateNetworkSecurityGroupResponse
      * @throws OciError when an error occurs
@@ -30305,9 +31472,11 @@ To edit the contents of existing security rules in the group, use
       "if-match": updateNetworkSecurityGroupRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateNetworkSecurityGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNetworkSecurityGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -30355,6 +31524,7 @@ To edit the contents of existing security rules in the group, use
   /**
    * Updates one or more security rules in the specified network security group.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateNetworkSecurityGroupSecurityRulesRequest
    * @return UpdateNetworkSecurityGroupSecurityRulesResponse
    * @throws OciError when an error occurs
@@ -30378,9 +31548,11 @@ To edit the contents of existing security rules in the group, use
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateNetworkSecurityGroupSecurityRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNetworkSecurityGroupSecurityRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -30432,6 +31604,7 @@ This operation cannot be used with primary private IPs.
 * To update the hostname for the primary IP on a VNIC, use
 * {@link #updateVnic(UpdateVnicRequest) updateVnic}.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdatePrivateIpRequest
      * @return UpdatePrivateIpResponse
      * @throws OciError when an error occurs
@@ -30452,9 +31625,11 @@ This operation cannot be used with primary private IPs.
       "if-match": updatePrivateIpRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePrivateIpRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePrivateIpRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -30540,6 +31715,7 @@ Regarding ephemeral public IPs:
 * returned. For information about the public IP limits, see
 * [Public IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingpublicIPs.htm).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdatePublicIpRequest
      * @return UpdatePublicIpResponse
      * @throws OciError when an error occurs
@@ -30560,9 +31736,11 @@ Regarding ephemeral public IPs:
       "if-match": updatePublicIpRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePublicIpRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePublicIpRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -30610,6 +31788,7 @@ Regarding ephemeral public IPs:
   /**
    * Updates the specified public IP pool.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdatePublicIpPoolRequest
    * @return UpdatePublicIpPoolResponse
    * @throws OciError when an error occurs
@@ -30632,9 +31811,11 @@ Regarding ephemeral public IPs:
       "if-match": updatePublicIpPoolRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePublicIpPoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePublicIpPoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -30682,6 +31863,7 @@ Regarding ephemeral public IPs:
   /**
    * Updates the specified remote peering connection (RPC).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRemotePeeringConnectionRequest
    * @return UpdateRemotePeeringConnectionResponse
    * @throws OciError when an error occurs
@@ -30703,9 +31885,11 @@ Regarding ephemeral public IPs:
       "if-match": updateRemotePeeringConnectionRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRemotePeeringConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRemotePeeringConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -30756,6 +31940,7 @@ Regarding ephemeral public IPs:
 * <p>
 Note that the `routeRules` object you provide replaces the entire existing set of rules.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateRouteTableRequest
      * @return UpdateRouteTableResponse
      * @throws OciError when an error occurs
@@ -30776,9 +31961,11 @@ Note that the `routeRules` object you provide replaces the entire existing set o
       "if-match": updateRouteTableRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRouteTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRouteTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -30830,6 +32017,7 @@ Note that the `routeRules` object you provide replaces the entire existing set o
 Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provide replace the entire
 * existing objects.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateSecurityListRequest
      * @return UpdateSecurityListResponse
      * @throws OciError when an error occurs
@@ -30851,9 +32039,11 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       "if-match": updateSecurityListRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSecurityListRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSecurityListRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -30902,6 +32092,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
    * Updates the specified service gateway. The information you provide overwrites the existing
    * attributes of the gateway.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateServiceGatewayRequest
    * @return UpdateServiceGatewayResponse
    * @throws OciError when an error occurs
@@ -30923,9 +32114,11 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       "if-match": updateServiceGatewayRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateServiceGatewayRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateServiceGatewayRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -30973,6 +32166,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   /**
    * Updates the specified subnet.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSubnetRequest
    * @return UpdateSubnetResponse
    * @throws OciError when an error occurs
@@ -30993,9 +32187,11 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       "if-match": updateSubnetRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSubnetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSubnetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -31045,6 +32241,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
    * The answers correlate to the questions that are specific to the CPE device type (see the
    * `parameters` attribute of {@link CpeDeviceShapeDetail}).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTunnelCpeDeviceConfigRequest
    * @return UpdateTunnelCpeDeviceConfigResponse
    * @throws OciError when an error occurs
@@ -31069,9 +32266,11 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       "opc-request-id": updateTunnelCpeDeviceConfigRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTunnelCpeDeviceConfigRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTunnelCpeDeviceConfigRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -31119,6 +32318,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   /**
    * Updates the specified VCN.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateVcnRequest
    * @return UpdateVcnResponse
    * @throws OciError when an error occurs
@@ -31139,9 +32339,11 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       "if-match": updateVcnRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVcnRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVcnRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -31212,6 +32414,7 @@ To change the list of public IP prefixes for a public virtual circuit,
 * Oracle must verify the customer's ownership of each added prefix before
 * traffic for that prefix will flow across the virtual circuit.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateVirtualCircuitRequest
      * @return UpdateVirtualCircuitResponse
      * @throws OciError when an error occurs
@@ -31233,9 +32436,11 @@ To change the list of public IP prefixes for a public virtual circuit,
       "if-match": updateVirtualCircuitRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVirtualCircuitRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVirtualCircuitRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -31284,6 +32489,7 @@ To change the list of public IP prefixes for a public virtual circuit,
    * Updates the specified VLAN. Note that this operation might require changes to all
    * the VNICs in the VLAN, which can take a while. The VLAN will be in the UPDATING state until the changes are complete.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateVlanRequest
    * @return UpdateVlanResponse
    * @throws OciError when an error occurs
@@ -31305,9 +32511,11 @@ To change the list of public IP prefixes for a public virtual circuit,
       "opc-request-id": updateVlanRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVlanRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVlanRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -31355,6 +32563,7 @@ To change the list of public IP prefixes for a public virtual circuit,
   /**
    * Updates the specified VNIC.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateVnicRequest
    * @return UpdateVnicResponse
    * @throws OciError when an error occurs
@@ -31375,9 +32584,11 @@ To change the list of public IP prefixes for a public virtual circuit,
       "if-match": updateVnicRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateVnicRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVnicRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -31426,6 +32637,7 @@ To change the list of public IP prefixes for a public virtual circuit,
    * Upgrades the DRG. After upgrade, you can control routing inside your DRG
    * via DRG attachments, route distributions, and DRG route tables.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpgradeDrgRequest
    * @return UpgradeDrgResponse
    * @throws OciError when an error occurs
@@ -31447,9 +32659,11 @@ To change the list of public IP prefixes for a public virtual circuit,
       "opc-retry-token": upgradeDrgRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      upgradeDrgRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      upgradeDrgRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -31489,6 +32703,7 @@ To change the list of public IP prefixes for a public virtual circuit,
    * Submits the BYOIP CIDR block you are importing for validation. Do not submit to Oracle for validation if you have not already
    * modified the information for the BYOIP CIDR block with your Regional Internet Registry. See [To import a CIDR block](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/BYOIP.htm#import_cidr) for details.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ValidateByoipRangeRequest
    * @return ValidateByoipRangeResponse
    * @throws OciError when an error occurs
@@ -31510,9 +32725,11 @@ To change the list of public IP prefixes for a public virtual circuit,
       "opc-request-id": validateByoipRangeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      validateByoipRangeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateByoipRangeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -31551,6 +32768,7 @@ To change the list of public IP prefixes for a public virtual circuit,
   /**
    * Withdraws BGP route advertisement for the BYOIP CIDR block.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param WithdrawByoipRangeRequest
    * @return WithdrawByoipRangeResponse
    * @throws OciError when an error occurs
@@ -31572,9 +32790,11 @@ To change the list of public IP prefixes for a public virtual circuit,
       "opc-request-id": withdrawByoipRangeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      withdrawByoipRangeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      withdrawByoipRangeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

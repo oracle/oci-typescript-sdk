@@ -29,7 +29,12 @@ import {
   MaxAttemptsTerminationStrategy,
   FixedTimeDelayStrategy
 } from "./lib/waiter";
-import { GenericRetrier, RetryConfiguration, NoRetryConfigurationDetails } from "./lib/retrier";
+import {
+  GenericRetrier,
+  RetryConfiguration,
+  NoRetryConfigurationDetails,
+  OciSdkDefaultRetryConfiguration
+} from "./lib/retrier";
 import { RequireOnlyOne, AuthParams } from "./lib/types";
 import { HttpRequest } from "./lib/http-request";
 import InstancePrincipalsAuthenticationDetailsProviderBuilder from "./lib/auth/instance-principals-authentication-detail-provider";
@@ -106,6 +111,7 @@ export {
   MaxAttemptsTerminationStrategy,
   RetryConfiguration,
   NoRetryConfigurationDetails,
+  OciSdkDefaultRetryConfiguration,
   BaseRequest,
   ClientConfiguration,
   Constants,

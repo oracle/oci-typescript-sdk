@@ -33,7 +33,7 @@ export interface CreateEntityShapeRequest extends common.BaseRequest {
   /**
    * The details needed to create the data entity shape.
    */
-  "createEntityShapeDetails": model.CreateEntityShapeFromFile;
+  "createEntityShapeDetails": model.CreateEntityShapeFromSQL | model.CreateEntityShapeFromFile;
   /**
    * Unique Oracle-assigned identifier for the request. If
    * you need to contact Oracle about a particular request,

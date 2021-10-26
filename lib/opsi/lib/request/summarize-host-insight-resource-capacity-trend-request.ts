@@ -65,6 +65,11 @@ export interface SummarizeHostInsightResourceCapacityTrendRequest extends common
    */
   "id"?: Array<string>;
   /**
+   * Optional list of exadata insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "exadataInsightId"?: Array<string>;
+  /**
    * Filter by utilization level by the following buckets:
    *   - HIGH_UTILIZATION: DBs with utilization greater or equal than 75.
    *   - LOW_UTILIZATION: DBs with utilization lower than 25.

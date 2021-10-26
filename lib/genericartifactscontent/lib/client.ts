@@ -24,7 +24,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum GenericArtifactsContentApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class GenericArtifactsContentClient {
   protected static serviceEndpointTemplate =
     "https://generic.artifacts.{region}.oci.{secondLevelDomain}";
@@ -44,6 +46,15 @@ export class GenericArtifactsContentClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -110,6 +121,7 @@ export class GenericArtifactsContentClient {
 
   /**
    * Gets the specified artifact's content.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetGenericArtifactContentRequest
    * @return GetGenericArtifactContentResponse
    * @throws OciError when an error occurs
@@ -133,9 +145,11 @@ export class GenericArtifactsContentClient {
       "opc-request-id": getGenericArtifactContentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getGenericArtifactContentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getGenericArtifactContentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -177,6 +191,7 @@ export class GenericArtifactsContentClient {
 
   /**
    * Gets the content of an artifact with a specified `artifactPath` and `version`.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetGenericArtifactContentByPathRequest
    * @return GetGenericArtifactContentByPathResponse
    * @throws OciError when an error occurs
@@ -202,9 +217,11 @@ export class GenericArtifactsContentClient {
       "opc-request-id": getGenericArtifactContentByPathRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getGenericArtifactContentByPathRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getGenericArtifactContentByPathRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -247,6 +264,7 @@ export class GenericArtifactsContentClient {
 
   /**
    * Uploads an artifact. Provide `artifactPath`, `version` and content. Avoid entering confidential information when you define the path and version.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PutGenericArtifactContentByPathRequest
    * @return PutGenericArtifactContentByPathResponse
    * @throws OciError when an error occurs
@@ -272,9 +290,11 @@ export class GenericArtifactsContentClient {
       "opc-request-id": putGenericArtifactContentByPathRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      putGenericArtifactContentByPathRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putGenericArtifactContentByPathRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

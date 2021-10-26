@@ -1,6 +1,6 @@
 /**
  * Data Integration API
- * Use the Data Integration Service APIs to perform common extract, load, and transform (ETL) tasks.
+ * Use the Data Integration API to organize your data integration projects, create data flows, pipelines and tasks, and then publish, schedule, and run tasks that extract, transform, and load data. For more information, see [Data Integration](https://docs.oracle.com/iaas/data-integration/home.htm).
  * OpenAPI spec version: 20200430
  * Contact: di_dis_ww_grp@oracle.com
  *
@@ -79,6 +79,18 @@ export interface TaskRunSummary {
    * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
+  /**
+   * Reference Task Run Id to be used for re-run
+   */
+  "refTaskRunId"?: string;
+  /**
+   * Supported re-run types
+   */
+  "reRunType"?: TaskRunSummary.ReRunType;
+  /**
+   * Step Id for running from a certain step.
+   */
+  "stepId"?: string;
   "metadata"?: model.ObjectMetadata;
 }
 
@@ -105,6 +117,17 @@ export namespace TaskRunSummary {
     SqlTask = "SQL_TASK",
     OciDataflowTask = "OCI_DATAFLOW_TASK",
     RestTask = "REST_TASK",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ReRunType {
+    Beginning = "BEGINNING",
+    Failed = "FAILED",
+    Step = "STEP",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

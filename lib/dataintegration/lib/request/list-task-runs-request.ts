@@ -74,6 +74,10 @@ export interface ListTaskRunsRequest extends common.BaseRequest {
    * This filter parameter can be used to filter by model specific queryable fields of the object <br><br><B>Examples:-</B><br> <ul> <li><B>?filter=status eq Failed</B> returns all objects that have a status field with value Failed</li> </ul>
    */
   "filter"?: Array<string>;
+  /**
+   * This parameter can be used to filter objects by the names starting with the given value.
+   */
+  "nameStartsWith"?: string;
 }
 
 export namespace ListTaskRunsRequest {

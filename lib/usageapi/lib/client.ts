@@ -22,7 +22,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum UsageapiApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class UsageapiClient {
   protected static serviceEndpointTemplate = "https://usageapi.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -41,6 +43,15 @@ export class UsageapiClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -107,6 +118,7 @@ export class UsageapiClient {
   /**
    * Returns the created custom table.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateCustomTableRequest
    * @return CreateCustomTableResponse
    * @throws OciError when an error occurs
@@ -126,9 +138,11 @@ export class UsageapiClient {
       "opc-retry-token": createCustomTableRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCustomTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCustomTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -176,6 +190,7 @@ export class UsageapiClient {
   /**
    * Returns the created query.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateQueryRequest
    * @return CreateQueryResponse
    * @throws OciError when an error occurs
@@ -195,9 +210,11 @@ export class UsageapiClient {
       "opc-retry-token": createQueryRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createQueryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createQueryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -245,6 +262,7 @@ export class UsageapiClient {
   /**
    * Delete a saved custom table by the OCID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCustomTableRequest
    * @return DeleteCustomTableResponse
    * @throws OciError when an error occurs
@@ -266,9 +284,11 @@ export class UsageapiClient {
       "if-match": deleteCustomTableRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCustomTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCustomTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -302,6 +322,7 @@ export class UsageapiClient {
   /**
    * Delete a saved query by the OCID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteQueryRequest
    * @return DeleteQueryResponse
    * @throws OciError when an error occurs
@@ -323,9 +344,11 @@ export class UsageapiClient {
       "if-match": deleteQueryRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteQueryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteQueryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -359,6 +382,7 @@ export class UsageapiClient {
   /**
    * Returns the saved custom table.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCustomTableRequest
    * @return GetCustomTableResponse
    * @throws OciError when an error occurs
@@ -379,9 +403,11 @@ export class UsageapiClient {
       "opc-request-id": getCustomTableRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCustomTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCustomTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -424,6 +450,7 @@ export class UsageapiClient {
   /**
    * Returns the saved query.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetQueryRequest
    * @return GetQueryResponse
    * @throws OciError when an error occurs
@@ -444,9 +471,11 @@ export class UsageapiClient {
       "opc-request-id": getQueryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getQueryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getQueryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -489,6 +518,7 @@ export class UsageapiClient {
   /**
    * Returns the saved custom table list.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCustomTablesRequest
    * @return ListCustomTablesResponse
    * @throws OciError when an error occurs
@@ -514,9 +544,11 @@ export class UsageapiClient {
       "opc-request-id": listCustomTablesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCustomTablesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCustomTablesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -559,6 +591,7 @@ export class UsageapiClient {
   /**
    * Returns the saved query list.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListQueriesRequest
    * @return ListQueriesResponse
    * @throws OciError when an error occurs
@@ -583,9 +616,11 @@ export class UsageapiClient {
       "opc-request-id": listQueriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listQueriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listQueriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -628,6 +663,7 @@ export class UsageapiClient {
   /**
    * Returns the configurations list for the UI drop-down list.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestSummarizedConfigurationsRequest
    * @return RequestSummarizedConfigurationsResponse
    * @throws OciError when an error occurs
@@ -649,9 +685,11 @@ export class UsageapiClient {
       "opc-request-id": requestSummarizedConfigurationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedConfigurationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSummarizedConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -689,6 +727,7 @@ export class UsageapiClient {
   /**
    * Returns usage for the given account.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestSummarizedUsagesRequest
    * @return RequestSummarizedUsagesResponse
    * @throws OciError when an error occurs
@@ -710,9 +749,11 @@ export class UsageapiClient {
       "opc-request-id": requestSummarizedUsagesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      requestSummarizedUsagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSummarizedUsagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -760,6 +801,7 @@ export class UsageapiClient {
   /**
    * Update a saved custom table by table id.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCustomTableRequest
    * @return UpdateCustomTableResponse
    * @throws OciError when an error occurs
@@ -781,9 +823,11 @@ export class UsageapiClient {
       "if-match": updateCustomTableRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCustomTableRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCustomTableRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -831,6 +875,7 @@ export class UsageapiClient {
   /**
    * Update a saved query by the OCID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateQueryRequest
    * @return UpdateQueryResponse
    * @throws OciError when an error occurs
@@ -852,9 +897,11 @@ export class UsageapiClient {
       "if-match": updateQueryRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateQueryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateQueryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

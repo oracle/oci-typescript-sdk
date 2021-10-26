@@ -65,6 +65,11 @@ export interface SummarizeHostInsightResourceUsageTrendRequest extends common.Ba
    */
   "id"?: Array<string>;
   /**
+   * Optional list of exadata insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "exadataInsightId"?: Array<string>;
+  /**
    * For list pagination. The value of the `opc-next-page` response header from
    * the previous \"List\" call. For important details about how pagination works,
    * see [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).

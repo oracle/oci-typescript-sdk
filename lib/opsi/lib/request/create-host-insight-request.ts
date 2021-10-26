@@ -21,7 +21,9 @@ export interface CreateHostInsightRequest extends common.BaseRequest {
   /**
    * Details for the host for which a Host Insight resource will be created in Operations Insights.
    */
-  "createHostInsightDetails": model.CreateMacsManagedExternalHostInsightDetails;
+  "createHostInsightDetails":
+    | model.CreateMacsManagedExternalHostInsightDetails
+    | model.CreateEmManagedExternalHostInsightDetails;
   /**
    * A token that uniquely identifies a request that can be retried in case of a timeout or
    * server error without risk of executing the same action again. Retry tokens expire after 24

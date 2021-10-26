@@ -25,7 +25,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum ArtifactsApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class ArtifactsClient {
   protected static serviceEndpointTemplate = "https://artifacts.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -45,6 +47,15 @@ export class ArtifactsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -136,6 +147,7 @@ export class ArtifactsClient {
    * resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeContainerRepositoryCompartmentRequest
    * @return ChangeContainerRepositoryCompartmentResponse
    * @throws OciError when an error occurs
@@ -159,9 +171,11 @@ export class ArtifactsClient {
       "opc-retry-token": changeContainerRepositoryCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeContainerRepositoryCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeContainerRepositoryCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -202,6 +216,7 @@ export class ArtifactsClient {
    * resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeRepositoryCompartmentRequest
    * @return ChangeRepositoryCompartmentResponse
    * @throws OciError when an error occurs
@@ -225,9 +240,11 @@ export class ArtifactsClient {
       "opc-retry-token": changeRepositoryCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeRepositoryCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRepositoryCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -265,6 +282,7 @@ export class ArtifactsClient {
 
   /**
    * Upload a signature to an image.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateContainerImageSignatureRequest
    * @return CreateContainerImageSignatureResponse
    * @throws OciError when an error occurs
@@ -286,9 +304,11 @@ export class ArtifactsClient {
       "if-match": createContainerImageSignatureRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createContainerImageSignatureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createContainerImageSignatureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -335,6 +355,7 @@ export class ArtifactsClient {
 
   /**
    * Create a new empty container repository. Avoid entering confidential information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateContainerRepositoryRequest
    * @return CreateContainerRepositoryResponse
    * @throws OciError when an error occurs
@@ -355,9 +376,11 @@ export class ArtifactsClient {
       "opc-retry-token": createContainerRepositoryRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createContainerRepositoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createContainerRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -404,6 +427,7 @@ export class ArtifactsClient {
 
   /**
    * Creates a new repository for storing artifacts.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRepositoryRequest
    * @return CreateRepositoryResponse
    * @throws OciError when an error occurs
@@ -423,9 +447,11 @@ export class ArtifactsClient {
       "opc-retry-token": createRepositoryRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createRepositoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -472,6 +498,7 @@ export class ArtifactsClient {
 
   /**
    * Delete a container image.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteContainerImageRequest
    * @return DeleteContainerImageResponse
    * @throws OciError when an error occurs
@@ -493,9 +520,11 @@ export class ArtifactsClient {
       "opc-request-id": deleteContainerImageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteContainerImageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteContainerImageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -528,6 +557,7 @@ export class ArtifactsClient {
 
   /**
    * Delete a container image signature.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteContainerImageSignatureRequest
    * @return DeleteContainerImageSignatureResponse
    * @throws OciError when an error occurs
@@ -550,9 +580,11 @@ export class ArtifactsClient {
       "if-match": deleteContainerImageSignatureRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteContainerImageSignatureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteContainerImageSignatureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -585,6 +617,7 @@ export class ArtifactsClient {
 
   /**
    * Delete container repository.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteContainerRepositoryRequest
    * @return DeleteContainerRepositoryResponse
    * @throws OciError when an error occurs
@@ -607,9 +640,11 @@ export class ArtifactsClient {
       "opc-request-id": deleteContainerRepositoryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteContainerRepositoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteContainerRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -642,6 +677,7 @@ export class ArtifactsClient {
 
   /**
    * Deletes an artifact with a specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteGenericArtifactRequest
    * @return DeleteGenericArtifactResponse
    * @throws OciError when an error occurs
@@ -663,9 +699,11 @@ export class ArtifactsClient {
       "opc-request-id": deleteGenericArtifactRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteGenericArtifactRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteGenericArtifactRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -698,6 +736,7 @@ export class ArtifactsClient {
 
   /**
    * Deletes an artifact with a specified `artifactPath` and `version`.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteGenericArtifactByPathRequest
    * @return DeleteGenericArtifactByPathResponse
    * @throws OciError when an error occurs
@@ -722,9 +761,11 @@ export class ArtifactsClient {
       "opc-request-id": deleteGenericArtifactByPathRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteGenericArtifactByPathRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteGenericArtifactByPathRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -757,6 +798,7 @@ export class ArtifactsClient {
 
   /**
    * Deletes the specified repository. This operation fails unless all associated artifacts are in a DELETED state. You must delete all associated artifacts before deleting a repository.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRepositoryRequest
    * @return DeleteRepositoryResponse
    * @throws OciError when an error occurs
@@ -778,9 +820,11 @@ export class ArtifactsClient {
       "opc-request-id": deleteRepositoryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteRepositoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -813,6 +857,7 @@ export class ArtifactsClient {
 
   /**
    * Get container configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetContainerConfigurationRequest
    * @return GetContainerConfigurationResponse
    * @throws OciError when an error occurs
@@ -834,9 +879,11 @@ export class ArtifactsClient {
       "opc-request-id": getContainerConfigurationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getContainerConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getContainerConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -878,6 +925,7 @@ export class ArtifactsClient {
 
   /**
    * Get container image metadata.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetContainerImageRequest
    * @return GetContainerImageResponse
    * @throws OciError when an error occurs
@@ -898,9 +946,11 @@ export class ArtifactsClient {
       "opc-request-id": getContainerImageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getContainerImageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getContainerImageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -942,6 +992,7 @@ export class ArtifactsClient {
 
   /**
    * Get container image signature metadata.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetContainerImageSignatureRequest
    * @return GetContainerImageSignatureResponse
    * @throws OciError when an error occurs
@@ -963,9 +1014,11 @@ export class ArtifactsClient {
       "opc-request-id": getContainerImageSignatureRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getContainerImageSignatureRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getContainerImageSignatureRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1007,6 +1060,7 @@ export class ArtifactsClient {
 
   /**
    * Get container repository.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetContainerRepositoryRequest
    * @return GetContainerRepositoryResponse
    * @throws OciError when an error occurs
@@ -1027,9 +1081,11 @@ export class ArtifactsClient {
       "opc-request-id": getContainerRepositoryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getContainerRepositoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getContainerRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1071,6 +1127,7 @@ export class ArtifactsClient {
 
   /**
    * Gets information about an artifact with a specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetGenericArtifactRequest
    * @return GetGenericArtifactResponse
    * @throws OciError when an error occurs
@@ -1091,9 +1148,11 @@ export class ArtifactsClient {
       "opc-request-id": getGenericArtifactRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getGenericArtifactRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getGenericArtifactRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1135,6 +1194,7 @@ export class ArtifactsClient {
 
   /**
    * Gets information about an artifact with a specified `artifactPath` and `version`.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetGenericArtifactByPathRequest
    * @return GetGenericArtifactByPathResponse
    * @throws OciError when an error occurs
@@ -1158,9 +1218,11 @@ export class ArtifactsClient {
       "opc-request-id": getGenericArtifactByPathRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getGenericArtifactByPathRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getGenericArtifactByPathRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1202,6 +1264,7 @@ export class ArtifactsClient {
 
   /**
    * Gets the specified repository's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRepositoryRequest
    * @return GetRepositoryResponse
    * @throws OciError when an error occurs
@@ -1222,9 +1285,11 @@ export class ArtifactsClient {
       "opc-request-id": getRepositoryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRepositoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1266,6 +1331,7 @@ export class ArtifactsClient {
 
   /**
    * List container image signatures in an image.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListContainerImageSignaturesRequest
    * @return ListContainerImageSignaturesResponse
    * @throws OciError when an error occurs
@@ -1300,9 +1366,11 @@ export class ArtifactsClient {
       "opc-request-id": listContainerImageSignaturesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listContainerImageSignaturesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listContainerImageSignaturesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1344,6 +1412,7 @@ export class ArtifactsClient {
 
   /**
    * List container images in a compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListContainerImagesRequest
    * @return ListContainerImagesResponse
    * @throws OciError when an error occurs
@@ -1376,9 +1445,11 @@ export class ArtifactsClient {
       "opc-request-id": listContainerImagesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listContainerImagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listContainerImagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1420,6 +1491,7 @@ export class ArtifactsClient {
 
   /**
    * List container repositories in a compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListContainerRepositoriesRequest
    * @return ListContainerRepositoriesResponse
    * @throws OciError when an error occurs
@@ -1450,9 +1522,11 @@ export class ArtifactsClient {
       "opc-request-id": listContainerRepositoriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listContainerRepositoriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listContainerRepositoriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1494,6 +1568,7 @@ export class ArtifactsClient {
 
   /**
    * Lists artifacts in the specified repository.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListGenericArtifactsRequest
    * @return ListGenericArtifactsResponse
    * @throws OciError when an error occurs
@@ -1525,9 +1600,11 @@ export class ArtifactsClient {
       "opc-request-id": listGenericArtifactsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listGenericArtifactsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listGenericArtifactsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1569,6 +1646,7 @@ export class ArtifactsClient {
 
   /**
    * Lists repositories in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRepositoriesRequest
    * @return ListRepositoriesResponse
    * @throws OciError when an error occurs
@@ -1597,9 +1675,11 @@ export class ArtifactsClient {
       "opc-request-id": listRepositoriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRepositoriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRepositoriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1641,6 +1721,7 @@ export class ArtifactsClient {
 
   /**
    * Remove version from container image.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveContainerVersionRequest
    * @return RemoveContainerVersionResponse
    * @throws OciError when an error occurs
@@ -1663,9 +1744,11 @@ export class ArtifactsClient {
       "opc-retry-token": removeContainerVersionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeContainerVersionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeContainerVersionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1712,6 +1795,7 @@ export class ArtifactsClient {
 
   /**
    * Restore a container image.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestoreContainerImageRequest
    * @return RestoreContainerImageResponse
    * @throws OciError when an error occurs
@@ -1734,9 +1818,11 @@ export class ArtifactsClient {
       "opc-retry-token": restoreContainerImageRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restoreContainerImageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restoreContainerImageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1783,6 +1869,7 @@ export class ArtifactsClient {
 
   /**
    * Update container configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateContainerConfigurationRequest
    * @return UpdateContainerConfigurationResponse
    * @throws OciError when an error occurs
@@ -1805,9 +1892,11 @@ export class ArtifactsClient {
       "opc-request-id": updateContainerConfigurationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateContainerConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateContainerConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1854,6 +1943,7 @@ export class ArtifactsClient {
 
   /**
    * Modify the properties of a container repository. Avoid entering confidential information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateContainerRepositoryRequest
    * @return UpdateContainerRepositoryResponse
    * @throws OciError when an error occurs
@@ -1876,9 +1966,11 @@ export class ArtifactsClient {
       "opc-request-id": updateContainerRepositoryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateContainerRepositoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateContainerRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1925,6 +2017,7 @@ export class ArtifactsClient {
 
   /**
    * Updates the artifact with the specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). You can only update the tags of an artifact.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateGenericArtifactRequest
    * @return UpdateGenericArtifactResponse
    * @throws OciError when an error occurs
@@ -1946,9 +2039,11 @@ export class ArtifactsClient {
       "opc-request-id": updateGenericArtifactRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateGenericArtifactRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateGenericArtifactRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1995,6 +2090,7 @@ export class ArtifactsClient {
 
   /**
    * Updates an artifact with a specified `artifactPath` and `version`. You can only update the tags of an artifact.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateGenericArtifactByPathRequest
    * @return UpdateGenericArtifactByPathResponse
    * @throws OciError when an error occurs
@@ -2019,9 +2115,11 @@ export class ArtifactsClient {
       "opc-request-id": updateGenericArtifactByPathRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateGenericArtifactByPathRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateGenericArtifactByPathRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2068,6 +2166,7 @@ export class ArtifactsClient {
 
   /**
    * Updates the properties of a repository. You can update the `displayName` and  `description` properties.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRepositoryRequest
    * @return UpdateRepositoryResponse
    * @throws OciError when an error occurs
@@ -2089,9 +2188,11 @@ export class ArtifactsClient {
       "opc-request-id": updateRepositoryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRepositoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

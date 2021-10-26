@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.5.2",
+  "version": "2.6.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -105,7 +105,9 @@
     "oci-apmconfig": "file:lib/apmconfig",
     "oci-datalabelingservice": "file:lib/datalabelingservice",
     "oci-datalabelingservicedataplane": "file:lib/datalabelingservicedataplane",
-    "oci-waf": "file:lib/waf"
+    "oci-waf": "file:lib/waf",
+    "oci-certificates": "file:lib/certificates",
+    "oci-certificatesmanagement": "file:lib/certificatesmanagement"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

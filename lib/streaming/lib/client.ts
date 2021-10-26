@@ -24,7 +24,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum StreamApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class StreamClient {
   protected static serviceEndpointTemplate = "https://streaming.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -43,6 +45,15 @@ export class StreamClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -73,6 +84,7 @@ export class StreamClient {
    * Provides a mechanism to manually commit offsets, if not using commit-on-get consumer semantics.
    * This commits offsets assicated with the provided cursor, extends the timeout on each of the affected partitions, and returns an updated cursor.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ConsumerCommitRequest
    * @return ConsumerCommitResponse
    * @throws OciError when an error occurs
@@ -95,9 +107,11 @@ export class StreamClient {
       "opc-request-id": consumerCommitRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      consumerCommitRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      consumerCommitRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -135,6 +149,7 @@ export class StreamClient {
   /**
    * Allows long-running processes to extend the timeout on partitions reserved by a consumer instance.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ConsumerHeartbeatRequest
    * @return ConsumerHeartbeatResponse
    * @throws OciError when an error occurs
@@ -157,9 +172,11 @@ export class StreamClient {
       "opc-request-id": consumerHeartbeatRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      consumerHeartbeatRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      consumerHeartbeatRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -201,6 +218,7 @@ export class StreamClient {
    * on the most recent message allows consumption of only messages that are added to the stream after you create the cursor. Cursors expire
    * five minutes after you receive them from the service.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateCursorRequest
    * @return CreateCursorResponse
    * @throws OciError when an error occurs
@@ -221,9 +239,11 @@ export class StreamClient {
       "opc-request-id": createCursorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCursorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCursorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -266,6 +286,7 @@ export class StreamClient {
   /**
    * Creates a group-cursor.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateGroupCursorRequest
    * @return CreateGroupCursorResponse
    * @throws OciError when an error occurs
@@ -286,9 +307,11 @@ export class StreamClient {
       "opc-request-id": createGroupCursorRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createGroupCursorRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createGroupCursorRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -331,6 +354,7 @@ export class StreamClient {
   /**
    * Returns the current state of a consumer group.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetGroupRequest
    * @return GetGroupResponse
    * @throws OciError when an error occurs
@@ -352,9 +376,11 @@ export class StreamClient {
       "opc-request-id": getGroupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -394,6 +420,7 @@ export class StreamClient {
    * To get messages, you must first obtain a cursor using the {@link #createCursor(CreateCursorRequest) createCursor} operation.
    * In the response, retrieve the value of the 'opc-next-cursor' header to pass as a parameter to get the next batch of messages in the stream.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMessagesRequest
    * @return GetMessagesResponse
    * @throws OciError when an error occurs
@@ -417,9 +444,11 @@ export class StreamClient {
       "opc-request-id": getMessagesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getMessagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMessagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -465,6 +494,7 @@ export class StreamClient {
    * If a message does not contain a key or if the key is null, the service generates a message key for you.
    * The partition ID cannot be passed as a parameter.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PutMessagesRequest
    * @return PutMessagesResponse
    * @throws OciError when an error occurs
@@ -485,9 +515,11 @@ export class StreamClient {
       "opc-request-id": putMessagesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      putMessagesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putMessagesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -530,6 +562,7 @@ export class StreamClient {
   /**
    * Forcefully changes the current location of a group as a whole; reseting processing location of all consumers to a particular location in the stream.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateGroupRequest
    * @return UpdateGroupResponse
    * @throws OciError when an error occurs
@@ -551,9 +584,11 @@ export class StreamClient {
       "opc-request-id": updateGroupRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateGroupRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateGroupRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -590,7 +625,9 @@ export class StreamClient {
   }
 }
 export enum StreamAdminApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class StreamAdminClient {
   protected static serviceEndpointTemplate = "https://streaming.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -610,6 +647,15 @@ export class StreamAdminClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -698,6 +744,7 @@ export class StreamAdminClient {
 
   /**
    * Moves a resource into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeConnectHarnessCompartmentRequest
    * @return ChangeConnectHarnessCompartmentResponse
    * @throws OciError when an error occurs
@@ -720,9 +767,11 @@ export class StreamAdminClient {
       "opc-request-id": changeConnectHarnessCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeConnectHarnessCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeConnectHarnessCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -763,6 +812,7 @@ export class StreamAdminClient {
    * When provided, If-Match is checked against ETag values of the resource.
    * The stream will also be moved into the default stream pool in the destination compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeStreamCompartmentRequest
    * @return ChangeStreamCompartmentResponse
    * @throws OciError when an error occurs
@@ -785,9 +835,11 @@ export class StreamAdminClient {
       "opc-request-id": changeStreamCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeStreamCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeStreamCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -825,6 +877,7 @@ export class StreamAdminClient {
 
   /**
    * Moves a resource into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeStreamPoolCompartmentRequest
    * @return ChangeStreamPoolCompartmentResponse
    * @throws OciError when an error occurs
@@ -847,9 +900,11 @@ export class StreamAdminClient {
       "opc-request-id": changeStreamPoolCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeStreamPoolCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeStreamPoolCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -889,6 +944,7 @@ export class StreamAdminClient {
    * Starts the provisioning of a new connect harness.
    * To track the progress of the provisioning, you can periodically call {@link ConnectHarness} object tells you its current state.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateConnectHarnessRequest
    * @return CreateConnectHarnessResponse
    * @throws OciError when an error occurs
@@ -908,9 +964,11 @@ export class StreamAdminClient {
       "opc-retry-token": createConnectHarnessRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createConnectHarnessRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createConnectHarnessRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -962,6 +1020,7 @@ export class StreamAdminClient {
    * To track the progress of the provisioning, you can periodically call {@link #getStream(GetStreamRequest) getStream}.
    * In the response, the `lifecycleState` parameter of the {@link Stream} object tells you its current state.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateStreamRequest
    * @return CreateStreamResponse
    * @throws OciError when an error occurs
@@ -980,9 +1039,11 @@ export class StreamAdminClient {
       "opc-request-id": createStreamRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createStreamRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createStreamRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1032,6 +1093,7 @@ export class StreamAdminClient {
    * To track the progress of the provisioning, you can periodically call GetStreamPool.
    * In the response, the `lifecycleState` parameter of the object tells you its current state.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateStreamPoolRequest
    * @return CreateStreamPoolResponse
    * @throws OciError when an error occurs
@@ -1051,9 +1113,11 @@ export class StreamAdminClient {
       "opc-retry-token": createStreamPoolRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createStreamPoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createStreamPoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1105,6 +1169,7 @@ export class StreamAdminClient {
    * lifecycle state as `DELETED`, then the connect harness has been deleted. If the call returns a \"404 Not Found\" error, that means all records of the
    * connect harness have been deleted.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteConnectHarnessRequest
    * @return DeleteConnectHarnessResponse
    * @throws OciError when an error occurs
@@ -1126,9 +1191,11 @@ export class StreamAdminClient {
       "if-match": deleteConnectHarnessRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteConnectHarnessRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteConnectHarnessRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1166,6 +1233,7 @@ export class StreamAdminClient {
    * lifecycle state as `DELETED`, then the stream has been deleted. If the call returns a \"404 Not Found\" error, that means all records of the
    * stream have been deleted.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteStreamRequest
    * @return DeleteStreamResponse
    * @throws OciError when an error occurs
@@ -1187,9 +1255,11 @@ export class StreamAdminClient {
       "if-match": deleteStreamRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteStreamRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteStreamRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1224,6 +1294,7 @@ export class StreamAdminClient {
    * Deletes a stream pool. All containing streams will also be deleted.
    * The default stream pool of a compartment cannot be deleted.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteStreamPoolRequest
    * @return DeleteStreamPoolResponse
    * @throws OciError when an error occurs
@@ -1245,9 +1316,11 @@ export class StreamAdminClient {
       "if-match": deleteStreamPoolRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteStreamPoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteStreamPoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1280,6 +1353,7 @@ export class StreamAdminClient {
 
   /**
    * Gets detailed information about a connect harness.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConnectHarnessRequest
    * @return GetConnectHarnessResponse
    * @throws OciError when an error occurs
@@ -1300,9 +1374,11 @@ export class StreamAdminClient {
       "opc-request-id": getConnectHarnessRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getConnectHarnessRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConnectHarnessRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1344,6 +1420,7 @@ export class StreamAdminClient {
 
   /**
    * Gets detailed information about a stream, including the number of partitions.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetStreamRequest
    * @return GetStreamResponse
    * @throws OciError when an error occurs
@@ -1364,9 +1441,11 @@ export class StreamAdminClient {
       "opc-request-id": getStreamRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getStreamRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getStreamRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1408,6 +1487,7 @@ export class StreamAdminClient {
 
   /**
    * Gets detailed information about the stream pool, such as Kafka settings.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetStreamPoolRequest
    * @return GetStreamPoolResponse
    * @throws OciError when an error occurs
@@ -1428,9 +1508,11 @@ export class StreamAdminClient {
       "opc-request-id": getStreamPoolRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getStreamPoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getStreamPoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1472,6 +1554,7 @@ export class StreamAdminClient {
 
   /**
    * Lists the connectharness.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListConnectHarnessesRequest
    * @return ListConnectHarnessesResponse
    * @throws OciError when an error occurs
@@ -1499,9 +1582,11 @@ export class StreamAdminClient {
       "opc-request-id": listConnectHarnessesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listConnectHarnessesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConnectHarnessesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1600,6 +1685,7 @@ export class StreamAdminClient {
 
   /**
    * List the stream pools for a given compartment ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListStreamPoolsRequest
    * @return ListStreamPoolsResponse
    * @throws OciError when an error occurs
@@ -1627,9 +1713,11 @@ export class StreamAdminClient {
       "opc-request-id": listStreamPoolsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listStreamPoolsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listStreamPoolsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1732,6 +1820,7 @@ export class StreamAdminClient {
    * If the stream pool id is specified, the action will be scoped to that stream pool.
    * The compartment id and stream pool id cannot be specified at the same time.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListStreamsRequest
    * @return ListStreamsResponse
    * @throws OciError when an error occurs
@@ -1760,9 +1849,11 @@ export class StreamAdminClient {
       "opc-request-id": listStreamsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listStreamsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listStreamsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1862,6 +1953,7 @@ export class StreamAdminClient {
   /**
    * Updates the tags applied to the connect harness.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateConnectHarnessRequest
    * @return UpdateConnectHarnessResponse
    * @throws OciError when an error occurs
@@ -1883,9 +1975,11 @@ export class StreamAdminClient {
       "if-match": updateConnectHarnessRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateConnectHarnessRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateConnectHarnessRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1933,6 +2027,7 @@ export class StreamAdminClient {
   /**
    * Updates the stream. Only specified values will be updated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateStreamRequest
    * @return UpdateStreamResponse
    * @throws OciError when an error occurs
@@ -1954,9 +2049,11 @@ export class StreamAdminClient {
       "if-match": updateStreamRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateStreamRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateStreamRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2004,6 +2101,7 @@ export class StreamAdminClient {
   /**
    * Updates the specified stream pool.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateStreamPoolRequest
    * @return UpdateStreamPoolResponse
    * @throws OciError when an error occurs
@@ -2025,9 +2123,11 @@ export class StreamAdminClient {
       "if-match": updateStreamPoolRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateStreamPoolRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateStreamPoolRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

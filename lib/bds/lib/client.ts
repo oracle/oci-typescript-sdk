@@ -25,7 +25,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum BdsApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class BdsClient {
   protected static serviceEndpointTemplate =
     "https://bigdataservice.{region}.oci.{secondLevelDomain}";
@@ -46,6 +48,15 @@ export class BdsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -135,6 +146,7 @@ export class BdsClient {
   /**
    * Add an autoscale configuration to the cluster.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddAutoScalingConfigurationRequest
    * @return AddAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
@@ -157,9 +169,11 @@ export class BdsClient {
       "opc-retry-token": addAutoScalingConfigurationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addAutoScalingConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addAutoScalingConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -203,6 +217,7 @@ export class BdsClient {
   /**
    * Adds block storage to existing worker nodes. The same amount of  storage will be added to all worker nodes. No change will be made  to storage that is already attached. Block storage cannot be removed.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddBlockStorageRequest
    * @return AddBlockStorageResponse
    * @throws OciError when an error occurs
@@ -225,9 +240,11 @@ export class BdsClient {
       "opc-retry-token": addBlockStorageRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addBlockStorageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addBlockStorageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -271,6 +288,7 @@ export class BdsClient {
   /**
    * Adds Cloud SQL to your cluster. You can use Cloud SQL to query against non-relational data stored in multiple big data sources, including Apache Hive, HDFS, Oracle NoSQL Database, and Apache HBase. Adding Cloud SQL adds a query server node to the cluster and creates cell servers on all the worker nodes in the cluster.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddCloudSqlRequest
    * @return AddCloudSqlResponse
    * @throws OciError when an error occurs
@@ -293,9 +311,11 @@ export class BdsClient {
       "opc-retry-token": addCloudSqlRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addCloudSqlRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addCloudSqlRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -339,6 +359,7 @@ export class BdsClient {
   /**
    * Increases the size (scales out) a cluster by adding worker nodes. The added worker nodes will have the same shape and will have the same amount of attached block storage as other worker nodes in the cluster.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddWorkerNodesRequest
    * @return AddWorkerNodesResponse
    * @throws OciError when an error occurs
@@ -361,9 +382,11 @@ export class BdsClient {
       "opc-retry-token": addWorkerNodesRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addWorkerNodesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addWorkerNodesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -407,6 +430,7 @@ export class BdsClient {
   /**
    * Moves a Big Data Service cluster into a different compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeBdsInstanceCompartmentRequest
    * @return ChangeBdsInstanceCompartmentResponse
    * @throws OciError when an error occurs
@@ -429,9 +453,11 @@ export class BdsClient {
       "opc-retry-token": changeBdsInstanceCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeBdsInstanceCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeBdsInstanceCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -475,6 +501,7 @@ export class BdsClient {
   /**
    * Changes the size of a cluster by scaling up or scaling down the nodes. Nodes are scaled up or down by changing the shapes of all the nodes of the same type to the next larger or smaller shape. The node types are master, utility, worker, and Cloud SQL. Only nodes with VM-STANDARD shapes can be scaled.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeShapeRequest
    * @return ChangeShapeResponse
    * @throws OciError when an error occurs
@@ -497,9 +524,11 @@ export class BdsClient {
       "opc-retry-token": changeShapeRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeShapeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeShapeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -543,6 +572,7 @@ export class BdsClient {
   /**
    * Creates a Big Data Service cluster.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateBdsInstanceRequest
    * @return CreateBdsInstanceResponse
    * @throws OciError when an error occurs
@@ -562,9 +592,11 @@ export class BdsClient {
       "opc-retry-token": createBdsInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createBdsInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBdsInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -607,6 +639,7 @@ export class BdsClient {
 
   /**
    * Deletes the cluster identified by the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBdsInstanceRequest
    * @return DeleteBdsInstanceResponse
    * @throws OciError when an error occurs
@@ -628,9 +661,11 @@ export class BdsClient {
       "if-match": deleteBdsInstanceRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteBdsInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBdsInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -669,6 +704,7 @@ export class BdsClient {
   /**
    * Returns details of the autoscale configuration identified by the given ID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutoScalingConfigurationRequest
    * @return GetAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
@@ -690,9 +726,11 @@ export class BdsClient {
       "opc-request-id": getAutoScalingConfigurationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAutoScalingConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutoScalingConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -734,6 +772,7 @@ export class BdsClient {
 
   /**
    * Returns information about the Big Data Service cluster identified by the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBdsInstanceRequest
    * @return GetBdsInstanceResponse
    * @throws OciError when an error occurs
@@ -754,9 +793,11 @@ export class BdsClient {
       "opc-request-id": getBdsInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBdsInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBdsInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -798,6 +839,7 @@ export class BdsClient {
 
   /**
    * Returns the status of the work request identified by the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -818,9 +860,11 @@ export class BdsClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -863,6 +907,7 @@ export class BdsClient {
   /**
    * Returns information about the autoscaling configurations for a cluster.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutoScalingConfigurationsRequest
    * @return ListAutoScalingConfigurationsResponse
    * @throws OciError when an error occurs
@@ -892,9 +937,11 @@ export class BdsClient {
       "opc-request-id": listAutoScalingConfigurationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAutoScalingConfigurationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutoScalingConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -989,6 +1036,7 @@ export class BdsClient {
   /**
    * Returns a list of all Big Data Service clusters in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBdsInstancesRequest
    * @return ListBdsInstancesResponse
    * @throws OciError when an error occurs
@@ -1015,9 +1063,11 @@ export class BdsClient {
       "opc-request-id": listBdsInstancesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBdsInstancesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBdsInstancesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1112,6 +1162,7 @@ export class BdsClient {
   /**
    * Returns a paginated list of errors for a work request identified by the given ID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1137,9 +1188,11 @@ export class BdsClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1234,6 +1287,7 @@ export class BdsClient {
   /**
    * Returns a paginated list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1259,9 +1313,11 @@ export class BdsClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1356,6 +1412,7 @@ export class BdsClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1381,9 +1438,11 @@ export class BdsClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1478,6 +1537,7 @@ export class BdsClient {
   /**
    * Deletes an autoscale configuration.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveAutoScalingConfigurationRequest
    * @return RemoveAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
@@ -1503,9 +1563,11 @@ export class BdsClient {
       "opc-retry-token": removeAutoScalingConfigurationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeAutoScalingConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeAutoScalingConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1550,6 +1612,7 @@ export class BdsClient {
   /**
    * Removes Cloud SQL from the cluster.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveCloudSqlRequest
    * @return RemoveCloudSqlResponse
    * @throws OciError when an error occurs
@@ -1572,9 +1635,11 @@ export class BdsClient {
       "opc-retry-token": removeCloudSqlRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeCloudSqlRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeCloudSqlRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1618,6 +1683,7 @@ export class BdsClient {
   /**
    * Restarts a single node of a Big Data Service cluster
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestartNodeRequest
    * @return RestartNodeResponse
    * @throws OciError when an error occurs
@@ -1640,9 +1706,11 @@ export class BdsClient {
       "opc-retry-token": restartNodeRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      restartNodeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restartNodeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1686,6 +1754,7 @@ export class BdsClient {
   /**
    * Updates fields on an autoscale configuration, including the name, the threshold value, and whether the autoscale configuration is enabled.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutoScalingConfigurationRequest
    * @return UpdateAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
@@ -1711,9 +1780,11 @@ export class BdsClient {
       "opc-retry-token": updateAutoScalingConfigurationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAutoScalingConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAutoScalingConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1756,6 +1827,7 @@ export class BdsClient {
 
   /**
    * Updates the Big Data Service cluster identified by the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBdsInstanceRequest
    * @return UpdateBdsInstanceResponse
    * @throws OciError when an error occurs
@@ -1777,9 +1849,11 @@ export class BdsClient {
       "opc-request-id": updateBdsInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateBdsInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBdsInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -24,7 +24,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum BudgetApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class BudgetClient {
   protected static serviceEndpointTemplate = "https://usage.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -44,6 +46,15 @@ export class BudgetClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -133,6 +144,7 @@ export class BudgetClient {
   /**
    * Creates a new Alert Rule.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAlertRuleRequest
    * @return CreateAlertRuleResponse
    * @throws OciError when an error occurs
@@ -154,9 +166,11 @@ export class BudgetClient {
       "opc-request-id": createAlertRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAlertRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAlertRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -204,6 +218,7 @@ export class BudgetClient {
   /**
    * Creates a new Budget.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateBudgetRequest
    * @return CreateBudgetResponse
    * @throws OciError when an error occurs
@@ -223,9 +238,11 @@ export class BudgetClient {
       "opc-request-id": createBudgetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createBudgetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBudgetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -272,6 +289,7 @@ export class BudgetClient {
 
   /**
    * Deletes a specified Alert Rule resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAlertRuleRequest
    * @return DeleteAlertRuleResponse
    * @throws OciError when an error occurs
@@ -294,9 +312,11 @@ export class BudgetClient {
       "opc-request-id": deleteAlertRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAlertRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAlertRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -329,6 +349,7 @@ export class BudgetClient {
 
   /**
    * Deletes a specified Budget resource
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBudgetRequest
    * @return DeleteBudgetResponse
    * @throws OciError when an error occurs
@@ -350,9 +371,11 @@ export class BudgetClient {
       "opc-request-id": deleteBudgetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteBudgetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBudgetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -385,6 +408,7 @@ export class BudgetClient {
 
   /**
    * Gets an Alert Rule for a specified Budget.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAlertRuleRequest
    * @return GetAlertRuleResponse
    * @throws OciError when an error occurs
@@ -406,9 +430,11 @@ export class BudgetClient {
       "opc-request-id": getAlertRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAlertRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAlertRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -450,6 +476,7 @@ export class BudgetClient {
 
   /**
    * Gets a Budget by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBudgetRequest
    * @return GetBudgetResponse
    * @throws OciError when an error occurs
@@ -470,9 +497,11 @@ export class BudgetClient {
       "opc-request-id": getBudgetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBudgetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBudgetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -515,6 +544,7 @@ export class BudgetClient {
   /**
    * Returns a list of Alert Rules for a specified Budget.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAlertRulesRequest
    * @return ListAlertRulesResponse
    * @throws OciError when an error occurs
@@ -542,9 +572,11 @@ export class BudgetClient {
       "opc-request-id": listAlertRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAlertRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAlertRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -648,6 +680,7 @@ To list ALL budgets, set the targetType query parameter to ALL.
 Additional targetTypes would be available in future releases. Clients should ignore new targetType 
 * or upgrade to latest version of client SDK to handle new targetType.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListBudgetsRequest
      * @return ListBudgetsResponse
      * @throws OciError when an error occurs
@@ -675,9 +708,11 @@ Additional targetTypes would be available in future releases. Clients should ign
       "opc-request-id": listBudgetsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBudgetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBudgetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -771,6 +806,7 @@ Additional targetTypes would be available in future releases. Clients should ign
 
   /**
    * Update an Alert Rule for the budget identified by the OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAlertRuleRequest
    * @return UpdateAlertRuleResponse
    * @throws OciError when an error occurs
@@ -793,9 +829,11 @@ Additional targetTypes would be available in future releases. Clients should ign
       "opc-request-id": updateAlertRuleRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAlertRuleRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAlertRuleRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -842,6 +880,7 @@ Additional targetTypes would be available in future releases. Clients should ign
 
   /**
    * Update a Budget identified by the OCID
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBudgetRequest
    * @return UpdateBudgetResponse
    * @throws OciError when an error occurs
@@ -863,9 +902,11 @@ Additional targetTypes would be available in future releases. Clients should ign
       "opc-request-id": updateBudgetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateBudgetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBudgetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

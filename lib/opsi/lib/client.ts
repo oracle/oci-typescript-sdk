@@ -26,7 +26,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum OperationsInsightsApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class OperationsInsightsClient {
   protected static serviceEndpointTemplate =
     "https://operationsinsights.{region}.oci.{secondLevelDomain}";
@@ -47,6 +49,15 @@ export class OperationsInsightsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -134,7 +145,79 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Add new members (e.g. databases and hosts) to an Exadata system in Operations Insights. Exadata-related metric collection and analysis will be started.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddExadataInsightMembersRequest
+   * @return AddExadataInsightMembersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/AddExadataInsightMembers.ts.html |here} to see how to use AddExadataInsightMembers API.
+   */
+  public async addExadataInsightMembers(
+    addExadataInsightMembersRequest: requests.AddExadataInsightMembersRequest
+  ): Promise<responses.AddExadataInsightMembersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#addExadataInsightMembers.");
+    const pathParams = {
+      "{exadataInsightId}": addExadataInsightMembersRequest.exadataInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addExadataInsightMembersRequest.ifMatch,
+      "opc-request-id": addExadataInsightMembersRequest.opcRequestId,
+      "opc-retry-token": addExadataInsightMembersRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addExadataInsightMembersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/{exadataInsightId}/actions/addMembers",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addExadataInsightMembersRequest.addExadataInsightMembersDetails,
+        "AddExadataInsightMembersDetails",
+        model.AddExadataInsightMembersDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddExadataInsightMembersResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a DatabaseInsight resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDatabaseInsightCompartmentRequest
    * @return ChangeDatabaseInsightCompartmentResponse
    * @throws OciError when an error occurs
@@ -160,9 +243,11 @@ export class OperationsInsightsClient {
       "opc-retry-token": changeDatabaseInsightCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeDatabaseInsightCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDatabaseInsightCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -205,6 +290,7 @@ export class OperationsInsightsClient {
 
   /**
    * Moves a EnterpriseManagerBridge resource from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeEnterpriseManagerBridgeCompartmentRequest
    * @return ChangeEnterpriseManagerBridgeCompartmentResponse
    * @throws OciError when an error occurs
@@ -230,9 +316,11 @@ export class OperationsInsightsClient {
       "opc-request-id": changeEnterpriseManagerBridgeCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeEnterpriseManagerBridgeCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeEnterpriseManagerBridgeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -274,7 +362,81 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Moves an Exadata insight resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeExadataInsightCompartmentRequest
+   * @return ChangeExadataInsightCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeExadataInsightCompartment.ts.html |here} to see how to use ChangeExadataInsightCompartment API.
+   */
+  public async changeExadataInsightCompartment(
+    changeExadataInsightCompartmentRequest: requests.ChangeExadataInsightCompartmentRequest
+  ): Promise<responses.ChangeExadataInsightCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#changeExadataInsightCompartment."
+      );
+    const pathParams = {
+      "{exadataInsightId}": changeExadataInsightCompartmentRequest.exadataInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeExadataInsightCompartmentRequest.ifMatch,
+      "opc-request-id": changeExadataInsightCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeExadataInsightCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeExadataInsightCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/{exadataInsightId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeExadataInsightCompartmentRequest.changeExadataInsightCompartmentDetails,
+        "ChangeExadataInsightCompartmentDetails",
+        model.ChangeExadataInsightCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeExadataInsightCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a HostInsight resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeHostInsightCompartmentRequest
    * @return ChangeHostInsightCompartmentResponse
    * @throws OciError when an error occurs
@@ -298,9 +460,11 @@ export class OperationsInsightsClient {
       "opc-retry-token": changeHostInsightCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeHostInsightCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeHostInsightCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -344,6 +508,7 @@ export class OperationsInsightsClient {
   /**
    * Create a Database Insight resource for a database in Operations Insights. The database will be enabled in Operations Insights. Database metric collection and analysis will be started.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDatabaseInsightRequest
    * @return CreateDatabaseInsightResponse
    * @throws OciError when an error occurs
@@ -364,9 +529,11 @@ export class OperationsInsightsClient {
       "opc-request-id": createDatabaseInsightRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDatabaseInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDatabaseInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -429,6 +596,7 @@ export class OperationsInsightsClient {
   /**
    * Create a Enterprise Manager bridge in Operations Insights.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateEnterpriseManagerBridgeRequest
    * @return CreateEnterpriseManagerBridgeResponse
    * @throws OciError when an error occurs
@@ -451,9 +619,11 @@ export class OperationsInsightsClient {
       "opc-request-id": createEnterpriseManagerBridgeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createEnterpriseManagerBridgeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createEnterpriseManagerBridgeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -514,8 +684,97 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Create an Exadata insight resource for an Exadata system in Operations Insights. The Exadata system will be enabled in Operations Insights. Exadata-related metric collection and analysis will be started.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateExadataInsightRequest
+   * @return CreateExadataInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateExadataInsight.ts.html |here} to see how to use CreateExadataInsight API.
+   */
+  public async createExadataInsight(
+    createExadataInsightRequest: requests.CreateExadataInsightRequest
+  ): Promise<responses.CreateExadataInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#createExadataInsight.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createExadataInsightRequest.opcRetryToken,
+      "opc-request-id": createExadataInsightRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExadataInsightRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExadataInsightRequest.createExadataInsightDetails,
+        "CreateExadataInsightDetails",
+        model.CreateExadataInsightDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExadataInsightResponse>{},
+        body: await response.json(),
+        bodyKey: "exadataInsight",
+        bodyModel: model.ExadataInsight,
+        type: "model.ExadataInsight",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a Host Insight resource for a host in Operations Insights. The host will be enabled in Operations Insights. Host metric collection and analysis will be started.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateHostInsightRequest
    * @return CreateHostInsightResponse
    * @throws OciError when an error occurs
@@ -536,9 +795,11 @@ export class OperationsInsightsClient {
       "opc-request-id": createHostInsightRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createHostInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createHostInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -600,6 +861,7 @@ export class OperationsInsightsClient {
 
   /**
    * Deletes a database insight. The database insight will be deleted and cannot be enabled again.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDatabaseInsightRequest
    * @return DeleteDatabaseInsightResponse
    * @throws OciError when an error occurs
@@ -622,9 +884,11 @@ export class OperationsInsightsClient {
       "opc-request-id": deleteDatabaseInsightRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDatabaseInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDatabaseInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -662,6 +926,7 @@ export class OperationsInsightsClient {
 
   /**
    * Deletes an Operations Insights Enterprise Manager bridge. If any database insight is still referencing this bridge, the operation will fail.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteEnterpriseManagerBridgeRequest
    * @return DeleteEnterpriseManagerBridgeResponse
    * @throws OciError when an error occurs
@@ -686,9 +951,11 @@ export class OperationsInsightsClient {
       "opc-request-id": deleteEnterpriseManagerBridgeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteEnterpriseManagerBridgeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteEnterpriseManagerBridgeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -725,7 +992,73 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Deletes an Exadata insight. The Exadata insight will be deleted and cannot be enabled again.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteExadataInsightRequest
+   * @return DeleteExadataInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteExadataInsight.ts.html |here} to see how to use DeleteExadataInsight API.
+   */
+  public async deleteExadataInsight(
+    deleteExadataInsightRequest: requests.DeleteExadataInsightRequest
+  ): Promise<responses.DeleteExadataInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#deleteExadataInsight.");
+    const pathParams = {
+      "{exadataInsightId}": deleteExadataInsightRequest.exadataInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteExadataInsightRequest.ifMatch,
+      "opc-request-id": deleteExadataInsightRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExadataInsightRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/{exadataInsightId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExadataInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a host insight. The host insight will be deleted and cannot be enabled again.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteHostInsightRequest
    * @return DeleteHostInsightResponse
    * @throws OciError when an error occurs
@@ -748,9 +1081,11 @@ export class OperationsInsightsClient {
       "opc-request-id": deleteHostInsightRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteHostInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteHostInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -788,6 +1123,7 @@ export class OperationsInsightsClient {
 
   /**
    * Disables a database in Operations Insights. Database metric collection and analysis will be stopped.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableDatabaseInsightRequest
    * @return DisableDatabaseInsightResponse
    * @throws OciError when an error occurs
@@ -811,9 +1147,11 @@ export class OperationsInsightsClient {
       "opc-retry-token": disableDatabaseInsightRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      disableDatabaseInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableDatabaseInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -850,7 +1188,74 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Disables an Exadata system in Operations Insights. Exadata-related metric collection and analysis will be stopped.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DisableExadataInsightRequest
+   * @return DisableExadataInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableExadataInsight.ts.html |here} to see how to use DisableExadataInsight API.
+   */
+  public async disableExadataInsight(
+    disableExadataInsightRequest: requests.DisableExadataInsightRequest
+  ): Promise<responses.DisableExadataInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#disableExadataInsight.");
+    const pathParams = {
+      "{exadataInsightId}": disableExadataInsightRequest.exadataInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": disableExadataInsightRequest.ifMatch,
+      "opc-request-id": disableExadataInsightRequest.opcRequestId,
+      "opc-retry-token": disableExadataInsightRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExadataInsightRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/{exadataInsightId}/actions/disable",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExadataInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disables a host in Operations Insights. Host metric collection and analysis will be stopped.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableHostInsightRequest
    * @return DisableHostInsightResponse
    * @throws OciError when an error occurs
@@ -874,9 +1279,11 @@ export class OperationsInsightsClient {
       "opc-retry-token": disableHostInsightRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      disableHostInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableHostInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -914,6 +1321,7 @@ export class OperationsInsightsClient {
 
   /**
    * Enables a database in Operations Insights. Database metric collection and analysis will be started.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableDatabaseInsightRequest
    * @return EnableDatabaseInsightResponse
    * @throws OciError when an error occurs
@@ -937,9 +1345,11 @@ export class OperationsInsightsClient {
       "opc-retry-token": enableDatabaseInsightRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      enableDatabaseInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableDatabaseInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -981,7 +1391,79 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Enables an Exadata system in Operations Insights. Exadata-related metric collection and analysis will be started.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param EnableExadataInsightRequest
+   * @return EnableExadataInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableExadataInsight.ts.html |here} to see how to use EnableExadataInsight API.
+   */
+  public async enableExadataInsight(
+    enableExadataInsightRequest: requests.EnableExadataInsightRequest
+  ): Promise<responses.EnableExadataInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#enableExadataInsight.");
+    const pathParams = {
+      "{exadataInsightId}": enableExadataInsightRequest.exadataInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": enableExadataInsightRequest.ifMatch,
+      "opc-request-id": enableExadataInsightRequest.opcRequestId,
+      "opc-retry-token": enableExadataInsightRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExadataInsightRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/{exadataInsightId}/actions/enable",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExadataInsightRequest.enableExadataInsightDetails,
+        "EnableExadataInsightDetails",
+        model.EnableExadataInsightDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExadataInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Enables a host in Operations Insights. Host metric collection and analysis will be started.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableHostInsightRequest
    * @return EnableHostInsightResponse
    * @throws OciError when an error occurs
@@ -1005,9 +1487,11 @@ export class OperationsInsightsClient {
       "opc-retry-token": enableHostInsightRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      enableHostInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableHostInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1050,6 +1534,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets details of a database insight.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDatabaseInsightRequest
    * @return GetDatabaseInsightResponse
    * @throws OciError when an error occurs
@@ -1071,9 +1556,11 @@ export class OperationsInsightsClient {
       "opc-request-id": getDatabaseInsightRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDatabaseInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1115,6 +1602,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets details of an Operations Insights Enterprise Manager bridge.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetEnterpriseManagerBridgeRequest
    * @return GetEnterpriseManagerBridgeResponse
    * @throws OciError when an error occurs
@@ -1136,9 +1624,11 @@ export class OperationsInsightsClient {
       "opc-request-id": getEnterpriseManagerBridgeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getEnterpriseManagerBridgeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEnterpriseManagerBridgeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1179,7 +1669,76 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Gets details of an Exadata insight.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetExadataInsightRequest
+   * @return GetExadataInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetExadataInsight.ts.html |here} to see how to use GetExadataInsight API.
+   */
+  public async getExadataInsight(
+    getExadataInsightRequest: requests.GetExadataInsightRequest
+  ): Promise<responses.GetExadataInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#getExadataInsight.");
+    const pathParams = {
+      "{exadataInsightId}": getExadataInsightRequest.exadataInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExadataInsightRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExadataInsightRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/{exadataInsightId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExadataInsightResponse>{},
+        body: await response.json(),
+        bodyKey: "exadataInsight",
+        bodyModel: model.ExadataInsight,
+        type: "model.ExadataInsight",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets details of a host insight.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetHostInsightRequest
    * @return GetHostInsightResponse
    * @throws OciError when an error occurs
@@ -1201,9 +1760,11 @@ export class OperationsInsightsClient {
       "opc-request-id": getHostInsightRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getHostInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHostInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1245,6 +1806,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets the status of the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1266,9 +1828,11 @@ export class OperationsInsightsClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1290,6 +1854,11 @@ export class OperationsInsightsClient {
         type: "model.WorkRequest",
         responseHeaders: [
           {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
@@ -1310,6 +1879,7 @@ export class OperationsInsightsClient {
 
   /**
    * This is a generic ingest endpoint for all database configuration metrics.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param IngestDatabaseConfigurationRequest
    * @return IngestDatabaseConfigurationResponse
    * @throws OciError when an error occurs
@@ -1334,9 +1904,11 @@ export class OperationsInsightsClient {
       "opc-retry-token": ingestDatabaseConfigurationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      ingestDatabaseConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      ingestDatabaseConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1383,6 +1955,7 @@ export class OperationsInsightsClient {
 
   /**
    * This is a generic ingest endpoint for all the host configuration metrics
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param IngestHostConfigurationRequest
    * @return IngestHostConfigurationResponse
    * @throws OciError when an error occurs
@@ -1406,9 +1979,11 @@ export class OperationsInsightsClient {
       "opc-retry-token": ingestHostConfigurationRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      ingestHostConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      ingestHostConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1455,6 +2030,7 @@ export class OperationsInsightsClient {
 
   /**
    * This is a generic ingest endpoint for all the host performance metrics
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param IngestHostMetricsRequest
    * @return IngestHostMetricsResponse
    * @throws OciError when an error occurs
@@ -1478,9 +2054,11 @@ export class OperationsInsightsClient {
       "opc-retry-token": ingestHostMetricsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      ingestHostMetricsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      ingestHostMetricsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1529,6 +2107,7 @@ export class OperationsInsightsClient {
    * The sqlbucket endpoint takes in a JSON payload, persists it in Operations Insights ingest pipeline.
    * Either databaseId or id must be specified.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param IngestSqlBucketRequest
    * @return IngestSqlBucketResponse
    * @throws OciError when an error occurs
@@ -1554,9 +2133,11 @@ export class OperationsInsightsClient {
       "opc-retry-token": ingestSqlBucketRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      ingestSqlBucketRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      ingestSqlBucketRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1605,6 +2186,7 @@ export class OperationsInsightsClient {
    * The SqlPlanLines endpoint takes in a JSON payload, persists it in Operation Insights ingest pipeline.
    * Either databaseId or id must be specified.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param IngestSqlPlanLinesRequest
    * @return IngestSqlPlanLinesResponse
    * @throws OciError when an error occurs
@@ -1630,9 +2212,11 @@ export class OperationsInsightsClient {
       "opc-retry-token": ingestSqlPlanLinesRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      ingestSqlPlanLinesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      ingestSqlPlanLinesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1682,6 +2266,7 @@ export class OperationsInsightsClient {
    * Either databaseId or id must be specified.
    * Disclaimer: SQL text being uploaded explicitly via APIs is not masked. Any sensitive literals contained in the sqlFullText column should be masked prior to ingestion.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param IngestSqlTextRequest
    * @return IngestSqlTextResponse
    * @throws OciError when an error occurs
@@ -1706,9 +2291,11 @@ export class OperationsInsightsClient {
       "opc-retry-token": ingestSqlTextRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      ingestSqlTextRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      ingestSqlTextRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1755,6 +2342,8 @@ export class OperationsInsightsClient {
 
   /**
    * Gets a list of database insight configurations based on the query parameters specified. Either compartmentId or databaseInsightId query parameter must be specified.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDatabaseConfigurationsRequest
    * @return ListDatabaseConfigurationsResponse
    * @throws OciError when an error occurs
@@ -1772,6 +2361,8 @@ export class OperationsInsightsClient {
       "enterpriseManagerBridgeId": listDatabaseConfigurationsRequest.enterpriseManagerBridgeId,
       "id": listDatabaseConfigurationsRequest.id,
       "databaseId": listDatabaseConfigurationsRequest.databaseId,
+      "exadataInsightId": listDatabaseConfigurationsRequest.exadataInsightId,
+      "cdbName": listDatabaseConfigurationsRequest.cdbName,
       "databaseType": listDatabaseConfigurationsRequest.databaseType,
       "limit": listDatabaseConfigurationsRequest.limit,
       "page": listDatabaseConfigurationsRequest.page,
@@ -1789,9 +2380,11 @@ export class OperationsInsightsClient {
       "opc-request-id": listDatabaseConfigurationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDatabaseConfigurationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1838,6 +2431,8 @@ export class OperationsInsightsClient {
 
   /**
    * Gets a list of database insights based on the query parameters specified. Either compartmentId or id query parameter must be specified.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDatabaseInsightsRequest
    * @return ListDatabaseInsightsResponse
    * @throws OciError when an error occurs
@@ -1862,7 +2457,8 @@ export class OperationsInsightsClient {
       "limit": listDatabaseInsightsRequest.limit,
       "page": listDatabaseInsightsRequest.page,
       "sortOrder": listDatabaseInsightsRequest.sortOrder,
-      "sortBy": listDatabaseInsightsRequest.sortBy
+      "sortBy": listDatabaseInsightsRequest.sortBy,
+      "exadataInsightId": listDatabaseInsightsRequest.exadataInsightId
     };
 
     let headerParams = {
@@ -1870,9 +2466,11 @@ export class OperationsInsightsClient {
       "opc-request-id": listDatabaseInsightsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDatabaseInsightsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseInsightsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1920,6 +2518,7 @@ export class OperationsInsightsClient {
   /**
    * Gets a list of Operations Insights Enterprise Manager bridges. Either compartmentId or id must be specified.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListEnterpriseManagerBridgesRequest
    * @return ListEnterpriseManagerBridgesResponse
    * @throws OciError when an error occurs
@@ -1948,9 +2547,11 @@ export class OperationsInsightsClient {
       "opc-request-id": listEnterpriseManagerBridgesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listEnterpriseManagerBridgesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEnterpriseManagerBridgesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1991,7 +2592,262 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Gets a list of exadata insight configurations. Either compartmentId or exadataInsightsId query parameter must be specified.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListExadataConfigurationsRequest
+   * @return ListExadataConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListExadataConfigurations.ts.html |here} to see how to use ListExadataConfigurations API.
+   */
+  public async listExadataConfigurations(
+    listExadataConfigurationsRequest: requests.ListExadataConfigurationsRequest
+  ): Promise<responses.ListExadataConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listExadataConfigurations.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExadataConfigurationsRequest.compartmentId,
+      "exadataInsightId": listExadataConfigurationsRequest.exadataInsightId,
+      "exadataType": listExadataConfigurationsRequest.exadataType,
+      "limit": listExadataConfigurationsRequest.limit,
+      "page": listExadataConfigurationsRequest.page,
+      "sortOrder": listExadataConfigurationsRequest.sortOrder,
+      "sortBy": listExadataConfigurationsRequest.sortBy,
+      "definedTagEquals": listExadataConfigurationsRequest.definedTagEquals,
+      "freeformTagEquals": listExadataConfigurationsRequest.freeformTagEquals,
+      "definedTagExists": listExadataConfigurationsRequest.definedTagExists,
+      "freeformTagExists": listExadataConfigurationsRequest.freeformTagExists
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExadataConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExadataConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/exadataConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExadataConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "exadataConfigurationCollection",
+        bodyModel: model.ExadataConfigurationCollection,
+        type: "model.ExadataConfigurationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of Exadata insights based on the query parameters specified. Either compartmentId or id query parameter must be specified.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListExadataInsightsRequest
+   * @return ListExadataInsightsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListExadataInsights.ts.html |here} to see how to use ListExadataInsights API.
+   */
+  public async listExadataInsights(
+    listExadataInsightsRequest: requests.ListExadataInsightsRequest
+  ): Promise<responses.ListExadataInsightsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listExadataInsights.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExadataInsightsRequest.compartmentId,
+      "enterpriseManagerBridgeId": listExadataInsightsRequest.enterpriseManagerBridgeId,
+      "id": listExadataInsightsRequest.id,
+      "status": listExadataInsightsRequest.status,
+      "lifecycleState": listExadataInsightsRequest.lifecycleState,
+      "exadataType": listExadataInsightsRequest.exadataType,
+      "limit": listExadataInsightsRequest.limit,
+      "page": listExadataInsightsRequest.page,
+      "sortOrder": listExadataInsightsRequest.sortOrder,
+      "sortBy": listExadataInsightsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExadataInsightsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExadataInsightsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExadataInsightsResponse>{},
+        body: await response.json(),
+        bodyKey: "exadataInsightSummaryCollection",
+        bodyModel: model.ExadataInsightSummaryCollection,
+        type: "model.ExadataInsightSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of host insight configurations based on the query parameters specified. Either compartmentId or hostInsightId query parameter must be specified.
+   * When both compartmentId and compartmentIdInSubtree are specified, a list of host insight configurations in that compartment and in all sub-compartments will be returned.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListHostConfigurationsRequest
+   * @return ListHostConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListHostConfigurations.ts.html |here} to see how to use ListHostConfigurations API.
+   */
+  public async listHostConfigurations(
+    listHostConfigurationsRequest: requests.ListHostConfigurationsRequest
+  ): Promise<responses.ListHostConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listHostConfigurations.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listHostConfigurationsRequest.compartmentId,
+      "enterpriseManagerBridgeId": listHostConfigurationsRequest.enterpriseManagerBridgeId,
+      "id": listHostConfigurationsRequest.id,
+      "exadataInsightId": listHostConfigurationsRequest.exadataInsightId,
+      "platformType": listHostConfigurationsRequest.platformType,
+      "limit": listHostConfigurationsRequest.limit,
+      "page": listHostConfigurationsRequest.page,
+      "sortOrder": listHostConfigurationsRequest.sortOrder,
+      "sortBy": listHostConfigurationsRequest.sortBy,
+      "definedTagEquals": listHostConfigurationsRequest.definedTagEquals,
+      "freeformTagEquals": listHostConfigurationsRequest.freeformTagEquals,
+      "definedTagExists": listHostConfigurationsRequest.definedTagExists,
+      "freeformTagExists": listHostConfigurationsRequest.freeformTagExists
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listHostConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHostConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/hostConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListHostConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "hostConfigurationCollection",
+        bodyModel: model.HostConfigurationCollection,
+        type: "model.HostConfigurationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of host insights based on the query parameters specified. Either compartmentId or id query parameter must be specified.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListHostInsightsRequest
    * @return ListHostInsightsResponse
    * @throws OciError when an error occurs
@@ -2014,7 +2870,9 @@ export class OperationsInsightsClient {
       "limit": listHostInsightsRequest.limit,
       "page": listHostInsightsRequest.page,
       "sortOrder": listHostInsightsRequest.sortOrder,
-      "sortBy": listHostInsightsRequest.sortBy
+      "sortBy": listHostInsightsRequest.sortBy,
+      "enterpriseManagerBridgeId": listHostInsightsRequest.enterpriseManagerBridgeId,
+      "exadataInsightId": listHostInsightsRequest.exadataInsightId
     };
 
     let headerParams = {
@@ -2022,9 +2880,11 @@ export class OperationsInsightsClient {
       "opc-request-id": listHostInsightsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listHostInsightsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHostInsightsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2072,6 +2932,7 @@ export class OperationsInsightsClient {
   /**
    * Get a list of hosted entities details.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListHostedEntitiesRequest
    * @return ListHostedEntitiesResponse
    * @throws OciError when an error occurs
@@ -2091,6 +2952,7 @@ export class OperationsInsightsClient {
       "timeIntervalEnd": listHostedEntitiesRequest.timeIntervalEnd,
       "platformType": listHostedEntitiesRequest.platformType,
       "id": listHostedEntitiesRequest.id,
+      "exadataInsightId": listHostedEntitiesRequest.exadataInsightId,
       "limit": listHostedEntitiesRequest.limit,
       "page": listHostedEntitiesRequest.page,
       "sortOrder": listHostedEntitiesRequest.sortOrder,
@@ -2102,9 +2964,11 @@ export class OperationsInsightsClient {
       "opc-request-id": listHostedEntitiesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listHostedEntitiesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHostedEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2151,6 +3015,7 @@ export class OperationsInsightsClient {
    *    2.  The agent availabilityStatus = 'ACTIVE'
    *    3.  The agent lifecycleState = 'ACTIVE'
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListImportableAgentEntitiesRequest
    * @return ListImportableAgentEntitiesResponse
    * @throws OciError when an error occurs
@@ -2176,9 +3041,11 @@ export class OperationsInsightsClient {
       "opc-request-id": listImportableAgentEntitiesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listImportableAgentEntitiesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listImportableAgentEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2221,6 +3088,7 @@ export class OperationsInsightsClient {
   /**
    * Gets a list of importable entities for an Operations Insights Enterprise Manager bridge that have not been imported before.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListImportableEnterpriseManagerEntitiesRequest
    * @return ListImportableEnterpriseManagerEntitiesResponse
    * @throws OciError when an error occurs
@@ -2240,7 +3108,13 @@ export class OperationsInsightsClient {
 
     const queryParams = {
       "limit": listImportableEnterpriseManagerEntitiesRequest.limit,
-      "page": listImportableEnterpriseManagerEntitiesRequest.page
+      "page": listImportableEnterpriseManagerEntitiesRequest.page,
+      "enterpriseManagerEntityType":
+        listImportableEnterpriseManagerEntitiesRequest.enterpriseManagerEntityType,
+      "enterpriseManagerIdentifier":
+        listImportableEnterpriseManagerEntitiesRequest.enterpriseManagerIdentifier,
+      "enterpriseManagerParentEntityIdentifier":
+        listImportableEnterpriseManagerEntitiesRequest.enterpriseManagerParentEntityIdentifier
     };
 
     let headerParams = {
@@ -2248,9 +3122,11 @@ export class OperationsInsightsClient {
       "opc-request-id": listImportableEnterpriseManagerEntitiesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listImportableEnterpriseManagerEntitiesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listImportableEnterpriseManagerEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2295,6 +3171,7 @@ export class OperationsInsightsClient {
    * Query SQL Warehouse to list the plan xml for a given SQL execution plan. This returns a SqlPlanCollection object, but is currently limited to a single plan.
    * Either databaseId or id must be specified.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSqlPlansRequest
    * @return ListSqlPlansResponse
    * @throws OciError when an error occurs
@@ -2320,9 +3197,11 @@ export class OperationsInsightsClient {
       "opc-request-id": listSqlPlansRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSqlPlansRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlPlansRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2364,6 +3243,8 @@ export class OperationsInsightsClient {
 
   /**
    * Search SQL by SQL Identifier across databases and get the SQL Text and the details of the databases executing the SQL for a given time period.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSqlSearchesRequest
    * @return ListSqlSearchesResponse
    * @throws OciError when an error occurs
@@ -2394,9 +3275,11 @@ export class OperationsInsightsClient {
       "opc-request-id": listSqlSearchesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSqlSearchesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlSearchesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2438,6 +3321,8 @@ export class OperationsInsightsClient {
 
   /**
    * Query SQL Warehouse to get the full SQL Text for a SQL.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSqlTextsRequest
    * @return ListSqlTextsResponse
    * @throws OciError when an error occurs
@@ -2466,9 +3351,11 @@ export class OperationsInsightsClient {
       "opc-request-id": listSqlTextsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSqlTextsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlTextsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2511,6 +3398,7 @@ export class OperationsInsightsClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -2527,7 +3415,9 @@ export class OperationsInsightsClient {
 
     const queryParams = {
       "page": listWorkRequestErrorsRequest.page,
-      "limit": listWorkRequestErrorsRequest.limit
+      "limit": listWorkRequestErrorsRequest.limit,
+      "sortBy": listWorkRequestErrorsRequest.sortBy,
+      "sortOrder": listWorkRequestErrorsRequest.sortOrder
     };
 
     let headerParams = {
@@ -2535,9 +3425,11 @@ export class OperationsInsightsClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2580,6 +3472,7 @@ export class OperationsInsightsClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -2596,7 +3489,9 @@ export class OperationsInsightsClient {
 
     const queryParams = {
       "page": listWorkRequestLogsRequest.page,
-      "limit": listWorkRequestLogsRequest.limit
+      "limit": listWorkRequestLogsRequest.limit,
+      "sortBy": listWorkRequestLogsRequest.sortBy,
+      "sortOrder": listWorkRequestLogsRequest.sortOrder
     };
 
     let headerParams = {
@@ -2604,9 +3499,11 @@ export class OperationsInsightsClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2647,8 +3544,9 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Lists the work requests in a compartment.
+   * Lists the work requests in a compartment. Either compartmentId or id must be specified. Only one of id, resourceId or relatedResourceId can be specified optionally.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -2662,9 +3560,15 @@ export class OperationsInsightsClient {
     const pathParams = {};
 
     const queryParams = {
-      "compartmentId": listWorkRequestsRequest.compartmentId,
       "page": listWorkRequestsRequest.page,
-      "limit": listWorkRequestsRequest.limit
+      "limit": listWorkRequestsRequest.limit,
+      "compartmentId": listWorkRequestsRequest.compartmentId,
+      "id": listWorkRequestsRequest.id,
+      "status": listWorkRequestsRequest.status,
+      "resourceId": listWorkRequestsRequest.resourceId,
+      "relatedResourceId": listWorkRequestsRequest.relatedResourceId,
+      "sortOrder": listWorkRequestsRequest.sortOrder,
+      "sortBy": listWorkRequestsRequest.sortBy
     };
 
     let headerParams = {
@@ -2672,9 +3576,11 @@ export class OperationsInsightsClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2718,6 +3624,7 @@ export class OperationsInsightsClient {
    * Returns response with time series data (endTimestamp, capacity, baseCapacity) for the time period specified.
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeDatabaseInsightResourceCapacityTrendRequest
    * @return SummarizeDatabaseInsightResourceCapacityTrendResponse
    * @throws OciError when an error occurs
@@ -2742,6 +3649,8 @@ export class OperationsInsightsClient {
       "databaseType": summarizeDatabaseInsightResourceCapacityTrendRequest.databaseType,
       "databaseId": summarizeDatabaseInsightResourceCapacityTrendRequest.databaseId,
       "id": summarizeDatabaseInsightResourceCapacityTrendRequest.id,
+      "exadataInsightId": summarizeDatabaseInsightResourceCapacityTrendRequest.exadataInsightId,
+      "cdbName": summarizeDatabaseInsightResourceCapacityTrendRequest.cdbName,
       "utilizationLevel": summarizeDatabaseInsightResourceCapacityTrendRequest.utilizationLevel,
       "page": summarizeDatabaseInsightResourceCapacityTrendRequest.page,
       "sortOrder": summarizeDatabaseInsightResourceCapacityTrendRequest.sortOrder,
@@ -2761,9 +3670,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightResourceCapacityTrendRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeDatabaseInsightResourceCapacityTrendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeDatabaseInsightResourceCapacityTrendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2806,6 +3717,7 @@ export class OperationsInsightsClient {
   /**
    * Get Forecast predictions for CPU and Storage resources since a time in the past.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeDatabaseInsightResourceForecastTrendRequest
    * @return SummarizeDatabaseInsightResourceForecastTrendResponse
    * @throws OciError when an error occurs
@@ -2830,6 +3742,8 @@ export class OperationsInsightsClient {
       "databaseType": summarizeDatabaseInsightResourceForecastTrendRequest.databaseType,
       "databaseId": summarizeDatabaseInsightResourceForecastTrendRequest.databaseId,
       "id": summarizeDatabaseInsightResourceForecastTrendRequest.id,
+      "exadataInsightId": summarizeDatabaseInsightResourceForecastTrendRequest.exadataInsightId,
+      "cdbName": summarizeDatabaseInsightResourceForecastTrendRequest.cdbName,
       "statistic": summarizeDatabaseInsightResourceForecastTrendRequest.statistic,
       "forecastDays": summarizeDatabaseInsightResourceForecastTrendRequest.forecastDays,
       "forecastModel": summarizeDatabaseInsightResourceForecastTrendRequest.forecastModel,
@@ -2851,9 +3765,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightResourceForecastTrendRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeDatabaseInsightResourceForecastTrendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeDatabaseInsightResourceForecastTrendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2894,7 +3810,10 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Lists the Resource statistics (usage,capacity, usage change percent, utilization percent, base capacity, isAutoScalingEnabled) for each database filtered by utilization level
+   * Lists the Resource statistics (usage,capacity, usage change percent, utilization percent, base capacity, isAutoScalingEnabled)
+   * for each database filtered by utilization level.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeDatabaseInsightResourceStatisticsRequest
    * @return SummarizeDatabaseInsightResourceStatisticsResponse
    * @throws OciError when an error occurs
@@ -2919,6 +3838,8 @@ export class OperationsInsightsClient {
       "databaseType": summarizeDatabaseInsightResourceStatisticsRequest.databaseType,
       "databaseId": summarizeDatabaseInsightResourceStatisticsRequest.databaseId,
       "id": summarizeDatabaseInsightResourceStatisticsRequest.id,
+      "exadataInsightId": summarizeDatabaseInsightResourceStatisticsRequest.exadataInsightId,
+      "cdbName": summarizeDatabaseInsightResourceStatisticsRequest.cdbName,
       "percentile": summarizeDatabaseInsightResourceStatisticsRequest.percentile,
       "insightBy": summarizeDatabaseInsightResourceStatisticsRequest.insightBy,
       "forecastDays": summarizeDatabaseInsightResourceStatisticsRequest.forecastDays,
@@ -2940,9 +3861,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightResourceStatisticsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeDatabaseInsightResourceStatisticsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeDatabaseInsightResourceStatisticsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2987,6 +3910,7 @@ export class OperationsInsightsClient {
    * For each database, the minimum data point with a ranking > the percentile value is included in the summation.
    * Linear regression functions are used to calculate the usage change percentage.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeDatabaseInsightResourceUsageRequest
    * @return SummarizeDatabaseInsightResourceUsageResponse
    * @throws OciError when an error occurs
@@ -3010,6 +3934,7 @@ export class OperationsInsightsClient {
       "databaseType": summarizeDatabaseInsightResourceUsageRequest.databaseType,
       "databaseId": summarizeDatabaseInsightResourceUsageRequest.databaseId,
       "id": summarizeDatabaseInsightResourceUsageRequest.id,
+      "exadataInsightId": summarizeDatabaseInsightResourceUsageRequest.exadataInsightId,
       "hostName": summarizeDatabaseInsightResourceUsageRequest.hostName,
       "isDatabaseInstanceLevelMetrics":
         summarizeDatabaseInsightResourceUsageRequest.isDatabaseInstanceLevelMetrics,
@@ -3026,9 +3951,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightResourceUsageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeDatabaseInsightResourceUsageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeDatabaseInsightResourceUsageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3072,6 +3999,7 @@ export class OperationsInsightsClient {
    * Returns response with time series data (endTimestamp, usage, capacity) for the time period specified.
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeDatabaseInsightResourceUsageTrendRequest
    * @return SummarizeDatabaseInsightResourceUsageTrendResponse
    * @throws OciError when an error occurs
@@ -3096,6 +4024,7 @@ export class OperationsInsightsClient {
       "databaseType": summarizeDatabaseInsightResourceUsageTrendRequest.databaseType,
       "databaseId": summarizeDatabaseInsightResourceUsageTrendRequest.databaseId,
       "id": summarizeDatabaseInsightResourceUsageTrendRequest.id,
+      "exadataInsightId": summarizeDatabaseInsightResourceUsageTrendRequest.exadataInsightId,
       "page": summarizeDatabaseInsightResourceUsageTrendRequest.page,
       "sortOrder": summarizeDatabaseInsightResourceUsageTrendRequest.sortOrder,
       "sortBy": summarizeDatabaseInsightResourceUsageTrendRequest.sortBy,
@@ -3113,9 +4042,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightResourceUsageTrendRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeDatabaseInsightResourceUsageTrendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeDatabaseInsightResourceUsageTrendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3157,6 +4088,8 @@ export class OperationsInsightsClient {
 
   /**
    * Gets resources with current utilization (high and low) and projected utilization (high and low) for a resource type over specified time period.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeDatabaseInsightResourceUtilizationInsightRequest
    * @return SummarizeDatabaseInsightResourceUtilizationInsightResponse
    * @throws OciError when an error occurs
@@ -3182,6 +4115,8 @@ export class OperationsInsightsClient {
       "databaseType": summarizeDatabaseInsightResourceUtilizationInsightRequest.databaseType,
       "databaseId": summarizeDatabaseInsightResourceUtilizationInsightRequest.databaseId,
       "id": summarizeDatabaseInsightResourceUtilizationInsightRequest.id,
+      "exadataInsightId":
+        summarizeDatabaseInsightResourceUtilizationInsightRequest.exadataInsightId,
       "forecastDays": summarizeDatabaseInsightResourceUtilizationInsightRequest.forecastDays,
       "hostName": summarizeDatabaseInsightResourceUtilizationInsightRequest.hostName,
       "isDatabaseInstanceLevelMetrics":
@@ -3202,9 +4137,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightResourceUtilizationInsightRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeDatabaseInsightResourceUtilizationInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeDatabaseInsightResourceUtilizationInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3249,6 +4186,7 @@ export class OperationsInsightsClient {
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
    * Either databaseId or id must be specified.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeDatabaseInsightTablespaceUsageTrendRequest
    * @return SummarizeDatabaseInsightTablespaceUsageTrendResponse
    * @throws OciError when an error occurs
@@ -3280,9 +4218,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightTablespaceUsageTrendRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeDatabaseInsightTablespaceUsageTrendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeDatabaseInsightTablespaceUsageTrendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3323,9 +4263,864 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Returns response with time series data (endTimestamp, capacity) for the time period specified for an exadata system for a resource metric.
+   * Additionally resources can be filtered using databaseInsightId, hostInsightId or storageServerName query parameters.
+   * Top five resources are returned if total exceeds the limit specified.
+   * Valid values for ResourceType DATABASE are CPU,MEMORY,IO and STORAGE. Database name is returned in name field. DatabaseInsightId, cdbName and hostName query parameter applies to ResourceType DATABASE.
+   * Valid values for ResourceType HOST are CPU and MEMORY. HostName is returned in name field. HostInsightId and hostName query parameter applies to ResourceType HOST.
+   * Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS and THROUGHPUT. Storage server name is returned in name field for resourceMetric IOPS and THROUGHPUT
+   * and asmName is returned in name field for resourceMetric STORAGE. StorageServerName query parameter applies to ResourceType STORAGE_SERVER.
+   * Valid values for ResourceType DISKGROUP is STORAGE. Comma delimited (asmName,diskgroupName) is returned in name field.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeExadataInsightResourceCapacityTrendRequest
+   * @return SummarizeExadataInsightResourceCapacityTrendResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceCapacityTrend.ts.html |here} to see how to use SummarizeExadataInsightResourceCapacityTrend API.
+   */
+  public async summarizeExadataInsightResourceCapacityTrend(
+    summarizeExadataInsightResourceCapacityTrendRequest: requests.SummarizeExadataInsightResourceCapacityTrendRequest
+  ): Promise<responses.SummarizeExadataInsightResourceCapacityTrendResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceCapacityTrend."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeExadataInsightResourceCapacityTrendRequest.compartmentId,
+      "resourceType": summarizeExadataInsightResourceCapacityTrendRequest.resourceType,
+      "resourceMetric": summarizeExadataInsightResourceCapacityTrendRequest.resourceMetric,
+      "analysisTimeInterval":
+        summarizeExadataInsightResourceCapacityTrendRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeExadataInsightResourceCapacityTrendRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeExadataInsightResourceCapacityTrendRequest.timeIntervalEnd,
+      "exadataInsightId": summarizeExadataInsightResourceCapacityTrendRequest.exadataInsightId,
+      "databaseInsightId": summarizeExadataInsightResourceCapacityTrendRequest.databaseInsightId,
+      "hostInsightId": summarizeExadataInsightResourceCapacityTrendRequest.hostInsightId,
+      "storageServerName": summarizeExadataInsightResourceCapacityTrendRequest.storageServerName,
+      "exadataType": summarizeExadataInsightResourceCapacityTrendRequest.exadataType,
+      "cdbName": summarizeExadataInsightResourceCapacityTrendRequest.cdbName,
+      "hostName": summarizeExadataInsightResourceCapacityTrendRequest.hostName,
+      "page": summarizeExadataInsightResourceCapacityTrendRequest.page,
+      "limit": summarizeExadataInsightResourceCapacityTrendRequest.limit,
+      "sortOrder": summarizeExadataInsightResourceCapacityTrendRequest.sortOrder,
+      "sortBy": summarizeExadataInsightResourceCapacityTrendRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExadataInsightResourceCapacityTrendRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExadataInsightResourceCapacityTrendRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/resourceCapacityTrend",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeExadataInsightResourceCapacityTrendResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeExadataInsightResourceCapacityTrendCollection",
+        bodyModel: model.SummarizeExadataInsightResourceCapacityTrendCollection,
+        type: "model.SummarizeExadataInsightResourceCapacityTrendCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns response with time series data (endTimestamp, capacity) for the time period specified for an exadata system or fleet aggregation for a resource metric.
+   * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
+   * Valid values for ResourceType DATABASE are CPU,MEMORY,IO and STORAGE.
+   * Valid values for ResourceType HOST are CPU and MEMORY.
+   * Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS and THROUGHPUT.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeExadataInsightResourceCapacityTrendAggregatedRequest
+   * @return SummarizeExadataInsightResourceCapacityTrendAggregatedResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceCapacityTrendAggregated.ts.html |here} to see how to use SummarizeExadataInsightResourceCapacityTrendAggregated API.
+   */
+  public async summarizeExadataInsightResourceCapacityTrendAggregated(
+    summarizeExadataInsightResourceCapacityTrendAggregatedRequest: requests.SummarizeExadataInsightResourceCapacityTrendAggregatedRequest
+  ): Promise<responses.SummarizeExadataInsightResourceCapacityTrendAggregatedResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceCapacityTrendAggregated."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeExadataInsightResourceCapacityTrendAggregatedRequest.compartmentId,
+      "resourceType": summarizeExadataInsightResourceCapacityTrendAggregatedRequest.resourceType,
+      "resourceMetric":
+        summarizeExadataInsightResourceCapacityTrendAggregatedRequest.resourceMetric,
+      "analysisTimeInterval":
+        summarizeExadataInsightResourceCapacityTrendAggregatedRequest.analysisTimeInterval,
+      "timeIntervalStart":
+        summarizeExadataInsightResourceCapacityTrendAggregatedRequest.timeIntervalStart,
+      "timeIntervalEnd":
+        summarizeExadataInsightResourceCapacityTrendAggregatedRequest.timeIntervalEnd,
+      "exadataInsightId":
+        summarizeExadataInsightResourceCapacityTrendAggregatedRequest.exadataInsightId,
+      "exadataType": summarizeExadataInsightResourceCapacityTrendAggregatedRequest.exadataType,
+      "cdbName": summarizeExadataInsightResourceCapacityTrendAggregatedRequest.cdbName,
+      "hostName": summarizeExadataInsightResourceCapacityTrendAggregatedRequest.hostName,
+      "page": summarizeExadataInsightResourceCapacityTrendAggregatedRequest.page,
+      "sortOrder": summarizeExadataInsightResourceCapacityTrendAggregatedRequest.sortOrder,
+      "sortBy": summarizeExadataInsightResourceCapacityTrendAggregatedRequest.sortBy,
+      "definedTagEquals":
+        summarizeExadataInsightResourceCapacityTrendAggregatedRequest.definedTagEquals,
+      "freeformTagEquals":
+        summarizeExadataInsightResourceCapacityTrendAggregatedRequest.freeformTagEquals,
+      "definedTagExists":
+        summarizeExadataInsightResourceCapacityTrendAggregatedRequest.definedTagExists,
+      "freeformTagExists":
+        summarizeExadataInsightResourceCapacityTrendAggregatedRequest.freeformTagExists
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExadataInsightResourceCapacityTrendAggregatedRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExadataInsightResourceCapacityTrendAggregatedRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/resourceCapacityTrendAggregated",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <
+          responses.SummarizeExadataInsightResourceCapacityTrendAggregatedResponse
+        >{},
+        body: await response.json(),
+        bodyKey: "summarizeExadataInsightResourceCapacityTrendAggregation",
+        bodyModel: model.SummarizeExadataInsightResourceCapacityTrendAggregation,
+        type: "model.SummarizeExadataInsightResourceCapacityTrendAggregation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get historical usage and forecast predictions for an exadata system with breakdown by databases, hosts or storage servers.
+   * Additionally resources can be filtered using databaseInsightId, hostInsightId or storageServerName query parameters.
+   * Top five resources are returned if total exceeds the limit specified.
+   * Valid values for ResourceType DATABASE are CPU,MEMORY,IO and STORAGE. Database name is returned in name field. DatabaseInsightId , cdbName and hostName query parameter applies to ResourceType DATABASE.
+   * Valid values for ResourceType HOST are CPU and MEMORY. HostName s returned in name field. HostInsightId and hostName query parameter applies to ResourceType HOST.
+   * Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS and THROUGHPUT. Storage server name is returned in name field for resourceMetric IOPS and THROUGHPUT
+   * and asmName is returned in name field for resourceMetric STORAGE. StorageServerName query parameter applies to ResourceType STORAGE_SERVER.
+   * Valid value for ResourceType DISKGROUP is STORAGE. Comma delimited (asmName,diskgroupName) is returned in name field.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeExadataInsightResourceForecastTrendRequest
+   * @return SummarizeExadataInsightResourceForecastTrendResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceForecastTrend.ts.html |here} to see how to use SummarizeExadataInsightResourceForecastTrend API.
+   */
+  public async summarizeExadataInsightResourceForecastTrend(
+    summarizeExadataInsightResourceForecastTrendRequest: requests.SummarizeExadataInsightResourceForecastTrendRequest
+  ): Promise<responses.SummarizeExadataInsightResourceForecastTrendResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceForecastTrend."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "resourceType": summarizeExadataInsightResourceForecastTrendRequest.resourceType,
+      "resourceMetric": summarizeExadataInsightResourceForecastTrendRequest.resourceMetric,
+      "analysisTimeInterval":
+        summarizeExadataInsightResourceForecastTrendRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeExadataInsightResourceForecastTrendRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeExadataInsightResourceForecastTrendRequest.timeIntervalEnd,
+      "exadataInsightId": summarizeExadataInsightResourceForecastTrendRequest.exadataInsightId,
+      "databaseInsightId": summarizeExadataInsightResourceForecastTrendRequest.databaseInsightId,
+      "hostInsightId": summarizeExadataInsightResourceForecastTrendRequest.hostInsightId,
+      "storageServerName": summarizeExadataInsightResourceForecastTrendRequest.storageServerName,
+      "exadataType": summarizeExadataInsightResourceForecastTrendRequest.exadataType,
+      "statistic": summarizeExadataInsightResourceForecastTrendRequest.statistic,
+      "forecastStartDay": summarizeExadataInsightResourceForecastTrendRequest.forecastStartDay,
+      "forecastDays": summarizeExadataInsightResourceForecastTrendRequest.forecastDays,
+      "forecastModel": summarizeExadataInsightResourceForecastTrendRequest.forecastModel,
+      "cdbName": summarizeExadataInsightResourceForecastTrendRequest.cdbName,
+      "hostName": summarizeExadataInsightResourceForecastTrendRequest.hostName,
+      "limit": summarizeExadataInsightResourceForecastTrendRequest.limit,
+      "confidence": summarizeExadataInsightResourceForecastTrendRequest.confidence,
+      "sortOrder": summarizeExadataInsightResourceForecastTrendRequest.sortOrder,
+      "sortBy": summarizeExadataInsightResourceForecastTrendRequest.sortBy,
+      "page": summarizeExadataInsightResourceForecastTrendRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExadataInsightResourceForecastTrendRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExadataInsightResourceForecastTrendRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/resourceForecastTrend",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeExadataInsightResourceForecastTrendResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeExadataInsightResourceForecastTrendCollection",
+        bodyModel: model.SummarizeExadataInsightResourceForecastTrendCollection,
+        type: "model.SummarizeExadataInsightResourceForecastTrendCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get aggregated historical usage and forecast predictions for resources. Either compartmentId or exadataInsightsId query parameter must be specified.
+   * Valid values for ResourceType DATABASE are CPU,MEMORY,IO and STORAGE.
+   * Valid values for ResourceType HOST are CPU and MEMORY.
+   * Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS and THROUGHPUT.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeExadataInsightResourceForecastTrendAggregatedRequest
+   * @return SummarizeExadataInsightResourceForecastTrendAggregatedResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceForecastTrendAggregated.ts.html |here} to see how to use SummarizeExadataInsightResourceForecastTrendAggregated API.
+   */
+  public async summarizeExadataInsightResourceForecastTrendAggregated(
+    summarizeExadataInsightResourceForecastTrendAggregatedRequest: requests.SummarizeExadataInsightResourceForecastTrendAggregatedRequest
+  ): Promise<responses.SummarizeExadataInsightResourceForecastTrendAggregatedResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceForecastTrendAggregated."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeExadataInsightResourceForecastTrendAggregatedRequest.compartmentId,
+      "resourceType": summarizeExadataInsightResourceForecastTrendAggregatedRequest.resourceType,
+      "resourceMetric":
+        summarizeExadataInsightResourceForecastTrendAggregatedRequest.resourceMetric,
+      "analysisTimeInterval":
+        summarizeExadataInsightResourceForecastTrendAggregatedRequest.analysisTimeInterval,
+      "timeIntervalStart":
+        summarizeExadataInsightResourceForecastTrendAggregatedRequest.timeIntervalStart,
+      "timeIntervalEnd":
+        summarizeExadataInsightResourceForecastTrendAggregatedRequest.timeIntervalEnd,
+      "exadataInsightId":
+        summarizeExadataInsightResourceForecastTrendAggregatedRequest.exadataInsightId,
+      "exadataType": summarizeExadataInsightResourceForecastTrendAggregatedRequest.exadataType,
+      "statistic": summarizeExadataInsightResourceForecastTrendAggregatedRequest.statistic,
+      "forecastStartDay":
+        summarizeExadataInsightResourceForecastTrendAggregatedRequest.forecastStartDay,
+      "forecastDays": summarizeExadataInsightResourceForecastTrendAggregatedRequest.forecastDays,
+      "forecastModel": summarizeExadataInsightResourceForecastTrendAggregatedRequest.forecastModel,
+      "cdbName": summarizeExadataInsightResourceForecastTrendAggregatedRequest.cdbName,
+      "hostName": summarizeExadataInsightResourceForecastTrendAggregatedRequest.hostName,
+      "confidence": summarizeExadataInsightResourceForecastTrendAggregatedRequest.confidence,
+      "page": summarizeExadataInsightResourceForecastTrendAggregatedRequest.page,
+      "definedTagEquals":
+        summarizeExadataInsightResourceForecastTrendAggregatedRequest.definedTagEquals,
+      "freeformTagEquals":
+        summarizeExadataInsightResourceForecastTrendAggregatedRequest.freeformTagEquals,
+      "definedTagExists":
+        summarizeExadataInsightResourceForecastTrendAggregatedRequest.definedTagExists,
+      "freeformTagExists":
+        summarizeExadataInsightResourceForecastTrendAggregatedRequest.freeformTagExists
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExadataInsightResourceForecastTrendAggregatedRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExadataInsightResourceForecastTrendAggregatedRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/resourceForecastTrendAggregated",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <
+          responses.SummarizeExadataInsightResourceForecastTrendAggregatedResponse
+        >{},
+        body: await response.json(),
+        bodyKey: "summarizeExadataInsightResourceForecastTrendAggregation",
+        bodyModel: model.SummarizeExadataInsightResourceForecastTrendAggregation,
+        type: "model.SummarizeExadataInsightResourceForecastTrendAggregation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the Resource statistics (usage, capacity, usage change percent, utilization percent) for each resource based on resourceMetric filtered by utilization level.
+   * Valid values for ResourceType DATABASE are CPU,MEMORY,IO and STORAGE.
+   * Valid values for ResourceType HOST are CPU and MEMORY.
+   * Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS, THROUGHPUT.
+   * Valid value for ResourceType DISKGROUP is STORAGE.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeExadataInsightResourceStatisticsRequest
+   * @return SummarizeExadataInsightResourceStatisticsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceStatistics.ts.html |here} to see how to use SummarizeExadataInsightResourceStatistics API.
+   */
+  public async summarizeExadataInsightResourceStatistics(
+    summarizeExadataInsightResourceStatisticsRequest: requests.SummarizeExadataInsightResourceStatisticsRequest
+  ): Promise<responses.SummarizeExadataInsightResourceStatisticsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceStatistics."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "exadataInsightId": summarizeExadataInsightResourceStatisticsRequest.exadataInsightId,
+      "resourceType": summarizeExadataInsightResourceStatisticsRequest.resourceType,
+      "resourceMetric": summarizeExadataInsightResourceStatisticsRequest.resourceMetric,
+      "analysisTimeInterval": summarizeExadataInsightResourceStatisticsRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeExadataInsightResourceStatisticsRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeExadataInsightResourceStatisticsRequest.timeIntervalEnd,
+      "exadataType": summarizeExadataInsightResourceStatisticsRequest.exadataType,
+      "cdbName": summarizeExadataInsightResourceStatisticsRequest.cdbName,
+      "hostName": summarizeExadataInsightResourceStatisticsRequest.hostName,
+      "percentile": summarizeExadataInsightResourceStatisticsRequest.percentile,
+      "sortOrder": summarizeExadataInsightResourceStatisticsRequest.sortOrder,
+      "sortBy": summarizeExadataInsightResourceStatisticsRequest.sortBy,
+      "limit": summarizeExadataInsightResourceStatisticsRequest.limit,
+      "page": summarizeExadataInsightResourceStatisticsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExadataInsightResourceStatisticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExadataInsightResourceStatisticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/resourceStatistics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeExadataInsightResourceStatisticsResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeExadataInsightResourceStatisticsAggregationCollection",
+        bodyModel: model.SummarizeExadataInsightResourceStatisticsAggregationCollection,
+        type: "model.SummarizeExadataInsightResourceStatisticsAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * A cumulative distribution function is used to rank the usage data points per resource within the specified time period.
+   * For each resource, the minimum data point with a ranking > the percentile value is included in the summation.
+   * Linear regression functions are used to calculate the usage change percentage.
+   * Valid values for ResourceType DATABASE are CPU,MEMORY,IO and STORAGE.
+   * Valid values for ResourceType HOST are CPU and MEMORY.
+   * Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS and THROUGHPUT.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeExadataInsightResourceUsageRequest
+   * @return SummarizeExadataInsightResourceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceUsage.ts.html |here} to see how to use SummarizeExadataInsightResourceUsage API.
+   */
+  public async summarizeExadataInsightResourceUsage(
+    summarizeExadataInsightResourceUsageRequest: requests.SummarizeExadataInsightResourceUsageRequest
+  ): Promise<responses.SummarizeExadataInsightResourceUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceUsage."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeExadataInsightResourceUsageRequest.compartmentId,
+      "resourceType": summarizeExadataInsightResourceUsageRequest.resourceType,
+      "resourceMetric": summarizeExadataInsightResourceUsageRequest.resourceMetric,
+      "analysisTimeInterval": summarizeExadataInsightResourceUsageRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeExadataInsightResourceUsageRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeExadataInsightResourceUsageRequest.timeIntervalEnd,
+      "exadataInsightId": summarizeExadataInsightResourceUsageRequest.exadataInsightId,
+      "exadataType": summarizeExadataInsightResourceUsageRequest.exadataType,
+      "cdbName": summarizeExadataInsightResourceUsageRequest.cdbName,
+      "hostName": summarizeExadataInsightResourceUsageRequest.hostName,
+      "sortOrder": summarizeExadataInsightResourceUsageRequest.sortOrder,
+      "sortBy": summarizeExadataInsightResourceUsageRequest.sortBy,
+      "page": summarizeExadataInsightResourceUsageRequest.page,
+      "limit": summarizeExadataInsightResourceUsageRequest.limit,
+      "percentile": summarizeExadataInsightResourceUsageRequest.percentile,
+      "definedTagEquals": summarizeExadataInsightResourceUsageRequest.definedTagEquals,
+      "freeformTagEquals": summarizeExadataInsightResourceUsageRequest.freeformTagEquals,
+      "definedTagExists": summarizeExadataInsightResourceUsageRequest.definedTagExists,
+      "freeformTagExists": summarizeExadataInsightResourceUsageRequest.freeformTagExists
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExadataInsightResourceUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExadataInsightResourceUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/resourceUsageSummary",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeExadataInsightResourceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeExadataInsightResourceUsageCollection",
+        bodyModel: model.SummarizeExadataInsightResourceUsageCollection,
+        type: "model.SummarizeExadataInsightResourceUsageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * A cumulative distribution function is used to rank the usage data points per database within the specified time period.
+   * For each database, the minimum data point with a ranking > the percentile value is included in the summation.
+   * Linear regression functions are used to calculate the usage change percentage.
+   * Valid values for ResourceType DATABASE are CPU,MEMORY,IO and STORAGE.
+   * Valid values for ResourceType HOST are CPU and MEMORY.
+   * Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS and THROUGHPUT.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeExadataInsightResourceUsageAggregatedRequest
+   * @return SummarizeExadataInsightResourceUsageAggregatedResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceUsageAggregated.ts.html |here} to see how to use SummarizeExadataInsightResourceUsageAggregated API.
+   */
+  public async summarizeExadataInsightResourceUsageAggregated(
+    summarizeExadataInsightResourceUsageAggregatedRequest: requests.SummarizeExadataInsightResourceUsageAggregatedRequest
+  ): Promise<responses.SummarizeExadataInsightResourceUsageAggregatedResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceUsageAggregated."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeExadataInsightResourceUsageAggregatedRequest.compartmentId,
+      "resourceType": summarizeExadataInsightResourceUsageAggregatedRequest.resourceType,
+      "resourceMetric": summarizeExadataInsightResourceUsageAggregatedRequest.resourceMetric,
+      "analysisTimeInterval":
+        summarizeExadataInsightResourceUsageAggregatedRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeExadataInsightResourceUsageAggregatedRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeExadataInsightResourceUsageAggregatedRequest.timeIntervalEnd,
+      "exadataInsightId": summarizeExadataInsightResourceUsageAggregatedRequest.exadataInsightId,
+      "exadataType": summarizeExadataInsightResourceUsageAggregatedRequest.exadataType,
+      "cdbName": summarizeExadataInsightResourceUsageAggregatedRequest.cdbName,
+      "hostName": summarizeExadataInsightResourceUsageAggregatedRequest.hostName,
+      "page": summarizeExadataInsightResourceUsageAggregatedRequest.page,
+      "percentile": summarizeExadataInsightResourceUsageAggregatedRequest.percentile,
+      "definedTagEquals": summarizeExadataInsightResourceUsageAggregatedRequest.definedTagEquals,
+      "freeformTagEquals": summarizeExadataInsightResourceUsageAggregatedRequest.freeformTagEquals,
+      "definedTagExists": summarizeExadataInsightResourceUsageAggregatedRequest.definedTagExists,
+      "freeformTagExists": summarizeExadataInsightResourceUsageAggregatedRequest.freeformTagExists
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExadataInsightResourceUsageAggregatedRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExadataInsightResourceUsageAggregatedRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/resourceUsageSummaryAggregated",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeExadataInsightResourceUsageAggregatedResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeExadataInsightResourceUsageAggregation",
+        bodyModel: model.SummarizeExadataInsightResourceUsageAggregation,
+        type: "model.SummarizeExadataInsightResourceUsageAggregation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets current utilization, projected utilization and days to reach projectedUtilization for an exadata system over specified time period. Valid values for ResourceType DATABASE are CPU,MEMORY,IO and STORAGE. Valid values for ResourceType HOST are CPU and MEMORY. Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS and THROUGHPUT.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeExadataInsightResourceUtilizationInsightRequest
+   * @return SummarizeExadataInsightResourceUtilizationInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceUtilizationInsight.ts.html |here} to see how to use SummarizeExadataInsightResourceUtilizationInsight API.
+   */
+  public async summarizeExadataInsightResourceUtilizationInsight(
+    summarizeExadataInsightResourceUtilizationInsightRequest: requests.SummarizeExadataInsightResourceUtilizationInsightRequest
+  ): Promise<responses.SummarizeExadataInsightResourceUtilizationInsightResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceUtilizationInsight."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeExadataInsightResourceUtilizationInsightRequest.compartmentId,
+      "resourceType": summarizeExadataInsightResourceUtilizationInsightRequest.resourceType,
+      "resourceMetric": summarizeExadataInsightResourceUtilizationInsightRequest.resourceMetric,
+      "analysisTimeInterval":
+        summarizeExadataInsightResourceUtilizationInsightRequest.analysisTimeInterval,
+      "timeIntervalStart":
+        summarizeExadataInsightResourceUtilizationInsightRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeExadataInsightResourceUtilizationInsightRequest.timeIntervalEnd,
+      "exadataInsightId": summarizeExadataInsightResourceUtilizationInsightRequest.exadataInsightId,
+      "exadataType": summarizeExadataInsightResourceUtilizationInsightRequest.exadataType,
+      "forecastStartDay": summarizeExadataInsightResourceUtilizationInsightRequest.forecastStartDay,
+      "forecastDays": summarizeExadataInsightResourceUtilizationInsightRequest.forecastDays,
+      "cdbName": summarizeExadataInsightResourceUtilizationInsightRequest.cdbName,
+      "hostName": summarizeExadataInsightResourceUtilizationInsightRequest.hostName,
+      "limit": summarizeExadataInsightResourceUtilizationInsightRequest.limit,
+      "page": summarizeExadataInsightResourceUtilizationInsightRequest.page,
+      "definedTagEquals": summarizeExadataInsightResourceUtilizationInsightRequest.definedTagEquals,
+      "freeformTagEquals":
+        summarizeExadataInsightResourceUtilizationInsightRequest.freeformTagEquals,
+      "definedTagExists": summarizeExadataInsightResourceUtilizationInsightRequest.definedTagExists,
+      "freeformTagExists":
+        summarizeExadataInsightResourceUtilizationInsightRequest.freeformTagExists
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExadataInsightResourceUtilizationInsightRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExadataInsightResourceUtilizationInsightRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/resourceUtilizationInsight",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeExadataInsightResourceUtilizationInsightResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeExadataInsightResourceUtilizationInsightAggregation",
+        bodyModel: model.SummarizeExadataInsightResourceUtilizationInsightAggregation,
+        type: "model.SummarizeExadataInsightResourceUtilizationInsightAggregation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the software and hardware inventory of the Exadata System.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeExadataMembersRequest
+   * @return SummarizeExadataMembersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataMembers.ts.html |here} to see how to use SummarizeExadataMembers API.
+   */
+  public async summarizeExadataMembers(
+    summarizeExadataMembersRequest: requests.SummarizeExadataMembersRequest
+  ): Promise<responses.SummarizeExadataMembersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#summarizeExadataMembers.");
+    const pathParams = {};
+
+    const queryParams = {
+      "exadataInsightId": summarizeExadataMembersRequest.exadataInsightId,
+      "exadataType": summarizeExadataMembersRequest.exadataType,
+      "sortOrder": summarizeExadataMembersRequest.sortOrder,
+      "sortBy": summarizeExadataMembersRequest.sortBy,
+      "limit": summarizeExadataMembersRequest.limit,
+      "page": summarizeExadataMembersRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExadataMembersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExadataMembersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/exadataMembers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeExadataMembersResponse>{},
+        body: await response.json(),
+        bodyKey: "exadataMemberCollection",
+        bodyModel: model.ExadataMemberCollection,
+        type: "model.ExadataMemberCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns response with time series data (endTimestamp, capacity) for the time period specified.
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeHostInsightResourceCapacityTrendRequest
    * @return SummarizeHostInsightResourceCapacityTrendResponse
    * @throws OciError when an error occurs
@@ -3348,6 +5143,7 @@ export class OperationsInsightsClient {
       "timeIntervalEnd": summarizeHostInsightResourceCapacityTrendRequest.timeIntervalEnd,
       "platformType": summarizeHostInsightResourceCapacityTrendRequest.platformType,
       "id": summarizeHostInsightResourceCapacityTrendRequest.id,
+      "exadataInsightId": summarizeHostInsightResourceCapacityTrendRequest.exadataInsightId,
       "utilizationLevel": summarizeHostInsightResourceCapacityTrendRequest.utilizationLevel,
       "page": summarizeHostInsightResourceCapacityTrendRequest.page,
       "sortOrder": summarizeHostInsightResourceCapacityTrendRequest.sortOrder,
@@ -3363,9 +5159,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeHostInsightResourceCapacityTrendRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeHostInsightResourceCapacityTrendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeHostInsightResourceCapacityTrendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3408,6 +5206,7 @@ export class OperationsInsightsClient {
   /**
    * Get Forecast predictions for CPU or memory resources since a time in the past.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeHostInsightResourceForecastTrendRequest
    * @return SummarizeHostInsightResourceForecastTrendResponse
    * @throws OciError when an error occurs
@@ -3430,6 +5229,7 @@ export class OperationsInsightsClient {
       "timeIntervalEnd": summarizeHostInsightResourceForecastTrendRequest.timeIntervalEnd,
       "platformType": summarizeHostInsightResourceForecastTrendRequest.platformType,
       "id": summarizeHostInsightResourceForecastTrendRequest.id,
+      "exadataInsightId": summarizeHostInsightResourceForecastTrendRequest.exadataInsightId,
       "statistic": summarizeHostInsightResourceForecastTrendRequest.statistic,
       "forecastDays": summarizeHostInsightResourceForecastTrendRequest.forecastDays,
       "forecastModel": summarizeHostInsightResourceForecastTrendRequest.forecastModel,
@@ -3447,9 +5247,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeHostInsightResourceForecastTrendRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeHostInsightResourceForecastTrendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeHostInsightResourceForecastTrendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3488,6 +5290,7 @@ export class OperationsInsightsClient {
    * Lists the resource statistics (usage, capacity, usage change percent, utilization percent, load) for each host filtered
    * by utilization level.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeHostInsightResourceStatisticsRequest
    * @return SummarizeHostInsightResourceStatisticsResponse
    * @throws OciError when an error occurs
@@ -3510,6 +5313,7 @@ export class OperationsInsightsClient {
       "timeIntervalEnd": summarizeHostInsightResourceStatisticsRequest.timeIntervalEnd,
       "platformType": summarizeHostInsightResourceStatisticsRequest.platformType,
       "id": summarizeHostInsightResourceStatisticsRequest.id,
+      "exadataInsightId": summarizeHostInsightResourceStatisticsRequest.exadataInsightId,
       "percentile": summarizeHostInsightResourceStatisticsRequest.percentile,
       "insightBy": summarizeHostInsightResourceStatisticsRequest.insightBy,
       "forecastDays": summarizeHostInsightResourceStatisticsRequest.forecastDays,
@@ -3528,9 +5332,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeHostInsightResourceStatisticsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeHostInsightResourceStatisticsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeHostInsightResourceStatisticsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3575,6 +5381,7 @@ export class OperationsInsightsClient {
    * For each host, the minimum data point with a ranking > the percentile value is included in the summation.
    * Linear regression functions are used to calculate the usage change percentage.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeHostInsightResourceUsageRequest
    * @return SummarizeHostInsightResourceUsageResponse
    * @throws OciError when an error occurs
@@ -3597,6 +5404,7 @@ export class OperationsInsightsClient {
       "timeIntervalEnd": summarizeHostInsightResourceUsageRequest.timeIntervalEnd,
       "platformType": summarizeHostInsightResourceUsageRequest.platformType,
       "id": summarizeHostInsightResourceUsageRequest.id,
+      "exadataInsightId": summarizeHostInsightResourceUsageRequest.exadataInsightId,
       "page": summarizeHostInsightResourceUsageRequest.page,
       "percentile": summarizeHostInsightResourceUsageRequest.percentile,
       "definedTagEquals": summarizeHostInsightResourceUsageRequest.definedTagEquals,
@@ -3610,9 +5418,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeHostInsightResourceUsageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeHostInsightResourceUsageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeHostInsightResourceUsageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3651,6 +5461,7 @@ export class OperationsInsightsClient {
    * Returns response with time series data (endTimestamp, usage, capacity) for the time period specified.
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeHostInsightResourceUsageTrendRequest
    * @return SummarizeHostInsightResourceUsageTrendResponse
    * @throws OciError when an error occurs
@@ -3673,6 +5484,7 @@ export class OperationsInsightsClient {
       "timeIntervalEnd": summarizeHostInsightResourceUsageTrendRequest.timeIntervalEnd,
       "platformType": summarizeHostInsightResourceUsageTrendRequest.platformType,
       "id": summarizeHostInsightResourceUsageTrendRequest.id,
+      "exadataInsightId": summarizeHostInsightResourceUsageTrendRequest.exadataInsightId,
       "page": summarizeHostInsightResourceUsageTrendRequest.page,
       "sortOrder": summarizeHostInsightResourceUsageTrendRequest.sortOrder,
       "sortBy": summarizeHostInsightResourceUsageTrendRequest.sortBy,
@@ -3687,9 +5499,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeHostInsightResourceUsageTrendRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeHostInsightResourceUsageTrendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeHostInsightResourceUsageTrendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3731,6 +5545,8 @@ export class OperationsInsightsClient {
 
   /**
    * Gets resources with current utilization (high and low) and projected utilization (high and low) for a resource type over specified time period.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeHostInsightResourceUtilizationInsightRequest
    * @return SummarizeHostInsightResourceUtilizationInsightResponse
    * @throws OciError when an error occurs
@@ -3754,6 +5570,7 @@ export class OperationsInsightsClient {
       "timeIntervalEnd": summarizeHostInsightResourceUtilizationInsightRequest.timeIntervalEnd,
       "platformType": summarizeHostInsightResourceUtilizationInsightRequest.platformType,
       "id": summarizeHostInsightResourceUtilizationInsightRequest.id,
+      "exadataInsightId": summarizeHostInsightResourceUtilizationInsightRequest.exadataInsightId,
       "forecastDays": summarizeHostInsightResourceUtilizationInsightRequest.forecastDays,
       "page": summarizeHostInsightResourceUtilizationInsightRequest.page,
       "definedTagEquals": summarizeHostInsightResourceUtilizationInsightRequest.definedTagEquals,
@@ -3767,9 +5584,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeHostInsightResourceUtilizationInsightRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeHostInsightResourceUtilizationInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeHostInsightResourceUtilizationInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3805,7 +5624,10 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Query SQL Warehouse to get the performance insights for SQLs taking greater than X% database time for a given time period across the given databases or database types.
+   * Query SQL Warehouse to get the performance insights for SQLs taking greater than X% database time for a given
+   * time period across the given databases or database types.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeSqlInsightsRequest
    * @return SummarizeSqlInsightsResponse
    * @throws OciError when an error occurs
@@ -3823,6 +5645,8 @@ export class OperationsInsightsClient {
       "databaseType": summarizeSqlInsightsRequest.databaseType,
       "databaseId": summarizeSqlInsightsRequest.databaseId,
       "id": summarizeSqlInsightsRequest.id,
+      "exadataInsightId": summarizeSqlInsightsRequest.exadataInsightId,
+      "cdbName": summarizeSqlInsightsRequest.cdbName,
       "hostName": summarizeSqlInsightsRequest.hostName,
       "databaseTimePctGreaterThan": summarizeSqlInsightsRequest.databaseTimePctGreaterThan,
       "analysisTimeInterval": summarizeSqlInsightsRequest.analysisTimeInterval,
@@ -3840,9 +5664,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeSqlInsightsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeSqlInsightsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeSqlInsightsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3886,6 +5712,7 @@ export class OperationsInsightsClient {
    * Query SQL Warehouse to get the performance insights on the execution plans for a given SQL for a given time period.
    * Either databaseId or id must be specified.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeSqlPlanInsightsRequest
    * @return SummarizeSqlPlanInsightsResponse
    * @throws OciError when an error occurs
@@ -3914,9 +5741,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeSqlPlanInsightsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeSqlPlanInsightsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeSqlPlanInsightsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3960,6 +5789,7 @@ export class OperationsInsightsClient {
    * Query SQL Warehouse to summarize the response time distribution of query executions for a given SQL for a given time period.
    * Either databaseId or id must be specified.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeSqlResponseTimeDistributionsRequest
    * @return SummarizeSqlResponseTimeDistributionsResponse
    * @throws OciError when an error occurs
@@ -3990,9 +5820,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeSqlResponseTimeDistributionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeSqlResponseTimeDistributionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeSqlResponseTimeDistributionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4033,7 +5865,10 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Query SQL Warehouse to get the performance statistics for SQLs taking greater than X% database time for a given time period across the given databases or database types.
+   * Query SQL Warehouse to get the performance statistics for SQLs taking greater than X% database time for a given
+   * time period across the given databases or database types.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeSqlStatisticsRequest
    * @return SummarizeSqlStatisticsResponse
    * @throws OciError when an error occurs
@@ -4051,6 +5886,8 @@ export class OperationsInsightsClient {
       "databaseType": summarizeSqlStatisticsRequest.databaseType,
       "databaseId": summarizeSqlStatisticsRequest.databaseId,
       "id": summarizeSqlStatisticsRequest.id,
+      "exadataInsightId": summarizeSqlStatisticsRequest.exadataInsightId,
+      "cdbName": summarizeSqlStatisticsRequest.cdbName,
       "hostName": summarizeSqlStatisticsRequest.hostName,
       "databaseTimePctGreaterThan": summarizeSqlStatisticsRequest.databaseTimePctGreaterThan,
       "sqlIdentifier": summarizeSqlStatisticsRequest.sqlIdentifier,
@@ -4073,9 +5910,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeSqlStatisticsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeSqlStatisticsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeSqlStatisticsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4118,6 +5957,7 @@ export class OperationsInsightsClient {
   /**
    * Query SQL Warehouse to get the performance statistics time series for a given SQL across given databases for a given time period.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeSqlStatisticsTimeSeriesRequest
    * @return SummarizeSqlStatisticsTimeSeriesResponse
    * @throws OciError when an error occurs
@@ -4136,6 +5976,8 @@ export class OperationsInsightsClient {
       "compartmentId": summarizeSqlStatisticsTimeSeriesRequest.compartmentId,
       "databaseId": summarizeSqlStatisticsTimeSeriesRequest.databaseId,
       "id": summarizeSqlStatisticsTimeSeriesRequest.id,
+      "exadataInsightId": summarizeSqlStatisticsTimeSeriesRequest.exadataInsightId,
+      "cdbName": summarizeSqlStatisticsTimeSeriesRequest.cdbName,
       "hostName": summarizeSqlStatisticsTimeSeriesRequest.hostName,
       "sqlIdentifier": summarizeSqlStatisticsTimeSeriesRequest.sqlIdentifier,
       "analysisTimeInterval": summarizeSqlStatisticsTimeSeriesRequest.analysisTimeInterval,
@@ -4153,9 +5995,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeSqlStatisticsTimeSeriesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeSqlStatisticsTimeSeriesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeSqlStatisticsTimeSeriesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4199,6 +6043,7 @@ export class OperationsInsightsClient {
    * Query SQL Warehouse to get the performance statistics time series for a given SQL by execution plans for a given time period.
    * Either databaseId or id must be specified.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeSqlStatisticsTimeSeriesByPlanRequest
    * @return SummarizeSqlStatisticsTimeSeriesByPlanResponse
    * @throws OciError when an error occurs
@@ -4229,9 +6074,11 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeSqlStatisticsTimeSeriesByPlanRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeSqlStatisticsTimeSeriesByPlanRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeSqlStatisticsTimeSeriesByPlanRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4273,6 +6120,7 @@ export class OperationsInsightsClient {
 
   /**
    * Updates configuration of a database insight.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDatabaseInsightRequest
    * @return UpdateDatabaseInsightResponse
    * @throws OciError when an error occurs
@@ -4295,9 +6143,11 @@ export class OperationsInsightsClient {
       "opc-request-id": updateDatabaseInsightRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDatabaseInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDatabaseInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4340,6 +6190,7 @@ export class OperationsInsightsClient {
 
   /**
    * Updates configuration of an Operations Insights Enterprise Manager bridge.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateEnterpriseManagerBridgeRequest
    * @return UpdateEnterpriseManagerBridgeResponse
    * @throws OciError when an error occurs
@@ -4364,9 +6215,11 @@ export class OperationsInsightsClient {
       "opc-request-id": updateEnterpriseManagerBridgeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateEnterpriseManagerBridgeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateEnterpriseManagerBridgeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4408,7 +6261,78 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Updates configuration of an Exadata insight.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExadataInsightRequest
+   * @return UpdateExadataInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateExadataInsight.ts.html |here} to see how to use UpdateExadataInsight API.
+   */
+  public async updateExadataInsight(
+    updateExadataInsightRequest: requests.UpdateExadataInsightRequest
+  ): Promise<responses.UpdateExadataInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#updateExadataInsight.");
+    const pathParams = {
+      "{exadataInsightId}": updateExadataInsightRequest.exadataInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateExadataInsightRequest.ifMatch,
+      "opc-request-id": updateExadataInsightRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExadataInsightRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/{exadataInsightId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExadataInsightRequest.updateExadataInsightDetails,
+        "UpdateExadataInsightDetails",
+        model.UpdateExadataInsightDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExadataInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates configuration of a host insight.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateHostInsightRequest
    * @return UpdateHostInsightResponse
    * @throws OciError when an error occurs
@@ -4431,9 +6355,11 @@ export class OperationsInsightsClient {
       "opc-request-id": updateHostInsightRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateHostInsightRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateHostInsightRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -23,7 +23,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum NetworkLoadBalancerApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class NetworkLoadBalancerClient {
   protected static serviceEndpointTemplate =
     "https://network-load-balancer-api.{region}.oci.{secondLevelDomain}";
@@ -44,6 +46,15 @@ export class NetworkLoadBalancerClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -135,6 +146,7 @@ export class NetworkLoadBalancerClient {
    * Moves a network load balancer into a different compartment within the same tenancy. For information about moving resources
    * between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeNetworkLoadBalancerCompartmentRequest
    * @return ChangeNetworkLoadBalancerCompartmentResponse
    * @throws OciError when an error occurs
@@ -160,9 +172,11 @@ export class NetworkLoadBalancerClient {
       "if-match": changeNetworkLoadBalancerCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeNetworkLoadBalancerCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeNetworkLoadBalancerCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -205,6 +219,7 @@ export class NetworkLoadBalancerClient {
 
   /**
    * Adds a backend server to a backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateBackendRequest
    * @return CreateBackendResponse
    * @throws OciError when an error occurs
@@ -229,9 +244,11 @@ export class NetworkLoadBalancerClient {
       "if-match": createBackendRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createBackendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBackendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -274,6 +291,7 @@ export class NetworkLoadBalancerClient {
 
   /**
    * Adds a backend set to a network load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateBackendSetRequest
    * @return CreateBackendSetResponse
    * @throws OciError when an error occurs
@@ -297,9 +315,11 @@ export class NetworkLoadBalancerClient {
       "if-match": createBackendSetRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createBackendSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBackendSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -342,6 +362,7 @@ export class NetworkLoadBalancerClient {
 
   /**
    * Adds a listener to a network load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateListenerRequest
    * @return CreateListenerResponse
    * @throws OciError when an error occurs
@@ -365,9 +386,11 @@ export class NetworkLoadBalancerClient {
       "if-match": createListenerRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createListenerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createListenerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -416,6 +439,7 @@ export class NetworkLoadBalancerClient {
   /**
    * Creates a network load balancer.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateNetworkLoadBalancerRequest
    * @return CreateNetworkLoadBalancerResponse
    * @throws OciError when an error occurs
@@ -436,9 +460,11 @@ export class NetworkLoadBalancerClient {
       "opc-request-id": createNetworkLoadBalancerRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createNetworkLoadBalancerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNetworkLoadBalancerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -490,6 +516,7 @@ export class NetworkLoadBalancerClient {
 
   /**
    * Removes a backend server from a given network load balancer and backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBackendRequest
    * @return DeleteBackendResponse
    * @throws OciError when an error occurs
@@ -514,9 +541,11 @@ export class NetworkLoadBalancerClient {
       "if-match": deleteBackendRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteBackendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBackendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -558,6 +587,7 @@ export class NetworkLoadBalancerClient {
 * <p>
 Before you can delete a backend set, you must remove it from any active listeners.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteBackendSetRequest
      * @return DeleteBackendSetResponse
      * @throws OciError when an error occurs
@@ -581,9 +611,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-match": deleteBackendSetRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteBackendSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBackendSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -621,6 +653,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Deletes a listener from a network load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteListenerRequest
    * @return DeleteListenerResponse
    * @throws OciError when an error occurs
@@ -644,9 +677,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-match": deleteListenerRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteListenerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteListenerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -689,6 +724,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Deletes a network load balancer resource by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteNetworkLoadBalancerRequest
    * @return DeleteNetworkLoadBalancerResponse
    * @throws OciError when an error occurs
@@ -711,9 +747,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": deleteNetworkLoadBalancerRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteNetworkLoadBalancerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNetworkLoadBalancerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -751,6 +789,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Retrieves the configuration information for the specified backend server.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBackendRequest
    * @return GetBackendResponse
    * @throws OciError when an error occurs
@@ -774,9 +813,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-none-match": getBackendRequest.ifNoneMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBackendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBackendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -819,6 +860,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Retrieves the current health status of the specified backend server.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBackendHealthRequest
    * @return GetBackendHealthResponse
    * @throws OciError when an error occurs
@@ -842,9 +884,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": getBackendHealthRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBackendHealthRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBackendHealthRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -882,6 +926,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Retrieves the configuration information for the specified backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBackendSetRequest
    * @return GetBackendSetResponse
    * @throws OciError when an error occurs
@@ -905,9 +950,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-none-match": getBackendSetRequest.ifNoneMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBackendSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBackendSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -949,6 +996,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Retrieves the health status for the specified backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBackendSetHealthRequest
    * @return GetBackendSetHealthResponse
    * @throws OciError when an error occurs
@@ -971,9 +1019,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": getBackendSetHealthRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getBackendSetHealthRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBackendSetHealthRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1015,6 +1065,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Retrieves the health check policy information for a given network load balancer and backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetHealthCheckerRequest
    * @return GetHealthCheckerResponse
    * @throws OciError when an error occurs
@@ -1039,9 +1090,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-none-match": getHealthCheckerRequest.ifNoneMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getHealthCheckerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHealthCheckerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1084,6 +1137,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Retrieves listener properties associated with a given network load balancer and listener name.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetListenerRequest
    * @return GetListenerResponse
    * @throws OciError when an error occurs
@@ -1106,9 +1160,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-none-match": getListenerRequest.ifNoneMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getListenerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getListenerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1150,6 +1206,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Retrieves network load balancer configuration information by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetNetworkLoadBalancerRequest
    * @return GetNetworkLoadBalancerResponse
    * @throws OciError when an error occurs
@@ -1172,9 +1229,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": getNetworkLoadBalancerRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getNetworkLoadBalancerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNetworkLoadBalancerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1216,6 +1275,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Retrieves the health status for the specified network load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetNetworkLoadBalancerHealthRequest
    * @return GetNetworkLoadBalancerHealthResponse
    * @throws OciError when an error occurs
@@ -1239,9 +1299,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": getNetworkLoadBalancerHealthRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getNetworkLoadBalancerHealthRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNetworkLoadBalancerHealthRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1278,6 +1340,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Retrieves the details of the work request with the given identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1299,9 +1362,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1343,6 +1408,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Lists all backend sets associated with a given network load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBackendSetsRequest
    * @return ListBackendSetsResponse
    * @throws OciError when an error occurs
@@ -1369,9 +1435,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-none-match": listBackendSetsRequest.ifNoneMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBackendSetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBackendSetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1413,6 +1481,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Lists the backend servers for a given network load balancer and backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBackendsRequest
    * @return ListBackendsResponse
    * @throws OciError when an error occurs
@@ -1439,9 +1508,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-none-match": listBackendsRequest.ifNoneMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listBackendsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBackendsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1483,6 +1554,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Lists all listeners associated with a given network load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListListenersRequest
    * @return ListListenersResponse
    * @throws OciError when an error occurs
@@ -1509,9 +1581,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-none-match": listListenersRequest.ifNoneMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listListenersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listListenersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1553,6 +1627,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Lists the summary health statuses for all network load balancers in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListNetworkLoadBalancerHealthsRequest
    * @return ListNetworkLoadBalancerHealthsResponse
    * @throws OciError when an error occurs
@@ -1580,9 +1655,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": listNetworkLoadBalancerHealthsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNetworkLoadBalancerHealthsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNetworkLoadBalancerHealthsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1625,6 +1702,7 @@ Before you can delete a backend set, you must remove it from any active listener
   /**
    * Returns a list of network load balancers.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListNetworkLoadBalancersRequest
    * @return ListNetworkLoadBalancersResponse
    * @throws OciError when an error occurs
@@ -1652,9 +1730,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": listNetworkLoadBalancersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNetworkLoadBalancersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNetworkLoadBalancersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1696,6 +1776,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Lists the available network load balancer policies.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListNetworkLoadBalancersPoliciesRequest
    * @return ListNetworkLoadBalancersPoliciesResponse
    * @throws OciError when an error occurs
@@ -1721,9 +1802,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": listNetworkLoadBalancersPoliciesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNetworkLoadBalancersPoliciesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNetworkLoadBalancersPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1765,6 +1848,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Lists all supported traffic protocols.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListNetworkLoadBalancersProtocolsRequest
    * @return ListNetworkLoadBalancersProtocolsResponse
    * @throws OciError when an error occurs
@@ -1790,9 +1874,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": listNetworkLoadBalancersProtocolsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNetworkLoadBalancersProtocolsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNetworkLoadBalancersProtocolsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1835,6 +1921,7 @@ Before you can delete a backend set, you must remove it from any active listener
   /**
    * Return a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1860,9 +1947,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1905,6 +1994,7 @@ Before you can delete a backend set, you must remove it from any active listener
   /**
    * Returns a (paginated) list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1930,9 +2020,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1974,6 +2066,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Lists all work requests.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1997,9 +2090,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2041,6 +2136,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Updates the configuration of a backend server within the specified backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBackendRequest
    * @return UpdateBackendResponse
    * @throws OciError when an error occurs
@@ -2066,9 +2162,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-match": updateBackendRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateBackendRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBackendRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2112,6 +2210,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Updates a backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBackendSetRequest
    * @return UpdateBackendSetResponse
    * @throws OciError when an error occurs
@@ -2136,9 +2235,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-match": updateBackendSetRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateBackendSetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBackendSetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2181,6 +2282,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Updates the health check policy for a given network load balancer and backend set.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateHealthCheckerRequest
    * @return UpdateHealthCheckerResponse
    * @throws OciError when an error occurs
@@ -2205,9 +2307,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-match": updateHealthCheckerRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateHealthCheckerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateHealthCheckerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2251,6 +2355,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Updates a listener for a given network load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateListenerRequest
    * @return UpdateListenerResponse
    * @throws OciError when an error occurs
@@ -2275,9 +2380,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-match": updateListenerRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateListenerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateListenerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2320,6 +2427,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Updates the network load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateNetworkLoadBalancerRequest
    * @return UpdateNetworkLoadBalancerResponse
    * @throws OciError when an error occurs
@@ -2342,9 +2450,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "opc-request-id": updateNetworkLoadBalancerRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateNetworkLoadBalancerRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNetworkLoadBalancerRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2387,6 +2497,7 @@ Before you can delete a backend set, you must remove it from any active listener
 
   /**
    * Updates the network security groups associated with the specified network load balancer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateNetworkSecurityGroupsRequest
    * @return UpdateNetworkSecurityGroupsResponse
    * @throws OciError when an error occurs
@@ -2410,9 +2521,11 @@ Before you can delete a backend set, you must remove it from any active listener
       "if-match": updateNetworkSecurityGroupsRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateNetworkSecurityGroupsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNetworkSecurityGroupsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

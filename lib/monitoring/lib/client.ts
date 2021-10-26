@@ -27,7 +27,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum MonitoringApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class MonitoringClient {
   protected static serviceEndpointTemplate = "https://telemetry.{region}.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -47,6 +49,15 @@ export class MonitoringClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -138,6 +149,7 @@ export class MonitoringClient {
 * <p>
 For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeAlarmCompartmentRequest
      * @return ChangeAlarmCompartmentResponse
      * @throws OciError when an error occurs
@@ -161,9 +173,11 @@ For information about moving resources between compartments, see [Moving Resourc
       "opc-retry-token": changeAlarmCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeAlarmCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAlarmCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -207,6 +221,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateAlarmRequest
      * @return CreateAlarmResponse
      * @throws OciError when an error occurs
@@ -226,9 +241,11 @@ This call is subject to a Monitoring limit that applies to the total number of r
       "opc-retry-token": createAlarmRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAlarmRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAlarmRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -281,6 +298,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteAlarmRequest
      * @return DeleteAlarmResponse
      * @throws OciError when an error occurs
@@ -302,9 +320,11 @@ This call is subject to a Monitoring limit that applies to the total number of r
       "opc-request-id": deleteAlarmRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAlarmRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAlarmRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -343,6 +363,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetAlarmRequest
      * @return GetAlarmResponse
      * @throws OciError when an error occurs
@@ -363,9 +384,11 @@ This call is subject to a Monitoring limit that applies to the total number of r
       "opc-request-id": getAlarmRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAlarmRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAlarmRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -413,6 +436,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetAlarmHistoryRequest
      * @return GetAlarmHistoryResponse
      * @throws OciError when an error occurs
@@ -439,9 +463,11 @@ This call is subject to a Monitoring limit that applies to the total number of r
       "opc-request-id": getAlarmHistoryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAlarmHistoryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAlarmHistoryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -489,6 +515,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListAlarmsRequest
      * @return ListAlarmsResponse
      * @throws OciError when an error occurs
@@ -516,9 +543,11 @@ This call is subject to a Monitoring limit that applies to the total number of r
       "opc-request-id": listAlarmsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAlarmsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAlarmsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -618,6 +647,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListAlarmsStatusRequest
      * @return ListAlarmsStatusResponse
      * @throws OciError when an error occurs
@@ -644,9 +674,11 @@ This call is subject to a Monitoring limit that applies to the total number of r
       "opc-request-id": listAlarmsStatusRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAlarmsStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAlarmsStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -745,6 +777,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
 * <p>
 Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListMetricsRequest
      * @return ListMetricsResponse
      * @throws OciError when an error occurs
@@ -768,9 +801,11 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
       "opc-request-id": listMetricsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listMetricsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMetricsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -885,6 +920,7 @@ The endpoints for this operation differ from other Monitoring operations. Replac
 * <p>
 https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param PostMetricDataRequest
      * @return PostMetricDataResponse
      * @throws OciError when an error occurs
@@ -903,9 +939,11 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
       "opc-request-id": postMetricDataRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      postMetricDataRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      postMetricDataRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -953,6 +991,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param RemoveAlarmSuppressionRequest
      * @return RemoveAlarmSuppressionResponse
      * @throws OciError when an error occurs
@@ -975,9 +1014,11 @@ This call is subject to a Monitoring limit that applies to the total number of r
       "opc-request-id": removeAlarmSuppressionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeAlarmSuppressionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeAlarmSuppressionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1015,6 +1056,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
 * <p>
 Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param SummarizeMetricsDataRequest
      * @return SummarizeMetricsDataResponse
      * @throws OciError when an error occurs
@@ -1036,9 +1078,11 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
       "opc-request-id": summarizeMetricsDataRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeMetricsDataRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeMetricsDataRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1086,6 +1130,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateAlarmRequest
      * @return UpdateAlarmResponse
      * @throws OciError when an error occurs
@@ -1107,9 +1152,11 @@ This call is subject to a Monitoring limit that applies to the total number of r
       "opc-request-id": updateAlarmRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAlarmRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAlarmRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

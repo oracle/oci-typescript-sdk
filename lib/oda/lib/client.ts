@@ -24,7 +24,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum OdaApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class OdaClient {
   protected static serviceEndpointTemplate =
     "https://digitalassistant-api.{region}.oci.{secondLevelDomain}";
@@ -45,6 +47,15 @@ export class OdaClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -135,6 +146,7 @@ export class OdaClient {
    * Moves an Digital Assistant instance into a different compartment. When provided, If-Match is checked against
    * ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeOdaInstanceCompartmentRequest
    * @return ChangeOdaInstanceCompartmentResponse
    * @throws OciError when an error occurs
@@ -157,9 +169,11 @@ export class OdaClient {
       "opc-retry-token": changeOdaInstanceCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeOdaInstanceCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeOdaInstanceCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -206,6 +220,7 @@ export class OdaClient {
 To monitor the status of the job, take the `opc-work-request-id` response
 * header value and use it to call `GET /workRequests/{workRequestID}`.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateOdaInstanceRequest
      * @return CreateOdaInstanceResponse
      * @throws OciError when an error occurs
@@ -225,9 +240,11 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-retry-token": createOdaInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createOdaInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOdaInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -285,6 +302,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   /**
    * Starts an asynchronous job to delete the specified Digital Assistant instance.
    * To monitor the status of the job, take the `opc-work-request-id` response header value and use it to call `GET /workRequests/{workRequestID}`.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteOdaInstanceRequest
    * @return DeleteOdaInstanceResponse
    * @throws OciError when an error occurs
@@ -306,9 +324,11 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-request-id": deleteOdaInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteOdaInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOdaInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -346,6 +366,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
 
   /**
    * Gets the specified Digital Assistant instance.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOdaInstanceRequest
    * @return GetOdaInstanceResponse
    * @throws OciError when an error occurs
@@ -366,9 +387,11 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-request-id": getOdaInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getOdaInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOdaInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -414,6 +437,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
 You can use this operation to monitor the status of jobs that you
 * requested to create, delete, and update instances.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetWorkRequestRequest
      * @return GetWorkRequestResponse
      * @throws OciError when an error occurs
@@ -434,9 +458,11 @@ You can use this operation to monitor the status of jobs that you
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -484,6 +510,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListOdaInstancesRequest
      * @return ListOdaInstancesResponse
      * @throws OciError when an error occurs
@@ -510,9 +537,11 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listOdaInstancesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listOdaInstancesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOdaInstancesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -611,6 +640,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListWorkRequestErrorsRequest
      * @return ListWorkRequestErrorsResponse
      * @throws OciError when an error occurs
@@ -636,9 +666,11 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -737,6 +769,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListWorkRequestLogsRequest
      * @return ListWorkRequestLogsResponse
      * @throws OciError when an error occurs
@@ -762,9 +795,11 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -863,6 +898,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListWorkRequestsRequest
      * @return ListWorkRequestsResponse
      * @throws OciError when an error occurs
@@ -888,9 +924,11 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -986,6 +1024,7 @@ If the `opc-next-page` header appears in the response, then
    * Starts an inactive Digital Assistant instance. Once active, the instance will be accessible and metering
    * of requests will be started again.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StartOdaInstanceRequest
    * @return StartOdaInstanceResponse
    * @throws OciError when an error occurs
@@ -1008,9 +1047,11 @@ If the `opc-next-page` header appears in the response, then
       "opc-retry-token": startOdaInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      startOdaInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startOdaInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1051,6 +1092,7 @@ If the `opc-next-page` header appears in the response, then
    * of requests will be stopped until the instance is started again. Data associated with the instance
    * is not affected.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StopOdaInstanceRequest
    * @return StopOdaInstanceResponse
    * @throws OciError when an error occurs
@@ -1073,9 +1115,11 @@ If the `opc-next-page` header appears in the response, then
       "opc-retry-token": stopOdaInstanceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      stopOdaInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopOdaInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1113,6 +1157,7 @@ If the `opc-next-page` header appears in the response, then
 
   /**
    * Updates the specified Digital Assistant instance with the information in the request body.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateOdaInstanceRequest
    * @return UpdateOdaInstanceResponse
    * @throws OciError when an error occurs
@@ -1134,9 +1179,11 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": updateOdaInstanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateOdaInstanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOdaInstanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

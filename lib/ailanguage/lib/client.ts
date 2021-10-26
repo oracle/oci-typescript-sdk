@@ -25,7 +25,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum AIServiceLanguageApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class AIServiceLanguageClient {
   protected static serviceEndpointTemplate =
     "https://language.aiservice.{region}.oci.{secondLevelDomain}";
@@ -45,6 +47,15 @@ export class AIServiceLanguageClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -110,6 +121,7 @@ export class AIServiceLanguageClient {
 
   /**
    * Make a detect call to language detection pre-deployed model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetectDominantLanguageRequest
    * @return DetectDominantLanguageResponse
    * @throws OciError when an error occurs
@@ -129,9 +141,11 @@ export class AIServiceLanguageClient {
       "opc-request-id": detectDominantLanguageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detectDominantLanguageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detectDominantLanguageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -173,6 +187,7 @@ export class AIServiceLanguageClient {
 
   /**
    * Make a detect call to enitiy pre-deployed model
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetectLanguageEntitiesRequest
    * @return DetectLanguageEntitiesResponse
    * @throws OciError when an error occurs
@@ -195,9 +210,11 @@ export class AIServiceLanguageClient {
       "opc-request-id": detectLanguageEntitiesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detectLanguageEntitiesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detectLanguageEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -239,6 +256,7 @@ export class AIServiceLanguageClient {
 
   /**
    * Make a detect call to the keyPhrase pre-deployed model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetectLanguageKeyPhrasesRequest
    * @return DetectLanguageKeyPhrasesResponse
    * @throws OciError when an error occurs
@@ -258,9 +276,11 @@ export class AIServiceLanguageClient {
       "opc-request-id": detectLanguageKeyPhrasesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detectLanguageKeyPhrasesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detectLanguageKeyPhrasesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -302,6 +322,7 @@ export class AIServiceLanguageClient {
 
   /**
    * Make a detect call to sentiment pre-deployed model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetectLanguageSentimentsRequest
    * @return DetectLanguageSentimentsResponse
    * @throws OciError when an error occurs
@@ -321,9 +342,11 @@ export class AIServiceLanguageClient {
       "opc-request-id": detectLanguageSentimentsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detectLanguageSentimentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detectLanguageSentimentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -365,6 +388,7 @@ export class AIServiceLanguageClient {
 
   /**
    * Make a detect call to text classification from the pre-deployed model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetectLanguageTextClassificationRequest
    * @return DetectLanguageTextClassificationResponse
    * @throws OciError when an error occurs
@@ -386,9 +410,11 @@ export class AIServiceLanguageClient {
       "opc-request-id": detectLanguageTextClassificationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detectLanguageTextClassificationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detectLanguageTextClassificationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -26,7 +26,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum DataCatalogApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DataCatalogClient {
   protected static serviceEndpointTemplate = "https://datacatalog.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -46,6 +48,15 @@ export class DataCatalogClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -134,6 +145,7 @@ export class DataCatalogClient {
 
   /**
    * Add data selector pattern to the data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddDataSelectorPatternsRequest
    * @return AddDataSelectorPatternsResponse
    * @throws OciError when an error occurs
@@ -158,9 +170,11 @@ export class DataCatalogClient {
       "opc-retry-token": addDataSelectorPatternsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      addDataSelectorPatternsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDataSelectorPatternsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -207,6 +221,7 @@ export class DataCatalogClient {
 
   /**
    * Associate the custom property for the given type
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AssociateCustomPropertyRequest
    * @return AssociateCustomPropertyResponse
    * @throws OciError when an error occurs
@@ -231,9 +246,11 @@ export class DataCatalogClient {
       "opc-retry-token": associateCustomPropertyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      associateCustomPropertyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      associateCustomPropertyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -280,6 +297,7 @@ export class DataCatalogClient {
 
   /**
    * Attaches a private reverse connection endpoint resource to a data catalog resource. When provided, 'If-Match' is checked against 'ETag' values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachCatalogPrivateEndpointRequest
    * @return AttachCatalogPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -303,9 +321,11 @@ export class DataCatalogClient {
       "opc-retry-token": attachCatalogPrivateEndpointRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      attachCatalogPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachCatalogPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -348,6 +368,7 @@ export class DataCatalogClient {
 
   /**
    * Moves a resource into a different compartment. When provided, 'If-Match' is checked against 'ETag' values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCatalogCompartmentRequest
    * @return ChangeCatalogCompartmentResponse
    * @throws OciError when an error occurs
@@ -370,9 +391,11 @@ export class DataCatalogClient {
       "opc-request-id": changeCatalogCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeCatalogCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCatalogCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -415,6 +438,7 @@ export class DataCatalogClient {
 
   /**
    * Moves a resource into a different compartment. When provided, 'If-Match' is checked against 'ETag' values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCatalogPrivateEndpointCompartmentRequest
    * @return ChangeCatalogPrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
@@ -440,9 +464,11 @@ export class DataCatalogClient {
       "opc-request-id": changeCatalogPrivateEndpointCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeCatalogPrivateEndpointCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCatalogPrivateEndpointCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -485,6 +511,7 @@ export class DataCatalogClient {
 
   /**
    * Moves a resource into a different compartment. When provided, 'If-Match' is checked against 'ETag' values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeMetastoreCompartmentRequest
    * @return ChangeMetastoreCompartmentResponse
    * @throws OciError when an error occurs
@@ -507,9 +534,11 @@ export class DataCatalogClient {
       "opc-request-id": changeMetastoreCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeMetastoreCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMetastoreCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -552,6 +581,7 @@ export class DataCatalogClient {
 
   /**
    * Creates a new entity attribute.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAttributeRequest
    * @return CreateAttributeResponse
    * @throws OciError when an error occurs
@@ -575,9 +605,11 @@ export class DataCatalogClient {
       "opc-retry-token": createAttributeRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAttributeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAttributeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -624,6 +656,7 @@ export class DataCatalogClient {
 
   /**
    * Creates a new entity attribute tag.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAttributeTagRequest
    * @return CreateAttributeTagResponse
    * @throws OciError when an error occurs
@@ -648,9 +681,11 @@ export class DataCatalogClient {
       "opc-retry-token": createAttributeTagRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createAttributeTagRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAttributeTagRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -700,6 +735,7 @@ export class DataCatalogClient {
    * Creates a new data catalog instance that includes a console and an API URL for managing metadata operations.
    * For more information, please see the documentation.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateCatalogRequest
    * @return CreateCatalogResponse
    * @throws OciError when an error occurs
@@ -719,9 +755,11 @@ export class DataCatalogClient {
       "opc-request-id": createCatalogRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCatalogRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCatalogRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -764,6 +802,7 @@ export class DataCatalogClient {
 
   /**
    * Create a new private reverse connection endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateCatalogPrivateEndpointRequest
    * @return CreateCatalogPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -784,9 +823,11 @@ export class DataCatalogClient {
       "opc-retry-token": createCatalogPrivateEndpointRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCatalogPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCatalogPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -829,6 +870,7 @@ export class DataCatalogClient {
 
   /**
    * Creates a new connection.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateConnectionRequest
    * @return CreateConnectionResponse
    * @throws OciError when an error occurs
@@ -851,9 +893,11 @@ export class DataCatalogClient {
       "opc-retry-token": createConnectionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -900,6 +944,7 @@ export class DataCatalogClient {
 
   /**
    * Create a new Custom Property
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateCustomPropertyRequest
    * @return CreateCustomPropertyResponse
    * @throws OciError when an error occurs
@@ -922,9 +967,11 @@ export class DataCatalogClient {
       "opc-retry-token": createCustomPropertyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createCustomPropertyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCustomPropertyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -971,6 +1018,7 @@ export class DataCatalogClient {
 
   /**
    * Create a new data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDataAssetRequest
    * @return CreateDataAssetResponse
    * @throws OciError when an error occurs
@@ -992,9 +1040,11 @@ export class DataCatalogClient {
       "opc-retry-token": createDataAssetRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1041,6 +1091,7 @@ export class DataCatalogClient {
 
   /**
    * Creates a new data asset tag.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDataAssetTagRequest
    * @return CreateDataAssetTagResponse
    * @throws OciError when an error occurs
@@ -1063,9 +1114,11 @@ export class DataCatalogClient {
       "opc-retry-token": createDataAssetTagRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDataAssetTagRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDataAssetTagRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1112,6 +1165,7 @@ export class DataCatalogClient {
 
   /**
    * Creates a new data entity.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateEntityRequest
    * @return CreateEntityResponse
    * @throws OciError when an error occurs
@@ -1134,9 +1188,11 @@ export class DataCatalogClient {
       "opc-retry-token": createEntityRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createEntityRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createEntityRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1183,6 +1239,7 @@ export class DataCatalogClient {
 
   /**
    * Creates a new entity tag.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateEntityTagRequest
    * @return CreateEntityTagResponse
    * @throws OciError when an error occurs
@@ -1206,9 +1263,11 @@ export class DataCatalogClient {
       "opc-retry-token": createEntityTagRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createEntityTagRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createEntityTagRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1255,6 +1314,7 @@ export class DataCatalogClient {
 
   /**
    * Creates a new folder.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateFolderRequest
    * @return CreateFolderResponse
    * @throws OciError when an error occurs
@@ -1277,9 +1337,11 @@ export class DataCatalogClient {
       "opc-retry-token": createFolderRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createFolderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createFolderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1326,6 +1388,7 @@ export class DataCatalogClient {
 
   /**
    * Creates a new folder tag.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateFolderTagRequest
    * @return CreateFolderTagResponse
    * @throws OciError when an error occurs
@@ -1349,9 +1412,11 @@ export class DataCatalogClient {
       "opc-retry-token": createFolderTagRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createFolderTagRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createFolderTagRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1398,6 +1463,7 @@ export class DataCatalogClient {
 
   /**
    * Creates a new glossary.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateGlossaryRequest
    * @return CreateGlossaryResponse
    * @throws OciError when an error occurs
@@ -1419,9 +1485,11 @@ export class DataCatalogClient {
       "opc-retry-token": createGlossaryRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createGlossaryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createGlossaryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1468,6 +1536,7 @@ export class DataCatalogClient {
 
   /**
    * Creates a new job.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateJobRequest
    * @return CreateJobResponse
    * @throws OciError when an error occurs
@@ -1489,9 +1558,11 @@ export class DataCatalogClient {
       "opc-retry-token": createJobRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1538,6 +1609,7 @@ export class DataCatalogClient {
 
   /**
    * Creates a new job definition.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateJobDefinitionRequest
    * @return CreateJobDefinitionResponse
    * @throws OciError when an error occurs
@@ -1559,9 +1631,11 @@ export class DataCatalogClient {
       "opc-retry-token": createJobDefinitionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createJobDefinitionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createJobDefinitionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1608,6 +1682,7 @@ export class DataCatalogClient {
 
   /**
    * Creates a new job execution.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateJobExecutionRequest
    * @return CreateJobExecutionResponse
    * @throws OciError when an error occurs
@@ -1630,9 +1705,11 @@ export class DataCatalogClient {
       "opc-retry-token": createJobExecutionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createJobExecutionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createJobExecutionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1680,6 +1757,7 @@ export class DataCatalogClient {
   /**
    * Creates a new metastore.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateMetastoreRequest
    * @return CreateMetastoreResponse
    * @throws OciError when an error occurs
@@ -1699,9 +1777,11 @@ export class DataCatalogClient {
       "opc-request-id": createMetastoreRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createMetastoreRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMetastoreRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1744,6 +1824,7 @@ export class DataCatalogClient {
 
   /**
    * Create a new Namespace to be used by a custom property
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateNamespaceRequest
    * @return CreateNamespaceResponse
    * @throws OciError when an error occurs
@@ -1765,9 +1846,11 @@ export class DataCatalogClient {
       "opc-retry-token": createNamespaceRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createNamespaceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNamespaceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1814,6 +1897,7 @@ export class DataCatalogClient {
 
   /**
    * Create a new pattern.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePatternRequest
    * @return CreatePatternResponse
    * @throws OciError when an error occurs
@@ -1835,9 +1919,11 @@ export class DataCatalogClient {
       "opc-retry-token": createPatternRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPatternRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPatternRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1884,6 +1970,7 @@ export class DataCatalogClient {
 
   /**
    * Create a new term within a glossary.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTermRequest
    * @return CreateTermResponse
    * @throws OciError when an error occurs
@@ -1906,9 +1993,11 @@ export class DataCatalogClient {
       "opc-retry-token": createTermRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTermRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTermRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1955,6 +2044,7 @@ export class DataCatalogClient {
 
   /**
    * Creates a new term relationship for this term within a glossary.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTermRelationshipRequest
    * @return CreateTermRelationshipResponse
    * @throws OciError when an error occurs
@@ -1979,9 +2069,11 @@ export class DataCatalogClient {
       "opc-retry-token": createTermRelationshipRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createTermRelationshipRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTermRelationshipRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2028,6 +2120,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific entity attribute.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAttributeRequest
    * @return DeleteAttributeResponse
    * @throws OciError when an error occurs
@@ -2052,9 +2145,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteAttributeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAttributeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAttributeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2088,6 +2183,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific entity attribute tag.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAttributeTagRequest
    * @return DeleteAttributeTagResponse
    * @throws OciError when an error occurs
@@ -2113,9 +2209,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteAttributeTagRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteAttributeTagRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAttributeTagRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2149,6 +2247,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a data catalog resource by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCatalogRequest
    * @return DeleteCatalogResponse
    * @throws OciError when an error occurs
@@ -2170,9 +2269,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteCatalogRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCatalogRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCatalogRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2210,6 +2311,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a private reverse connection endpoint by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCatalogPrivateEndpointRequest
    * @return DeleteCatalogPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -2232,9 +2334,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteCatalogPrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCatalogPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCatalogPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2272,6 +2376,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific connection of a data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteConnectionRequest
    * @return DeleteConnectionResponse
    * @throws OciError when an error occurs
@@ -2295,9 +2400,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteConnectionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2330,6 +2437,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific custom property identified by it's key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCustomPropertyRequest
    * @return DeleteCustomPropertyResponse
    * @throws OciError when an error occurs
@@ -2353,9 +2461,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteCustomPropertyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteCustomPropertyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCustomPropertyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2388,6 +2498,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific data asset identified by it's key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDataAssetRequest
    * @return DeleteDataAssetResponse
    * @throws OciError when an error occurs
@@ -2410,9 +2521,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteDataAssetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2445,6 +2558,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific data asset tag.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDataAssetTagRequest
    * @return DeleteDataAssetTagResponse
    * @throws OciError when an error occurs
@@ -2468,9 +2582,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteDataAssetTagRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDataAssetTagRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDataAssetTagRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2503,6 +2619,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific data entity.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteEntityRequest
    * @return DeleteEntityResponse
    * @throws OciError when an error occurs
@@ -2526,9 +2643,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteEntityRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteEntityRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteEntityRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2561,6 +2680,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific entity tag.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteEntityTagRequest
    * @return DeleteEntityTagResponse
    * @throws OciError when an error occurs
@@ -2585,9 +2705,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteEntityTagRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteEntityTagRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteEntityTagRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2620,6 +2742,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific folder of a data asset identified by it's key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteFolderRequest
    * @return DeleteFolderResponse
    * @throws OciError when an error occurs
@@ -2643,9 +2766,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteFolderRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteFolderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteFolderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2678,6 +2803,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific folder tag.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteFolderTagRequest
    * @return DeleteFolderTagResponse
    * @throws OciError when an error occurs
@@ -2702,9 +2828,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteFolderTagRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteFolderTagRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteFolderTagRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2737,6 +2865,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific glossary identified by it's key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteGlossaryRequest
    * @return DeleteGlossaryResponse
    * @throws OciError when an error occurs
@@ -2759,9 +2888,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteGlossaryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteGlossaryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteGlossaryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2794,6 +2925,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific job identified by it's key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteJobRequest
    * @return DeleteJobResponse
    * @throws OciError when an error occurs
@@ -2816,9 +2948,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2851,6 +2985,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific job definition identified by it's key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteJobDefinitionRequest
    * @return DeleteJobDefinitionResponse
    * @throws OciError when an error occurs
@@ -2873,9 +3008,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteJobDefinitionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteJobDefinitionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteJobDefinitionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2908,6 +3045,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a metastore resource by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteMetastoreRequest
    * @return DeleteMetastoreResponse
    * @throws OciError when an error occurs
@@ -2929,9 +3067,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteMetastoreRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteMetastoreRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMetastoreRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2969,6 +3109,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific Namespace identified by it's key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteNamespaceRequest
    * @return DeleteNamespaceResponse
    * @throws OciError when an error occurs
@@ -2991,9 +3132,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteNamespaceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteNamespaceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNamespaceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3026,6 +3169,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific pattern identified by it's key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePatternRequest
    * @return DeletePatternResponse
    * @throws OciError when an error occurs
@@ -3048,9 +3192,11 @@ export class DataCatalogClient {
       "opc-request-id": deletePatternRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePatternRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePatternRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3083,6 +3229,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific glossary term.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTermRequest
    * @return DeleteTermResponse
    * @throws OciError when an error occurs
@@ -3106,9 +3253,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteTermRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTermRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTermRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3141,6 +3290,7 @@ export class DataCatalogClient {
 
   /**
    * Deletes a specific glossary term relationship.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTermRelationshipRequest
    * @return DeleteTermRelationshipResponse
    * @throws OciError when an error occurs
@@ -3166,9 +3316,11 @@ export class DataCatalogClient {
       "opc-request-id": deleteTermRelationshipRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteTermRelationshipRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTermRelationshipRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3202,6 +3354,7 @@ export class DataCatalogClient {
 
   /**
    * Detaches a private reverse connection endpoint resource to a data catalog resource. When provided, 'If-Match' is checked against 'ETag' values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DetachCatalogPrivateEndpointRequest
    * @return DetachCatalogPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -3224,9 +3377,11 @@ export class DataCatalogClient {
       "opc-request-id": detachCatalogPrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      detachCatalogPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachCatalogPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3269,6 +3424,7 @@ export class DataCatalogClient {
 
   /**
    * Remove the custom property for the given type
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisassociateCustomPropertyRequest
    * @return DisassociateCustomPropertyResponse
    * @throws OciError when an error occurs
@@ -3293,9 +3449,11 @@ export class DataCatalogClient {
       "opc-retry-token": disassociateCustomPropertyRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      disassociateCustomPropertyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disassociateCustomPropertyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3342,6 +3500,7 @@ export class DataCatalogClient {
 
   /**
    * Returns the fully expanded tree hierarchy of parent and child terms in this glossary.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ExpandTreeForGlossaryRequest
    * @return ExpandTreeForGlossaryResponse
    * @throws OciError when an error occurs
@@ -3365,9 +3524,11 @@ export class DataCatalogClient {
       "opc-retry-token": expandTreeForGlossaryRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      expandTreeForGlossaryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      expandTreeForGlossaryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3409,6 +3570,7 @@ export class DataCatalogClient {
 
   /**
    * Export the glossary and the terms and return the exported glossary as csv or json.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ExportGlossaryRequest
    * @return ExportGlossaryResponse
    * @throws OciError when an error occurs
@@ -3433,9 +3595,11 @@ export class DataCatalogClient {
       "opc-retry-token": exportGlossaryRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      exportGlossaryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportGlossaryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3477,6 +3641,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific entity attribute by key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAttributeRequest
    * @return GetAttributeResponse
    * @throws OciError when an error occurs
@@ -3503,9 +3668,11 @@ export class DataCatalogClient {
       "opc-request-id": getAttributeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAttributeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAttributeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3548,6 +3715,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific entity attribute tag by key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAttributeTagRequest
    * @return GetAttributeTagResponse
    * @throws OciError when an error occurs
@@ -3574,9 +3742,11 @@ export class DataCatalogClient {
       "opc-request-id": getAttributeTagRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getAttributeTagRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAttributeTagRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3619,6 +3789,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a data catalog by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCatalogRequest
    * @return GetCatalogResponse
    * @throws OciError when an error occurs
@@ -3639,9 +3810,11 @@ export class DataCatalogClient {
       "opc-request-id": getCatalogRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCatalogRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCatalogRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3683,6 +3856,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific private reverse connection by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCatalogPrivateEndpointRequest
    * @return GetCatalogPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -3704,9 +3878,11 @@ export class DataCatalogClient {
       "opc-request-id": getCatalogPrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCatalogPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCatalogPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3748,6 +3924,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific data asset connection by key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConnectionRequest
    * @return GetConnectionResponse
    * @throws OciError when an error occurs
@@ -3772,9 +3949,11 @@ export class DataCatalogClient {
       "opc-request-id": getConnectionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3816,6 +3995,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific custom property for the given key within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCustomPropertyRequest
    * @return GetCustomPropertyResponse
    * @throws OciError when an error occurs
@@ -3840,9 +4020,11 @@ export class DataCatalogClient {
       "opc-request-id": getCustomPropertyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getCustomPropertyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCustomPropertyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3884,6 +4066,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific data asset for the given key within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataAssetRequest
    * @return GetDataAssetResponse
    * @throws OciError when an error occurs
@@ -3907,9 +4090,11 @@ export class DataCatalogClient {
       "opc-request-id": getDataAssetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -3951,6 +4136,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific data asset tag by key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataAssetTagRequest
    * @return GetDataAssetTagResponse
    * @throws OciError when an error occurs
@@ -3975,9 +4161,11 @@ export class DataCatalogClient {
       "opc-request-id": getDataAssetTagRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDataAssetTagRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataAssetTagRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4019,6 +4207,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific data entity by key for a data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetEntityRequest
    * @return GetEntityResponse
    * @throws OciError when an error occurs
@@ -4044,9 +4233,11 @@ export class DataCatalogClient {
       "opc-request-id": getEntityRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getEntityRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEntityRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4088,6 +4279,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific entity tag by key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetEntityTagRequest
    * @return GetEntityTagResponse
    * @throws OciError when an error occurs
@@ -4113,9 +4305,11 @@ export class DataCatalogClient {
       "opc-request-id": getEntityTagRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getEntityTagRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEntityTagRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4157,6 +4351,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific data asset folder by key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetFolderRequest
    * @return GetFolderResponse
    * @throws OciError when an error occurs
@@ -4182,9 +4377,11 @@ export class DataCatalogClient {
       "opc-request-id": getFolderRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getFolderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFolderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4226,6 +4423,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific folder tag by key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetFolderTagRequest
    * @return GetFolderTagResponse
    * @throws OciError when an error occurs
@@ -4251,9 +4449,11 @@ export class DataCatalogClient {
       "opc-request-id": getFolderTagRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getFolderTagRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFolderTagRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4295,6 +4495,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific glossary by key within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetGlossaryRequest
    * @return GetGlossaryResponse
    * @throws OciError when an error occurs
@@ -4318,9 +4519,11 @@ export class DataCatalogClient {
       "opc-request-id": getGlossaryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getGlossaryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getGlossaryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4362,6 +4565,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific job by key within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobRequest
    * @return GetJobResponse
    * @throws OciError when an error occurs
@@ -4383,9 +4587,11 @@ export class DataCatalogClient {
       "opc-request-id": getJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4427,6 +4633,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific job definition by key within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobDefinitionRequest
    * @return GetJobDefinitionResponse
    * @throws OciError when an error occurs
@@ -4450,9 +4657,11 @@ export class DataCatalogClient {
       "opc-request-id": getJobDefinitionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobDefinitionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJobDefinitionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4494,6 +4703,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific job execution by key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobExecutionRequest
    * @return GetJobExecutionResponse
    * @throws OciError when an error occurs
@@ -4518,9 +4728,11 @@ export class DataCatalogClient {
       "opc-request-id": getJobExecutionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobExecutionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJobExecutionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4562,6 +4774,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific job log by key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobLogRequest
    * @return GetJobLogResponse
    * @throws OciError when an error occurs
@@ -4587,9 +4800,11 @@ export class DataCatalogClient {
       "opc-request-id": getJobLogRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobLogRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJobLogRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4631,6 +4846,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific job metric by key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobMetricsRequest
    * @return GetJobMetricsResponse
    * @throws OciError when an error occurs
@@ -4656,9 +4872,11 @@ export class DataCatalogClient {
       "opc-request-id": getJobMetricsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getJobMetricsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJobMetricsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4701,6 +4919,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a metastore by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMetastoreRequest
    * @return GetMetastoreResponse
    * @throws OciError when an error occurs
@@ -4721,9 +4940,11 @@ export class DataCatalogClient {
       "opc-request-id": getMetastoreRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getMetastoreRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMetastoreRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4765,6 +4986,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific namespace for the given key within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetNamespaceRequest
    * @return GetNamespaceResponse
    * @throws OciError when an error occurs
@@ -4788,9 +5010,11 @@ export class DataCatalogClient {
       "opc-request-id": getNamespaceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getNamespaceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNamespaceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4832,6 +5056,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific pattern for the given key within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPatternRequest
    * @return GetPatternResponse
    * @throws OciError when an error occurs
@@ -4855,9 +5080,11 @@ export class DataCatalogClient {
       "opc-request-id": getPatternRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPatternRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPatternRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4899,6 +5126,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific glossary term by key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTermRequest
    * @return GetTermResponse
    * @throws OciError when an error occurs
@@ -4923,9 +5151,11 @@ export class DataCatalogClient {
       "opc-request-id": getTermRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTermRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTermRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -4967,6 +5197,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific glossary term relationship by key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTermRelationshipRequest
    * @return GetTermRelationshipResponse
    * @throws OciError when an error occurs
@@ -4992,9 +5223,11 @@ export class DataCatalogClient {
       "opc-request-id": getTermRelationshipRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTermRelationshipRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTermRelationshipRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5037,6 +5270,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific type by key within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTypeRequest
    * @return GetTypeResponse
    * @throws OciError when an error occurs
@@ -5060,9 +5294,11 @@ export class DataCatalogClient {
       "opc-request-id": getTypeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getTypeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTypeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5104,6 +5340,7 @@ export class DataCatalogClient {
 
   /**
    * Gets the status of the work request with the given OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -5124,9 +5361,11 @@ export class DataCatalogClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5173,6 +5412,7 @@ export class DataCatalogClient {
 
   /**
    * Import new connection for this data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ImportConnectionRequest
    * @return ImportConnectionResponse
    * @throws OciError when an error occurs
@@ -5196,9 +5436,11 @@ export class DataCatalogClient {
       "opc-retry-token": importConnectionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      importConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5245,6 +5487,7 @@ export class DataCatalogClient {
 
   /**
    * Import technical objects to a Data Asset
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ImportDataAssetRequest
    * @return ImportDataAssetResponse
    * @throws OciError when an error occurs
@@ -5270,9 +5513,11 @@ export class DataCatalogClient {
       "opc-retry-token": importDataAssetRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      importDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5314,6 +5559,7 @@ export class DataCatalogClient {
 
   /**
    * Import the glossary and the terms from csv or json files and return the imported glossary resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ImportGlossaryRequest
    * @return ImportGlossaryResponse
    * @throws OciError when an error occurs
@@ -5338,9 +5584,11 @@ export class DataCatalogClient {
       "opc-retry-token": importGlossaryRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      importGlossaryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importGlossaryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5383,6 +5631,7 @@ export class DataCatalogClient {
 
   /**
    * List the physical entities aggregated by this logical entity.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAggregatedPhysicalEntitiesRequest
    * @return ListAggregatedPhysicalEntitiesResponse
    * @throws OciError when an error occurs
@@ -5413,9 +5662,11 @@ export class DataCatalogClient {
       "opc-request-id": listAggregatedPhysicalEntitiesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAggregatedPhysicalEntitiesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAggregatedPhysicalEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5453,6 +5704,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all tags for an entity attribute.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAttributeTagsRequest
    * @return ListAttributeTagsResponse
    * @throws OciError when an error occurs
@@ -5488,9 +5740,11 @@ export class DataCatalogClient {
       "opc-request-id": listAttributeTagsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAttributeTagsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAttributeTagsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5533,6 +5787,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all attributes of an data entity.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAttributesRequest
    * @return ListAttributesResponse
    * @throws OciError when an error occurs
@@ -5579,9 +5834,11 @@ export class DataCatalogClient {
       "opc-request-id": listAttributesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listAttributesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAttributesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5624,6 +5881,7 @@ export class DataCatalogClient {
   /**
    * Returns a list of all the catalog private endpoints in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCatalogPrivateEndpointsRequest
    * @return ListCatalogPrivateEndpointsResponse
    * @throws OciError when an error occurs
@@ -5651,9 +5909,11 @@ export class DataCatalogClient {
       "opc-request-id": listCatalogPrivateEndpointsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCatalogPrivateEndpointsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCatalogPrivateEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5748,6 +6008,7 @@ export class DataCatalogClient {
   /**
    * Returns a list of all the data catalogs in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCatalogsRequest
    * @return ListCatalogsResponse
    * @throws OciError when an error occurs
@@ -5774,9 +6035,11 @@ export class DataCatalogClient {
       "opc-request-id": listCatalogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCatalogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCatalogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5870,6 +6133,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all Connections for a data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListConnectionsRequest
    * @return ListConnectionsResponse
    * @throws OciError when an error occurs
@@ -5907,9 +6171,11 @@ export class DataCatalogClient {
       "opc-request-id": listConnectionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listConnectionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConnectionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -5951,6 +6217,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of custom properties within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCustomPropertiesRequest
    * @return ListCustomPropertiesResponse
    * @throws OciError when an error occurs
@@ -5987,9 +6254,11 @@ export class DataCatalogClient {
       "opc-request-id": listCustomPropertiesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listCustomPropertiesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCustomPropertiesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6031,6 +6300,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all tags for a data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataAssetTagsRequest
    * @return ListDataAssetTagsResponse
    * @throws OciError when an error occurs
@@ -6064,9 +6334,11 @@ export class DataCatalogClient {
       "opc-request-id": listDataAssetTagsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDataAssetTagsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataAssetTagsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6108,6 +6380,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of data assets within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataAssetsRequest
    * @return ListDataAssetsResponse
    * @throws OciError when an error occurs
@@ -6143,9 +6416,11 @@ export class DataCatalogClient {
       "opc-request-id": listDataAssetsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDataAssetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataAssetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6187,6 +6462,7 @@ export class DataCatalogClient {
 
   /**
    * List logical entities derived from this pattern.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDerivedLogicalEntitiesRequest
    * @return ListDerivedLogicalEntitiesResponse
    * @throws OciError when an error occurs
@@ -6217,9 +6493,11 @@ export class DataCatalogClient {
       "opc-retry-token": listDerivedLogicalEntitiesRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDerivedLogicalEntitiesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDerivedLogicalEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6256,6 +6534,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all entities of a data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListEntitiesRequest
    * @return ListEntitiesResponse
    * @throws OciError when an error occurs
@@ -6303,9 +6582,11 @@ export class DataCatalogClient {
       "opc-request-id": listEntitiesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listEntitiesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6347,6 +6628,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all tags for a data entity.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListEntityTagsRequest
    * @return ListEntityTagsResponse
    * @throws OciError when an error occurs
@@ -6381,9 +6663,11 @@ export class DataCatalogClient {
       "opc-request-id": listEntityTagsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listEntityTagsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEntityTagsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6425,6 +6709,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all tags for a folder.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListFolderTagsRequest
    * @return ListFolderTagsResponse
    * @throws OciError when an error occurs
@@ -6459,9 +6744,11 @@ export class DataCatalogClient {
       "opc-request-id": listFolderTagsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listFolderTagsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFolderTagsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6503,6 +6790,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all folders.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListFoldersRequest
    * @return ListFoldersResponse
    * @throws OciError when an error occurs
@@ -6544,9 +6832,11 @@ export class DataCatalogClient {
       "opc-request-id": listFoldersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listFoldersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFoldersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6588,6 +6878,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all glossaries within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListGlossariesRequest
    * @return ListGlossariesResponse
    * @throws OciError when an error occurs
@@ -6621,9 +6912,11 @@ export class DataCatalogClient {
       "opc-request-id": listGlossariesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listGlossariesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listGlossariesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6665,6 +6958,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of job definitions within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListJobDefinitionsRequest
    * @return ListJobDefinitionsResponse
    * @throws OciError when an error occurs
@@ -6704,9 +6998,11 @@ export class DataCatalogClient {
       "opc-request-id": listJobDefinitionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobDefinitionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobDefinitionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6748,6 +7044,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of job executions for a job.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListJobExecutionsRequest
    * @return ListJobExecutionsResponse
    * @throws OciError when an error occurs
@@ -6791,9 +7088,11 @@ export class DataCatalogClient {
       "opc-request-id": listJobExecutionsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobExecutionsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobExecutionsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6835,6 +7134,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of job logs.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListJobLogsRequest
    * @return ListJobLogsResponse
    * @throws OciError when an error occurs
@@ -6869,9 +7169,11 @@ export class DataCatalogClient {
       "opc-request-id": listJobLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6913,6 +7215,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of job metrics.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListJobMetricsRequest
    * @return ListJobMetricsResponse
    * @throws OciError when an error occurs
@@ -6953,9 +7256,11 @@ export class DataCatalogClient {
       "opc-request-id": listJobMetricsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobMetricsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobMetricsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -6997,6 +7302,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of jobs within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListJobsRequest
    * @return ListJobsResponse
    * @throws OciError when an error occurs
@@ -7040,9 +7346,11 @@ export class DataCatalogClient {
       "opc-request-id": listJobsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listJobsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7085,6 +7393,7 @@ export class DataCatalogClient {
   /**
    * Returns a list of all metastores in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListMetastoresRequest
    * @return ListMetastoresResponse
    * @throws OciError when an error occurs
@@ -7111,9 +7420,11 @@ export class DataCatalogClient {
       "opc-request-id": listMetastoresRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listMetastoresRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMetastoresRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7207,6 +7518,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of namespaces within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListNamespacesRequest
    * @return ListNamespacesResponse
    * @throws OciError when an error occurs
@@ -7240,9 +7552,11 @@ export class DataCatalogClient {
       "opc-request-id": listNamespacesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listNamespacesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNamespacesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7284,6 +7598,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of patterns within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPatternsRequest
    * @return ListPatternsResponse
    * @throws OciError when an error occurs
@@ -7317,9 +7632,11 @@ export class DataCatalogClient {
       "opc-request-id": listPatternsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPatternsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPatternsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7361,6 +7678,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all rules of a data entity.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRulesRequest
    * @return ListRulesResponse
    * @throws OciError when an error occurs
@@ -7399,9 +7717,11 @@ export class DataCatalogClient {
       "opc-request-id": listRulesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRulesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRulesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7443,6 +7763,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all user created tags in the system.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTagsRequest
    * @return ListTagsResponse
    * @throws OciError when an error occurs
@@ -7472,9 +7793,11 @@ export class DataCatalogClient {
       "opc-request-id": listTagsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTagsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTagsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7516,6 +7839,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all term relationships within a glossary.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTermRelationshipsRequest
    * @return ListTermRelationshipsResponse
    * @throws OciError when an error occurs
@@ -7548,9 +7872,11 @@ export class DataCatalogClient {
       "opc-request-id": listTermRelationshipsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTermRelationshipsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTermRelationshipsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7592,6 +7918,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all terms within a glossary.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTermsRequest
    * @return ListTermsResponse
    * @throws OciError when an error occurs
@@ -7626,9 +7953,11 @@ export class DataCatalogClient {
       "opc-request-id": listTermsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTermsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTermsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7670,6 +7999,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all types within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTypesRequest
    * @return ListTypesResponse
    * @throws OciError when an error occurs
@@ -7703,9 +8033,11 @@ export class DataCatalogClient {
       "opc-request-id": listTypesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listTypesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTypesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7748,6 +8080,7 @@ export class DataCatalogClient {
   /**
    * Returns a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -7774,9 +8107,11 @@ export class DataCatalogClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7871,6 +8206,7 @@ export class DataCatalogClient {
   /**
    * Returns a (paginated) list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -7896,9 +8232,11 @@ export class DataCatalogClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -7993,6 +8331,7 @@ export class DataCatalogClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -8015,9 +8354,11 @@ export class DataCatalogClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8111,6 +8452,7 @@ export class DataCatalogClient {
 
   /**
    * Returns stats on objects by type in the repository.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ObjectStatsRequest
    * @return ObjectStatsResponse
    * @throws OciError when an error occurs
@@ -8136,9 +8478,11 @@ export class DataCatalogClient {
       "opc-request-id": objectStatsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      objectStatsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      objectStatsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8180,6 +8524,7 @@ export class DataCatalogClient {
 
   /**
    * Parse data asset references through connections from this data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ParseConnectionRequest
    * @return ParseConnectionResponse
    * @throws OciError when an error occurs
@@ -8204,9 +8549,11 @@ export class DataCatalogClient {
       "opc-retry-token": parseConnectionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      parseConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      parseConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8255,6 +8602,7 @@ export class DataCatalogClient {
    * Act on a recommendation. A recommendation can be accepted or rejected. For example, if a recommendation of type LINK_GLOSSARY_TERM
    * is accepted, the system will link the source object (e.g. an attribute) to a target glossary term.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ProcessRecommendationRequest
    * @return ProcessRecommendationResponse
    * @throws OciError when an error occurs
@@ -8277,9 +8625,11 @@ export class DataCatalogClient {
       "opc-request-id": processRecommendationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      processRecommendationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      processRecommendationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8329,6 +8679,7 @@ export class DataCatalogClient {
    * By default, it will return inferred recommendations for review. The optional query param 'RecommendationStatus' can be set,
    * to return only recommendations having that status.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RecommendationsRequest
    * @return RecommendationsResponse
    * @throws OciError when an error occurs
@@ -8354,9 +8705,11 @@ export class DataCatalogClient {
       "opc-request-id": recommendationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      recommendationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      recommendationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8393,6 +8746,7 @@ export class DataCatalogClient {
 
   /**
    * Remove data selector pattern from the data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveDataSelectorPatternsRequest
    * @return RemoveDataSelectorPatternsResponse
    * @throws OciError when an error occurs
@@ -8417,9 +8771,11 @@ export class DataCatalogClient {
       "opc-retry-token": removeDataSelectorPatternsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      removeDataSelectorPatternsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDataSelectorPatternsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8466,6 +8822,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of search results within a data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SearchCriteriaRequest
    * @return SearchCriteriaResponse
    * @throws OciError when an error occurs
@@ -8495,9 +8852,11 @@ export class DataCatalogClient {
       "opc-request-id": searchCriteriaRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      searchCriteriaRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchCriteriaRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8544,6 +8903,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of potential string matches for a given input string.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SuggestMatchesRequest
    * @return SuggestMatchesResponse
    * @throws OciError when an error occurs
@@ -8568,9 +8928,11 @@ export class DataCatalogClient {
       "opc-request-id": suggestMatchesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      suggestMatchesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      suggestMatchesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8607,6 +8969,7 @@ export class DataCatalogClient {
 
   /**
    * Export technical objects from a Data Asset
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SynchronousExportDataAssetRequest
    * @return SynchronousExportDataAssetResponse
    * @throws OciError when an error occurs
@@ -8632,9 +8995,11 @@ export class DataCatalogClient {
       "opc-retry-token": synchronousExportDataAssetRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      synchronousExportDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      synchronousExportDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8676,6 +9041,7 @@ export class DataCatalogClient {
 
   /**
    * Test the connection by connecting to the data asset using credentials in the metadata.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param TestConnectionRequest
    * @return TestConnectionResponse
    * @throws OciError when an error occurs
@@ -8699,9 +9065,11 @@ export class DataCatalogClient {
       "opc-retry-token": testConnectionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      testConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      testConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8744,6 +9112,7 @@ export class DataCatalogClient {
 
   /**
    * Updates a specific data asset attribute.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAttributeRequest
    * @return UpdateAttributeResponse
    * @throws OciError when an error occurs
@@ -8768,9 +9137,11 @@ export class DataCatalogClient {
       "opc-request-id": updateAttributeRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateAttributeRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAttributeRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8818,6 +9189,7 @@ export class DataCatalogClient {
 
   /**
    * Updates the data catalog.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCatalogRequest
    * @return UpdateCatalogResponse
    * @throws OciError when an error occurs
@@ -8839,9 +9211,11 @@ export class DataCatalogClient {
       "opc-request-id": updateCatalogRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCatalogRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCatalogRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8888,6 +9262,7 @@ export class DataCatalogClient {
 
   /**
    * Updates the private reverse connection endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCatalogPrivateEndpointRequest
    * @return UpdateCatalogPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -8910,9 +9285,11 @@ export class DataCatalogClient {
       "opc-request-id": updateCatalogPrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCatalogPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCatalogPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -8955,6 +9332,7 @@ export class DataCatalogClient {
 
   /**
    * Updates a specific connection of a data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateConnectionRequest
    * @return UpdateConnectionResponse
    * @throws OciError when an error occurs
@@ -8978,9 +9356,11 @@ export class DataCatalogClient {
       "opc-request-id": updateConnectionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9027,6 +9407,7 @@ export class DataCatalogClient {
 
   /**
    * Updates a specific custom property identified by the given key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCustomPropertyRequest
    * @return UpdateCustomPropertyResponse
    * @throws OciError when an error occurs
@@ -9050,9 +9431,11 @@ export class DataCatalogClient {
       "opc-request-id": updateCustomPropertyRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateCustomPropertyRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCustomPropertyRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9099,6 +9482,7 @@ export class DataCatalogClient {
 
   /**
    * Updates a specific data asset identified by the given key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDataAssetRequest
    * @return UpdateDataAssetResponse
    * @throws OciError when an error occurs
@@ -9121,9 +9505,11 @@ export class DataCatalogClient {
       "opc-request-id": updateDataAssetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDataAssetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9170,6 +9556,7 @@ export class DataCatalogClient {
 
   /**
    * Updates a specific data entity.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateEntityRequest
    * @return UpdateEntityResponse
    * @throws OciError when an error occurs
@@ -9193,9 +9580,11 @@ export class DataCatalogClient {
       "opc-request-id": updateEntityRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateEntityRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateEntityRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9242,6 +9631,7 @@ export class DataCatalogClient {
 
   /**
    * Updates a specific folder of a data asset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateFolderRequest
    * @return UpdateFolderResponse
    * @throws OciError when an error occurs
@@ -9265,9 +9655,11 @@ export class DataCatalogClient {
       "opc-request-id": updateFolderRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateFolderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateFolderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9314,6 +9706,7 @@ export class DataCatalogClient {
 
   /**
    * Updates a specific glossary identified by the given key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateGlossaryRequest
    * @return UpdateGlossaryResponse
    * @throws OciError when an error occurs
@@ -9336,9 +9729,11 @@ export class DataCatalogClient {
       "opc-request-id": updateGlossaryRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateGlossaryRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateGlossaryRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9385,6 +9780,7 @@ export class DataCatalogClient {
 
   /**
    * Updates a specific job identified by the given key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateJobRequest
    * @return UpdateJobResponse
    * @throws OciError when an error occurs
@@ -9407,9 +9803,11 @@ export class DataCatalogClient {
       "opc-request-id": updateJobRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateJobRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateJobRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9456,6 +9854,7 @@ export class DataCatalogClient {
 
   /**
    * Update a specific job definition identified by the given key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateJobDefinitionRequest
    * @return UpdateJobDefinitionResponse
    * @throws OciError when an error occurs
@@ -9478,9 +9877,11 @@ export class DataCatalogClient {
       "opc-request-id": updateJobDefinitionRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateJobDefinitionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateJobDefinitionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9527,6 +9928,7 @@ export class DataCatalogClient {
 
   /**
    * Updates a metastore resource by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateMetastoreRequest
    * @return UpdateMetastoreResponse
    * @throws OciError when an error occurs
@@ -9548,9 +9950,11 @@ export class DataCatalogClient {
       "opc-request-id": updateMetastoreRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateMetastoreRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMetastoreRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9597,6 +10001,7 @@ export class DataCatalogClient {
 
   /**
    * Updates a specific namespace identified by the given key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateNamespaceRequest
    * @return UpdateNamespaceResponse
    * @throws OciError when an error occurs
@@ -9619,9 +10024,11 @@ export class DataCatalogClient {
       "opc-request-id": updateNamespaceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateNamespaceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNamespaceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9668,6 +10075,7 @@ export class DataCatalogClient {
 
   /**
    * Updates a specific pattern identified by the given key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdatePatternRequest
    * @return UpdatePatternResponse
    * @throws OciError when an error occurs
@@ -9690,9 +10098,11 @@ export class DataCatalogClient {
       "opc-request-id": updatePatternRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePatternRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePatternRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9739,6 +10149,7 @@ export class DataCatalogClient {
 
   /**
    * Updates a specific glossary term.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTermRequest
    * @return UpdateTermResponse
    * @throws OciError when an error occurs
@@ -9762,9 +10173,11 @@ export class DataCatalogClient {
       "opc-request-id": updateTermRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTermRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTermRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9811,6 +10224,7 @@ export class DataCatalogClient {
 
   /**
    * Updates a specific glossary term relationship.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTermRelationshipRequest
    * @return UpdateTermRelationshipResponse
    * @throws OciError when an error occurs
@@ -9836,9 +10250,11 @@ export class DataCatalogClient {
       "opc-request-id": updateTermRelationshipRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateTermRelationshipRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTermRelationshipRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9886,6 +10302,7 @@ export class DataCatalogClient {
 
   /**
    * Upload connection credentails and metadata for this connection.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UploadCredentialsRequest
    * @return UploadCredentialsResponse
    * @throws OciError when an error occurs
@@ -9910,9 +10327,11 @@ export class DataCatalogClient {
       "opc-retry-token": uploadCredentialsRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      uploadCredentialsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      uploadCredentialsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -9960,6 +10379,7 @@ export class DataCatalogClient {
 
   /**
    * Returns active users in the system.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UsersRequest
    * @return UsersResponse
    * @throws OciError when an error occurs
@@ -9983,9 +10403,11 @@ export class DataCatalogClient {
       "opc-request-id": usersRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      usersRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      usersRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10027,6 +10449,7 @@ export class DataCatalogClient {
 
   /**
    * Validate connection by connecting to the data asset using credentials in metadata.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ValidateConnectionRequest
    * @return ValidateConnectionResponse
    * @throws OciError when an error occurs
@@ -10049,9 +10472,11 @@ export class DataCatalogClient {
       "opc-retry-token": validateConnectionRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      validateConnectionRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateConnectionRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -10098,6 +10523,7 @@ export class DataCatalogClient {
 
   /**
    * Validate pattern by deriving file groups representing logical entities using the expression
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ValidatePatternRequest
    * @return ValidatePatternResponse
    * @throws OciError when an error occurs
@@ -10120,9 +10546,11 @@ export class DataCatalogClient {
       "opc-retry-token": validatePatternRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      validatePatternRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validatePatternRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

@@ -23,7 +23,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum JavaManagementServiceApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class JavaManagementServiceClient {
   protected static serviceEndpointTemplate =
     "https://javamanagement.{region}.oci.{secondLevelDomain}";
@@ -44,6 +46,15 @@ export class JavaManagementServiceClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -134,6 +145,7 @@ export class JavaManagementServiceClient {
   /**
    * Move a specified Fleet into the compartment identified in the POST form. When provided, If-Match is checked against ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeFleetCompartmentRequest
    * @return ChangeFleetCompartmentResponse
    * @throws OciError when an error occurs
@@ -157,9 +169,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": changeFleetCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeFleetCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeFleetCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -203,6 +217,7 @@ export class JavaManagementServiceClient {
   /**
    * Create a new Fleet using the information provided.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateFleetRequest
    * @return CreateFleetResponse
    * @throws OciError when an error occurs
@@ -223,9 +238,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": createFleetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createFleetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createFleetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -268,6 +285,7 @@ export class JavaManagementServiceClient {
 
   /**
    * Deletes the Fleet specified by an identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteFleetRequest
    * @return DeleteFleetResponse
    * @throws OciError when an error occurs
@@ -290,9 +308,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": deleteFleetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteFleetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteFleetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -330,6 +350,7 @@ export class JavaManagementServiceClient {
 
   /**
    * Retrieve a Fleet with the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetFleetRequest
    * @return GetFleetResponse
    * @throws OciError when an error occurs
@@ -350,9 +371,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": getFleetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getFleetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFleetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -394,6 +417,7 @@ export class JavaManagementServiceClient {
 
   /**
    * Retrieve a Fleet Agent Configuration for the specified Fleet.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetFleetAgentConfigurationRequest
    * @return GetFleetAgentConfigurationResponse
    * @throws OciError when an error occurs
@@ -417,9 +441,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": getFleetAgentConfigurationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getFleetAgentConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFleetAgentConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -461,6 +487,7 @@ export class JavaManagementServiceClient {
 
   /**
    * Retrieve the details of a work request with the specified ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -482,9 +509,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -527,6 +556,7 @@ export class JavaManagementServiceClient {
   /**
    * Returns a list of all the Fleets contained by a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListFleetsRequest
    * @return ListFleetsResponse
    * @throws OciError when an error occurs
@@ -554,9 +584,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": listFleetsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listFleetsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFleetsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -599,6 +631,7 @@ export class JavaManagementServiceClient {
   /**
    * Retrieve a (paginated) list of errors for a specified work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -623,9 +656,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -668,6 +703,7 @@ export class JavaManagementServiceClient {
   /**
    * Retrieve a (paginated) list of logs for a specified work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -692,9 +728,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -737,6 +775,7 @@ export class JavaManagementServiceClient {
   /**
    * List the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -761,9 +800,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -805,6 +846,7 @@ export class JavaManagementServiceClient {
 
   /**
    * List application usage in a Fleet filtered by query parameters.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeApplicationUsageRequest
    * @return SummarizeApplicationUsageResponse
    * @throws OciError when an error occurs
@@ -843,9 +885,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeApplicationUsageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeApplicationUsageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeApplicationUsageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -887,6 +931,7 @@ export class JavaManagementServiceClient {
 
   /**
    * List Java installation usage in a Fleet filtered by query parameters.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeInstallationUsageRequest
    * @return SummarizeInstallationUsageResponse
    * @throws OciError when an error occurs
@@ -925,9 +970,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeInstallationUsageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeInstallationUsageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeInstallationUsageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -969,6 +1016,7 @@ export class JavaManagementServiceClient {
 
   /**
    * List Java Runtime usage in a specified Fleet filtered by query parameters.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeJreUsageRequest
    * @return SummarizeJreUsageResponse
    * @throws OciError when an error occurs
@@ -1004,9 +1052,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeJreUsageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeJreUsageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeJreUsageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1048,6 +1098,7 @@ export class JavaManagementServiceClient {
 
   /**
    * List managed instance usage in a Fleet filtered by query parameters.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeManagedInstanceUsageRequest
    * @return SummarizeManagedInstanceUsageResponse
    * @throws OciError when an error occurs
@@ -1087,9 +1138,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeManagedInstanceUsageRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      summarizeManagedInstanceUsageRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeManagedInstanceUsageRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1131,6 +1184,7 @@ export class JavaManagementServiceClient {
 
   /**
    * Update the Fleet specified by an identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateFleetRequest
    * @return UpdateFleetResponse
    * @throws OciError when an error occurs
@@ -1153,9 +1207,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": updateFleetRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateFleetRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateFleetRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1198,6 +1254,7 @@ export class JavaManagementServiceClient {
 
   /**
    * Update the Fleet Agent Configuration for the specified Fleet.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateFleetAgentConfigurationRequest
    * @return UpdateFleetAgentConfigurationResponse
    * @throws OciError when an error occurs
@@ -1222,9 +1279,11 @@ export class JavaManagementServiceClient {
       "opc-request-id": updateFleetAgentConfigurationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateFleetAgentConfigurationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateFleetAgentConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

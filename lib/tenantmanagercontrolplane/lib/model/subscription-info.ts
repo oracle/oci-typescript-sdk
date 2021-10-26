@@ -15,27 +15,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A single subscription's details
+ * A single subscription's details.
  */
 export interface SubscriptionInfo {
   /**
-   * Subscription id.
+   * Subscription ID.
    */
   "spmSubscriptionId": string;
   /**
-   * Service name for subscription
+   * Service name for subscription.
    */
   "service": string;
   /**
-   * Subscription start date. An RFC3339 formatted datetime string
+   * Subscription start date. An RFC 3339-formatted date and time string.
    */
   "startDate": Date;
   /**
-   * Subscription end date. An RFC3339 formatted datetime string
+   * Subscription end date. An RFC 3339-formatted date and time string.
    */
   "endDate": Date;
   /**
-   * List of SKUs the subscription contains
+   * List of SKUs the subscription contains.
    */
   "skus": Array<model.Sku>;
 }

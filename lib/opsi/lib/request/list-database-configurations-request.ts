@@ -37,6 +37,16 @@ export interface ListDatabaseConfigurationsRequest extends common.BaseRequest {
    */
   "databaseId"?: Array<string>;
   /**
+   * Optional list of exadata insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "exadataInsightId"?: Array<string>;
+  /**
+   * Filter by one or more cdb name.
+   *
+   */
+  "cdbName"?: Array<string>;
+  /**
    * Filter by one or more database type.
    * Possible values are ADW-S, ATP-S, ADW-D, ATP-D, EXTERNAL-PDB, EXTERNAL-NONCDB.
    *

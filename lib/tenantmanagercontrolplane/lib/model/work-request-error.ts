@@ -29,7 +29,7 @@ export interface WorkRequestError {
    */
   "message": string;
   /**
-   * The time the error occured. An RFC3339-formatted date and time string.
+   * The time the error occured. An RFC 3339-formatted date and time string.
    */
   "timestamp": Date;
 }

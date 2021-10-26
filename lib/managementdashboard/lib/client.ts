@@ -25,7 +25,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum DashxApisApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DashxApisClient {
   protected static serviceEndpointTemplate =
     "https://managementdashboard.{region}.oci.{secondLevelDomain}";
@@ -46,6 +48,15 @@ export class DashxApisClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -135,6 +146,7 @@ export class DashxApisClient {
   /**
    * Moves the dashboard from the existing compartment to a new compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeManagementDashboardsCompartmentRequest
    * @return ChangeManagementDashboardsCompartmentResponse
    * @throws OciError when an error occurs
@@ -158,9 +170,11 @@ export class DashxApisClient {
       "opc-request-id": changeManagementDashboardsCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeManagementDashboardsCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeManagementDashboardsCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -213,6 +227,7 @@ export class DashxApisClient {
   /**
    * Moves the saved search from the existing compartment to a new compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeManagementSavedSearchesCompartmentRequest
    * @return ChangeManagementSavedSearchesCompartmentResponse
    * @throws OciError when an error occurs
@@ -239,9 +254,11 @@ export class DashxApisClient {
       "opc-request-id": changeManagementSavedSearchesCompartmentRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeManagementSavedSearchesCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeManagementSavedSearchesCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -296,6 +313,7 @@ export class DashxApisClient {
    * oci management-dashboard dashboard get --management-dashboard-id  \"ocid1.managementdashboard.oc1..dashboardId1\" --query data > Create.json.
    * You can then modify the Create.json file by removing the\"id\" attribute and making other required changes, and use the oci management-dashboard dashboard create command.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateManagementDashboardRequest
    * @return CreateManagementDashboardResponse
    * @throws OciError when an error occurs
@@ -316,9 +334,11 @@ export class DashxApisClient {
       "opc-request-id": createManagementDashboardRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createManagementDashboardRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createManagementDashboardRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -374,6 +394,7 @@ export class DashxApisClient {
 oci management-dashboard saved-search get --management-saved-search-id ocid1.managementsavedsearch.oc1..savedsearchId1 --query data > Create.json.
 * You can then modify the Create.json file by removing the \"id\" attribute and making other required changes, and use the oci management-dashboard saved-search create command.
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateManagementSavedSearchRequest
      * @return CreateManagementSavedSearchResponse
      * @throws OciError when an error occurs
@@ -394,9 +415,11 @@ oci management-dashboard saved-search get --management-saved-search-id ocid1.man
       "opc-request-id": createManagementSavedSearchRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createManagementSavedSearchRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createManagementSavedSearchRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -448,6 +471,7 @@ oci management-dashboard saved-search get --management-saved-search-id ocid1.man
 
   /**
    * Deletes a Dashboard by ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteManagementDashboardRequest
    * @return DeleteManagementDashboardResponse
    * @throws OciError when an error occurs
@@ -470,9 +494,11 @@ oci management-dashboard saved-search get --management-saved-search-id ocid1.man
       "opc-request-id": deleteManagementDashboardRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteManagementDashboardRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteManagementDashboardRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -510,6 +536,7 @@ oci management-dashboard saved-search get --management-saved-search-id ocid1.man
 
   /**
    * Deletes a saved search by ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteManagementSavedSearchRequest
    * @return DeleteManagementSavedSearchResponse
    * @throws OciError when an error occurs
@@ -532,9 +559,11 @@ oci management-dashboard saved-search get --management-saved-search-id ocid1.man
       "opc-request-id": deleteManagementSavedSearchRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteManagementSavedSearchRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteManagementSavedSearchRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -572,6 +601,7 @@ oci management-dashboard saved-search get --management-saved-search-id ocid1.man
 
   /**
    * Exports an array of dashboards and their saved searches. Export is designed to work with importDashboard. Here's an example of how you can use CLI to export a dashboard. $oci management-dashboard dashboard export --query data --export-dashboard-id \"{\\\"dashboardIds\\\":[\\\"ocid1.managementdashboard.oc1..dashboardId1\\\"]}\"  > dashboards.json
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ExportDashboardRequest
    * @return ExportDashboardResponse
    * @throws OciError when an error occurs
@@ -593,9 +623,11 @@ oci management-dashboard saved-search get --management-saved-search-id ocid1.man
       "opc-request-id": exportDashboardRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      exportDashboardRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportDashboardRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -637,6 +669,7 @@ oci management-dashboard saved-search get --management-saved-search-id ocid1.man
 
   /**
    * Gets a dashboard and its saved searches by ID.  Deleted or unauthorized saved searches are marked by tile's state property.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagementDashboardRequest
    * @return GetManagementDashboardResponse
    * @throws OciError when an error occurs
@@ -658,9 +691,11 @@ oci management-dashboard saved-search get --management-saved-search-id ocid1.man
       "opc-request-id": getManagementDashboardRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getManagementDashboardRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getManagementDashboardRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -707,6 +742,7 @@ oci management-dashboard saved-search get --management-saved-search-id ocid1.man
 
   /**
    * Gets a saved search by ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagementSavedSearchRequest
    * @return GetManagementSavedSearchResponse
    * @throws OciError when an error occurs
@@ -729,9 +765,11 @@ oci management-dashboard saved-search get --management-saved-search-id ocid1.man
       "opc-request-id": getManagementSavedSearchRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getManagementSavedSearchRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getManagementSavedSearchRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -784,6 +822,7 @@ oci management-dashboard saved-search get --management-saved-search-id ocid1.man
 * <p>
 oci management-dashboard dashboard import --from-json file://Import.json 
 * 
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ImportDashboardRequest
      * @return ImportDashboardResponse
      * @throws OciError when an error occurs
@@ -804,9 +843,11 @@ oci management-dashboard dashboard import --from-json file://Import.json
       "opc-request-id": importDashboardRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      importDashboardRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importDashboardRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -849,6 +890,7 @@ oci management-dashboard dashboard import --from-json file://Import.json
 
   /**
    * Gets the list of dashboards in a compartment with pagination.  Returned properties are the summary.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagementDashboardsRequest
    * @return ListManagementDashboardsResponse
    * @throws OciError when an error occurs
@@ -875,9 +917,11 @@ oci management-dashboard dashboard import --from-json file://Import.json
       "opc-request-id": listManagementDashboardsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagementDashboardsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagementDashboardsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -919,6 +963,7 @@ oci management-dashboard dashboard import --from-json file://Import.json
 
   /**
    * Gets the list of saved searches in a compartment with pagination.  Returned properties are the summary.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagementSavedSearchesRequest
    * @return ListManagementSavedSearchesResponse
    * @throws OciError when an error occurs
@@ -945,9 +990,11 @@ oci management-dashboard dashboard import --from-json file://Import.json
       "opc-request-id": listManagementSavedSearchesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listManagementSavedSearchesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagementSavedSearchesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -990,6 +1037,7 @@ oci management-dashboard dashboard import --from-json file://Import.json
   /**
    * Updates an existing dashboard identified by ID path parameter.  CompartmentId can be modified only by the changeCompartment API. Limit for number of saved searches in a dashboard is 20.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateManagementDashboardRequest
    * @return UpdateManagementDashboardResponse
    * @throws OciError when an error occurs
@@ -1013,9 +1061,11 @@ oci management-dashboard dashboard import --from-json file://Import.json
       "opc-request-id": updateManagementDashboardRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateManagementDashboardRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateManagementDashboardRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1068,6 +1118,7 @@ oci management-dashboard dashboard import --from-json file://Import.json
   /**
    * Updates an existing saved search identified by ID path parameter.  CompartmentId can be modified only by the changeCompartment API.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateManagementSavedSearchRequest
    * @return UpdateManagementSavedSearchResponse
    * @throws OciError when an error occurs
@@ -1091,9 +1142,11 @@ oci management-dashboard dashboard import --from-json file://Import.json
       "opc-request-id": updateManagementSavedSearchRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateManagementSavedSearchRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateManagementSavedSearchRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

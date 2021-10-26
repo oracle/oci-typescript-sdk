@@ -70,6 +70,11 @@ export interface SummarizeDatabaseInsightResourceUsageRequest extends common.Bas
    */
   "id"?: Array<string>;
   /**
+   * Optional list of exadata insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "exadataInsightId"?: Array<string>;
+  /**
    * Filter by one or more hostname.
    *
    */

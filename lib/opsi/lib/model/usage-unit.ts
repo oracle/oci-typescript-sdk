@@ -24,6 +24,7 @@ export enum UsageUnit {
   Cores = "CORES",
   Gb = "GB",
   Mbps = "MBPS",
+  Iops = "IOPS",
   Percent = "PERCENT",
 
   /**

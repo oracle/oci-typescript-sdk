@@ -19,10 +19,6 @@ import common = require("oci-common");
  */
 export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
-   */
-  "compartmentId": string;
-  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
    *
@@ -44,4 +40,40 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    *
    */
   "limit"?: number;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   */
+  "compartmentId"?: string;
+  /**
+   * The ID of the asynchronous work request.
+   */
+  "id"?: string;
+  /**
+   * A filter to return only resources their lifecycleState matches the given OperationStatus.
+   */
+  "status"?: model.OperationStatus;
+  /**
+   * The ID of the resource affected by the work request.
+   */
+  "resourceId"?: string;
+  /**
+   * The ID of the related resource for the resource affected by the work request, e.g. the related Exadata Insight OCID of the Database Insight work request
+   */
+  "relatedResourceId"?: string;
+  /**
+   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   *
+   */
+  "sortOrder"?: model.SortOrder;
+  /**
+   * The field to sort by. Only one sort order may be provided. Default order for timeAccepted is descending.
+   *
+   */
+  "sortBy"?: ListWorkRequestsRequest.SortBy;
+}
+
+export namespace ListWorkRequestsRequest {
+  export enum SortBy {
+    TimeAccepted = "timeAccepted"
+  }
 }

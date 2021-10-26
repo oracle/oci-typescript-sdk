@@ -25,7 +25,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum DataFlowApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DataFlowClient {
   protected static serviceEndpointTemplate = "https://dataflow.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
@@ -45,6 +47,15 @@ export class DataFlowClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -135,6 +146,7 @@ export class DataFlowClient {
    * Moves an application into a different compartment. When provided, If-Match is checked against ETag values of the resource.
    * Associated resources, like runs, will not be automatically moved.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeApplicationCompartmentRequest
    * @return ChangeApplicationCompartmentResponse
    * @throws OciError when an error occurs
@@ -158,9 +170,11 @@ export class DataFlowClient {
       "opc-retry-token": changeApplicationCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeApplicationCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeApplicationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -199,6 +213,7 @@ export class DataFlowClient {
   /**
    * Moves a private endpoint into a different compartment. When provided, If-Match is checked against ETag values of the resource.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangePrivateEndpointCompartmentRequest
    * @return ChangePrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
@@ -221,9 +236,11 @@ export class DataFlowClient {
       "if-match": changePrivateEndpointCompartmentRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changePrivateEndpointCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changePrivateEndpointCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -270,6 +287,7 @@ export class DataFlowClient {
    * automatically moved. The run must be in a terminal state (CANCELED, FAILED, SUCCEEDED) in
    * order for it to be moved to a different compartment
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeRunCompartmentRequest
    * @return ChangeRunCompartmentResponse
    * @throws OciError when an error occurs
@@ -292,9 +310,11 @@ export class DataFlowClient {
       "opc-retry-token": changeRunCompartmentRequest.opcRetryToken
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      changeRunCompartmentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRunCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -333,6 +353,7 @@ export class DataFlowClient {
   /**
    * Creates an application.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateApplicationRequest
    * @return CreateApplicationResponse
    * @throws OciError when an error occurs
@@ -352,9 +373,11 @@ export class DataFlowClient {
       "opc-request-id": createApplicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -402,6 +425,7 @@ export class DataFlowClient {
   /**
    * Creates a private endpoint to be used by applications.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePrivateEndpointRequest
    * @return CreatePrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -421,9 +445,11 @@ export class DataFlowClient {
       "opc-request-id": createPrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -481,6 +507,7 @@ export class DataFlowClient {
   /**
    * Creates a run for an application.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRunRequest
    * @return CreateRunResponse
    * @throws OciError when an error occurs
@@ -500,9 +527,11 @@ export class DataFlowClient {
       "opc-request-id": createRunRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -550,6 +579,7 @@ export class DataFlowClient {
   /**
    * Deletes an application using an `applicationId`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteApplicationRequest
    * @return DeleteApplicationResponse
    * @throws OciError when an error occurs
@@ -571,9 +601,11 @@ export class DataFlowClient {
       "if-match": deleteApplicationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -607,6 +639,7 @@ export class DataFlowClient {
   /**
    * Deletes a private endpoint using a `privateEndpointId`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePrivateEndpointRequest
    * @return DeletePrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -628,9 +661,11 @@ export class DataFlowClient {
       "if-match": deletePrivateEndpointRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deletePrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -670,6 +705,7 @@ export class DataFlowClient {
    * Cancels the specified run if it has not already completed or was previously cancelled.
    * If a run is in progress, the executing job will be killed.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRunRequest
    * @return DeleteRunResponse
    * @throws OciError when an error occurs
@@ -691,9 +727,11 @@ export class DataFlowClient {
       "if-match": deleteRunRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -727,6 +765,7 @@ export class DataFlowClient {
   /**
    * Retrieves an application using an `applicationId`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetApplicationRequest
    * @return GetApplicationResponse
    * @throws OciError when an error occurs
@@ -747,9 +786,11 @@ export class DataFlowClient {
       "opc-request-id": getApplicationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -792,6 +833,7 @@ export class DataFlowClient {
   /**
    * Retrieves an private endpoint using a `privateEndpointId`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPrivateEndpointRequest
    * @return GetPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -812,9 +854,11 @@ export class DataFlowClient {
       "opc-request-id": getPrivateEndpointRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getPrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -857,6 +901,7 @@ export class DataFlowClient {
   /**
    * Retrieves the run for the specified `runId`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRunRequest
    * @return GetRunResponse
    * @throws OciError when an error occurs
@@ -875,9 +920,11 @@ export class DataFlowClient {
       "opc-request-id": getRunRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -920,6 +967,7 @@ export class DataFlowClient {
   /**
    * Retrieves the content of an run log.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRunLogRequest
    * @return GetRunLogResponse
    * @throws OciError when an error occurs
@@ -941,9 +989,11 @@ export class DataFlowClient {
       "opc-request-id": getRunLogRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRunLogRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRunLogRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1009,6 +1059,7 @@ export class DataFlowClient {
   /**
    * Gets the status of the work request with the given OCID.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1029,9 +1080,11 @@ export class DataFlowClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1069,6 +1122,7 @@ export class DataFlowClient {
   /**
    * Lists all applications in the specified compartment. Only one parameter other than compartmentId may also be included in a query. The query must include compartmentId. If the query does not include compartmentId, or includes compartmentId but two or more other parameters an error is returned.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListApplicationsRequest
    * @return ListApplicationsResponse
    * @throws OciError when an error occurs
@@ -1097,9 +1151,11 @@ export class DataFlowClient {
       "opc-request-id": listApplicationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listApplicationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listApplicationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1199,6 +1255,7 @@ export class DataFlowClient {
   /**
    * Lists all private endpoints in the specified compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPrivateEndpointsRequest
    * @return ListPrivateEndpointsResponse
    * @throws OciError when an error occurs
@@ -1227,9 +1284,11 @@ export class DataFlowClient {
       "opc-request-id": listPrivateEndpointsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listPrivateEndpointsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPrivateEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1277,6 +1336,7 @@ export class DataFlowClient {
   /**
    * Retrieves summaries of the run's logs.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRunLogsRequest
    * @return ListRunLogsResponse
    * @throws OciError when an error occurs
@@ -1300,9 +1360,11 @@ export class DataFlowClient {
       "opc-request-id": listRunLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRunLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRunLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1402,6 +1464,7 @@ export class DataFlowClient {
   /**
    * Lists all runs of an application in the specified compartment.  Only one parameter other than compartmentId may also be included in a query. The query must include compartmentId. If the query does not include compartmentId, or includes compartmentId but two or more other parameters an error is returned.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRunsRequest
    * @return ListRunsResponse
    * @throws OciError when an error occurs
@@ -1432,9 +1495,11 @@ export class DataFlowClient {
       "opc-request-id": listRunsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRunsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRunsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1532,6 +1597,7 @@ export class DataFlowClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1555,9 +1621,11 @@ export class DataFlowClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1605,6 +1673,7 @@ export class DataFlowClient {
   /**
    * Return a paginated list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1628,9 +1697,11 @@ export class DataFlowClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1678,6 +1749,7 @@ export class DataFlowClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1700,9 +1772,11 @@ export class DataFlowClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1750,6 +1824,7 @@ export class DataFlowClient {
   /**
    * Updates an application using an `applicationId`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateApplicationRequest
    * @return UpdateApplicationResponse
    * @throws OciError when an error occurs
@@ -1771,9 +1846,11 @@ export class DataFlowClient {
       "if-match": updateApplicationRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateApplicationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateApplicationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1823,6 +1900,7 @@ export class DataFlowClient {
    * a previously defined private endpoint, then a 409 status code will be returned.  This indicates
    * that a conflict has been detected.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdatePrivateEndpointRequest
    * @return UpdatePrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -1844,9 +1922,11 @@ export class DataFlowClient {
       "if-match": updatePrivateEndpointRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updatePrivateEndpointRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1890,6 +1970,7 @@ export class DataFlowClient {
   /**
    * Updates a run using a `runId`.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRunRequest
    * @return UpdateRunResponse
    * @throws OciError when an error occurs
@@ -1911,9 +1992,11 @@ export class DataFlowClient {
       "if-match": updateRunRequest.ifMatch
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRunRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRunRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

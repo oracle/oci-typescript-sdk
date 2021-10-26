@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Order Details for Console plugin display
+ * Order details.
  */
 export interface Order {
   /**
-   * Immutable and unique order number holding customer subscription information
+   * Immutable and unique order number holding customer subscription information.
    */
   "orderNumber": string;
   /**
@@ -27,11 +27,11 @@ export interface Order {
    */
   "dataCenterRegion"?: string;
   /**
-   * Admin e-mail owning subscription.
+   * Administrator email owning the subscription.
    */
   "adminEmail": string;
   /**
-   * State of order.
+   * State of the order.
    */
   "orderState": string;
   /**

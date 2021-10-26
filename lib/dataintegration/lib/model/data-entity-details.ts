@@ -1,6 +1,6 @@
 /**
  * Data Integration API
- * Use the Data Integration Service APIs to perform common extract, load, and transform (ETL) tasks.
+ * Use the Data Integration API to organize your data integration projects, create data flows, pipelines and tasks, and then publish, schedule, and run tasks that extract, transform, and load data. For more information, see [Data Integration](https://docs.oracle.com/iaas/data-integration/home.htm).
  * OpenAPI spec version: 20200430
  * Contact: di_dis_ww_grp@oracle.com
  *
@@ -37,6 +37,11 @@ export namespace DataEntityDetails {
             <model.DataEntityFromViewEntityDetails>(<object>jsonObj),
             true
           );
+        case "SQL_ENTITY":
+          return model.DataEntityFromSqlEntityDetails.getJsonObj(
+            <model.DataEntityFromSqlEntityDetails>(<object>jsonObj),
+            true
+          );
         case "DATA_STORE_ENTITY":
           return model.DataEntityFromDataStoreEntityDetails.getJsonObj(
             <model.DataEntityFromDataStoreEntityDetails>(<object>jsonObj),
@@ -66,6 +71,11 @@ export namespace DataEntityDetails {
         case "VIEW_ENTITY":
           return model.DataEntityFromViewEntityDetails.getDeserializedJsonObj(
             <model.DataEntityFromViewEntityDetails>(<object>jsonObj),
+            true
+          );
+        case "SQL_ENTITY":
+          return model.DataEntityFromSqlEntityDetails.getDeserializedJsonObj(
+            <model.DataEntityFromSqlEntityDetails>(<object>jsonObj),
             true
           );
         case "DATA_STORE_ENTITY":

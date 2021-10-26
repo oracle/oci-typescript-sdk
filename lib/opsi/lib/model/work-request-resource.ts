@@ -41,6 +41,10 @@ export interface WorkRequestResource {
    * The URI path that the user can do a GET on to access the resource
    */
   "entityUri"?: string;
+  /**
+   * Additional information that helps to explain the resource.
+   */
+  "metadata"?: { [key: string]: string };
 }
 
 export namespace WorkRequestResource {

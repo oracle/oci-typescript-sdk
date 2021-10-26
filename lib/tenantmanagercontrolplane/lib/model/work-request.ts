@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A description of work request status.
+ * A description of the work request status.
  */
 export interface WorkRequest {
   /**
@@ -23,7 +23,7 @@ export interface WorkRequest {
    */
   "operationType": model.OperationType;
   /**
-   * Status of current work request.
+   * Status of the current work request.
    */
   "status": model.OperationStatus;
   /**

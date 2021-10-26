@@ -1,6 +1,6 @@
 /**
  * Data Integration API
- * Use the Data Integration Service APIs to perform common extract, load, and transform (ETL) tasks.
+ * Use the Data Integration API to organize your data integration projects, create data flows, pipelines and tasks, and then publish, schedule, and run tasks that extract, transform, and load data. For more information, see [Data Integration](https://docs.oracle.com/iaas/data-integration/home.htm).
  * OpenAPI spec version: 20200430
  * Contact: di_dis_ww_grp@oracle.com
  *
@@ -33,6 +33,8 @@ import * as CreateExternalPublicationValidationResponse from "./create-external-
 export import CreateExternalPublicationValidationResponse = CreateExternalPublicationValidationResponse.CreateExternalPublicationValidationResponse;
 import * as CreateFolderResponse from "./create-folder-response";
 export import CreateFolderResponse = CreateFolderResponse.CreateFolderResponse;
+import * as CreateFunctionLibraryResponse from "./create-function-library-response";
+export import CreateFunctionLibraryResponse = CreateFunctionLibraryResponse.CreateFunctionLibraryResponse;
 import * as CreatePatchResponse from "./create-patch-response";
 export import CreatePatchResponse = CreatePatchResponse.CreatePatchResponse;
 import * as CreatePipelineResponse from "./create-pipeline-response";
@@ -51,6 +53,10 @@ import * as CreateTaskScheduleResponse from "./create-task-schedule-response";
 export import CreateTaskScheduleResponse = CreateTaskScheduleResponse.CreateTaskScheduleResponse;
 import * as CreateTaskValidationResponse from "./create-task-validation-response";
 export import CreateTaskValidationResponse = CreateTaskValidationResponse.CreateTaskValidationResponse;
+import * as CreateUserDefinedFunctionResponse from "./create-user-defined-function-response";
+export import CreateUserDefinedFunctionResponse = CreateUserDefinedFunctionResponse.CreateUserDefinedFunctionResponse;
+import * as CreateUserDefinedFunctionValidationResponse from "./create-user-defined-function-validation-response";
+export import CreateUserDefinedFunctionValidationResponse = CreateUserDefinedFunctionValidationResponse.CreateUserDefinedFunctionValidationResponse;
 import * as CreateWorkspaceResponse from "./create-workspace-response";
 export import CreateWorkspaceResponse = CreateWorkspaceResponse.CreateWorkspaceResponse;
 import * as DeleteApplicationResponse from "./delete-application-response";
@@ -71,6 +77,8 @@ import * as DeleteExternalPublicationValidationResponse from "./delete-external-
 export import DeleteExternalPublicationValidationResponse = DeleteExternalPublicationValidationResponse.DeleteExternalPublicationValidationResponse;
 import * as DeleteFolderResponse from "./delete-folder-response";
 export import DeleteFolderResponse = DeleteFolderResponse.DeleteFolderResponse;
+import * as DeleteFunctionLibraryResponse from "./delete-function-library-response";
+export import DeleteFunctionLibraryResponse = DeleteFunctionLibraryResponse.DeleteFunctionLibraryResponse;
 import * as DeletePatchResponse from "./delete-patch-response";
 export import DeletePatchResponse = DeletePatchResponse.DeletePatchResponse;
 import * as DeletePipelineResponse from "./delete-pipeline-response";
@@ -89,6 +97,10 @@ import * as DeleteTaskScheduleResponse from "./delete-task-schedule-response";
 export import DeleteTaskScheduleResponse = DeleteTaskScheduleResponse.DeleteTaskScheduleResponse;
 import * as DeleteTaskValidationResponse from "./delete-task-validation-response";
 export import DeleteTaskValidationResponse = DeleteTaskValidationResponse.DeleteTaskValidationResponse;
+import * as DeleteUserDefinedFunctionResponse from "./delete-user-defined-function-response";
+export import DeleteUserDefinedFunctionResponse = DeleteUserDefinedFunctionResponse.DeleteUserDefinedFunctionResponse;
+import * as DeleteUserDefinedFunctionValidationResponse from "./delete-user-defined-function-validation-response";
+export import DeleteUserDefinedFunctionValidationResponse = DeleteUserDefinedFunctionValidationResponse.DeleteUserDefinedFunctionValidationResponse;
 import * as DeleteWorkspaceResponse from "./delete-workspace-response";
 export import DeleteWorkspaceResponse = DeleteWorkspaceResponse.DeleteWorkspaceResponse;
 import * as GetApplicationResponse from "./get-application-response";
@@ -115,6 +127,8 @@ import * as GetExternalPublicationValidationResponse from "./get-external-public
 export import GetExternalPublicationValidationResponse = GetExternalPublicationValidationResponse.GetExternalPublicationValidationResponse;
 import * as GetFolderResponse from "./get-folder-response";
 export import GetFolderResponse = GetFolderResponse.GetFolderResponse;
+import * as GetFunctionLibraryResponse from "./get-function-library-response";
+export import GetFunctionLibraryResponse = GetFunctionLibraryResponse.GetFunctionLibraryResponse;
 import * as GetPatchResponse from "./get-patch-response";
 export import GetPatchResponse = GetPatchResponse.GetPatchResponse;
 import * as GetPipelineResponse from "./get-pipeline-response";
@@ -139,6 +153,10 @@ import * as GetTaskScheduleResponse from "./get-task-schedule-response";
 export import GetTaskScheduleResponse = GetTaskScheduleResponse.GetTaskScheduleResponse;
 import * as GetTaskValidationResponse from "./get-task-validation-response";
 export import GetTaskValidationResponse = GetTaskValidationResponse.GetTaskValidationResponse;
+import * as GetUserDefinedFunctionResponse from "./get-user-defined-function-response";
+export import GetUserDefinedFunctionResponse = GetUserDefinedFunctionResponse.GetUserDefinedFunctionResponse;
+import * as GetUserDefinedFunctionValidationResponse from "./get-user-defined-function-validation-response";
+export import GetUserDefinedFunctionValidationResponse = GetUserDefinedFunctionValidationResponse.GetUserDefinedFunctionValidationResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
 import * as GetWorkspaceResponse from "./get-workspace-response";
@@ -165,6 +183,8 @@ import * as ListExternalPublicationsResponse from "./list-external-publications-
 export import ListExternalPublicationsResponse = ListExternalPublicationsResponse.ListExternalPublicationsResponse;
 import * as ListFoldersResponse from "./list-folders-response";
 export import ListFoldersResponse = ListFoldersResponse.ListFoldersResponse;
+import * as ListFunctionLibrariesResponse from "./list-function-libraries-response";
+export import ListFunctionLibrariesResponse = ListFunctionLibrariesResponse.ListFunctionLibrariesResponse;
 import * as ListPatchChangesResponse from "./list-patch-changes-response";
 export import ListPatchChangesResponse = ListPatchChangesResponse.ListPatchChangesResponse;
 import * as ListPatchesResponse from "./list-patches-response";
@@ -193,6 +213,10 @@ import * as ListTaskValidationsResponse from "./list-task-validations-response";
 export import ListTaskValidationsResponse = ListTaskValidationsResponse.ListTaskValidationsResponse;
 import * as ListTasksResponse from "./list-tasks-response";
 export import ListTasksResponse = ListTasksResponse.ListTasksResponse;
+import * as ListUserDefinedFunctionValidationsResponse from "./list-user-defined-function-validations-response";
+export import ListUserDefinedFunctionValidationsResponse = ListUserDefinedFunctionValidationsResponse.ListUserDefinedFunctionValidationsResponse;
+import * as ListUserDefinedFunctionsResponse from "./list-user-defined-functions-response";
+export import ListUserDefinedFunctionsResponse = ListUserDefinedFunctionsResponse.ListUserDefinedFunctionsResponse;
 import * as ListWorkRequestErrorsResponse from "./list-work-request-errors-response";
 export import ListWorkRequestErrorsResponse = ListWorkRequestErrorsResponse.ListWorkRequestErrorsResponse;
 import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response";
@@ -217,6 +241,8 @@ import * as UpdateExternalPublicationResponse from "./update-external-publicatio
 export import UpdateExternalPublicationResponse = UpdateExternalPublicationResponse.UpdateExternalPublicationResponse;
 import * as UpdateFolderResponse from "./update-folder-response";
 export import UpdateFolderResponse = UpdateFolderResponse.UpdateFolderResponse;
+import * as UpdateFunctionLibraryResponse from "./update-function-library-response";
+export import UpdateFunctionLibraryResponse = UpdateFunctionLibraryResponse.UpdateFunctionLibraryResponse;
 import * as UpdatePipelineResponse from "./update-pipeline-response";
 export import UpdatePipelineResponse = UpdatePipelineResponse.UpdatePipelineResponse;
 import * as UpdateProjectResponse from "./update-project-response";
@@ -231,5 +257,7 @@ import * as UpdateTaskRunResponse from "./update-task-run-response";
 export import UpdateTaskRunResponse = UpdateTaskRunResponse.UpdateTaskRunResponse;
 import * as UpdateTaskScheduleResponse from "./update-task-schedule-response";
 export import UpdateTaskScheduleResponse = UpdateTaskScheduleResponse.UpdateTaskScheduleResponse;
+import * as UpdateUserDefinedFunctionResponse from "./update-user-defined-function-response";
+export import UpdateUserDefinedFunctionResponse = UpdateUserDefinedFunctionResponse.UpdateUserDefinedFunctionResponse;
 import * as UpdateWorkspaceResponse from "./update-workspace-response";
 export import UpdateWorkspaceResponse = UpdateWorkspaceResponse.UpdateWorkspaceResponse;

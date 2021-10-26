@@ -3,6 +3,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.6.0 - 2021-10-26
+### Added
+- Support for the Source Code Management service
+- Support for the Build service
+- Support for the Certificates service
+- Support to create child tenancies in an organization and manage subscriptions in the Organizations service
+- Support for Certificates service integration in the Load Balancing service
+- Support for creating hosts in specific availability domains in the VMWare Solution service
+- Support for user-defined functions and libraries, as well as scheduling and orchestration, in the Data Integration service
+- Support for EM-managed Exadatas and EM-managed hosts in the Operations Insights service
+
+### Breaking Changes
+- The cases `COMPUTE_INSTANCE_GROUP_BLUE_GREEN_TRAFFIC_SHIFT`, `COMPUTE_INSTANCE_GROUP_CANARY_DEPLOYMENT`, `COMPUTE_INSTANCE_GROUP_CANARY_TRAFFIC_SHIFT`, `RUN_VALIDATION_TEST_ON_COMPUTE_INSTANCE`, `RUN_DEPLOYMENT_PIPELINE`, and `COMPUTE_INSTANCE_GROUP_BLUE_GREEN_DEPLOYMENT` were removed in the field `deployStageType` in the `DeployStageExecutionProgress` model from the DevOps service.
+
 ## 2.5.2 - 2021-10-19
 ### Added
 - Support for creating database systems from backups with database software images in the Database service

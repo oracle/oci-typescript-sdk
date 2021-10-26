@@ -1,6 +1,6 @@
 /**
  * Data Integration API
- * Use the Data Integration Service APIs to perform common extract, load, and transform (ETL) tasks.
+ * Use the Data Integration API to organize your data integration projects, create data flows, pipelines and tasks, and then publish, schedule, and run tasks that extract, transform, and load data. For more information, see [Data Integration](https://docs.oracle.com/iaas/data-integration/home.htm).
  * OpenAPI spec version: 20200430
  * Contact: di_dis_ww_grp@oracle.com
  *
@@ -31,6 +31,8 @@ export namespace AbstractFrequencyDetails {
     Hourly = "HOURLY",
     Daily = "DAILY",
     Monthly = "MONTHLY",
+    Weekly = "WEEKLY",
+    Custom = "CUSTOM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -48,9 +50,24 @@ export namespace AbstractFrequencyDetails {
             <model.MonthlyFrequencyDetails>(<object>jsonObj),
             true
           );
+        case "CUSTOM":
+          return model.CustomFrequencyDetails.getJsonObj(
+            <model.CustomFrequencyDetails>(<object>jsonObj),
+            true
+          );
         case "DAILY":
           return model.DailyFrequencyDetails.getJsonObj(
             <model.DailyFrequencyDetails>(<object>jsonObj),
+            true
+          );
+        case "WEEKLY":
+          return model.WeeklyFrequencyDetails.getJsonObj(
+            <model.WeeklyFrequencyDetails>(<object>jsonObj),
+            true
+          );
+        case "MONTHLY_RULE":
+          return model.MonthlyRuleFrequencyDetails.getJsonObj(
+            <model.MonthlyRuleFrequencyDetails>(<object>jsonObj),
             true
           );
         case "HOURLY":
@@ -74,9 +91,24 @@ export namespace AbstractFrequencyDetails {
             <model.MonthlyFrequencyDetails>(<object>jsonObj),
             true
           );
+        case "CUSTOM":
+          return model.CustomFrequencyDetails.getDeserializedJsonObj(
+            <model.CustomFrequencyDetails>(<object>jsonObj),
+            true
+          );
         case "DAILY":
           return model.DailyFrequencyDetails.getDeserializedJsonObj(
             <model.DailyFrequencyDetails>(<object>jsonObj),
+            true
+          );
+        case "WEEKLY":
+          return model.WeeklyFrequencyDetails.getDeserializedJsonObj(
+            <model.WeeklyFrequencyDetails>(<object>jsonObj),
+            true
+          );
+        case "MONTHLY_RULE":
+          return model.MonthlyRuleFrequencyDetails.getDeserializedJsonObj(
+            <model.MonthlyRuleFrequencyDetails>(<object>jsonObj),
             true
           );
         case "HOURLY":

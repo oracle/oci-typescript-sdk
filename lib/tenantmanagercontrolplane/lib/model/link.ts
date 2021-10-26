@@ -27,7 +27,7 @@ export interface Link {
    */
   "parentTenancyId": string;
   /**
-   * OCID of the child tenancy
+   * OCID of the child tenancy.
    */
   "childTenancyId": string;
   /**

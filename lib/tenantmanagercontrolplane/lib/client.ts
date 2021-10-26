@@ -18,8 +18,10 @@ import * as responses from "./response";
 import { DomainWaiter } from "./domain-waiter";
 import { DomainGovernanceWaiter } from "./domaingovernance-waiter";
 import { LinkWaiter } from "./link-waiter";
+import { OrganizationWaiter } from "./organization-waiter";
 import { RecipientInvitationWaiter } from "./recipientinvitation-waiter";
 import { SenderInvitationWaiter } from "./senderinvitation-waiter";
+import { SubscriptionWaiter } from "./subscription-waiter";
 import { WorkRequestWaiter } from "./workrequest-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
@@ -28,7 +30,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum DomainApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DomainClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
@@ -49,6 +53,15 @@ export class DomainClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -137,6 +150,7 @@ export class DomainClient {
 
   /**
    * Begins the registration process for claiming a domain.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDomainRequest
    * @return CreateDomainResponse
    * @throws OciError when an error occurs
@@ -156,9 +170,11 @@ export class DomainClient {
       "opc-request-id": createDomainRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDomainRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDomainRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -210,6 +226,7 @@ export class DomainClient {
 
   /**
    * Releases the domain, making it available to be claimed again by another tenancy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDomainRequest
    * @return DeleteDomainResponse
    * @throws OciError when an error occurs
@@ -231,9 +248,11 @@ export class DomainClient {
       "opc-request-id": deleteDomainRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDomainRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDomainRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -266,6 +285,7 @@ export class DomainClient {
 
   /**
    * Gets information about the domain.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDomainRequest
    * @return GetDomainResponse
    * @throws OciError when an error occurs
@@ -286,9 +306,11 @@ export class DomainClient {
       "opc-request-id": getDomainRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDomainRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDomainRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -331,6 +353,7 @@ export class DomainClient {
   /**
    * Return a (paginated) list of domains.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDomainsRequest
    * @return ListDomainsResponse
    * @throws OciError when an error occurs
@@ -359,9 +382,11 @@ export class DomainClient {
       "opc-request-id": listDomainsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDomainsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDomainsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -403,6 +428,7 @@ export class DomainClient {
 
   /**
    * Updates the domain.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDomainRequest
    * @return UpdateDomainResponse
    * @throws OciError when an error occurs
@@ -424,9 +450,11 @@ export class DomainClient {
       "opc-request-id": updateDomainRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDomainRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDomainRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -472,7 +500,9 @@ export class DomainClient {
   }
 }
 export enum DomainGovernanceApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class DomainGovernanceClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
@@ -493,6 +523,15 @@ export class DomainGovernanceClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -581,6 +620,7 @@ export class DomainGovernanceClient {
 
   /**
    * Adds domain governance to a claimed domain.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDomainGovernanceRequest
    * @return CreateDomainGovernanceResponse
    * @throws OciError when an error occurs
@@ -601,9 +641,11 @@ export class DomainGovernanceClient {
       "opc-request-id": createDomainGovernanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createDomainGovernanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDomainGovernanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -650,6 +692,7 @@ export class DomainGovernanceClient {
 
   /**
    * Removes domain governance from a claimed domain.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDomainGovernanceRequest
    * @return DeleteDomainGovernanceResponse
    * @throws OciError when an error occurs
@@ -672,9 +715,11 @@ export class DomainGovernanceClient {
       "opc-request-id": deleteDomainGovernanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteDomainGovernanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDomainGovernanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -707,6 +752,7 @@ export class DomainGovernanceClient {
 
   /**
    * Gets information about the domain governance entity.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDomainGovernanceRequest
    * @return GetDomainGovernanceResponse
    * @throws OciError when an error occurs
@@ -728,9 +774,11 @@ export class DomainGovernanceClient {
       "opc-request-id": getDomainGovernanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getDomainGovernanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDomainGovernanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -773,6 +821,7 @@ export class DomainGovernanceClient {
   /**
    * Return a (paginated) list of domain governance entities.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDomainGovernancesRequest
    * @return ListDomainGovernancesResponse
    * @throws OciError when an error occurs
@@ -802,9 +851,11 @@ export class DomainGovernanceClient {
       "opc-request-id": listDomainGovernancesRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listDomainGovernancesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDomainGovernancesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -846,6 +897,7 @@ export class DomainGovernanceClient {
 
   /**
    * Updates the domain governance entity.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDomainGovernanceRequest
    * @return UpdateDomainGovernanceResponse
    * @throws OciError when an error occurs
@@ -868,9 +920,11 @@ export class DomainGovernanceClient {
       "opc-request-id": updateDomainGovernanceRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateDomainGovernanceRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDomainGovernanceRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -916,7 +970,9 @@ export class DomainGovernanceClient {
   }
 }
 export enum LinkApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class LinkClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
@@ -937,6 +993,15 @@ export class LinkClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -1024,7 +1089,8 @@ export class LinkClient {
   }
 
   /**
-   * Terminate the link.
+   * Starts the link termination workflow.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteLinkRequest
    * @return DeleteLinkResponse
    * @throws OciError when an error occurs
@@ -1046,9 +1112,11 @@ export class LinkClient {
       "opc-request-id": deleteLinkRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      deleteLinkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteLinkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1069,6 +1137,11 @@ export class LinkClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -1081,6 +1154,7 @@ export class LinkClient {
 
   /**
    * Gets information about the link.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetLinkRequest
    * @return GetLinkResponse
    * @throws OciError when an error occurs
@@ -1101,9 +1175,11 @@ export class LinkClient {
       "opc-request-id": getLinkRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getLinkRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getLinkRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1145,6 +1221,7 @@ export class LinkClient {
 
   /**
    * Return a (paginated) list of links.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListLinksRequest
    * @return ListLinksResponse
    * @throws OciError when an error occurs
@@ -1170,9 +1247,11 @@ export class LinkClient {
       "opc-request-id": listLinksRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listLinksRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listLinksRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1213,7 +1292,9 @@ export class LinkClient {
   }
 }
 export enum OrdersApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class OrdersClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
@@ -1233,6 +1314,15 @@ export class OrdersClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -1297,7 +1387,8 @@ export class OrdersClient {
   }
 
   /**
-   * Triggers an order activation workflow on behalf of the tenant given by compartment id in the body.
+   * Triggers an order activation workflow on behalf of the tenant, given by compartment ID in the body.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ActivateOrderRequest
    * @return ActivateOrderResponse
    * @throws OciError when an error occurs
@@ -1319,9 +1410,11 @@ export class OrdersClient {
       "opc-request-id": activateOrderRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      activateOrderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateOrderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1365,6 +1458,7 @@ export class OrdersClient {
   /**
    * Returns the Order Details given by the order id in the JWT
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOrderRequest
    * @return GetOrderResponse
    * @throws OciError when an error occurs
@@ -1385,9 +1479,11 @@ export class OrdersClient {
       "opc-request-id": getOrderRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getOrderRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOrderRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1422,8 +1518,757 @@ export class OrdersClient {
     }
   }
 }
-export enum RecipientInvitationApiKeys {}
+export enum OrganizationApiKeys {}
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
+export class OrganizationClient {
+  protected static serviceEndpointTemplate =
+    "https://organizations.{region}.oci.{secondLevelDomain}";
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_waiters": OrganizationWaiter;
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20200801";
+    if (this.logger) this.logger.info(`OrganizationClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      OrganizationClient.serviceEndpointTemplate,
+      region
+    );
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      OrganizationClient.serviceEndpointTemplate,
+      regionId
+    );
+  }
+
+  /**
+   * Creates a new OrganizationWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): OrganizationWaiter {
+    this._waiters = new OrganizationWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): OrganizationWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Approve an organization's child tenancy for transfer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ApproveOrganizationTenancyForTransferRequest
+   * @return ApproveOrganizationTenancyForTransferResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ApproveOrganizationTenancyForTransfer.ts.html |here} to see how to use ApproveOrganizationTenancyForTransfer API.
+   */
+  public async approveOrganizationTenancyForTransfer(
+    approveOrganizationTenancyForTransferRequest: requests.ApproveOrganizationTenancyForTransferRequest
+  ): Promise<responses.ApproveOrganizationTenancyForTransferResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OrganizationClient#approveOrganizationTenancyForTransfer."
+      );
+    const pathParams = {
+      "{organizationTenancyId}": approveOrganizationTenancyForTransferRequest.organizationTenancyId
+    };
+
+    const queryParams = {
+      "compartmentId": approveOrganizationTenancyForTransferRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": approveOrganizationTenancyForTransferRequest.ifMatch,
+      "opc-retry-token": approveOrganizationTenancyForTransferRequest.opcRetryToken,
+      "opc-request-id": approveOrganizationTenancyForTransferRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      approveOrganizationTenancyForTransferRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/organizationTenancies/{organizationTenancyId}/actions/approveForTransfer",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ApproveOrganizationTenancyForTransferResponse>{},
+        body: await response.json(),
+        bodyKey: "organizationTenancy",
+        bodyModel: model.OrganizationTenancy,
+        type: "model.OrganizationTenancy",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a child tenancy asynchronously.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateChildTenancyRequest
+   * @return CreateChildTenancyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateChildTenancy.ts.html |here} to see how to use CreateChildTenancy API.
+   */
+  public async createChildTenancy(
+    createChildTenancyRequest: requests.CreateChildTenancyRequest
+  ): Promise<responses.CreateChildTenancyResponse> {
+    if (this.logger) this.logger.debug("Calling operation OrganizationClient#createChildTenancy.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createChildTenancyRequest.opcRetryToken,
+      "opc-request-id": createChildTenancyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createChildTenancyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/childTenancies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createChildTenancyRequest.createChildTenancyDetails,
+        "CreateChildTenancyDetails",
+        model.CreateChildTenancyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateChildTenancyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * If certain validations are successful, initiate tenancy termination.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteOrganizationTenancyRequest
+   * @return DeleteOrganizationTenancyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/DeleteOrganizationTenancy.ts.html |here} to see how to use DeleteOrganizationTenancy API.
+   */
+  public async deleteOrganizationTenancy(
+    deleteOrganizationTenancyRequest: requests.DeleteOrganizationTenancyRequest
+  ): Promise<responses.DeleteOrganizationTenancyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OrganizationClient#deleteOrganizationTenancy.");
+    const pathParams = {
+      "{organizationTenancyId}": deleteOrganizationTenancyRequest.organizationTenancyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOrganizationTenancyRequest.ifMatch,
+      "opc-request-id": deleteOrganizationTenancyRequest.opcRequestId,
+      "opc-retry-token": deleteOrganizationTenancyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOrganizationTenancyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/organizationTenancies/{organizationTenancyId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOrganizationTenancyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the organization.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOrganizationRequest
+   * @return GetOrganizationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetOrganization.ts.html |here} to see how to use GetOrganization API.
+   */
+  public async getOrganization(
+    getOrganizationRequest: requests.GetOrganizationRequest
+  ): Promise<responses.GetOrganizationResponse> {
+    if (this.logger) this.logger.debug("Calling operation OrganizationClient#getOrganization.");
+    const pathParams = {
+      "{organizationId}": getOrganizationRequest.organizationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOrganizationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOrganizationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/organizations/{organizationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOrganizationResponse>{},
+        body: await response.json(),
+        bodyKey: "organization",
+        bodyModel: model.Organization,
+        type: "model.Organization",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the organization's tenancy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOrganizationTenancyRequest
+   * @return GetOrganizationTenancyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetOrganizationTenancy.ts.html |here} to see how to use GetOrganizationTenancy API.
+   */
+  public async getOrganizationTenancy(
+    getOrganizationTenancyRequest: requests.GetOrganizationTenancyRequest
+  ): Promise<responses.GetOrganizationTenancyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OrganizationClient#getOrganizationTenancy.");
+    const pathParams = {
+      "{organizationId}": getOrganizationTenancyRequest.organizationId,
+      "{tenancyId}": getOrganizationTenancyRequest.tenancyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOrganizationTenancyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOrganizationTenancyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/organizations/{organizationId}/tenancies/{tenancyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOrganizationTenancyResponse>{},
+        body: await response.json(),
+        bodyKey: "organizationTenancy",
+        bodyModel: model.OrganizationTenancy,
+        type: "model.OrganizationTenancy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of tenancies in the organization.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOrganizationTenanciesRequest
+   * @return ListOrganizationTenanciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListOrganizationTenancies.ts.html |here} to see how to use ListOrganizationTenancies API.
+   */
+  public async listOrganizationTenancies(
+    listOrganizationTenanciesRequest: requests.ListOrganizationTenanciesRequest
+  ): Promise<responses.ListOrganizationTenanciesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OrganizationClient#listOrganizationTenancies.");
+    const pathParams = {
+      "{organizationId}": listOrganizationTenanciesRequest.organizationId
+    };
+
+    const queryParams = {
+      "page": listOrganizationTenanciesRequest.page,
+      "limit": listOrganizationTenanciesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOrganizationTenanciesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOrganizationTenanciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/organizations/{organizationId}/tenancies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOrganizationTenanciesResponse>{},
+        body: await response.json(),
+        bodyKey: "organizationTenancyCollection",
+        bodyModel: model.OrganizationTenancyCollection,
+        type: "model.OrganizationTenancyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists organizations associated with the caller.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOrganizationsRequest
+   * @return ListOrganizationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListOrganizations.ts.html |here} to see how to use ListOrganizations API.
+   */
+  public async listOrganizations(
+    listOrganizationsRequest: requests.ListOrganizationsRequest
+  ): Promise<responses.ListOrganizationsResponse> {
+    if (this.logger) this.logger.debug("Calling operation OrganizationClient#listOrganizations.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOrganizationsRequest.compartmentId,
+      "page": listOrganizationsRequest.page,
+      "limit": listOrganizationsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOrganizationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOrganizationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/organizations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOrganizationsResponse>{},
+        body: await response.json(),
+        bodyKey: "organizationCollection",
+        bodyModel: model.OrganizationCollection,
+        type: "model.OrganizationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Cancel an organization's child tenancy for transfer.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UnapproveOrganizationTenancyForTransferRequest
+   * @return UnapproveOrganizationTenancyForTransferResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UnapproveOrganizationTenancyForTransfer.ts.html |here} to see how to use UnapproveOrganizationTenancyForTransfer API.
+   */
+  public async unapproveOrganizationTenancyForTransfer(
+    unapproveOrganizationTenancyForTransferRequest: requests.UnapproveOrganizationTenancyForTransferRequest
+  ): Promise<responses.UnapproveOrganizationTenancyForTransferResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OrganizationClient#unapproveOrganizationTenancyForTransfer."
+      );
+    const pathParams = {
+      "{organizationTenancyId}":
+        unapproveOrganizationTenancyForTransferRequest.organizationTenancyId
+    };
+
+    const queryParams = {
+      "compartmentId": unapproveOrganizationTenancyForTransferRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": unapproveOrganizationTenancyForTransferRequest.ifMatch,
+      "opc-retry-token": unapproveOrganizationTenancyForTransferRequest.opcRetryToken,
+      "opc-request-id": unapproveOrganizationTenancyForTransferRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      unapproveOrganizationTenancyForTransferRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/organizationTenancies/{organizationTenancyId}/actions/unapproveForTransfer",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UnapproveOrganizationTenancyForTransferResponse>{},
+        body: await response.json(),
+        bodyKey: "organizationTenancy",
+        bodyModel: model.OrganizationTenancy,
+        type: "model.OrganizationTenancy",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Assign the default subscription to the organization.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateOrganizationRequest
+   * @return UpdateOrganizationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateOrganization.ts.html |here} to see how to use UpdateOrganization API.
+   */
+  public async updateOrganization(
+    updateOrganizationRequest: requests.UpdateOrganizationRequest
+  ): Promise<responses.UpdateOrganizationResponse> {
+    if (this.logger) this.logger.debug("Calling operation OrganizationClient#updateOrganization.");
+    const pathParams = {
+      "{organizationId}": updateOrganizationRequest.organizationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateOrganizationRequest.opcRequestId,
+      "if-match": updateOrganizationRequest.ifMatch,
+      "opc-retry-token": updateOrganizationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOrganizationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/organizations/{organizationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOrganizationRequest.updateOrganizationDetails,
+        "UpdateOrganizationDetails",
+        model.UpdateOrganizationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOrganizationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum RecipientInvitationApiKeys {}
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class RecipientInvitationClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
@@ -1444,6 +2289,15 @@ export class RecipientInvitationClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -1533,6 +2387,7 @@ export class RecipientInvitationClient {
 
   /**
    * Accepts a recipient invitation.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AcceptRecipientInvitationRequest
    * @return AcceptRecipientInvitationResponse
    * @throws OciError when an error occurs
@@ -1556,9 +2411,11 @@ export class RecipientInvitationClient {
       "opc-request-id": acceptRecipientInvitationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      acceptRecipientInvitationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      acceptRecipientInvitationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1596,6 +2453,7 @@ export class RecipientInvitationClient {
 
   /**
    * Gets information about the recipient invitation.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRecipientInvitationRequest
    * @return GetRecipientInvitationResponse
    * @throws OciError when an error occurs
@@ -1617,9 +2475,11 @@ export class RecipientInvitationClient {
       "opc-request-id": getRecipientInvitationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getRecipientInvitationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRecipientInvitationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1661,6 +2521,7 @@ export class RecipientInvitationClient {
 
   /**
    * Ignores a recipient invitation.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param IgnoreRecipientInvitationRequest
    * @return IgnoreRecipientInvitationResponse
    * @throws OciError when an error occurs
@@ -1684,9 +2545,11 @@ export class RecipientInvitationClient {
       "opc-request-id": ignoreRecipientInvitationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      ignoreRecipientInvitationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      ignoreRecipientInvitationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1729,6 +2592,7 @@ export class RecipientInvitationClient {
   /**
    * Return a (paginated) list of recipient invitations.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRecipientInvitationsRequest
    * @return ListRecipientInvitationsResponse
    * @throws OciError when an error occurs
@@ -1754,9 +2618,11 @@ export class RecipientInvitationClient {
       "opc-request-id": listRecipientInvitationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listRecipientInvitationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRecipientInvitationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1798,6 +2664,7 @@ export class RecipientInvitationClient {
 
   /**
    * Updates the RecipientInvitation.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRecipientInvitationRequest
    * @return UpdateRecipientInvitationResponse
    * @throws OciError when an error occurs
@@ -1820,9 +2687,11 @@ export class RecipientInvitationClient {
       "opc-request-id": updateRecipientInvitationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateRecipientInvitationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRecipientInvitationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -1868,7 +2737,9 @@ export class RecipientInvitationClient {
   }
 }
 export enum SenderInvitationApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class SenderInvitationClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
@@ -1889,6 +2760,15 @@ export class SenderInvitationClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -1977,6 +2857,7 @@ export class SenderInvitationClient {
 
   /**
    * Cancels a sender invitation.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelSenderInvitationRequest
    * @return CancelSenderInvitationResponse
    * @throws OciError when an error occurs
@@ -2000,9 +2881,11 @@ export class SenderInvitationClient {
       "opc-request-id": cancelSenderInvitationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      cancelSenderInvitationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelSenderInvitationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2040,6 +2923,7 @@ export class SenderInvitationClient {
 
   /**
    * Creates a sender invitation and asynchronously sends the invitation to the recipient.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateSenderInvitationRequest
    * @return CreateSenderInvitationResponse
    * @throws OciError when an error occurs
@@ -2060,9 +2944,11 @@ export class SenderInvitationClient {
       "opc-request-id": createSenderInvitationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createSenderInvitationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSenderInvitationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2114,6 +3000,7 @@ export class SenderInvitationClient {
 
   /**
    * Gets information about the sender invitation.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSenderInvitationRequest
    * @return GetSenderInvitationResponse
    * @throws OciError when an error occurs
@@ -2135,9 +3022,11 @@ export class SenderInvitationClient {
       "opc-request-id": getSenderInvitationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getSenderInvitationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSenderInvitationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2180,6 +3069,7 @@ export class SenderInvitationClient {
   /**
    * Return a (paginated) list of sender invitations.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSenderInvitationsRequest
    * @return ListSenderInvitationsResponse
    * @throws OciError when an error occurs
@@ -2209,9 +3099,11 @@ export class SenderInvitationClient {
       "opc-request-id": listSenderInvitationsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listSenderInvitationsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSenderInvitationsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2253,6 +3145,7 @@ export class SenderInvitationClient {
 
   /**
    * Updates the SenderInvitation.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSenderInvitationRequest
    * @return UpdateSenderInvitationResponse
    * @throws OciError when an error occurs
@@ -2275,9 +3168,11 @@ export class SenderInvitationClient {
       "opc-request-id": updateSenderInvitationRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateSenderInvitationRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSenderInvitationRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2322,8 +3217,760 @@ export class SenderInvitationClient {
     }
   }
 }
-export enum WorkRequestApiKeys {}
+export enum SubscriptionApiKeys {}
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
+export class SubscriptionClient {
+  protected static serviceEndpointTemplate =
+    "https://organizations.{region}.oci.{secondLevelDomain}";
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_waiters": SubscriptionWaiter;
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
 
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20200801";
+    if (this.logger) this.logger.info(`SubscriptionClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      SubscriptionClient.serviceEndpointTemplate,
+      region
+    );
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      SubscriptionClient.serviceEndpointTemplate,
+      regionId
+    );
+  }
+
+  /**
+   * Creates a new SubscriptionWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): SubscriptionWaiter {
+    this._waiters = new SubscriptionWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): SubscriptionWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Assign the tenancy record identified by the compartment ID to the given subscription ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateSubscriptionMappingRequest
+   * @return CreateSubscriptionMappingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateSubscriptionMapping.ts.html |here} to see how to use CreateSubscriptionMapping API.
+   */
+  public async createSubscriptionMapping(
+    createSubscriptionMappingRequest: requests.CreateSubscriptionMappingRequest
+  ): Promise<responses.CreateSubscriptionMappingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SubscriptionClient#createSubscriptionMapping.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": createSubscriptionMappingRequest.ifMatch,
+      "opc-retry-token": createSubscriptionMappingRequest.opcRetryToken,
+      "opc-request-id": createSubscriptionMappingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSubscriptionMappingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subscriptionMappings",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSubscriptionMappingRequest.createSubscriptionMappingDetails,
+        "CreateSubscriptionMappingDetails",
+        model.CreateSubscriptionMappingDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSubscriptionMappingResponse>{},
+        body: await response.json(),
+        bodyKey: "subscriptionMapping",
+        bodyModel: model.SubscriptionMapping,
+        type: "model.SubscriptionMapping",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete the subscription mapping details by subscription mapping ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteSubscriptionMappingRequest
+   * @return DeleteSubscriptionMappingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/DeleteSubscriptionMapping.ts.html |here} to see how to use DeleteSubscriptionMapping API.
+   */
+  public async deleteSubscriptionMapping(
+    deleteSubscriptionMappingRequest: requests.DeleteSubscriptionMappingRequest
+  ): Promise<responses.DeleteSubscriptionMappingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SubscriptionClient#deleteSubscriptionMapping.");
+    const pathParams = {
+      "{subscriptionMappingId}": deleteSubscriptionMappingRequest.subscriptionMappingId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteSubscriptionMappingRequest.opcRequestId,
+      "if-match": deleteSubscriptionMappingRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSubscriptionMappingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subscriptionMappings/{subscriptionMappingId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSubscriptionMappingResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the assigned subscription details by assigned subscription ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAssignedSubscriptionRequest
+   * @return GetAssignedSubscriptionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetAssignedSubscription.ts.html |here} to see how to use GetAssignedSubscription API.
+   */
+  public async getAssignedSubscription(
+    getAssignedSubscriptionRequest: requests.GetAssignedSubscriptionRequest
+  ): Promise<responses.GetAssignedSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SubscriptionClient#getAssignedSubscription.");
+    const pathParams = {
+      "{assignedSubscriptionId}": getAssignedSubscriptionRequest.assignedSubscriptionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAssignedSubscriptionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAssignedSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assignedSubscriptions/{assignedSubscriptionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAssignedSubscriptionResponse>{},
+        body: await response.json(),
+        bodyKey: "assignedSubscription",
+        bodyModel: model.AssignedSubscription,
+        type: "model.AssignedSubscription",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the subscription details by subscriptionId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSubscriptionRequest
+   * @return GetSubscriptionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetSubscription.ts.html |here} to see how to use GetSubscription API.
+   */
+  public async getSubscription(
+    getSubscriptionRequest: requests.GetSubscriptionRequest
+  ): Promise<responses.GetSubscriptionResponse> {
+    if (this.logger) this.logger.debug("Calling operation SubscriptionClient#getSubscription.");
+    const pathParams = {
+      "{subscriptionId}": getSubscriptionRequest.subscriptionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSubscriptionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subscriptions/{subscriptionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSubscriptionResponse>{},
+        body: await response.json(),
+        bodyKey: "subscription",
+        bodyModel: model.Subscription,
+        type: "model.Subscription",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the subscription mapping details by subscription mapping ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSubscriptionMappingRequest
+   * @return GetSubscriptionMappingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetSubscriptionMapping.ts.html |here} to see how to use GetSubscriptionMapping API.
+   */
+  public async getSubscriptionMapping(
+    getSubscriptionMappingRequest: requests.GetSubscriptionMappingRequest
+  ): Promise<responses.GetSubscriptionMappingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SubscriptionClient#getSubscriptionMapping.");
+    const pathParams = {
+      "{subscriptionMappingId}": getSubscriptionMappingRequest.subscriptionMappingId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSubscriptionMappingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSubscriptionMappingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subscriptionMappings/{subscriptionMappingId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSubscriptionMappingResponse>{},
+        body: await response.json(),
+        bodyKey: "subscriptionMapping",
+        bodyModel: model.SubscriptionMapping,
+        type: "model.SubscriptionMapping",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists subscriptions that are consumed by the compartment. Only the root compartment is allowed.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAssignedSubscriptionsRequest
+   * @return ListAssignedSubscriptionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListAssignedSubscriptions.ts.html |here} to see how to use ListAssignedSubscriptions API.
+   */
+  public async listAssignedSubscriptions(
+    listAssignedSubscriptionsRequest: requests.ListAssignedSubscriptionsRequest
+  ): Promise<responses.ListAssignedSubscriptionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SubscriptionClient#listAssignedSubscriptions.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAssignedSubscriptionsRequest.compartmentId,
+      "subscriptionId": listAssignedSubscriptionsRequest.subscriptionId,
+      "page": listAssignedSubscriptionsRequest.page,
+      "limit": listAssignedSubscriptionsRequest.limit,
+      "sortOrder": listAssignedSubscriptionsRequest.sortOrder,
+      "sortBy": listAssignedSubscriptionsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAssignedSubscriptionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAssignedSubscriptionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assignedSubscriptions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAssignedSubscriptionsResponse>{},
+        body: await response.json(),
+        bodyKey: "assignedSubscriptionCollection",
+        bodyModel: model.AssignedSubscriptionCollection,
+        type: "model.AssignedSubscriptionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List the available regions based on subscription ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAvailableRegionsRequest
+   * @return ListAvailableRegionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListAvailableRegions.ts.html |here} to see how to use ListAvailableRegions API.
+   */
+  public async listAvailableRegions(
+    listAvailableRegionsRequest: requests.ListAvailableRegionsRequest
+  ): Promise<responses.ListAvailableRegionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SubscriptionClient#listAvailableRegions.");
+    const pathParams = {
+      "{subscriptionId}": listAvailableRegionsRequest.subscriptionId
+    };
+
+    const queryParams = {
+      "page": listAvailableRegionsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAvailableRegionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAvailableRegionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subscriptions/{subscriptionId}/availableRegions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAvailableRegionsResponse>{},
+        body: await response.json(),
+        bodyKey: "availableRegionCollection",
+        bodyModel: model.AvailableRegionCollection,
+        type: "model.AvailableRegionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the subscription mappings for all the subscriptions owned by a given compartmentId. Only the root compartment is allowed.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSubscriptionMappingsRequest
+   * @return ListSubscriptionMappingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListSubscriptionMappings.ts.html |here} to see how to use ListSubscriptionMappings API.
+   */
+  public async listSubscriptionMappings(
+    listSubscriptionMappingsRequest: requests.ListSubscriptionMappingsRequest
+  ): Promise<responses.ListSubscriptionMappingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SubscriptionClient#listSubscriptionMappings.");
+    const pathParams = {};
+
+    const queryParams = {
+      "subscriptionId": listSubscriptionMappingsRequest.subscriptionId,
+      "subscriptionMappingId": listSubscriptionMappingsRequest.subscriptionMappingId,
+      "compartmentId": listSubscriptionMappingsRequest.compartmentId,
+      "lifecycleState": listSubscriptionMappingsRequest.lifecycleState,
+      "page": listSubscriptionMappingsRequest.page,
+      "limit": listSubscriptionMappingsRequest.limit,
+      "sortOrder": listSubscriptionMappingsRequest.sortOrder,
+      "sortBy": listSubscriptionMappingsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubscriptionMappingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubscriptionMappingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subscriptionMappings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubscriptionMappingsResponse>{},
+        body: await response.json(),
+        bodyKey: "subscriptionMappingCollection",
+        bodyModel: model.SubscriptionMappingCollection,
+        type: "model.SubscriptionMappingCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List the subscriptions that a compartment owns. Only the root compartment is allowed.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSubscriptionsRequest
+   * @return ListSubscriptionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListSubscriptions.ts.html |here} to see how to use ListSubscriptions API.
+   */
+  public async listSubscriptions(
+    listSubscriptionsRequest: requests.ListSubscriptionsRequest
+  ): Promise<responses.ListSubscriptionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation SubscriptionClient#listSubscriptions.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSubscriptionsRequest.compartmentId,
+      "subscriptionId": listSubscriptionsRequest.subscriptionId,
+      "page": listSubscriptionsRequest.page,
+      "limit": listSubscriptionsRequest.limit,
+      "sortOrder": listSubscriptionsRequest.sortOrder,
+      "sortBy": listSubscriptionsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubscriptionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubscriptionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subscriptions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubscriptionsResponse>{},
+        body: await response.json(),
+        bodyKey: "subscriptionCollection",
+        bodyModel: model.SubscriptionCollection,
+        type: "model.SubscriptionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum WorkRequestApiKeys {}
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class WorkRequestClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
@@ -2344,6 +3991,15 @@ export class WorkRequestClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -2432,6 +4088,7 @@ export class WorkRequestClient {
 
   /**
    * Gets the status of the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -2452,9 +4109,11 @@ export class WorkRequestClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getWorkRequestRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2497,6 +4156,7 @@ export class WorkRequestClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -2522,9 +4182,11 @@ export class WorkRequestClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestErrorsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2567,6 +4229,7 @@ export class WorkRequestClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -2591,9 +4254,11 @@ export class WorkRequestClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestLogsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -2636,6 +4301,7 @@ export class WorkRequestClient {
   /**
    * Lists the work requests in a compartment.
    *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -2659,9 +4325,11 @@ export class WorkRequestClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listWorkRequestsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({

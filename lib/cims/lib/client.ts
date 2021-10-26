@@ -23,7 +23,9 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 // ===============================================
 
 export enum IncidentApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class IncidentClient {
   protected static serviceEndpointTemplate =
     "https://incidentmanagement.{region}.{secondLevelDomain}";
@@ -43,6 +45,15 @@ export class IncidentClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -108,6 +119,7 @@ export class IncidentClient {
 
   /**
    * Enables the customer to create an support ticket.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateIncidentRequest
    * @return CreateIncidentResponse
    * @throws OciError when an error occurs
@@ -128,9 +140,11 @@ export class IncidentClient {
       "homeregion": createIncidentRequest.homeregion
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createIncidentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createIncidentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -172,6 +186,7 @@ export class IncidentClient {
 
   /**
    * Gets the details of the support ticket.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIncidentRequest
    * @return GetIncidentResponse
    * @throws OciError when an error occurs
@@ -196,9 +211,11 @@ export class IncidentClient {
       "problem-type": getIncidentRequest.problemType
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getIncidentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIncidentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -235,6 +252,7 @@ export class IncidentClient {
 
   /**
    * Gets the status of the service.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetStatusRequest
    * @return GetStatusResponse
    * @throws OciError when an error occurs
@@ -257,9 +275,11 @@ export class IncidentClient {
       "homeregion": getStatusRequest.homeregion
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      getStatusRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getStatusRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -296,6 +316,7 @@ export class IncidentClient {
 
   /**
    * During support ticket creation, returns the list of all possible products that Oracle Cloud Infrastructure supports.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIncidentResourceTypesRequest
    * @return ListIncidentResourceTypesResponse
    * @throws OciError when an error occurs
@@ -326,9 +347,11 @@ export class IncidentClient {
       "homeregion": listIncidentResourceTypesRequest.homeregion
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listIncidentResourceTypesRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIncidentResourceTypesRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -422,6 +445,7 @@ export class IncidentClient {
 
   /**
    * Returns the list of support tickets raised by the tenancy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIncidentsRequest
    * @return ListIncidentsResponse
    * @throws OciError when an error occurs
@@ -451,9 +475,11 @@ export class IncidentClient {
       "homeregion": listIncidentsRequest.homeregion
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      listIncidentsRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIncidentsRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -547,6 +573,7 @@ export class IncidentClient {
 
   /**
    * Updates the specified support ticket's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateIncidentRequest
    * @return UpdateIncidentResponse
    * @throws OciError when an error occurs
@@ -571,9 +598,11 @@ export class IncidentClient {
       "homeregion": updateIncidentRequest.homeregion
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      updateIncidentRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateIncidentRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -615,6 +644,7 @@ export class IncidentClient {
 
   /**
    * Checks whether the requested user is valid.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ValidateUserRequest
    * @return ValidateUserResponse
    * @throws OciError when an error occurs
@@ -638,9 +668,11 @@ export class IncidentClient {
       "homeregion": validateUserRequest.homeregion
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      validateUserRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateUserRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
@@ -676,7 +708,9 @@ export class IncidentClient {
   }
 }
 export enum UserApiKeys {}
-
+/**
+ * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ */
 export class UserClient {
   protected static serviceEndpointTemplate =
     "https://incidentmanagement.{region}.{secondLevelDomain}";
@@ -696,6 +730,15 @@ export class UserClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = false;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
       params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
@@ -761,6 +804,7 @@ export class UserClient {
 
   /**
    * Create user to request Customer Support Identifier(CSI) to Customer User Administrator(CUA).
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateUserRequest
    * @return CreateUserResponse
    * @throws OciError when an error occurs
@@ -781,9 +825,11 @@ export class UserClient {
       "homeregion": createUserRequest.homeregion
     };
 
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : {},
-      createUserRequest.retryConfiguration
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createUserRequest.retryConfiguration,
+      specRetryConfiguration
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
