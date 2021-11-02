@@ -5,7 +5,13 @@
 
 import { ObjectStorageClient } from "../client";
 import { models } from "../../index";
-import { OciError, LOG, getChunk } from "oci-common";
+import {
+  OciError,
+  LOG,
+  getChunk,
+  RetryConfiguration,
+  NoRetryConfigurationDetails
+} from "oci-common";
 import { UploadResponse } from "./upload-response";
 import { Semaphore } from "await-semaphore";
 import { UploadableBlob } from "./uploadable-blob";
@@ -52,6 +58,7 @@ export class UploadManager {
   // numberOfRetries will be a dictionary that keeps track of numberOfRetries per uploadId. This helps prevent mismatch numberOfRetries with
   // different upload when uploading multiple things in parallel.
   private numberOfRetries: { [key: string]: number } = {};
+  private uploadRetryConfiguration = { retryConfiguration: NoRetryConfigurationDetails };
 
   private numberOfSingleUploadRetry = 0;
   public constructor(
@@ -132,7 +139,8 @@ export class UploadManager {
       const response = await this.client.putObject({
         ...requestDetails,
         ...contentDetails,
-        ...contentMD5Hash
+        ...contentMD5Hash,
+        ...this.uploadRetryConfiguration
       });
       this.numberOfSingleUploadRetry = 0;
       return {
@@ -192,7 +200,8 @@ export class UploadManager {
           ...requestDetails,
           ...uploadPartDetails,
           ...contentDetails,
-          ...contentMD5Hash
+          ...contentMD5Hash,
+          ...this.uploadRetryConfiguration
         });
 
         const uploadSize = (this.uploadSize[uploadId] += content.size);

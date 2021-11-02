@@ -43,6 +43,24 @@ export class IdentityWaiter {
   }
 
   /**
+   * Waits forDomain till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDomainResponse
+   */
+  public async forDomain(
+    request: serviceRequests.GetDomainRequest,
+    ...targetStates: models.Domain.LifecycleState[]
+  ): Promise<serviceResponses.GetDomainResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getDomain(request),
+      response => targetStates.includes(response.domain.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forDynamicGroup till it reaches any of the provided states
    *
    * @param request the request to send
@@ -77,6 +95,22 @@ export class IdentityWaiter {
       () => this.client.getGroup(request),
       response => targetStates.includes(response.group.lifecycleState!),
       targetStates.includes(models.Group.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forIamWorkRequest
+   *
+   * @param request the request to send
+   * @return response returns GetIamWorkRequestResponse
+   */
+  public async forIamWorkRequest(
+    request: serviceRequests.GetIamWorkRequestRequest
+  ): Promise<serviceResponses.GetIamWorkRequestResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getIamWorkRequest(request),
+      response => (response.iamWorkRequest.timeFinished ? true : false)
     );
   }
 
