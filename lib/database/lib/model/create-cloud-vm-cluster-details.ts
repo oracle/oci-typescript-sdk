@@ -110,6 +110,14 @@ The maximum length of the combined hostname and domain is 63 characters.
    */
   "timeZone"?: string;
   /**
+   * The TCP Single Client Access Name (SCAN) port. The default port is 1521. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTcp"?: number;
+  /**
+   * The TCPS Single Client Access Name (SCAN) port. The default port is 2484. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTcpSsl"?: number;
+  /**
    * A list of the [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the network security groups (NSGs) that this resource belongs to. Setting this to an empty array after the list is created removes the resource from all NSGs. For more information about NSGs, see [Security Rules](https://docs.cloud.oracle.com/Content/Network/Concepts/securityrules.htm).
    * **NsgIds restrictions:**
    * - Autonomous Databases with private access require at least 1 Network Security Group (NSG). The nsgIds array cannot be empty.

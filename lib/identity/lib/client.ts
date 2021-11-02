@@ -28,7 +28,7 @@ export enum IdentityApiKeys {}
  * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
  */
 export class IdentityClient {
-  protected static serviceEndpointTemplate = "https://identity.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate = "https://identity.{region}.oci.{secondLevelDomain}";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": IdentityWaiter;
@@ -139,6 +139,88 @@ export class IdentityClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+     * If the domain's {@code lifecycleState} is INACTIVE,
+* 1. Set the {@code lifecycleDetails} to ACTIVATING and asynchronously starts enabling
+*    the domain and return 202 ACCEPTED.
+*     1.1 Sets the domain status to ENABLED and set specified domain's
+*         {@code lifecycleState} to ACTIVE and set the {@code lifecycleDetails} to null.
+* <p>
+To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
+* the async operation's status. Deactivate a domain can be done using HTTP POST
+* /domains/{domainId}/actions/deactivate.
+* <p>
+- If the domain's {@code lifecycleState} is ACTIVE, returns 202 ACCEPTED with no action
+*   taken on service side.
+* - If domain is of {@code type} DEFAULT or DEFAULT_LIGHTWEIGHT or domain's {@code lifecycleState} is not INACTIVE,
+*   returns 400 BAD REQUEST.
+* - If the domain doesn't exists, returns 404 NOT FOUND.
+* - If the authenticated user is part of the domain to be activated, returns 400 BAD REQUEST
+* - If error occurs while activating domain, returns 500 INTERNAL SERVER ERROR.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ActivateDomainRequest
+     * @return ActivateDomainResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ActivateDomain.ts.html |here} to see how to use ActivateDomain API.
+     */
+  public async activateDomain(
+    activateDomainRequest: requests.ActivateDomainRequest
+  ): Promise<responses.ActivateDomainResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#activateDomain.");
+    const pathParams = {
+      "{domainId}": activateDomainRequest.domainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": activateDomainRequest.opcRequestId,
+      "opc-retry-token": activateDomainRequest.opcRetryToken,
+      "if-match": activateDomainRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateDomainRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/domains/{domainId}/actions/activate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ActivateDomainResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -764,6 +846,173 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
   }
 
   /**
+     * Change the containing compartment for a domain.
+* <p>
+This is an asynchronous call where the Domain's compartment is changed and is updated with the new compartment information.
+* To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
+* the async operation's status.
+* <p>
+The compartment change is complete when accessed via domain URL and
+* also returns new compartment OCID.
+* - If the domain doesn't exists, returns 404 NOT FOUND.
+* - If Domain {@code type} is DEFAULT or DEFAULT_LIGHTWEIGHT, return 400 BAD Request
+* - If Domain is not active or being updated, returns 400 BAD REQUEST.
+* - If error occurs while changing compartment for domain, return 500 INTERNAL SERVER ERROR.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ChangeDomainCompartmentRequest
+     * @return ChangeDomainCompartmentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ChangeDomainCompartment.ts.html |here} to see how to use ChangeDomainCompartment API.
+     */
+  public async changeDomainCompartment(
+    changeDomainCompartmentRequest: requests.ChangeDomainCompartmentRequest
+  ): Promise<responses.ChangeDomainCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#changeDomainCompartment.");
+    const pathParams = {
+      "{domainId}": changeDomainCompartmentRequest.domainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeDomainCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeDomainCompartmentRequest.opcRetryToken,
+      "if-match": changeDomainCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDomainCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/domains/{domainId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDomainCompartmentRequest.changeDomainCompartmentDetails,
+        "ChangeDomainCompartmentDetails",
+        model.ChangeDomainCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDomainCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * If the domain's {@code lifecycleState} is ACTIVE, validates the requested {@code licenseType} update
+* is allowed and
+* 1. Set the {@code lifecycleDetails} to UPDATING
+* 2. Asynchronously starts updating the domain and return 202 ACCEPTED.
+*     2.1 Successfully updates specified domain's {@code licenseType}.
+* 3. On completion set the {@code lifecycleDetails} to null.
+* To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
+* the async operation's status.
+* <p>
+- If license type update is successful, return 202 ACCEPTED
+* - If requested {@code licenseType} validation fails, returns 400 Bad request.
+* - If Domain is not active or being updated, returns 400 BAD REQUEST.
+* - If Domain {@code type} is DEFAULT or DEFAULT_LIGHTWEIGHT, return 400 BAD Request
+* - If the domain doesn't exists, returns 404 NOT FOUND
+* - If any internal error occurs, returns 500 INTERNAL SERVER ERROR.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ChangeDomainLicenseTypeRequest
+     * @return ChangeDomainLicenseTypeResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ChangeDomainLicenseType.ts.html |here} to see how to use ChangeDomainLicenseType API.
+     */
+  public async changeDomainLicenseType(
+    changeDomainLicenseTypeRequest: requests.ChangeDomainLicenseTypeRequest
+  ): Promise<responses.ChangeDomainLicenseTypeResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#changeDomainLicenseType.");
+    const pathParams = {
+      "{domainId}": changeDomainLicenseTypeRequest.domainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeDomainLicenseTypeRequest.opcRequestId,
+      "opc-retry-token": changeDomainLicenseTypeRequest.opcRetryToken,
+      "if-match": changeDomainLicenseTypeRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDomainLicenseTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/domains/{domainId}/actions/changeLicenseType",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDomainLicenseTypeRequest.changeDomainLicenseTypeDetails,
+        "ChangeDomainLicenseTypeDetails",
+        model.ChangeDomainLicenseTypeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDomainLicenseTypeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Moves the specified tag namespace to the specified compartment within the same tenancy.
 * <p>
 To move the tag namespace, you must have the manage tag-namespaces permission on both compartments.
@@ -1088,6 +1337,89 @@ Every user has permission to create a secret key for *their own user ID*. An adm
   }
 
   /**
+     * Creates a new domain in the tenancy with domain home in {@code homeRegion}. This is an asynchronous call - where, at start,
+* {@code lifecycleState} of this domain is set to CREATING and {@code lifecycleDetails} to UPDATING. On domain creation completion
+* this Domain's {@code lifecycleState} will be set to ACTIVE and {@code lifecycleDetails} to null.
+* <p>
+To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
+* the async operation's status.
+* <p>
+After creating a `Domain`, make sure its `lifecycleState` changes from CREATING to ACTIVE
+* before using it.
+* If the domain's {@code displayName} already exists, returns 400 BAD REQUEST.
+* If any one of admin related fields are provided and one of the following 3 fields
+* - {@code adminEmail}, {@code adminLastName} and {@code adminUserName} - is not provided,
+* returns 400 BAD REQUEST.
+* - If {@code isNotificationBypassed} is NOT provided when admin information is provided,
+* returns 400 BAD REQUEST.
+* - If any internal error occurs, return 500 INTERNAL SERVER ERROR.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateDomainRequest
+     * @return CreateDomainResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateDomain.ts.html |here} to see how to use CreateDomain API.
+     */
+  public async createDomain(
+    createDomainRequest: requests.CreateDomainRequest
+  ): Promise<responses.CreateDomainResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createDomain.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDomainRequest.opcRetryToken,
+      "opc-request-id": createDomainRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDomainRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/domains",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDomainRequest.createDomainDetails,
+        "CreateDomainDetails",
+        model.CreateDomainDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDomainResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Creates a new dynamic group in your tenancy.
 * <p>
 You must specify your tenancy's OCID as the compartment ID in the request object (remember that the tenancy
@@ -1267,7 +1599,9 @@ After creating the group, you need to put users in it and write policies for it.
   }
 
   /**
-     * Creates a new identity provider in your tenancy. For more information, see
+     * **Deprecated.** For more information, see [Deprecated IAM Service APIs](https://docs.cloud.oracle.com/Content/Identity/Reference/deprecatediamapis.htm).
+* <p>
+Creates a new identity provider in your tenancy. For more information, see
 * [Identity Providers and Federation](https://docs.cloud.oracle.com/Content/Identity/Concepts/federation.htm).
 * <p>
 You must specify your tenancy's OCID as the compartment ID in the request object.
@@ -1355,15 +1689,17 @@ After you send your request, the new object's `lifecycleState` will temporarily
   }
 
   /**
-   * Creates a single mapping between an IdP group and an IAM Service
-   * {@link Group}.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param CreateIdpGroupMappingRequest
-   * @return CreateIdpGroupMappingResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateIdpGroupMapping.ts.html |here} to see how to use CreateIdpGroupMapping API.
-   */
+     * **Deprecated.** For more information, see [Deprecated IAM Service APIs](https://docs.cloud.oracle.com/Content/Identity/Reference/deprecatediamapis.htm).
+* <p>
+Creates a single mapping between an IdP group and an IAM Service
+* {@link Group}.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateIdpGroupMappingRequest
+     * @return CreateIdpGroupMappingResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateIdpGroupMapping.ts.html |here} to see how to use CreateIdpGroupMapping API.
+     */
   public async createIdpGroupMapping(
     createIdpGroupMappingRequest: requests.CreateIdpGroupMappingRequest
   ): Promise<responses.CreateIdpGroupMappingResponse> {
@@ -2413,6 +2749,89 @@ A new user has no permissions until you place the user in one or more groups (se
   }
 
   /**
+     * If the domain's {@code lifecycleState} is ACTIVE and no active Apps are present in domain,
+* 1. Set the {@code lifecycleDetails} to DEACTIVATING and asynchronously starts disabling
+*    the domain and return 202 ACCEPTED.
+*     1.1 Sets the domain status to DISABLED and set specified domain's
+*         {@code lifecycleState} to INACTIVE and set the {@code lifecycleDetails} to null.
+* <p>
+To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
+* the async operation's status. Activate a domain can be done using HTTP POST
+* /domains/{domainId}/actions/activate.
+* <p>
+- If the domain's {@code lifecycleState} is INACTIVE, returns 202 ACCEPTED with no action
+*   taken on service side.
+* - If domain is of {@code type} DEFAULT or DEFAULT_LIGHTWEIGHT or domain's {@code lifecycleState}
+*   is not ACTIVE, returns 400 BAD REQUEST.
+* - If the domain doesn't exists, returns 404 NOT FOUND.
+* - If any active Apps in domain, returns 400 BAD REQUEST.
+* - If the authenticated user is part of the domain to be activated, returns 400 BAD REQUEST
+* - If error occurs while deactivating domain, returns 500 INTERNAL SERVER ERROR.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DeactivateDomainRequest
+     * @return DeactivateDomainResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeactivateDomain.ts.html |here} to see how to use DeactivateDomain API.
+     */
+  public async deactivateDomain(
+    deactivateDomainRequest: requests.DeactivateDomainRequest
+  ): Promise<responses.DeactivateDomainResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deactivateDomain.");
+    const pathParams = {
+      "{domainId}": deactivateDomainRequest.domainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deactivateDomainRequest.opcRequestId,
+      "opc-retry-token": deactivateDomainRequest.opcRetryToken,
+      "if-match": deactivateDomainRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deactivateDomainRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/domains/{domainId}/actions/deactivate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeactivateDomainResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Deletes the specified API signing key for the specified user.
 * <p>
 Every user has permission to use this operation to delete a key for *their own user ID*. An
@@ -2662,6 +3081,87 @@ Every user has permission to use this operation to delete a key for *their own u
   }
 
   /**
+     * Soft Deletes a domain.
+* <p>
+This is an asynchronous API, where, if the domain's {@code lifecycleState} is INACTIVE and
+* no active Apps are present in underlying stripe,
+*   1. Sets the specified domain's {@code lifecycleState} to DELETING.
+*   2. Domains marked as DELETING will be cleaned up by a periodic task unless customer request it to be undo via ticket.
+*   3. Work request is created and returned as opc-work-request-id along with 202 ACCEPTED.
+* To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
+* the async operation's status.
+* <p>
+- If the domain's {@code lifecycleState} is DELETING, returns 202 Accepted as a deletion
+*   is already in progress for this domain.
+* - If the domain doesn't exists, returns 404 NOT FOUND.
+* - If domain is of {@code type} DEFAULT or DEFAULT_LIGHTWEIGHT, returns 400 BAD REQUEST.
+* - If any active Apps in domain, returns 400 BAD REQUEST.
+* - If the authenticated user is part of the domain to be deleted, returns 400 BAD REQUEST.
+* - If any internal error occurs, return 500 INTERNAL SERVER ERROR.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DeleteDomainRequest
+     * @return DeleteDomainResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteDomain.ts.html |here} to see how to use DeleteDomain API.
+     */
+  public async deleteDomain(
+    deleteDomainRequest: requests.DeleteDomainRequest
+  ): Promise<responses.DeleteDomainResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteDomain.");
+    const pathParams = {
+      "{domainId}": deleteDomainRequest.domainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDomainRequest.ifMatch,
+      "opc-request-id": deleteDomainRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDomainRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/domains/{domainId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDomainResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified dynamic group.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2780,15 +3280,17 @@ Every user has permission to use this operation to delete a key for *their own u
   }
 
   /**
-   * Deletes the specified identity provider. The identity provider must not have
-   * any group mappings (see {@link IdpGroupMapping}).
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param DeleteIdentityProviderRequest
-   * @return DeleteIdentityProviderResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteIdentityProvider.ts.html |here} to see how to use DeleteIdentityProvider API.
-   */
+     * **Deprecated.** For more information, see [Deprecated IAM Service APIs](https://docs.cloud.oracle.com/Content/Identity/Reference/deprecatediamapis.htm).
+* <p>
+Deletes the specified identity provider. The identity provider must not have
+* any group mappings (see {@link IdpGroupMapping}).
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DeleteIdentityProviderRequest
+     * @return DeleteIdentityProviderResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteIdentityProvider.ts.html |here} to see how to use DeleteIdentityProvider API.
+     */
   public async deleteIdentityProvider(
     deleteIdentityProviderRequest: requests.DeleteIdentityProviderRequest
   ): Promise<responses.DeleteIdentityProviderResponse> {
@@ -2840,13 +3342,16 @@ Every user has permission to use this operation to delete a key for *their own u
   }
 
   /**
-   * Deletes the specified group mapping.
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param DeleteIdpGroupMappingRequest
-   * @return DeleteIdpGroupMappingResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteIdpGroupMapping.ts.html |here} to see how to use DeleteIdpGroupMapping API.
-   */
+     * **Deprecated.** For more information, see [Deprecated IAM Service APIs](https://docs.cloud.oracle.com/Content/Identity/Reference/deprecatediamapis.htm).
+* <p>
+Deletes the specified group mapping.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DeleteIdpGroupMappingRequest
+     * @return DeleteIdpGroupMappingResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteIdpGroupMapping.ts.html |here} to see how to use DeleteIdpGroupMapping API.
+     */
   public async deleteIdpGroupMapping(
     deleteIdpGroupMappingRequest: requests.DeleteIdpGroupMappingRequest
   ): Promise<responses.DeleteIdpGroupMappingResponse> {
@@ -3528,6 +4033,90 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
   }
 
   /**
+     * Replicate domain to a new region. This is an asynchronous call - where, at start,
+* {@code state} of this domain in replica region is set to ENABLING_REPLICATION.
+* On domain replication completion the {@code state} will be set to REPLICATION_ENABLED.
+* <p>
+To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
+* the async operation's status.
+* <p>
+If the replica region's {@code state} is already ENABLING_REPLICATION or REPLICATION_ENABLED,
+* returns 409 CONFLICT.
+* - If the domain doesn't exists, returns 404 NOT FOUND.
+* - If home region is same as replication region, return 400 BAD REQUEST.
+* - If Domain is not active or being updated, returns 400 BAD REQUEST.
+* - If any internal error occurs, return 500 INTERNAL SERVER ERROR.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param EnableReplicationToRegionRequest
+     * @return EnableReplicationToRegionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/EnableReplicationToRegion.ts.html |here} to see how to use EnableReplicationToRegion API.
+     */
+  public async enableReplicationToRegion(
+    enableReplicationToRegionRequest: requests.EnableReplicationToRegionRequest
+  ): Promise<responses.EnableReplicationToRegionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#enableReplicationToRegion.");
+    const pathParams = {
+      "{domainId}": enableReplicationToRegionRequest.domainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableReplicationToRegionRequest.opcRequestId,
+      "opc-retry-token": enableReplicationToRegionRequest.opcRetryToken,
+      "if-match": enableReplicationToRegionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableReplicationToRegionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/domains/{domainId}/actions/enableReplicationToRegion",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableReplicationToRegionRequest.enableReplicationToRegionDetails,
+        "EnableReplicationToRegionDetails",
+        model.EnableReplicationToRegionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableReplicationToRegionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Generate seed for the MFA TOTP device.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -3739,6 +4328,77 @@ This operation does not return a list of all the resources inside the compartmen
   }
 
   /**
+     * Get the specified domain's information.
+* <p>
+- If the domain doesn't exists, returns 404 NOT FOUND.
+* - If any internal error occurs, returns 500 INTERNAL SERVER ERROR.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param GetDomainRequest
+     * @return GetDomainResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetDomain.ts.html |here} to see how to use GetDomain API.
+     */
+  public async getDomain(
+    getDomainRequest: requests.GetDomainRequest
+  ): Promise<responses.GetDomainResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getDomain.");
+    const pathParams = {
+      "{domainId}": getDomainRequest.domainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDomainRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDomainRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/domains/{domainId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDomainResponse>{},
+        body: await response.json(),
+        bodyKey: "domain",
+        bodyModel: model.Domain,
+        type: "model.Domain",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the specified dynamic group's information.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -3877,13 +4537,83 @@ This operation does not return a list of all the users in the group. To do that,
   }
 
   /**
-   * Gets the specified identity provider's information.
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetIdentityProviderRequest
-   * @return GetIdentityProviderResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetIdentityProvider.ts.html |here} to see how to use GetIdentityProvider API.
-   */
+     * Gets details on a specified IAM work request. For asynchronous operations in Identity and Access Management service, opc-work-request-id header values contains
+* iam work request id that can be provided in this API to track the current status of the operation.
+* <p>
+- If workrequest exists, returns 202 ACCEPTED
+* - If workrequest does not exist, returns 404 NOT FOUND
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param GetIamWorkRequestRequest
+     * @return GetIamWorkRequestResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetIamWorkRequest.ts.html |here} to see how to use GetIamWorkRequest API.
+     */
+  public async getIamWorkRequest(
+    getIamWorkRequestRequest: requests.GetIamWorkRequestRequest
+  ): Promise<responses.GetIamWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getIamWorkRequest.");
+    const pathParams = {
+      "{iamWorkRequestId}": getIamWorkRequestRequest.iamWorkRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getIamWorkRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIamWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iamWorkRequests/{iamWorkRequestId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetIamWorkRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "iamWorkRequest",
+        bodyModel: model.IamWorkRequest,
+        type: "model.IamWorkRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * **Deprecated.** For more information, see [Deprecated IAM Service APIs](https://docs.cloud.oracle.com/Content/Identity/Reference/deprecatediamapis.htm).
+* <p>
+Gets the specified identity provider's information.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param GetIdentityProviderRequest
+     * @return GetIdentityProviderResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetIdentityProvider.ts.html |here} to see how to use GetIdentityProvider API.
+     */
   public async getIdentityProvider(
     getIdentityProviderRequest: requests.GetIdentityProviderRequest
   ): Promise<responses.GetIdentityProviderResponse> {
@@ -3943,13 +4673,16 @@ This operation does not return a list of all the users in the group. To do that,
   }
 
   /**
-   * Gets the specified group mapping.
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetIdpGroupMappingRequest
-   * @return GetIdpGroupMappingResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetIdpGroupMapping.ts.html |here} to see how to use GetIdpGroupMapping API.
-   */
+     * **Deprecated.** For more information, see [Deprecated IAM Service APIs](https://docs.cloud.oracle.com/Content/Identity/Reference/deprecatediamapis.htm).
+* <p>
+Gets the specified group mapping.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param GetIdpGroupMappingRequest
+     * @return GetIdpGroupMappingResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetIdpGroupMapping.ts.html |here} to see how to use GetIdpGroupMapping API.
+     */
   public async getIdpGroupMapping(
     getIdpGroupMappingRequest: requests.GetIdpGroupMappingRequest
   ): Promise<responses.GetIdpGroupMappingResponse> {
@@ -4406,7 +5139,7 @@ This operation does not return a list of all the users in the group. To do that,
 
   /**
    * Gets details on a specified work request. The workRequestID is returned in the opc-workrequest-id header
-   * for any asynchronous operation in the Identity and Access Management service.
+   * for any asynchronous operation in tagging service.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTaggingWorkRequestRequest
@@ -4736,7 +5469,7 @@ This operation does not return a list of all the users in the group. To do that,
 
   /**
    * Gets details on a specified work request. The workRequestID is returned in the opc-workrequest-id header
-   * for any asynchronous operation in the Identity and Access Management service.
+   * for any asynchronous operation in the compartment service.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
@@ -4792,6 +5525,81 @@ This operation does not return a list of all the users in the group. To do that,
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * List the allowed domain license types supported by OCI
+* If {@code currentLicenseTypeName} provided, returns allowed license types a domain with the specified license type name can migrate to.
+* If {@code name} is provided, it filters and returns resources that match the given license type name.
+* Otherwise, returns all valid license types that are currently supported.
+* <p>
+- If license type details are retrieved sucessfully, return 202 ACCEPTED.
+* - If any internal error occurs, return 500 INTERNAL SERVER ERROR.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListAllowedDomainLicenseTypesRequest
+     * @return ListAllowedDomainLicenseTypesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListAllowedDomainLicenseTypes.ts.html |here} to see how to use ListAllowedDomainLicenseTypes API.
+     */
+  public async listAllowedDomainLicenseTypes(
+    listAllowedDomainLicenseTypesRequest: requests.ListAllowedDomainLicenseTypesRequest
+  ): Promise<responses.ListAllowedDomainLicenseTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#listAllowedDomainLicenseTypes.");
+    const pathParams = {};
+
+    const queryParams = {
+      "currentLicenseTypeName": listAllowedDomainLicenseTypesRequest.currentLicenseTypeName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAllowedDomainLicenseTypesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAllowedDomainLicenseTypesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/allowedDomainLicenseTypes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAllowedDomainLicenseTypesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.AllowedDomainLicenseTypeSummary,
+        type: "Array<model.AllowedDomainLicenseTypeSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
           }
         ]
       });
@@ -5491,6 +6299,139 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
+   * List all domains that are homed or have a replica region in current region.
+   * - If any internal error occurs, return 500 INTERNAL SERVER ERROR.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDomainsRequest
+   * @return ListDomainsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListDomains.ts.html |here} to see how to use ListDomains API.
+   */
+  public async listDomains(
+    listDomainsRequest: requests.ListDomainsRequest
+  ): Promise<responses.ListDomainsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listDomains.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDomainsRequest.compartmentId,
+      "displayName": listDomainsRequest.displayName,
+      "url": listDomainsRequest.url,
+      "homeRegionUrl": listDomainsRequest.homeRegionUrl,
+      "type": listDomainsRequest.type,
+      "licenseType": listDomainsRequest.licenseType,
+      "isHiddenOnLogin": listDomainsRequest.isHiddenOnLogin,
+      "page": listDomainsRequest.page,
+      "limit": listDomainsRequest.limit,
+      "name": listDomainsRequest.name,
+      "sortBy": listDomainsRequest.sortBy,
+      "sortOrder": listDomainsRequest.sortOrder,
+      "lifecycleState": listDomainsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDomainsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDomainsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/domains",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDomainsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.DomainSummary,
+        type: "Array<model.DomainSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDomainsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.DomainSummary objects
+   * contained in responses from the listDomains operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDomains(
+    request: requests.ListDomainsRequest
+  ): AsyncIterableIterator<model.DomainSummary> {
+    return paginateRecords(request, req => this.listDomains(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDomainsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listDomains operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDomainsResponses(
+    request: requests.ListDomainsRequest
+  ): AsyncIterableIterator<responses.ListDomainsResponse> {
+    return paginateResponses(request, req => this.listDomains(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DomainSummary objects
+   * contained in responses from the listDomains operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDomainsRecordIterator(
+    request: requests.ListDomainsRequest
+  ): AsyncIterableIterator<model.DomainSummary> {
+    return paginateRecords(request, req => this.listDomains(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDomains operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDomainsResponseIterator(
+    request: requests.ListDomainsRequest
+  ): AsyncIterableIterator<responses.ListDomainsResponse> {
+    return paginateResponses(request, req => this.listDomains(req));
+  }
+
+  /**
    * Lists the dynamic groups in your tenancy. You must specify your tenancy's OCID as the value for
    * the compartment ID (remember that the tenancy is simply the root compartment).
    * See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.com/Content/API/Concepts/apisigningkey.htm#five).
@@ -5808,13 +6749,404 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
-   * Lists the identity provider groups.
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param ListIdentityProviderGroupsRequest
-   * @return ListIdentityProviderGroupsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIdentityProviderGroups.ts.html |here} to see how to use ListIdentityProviderGroups API.
+     * Gets error details for a specified IAM work request. For asynchronous operations in Identity and Access Management service, opc-work-request-id header values contains
+* iam work request id that can be provided in this API to track the current status of the operation.
+* <p>
+- If workrequest exists, returns 202 ACCEPTED
+* - If workrequest does not exist, returns 404 NOT FOUND
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListIamWorkRequestErrorsRequest
+     * @return ListIamWorkRequestErrorsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIamWorkRequestErrors.ts.html |here} to see how to use ListIamWorkRequestErrors API.
+     */
+  public async listIamWorkRequestErrors(
+    listIamWorkRequestErrorsRequest: requests.ListIamWorkRequestErrorsRequest
+  ): Promise<responses.ListIamWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#listIamWorkRequestErrors.");
+    const pathParams = {
+      "{iamWorkRequestId}": listIamWorkRequestErrorsRequest.iamWorkRequestId
+    };
+
+    const queryParams = {
+      "limit": listIamWorkRequestErrorsRequest.limit,
+      "page": listIamWorkRequestErrorsRequest.page,
+      "sortOrder": listIamWorkRequestErrorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listIamWorkRequestErrorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIamWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iamWorkRequests/{iamWorkRequestId}/errors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListIamWorkRequestErrorsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.IamWorkRequestErrorSummary,
+        type: "Array<model.IamWorkRequestErrorSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listIamWorkRequestErrorsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.IamWorkRequestErrorSummary objects
+   * contained in responses from the listIamWorkRequestErrors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
    */
+  public listAllIamWorkRequestErrors(
+    request: requests.ListIamWorkRequestErrorsRequest
+  ): AsyncIterableIterator<model.IamWorkRequestErrorSummary> {
+    return paginateRecords(request, req => this.listIamWorkRequestErrors(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listIamWorkRequestErrorsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listIamWorkRequestErrors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllIamWorkRequestErrorsResponses(
+    request: requests.ListIamWorkRequestErrorsRequest
+  ): AsyncIterableIterator<responses.ListIamWorkRequestErrorsResponse> {
+    return paginateResponses(request, req => this.listIamWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.IamWorkRequestErrorSummary objects
+   * contained in responses from the listIamWorkRequestErrors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIamWorkRequestErrorsRecordIterator(
+    request: requests.ListIamWorkRequestErrorsRequest
+  ): AsyncIterableIterator<model.IamWorkRequestErrorSummary> {
+    return paginateRecords(request, req => this.listIamWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIamWorkRequestErrors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIamWorkRequestErrorsResponseIterator(
+    request: requests.ListIamWorkRequestErrorsRequest
+  ): AsyncIterableIterator<responses.ListIamWorkRequestErrorsResponse> {
+    return paginateResponses(request, req => this.listIamWorkRequestErrors(req));
+  }
+
+  /**
+     * Gets logs for a specified IAM work request. For asynchronous operations in Identity and Access Management service, opc-work-request-id header values contains
+* iam work request id that can be provided in this API to track the current status of the operation.
+* <p>
+- If workrequest exists, returns 202 ACCEPTED
+* - If workrequest does not exist, returns 404 NOT FOUND
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListIamWorkRequestLogsRequest
+     * @return ListIamWorkRequestLogsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIamWorkRequestLogs.ts.html |here} to see how to use ListIamWorkRequestLogs API.
+     */
+  public async listIamWorkRequestLogs(
+    listIamWorkRequestLogsRequest: requests.ListIamWorkRequestLogsRequest
+  ): Promise<responses.ListIamWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listIamWorkRequestLogs.");
+    const pathParams = {
+      "{iamWorkRequestId}": listIamWorkRequestLogsRequest.iamWorkRequestId
+    };
+
+    const queryParams = {
+      "limit": listIamWorkRequestLogsRequest.limit,
+      "page": listIamWorkRequestLogsRequest.page,
+      "sortOrder": listIamWorkRequestLogsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listIamWorkRequestLogsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIamWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iamWorkRequests/{iamWorkRequestId}/logs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListIamWorkRequestLogsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.IamWorkRequestLogSummary,
+        type: "Array<model.IamWorkRequestLogSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listIamWorkRequestLogsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.IamWorkRequestLogSummary objects
+   * contained in responses from the listIamWorkRequestLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllIamWorkRequestLogs(
+    request: requests.ListIamWorkRequestLogsRequest
+  ): AsyncIterableIterator<model.IamWorkRequestLogSummary> {
+    return paginateRecords(request, req => this.listIamWorkRequestLogs(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listIamWorkRequestLogsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listIamWorkRequestLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllIamWorkRequestLogsResponses(
+    request: requests.ListIamWorkRequestLogsRequest
+  ): AsyncIterableIterator<responses.ListIamWorkRequestLogsResponse> {
+    return paginateResponses(request, req => this.listIamWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.IamWorkRequestLogSummary objects
+   * contained in responses from the listIamWorkRequestLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIamWorkRequestLogsRecordIterator(
+    request: requests.ListIamWorkRequestLogsRequest
+  ): AsyncIterableIterator<model.IamWorkRequestLogSummary> {
+    return paginateRecords(request, req => this.listIamWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIamWorkRequestLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIamWorkRequestLogsResponseIterator(
+    request: requests.ListIamWorkRequestLogsRequest
+  ): AsyncIterableIterator<responses.ListIamWorkRequestLogsResponse> {
+    return paginateResponses(request, req => this.listIamWorkRequestLogs(req));
+  }
+
+  /**
+     * List the IAM work requests in compartment
+* <p>
+- If IAM workrequest  details are retrieved sucessfully, return 202 ACCEPTED.
+* - If any internal error occurs, return 500 INTERNAL SERVER ERROR.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListIamWorkRequestsRequest
+     * @return ListIamWorkRequestsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIamWorkRequests.ts.html |here} to see how to use ListIamWorkRequests API.
+     */
+  public async listIamWorkRequests(
+    listIamWorkRequestsRequest: requests.ListIamWorkRequestsRequest
+  ): Promise<responses.ListIamWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listIamWorkRequests.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listIamWorkRequestsRequest.compartmentId,
+      "page": listIamWorkRequestsRequest.page,
+      "limit": listIamWorkRequestsRequest.limit,
+      "resourceIdentifier": listIamWorkRequestsRequest.resourceIdentifier
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listIamWorkRequestsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIamWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iamWorkRequests",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListIamWorkRequestsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.IamWorkRequestSummary,
+        type: "Array<model.IamWorkRequestSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listIamWorkRequestsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.IamWorkRequestSummary objects
+   * contained in responses from the listIamWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllIamWorkRequests(
+    request: requests.ListIamWorkRequestsRequest
+  ): AsyncIterableIterator<model.IamWorkRequestSummary> {
+    return paginateRecords(request, req => this.listIamWorkRequests(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listIamWorkRequestsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listIamWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllIamWorkRequestsResponses(
+    request: requests.ListIamWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListIamWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listIamWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.IamWorkRequestSummary objects
+   * contained in responses from the listIamWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIamWorkRequestsRecordIterator(
+    request: requests.ListIamWorkRequestsRequest
+  ): AsyncIterableIterator<model.IamWorkRequestSummary> {
+    return paginateRecords(request, req => this.listIamWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIamWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIamWorkRequestsResponseIterator(
+    request: requests.ListIamWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListIamWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listIamWorkRequests(req));
+  }
+
+  /**
+     * **Deprecated.** For more information, see [Deprecated IAM Service APIs](https://docs.cloud.oracle.com/Content/Identity/Reference/deprecatediamapis.htm).
+* <p>
+Lists the identity provider groups.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListIdentityProviderGroupsRequest
+     * @return ListIdentityProviderGroupsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIdentityProviderGroups.ts.html |here} to see how to use ListIdentityProviderGroups API.
+     */
   public async listIdentityProviderGroups(
     listIdentityProviderGroupsRequest: requests.ListIdentityProviderGroupsRequest
   ): Promise<responses.ListIdentityProviderGroupsResponse> {
@@ -5932,17 +7264,19 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
-   * Lists all the identity providers in your tenancy. You must specify the identity provider type (e.g., `SAML2` for
-   * identity providers using the SAML2.0 protocol). You must specify your tenancy's OCID as the value for the
-   * compartment ID (remember that the tenancy is simply the root compartment).
-   * See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.com/Content/API/Concepts/apisigningkey.htm#five).
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param ListIdentityProvidersRequest
-   * @return ListIdentityProvidersResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIdentityProviders.ts.html |here} to see how to use ListIdentityProviders API.
-   */
+     * **Deprecated.** For more information, see [Deprecated IAM Service APIs](https://docs.cloud.oracle.com/Content/Identity/Reference/deprecatediamapis.htm).
+* <p>
+Lists all the identity providers in your tenancy. You must specify the identity provider type (e.g., `SAML2` for
+* identity providers using the SAML2.0 protocol). You must specify your tenancy's OCID as the value for the
+* compartment ID (remember that the tenancy is simply the root compartment).
+* See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.com/Content/API/Concepts/apisigningkey.htm#five).
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListIdentityProvidersRequest
+     * @return ListIdentityProvidersResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIdentityProviders.ts.html |here} to see how to use ListIdentityProviders API.
+     */
   public async listIdentityProviders(
     listIdentityProvidersRequest: requests.ListIdentityProvidersRequest
   ): Promise<responses.ListIdentityProvidersResponse> {
@@ -6061,14 +7395,16 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
-   * Lists the group mappings for the specified identity provider.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param ListIdpGroupMappingsRequest
-   * @return ListIdpGroupMappingsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIdpGroupMappings.ts.html |here} to see how to use ListIdpGroupMappings API.
-   */
+     * **Deprecated.** For more information, see [Deprecated IAM Service APIs](https://docs.cloud.oracle.com/Content/Identity/Reference/deprecatediamapis.htm).
+* <p>
+Lists the group mappings for the specified identity provider.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListIdpGroupMappingsRequest
+     * @return ListIdpGroupMappingsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIdpGroupMappings.ts.html |here} to see how to use ListIdpGroupMappings API.
+     */
   public async listIdpGroupMappings(
     listIdpGroupMappingsRequest: requests.ListIdpGroupMappingsRequest
   ): Promise<responses.ListIdpGroupMappingsResponse> {
@@ -8635,6 +9971,87 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+     * Updates domain information and associated stripe. This is an asynchronous call where
+* the associated stripe and domain are updated.
+* <p>
+To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
+* the async operation's status.
+* <p>
+- If the {@code displayName} is not unique within the tenancy, returns 400 BAD REQUEST.
+* - If any field other than {@code description} is requested to be updated for DEFAULT domain,
+* returns 400 BAD REQUEST.
+* - If Domain is not active or being updated, returns 400 BAD REQUEST.
+* - If Domain {@code type} is DEFAULT or DEFAULT_LIGHTWEIGHT, return 400 BAD Request
+* - If the domain doesn't exists, returns 404 NOT FOUND.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param UpdateDomainRequest
+     * @return UpdateDomainResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateDomain.ts.html |here} to see how to use UpdateDomain API.
+     */
+  public async updateDomain(
+    updateDomainRequest: requests.UpdateDomainRequest
+  ): Promise<responses.UpdateDomainResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateDomain.");
+    const pathParams = {
+      "{domainId}": updateDomainRequest.domainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDomainRequest.ifMatch,
+      "opc-request-id": updateDomainRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDomainRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/domains/{domainId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDomainRequest.updateDomainDetails,
+        "UpdateDomainDetails",
+        model.UpdateDomainDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDomainResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified dynamic group.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDynamicGroupRequest
@@ -8779,13 +10196,16 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
-   * Updates the specified identity provider.
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param UpdateIdentityProviderRequest
-   * @return UpdateIdentityProviderResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateIdentityProvider.ts.html |here} to see how to use UpdateIdentityProvider API.
-   */
+     * **Deprecated.** For more information, see [Deprecated IAM Service APIs](https://docs.cloud.oracle.com/Content/Identity/Reference/deprecatediamapis.htm).
+* <p>
+Updates the specified identity provider.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param UpdateIdentityProviderRequest
+     * @return UpdateIdentityProviderResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateIdentityProvider.ts.html |here} to see how to use UpdateIdentityProvider API.
+     */
   public async updateIdentityProvider(
     updateIdentityProviderRequest: requests.UpdateIdentityProviderRequest
   ): Promise<responses.UpdateIdentityProviderResponse> {
@@ -8851,13 +10271,16 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
-   * Updates the specified group mapping.
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param UpdateIdpGroupMappingRequest
-   * @return UpdateIdpGroupMappingResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateIdpGroupMapping.ts.html |here} to see how to use UpdateIdpGroupMapping API.
-   */
+     * **Deprecated.** For more information, see [Deprecated IAM Service APIs](https://docs.cloud.oracle.com/Content/Identity/Reference/deprecatediamapis.htm).
+* <p>
+Updates the specified group mapping.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param UpdateIdpGroupMappingRequest
+     * @return UpdateIdpGroupMappingResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/UpdateIdpGroupMapping.ts.html |here} to see how to use UpdateIdpGroupMapping API.
+     */
   public async updateIdpGroupMapping(
     updateIdpGroupMappingRequest: requests.UpdateIdpGroupMappingRequest
   ): Promise<responses.UpdateIdpGroupMappingResponse> {

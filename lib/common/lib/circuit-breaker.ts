@@ -73,7 +73,7 @@ export default class CircuitBreaker {
   public static DefaultCircuitBreakerOverriden = false;
 
   private static DefaultConfiguration: CircuitBreakerOptions = {
-    timeout: 600000, // If our function takes longer than 60 minutes, trigger a failure
+    timeout: 3600000, // If our function takes longer than 60 minutes, trigger a failure
     errorThresholdPercentage: 80, // When 80% of requests fail, trip the circuit
     resetTimeout: 30000, // After 30 seconds, try again.
     rollingCountTimeout: 120000,

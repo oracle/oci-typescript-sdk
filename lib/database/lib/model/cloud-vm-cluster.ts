@@ -214,6 +214,14 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "zoneId"?: string;
+  /**
+   * The TCP Single Client Access Name (SCAN) port. The default port is 1521. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTcp"?: number;
+  /**
+   * The TCPS Single Client Access Name (SCAN) port. The default port is 2484. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTcpSsl"?: number;
 }
 
 export namespace CloudVmCluster {

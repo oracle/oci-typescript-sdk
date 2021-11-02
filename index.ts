@@ -172,3 +172,4 @@ export import datalabelingservicedataplane = require("oci-datalabelingservicedat
 export import waf = require("oci-waf");
 export import certificates = require("oci-certificates");
 export import certificatesmanagement = require("oci-certificatesmanagement");
+export import databasetools = require("oci-databasetools");
