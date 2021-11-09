@@ -9,7 +9,7 @@ import common = require("oci-common");
 (async () => {
   const authenticationProvider = await common.ResourcePrincipalAuthenticationDetailsProvider.builder();
   try {
-    const identityClient = await new identity.IdentityClient({
+    const identityClient = new identity.IdentityClient({
       authenticationDetailsProvider: authenticationProvider
     });
     const regions = await identityClient.listRegions({});

@@ -41,10 +41,6 @@ export interface OperatorControlAssignment {
    */
   "resourceName": string;
   /**
-   * Type of the target resource.
-   */
-  "resourceType"?: model.ResourceTypes;
-  /**
    * The OCID of the compartment that contains the target resource.
    */
   "resourceCompartmentId"?: string;
@@ -52,6 +48,10 @@ export interface OperatorControlAssignment {
    * The OCID of the comparment that contains the operator control assignment.
    */
   "compartmentId"?: string;
+  /**
+   * resourceType for which the OperatorControlAssignment is applicable
+   */
+  "resourceType"?: model.ResourceTypes;
   /**
    * The time at which the target resource will be brought under the governance of the operator control expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
    * Example: '2020-05-22T21:10:29.600Z'
@@ -98,6 +98,34 @@ export interface OperatorControlAssignment {
    * description containing reason for releasing of OperatorControl.
    */
   "detachmentDescription"?: string;
+  /**
+   * If set indicates that the audit logs are being forwarded to the relevant remote logging server
+   */
+  "isLogForwarded"?: boolean;
+  /**
+   * The address of the remote syslog server where the audit logs are being forwarded to. Address in host or IP format.
+   */
+  "remoteSyslogServerAddress"?: string;
+  /**
+   * The listening port of the remote syslog server. The port range is 0 - 65535. Only TCP supported. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "remoteSyslogServerPort"?: number;
+  /**
+   * The CA certificate of the remote syslog server.
+   */
+  "remoteSyslogServerCACert"?: string;
+  /**
+   * The boolean if true would autoApprove during maintenance.
+   */
+  "isAutoApproveDuringMaintenance"?: boolean;
+  /**
+   * The code identifying the error occurred during Assignment operation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "errorCode"?: number;
+  /**
+   * The message describing the error occurred during Assignment operation.
+   */
+  "errorMessage"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    *

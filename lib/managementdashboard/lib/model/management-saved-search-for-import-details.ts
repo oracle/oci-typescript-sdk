@@ -100,6 +100,10 @@ export interface ManagementSavedSearchForImportDetails {
    * Defines parameters for the saved search.
    */
   "parametersConfig"?: Array<any>;
+  /**
+   * Drill-down configuration to define the destination of a drill-down action.
+   */
+  "drilldownConfig"?: Array<any>;
 }
 
 export namespace ManagementSavedSearchForImportDetails {

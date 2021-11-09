@@ -31,6 +31,10 @@ export interface ListOperatorControlAssignmentsRequest extends common.BaseReques
    */
   "resourceName"?: string;
   /**
+   * A filter to return only lists of resources that match the entire given service type.
+   */
+  "resourceType"?: string;
+  /**
    * A filter to return only resources whose lifecycleState matches the given OperatorControlAssignment lifecycleState.
    */
   "lifecycleState"?: model.OperatorControlAssignmentLifecycleStates;

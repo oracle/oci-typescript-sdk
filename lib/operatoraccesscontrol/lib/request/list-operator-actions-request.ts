@@ -27,6 +27,10 @@ export interface ListOperatorActionsRequest extends common.BaseRequest {
    */
   "name"?: string;
   /**
+   * A filter to return only lists of resources that match the entire given service type.
+   */
+  "resourceType"?: string;
+  /**
    * A filter to return only resources whose lifecycleState matches the given OperatorAction lifecycleState.
    */
   "lifecycleState"?: model.OperatorActionLifecycleStates;

@@ -19,38 +19,22 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of the access request approval.
+ * Details to mark access request in review.
  */
-export interface ApproveAccessRequestDetails {
+export interface ReviewAccessRequestDetails {
   /**
-   * Comment by the approver during approval.
+   * Comment by the approver explaining that the access request is in review.
    */
   "approverComment"?: string;
-  /**
-   * Specifies the type of auditing to be enabled. There are two levels of auditing: command-level and keystroke-level.
-   * By default, auditing is enabled at the command level i.e., each command issued by the operator is audited. When keystroke-level is chosen,
-   * in addition to command level logging, key strokes are also logged.
-   *
-   */
-  "auditType"?: Array<string>;
-  /**
-   * Message that needs to be displayed to the Ops User.
-   */
-  "additionalMessage"?: string;
-  /**
-   * The time when access request is scheduled to be approved in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.Example: '2020-05-22T21:10:29.600Z'
-   *
-   */
-  "timeOfUserCreation"?: Date;
 }
 
-export namespace ApproveAccessRequestDetails {
-  export function getJsonObj(obj: ApproveAccessRequestDetails): object {
+export namespace ReviewAccessRequestDetails {
+  export function getJsonObj(obj: ReviewAccessRequestDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: ApproveAccessRequestDetails): object {
+  export function getDeserializedJsonObj(obj: ReviewAccessRequestDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;

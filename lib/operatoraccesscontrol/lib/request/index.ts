@@ -25,6 +25,8 @@ import * as ListAccessRequestsRequest from "./list-access-requests-request";
 export import ListAccessRequestsRequest = ListAccessRequestsRequest.ListAccessRequestsRequest;
 import * as RejectAccessRequestRequest from "./reject-access-request-request";
 export import RejectAccessRequestRequest = RejectAccessRequestRequest.RejectAccessRequestRequest;
+import * as ReviewAccessRequestRequest from "./review-access-request-request";
+export import ReviewAccessRequestRequest = ReviewAccessRequestRequest.ReviewAccessRequestRequest;
 import * as RevokeAccessRequestRequest from "./revoke-access-request-request";
 export import RevokeAccessRequestRequest = RevokeAccessRequestRequest.RevokeAccessRequestRequest;
 import * as GetOperatorActionRequest from "./get-operator-action-request";

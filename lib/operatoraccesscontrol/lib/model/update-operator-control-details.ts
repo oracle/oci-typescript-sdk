@@ -25,7 +25,7 @@ export interface UpdateOperatorControlDetails {
   /**
    * Name of the operator control.
    */
-  "operatorControlName"?: string;
+  "operatorControlName": string;
   /**
    * Description of the operator control.
    */
@@ -37,7 +37,7 @@ export interface UpdateOperatorControlDetails {
   /**
    * List of user groups who can approve an access request associated with a target resource under the governance of this operator control.
    */
-  "approverGroupsList"?: Array<string>;
+  "approverGroupsList": Array<string>;
   /**
    * List of pre-approved operator actions. Access requests associated with a resource governed by this operator control will be
    * automatically approved if the access request only contain operator actions in the pre-approved list.
@@ -49,7 +49,7 @@ export interface UpdateOperatorControlDetails {
    * will be auto-approved.
    *
    */
-  "isFullyPreApproved"?: boolean;
+  "isFullyPreApproved": boolean;
   /**
    * List of emailId.
    *

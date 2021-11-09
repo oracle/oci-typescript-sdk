@@ -64,6 +64,10 @@ export interface AccessRequest {
    */
   "compartmentId"?: string;
   /**
+   * resourceType for which the AccessRequest is applicable
+   */
+  "resourceType"?: model.ResourceTypes;
+  /**
    * List of operator actions for which approval is sought by the operator user.
    */
   "actionRequestsList"?: Array<string>;
@@ -107,6 +111,11 @@ export interface AccessRequest {
    *
    */
   "timeOfModification"?: Date;
+  /**
+   * The time when access request is scheduled to be approved in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.Example: '2020-05-22T21:10:29.600Z'
+   *
+   */
+  "timeOfUserCreation"?: Date;
   /**
    * The OCID of the user that last modified the access request.
    */

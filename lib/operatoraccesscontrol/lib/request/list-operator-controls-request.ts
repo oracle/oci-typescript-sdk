@@ -31,6 +31,10 @@ export interface ListOperatorControlsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
+   * A filter to return only lists of resources that match the entire given service type.
+   */
+  "resourceType"?: string;
+  /**
    * The maximum number of items to return.
    */
   "limit"?: number;

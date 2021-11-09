@@ -11,7 +11,7 @@ const provider = new common.ConfigFileAuthenticationDetailsProvider();
 
 (async () => {
   const compartmentId = provider.getTenantId() || "";
-  const identityClient = await new identity.IdentityClient({
+  const identityClient = new identity.IdentityClient({
     authenticationDetailsProvider: provider
   });
 
