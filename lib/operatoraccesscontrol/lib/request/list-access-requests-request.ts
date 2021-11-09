@@ -27,9 +27,27 @@ export interface ListAccessRequestsRequest extends common.BaseRequest {
    */
   "resourceName"?: string;
   /**
+   * A filter to return only lists of resources that match the entire given service type.
+   */
+  "resourceType"?: string;
+  /**
    * A filter to return only resources whose lifecycleState matches the given AccessRequest lifecycleState.
    */
   "lifecycleState"?: model.AccessRequestLifecycleStates;
+  /**
+   * Query start time in UTC in ISO 8601 format(inclusive).
+   * Example 2019-10-30T00:00:00Z (yyyy-MM-ddThh:mm:ssZ).
+   * timeIntervalStart and timeIntervalEnd parameters are used together.
+   *
+   */
+  "timeStart"?: Date;
+  /**
+   * Query start time in UTC in ISO 8601 format(inclusive).
+   * Example 2019-10-30T00:00:00Z (yyyy-MM-ddThh:mm:ssZ).
+   * timeIntervalStart and timeIntervalEnd parameters are used together.
+   *
+   */
+  "timeEnd"?: Date;
   /**
    * The maximum number of items to return.
    */

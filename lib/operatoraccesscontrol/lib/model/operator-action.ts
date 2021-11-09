@@ -33,13 +33,21 @@ export interface OperatorAction {
    */
   "id": string;
   /**
-   * Name of the operator action.
+   * Unique name of the operator action.
    */
   "name": string;
+  /**
+   * Display Name of the operator action.
+   */
+  "customerDisplayName"?: string;
   /**
    * Name of the infrastructure layer associated with the operator action.
    */
   "component"?: string;
+  /**
+   * resourceType for which the OperatorAction is applicable
+   */
+  "resourceType"?: model.ResourceTypes;
   /**
    * Description of the operator action in terms of associated risk profile, and characteristics of the operating system commands made
    * available to the operator under this operator action.

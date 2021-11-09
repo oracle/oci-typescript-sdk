@@ -372,7 +372,10 @@ export class AccessRequestsClient {
     const queryParams = {
       "compartmentId": listAccessRequestsRequest.compartmentId,
       "resourceName": listAccessRequestsRequest.resourceName,
+      "resourceType": listAccessRequestsRequest.resourceType,
       "lifecycleState": listAccessRequestsRequest.lifecycleState,
+      "timeStart": listAccessRequestsRequest.timeStart,
+      "timeEnd": listAccessRequestsRequest.timeEnd,
       "limit": listAccessRequestsRequest.limit,
       "page": listAccessRequestsRequest.page,
       "sortOrder": listAccessRequestsRequest.sortOrder,
@@ -484,6 +487,82 @@ export class AccessRequestsClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Reviews the access request.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ReviewAccessRequestRequest
+   * @return ReviewAccessRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ReviewAccessRequest.ts.html |here} to see how to use ReviewAccessRequest API.
+   */
+  public async reviewAccessRequest(
+    reviewAccessRequestRequest: requests.ReviewAccessRequestRequest
+  ): Promise<responses.ReviewAccessRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AccessRequestsClient#reviewAccessRequest.");
+    const pathParams = {
+      "{accessRequestId}": reviewAccessRequestRequest.accessRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": reviewAccessRequestRequest.opcRetryToken,
+      "if-match": reviewAccessRequestRequest.ifMatch,
+      "opc-request-id": reviewAccessRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      reviewAccessRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/accessRequests/{accessRequestId}/action/review",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        reviewAccessRequestRequest.reviewAccessRequestDetails,
+        "ReviewAccessRequestDetails",
+        model.ReviewAccessRequestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReviewAccessRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "accessRequest",
+        bodyModel: model.AccessRequest,
+        type: "model.AccessRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -748,6 +827,7 @@ export class OperatorActionsClient {
 
     const queryParams = {
       "name": listOperatorActionsRequest.name,
+      "resourceType": listOperatorActionsRequest.resourceType,
       "compartmentId": listOperatorActionsRequest.compartmentId,
       "lifecycleState": listOperatorActionsRequest.lifecycleState,
       "limit": listOperatorActionsRequest.limit,
@@ -1221,6 +1301,7 @@ export class OperatorControlClient {
       "compartmentId": listOperatorControlsRequest.compartmentId,
       "lifecycleState": listOperatorControlsRequest.lifecycleState,
       "displayName": listOperatorControlsRequest.displayName,
+      "resourceType": listOperatorControlsRequest.resourceType,
       "limit": listOperatorControlsRequest.limit,
       "page": listOperatorControlsRequest.page,
       "sortOrder": listOperatorControlsRequest.sortOrder,
@@ -1591,7 +1672,16 @@ export class OperatorControlAssignmentClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateOperatorControlAssignmentResponse>{},
+        body: await response.json(),
+        bodyKey: "operatorControlAssignment",
+        bodyModel: model.OperatorControlAssignment,
+        type: "model.OperatorControlAssignment",
         responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
@@ -1768,6 +1858,7 @@ export class OperatorControlAssignmentClient {
       "operatorControlName": listOperatorControlAssignmentsRequest.operatorControlName,
       "resourceName": listOperatorControlAssignmentsRequest.resourceName,
       "compartmentId": listOperatorControlAssignmentsRequest.compartmentId,
+      "resourceType": listOperatorControlAssignmentsRequest.resourceType,
       "lifecycleState": listOperatorControlAssignmentsRequest.lifecycleState,
       "limit": listOperatorControlAssignmentsRequest.limit,
       "page": listOperatorControlAssignmentsRequest.page,

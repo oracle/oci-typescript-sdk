@@ -157,7 +157,7 @@ async function usersByFreeformTagAndValue(tag: string, value: string) {
 }
 
 (async () => {
-  searchClient = await new ResourceSearchClient({
+  searchClient = new ResourceSearchClient({
     authenticationDetailsProvider: provider
   });
   await resourceType();

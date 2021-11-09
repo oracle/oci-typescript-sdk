@@ -63,6 +63,15 @@ export interface OperatorControl {
    */
   "isFullyPreApproved"?: boolean;
   /**
+   * List of emailId.
+   *
+   */
+  "emailIdList"?: Array<string>;
+  /**
+   * resourceType for which the OperatorControl is applicable
+   */
+  "resourceType"?: model.ResourceTypes;
+  /**
    * System message that would be displayed to the operator users on accessing the target resource under the governance of this operator control.
    */
   "systemMessage"?: string;

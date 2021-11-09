@@ -3,6 +3,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.7.0 - 2021-11-09
+### Added
+- Support for drill down metadata in the Management Dashboard service
+- Support for operator access control on dedicated autonomous databases in the Operator Access Control service
+
+### Breaking Changes
+- Update the property `isFullyPreApproved`, `approverGroupsList`, `operatorControlName` from optional to required in `UpdateOperatorControlDetails` in Operator Access Control service.
+- Update the property `isEnforcedAlways` from optional to required in `UpdateOperatorControlAssignmentDetails` in Operator Access Control service.
+- Update the property `approverGroupsList` from optional to required in `CreateOpereatorControlDetails` in Operator Access Control service.
+- Update the property `resourceType` from optional to required in `CreateOpereatorControlAssignmentDetails` in Operator Access Control service.
+- Update the property `resourceType` from type `string` to  type`model.ResourceTypes` in `OperatorControlAssignmentSummary` in Operator Access Control service.
+
 ## 2.6.1 - 2021-11-02
 ### Added
 - Support for the Database Tools service 

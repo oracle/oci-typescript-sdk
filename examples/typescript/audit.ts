@@ -81,8 +81,8 @@ async function getAuditEvents(
 }
 
 (async () => {
-  identityClient = await new identity.IdentityClient({ authenticationDetailsProvider: provider });
-  auditClient = await new audit.AuditClient({ authenticationDetailsProvider: provider });
+  identityClient = new identity.IdentityClient({ authenticationDetailsProvider: provider });
+  auditClient = new audit.AuditClient({ authenticationDetailsProvider: provider });
 
   const endTime: Date = new Date();
   const offset = new Date().setDate(new Date().getDate() - 5);

@@ -73,6 +73,8 @@ import * as RejectAccessRequestDetails from "./reject-access-request-details";
 export import RejectAccessRequestDetails = RejectAccessRequestDetails.RejectAccessRequestDetails;
 import * as ResourceTypes from "./resource-types";
 export import ResourceTypes = ResourceTypes.ResourceTypes;
+import * as ReviewAccessRequestDetails from "./review-access-request-details";
+export import ReviewAccessRequestDetails = ReviewAccessRequestDetails.ReviewAccessRequestDetails;
 import * as RevokeAccessRequestDetails from "./revoke-access-request-details";
 export import RevokeAccessRequestDetails = RevokeAccessRequestDetails.RevokeAccessRequestDetails;
 import * as SortOrders from "./sort-orders";

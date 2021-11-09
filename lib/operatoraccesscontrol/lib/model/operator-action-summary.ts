@@ -39,6 +39,10 @@ export interface OperatorActionSummary {
    */
   "compartmentId"?: string;
   /**
+   * resourceType for which the OperatorAction is applicable
+   */
+  "resourceType"?: model.ResourceTypes;
+  /**
    * The current lifecycle state of the operator action.
    */
   "lifecycleState"?: model.OperatorActionLifecycleStates;

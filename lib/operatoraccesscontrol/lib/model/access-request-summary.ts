@@ -49,6 +49,10 @@ export interface AccessRequestSummary {
    */
   "resourceName"?: string;
   /**
+   * resourceType for which the AccessRequest is applicable
+   */
+  "resourceType"?: model.ResourceTypes;
+  /**
    * The current state of the AccessRequest.
    */
   "lifecycleState"?: model.AccessRequestLifecycleStates;
@@ -62,6 +66,11 @@ export interface AccessRequestSummary {
    *
    */
   "timeOfModification"?: Date;
+  /**
+   * The time when access request is scheduled to be approved in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.Example: '2020-05-22T21:10:29.600Z'
+   *
+   */
+  "timeOfUserCreation"?: Date;
   /**
    * Duration in hours for which access is sought on the target resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

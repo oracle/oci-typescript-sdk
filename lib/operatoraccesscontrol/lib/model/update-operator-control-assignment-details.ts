@@ -35,11 +35,31 @@ export interface UpdateOperatorControlAssignmentDetails {
   /**
    * If true, then the target resource is always governed by the operator control. Otherwise governance is time-based as specified by timeAssignmentTo and timeAssignmentFrom.
    */
-  "isEnforcedAlways"?: boolean;
+  "isEnforcedAlways": boolean;
   /**
    * Comment about the modification of the operator control assignment.
    */
   "comment"?: string;
+  /**
+   * If set, then the audit logs will be forwarded to the relevant remote logging server
+   */
+  "isLogForwarded"?: boolean;
+  /**
+   * The address of the remote syslog server where the audit logs will be forwarded to. Address in host or IP format.
+   */
+  "remoteSyslogServerAddress"?: string;
+  /**
+   * The listening port of the remote syslog server. The port range is 0 - 65535. Only TCP supported. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "remoteSyslogServerPort"?: number;
+  /**
+   * The CA certificate of the remote syslog server. Identity of the remote syslog server will be asserted based on this certificate.
+   */
+  "remoteSyslogServerCACert"?: string;
+  /**
+   * The boolean if true would autoApprove during maintenance.
+   */
+  "isAutoApproveDuringMaintenance"?: boolean;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    *

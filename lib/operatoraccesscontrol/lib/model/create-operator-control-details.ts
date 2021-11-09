@@ -42,7 +42,7 @@ export interface CreateOperatorControlDetails {
   /**
    * List of user groups who can approve an access request associated with a resource governed by this operator control.
    */
-  "approverGroupsList"?: Array<string>;
+  "approverGroupsList": Array<string>;
   /**
    * List of pre-approved operator actions. Access requests associated with a resource governed by this operator control will be
    * auto-approved if the access request only contain operator actions in the pre-approved list.
@@ -54,7 +54,11 @@ export interface CreateOperatorControlDetails {
    * will be auto-approved.
    *
    */
-  "isFullyPreApproved"?: boolean;
+  "isFullyPreApproved": boolean;
+  /**
+   * resourceType for which the OperatorControl is applicable
+   */
+  "resourceType": model.ResourceTypes;
   /**
    * List of emailId.
    *

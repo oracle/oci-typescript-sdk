@@ -14,17 +14,12 @@
 import * as model from "../model";
 import common = require("oci-common");
 
-export interface CreateOperatorControlAssignmentResponse {
+export interface ReviewAccessRequestResponse {
   /**
    * For optimistic concurrency control. See `if-match`.
    *
    */
   "etag": string;
-  /**
-   * Unique Oracle-assigned identifier for the asynchronous request. You can use this to query status of the asynchronous operation.
-   *
-   */
-  "opcWorkRequestId": string;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
@@ -32,7 +27,7 @@ export interface CreateOperatorControlAssignmentResponse {
    */
   "opcRequestId": string;
   /**
-   * The returned model.OperatorControlAssignment instance.
+   * The returned model.AccessRequest instance.
    */
-  "operatorControlAssignment": model.OperatorControlAssignment;
+  "accessRequest": model.AccessRequest;
 }

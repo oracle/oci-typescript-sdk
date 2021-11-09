@@ -35,13 +35,13 @@ export interface OperatorControlAssignmentSummary {
    */
   "resourceId": string;
   /**
-   * Type of the target resource being governed by the operator control.
-   */
-  "resourceType"?: string;
-  /**
    * The OCID of the compartment that contains the operator control assignment.
    */
   "compartmentId": string;
+  /**
+   * resourceType for which the OperatorControlAssignment is applicable
+   */
+  "resourceType"?: model.ResourceTypes;
   /**
    * The time at which the target resource will be brought under the governance of the operator control in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format. Example: '2020-05-22T21:10:29.600Z'
    *
@@ -61,6 +61,26 @@ export interface OperatorControlAssignmentSummary {
    *
    */
   "timeOfAssignment"?: Date;
+  /**
+   * The code identifying the error occurred during Assignment operation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "errorCode"?: number;
+  /**
+   * The message describing the error occurred during Assignment operation.
+   */
+  "errorMessage"?: string;
+  /**
+   * If set, then the audit logs are being forwarded to the relevant remote logging server
+   */
+  "isLogForwarded"?: boolean;
+  /**
+   * The address of the remote syslog server where the audit logs are being forwarded to. Address in host or IP format.
+   */
+  "remoteSyslogServerAddress"?: string;
+  /**
+   * The listening port of the remote syslog server. The port range is 0 - 65535. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "remoteSyslogServerPort"?: number;
   /**
    * The current lifcycle state of the OperatorControl.
    */
