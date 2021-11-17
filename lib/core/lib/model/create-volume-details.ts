@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -19,6 +19,11 @@ block storage volumes.
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * The details of the volume to create. For CreateVolume operation, this field is required in the request,
+ * see {@link #createVolume(CreateVolumeRequest) createVolume}.
+ *
+ */
 export interface CreateVolumeDetails {
   /**
     * The availability domain of the volume. Omissible for cloning a volume. The new volume will be created in the availability domain of the source volume.

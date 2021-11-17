@@ -27,7 +27,7 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 export enum EsxiHostApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class EsxiHostClient {
   protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
@@ -50,7 +50,7 @@ export class EsxiHostClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -519,7 +519,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
 }
 export enum SddcApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class SddcClient {
   protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
@@ -542,7 +542,7 @@ export class SddcClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -1483,7 +1483,7 @@ Use the {@link WorkRequest} operations to track the
 }
 export enum WorkRequestApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class WorkRequestClient {
   protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
@@ -1506,7 +1506,7 @@ export class WorkRequestClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&

@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -56,21 +56,35 @@ Example: `true`
     */
   "isActive"?: boolean;
   /**
-   * A reference name or identifier for the physical fiber connection that this cross-connect
-   * uses.
+   * A reference name or identifier for the physical fiber connection this cross-connect uses.
    *
    */
   "customerReferenceName"?: string;
+  "macsecProperties"?: model.UpdateMacsecProperties;
 }
 
 export namespace UpdateCrossConnectDetails {
   export function getJsonObj(obj: UpdateCrossConnectDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "macsecProperties": obj.macsecProperties
+          ? model.UpdateMacsecProperties.getJsonObj(obj.macsecProperties)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateCrossConnectDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "macsecProperties": obj.macsecProperties
+          ? model.UpdateMacsecProperties.getDeserializedJsonObj(obj.macsecProperties)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

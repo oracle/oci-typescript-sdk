@@ -23,7 +23,7 @@ export interface UpdateIPSecConnectionRequest extends common.BaseRequest {
    */
   "ipscId": string;
   /**
-   * Details object for updating a IPSec connection.
+   * Details object for updating an IPSec connection.
    */
   "updateIPSecConnectionDetails": model.UpdateIPSecConnectionDetails;
   /**

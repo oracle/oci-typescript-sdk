@@ -41,6 +41,25 @@ export class BdsWaiter {
   }
 
   /**
+   * Waits forBdsApiKey till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetBdsApiKeyResponse | null (null in case of 404 response)
+   */
+  public async forBdsApiKey(
+    request: serviceRequests.GetBdsApiKeyRequest,
+    ...targetStates: models.BdsApiKey.LifecycleState[]
+  ): Promise<serviceResponses.GetBdsApiKeyResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getBdsApiKey(request),
+      response => targetStates.includes(response.bdsApiKey.lifecycleState!),
+      targetStates.includes(models.BdsApiKey.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forBdsInstance till it reaches any of the provided states
    *
    * @param request the request to send

@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -22,7 +22,7 @@ import common = require("oci-common");
 /**
 * A dynamic routing gateway (DRG) is a virtual router that provides a path for private
 * network traffic between networks. You use it with other Networking
-* Service components to create a connection to your on-premises network using [VPN Connect](https://docs.cloud.oracle.com/Content/Network/Tasks/managingIPsec.htm) or a connection that uses
+* Service components to create a connection to your on-premises network using [Site-to-Site VPN](https://docs.cloud.oracle.com/Content/Network/Tasks/managingIPsec.htm) or a connection that uses
 * [FastConnect](https://docs.cloud.oracle.com/Content/Network/Concepts/fastconnect.htm). For more information, see
 * [Overview of the Networking Service](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/overview.htm).
 * <p>

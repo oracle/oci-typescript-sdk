@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -47,7 +47,7 @@ Example: `192.0.2.0/24`
     */
   "cidrBlock": string;
   /**
-   * The OCID of the compartment to contain the VLAN.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to contain the VLAN.
    */
   "compartmentId": string;
   /**
@@ -59,7 +59,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A descriptive name. Does not have to be unique, and it's changeable.
+   * A user-friendly name. Does not have to be unique, and it's changeable.
    * Avoid entering confidential information.
    *
    */
@@ -80,13 +80,13 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "nsgIds"?: Array<string>;
   /**
-   * The OCID of the route table the VLAN will use. If you don't provide a value,
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table the VLAN will use. If you don't provide a value,
    * the VLAN uses the VCN's default route table.
    *
    */
   "routeTableId"?: string;
   /**
-   * The OCID of the VCN to contain the VLAN.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN to contain the VLAN.
    */
   "vcnId": string;
   /**

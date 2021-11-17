@@ -33,11 +33,17 @@ export interface CreatePluggableDatabaseDetails {
   /**
    * A strong password for PDB Admin. The password must be at least nine characters and contain at least two uppercase, two lowercase, two numbers, and two special characters. The special characters must be _, \\#, or -.
    */
-  "pdbAdminPassword": string;
+  "pdbAdminPassword"?: string;
   /**
    * The existing TDE wallet password of the CDB.
    */
-  "tdeWalletPassword": string;
+  "tdeWalletPassword"?: string;
+  /**
+   * The locked mode of the pluggable database admin account. If false, the user needs to provide the PDB Admin Password to connect to it.
+   * If true, the pluggable database will be locked and user cannot login to it.
+   *
+   */
+  "shouldPdbAdminAccountBeLocked"?: boolean;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).

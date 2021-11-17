@@ -27,7 +27,7 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 export enum DatabaseApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class DatabaseClient {
   protected static serviceEndpointTemplate = "https://database.{region}.{secondLevelDomain}";
@@ -50,7 +50,7 @@ export class DatabaseClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -3499,7 +3499,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
 
   /**
    * Creates and starts a pluggable database in the specified container database.
-   * Use the [StartPluggableDatabase](#/en/database/latest/PluggableDatabase/StartPluggableDatabase] and [StopPluggableDatabase](#/en/database/latest/PluggableDatabase/StopPluggableDatabase] APIs to start and stop the pluggable database.
+   * Use the {@link #startPluggableDatabase(StartPluggableDatabaseRequest) startPluggableDatabase} and {@link #stopPluggableDatabase(StopPluggableDatabaseRequest) stopPluggableDatabase} APIs to start and stop the pluggable database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePluggableDatabaseRequest

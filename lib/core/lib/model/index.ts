@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -278,6 +278,10 @@ import * as CreateIpv6Details from "./create-ipv6-details";
 export import CreateIpv6Details = CreateIpv6Details.CreateIpv6Details;
 import * as CreateLocalPeeringGatewayDetails from "./create-local-peering-gateway-details";
 export import CreateLocalPeeringGatewayDetails = CreateLocalPeeringGatewayDetails.CreateLocalPeeringGatewayDetails;
+import * as CreateMacsecKey from "./create-macsec-key";
+export import CreateMacsecKey = CreateMacsecKey.CreateMacsecKey;
+import * as CreateMacsecProperties from "./create-macsec-properties";
+export import CreateMacsecProperties = CreateMacsecProperties.CreateMacsecProperties;
 import * as CreateNatGatewayDetails from "./create-nat-gateway-details";
 export import CreateNatGatewayDetails = CreateNatGatewayDetails.CreateNatGatewayDetails;
 import * as CreateNetworkSecurityGroupDetails from "./create-network-security-group-details";
@@ -524,6 +528,14 @@ import * as LetterOfAuthority from "./letter-of-authority";
 export import LetterOfAuthority = LetterOfAuthority.LetterOfAuthority;
 import * as LocalPeeringGateway from "./local-peering-gateway";
 export import LocalPeeringGateway = LocalPeeringGateway.LocalPeeringGateway;
+import * as MacsecEncryptionCipher from "./macsec-encryption-cipher";
+export import MacsecEncryptionCipher = MacsecEncryptionCipher.MacsecEncryptionCipher;
+import * as MacsecKey from "./macsec-key";
+export import MacsecKey = MacsecKey.MacsecKey;
+import * as MacsecProperties from "./macsec-properties";
+export import MacsecProperties = MacsecProperties.MacsecProperties;
+import * as MacsecState from "./macsec-state";
+export import MacsecState = MacsecState.MacsecState;
 import * as MeasuredBootEntry from "./measured-boot-entry";
 export import MeasuredBootEntry = MeasuredBootEntry.MeasuredBootEntry;
 import * as MeasuredBootReport from "./measured-boot-report";
@@ -614,6 +626,8 @@ import * as TcpOptions from "./tcp-options";
 export import TcpOptions = TcpOptions.TcpOptions;
 import * as Topology from "./topology";
 export import Topology = Topology.Topology;
+import * as TopologyAssociatedWithRelationshipDetails from "./topology-associated-with-relationship-details";
+export import TopologyAssociatedWithRelationshipDetails = TopologyAssociatedWithRelationshipDetails.TopologyAssociatedWithRelationshipDetails;
 import * as TopologyEntityRelationship from "./topology-entity-relationship";
 export import TopologyEntityRelationship = TopologyEntityRelationship.TopologyEntityRelationship;
 import * as TopologyRoutesToRelationshipDetails from "./topology-routes-to-relationship-details";
@@ -706,6 +720,10 @@ import * as UpdateLaunchOptions from "./update-launch-options";
 export import UpdateLaunchOptions = UpdateLaunchOptions.UpdateLaunchOptions;
 import * as UpdateLocalPeeringGatewayDetails from "./update-local-peering-gateway-details";
 export import UpdateLocalPeeringGatewayDetails = UpdateLocalPeeringGatewayDetails.UpdateLocalPeeringGatewayDetails;
+import * as UpdateMacsecKey from "./update-macsec-key";
+export import UpdateMacsecKey = UpdateMacsecKey.UpdateMacsecKey;
+import * as UpdateMacsecProperties from "./update-macsec-properties";
+export import UpdateMacsecProperties = UpdateMacsecProperties.UpdateMacsecProperties;
 import * as UpdateNatGatewayDetails from "./update-nat-gateway-details";
 export import UpdateNatGatewayDetails = UpdateNatGatewayDetails.UpdateNatGatewayDetails;
 import * as UpdateNetworkSecurityGroupDetails from "./update-network-security-group-details";
@@ -766,6 +784,8 @@ import * as VirtualCircuit from "./virtual-circuit";
 export import VirtualCircuit = VirtualCircuit.VirtualCircuit;
 import * as VirtualCircuitBandwidthShape from "./virtual-circuit-bandwidth-shape";
 export import VirtualCircuitBandwidthShape = VirtualCircuitBandwidthShape.VirtualCircuitBandwidthShape;
+import * as VirtualCircuitIpMtu from "./virtual-circuit-ip-mtu";
+export import VirtualCircuitIpMtu = VirtualCircuitIpMtu.VirtualCircuitIpMtu;
 import * as VirtualCircuitPublicPrefix from "./virtual-circuit-public-prefix";
 export import VirtualCircuitPublicPrefix = VirtualCircuitPublicPrefix.VirtualCircuitPublicPrefix;
 import * as Vlan from "./vlan";
@@ -897,6 +917,8 @@ import * as ParavirtualizedVolumeAttachment from "./paravirtualized-volume-attac
 export import ParavirtualizedVolumeAttachment = ParavirtualizedVolumeAttachment.ParavirtualizedVolumeAttachment;
 import * as RemotePeeringConnectionDrgAttachmentNetworkDetails from "./remote-peering-connection-drg-attachment-network-details";
 export import RemotePeeringConnectionDrgAttachmentNetworkDetails = RemotePeeringConnectionDrgAttachmentNetworkDetails.RemotePeeringConnectionDrgAttachmentNetworkDetails;
+import * as SubnetTopology from "./subnet-topology";
+export import SubnetTopology = SubnetTopology.SubnetTopology;
 import * as TerminatePreemptionAction from "./terminate-preemption-action";
 export import TerminatePreemptionAction = TerminatePreemptionAction.TerminatePreemptionAction;
 import * as TopologyAssociatedWithEntityRelationship from "./topology-associated-with-entity-relationship";

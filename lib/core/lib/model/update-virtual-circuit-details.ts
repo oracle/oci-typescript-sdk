@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -77,12 +77,10 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-    * A user-friendly name. Does not have to be unique.
-* Avoid entering confidential information.
-* <p>
-To be updated only by the customer who owns the virtual circuit.
-* 
-    */
+   * A user-friendly name. Does not have to be unique, and it's changeable.
+   * Avoid entering confidential information.
+   *
+   */
   "displayName"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
@@ -93,7 +91,7 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-    * The OCID of the {@link Drg}
+    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@link Drg}
 * that this private virtual circuit uses.
 * <p>
 To be updated only by the customer who owns the virtual circuit.
@@ -124,6 +122,10 @@ To be updated only by the provider.
 * 
     */
   "referenceComment"?: string;
+  /**
+   * The layer 3 IP MTU to use on this virtual circuit.
+   */
+  "ipMtu"?: model.VirtualCircuitIpMtu;
 }
 
 export namespace UpdateVirtualCircuitDetails {

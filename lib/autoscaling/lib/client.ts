@@ -30,7 +30,7 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 export enum AutoScalingApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class AutoScalingClient {
   protected static serviceEndpointTemplate = "https://autoscaling.{region}.oci.{secondLevelDomain}";
@@ -52,7 +52,7 @@ export class AutoScalingClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&

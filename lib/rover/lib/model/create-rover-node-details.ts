@@ -14,9 +14,6 @@
 import * as model from "../model";
 import common = require("oci-common");
 
-/**
- * The information requied to create a RoverNode.
- */
 export interface CreateRoverNodeDetails {
   /**
    * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
@@ -91,6 +88,22 @@ export interface CreateRoverNodeDetails {
    * Tracking Url for the shipped FmsRoverNode.
    */
   "oracleShippingTrackingUrl"?: string;
+  /**
+   * The flag indicating that customer requests data to be imported to OCI upon Rover node return.
+   */
+  "isImportRequested"?: boolean;
+  /**
+   * An OCID of a compartment where data will be imported to upon Rover node return.
+   */
+  "importCompartmentId"?: string;
+  /**
+   * Name of a bucket where files from NFS share will be imported to upon Rover node return.
+   */
+  "importFileBucket"?: string;
+  /**
+   * Validation code returned by data validation tool. Required for return shipping label generation if data import was requested.
+   */
+  "dataValidationCode"?: string;
   /**
    * The freeform tags associated with this resource, if any. Each tag is a simple key-value pair with no
    * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).

@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -20,13 +20,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the `associatedWith` relationship between virtual network topology entities. An `AssociatedWith` relationship
+ * Defines the `AssociatedWith` relationship between virtual network topology entities. An `AssociatedWith` relationship
  * is defined when there is no obvious `contains` relationship but entities are still related.
  * For example, a DRG is associated with a VCN because a DRG is not managed by VCN but can be
  * attached to a VCN.
  *
  */
 export interface TopologyAssociatedWithEntityRelationship extends model.TopologyEntityRelationship {
+  "associatedWithDetails"?: model.TopologyAssociatedWithRelationshipDetails;
+
   "type": string;
 }
 
@@ -41,7 +43,11 @@ export namespace TopologyAssociatedWithEntityRelationship {
         : (model.TopologyEntityRelationship.getJsonObj(
             obj
           ) as TopologyAssociatedWithEntityRelationship)),
-      ...{}
+      ...{
+        "associatedWithDetails": obj.associatedWithDetails
+          ? model.TopologyAssociatedWithRelationshipDetails.getJsonObj(obj.associatedWithDetails)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -57,7 +63,13 @@ export namespace TopologyAssociatedWithEntityRelationship {
         : (model.TopologyEntityRelationship.getDeserializedJsonObj(
             obj
           ) as TopologyAssociatedWithEntityRelationship)),
-      ...{}
+      ...{
+        "associatedWithDetails": obj.associatedWithDetails
+          ? model.TopologyAssociatedWithRelationshipDetails.getDeserializedJsonObj(
+              obj.associatedWithDetails
+            )
+          : undefined
+      }
     };
 
     return jsonObj;

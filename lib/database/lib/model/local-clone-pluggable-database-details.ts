@@ -29,11 +29,17 @@ export interface LocalClonePluggableDatabaseDetails {
   /**
    * A strong password for PDB Admin of the newly cloned PDB. The password must be at least nine characters and contain at least two uppercase, two lowercase, two numbers, and two special characters. The special characters must be _, \\#, or -.
    */
-  "pdbAdminPassword": string;
+  "pdbAdminPassword"?: string;
   /**
    * The existing TDE wallet password of the target CDB.
    */
-  "targetTdeWalletPassword": string;
+  "targetTdeWalletPassword"?: string;
+  /**
+   * The locked mode of the pluggable database admin account. If false, the user needs to provide the PDB Admin Password to connect to it.
+   * If true, the pluggable database will be locked and user cannot login to it.
+   *
+   */
+  "shouldPdbAdminAccountBeLocked"?: boolean;
 }
 
 export namespace LocalClonePluggableDatabaseDetails {

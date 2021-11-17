@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -37,7 +37,7 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface CrossConnectGroup {
   /**
-   * The OCID of the compartment containing the cross-connect group.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the cross-connect group.
    */
   "compartmentId"?: string;
   /**
@@ -49,7 +49,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The display name of a user-friendly name. Does not have to be unique, and it's changeable.
+   * A user-friendly name. Does not have to be unique, and it's changeable.
    * Avoid entering confidential information.
    *
    */
@@ -83,6 +83,7 @@ Example: `2016-08-25T21:10:29.600Z`
 * 
     */
   "timeCreated"?: Date;
+  "macsecProperties"?: model.MacsecProperties;
 }
 
 export namespace CrossConnectGroup {
@@ -100,12 +101,26 @@ export namespace CrossConnectGroup {
   }
 
   export function getJsonObj(obj: CrossConnectGroup): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "macsecProperties": obj.macsecProperties
+          ? model.MacsecProperties.getJsonObj(obj.macsecProperties)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CrossConnectGroup): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "macsecProperties": obj.macsecProperties
+          ? model.MacsecProperties.getDeserializedJsonObj(obj.macsecProperties)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

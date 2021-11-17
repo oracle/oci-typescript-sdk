@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -21,11 +21,11 @@ import common = require("oci-common");
 
 export interface CreateCrossConnectDetails {
   /**
-   * The OCID of the compartment to contain the cross-connect.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to contain the cross-connect.
    */
   "compartmentId": string;
   /**
-   * The OCID of the cross-connect group to put this cross-connect in.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cross-connect group to put this cross-connect in.
    *
    */
   "crossConnectGroupId"?: string;
@@ -46,7 +46,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
   /**
    * If you already have an existing cross-connect or cross-connect group at this FastConnect
    * location, and you want this new cross-connect to be on a different router (for the
-   * purposes of redundancy), provide the OCID of that existing cross-connect or
+   * purposes of redundancy), provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of that existing cross-connect or
    * cross-connect group.
    *
    */
@@ -71,7 +71,7 @@ Example: `CyrusOne, Chandler, AZ`
   /**
    * If you already have an existing cross-connect or cross-connect group at this FastConnect
    * location, and you want this new cross-connect to be on the same router, provide the
-   * OCID of that existing cross-connect or cross-connect group.
+   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of that existing cross-connect or cross-connect group.
    *
    */
   "nearCrossConnectOrCrossConnectGroupId"?: string;
@@ -89,16 +89,31 @@ Example: `10 Gbps`
    *
    */
   "customerReferenceName"?: string;
+  "macsecProperties"?: model.CreateMacsecProperties;
 }
 
 export namespace CreateCrossConnectDetails {
   export function getJsonObj(obj: CreateCrossConnectDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "macsecProperties": obj.macsecProperties
+          ? model.CreateMacsecProperties.getJsonObj(obj.macsecProperties)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateCrossConnectDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "macsecProperties": obj.macsecProperties
+          ? model.CreateMacsecProperties.getDeserializedJsonObj(obj.macsecProperties)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

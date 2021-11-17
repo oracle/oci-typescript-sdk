@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -30,7 +30,7 @@ Example: `10 Gbps`
     */
   "bandwidthShapeName"?: string;
   /**
-   * The OCID of the compartment to contain the virtual circuit.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to contain the virtual circuit.
    *
    */
   "compartmentId": string;
@@ -73,7 +73,8 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * A user-friendly name. Does not have to be unique, and it's changeable.
+   * Avoid entering confidential information.
    *
    */
   "displayName"?: string;
@@ -86,7 +87,7 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * For private virtual circuits only. The OCID of the {@link Drg}
+   * For private virtual circuits only. The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@link Drg}
    * that this virtual circuit uses.
    *
    */
@@ -99,7 +100,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "providerName"?: string;
   /**
-   * The OCID of the service offered by the provider (if you're connecting
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the service offered by the provider (if you're connecting
    * via a provider). To get a list of the available service offerings, see
    * {@link #listFastConnectProviderServices(ListFastConnectProviderServicesRequest) listFastConnectProviderServices}.
    *
@@ -137,6 +138,10 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "type": CreateVirtualCircuitDetails.Type;
+  /**
+   * The layer 3 IP MTU to use with this virtual circuit.
+   */
+  "ipMtu"?: model.VirtualCircuitIpMtu;
 }
 
 export namespace CreateVirtualCircuitDetails {

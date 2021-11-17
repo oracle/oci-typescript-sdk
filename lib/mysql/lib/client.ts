@@ -29,7 +29,7 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 export enum ChannelsApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class ChannelsClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
@@ -52,7 +52,7 @@ export class ChannelsClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -696,7 +696,7 @@ export class ChannelsClient {
 }
 export enum DbBackupsApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class DbBackupsClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
@@ -719,7 +719,7 @@ export class DbBackupsClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -1290,7 +1290,7 @@ export class DbBackupsClient {
 }
 export enum DbSystemApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class DbSystemClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
@@ -1313,7 +1313,7 @@ export class DbSystemClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -3282,7 +3282,7 @@ Updating different fields in the DB System will have different results
 }
 export enum MysqlaasApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class MysqlaasClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
@@ -3305,7 +3305,7 @@ export class MysqlaasClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -3954,7 +3954,7 @@ The list is sorted by version family.
 }
 export enum WorkRequestsApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class WorkRequestsClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
@@ -3977,7 +3977,7 @@ export class WorkRequestsClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&

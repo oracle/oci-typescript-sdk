@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -24,11 +24,11 @@ import common = require("oci-common");
  */
 export interface CrossConnectStatus {
   /**
-   * The OCID of the cross-connect.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cross-connect.
    */
   "crossConnectId": string;
   /**
-   * Whether Oracle's side of the interface is up or down.
+   * Indicates whether Oracle's side of the interface is up or down.
    */
   "interfaceState"?: CrossConnectStatus.InterfaceState;
   /**
@@ -42,17 +42,32 @@ Example: `14.0`
    * Status indicator corresponding to the light level.
    * <p>
    * **NO_LIGHT:** No measurable light
-   * <p>
-   * **LOW_WARN:** There's measurable light but it's too low
-   * <p>
-   * **HIGH_WARN:** Light level is too high
-   * <p>
-   * **BAD:** There's measurable light but the signal-to-noise ratio is bad
-   * <p>
-   * **GOOD:** Good light level
+   *   * **LOW_WARN:** There's measurable light but it's too low
+   *   * **HIGH_WARN:** Light level is too high
+   *   * **BAD:** There's measurable light but the signal-to-noise ratio is bad
+   *   * **GOOD:** Good light level
    *
    */
   "lightLevelIndicator"?: CrossConnectStatus.LightLevelIndicator;
+  /**
+    * Encryption status of this cross connect.
+* <p>
+Possible values:
+* * **UP:** Traffic is encrypted over this cross-connect
+* * **DOWN:** Traffic is not encrypted over this cross-connect
+* * **CIPHER_MISMATCH:** The MACsec encryption cipher doesn't match the cipher on the CPE
+* * **CKN_MISMATCH:** The MACsec Connectivity association Key Name (CKN) doesn't match the CKN on the CPE
+* * **CAK_MISMATCH:** The MACsec Connectivity Association Key (CAK) doesn't match the CAK on the CPE
+* 
+    */
+  "encryptionStatus"?: CrossConnectStatus.EncryptionStatus;
+  /**
+    * The light levels of the cross-connect (in dBm).
+* <p>
+Example: `[14.0, -14.0, 2.1, -10.1]`
+* 
+    */
+  "lightLevelsInDBm"?: Array<number>;
 }
 
 export namespace CrossConnectStatus {
@@ -72,6 +87,19 @@ export namespace CrossConnectStatus {
     HighWarn = "HIGH_WARN",
     Bad = "BAD",
     Good = "GOOD",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum EncryptionStatus {
+    Up = "UP",
+    Down = "DOWN",
+    CipherMismatch = "CIPHER_MISMATCH",
+    CknMismatch = "CKN_MISMATCH",
+    CakMismatch = "CAK_MISMATCH",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

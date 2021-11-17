@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -43,7 +43,7 @@ Allowed values:
 *     setting up a security rule for traffic destined for a particular `Service` through
 *     a service gateway. For example: `oci-phx-objectstorage`.
 * <p>
-  * The OCID of a {@link NetworkSecurityGroup} in the same
+  * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a {@link NetworkSecurityGroup} in the same
 *     VCN. The value can be the NSG that the rule belongs to if the rule's intent is to control
 *     traffic between VNICs in the same NSG.
 * 
@@ -60,7 +60,7 @@ Allowed values:
 *     {@link Service} (the rule is for traffic destined for a
 *     particular `Service` through a service gateway).
 * <p>
-  * `NETWORK_SECURITY_GROUP`: If the rule's `destination` is the OCID of a
+  * `NETWORK_SECURITY_GROUP`: If the rule's `destination` is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a
 *     {@link NetworkSecurityGroup}.
 * 
     */
@@ -110,7 +110,7 @@ Allowed values:
 *     setting up a security rule for traffic coming from a particular `Service` through
 *     a service gateway. For example: `oci-phx-objectstorage`.
 * <p>
-  * The OCID of a {@link NetworkSecurityGroup} in the same
+  * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a {@link NetworkSecurityGroup} in the same
 *     VCN. The value can be the NSG that the rule belongs to if the rule's intent is to control
 *     traffic between VNICs in the same NSG.
 * 
@@ -125,7 +125,7 @@ Allowed values:
    *     {@link Service} (the rule is for traffic coming from a
    *     particular `Service` through a service gateway).
    * <p>
-   * `NETWORK_SECURITY_GROUP`: If the rule's `source` is the OCID of a
+   * `NETWORK_SECURITY_GROUP`: If the rule's `source` is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a
    *     {@link NetworkSecurityGroup}.
    *
    */

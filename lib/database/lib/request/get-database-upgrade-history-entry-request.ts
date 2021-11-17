@@ -23,7 +23,7 @@ export interface GetDatabaseUpgradeHistoryEntryRequest extends common.BaseReques
    */
   "databaseId": string;
   /**
-   * The database upgrade History [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The database/db system upgrade History [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */
   "upgradeHistoryEntryId": string;
   /**

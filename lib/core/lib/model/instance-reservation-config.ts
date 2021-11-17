@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -20,13 +20,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Data that defines the instance reservation configuration.
+ * Data that defines the capacity configuration.
  *
  */
 export interface InstanceReservationConfig {
   /**
-   * The fault domain of this reservation configuration.
-   * If a value is not supplied, this reservation configuration is applicable to all fault domains in the specified availability domain.
+   * The fault domain of this capacity configuration.
+   * If a value is not supplied, this capacity configuration is applicable to all fault domains in the specified availability domain.
    * For more information, see [Capacity Reservations](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/reserve-capacity.htm).
    *
    */
@@ -40,11 +40,11 @@ export interface InstanceReservationConfig {
   "instanceShape": string;
   "instanceShapeConfig"?: model.InstanceReservationShapeConfigDetails;
   /**
-   * The amount of capacity reserved in this configuration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total number of instances that can be launched from the capacity configuration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "reservedCount": number;
   /**
-   * The amount of capacity in use out of the total capacity reserved in this reservation configuration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of capacity in use out of the total capacity reserved in this capacity configuration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usedCount": number;
 }
