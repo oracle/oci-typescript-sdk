@@ -30,7 +30,7 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 export enum ApplianceExportJobApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class ApplianceExportJobClient {
   protected static serviceEndpointTemplate =
@@ -54,7 +54,7 @@ export class ApplianceExportJobClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -615,7 +615,7 @@ export class ApplianceExportJobClient {
 }
 export enum ShippingVendorsApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class ShippingVendorsClient {
   protected static serviceEndpointTemplate =
@@ -638,7 +638,7 @@ export class ShippingVendorsClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -770,7 +770,7 @@ export class ShippingVendorsClient {
 }
 export enum TransferApplianceApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class TransferApplianceClient {
   protected static serviceEndpointTemplate =
@@ -794,7 +794,7 @@ export class TransferApplianceClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -1446,7 +1446,7 @@ export class TransferApplianceClient {
 }
 export enum TransferApplianceEntitlementApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class TransferApplianceEntitlementClient {
   protected static serviceEndpointTemplate =
@@ -1470,7 +1470,7 @@ export class TransferApplianceEntitlementClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -1773,7 +1773,7 @@ export class TransferApplianceEntitlementClient {
 }
 export enum TransferDeviceApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class TransferDeviceClient {
   protected static serviceEndpointTemplate =
@@ -1797,7 +1797,7 @@ export class TransferDeviceClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -2230,7 +2230,7 @@ export class TransferDeviceClient {
 }
 export enum TransferJobApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class TransferJobClient {
   protected static serviceEndpointTemplate =
@@ -2254,7 +2254,7 @@ export class TransferJobClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -2812,7 +2812,7 @@ export class TransferJobClient {
 }
 export enum TransferPackageApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class TransferPackageClient {
   protected static serviceEndpointTemplate =
@@ -2836,7 +2836,7 @@ export class TransferPackageClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&

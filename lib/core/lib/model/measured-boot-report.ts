@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -20,11 +20,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Measured Boot report for a shielded instance.
+ * The measured boot report for a shielded instance.
  */
 export interface MeasuredBootReport {
   /**
-   * Whether the verification succeeded and the new values matched the expected values.
+   * Whether the verification succeeded, and the new values match the expected values.
    *
    */
   "isPolicyVerificationSuccessful": boolean;

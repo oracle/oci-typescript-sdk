@@ -28,7 +28,7 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 export enum KmsCryptoApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class KmsCryptoClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
@@ -50,7 +50,7 @@ export class KmsCryptoClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -483,7 +483,7 @@ export class KmsCryptoClient {
 }
 export enum KmsManagementApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class KmsManagementClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
@@ -506,7 +506,7 @@ export class KmsManagementClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -2292,7 +2292,7 @@ As a management operation, this call is subject to a Key Management limit that a
 }
 export enum KmsVaultApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class KmsVaultClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
@@ -2315,7 +2315,7 @@ export class KmsVaultClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&

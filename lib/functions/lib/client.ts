@@ -26,7 +26,7 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 export enum FunctionsInvokeApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class FunctionsInvokeClient {
   protected static serviceEndpointTemplate = "https://functions.{region}.oci.{secondLevelDomain}";
@@ -48,7 +48,7 @@ export class FunctionsInvokeClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -148,7 +148,7 @@ export class FunctionsInvokeClient {
 }
 export enum FunctionsManagementApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class FunctionsManagementClient {
   protected static serviceEndpointTemplate = "https://functions.{region}.oci.{secondLevelDomain}";
@@ -171,7 +171,7 @@ export class FunctionsManagementClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -269,7 +269,7 @@ export class FunctionsManagementClient {
    * Moves an application into a different compartment within the same tenancy.
    * For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeApplicationCompartmentRequest
    * @return ChangeApplicationCompartmentResponse
    * @throws OciError when an error occurs
@@ -294,7 +294,7 @@ export class FunctionsManagementClient {
       "opc-request-id": changeApplicationCompartmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeApplicationCompartmentRequest.retryConfiguration,
@@ -336,7 +336,7 @@ export class FunctionsManagementClient {
 
   /**
    * Creates a new application.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateApplicationRequest
    * @return CreateApplicationResponse
    * @throws OciError when an error occurs
@@ -356,7 +356,7 @@ export class FunctionsManagementClient {
       "opc-request-id": createApplicationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createApplicationRequest.retryConfiguration,
@@ -407,7 +407,7 @@ export class FunctionsManagementClient {
 
   /**
    * Creates a new function.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateFunctionRequest
    * @return CreateFunctionResponse
    * @throws OciError when an error occurs
@@ -427,7 +427,7 @@ export class FunctionsManagementClient {
       "opc-request-id": createFunctionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createFunctionRequest.retryConfiguration,
@@ -478,7 +478,7 @@ export class FunctionsManagementClient {
 
   /**
    * Deletes an application.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteApplicationRequest
    * @return DeleteApplicationResponse
    * @throws OciError when an error occurs
@@ -501,7 +501,7 @@ export class FunctionsManagementClient {
       "opc-request-id": deleteApplicationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteApplicationRequest.retryConfiguration,
@@ -538,7 +538,7 @@ export class FunctionsManagementClient {
 
   /**
    * Deletes a function.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteFunctionRequest
    * @return DeleteFunctionResponse
    * @throws OciError when an error occurs
@@ -561,7 +561,7 @@ export class FunctionsManagementClient {
       "opc-request-id": deleteFunctionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteFunctionRequest.retryConfiguration,
@@ -598,7 +598,7 @@ export class FunctionsManagementClient {
 
   /**
    * Retrieves an application.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetApplicationRequest
    * @return GetApplicationResponse
    * @throws OciError when an error occurs
@@ -620,7 +620,7 @@ export class FunctionsManagementClient {
       "opc-request-id": getApplicationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getApplicationRequest.retryConfiguration,
@@ -666,7 +666,7 @@ export class FunctionsManagementClient {
 
   /**
    * Retrieves a function.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFunctionRequest
    * @return GetFunctionResponse
    * @throws OciError when an error occurs
@@ -687,7 +687,7 @@ export class FunctionsManagementClient {
       "opc-request-id": getFunctionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFunctionRequest.retryConfiguration,
@@ -733,7 +733,7 @@ export class FunctionsManagementClient {
 
   /**
    * Lists applications for a compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListApplicationsRequest
    * @return ListApplicationsResponse
    * @throws OciError when an error occurs
@@ -762,7 +762,7 @@ export class FunctionsManagementClient {
       "opc-request-id": listApplicationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listApplicationsRequest.retryConfiguration,
@@ -860,7 +860,7 @@ export class FunctionsManagementClient {
 
   /**
    * Lists functions for an application.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFunctionsRequest
    * @return ListFunctionsResponse
    * @throws OciError when an error occurs
@@ -889,7 +889,7 @@ export class FunctionsManagementClient {
       "opc-request-id": listFunctionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listFunctionsRequest.retryConfiguration,
@@ -987,7 +987,7 @@ export class FunctionsManagementClient {
 
   /**
    * Modifies an application
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateApplicationRequest
    * @return UpdateApplicationResponse
    * @throws OciError when an error occurs
@@ -1010,7 +1010,7 @@ export class FunctionsManagementClient {
       "opc-request-id": updateApplicationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateApplicationRequest.retryConfiguration,
@@ -1061,7 +1061,7 @@ export class FunctionsManagementClient {
 
   /**
    * Modifies a function
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateFunctionRequest
    * @return UpdateFunctionResponse
    * @throws OciError when an error occurs
@@ -1084,7 +1084,7 @@ export class FunctionsManagementClient {
       "opc-request-id": updateFunctionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateFunctionRequest.retryConfiguration,

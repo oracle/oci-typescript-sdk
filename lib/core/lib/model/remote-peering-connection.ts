@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -33,7 +33,7 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface RemotePeeringConnection {
   /**
-   * The OCID of the compartment that contains the RPC.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the RPC.
    */
   "compartmentId": string;
   /**
@@ -51,7 +51,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
    */
   "displayName": string;
   /**
-   * The OCID of the DRG that this RPC belongs to.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DRG that this RPC belongs to.
    */
   "drgId": string;
   /**
@@ -63,7 +63,7 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The OCID of the RPC.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the RPC.
    */
   "id": string;
   /**
@@ -78,7 +78,7 @@ Example: `false`
    */
   "lifecycleState": RemotePeeringConnection.LifecycleState;
   /**
-   * If this RPC is peered, this value is the OCID of the other RPC.
+   * If this RPC is peered, this value is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the other RPC.
    *
    */
   "peerId"?: string;
@@ -90,7 +90,7 @@ Example: `us-ashburn-1`
     */
   "peerRegionName"?: string;
   /**
-   * If this RPC is peered, this value is the OCID of the other RPC's tenancy.
+   * If this RPC is peered, this value is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the other RPC's tenancy.
    *
    */
   "peerTenancyId"?: string;

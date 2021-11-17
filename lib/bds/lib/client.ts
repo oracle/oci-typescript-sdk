@@ -26,7 +26,7 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 export enum BdsApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class BdsClient {
   protected static serviceEndpointTemplate =
@@ -50,7 +50,7 @@ export class BdsClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -570,6 +570,76 @@ export class BdsClient {
   }
 
   /**
+   * Create an API key on behalf of the specified user.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateBdsApiKeyRequest
+   * @return CreateBdsApiKeyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateBdsApiKey.ts.html |here} to see how to use CreateBdsApiKey API.
+   */
+  public async createBdsApiKey(
+    createBdsApiKeyRequest: requests.CreateBdsApiKeyRequest
+  ): Promise<responses.CreateBdsApiKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#createBdsApiKey.");
+    const pathParams = {
+      "{bdsInstanceId}": createBdsApiKeyRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createBdsApiKeyRequest.opcRetryToken,
+      "opc-request-id": createBdsApiKeyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBdsApiKeyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/apiKeys",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createBdsApiKeyRequest.createBdsApiKeyDetails,
+        "CreateBdsApiKeyDetails",
+        model.CreateBdsApiKeyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateBdsApiKeyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a Big Data Service cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -617,6 +687,71 @@ export class BdsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBdsInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the user's API key represented by the provided ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteBdsApiKeyRequest
+   * @return DeleteBdsApiKeyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteBdsApiKey.ts.html |here} to see how to use DeleteBdsApiKey API.
+   */
+  public async deleteBdsApiKey(
+    deleteBdsApiKeyRequest: requests.DeleteBdsApiKeyRequest
+  ): Promise<responses.DeleteBdsApiKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#deleteBdsApiKey.");
+    const pathParams = {
+      "{bdsInstanceId}": deleteBdsApiKeyRequest.bdsInstanceId,
+      "{apiKeyId}": deleteBdsApiKeyRequest.apiKeyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteBdsApiKeyRequest.opcRequestId,
+      "if-match": deleteBdsApiKeyRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBdsApiKeyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/apiKeys/{apiKeyId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteBdsApiKeyResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -750,6 +885,74 @@ export class BdsClient {
         bodyKey: "autoScalingConfiguration",
         bodyModel: model.AutoScalingConfiguration,
         type: "model.AutoScalingConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the user's API key information for the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetBdsApiKeyRequest
+   * @return GetBdsApiKeyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetBdsApiKey.ts.html |here} to see how to use GetBdsApiKey API.
+   */
+  public async getBdsApiKey(
+    getBdsApiKeyRequest: requests.GetBdsApiKeyRequest
+  ): Promise<responses.GetBdsApiKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#getBdsApiKey.");
+    const pathParams = {
+      "{bdsInstanceId}": getBdsApiKeyRequest.bdsInstanceId,
+      "{apiKeyId}": getBdsApiKeyRequest.apiKeyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBdsApiKeyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBdsApiKeyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/apiKeys/{apiKeyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBdsApiKeyResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsApiKey",
+        bodyModel: model.BdsApiKey,
+        type: "model.BdsApiKey",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1031,6 +1234,134 @@ export class BdsClient {
     request: requests.ListAutoScalingConfigurationsRequest
   ): AsyncIterableIterator<responses.ListAutoScalingConfigurationsResponse> {
     return paginateResponses(request, req => this.listAutoScalingConfigurations(req));
+  }
+
+  /**
+   * Returns a list of all API keys associated with this Big Data Service cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBdsApiKeysRequest
+   * @return ListBdsApiKeysResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsApiKeys.ts.html |here} to see how to use ListBdsApiKeys API.
+   */
+  public async listBdsApiKeys(
+    listBdsApiKeysRequest: requests.ListBdsApiKeysRequest
+  ): Promise<responses.ListBdsApiKeysResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listBdsApiKeys.");
+    const pathParams = {
+      "{bdsInstanceId}": listBdsApiKeysRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "lifecycleState": listBdsApiKeysRequest.lifecycleState,
+      "userId": listBdsApiKeysRequest.userId,
+      "page": listBdsApiKeysRequest.page,
+      "limit": listBdsApiKeysRequest.limit,
+      "sortBy": listBdsApiKeysRequest.sortBy,
+      "sortOrder": listBdsApiKeysRequest.sortOrder,
+      "displayName": listBdsApiKeysRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBdsApiKeysRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBdsApiKeysRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/apiKeys",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBdsApiKeysResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.BdsApiKeySummary,
+        type: "Array<model.BdsApiKeySummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBdsApiKeysRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.BdsApiKeySummary objects
+   * contained in responses from the listBdsApiKeys operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBdsApiKeys(
+    request: requests.ListBdsApiKeysRequest
+  ): AsyncIterableIterator<model.BdsApiKeySummary> {
+    return paginateRecords(request, req => this.listBdsApiKeys(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBdsApiKeysResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listBdsApiKeys operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBdsApiKeysResponses(
+    request: requests.ListBdsApiKeysRequest
+  ): AsyncIterableIterator<responses.ListBdsApiKeysResponse> {
+    return paginateResponses(request, req => this.listBdsApiKeys(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BdsApiKeySummary objects
+   * contained in responses from the listBdsApiKeys operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBdsApiKeysRecordIterator(
+    request: requests.ListBdsApiKeysRequest
+  ): AsyncIterableIterator<model.BdsApiKeySummary> {
+    return paginateRecords(request, req => this.listBdsApiKeys(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBdsApiKeys operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBdsApiKeysResponseIterator(
+    request: requests.ListBdsApiKeysRequest
+  ): AsyncIterableIterator<responses.ListBdsApiKeysResponse> {
+    return paginateResponses(request, req => this.listBdsApiKeys(req));
   }
 
   /**
@@ -1731,6 +2062,76 @@ export class BdsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.RestartNodeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Test access to specified Object Storage bucket using the API key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param TestBdsObjectStorageConnectionRequest
+   * @return TestBdsObjectStorageConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/TestBdsObjectStorageConnection.ts.html |here} to see how to use TestBdsObjectStorageConnection API.
+   */
+  public async testBdsObjectStorageConnection(
+    testBdsObjectStorageConnectionRequest: requests.TestBdsObjectStorageConnectionRequest
+  ): Promise<responses.TestBdsObjectStorageConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#testBdsObjectStorageConnection.");
+    const pathParams = {
+      "{bdsInstanceId}": testBdsObjectStorageConnectionRequest.bdsInstanceId,
+      "{apiKeyId}": testBdsObjectStorageConnectionRequest.apiKeyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": testBdsObjectStorageConnectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      testBdsObjectStorageConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/apiKeys/{apiKeyId}/actions/testObjectStorageConnection",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        testBdsObjectStorageConnectionRequest.testBdsObjectStorageConnectionDetails,
+        "TestBdsObjectStorageConnectionDetails",
+        model.TestBdsObjectStorageConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TestBdsObjectStorageConnectionResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -21,7 +21,7 @@ import common = require("oci-common");
 
 export interface CreateCrossConnectGroupDetails {
   /**
-   * The OCID of the compartment to contain the cross-connect group.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to contain the cross-connect group.
    */
   "compartmentId": string;
   /**
@@ -52,16 +52,31 @@ Example: `{\"Department\": \"Finance\"}`
 * 
     */
   "freeformTags"?: { [key: string]: string };
+  "macsecProperties"?: model.CreateMacsecProperties;
 }
 
 export namespace CreateCrossConnectGroupDetails {
   export function getJsonObj(obj: CreateCrossConnectGroupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "macsecProperties": obj.macsecProperties
+          ? model.CreateMacsecProperties.getJsonObj(obj.macsecProperties)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateCrossConnectGroupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "macsecProperties": obj.macsecProperties
+          ? model.CreateMacsecProperties.getDeserializedJsonObj(obj.macsecProperties)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

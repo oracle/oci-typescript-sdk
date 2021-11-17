@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A template that contains the settings to use when defining the instance reservation configuration.
+ * A template that contains the settings to use when defining the instance capacity configuration.
  *
  */
 export interface InstanceReservationConfigDetails {
@@ -34,7 +34,7 @@ export interface InstanceReservationConfigDetails {
   "instanceShape": string;
   "instanceShapeConfig"?: model.InstanceReservationShapeConfigDetails;
   /**
-    * The fault domain to use for instances created using this reservation configuration.
+    * The fault domain to use for instances created using this capacity configuration.
 * For more information, see [Fault Domains](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm#fault).
 * If you do not specify the fault domain, the capacity is available for an instance
 * that does not specify a fault domain. To change the fault domain for a reservation,
@@ -48,7 +48,7 @@ Example: `FAULT-DOMAIN-1`
     */
   "faultDomain"?: string;
   /**
-   * The amount of capacity to reserve in this reservation configuration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total number of instances that can be launched from the capacity configuration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "reservedCount": number;
 }

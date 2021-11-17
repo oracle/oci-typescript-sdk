@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -66,7 +66,7 @@ Example: `10 Gbps`
    */
   "bgpIpv6SessionState"?: VirtualCircuit.BgpIpv6SessionState;
   /**
-   * The OCID of the compartment containing the virtual circuit.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the virtual circuit.
    */
   "compartmentId"?: string;
   /**
@@ -123,13 +123,13 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The OCID of the customer's {@link Drg}
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the customer's {@link Drg}
    * that this virtual circuit uses. Applicable only to private virtual circuits.
    *
    */
   "gatewayId"?: string;
   /**
-   * The virtual circuit's Oracle ID (OCID).
+   * The virtual circuit's Oracle ID ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
    */
   "id"?: string;
   /**
@@ -149,7 +149,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "providerName"?: string;
   /**
-   * The OCID of the service offered by the provider (if the customer is connecting via a provider).
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the service offered by the provider (if the customer is connecting via a provider).
    *
    */
   "providerServiceId"?: string;
@@ -209,6 +209,10 @@ Example: `2016-08-25T21:10:29.600Z`
    *
    */
   "type"?: VirtualCircuit.Type;
+  /**
+   * The layer 3 IP MTU to use on this virtual circuit.
+   */
+  "ipMtu"?: model.VirtualCircuitIpMtu;
 }
 
 export namespace VirtualCircuit {

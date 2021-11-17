@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -46,8 +46,8 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A user-friendly name for the compute capacity reservation.
-   * It does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * A user-friendly name. Does not have to be unique, and it's changeable.
+   * Avoid entering confidential information.
    *
    */
   "displayName"?: string;
@@ -70,7 +70,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "isDefaultReservation"?: boolean;
   /**
-    * The reservation configurations for the capacity reservation.
+    * The capacity configurations for the capacity reservation.
 * <p>
 To use the reservation for the desired shape, specify the shape, count, and
 * optionally the fault domain where you want this configuration.
@@ -84,7 +84,7 @@ To use the reservation for the desired shape, specify the shape, count, and
   /**
    * The number of instances for which capacity will be held with this
    * compute capacity reservation. This number is the sum of the values of the `reservedCount` fields
-   * for all of the instance reservation configurations under this reservation.
+   * for all of the instance capacity configurations under this reservation.
    * The purpose of this field is to calculate the percentage usage of the reservation.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -106,7 +106,7 @@ Example: `2016-08-25T21:10:29.600Z`
   /**
    * The total number of instances currently consuming space in
    * this compute capacity reservation. This number is the sum of the values of the `usedCount` fields
-   * for all of the instance reservation configurations under this reservation.
+   * for all of the instance capacity configurations under this reservation.
    * The purpose of this field is to calculate the percentage usage of the reservation.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

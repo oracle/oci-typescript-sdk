@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -40,9 +40,24 @@ export interface TopologyRoutesToRelationshipDetails {
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the routing table that contains the route rule.
    */
   "routeTableId": string;
+  /**
+   * A route rule can be `STATIC` if manually added to the route table or `DYNAMIC` if imported from another route table.
+   *
+   */
+  "routeType"?: TopologyRoutesToRelationshipDetails.RouteType;
 }
 
 export namespace TopologyRoutesToRelationshipDetails {
+  export enum RouteType {
+    Static = "STATIC",
+    Dynamic = "DYNAMIC",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: TopologyRoutesToRelationshipDetails): object {
     const jsonObj = { ...obj, ...{} };
 

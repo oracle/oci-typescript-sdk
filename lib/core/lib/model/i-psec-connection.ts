@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -22,7 +22,7 @@ import common = require("oci-common");
 /**
 * A connection between a DRG and CPE. This connection consists of multiple IPSec
 * tunnels. Creating this connection is one of the steps required when setting up
-* an IPSec VPN.
+* a Site-to-Site VPN.
 * <p>
 **Important:**  Each tunnel in an IPSec connection can use either static routing or BGP dynamic
 * routing (see the {@link IPSecConnectionTunnel} object's
@@ -36,7 +36,7 @@ import common = require("oci-common");
 * if that tunnel's `routing` attribute = `STATIC`. Otherwise the static routes are ignored.
 * <p>
 For more information about the workflow for setting up an IPSec connection, see
-* [IPSec VPN](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIPsec.htm).
+* [Site-to-Site VPN Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/overviewIPsec.htm).
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
@@ -45,11 +45,11 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface IPSecConnection {
   /**
-   * The OCID of the compartment containing the IPSec connection.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the IPSec connection.
    */
   "compartmentId": string;
   /**
-   * The OCID of the {@link Cpe} object.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@link Cpe} object.
    */
   "cpeId": string;
   /**

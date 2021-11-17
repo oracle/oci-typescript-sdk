@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -48,7 +48,7 @@ Example: `10.0.1.0/24`
     */
   "cidrBlock": string;
   /**
-   * The OCID of the compartment containing the subnet.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the subnet.
    */
   "compartmentId": string;
   /**
@@ -60,7 +60,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The OCID of the set of DHCP options that the subnet uses.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the set of DHCP options that the subnet uses.
    *
    */
   "dhcpOptionsId"?: string;
@@ -96,7 +96,7 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The subnet's Oracle ID (OCID).
+   * The subnet's Oracle ID ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
    */
   "id": string;
   /**
@@ -151,7 +151,7 @@ Example: `true`
     */
   "prohibitPublicIpOnVnic"?: boolean;
   /**
-   * The OCID of the route table that the subnet uses.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table that the subnet uses.
    */
   "routeTableId": string;
   /**
@@ -180,7 +180,7 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeCreated"?: Date;
   /**
-   * The OCID of the VCN the subnet is in.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN the subnet is in.
    */
   "vcnId": string;
   /**

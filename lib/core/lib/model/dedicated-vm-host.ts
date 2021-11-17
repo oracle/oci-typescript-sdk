@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -51,12 +51,10 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-    * A user-friendly name. Does not have to be unique, and it's changeable.
-* Avoid entering confidential information.
-* <p>
-Example: `My Dedicated Vm Host`
-* 
-    */
+   * A user-friendly name. Does not have to be unique, and it's changeable.
+   * Avoid entering confidential information.
+   *
+   */
   "displayName": string;
   /**
     * The fault domain for the dedicated virtual machine host's assigned instances.

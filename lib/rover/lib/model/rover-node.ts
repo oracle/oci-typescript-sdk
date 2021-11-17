@@ -120,6 +120,22 @@ export interface RoverNode {
    */
   "returnShippingLabelUri"?: string;
   /**
+   * The flag indicating that customer requests data to be imported to OCI upon Rover node return.
+   */
+  "isImportRequested"?: boolean;
+  /**
+   * An OCID of a compartment where data will be imported to upon Rover node return.
+   */
+  "importCompartmentId"?: string;
+  /**
+   * Name of a bucket where files from NFS share will be imported to upon Rover node return.
+   */
+  "importFileBucket"?: string;
+  /**
+   * Validation code returned by data validation tool. Required for return shipping label generation if data import was requested.
+   */
+  "dataValidationCode"?: string;
+  /**
    * The public key of the resource principal
    */
   "publicKey"?: string;
@@ -127,6 +143,11 @@ export interface RoverNode {
    * The link to pre-authenticated request for a bucket where image workloads are moved.
    */
   "imageExportPar"?: string;
+  /**
+   * The tags associated with tagSlug.
+   *
+   */
+  "tags"?: string;
   /**
    * The freeform tags associated with this resource, if any. Each tag is a simple key-value pair with no
    * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).

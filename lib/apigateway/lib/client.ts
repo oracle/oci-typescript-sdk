@@ -30,7 +30,7 @@ import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 export enum ApiGatewayApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class ApiGatewayClient {
   protected static serviceEndpointTemplate = "https://apigateway.{region}.oci.{secondLevelDomain}";
@@ -53,7 +53,7 @@ export class ApiGatewayClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -1645,7 +1645,7 @@ export class ApiGatewayClient {
 }
 export enum DeploymentApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class DeploymentClient {
   protected static serviceEndpointTemplate = "https://apigateway.{region}.oci.{secondLevelDomain}";
@@ -1668,7 +1668,7 @@ export class DeploymentClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -2196,7 +2196,7 @@ export class DeploymentClient {
 }
 export enum GatewayApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class GatewayClient {
   protected static serviceEndpointTemplate = "https://apigateway.{region}.oci.{secondLevelDomain}";
@@ -2219,7 +2219,7 @@ export class GatewayClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
@@ -2746,7 +2746,7 @@ export class GatewayClient {
 }
 export enum WorkRequestsApiKeys {}
 /**
- * This service client does not use circuit breakers by default if the user has not defined a circuit breaker configuration.
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class WorkRequestsClient {
   protected static serviceEndpointTemplate = "https://apigateway.{region}.oci.{secondLevelDomain}";
@@ -2769,7 +2769,7 @@ export class WorkRequestsClient {
         : null;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = false;
+    const specCircuitBreakerEnabled = true;
     if (
       !this._circuitBreaker &&
       common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&

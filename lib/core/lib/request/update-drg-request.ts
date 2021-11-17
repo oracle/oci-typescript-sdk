@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateDrgRequest extends common.BaseRequest {
   /**
-   * The [[OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)](/iaas/Content/General/Concepts/identifiers.htm) of the DRG.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DRG.
    */
   "drgId": string;
   /**

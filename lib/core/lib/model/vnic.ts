@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -52,7 +52,7 @@ Example: `Uocm:PHX-AD-1`
     */
   "availabilityDomain": string;
   /**
-   * The OCID of the compartment containing the VNIC.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the VNIC.
    */
   "compartmentId": string;
   /**
@@ -64,7 +64,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A user-friendly name. Does not have to be unique.
+   * A user-friendly name. Does not have to be unique, and it's changeable.
    * Avoid entering confidential information.
    *
    */
@@ -93,7 +93,7 @@ Example: `bminstance-1`
     */
   "hostnameLabel"?: string;
   /**
-   * The OCID of the VNIC.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC.
    */
   "id": string;
   /**
@@ -131,7 +131,7 @@ For more information about NSGs, see
   "nsgIds"?: Array<string>;
   /**
    * If the VNIC belongs to a VLAN as part of the Oracle Cloud VMware Solution (instead of
-   * belonging to a subnet), the `vlanId` is the OCID of the VLAN the VNIC is in. See
+   * belonging to a subnet), the `vlanId` is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN the VNIC is in. See
    * {@link Vlan}. If the VNIC is instead in a subnet, `subnetId` has a value.
    *
    */
@@ -165,7 +165,7 @@ Example: `true`
     */
   "skipSourceDestCheck"?: boolean;
   /**
-   * The OCID of the subnet the VNIC is in.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the VNIC is in.
    */
   "subnetId"?: string;
   /**

@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -39,7 +39,7 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface DhcpOptions {
   /**
-   * The OCID of the compartment containing the set of DHCP options.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the set of DHCP options.
    */
   "compartmentId": string;
   /**
@@ -65,7 +65,7 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Oracle ID (OCID) for the set of DHCP options.
+   * Oracle ID ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) for the set of DHCP options.
    */
   "id": string;
   /**
@@ -84,7 +84,7 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeCreated": Date;
   /**
-   * The OCID of the VCN the set of DHCP options belongs to.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN the set of DHCP options belongs to.
    */
   "vcnId": string;
   /**

@@ -27,7 +27,7 @@ export interface CreateRoverClusterDetails {
    */
   "compartmentId": string;
   /**
-   * Number of nodes desired in the cluster, between 5 and 15. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of nodes desired in the cluster, in standalone clusters, between 5 and 15 inclusive. In station clusters, between 15 and 30 inclusive. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "clusterSize": number;
   "customerShippingAddress"?: model.ShippingAddress;
@@ -79,6 +79,22 @@ export interface CreateRoverClusterDetails {
    * A property that can contain details on the lifecycle.
    */
   "lifecycleStateDetails"?: string;
+  /**
+   * The flag indicating that customer requests data to be imported to OCI upon Rover cluster return.
+   */
+  "isImportRequested"?: boolean;
+  /**
+   * An OCID of a compartment where data will be imported to upon Rover cluster return.
+   */
+  "importCompartmentId"?: string;
+  /**
+   * Name of a bucket where files from NFS share will be imported to upon Rover cluster return.
+   */
+  "importFileBucket"?: string;
+  /**
+   * Validation code returned by data validation tool. Required for return shipping label generation if data import was requested.
+   */
+  "dataValidationCode"?: string;
   /**
    * The freeform tags associated with this resource, if any. Each tag is a simple key-value pair with no
    * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).

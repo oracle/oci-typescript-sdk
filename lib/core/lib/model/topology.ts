@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -61,6 +61,8 @@ export namespace Topology {
             <model.NetworkingTopology>(<object>jsonObj),
             true
           );
+        case "SUBNET":
+          return model.SubnetTopology.getJsonObj(<model.SubnetTopology>(<object>jsonObj), true);
         default:
           throw Error("Unknown value for: " + obj.type);
       }
@@ -89,6 +91,11 @@ export namespace Topology {
         case "NETWORKING":
           return model.NetworkingTopology.getDeserializedJsonObj(
             <model.NetworkingTopology>(<object>jsonObj),
+            true
+          );
+        case "SUBNET":
+          return model.SubnetTopology.getDeserializedJsonObj(
+            <model.SubnetTopology>(<object>jsonObj),
             true
           );
         default:

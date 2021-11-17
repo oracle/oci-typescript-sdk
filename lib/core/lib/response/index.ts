@@ -1,10 +1,10 @@
 /**
  * Core Services API
- * API covering the [Networking](/iaas/Content/Network/Concepts/overview.htm),
+ * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
+compute instances, and block storage volumes. For more information, see the console
+documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services. Use this API
-to manage resources such as virtual cloud networks (VCNs), compute instances, and
-block storage volumes.
+[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
 
  * OpenAPI spec version: 20160918
  * 
@@ -610,6 +610,8 @@ import * as GetServiceGatewayResponse from "./get-service-gateway-response";
 export import GetServiceGatewayResponse = GetServiceGatewayResponse.GetServiceGatewayResponse;
 import * as GetSubnetResponse from "./get-subnet-response";
 export import GetSubnetResponse = GetSubnetResponse.GetSubnetResponse;
+import * as GetSubnetTopologyResponse from "./get-subnet-topology-response";
+export import GetSubnetTopologyResponse = GetSubnetTopologyResponse.GetSubnetTopologyResponse;
 import * as GetTunnelCpeDeviceConfigResponse from "./get-tunnel-cpe-device-config-response";
 export import GetTunnelCpeDeviceConfigResponse = GetTunnelCpeDeviceConfigResponse.GetTunnelCpeDeviceConfigResponse;
 import * as GetTunnelCpeDeviceConfigContentResponse from "./get-tunnel-cpe-device-config-content-response";
