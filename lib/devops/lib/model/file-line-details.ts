@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Object containing the details of a line in a file
+ * Object containing the details of a line in a file.
  */
 export interface FileLineDetails {
   /**
-   * The line number Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The line number. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lineNumber": number;
   /**
-   * The content of the line
+   * The content of the line.
    */
   "lineContent": string;
 }

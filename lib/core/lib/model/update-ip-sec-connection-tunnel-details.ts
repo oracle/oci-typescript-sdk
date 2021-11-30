@@ -37,6 +37,17 @@ export interface UpdateIPSecConnectionTunnelDetails {
    */
   "ikeVersion"?: UpdateIPSecConnectionTunnelDetails.IkeVersion;
   "bgpSessionConfig"?: model.UpdateIPSecTunnelBgpSessionDetails;
+  /**
+   * Whether Oracle side is the initiator for negotiation.
+   */
+  "oracleInitiation"?: UpdateIPSecConnectionTunnelDetails.OracleInitiation;
+  /**
+   * Whether NAT-T Enabled on the tunnel
+   */
+  "natTranslationEnabled"?: UpdateIPSecConnectionTunnelDetails.NatTranslationEnabled;
+  "phaseOneConfig"?: model.PhaseOneConfigDetails;
+  "phaseTwoConfig"?: model.PhaseTwoConfigDetails;
+  "dpdConfig"?: model.DpdConfig;
   "encryptionDomainConfig"?: model.UpdateIPSecTunnelEncryptionDomainDetails;
 }
 
@@ -52,6 +63,17 @@ export namespace UpdateIPSecConnectionTunnelDetails {
     V2 = "V2"
   }
 
+  export enum OracleInitiation {
+    InitiatorOrResponder = "INITIATOR_OR_RESPONDER",
+    ResponderOnly = "RESPONDER_ONLY"
+  }
+
+  export enum NatTranslationEnabled {
+    Enabled = "ENABLED",
+    Disabled = "DISABLED",
+    Auto = "AUTO"
+  }
+
   export function getJsonObj(obj: UpdateIPSecConnectionTunnelDetails): object {
     const jsonObj = {
       ...obj,
@@ -59,6 +81,14 @@ export namespace UpdateIPSecConnectionTunnelDetails {
         "bgpSessionConfig": obj.bgpSessionConfig
           ? model.UpdateIPSecTunnelBgpSessionDetails.getJsonObj(obj.bgpSessionConfig)
           : undefined,
+
+        "phaseOneConfig": obj.phaseOneConfig
+          ? model.PhaseOneConfigDetails.getJsonObj(obj.phaseOneConfig)
+          : undefined,
+        "phaseTwoConfig": obj.phaseTwoConfig
+          ? model.PhaseTwoConfigDetails.getJsonObj(obj.phaseTwoConfig)
+          : undefined,
+        "dpdConfig": obj.dpdConfig ? model.DpdConfig.getJsonObj(obj.dpdConfig) : undefined,
         "encryptionDomainConfig": obj.encryptionDomainConfig
           ? model.UpdateIPSecTunnelEncryptionDomainDetails.getJsonObj(obj.encryptionDomainConfig)
           : undefined
@@ -73,6 +103,16 @@ export namespace UpdateIPSecConnectionTunnelDetails {
       ...{
         "bgpSessionConfig": obj.bgpSessionConfig
           ? model.UpdateIPSecTunnelBgpSessionDetails.getDeserializedJsonObj(obj.bgpSessionConfig)
+          : undefined,
+
+        "phaseOneConfig": obj.phaseOneConfig
+          ? model.PhaseOneConfigDetails.getDeserializedJsonObj(obj.phaseOneConfig)
+          : undefined,
+        "phaseTwoConfig": obj.phaseTwoConfig
+          ? model.PhaseTwoConfigDetails.getDeserializedJsonObj(obj.phaseTwoConfig)
+          : undefined,
+        "dpdConfig": obj.dpdConfig
+          ? model.DpdConfig.getDeserializedJsonObj(obj.dpdConfig)
           : undefined,
         "encryptionDomainConfig": obj.encryptionDomainConfig
           ? model.UpdateIPSecTunnelEncryptionDomainDetails.getDeserializedJsonObj(

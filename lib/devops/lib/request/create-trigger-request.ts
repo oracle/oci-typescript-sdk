@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateTriggerRequest extends common.BaseRequest {
   /**
-   * Details for the new Trigger.
+   * Details for the new trigger.
    */
   "createTriggerDetails":
     | model.CreateGithubTriggerDetails

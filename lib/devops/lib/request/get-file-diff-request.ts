@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetFileDiffRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**
@@ -27,15 +27,15 @@ export interface GetFileDiffRequest extends common.BaseRequest {
    */
   "filePath": string;
   /**
-   * The branch to compare changes against
+   * The branch to compare changes against.
    */
   "baseVersion": string;
   /**
-   * The branch where changes are coming from
+   * The branch where changes are coming from.
    */
   "targetVersion": string;
   /**
-   * boolean for whether to use merge base or most recent revision
+   * Boolean to indicate whether to use merge base or most recent revision.
    */
   "isComparisonFromMergeBase"?: boolean;
   /**

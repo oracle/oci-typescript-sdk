@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateTriggerRequest extends common.BaseRequest {
   /**
-   * unique Trigger identifier
+   * Unique trigger identifier.
    */
   "triggerId": string;
   /**

@@ -69,6 +69,7 @@ export namespace WorkRequest {
   export enum OperationType {
     CreatePlatform = "CREATE_PLATFORM",
     UpdatePlatform = "UPDATE_PLATFORM",
+    UpgradePlatform = "UPGRADE_PLATFORM",
     DeletePlatform = "DELETE_PLATFORM",
     ScalePlatform = "SCALE_PLATFORM",
     StartPlatform = "START_PLATFORM",

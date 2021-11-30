@@ -4944,6 +4944,70 @@ Gets the specified group mapping.
   }
 
   /**
+   * Retrieve the standard tag namespace template given the standard tag namespace name.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetStandardTagTemplateRequest
+   * @return GetStandardTagTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetStandardTagTemplate.ts.html |here} to see how to use GetStandardTagTemplate API.
+   */
+  public async getStandardTagTemplate(
+    getStandardTagTemplateRequest: requests.GetStandardTagTemplateRequest
+  ): Promise<responses.GetStandardTagTemplateResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#getStandardTagTemplate.");
+    const pathParams = {
+      "{standardTagNamespaceName}": getStandardTagTemplateRequest.standardTagNamespaceName
+    };
+
+    const queryParams = {
+      "compartmentId": getStandardTagTemplateRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getStandardTagTemplateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tags/standardTagNamespaceTemplates/{standardTagNamespaceName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetStandardTagTemplateResponse>{},
+        body: await response.json(),
+        bodyKey: "standardTagNamespaceTemplate",
+        bodyModel: model.StandardTagNamespaceTemplate,
+        type: "model.StandardTagNamespaceTemplate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the specified tag's information.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTagRequest
@@ -5525,6 +5589,75 @@ Gets the specified group mapping.
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * OCI will release Tag Namespaces that our customers can import.
+   * These Tag Namespaces will provide Tags for our customers and Partners to provide consistency and enable data reporting.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ImportStandardTagsRequest
+   * @return ImportStandardTagsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ImportStandardTags.ts.html |here} to see how to use ImportStandardTags API.
+   */
+  public async importStandardTags(
+    importStandardTagsRequest: requests.ImportStandardTagsRequest
+  ): Promise<responses.ImportStandardTagsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#importStandardTags.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": importStandardTagsRequest.opcRequestId,
+      "opc-retry-token": importStandardTagsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importStandardTagsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tags/actions/importStandardTags",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        importStandardTagsRequest.importStandardTagsDetails,
+        "ImportStandardTagsDetails",
+        model.ImportStandardTagsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ImportStandardTagsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -8209,6 +8342,128 @@ To determine which policies apply to a particular group or compartment, you must
     } catch (err) {
       throw err;
     }
+  }
+
+  /**
+   * Lists available standard tag namespaces that users can create.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListStandardTagNamespacesRequest
+   * @return ListStandardTagNamespacesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListStandardTagNamespaces.ts.html |here} to see how to use ListStandardTagNamespaces API.
+   */
+  public async listStandardTagNamespaces(
+    listStandardTagNamespacesRequest: requests.ListStandardTagNamespacesRequest
+  ): Promise<responses.ListStandardTagNamespacesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityClient#listStandardTagNamespaces.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listStandardTagNamespacesRequest.compartmentId,
+      "page": listStandardTagNamespacesRequest.page,
+      "limit": listStandardTagNamespacesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listStandardTagNamespacesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tags/standardTagNamespaceTemplates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListStandardTagNamespacesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.StandardTagNamespaceTemplateSummary,
+        type: "Array<model.StandardTagNamespaceTemplateSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listStandardTagNamespacesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.StandardTagNamespaceTemplateSummary objects
+   * contained in responses from the listStandardTagNamespaces operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllStandardTagNamespaces(
+    request: requests.ListStandardTagNamespacesRequest
+  ): AsyncIterableIterator<model.StandardTagNamespaceTemplateSummary> {
+    return paginateRecords(request, req => this.listStandardTagNamespaces(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listStandardTagNamespacesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listStandardTagNamespaces operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllStandardTagNamespacesResponses(
+    request: requests.ListStandardTagNamespacesRequest
+  ): AsyncIterableIterator<responses.ListStandardTagNamespacesResponse> {
+    return paginateResponses(request, req => this.listStandardTagNamespaces(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.StandardTagNamespaceTemplateSummary objects
+   * contained in responses from the listStandardTagNamespaces operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listStandardTagNamespacesRecordIterator(
+    request: requests.ListStandardTagNamespacesRequest
+  ): AsyncIterableIterator<model.StandardTagNamespaceTemplateSummary> {
+    return paginateRecords(request, req => this.listStandardTagNamespaces(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listStandardTagNamespaces operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listStandardTagNamespacesResponseIterator(
+    request: requests.ListStandardTagNamespacesRequest
+  ): AsyncIterableIterator<responses.ListStandardTagNamespacesResponse> {
+    return paginateResponses(request, req => this.listStandardTagNamespaces(req));
   }
 
   /**

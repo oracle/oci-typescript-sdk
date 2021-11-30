@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface GetRepositoryArchiveContentRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**
-   * A filter to return only resources that match the given Ref name.
+   * A filter to return only resources that match the given reference name.
    */
   "refName"?: string;
   /**
-   * The archive format query parm for download repo endpoint.
+   * The archive format query parameter for downloading repository endpoint.
    */
   "format"?: string;
   /**

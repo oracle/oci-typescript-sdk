@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetApmDomainRequest extends common.BaseRequest {
   /**
-   * OCID of the APM Domain
+   * The OCID of the APM domain
    */
   "apmDomainId": string;
   /**

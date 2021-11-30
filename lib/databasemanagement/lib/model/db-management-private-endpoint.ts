@@ -18,48 +18,52 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A Database Management private endpoint that allows Database Management services to connect to databases in a customer's virtual cloud network (VCN).
+ * A Database Management private endpoint allows Database Management to connect to databases in a Virtual Cloud Network (VCN).
  */
 export interface DbManagementPrivateEndpoint {
   /**
-   * The OCID of the Database Management private endpoint.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Database Management private endpoint.
    */
   "id": string;
   /**
-   * The display name of the private endpoint.
+   * The display name of the Database Management private endpoint.
    */
   "name": string;
   /**
-   * The OCID of the compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
-   * The OCID of the VCN.
+   * Specifies whether the Database Management private endpoint can be used for Oracle Databases in a cluster.
+   */
+  "isCluster"?: boolean;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VCN.
    */
   "vcnId": string;
   /**
-   * The OCID of the subnet.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet.
    */
   "subnetId": string;
   /**
-   * The private IP addresses assigned to the private endpoint.
+   * The IP addresses assigned to the Database Management private endpoint.
    *
    */
   "privateIp"?: string;
   /**
-   * The description of the private endpoint.
+   * The description of the Database Management private endpoint.
    */
   "description"?: string;
   /**
-   * The date and time the private endpoint was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * The date and time the Database Managament private endpoint was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timeCreated"?: Date;
   /**
-   * The current state of the private endpoint.
+   * The current lifecycle state of the Database Management private endpoint.
    */
   "lifecycleState"?: model.LifecycleStates;
   /**
-   * The OCIDs of the network security groups that the private endpoint belongs to.
+   * The OCIDs of the Network Security Groups to which the Database Management private endpoint belongs.
    *
    */
   "nsgIds"?: Array<string>;

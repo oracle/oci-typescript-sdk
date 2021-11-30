@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CancelBuildRunRequest extends common.BaseRequest {
   /**
-   * Details the input parameters required to cancel a build run.
+   * Parameter details required to cancel a build run.
    */
   "cancelBuildRunDetails": model.CancelBuildRunDetails;
   /**

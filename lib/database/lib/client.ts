@@ -5136,6 +5136,71 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Disables Database Management for the Autonomous Database resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DisableAutonomousDatabaseManagementRequest
+   * @return DisableAutonomousDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableAutonomousDatabaseManagement.ts.html |here} to see how to use DisableAutonomousDatabaseManagement API.
+   */
+  public async disableAutonomousDatabaseManagement(
+    disableAutonomousDatabaseManagementRequest: requests.DisableAutonomousDatabaseManagementRequest
+  ): Promise<responses.DisableAutonomousDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#disableAutonomousDatabaseManagement.");
+    const pathParams = {
+      "{autonomousDatabaseId}": disableAutonomousDatabaseManagementRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableAutonomousDatabaseManagementRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableAutonomousDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/disableDatabaseManagement",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableAutonomousDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disables Operations Insights for the Autonomous Database resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -5901,6 +5966,71 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
             value: response.headers.get("last-modified"),
             key: "lastModified",
             dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables Database Management for Autonomous Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param EnableAutonomousDatabaseManagementRequest
+   * @return EnableAutonomousDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableAutonomousDatabaseManagement.ts.html |here} to see how to use EnableAutonomousDatabaseManagement API.
+   */
+  public async enableAutonomousDatabaseManagement(
+    enableAutonomousDatabaseManagementRequest: requests.EnableAutonomousDatabaseManagementRequest
+  ): Promise<responses.EnableAutonomousDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#enableAutonomousDatabaseManagement.");
+    const pathParams = {
+      "{autonomousDatabaseId}": enableAutonomousDatabaseManagementRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableAutonomousDatabaseManagementRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableAutonomousDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/enableDatabaseManagement",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableAutonomousDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });

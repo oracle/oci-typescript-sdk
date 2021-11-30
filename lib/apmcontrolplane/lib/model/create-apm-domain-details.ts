@@ -1,7 +1,7 @@
 /**
- * Application Performance Monitoring (APM) Control Plane API
- * Provide a set of APIs for tenant to perform operations like create, update, delete and list APM domains, and also
-work request APIs to monitor progress of these operations.
+ * Application Performance Monitoring Control Plane API
+ * Use the Application Performance Monitoring Control Plane API to perform operations such as creating, updating,
+deleting and listing APM domains and monitoring the progress of these operations using the work request APIs.
 
  * OpenAPI spec version: 20200630
  * 
@@ -17,19 +17,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new APM Domain.
+ * The information about the new APM domain.
  */
 export interface CreateApmDomainDetails {
   /**
-   * Display name of the APM Domain
+   * Display name of the APM domain.
    */
   "displayName": string;
   /**
-   * Description of the APM Domain
+   * Description of the APM domain.
    */
   "description"?: string;
   /**
-   * The OCID of the compartment corresponding to the APM Domain.
+   * The OCID of the compartment corresponding to the APM domain.
    */
   "compartmentId": string;
   /**

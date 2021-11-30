@@ -19,11 +19,19 @@ import common = require("oci-common");
  */
 export interface ListApmDomainWorkRequestsRequest extends common.BaseRequest {
   /**
-   * OCID of the APM Domain
+   * The OCID of the APM domain
    */
   "apmDomainId": string;
   /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * The page token representing the page at which to start retrieving results. This is usually retrieved from a previous list call.
+   */
+  "page"?: string;
+  /**
+   * The maximum number of items to return.
+   */
+  "limit"?: number;
 }

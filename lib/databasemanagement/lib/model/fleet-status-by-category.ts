@@ -26,9 +26,15 @@ export interface FleetStatusByCategory {
    */
   "databaseType"?: model.DatabaseType;
   /**
-   * The subtype of the Oracle Database. Indicates whether the database is a Container Database, Pluggable Database, or a Non-container Database.
+   * The subtype of the Oracle Database. Indicates whether the database is a Container Database,
+   * Pluggable Database, Non-container Database, Autonomous Database, or Autonomous Container Database.
+   *
    */
   "databaseSubType"?: model.DatabaseSubType;
+  /**
+   * The infrastructure used to deploy the Oracle Database.
+   */
+  "deploymentType"?: model.DeploymentType;
   /**
    * The number of databases in the fleet. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

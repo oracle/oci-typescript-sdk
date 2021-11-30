@@ -19,19 +19,19 @@ import common = require("oci-common");
  */
 export interface GetCommitDiffRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**
-   * The commit or ref name where changes are coming from
+   * The commit or reference name where changes are coming from.
    */
   "targetVersion": string;
   /**
-   * The commit or ref name to compare changes against. If baseVersion is not provided, the diff will be gone against an empty tree.
+   * The commit or reference name to compare changes against. If base version is not provided, the difference goes against an empty tree.
    */
   "baseVersion"?: string;
   /**
-   * boolean for whether to use merge base or most recent revision
+   * Boolean value to indicate whether to use merge base or most recent revision.
    */
   "isComparisonFromMergeBase"?: boolean;
   /**

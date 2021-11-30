@@ -36,6 +36,10 @@ export interface SqlTextSummary {
    */
   "databaseId": string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   */
+  "compartmentId"?: string;
+  /**
    * SQL Text
    */
   "sqlText": string;

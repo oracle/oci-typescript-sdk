@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about the Patch for a Deployment.
+ * The information about the Upgrade for a Deployment.
  */
 export interface UpgradeDeploymentDetails {
   "type": string;

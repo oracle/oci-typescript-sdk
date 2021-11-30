@@ -1,7 +1,7 @@
 /**
- * Application Performance Monitoring (APM) Control Plane API
- * Provide a set of APIs for tenant to perform operations like create, update, delete and list APM domains, and also
-work request APIs to monitor progress of these operations.
+ * Application Performance Monitoring Control Plane API
+ * Use the Application Performance Monitoring Control Plane API to perform operations such as creating, updating,
+deleting and listing APM domains and monitoring the progress of these operations using the work request APIs.
 
  * OpenAPI spec version: 20200630
  * 
@@ -17,11 +17,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of an APM Domain.
+ * Details of an APM domain.
  */
 export interface ApmDomain {
   /**
-   * Where APM Agents upload their observations and metrics.
+   * The endpoint where the APM agents upload their observations and metrics.
    */
   "dataUploadEndpoint"?: string;
   /**
@@ -29,19 +29,19 @@ export interface ApmDomain {
    */
   "id": string;
   /**
-   * APM Domain display name, can be updated.
+   * Display name of the APM domain, which can be updated.
    */
   "displayName": string;
   /**
-   * Description of the APM Domain.
+   * Description of the APM domain.
    */
   "description"?: string;
   /**
-   * The OCID of the compartment corresponding to the APM Domain.
+   * The OCID of the compartment corresponding to the APM domain.
    */
   "compartmentId": string;
   /**
-   * The current lifecycle state of the APM Domain.
+   * The current lifecycle state of the APM domain.
    */
   "lifecycleState"?: model.LifecycleStates;
   /**
@@ -49,11 +49,11 @@ export interface ApmDomain {
    */
   "isFreeTier"?: boolean;
   /**
-   * The time the the APM Domain was created. An RFC3339 formatted datetime string
+   * The time the APM domain was created, expressed in RFC 3339 timestamp format.
    */
   "timeCreated"?: Date;
   /**
-   * The time the APM Domain was updated. An RFC3339 formatted datetime string
+   * The time the APM domain was updated, expressed in RFC 3339 timestamp format.
    */
   "timeUpdated"?: Date;
   /**

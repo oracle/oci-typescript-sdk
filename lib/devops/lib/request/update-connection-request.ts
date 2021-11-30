@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateConnectionRequest extends common.BaseRequest {
   /**
-   * unique Connection identifier
+   * Unique connection identifier.
    */
   "connectionId": string;
   /**

@@ -146,6 +146,8 @@ import * as DeleteVmClusterNetworkRequest from "./delete-vm-cluster-network-requ
 export import DeleteVmClusterNetworkRequest = DeleteVmClusterNetworkRequest.DeleteVmClusterNetworkRequest;
 import * as DeregisterAutonomousDatabaseDataSafeRequest from "./deregister-autonomous-database-data-safe-request";
 export import DeregisterAutonomousDatabaseDataSafeRequest = DeregisterAutonomousDatabaseDataSafeRequest.DeregisterAutonomousDatabaseDataSafeRequest;
+import * as DisableAutonomousDatabaseManagementRequest from "./disable-autonomous-database-management-request";
+export import DisableAutonomousDatabaseManagementRequest = DisableAutonomousDatabaseManagementRequest.DisableAutonomousDatabaseManagementRequest;
 import * as DisableAutonomousDatabaseOperationsInsightsRequest from "./disable-autonomous-database-operations-insights-request";
 export import DisableAutonomousDatabaseOperationsInsightsRequest = DisableAutonomousDatabaseOperationsInsightsRequest.DisableAutonomousDatabaseOperationsInsightsRequest;
 import * as DisableDatabaseManagementRequest from "./disable-database-management-request";
@@ -166,6 +168,8 @@ import * as DownloadValidationReportRequest from "./download-validation-report-r
 export import DownloadValidationReportRequest = DownloadValidationReportRequest.DownloadValidationReportRequest;
 import * as DownloadVmClusterNetworkConfigFileRequest from "./download-vm-cluster-network-config-file-request";
 export import DownloadVmClusterNetworkConfigFileRequest = DownloadVmClusterNetworkConfigFileRequest.DownloadVmClusterNetworkConfigFileRequest;
+import * as EnableAutonomousDatabaseManagementRequest from "./enable-autonomous-database-management-request";
+export import EnableAutonomousDatabaseManagementRequest = EnableAutonomousDatabaseManagementRequest.EnableAutonomousDatabaseManagementRequest;
 import * as EnableAutonomousDatabaseOperationsInsightsRequest from "./enable-autonomous-database-operations-insights-request";
 export import EnableAutonomousDatabaseOperationsInsightsRequest = EnableAutonomousDatabaseOperationsInsightsRequest.EnableAutonomousDatabaseOperationsInsightsRequest;
 import * as EnableDatabaseManagementRequest from "./enable-database-management-request";

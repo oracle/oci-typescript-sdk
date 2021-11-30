@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetObjectRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**
@@ -27,7 +27,7 @@ export interface GetObjectRequest extends common.BaseRequest {
    */
   "filePath"?: string;
   /**
-   * A filter to return only resources that match the given Ref name.
+   * A filter to return only resources that match the given reference name.
    */
   "refName"?: string;
   /**

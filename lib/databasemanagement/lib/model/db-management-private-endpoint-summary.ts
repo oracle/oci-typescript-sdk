@@ -18,27 +18,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of a Database Management private endpoint.
+ * The summary of a Database Management private endpoint.
  */
 export interface DbManagementPrivateEndpointSummary {
   /**
-   * The OCID of the Database Management private endpoint.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Database Management private endpoint.
    */
   "id": string;
   /**
-   * The display name of the private endpoint.
+   * The display name of the Database Management private endpoint.
    */
   "name": string;
   /**
-   * The OCID of the compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
-   * The OCID of the VCN.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VCN.
    */
   "vcnId": string;
   /**
-   * The OCID of the subnet.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet.
    */
   "subnetId": string;
   /**
@@ -50,7 +50,7 @@ export interface DbManagementPrivateEndpointSummary {
    */
   "timeCreated"?: Date;
   /**
-   * The current state of the private endpoint.
+   * The current lifecycle state of the private endpoint.
    */
   "lifecycleState"?: model.LifecycleStates;
 }

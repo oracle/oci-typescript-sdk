@@ -22,7 +22,7 @@ export interface GetWorkRequestResponse {
    */
   "opcRequestId": string;
   /**
-   * some decimal number representing the number of seconds the client should wait before polling this endpoint again
+   * A decimal number representing the number of seconds the client should wait before polling this work request again
    */
   "retryAfter": number;
   /**

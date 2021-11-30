@@ -18,12 +18,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a work request log search. Contains both WorkRequestLog items and other data.
+ * The results of a work request log search. This contains WorkRequestLog items and other data.
  *
  */
 export interface WorkRequestLogEntryCollection {
   /**
-   * Collection of work request logs
+   * A collection of work request logs.
    */
   "items": Array<model.WorkRequestLogEntry>;
 }

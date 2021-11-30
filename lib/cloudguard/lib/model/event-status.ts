@@ -23,6 +23,7 @@ export enum EventStatus {
   Update = "UPDATE",
   Resolve = "RESOLVE",
   Dismiss = "DISMISS",
+  Delete = "DELETE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

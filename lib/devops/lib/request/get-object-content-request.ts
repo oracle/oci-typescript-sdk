@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface GetObjectContentRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**
-   * The SHA of a blob or tree
+   * The SHA of a blob or tree.
    */
   "sha": string;
   /**

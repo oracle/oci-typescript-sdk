@@ -20,7 +20,7 @@ export interface BulkEditResource {
    */
   "id": string;
   /**
-   * The type of resource. See {@link #bulkEditResourceTypes(BulkEditResourceTypesRequest) bulkEditResourceTypes}.
+   * The type of resource. See {@link #listBulkEditTagsResourceTypes(ListBulkEditTagsResourceTypesRequest) listBulkEditTagsResourceTypes}.
    */
   "resourceType": string;
   /**

@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,27 +15,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the BuildRun.
+ * Summary of the build run.
  */
 export interface BuildRunSummary {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that is immutable on creation.
    */
   "id": string;
   /**
-   * Compartment Identifier
+   * The OCID of the compartment where the build is running.
    */
   "compartmentId": string;
   /**
-   * BuildRun identifier which can be renamed and is not necessarily unique
+   * Build run display name, which can be renamed and is not necessarily unique. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
-   * Project Identifier
+   * The OCID of the DevOps project.
    */
   "projectId": string;
   /**
-   * Pipeline Identifier
+   * The OCID of the build pipeline.
    */
   "buildPipelineId": string;
   "buildRunSource":
@@ -46,15 +46,15 @@ export interface BuildRunSummary {
   "buildRunArguments"?: model.BuildRunArgumentCollection;
   "buildRunProgressSummary"?: model.BuildRunProgressSummary;
   /**
-   * The time the the BuildRun was created. An RFC3339 formatted datetime string
+   * The time the build run was created. Format defined by [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339).
    */
   "timeCreated"?: Date;
   /**
-   * The time the BuildRun was updated. An RFC3339 formatted datetime string
+   * The time the build run was updated. Format defined by [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339).
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the BuildRun.
+   * The current state of the build run.
    */
   "lifecycleState"?: string;
   /**

@@ -1,7 +1,7 @@
 /**
- * Application Performance Monitoring (APM) Control Plane API
- * Provide a set of APIs for tenant to perform operations like create, update, delete and list APM domains, and also
-work request APIs to monitor progress of these operations.
+ * Application Performance Monitoring Control Plane API
+ * Use the Application Performance Monitoring Control Plane API to perform operations such as creating, updating,
+deleting and listing APM domains and monitoring the progress of these operations using the work request APIs.
 
  * OpenAPI spec version: 20200630
  * 
@@ -144,7 +144,7 @@ export class ApmDomainClient {
   }
 
   /**
-   * Moves a APM Domain into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   * Moves an APM domain into a different compartment. When provided, If-Match is checked against ETag values of the APM domain.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeApmDomainCompartmentRequest
    * @return ChangeApmDomainCompartmentResponse
@@ -215,7 +215,7 @@ export class ApmDomainClient {
   }
 
   /**
-   * Creates a new APM Domain.
+   * Creates a new APM domain.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateApmDomainRequest
@@ -283,9 +283,9 @@ export class ApmDomainClient {
   }
 
   /**
-   * Delete the specified APM domain asynchronously. The APM domain is placed in the 'Deleting' state and will stop
+   * Deletes the specified APM domain asynchronously. The APM domain is placed in the 'Deleting' state and will stop
    * accepting any operation requests. All resources associated with the APM domain are eventually recovered. Use the
-   * returned work request to track the progress of the background activity to complete deleting the domain.
+   * returned work request ID to track the progress of the background activity to complete deleting the APM domain.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteApmDomainRequest
@@ -421,7 +421,7 @@ export class ApmDomainClient {
   }
 
   /**
-   * Gets details of APM Domain by identifier
+   * Gets the details of the APM domain specified by OCID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetApmDomainRequest
    * @return GetApmDomainResponse
@@ -560,7 +560,7 @@ export class ApmDomainClient {
   }
 
   /**
-   * Returns a (paginated) list of work requests related to a specific APM Domain.
+   * Returns a (paginated) list of work requests related to a specific APM domain.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListApmDomainWorkRequestsRequest
@@ -577,7 +577,10 @@ export class ApmDomainClient {
       "{apmDomainId}": listApmDomainWorkRequestsRequest.apmDomainId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "page": listApmDomainWorkRequestsRequest.page,
+      "limit": listApmDomainWorkRequestsRequest.limit
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -629,7 +632,59 @@ export class ApmDomainClient {
   }
 
   /**
-   * Lists all APM Domains for the specified tenant compartment.
+   * NOTE: This function is deprecated in favor of listApmDomainWorkRequestsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.WorkRequest objects
+   * contained in responses from the listApmDomainWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllApmDomainWorkRequests(
+    request: requests.ListApmDomainWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequest> {
+    return paginateRecords(request, req => this.listApmDomainWorkRequests(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listApmDomainWorkRequestsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listApmDomainWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllApmDomainWorkRequestsResponses(
+    request: requests.ListApmDomainWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListApmDomainWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listApmDomainWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequest objects
+   * contained in responses from the listApmDomainWorkRequests operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listApmDomainWorkRequestsRecordIterator(
+    request: requests.ListApmDomainWorkRequestsRequest
+  ): AsyncIterableIterator<model.WorkRequest> {
+    return paginateRecords(request, req => this.listApmDomainWorkRequests(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listApmDomainWorkRequests operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listApmDomainWorkRequestsResponseIterator(
+    request: requests.ListApmDomainWorkRequestsRequest
+  ): AsyncIterableIterator<responses.ListApmDomainWorkRequestsResponse> {
+    return paginateResponses(request, req => this.listApmDomainWorkRequests(req));
+  }
+
+  /**
+   * Lists all APM domains for the specified tenant compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListApmDomainsRequest
@@ -755,7 +810,7 @@ export class ApmDomainClient {
   }
 
   /**
-   * Lists all Data Keys for the specified APM Domain. The caller may filter the list by specifying the 'dataKeyType'
+   * Lists all Data Keys for the specified APM domain. The caller may filter the list by specifying the 'dataKeyType'
    * query parameter.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -821,7 +876,7 @@ export class ApmDomainClient {
   }
 
   /**
-   * Return a (paginated) list of errors for a given work request.
+   * Returns a (paginated) list of errors for a given work request.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
@@ -944,7 +999,7 @@ export class ApmDomainClient {
   }
 
   /**
-   * Return a (paginated) list of logs for a given work request.
+   * Returns a (paginated) list of logs for a given work request.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
@@ -1260,7 +1315,7 @@ export class ApmDomainClient {
   }
 
   /**
-   * Update the APM domain when it is ready and active.
+   * Updates the APM domain.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateApmDomainRequest
    * @return UpdateApmDomainResponse

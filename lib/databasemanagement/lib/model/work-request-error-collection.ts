@@ -18,12 +18,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a work request error search. Contains both WorkRequestError items and other data.
+ * The results of a work request error search. This contains WorkRequestError items and other data.
  *
  */
 export interface WorkRequestErrorCollection {
   /**
-   * collection of work request errors
+   * A collection of work request errors.
    */
   "items": Array<model.WorkRequestError>;
 }

@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface ListCommitsRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**
-   * A filter to return only resources that match the given Ref name.
+   * A filter to return only resources that match the given reference name.
    */
   "refName"?: string;
   /**
-   * A filter to exclude commits that match the given Ref name.
+   * A filter to exclude commits that match the given reference name.
    */
   "excludeRefName"?: string;
   /**

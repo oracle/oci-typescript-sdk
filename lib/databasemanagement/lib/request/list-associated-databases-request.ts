@@ -31,11 +31,11 @@ export interface ListAssociatedDatabasesRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The maximum number of records returned in paginated response.
+   * The maximum number of records returned in the paginated response.
    */
   "limit"?: number;
   /**
-   * The page token representing the page, from where the next set of paginated results
+   * The page token representing the page from where the next set of paginated results
    * are retrieved. This is usually retrieved from a previous list call.
    *
    */
@@ -45,7 +45,7 @@ export interface ListAssociatedDatabasesRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrders;
   /**
-   * The field to sort Databases using a specific Database Management Private Endpoint
+   * The option to sort databases using a specific Database Management private endpoint.
    *
    */
   "sortBy"?: ListAssociatedDatabasesRequest.SortBy;

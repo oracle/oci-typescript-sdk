@@ -45,6 +45,10 @@ export interface JobDatabase {
    * Indicates whether the Oracle Database is part of a cluster.
    */
   "isCluster"?: boolean;
+  /**
+   * The workload type of the Autonomous Database.
+   */
+  "workloadType"?: model.WorkloadType;
 }
 
 export namespace JobDatabase {

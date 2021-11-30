@@ -89,6 +89,24 @@ Example: `2016-08-25T21:10:29.600Z`
 * 
     */
   "timeStatusUpdated"?: Date;
+  /**
+   * Indicates whether Oracle can either initiate the tunnel or respond, or respond only.
+   */
+  "oracleCanInitiate"?: IPSecConnectionTunnel.OracleCanInitiate;
+  /**
+   * Whether NAT-T Enabled on the tunnel
+   */
+  "natTranslationEnabled"?: IPSecConnectionTunnel.NatTranslationEnabled;
+  /**
+   * dpd mode
+   */
+  "dpdMode"?: IPSecConnectionTunnel.DpdMode;
+  /**
+   * Dead peer detection (DPD) timeout in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dpdTimeoutInSec"?: number;
+  "phaseOneDetails"?: model.TunnelPhaseOneDetails;
+  "phaseTwoDetails"?: model.TunnelPhaseTwoDetails;
 }
 
 export namespace IPSecConnectionTunnel {
@@ -137,6 +155,37 @@ export namespace IPSecConnectionTunnel {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum OracleCanInitiate {
+    InitiatorOrResponder = "INITIATOR_OR_RESPONDER",
+    ResponderOnly = "RESPONDER_ONLY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum NatTranslationEnabled {
+    Enabled = "ENABLED",
+    Disabled = "DISABLED",
+    Auto = "AUTO",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DpdMode {
+    InitiateAndRespond = "INITIATE_AND_RESPOND",
+    RespondOnly = "RESPOND_ONLY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: IPSecConnectionTunnel): object {
     const jsonObj = {
       ...obj,
@@ -146,6 +195,13 @@ export namespace IPSecConnectionTunnel {
           : undefined,
         "encryptionDomainConfig": obj.encryptionDomainConfig
           ? model.EncryptionDomainConfig.getJsonObj(obj.encryptionDomainConfig)
+          : undefined,
+
+        "phaseOneDetails": obj.phaseOneDetails
+          ? model.TunnelPhaseOneDetails.getJsonObj(obj.phaseOneDetails)
+          : undefined,
+        "phaseTwoDetails": obj.phaseTwoDetails
+          ? model.TunnelPhaseTwoDetails.getJsonObj(obj.phaseTwoDetails)
           : undefined
       }
     };
@@ -161,6 +217,13 @@ export namespace IPSecConnectionTunnel {
           : undefined,
         "encryptionDomainConfig": obj.encryptionDomainConfig
           ? model.EncryptionDomainConfig.getDeserializedJsonObj(obj.encryptionDomainConfig)
+          : undefined,
+
+        "phaseOneDetails": obj.phaseOneDetails
+          ? model.TunnelPhaseOneDetails.getDeserializedJsonObj(obj.phaseOneDetails)
+          : undefined,
+        "phaseTwoDetails": obj.phaseTwoDetails
+          ? model.TunnelPhaseTwoDetails.getDeserializedJsonObj(obj.phaseTwoDetails)
           : undefined
       }
     };

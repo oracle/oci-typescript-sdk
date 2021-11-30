@@ -151,6 +151,11 @@ export interface SummarizeHostInsightResourceForecastTrendRequest extends common
    *
    */
   "freeformTagExists"?: Array<string>;
+  /**
+   * A flag to search all resources within a given compartment and all sub-compartments.
+   *
+   */
+  "compartmentIdInSubtree"?: boolean;
 }
 
 export namespace SummarizeHostInsightResourceForecastTrendRequest {

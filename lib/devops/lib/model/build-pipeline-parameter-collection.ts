@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,13 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies list of parameters present in BuildPipeline.
- * In case of UPDATE operation, replaces existing parameters list. Merging with existing parameters is not supported.
+ * Specifies list of parameters present in a build pipeline.
+ * An UPDATE operation replaces the existing parameters list entirely.
  *
  */
 export interface BuildPipelineParameterCollection {
   /**
-   * List of Parameters defined for a BuildPipeline.
+   * List of parameters defined for a build pipeline.
    */
   "items": Array<model.BuildPipelineParameter>;
 }

@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,31 +15,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Object containing information about files and directories in a repository
+ * Object containing information about files and directories in a repository.
  */
 export interface RepositoryPathSummary {
   /**
-   * File or Directory
+   * File or directory.
    */
   "type"?: string;
   /**
-   * Size of file or directory Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Size of file or directory. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInBytes"?: number;
   /**
-   * Name of file or directory
+   * Name of file or directory.
    */
   "name"?: string;
   /**
-   * Path to file or directory in a repository
+   * Path to file or directory in a repository.
    */
   "path"?: string;
   /**
-   * SHA-1 checksum of blob or tree
+   * SHA-1 checksum of blob or tree.
    */
   "sha"?: string;
   /**
-   * The giturl of the submodule
+   * The git URL of the submodule.
    */
   "submoduleGitUrl"?: string;
   /**

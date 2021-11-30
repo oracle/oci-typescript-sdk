@@ -27,11 +27,11 @@ export interface ListRepositoriesRequest extends common.BaseRequest {
    */
   "projectId"?: string;
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources whose lifecycle state matches the given lifecycle state.
    */
   "lifecycleState"?: string;
   /**
@@ -51,7 +51,7 @@ export interface ListRepositoriesRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending. Default order for name is ascending. If no value is specified timeCreated is default.
+   * The field to sort by. Only one sort order may be provided. Default order for time created is descending. Default order for name is ascending. If no value is specified time created is default.
    *
    */
   "sortBy"?: ListRepositoriesRequest.SortBy;

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetRepositoryFileLinesRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**
@@ -27,11 +27,11 @@ export interface GetRepositoryFileLinesRequest extends common.BaseRequest {
    */
   "filePath": string;
   /**
-   * Retrive file lines from specific revision.
+   * Retrieve file lines from specific revision.
    */
   "revision": string;
   /**
-   * Line number from where to start returning file lines. 1 indexed.
+   * Line number from where to start returning file lines.
    */
   "startLineNumber"?: number;
   /**

@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Commit details that need to be used for the BuildRun
+ * Commit details that need to be used for the build run.
  */
 export interface CommitInfo {
   /**
-   * Repository URL
+   * Repository URL.
    */
   "repositoryUrl": string;
   /**
@@ -27,7 +27,7 @@ export interface CommitInfo {
    */
   "repositoryBranch": string;
   /**
-   * Commit Hash pertinent to the repository URL and Branch specified.
+   * Commit hash pertinent to the repository URL and the specified branch.
    */
   "commitHash": string;
 }

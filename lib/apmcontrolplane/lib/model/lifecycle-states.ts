@@ -1,7 +1,7 @@
 /**
- * Application Performance Monitoring (APM) Control Plane API
- * Provide a set of APIs for tenant to perform operations like create, update, delete and list APM domains, and also
-work request APIs to monitor progress of these operations.
+ * Application Performance Monitoring Control Plane API
+ * Use the Application Performance Monitoring Control Plane API to perform operations such as creating, updating,
+deleting and listing APM domains and monitoring the progress of these operations using the work request APIs.
 
  * OpenAPI spec version: 20200630
  * 
@@ -17,13 +17,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible lifecycle states for an APM Domain.
+ * Possible lifecycle states for an APM domain.
  **/
 export enum LifecycleStates {
   Creating = "CREATING",
   Updating = "UPDATING",
   Active = "ACTIVE",
   Deleting = "DELETING",
+  Deleted = "DELETED",
   Failed = "FAILED",
 
   /**

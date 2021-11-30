@@ -19,13 +19,13 @@ import common = require("oci-common");
  */
 export interface GetMirrorRecordRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**
-   * The field of mirror record type. Only one mirror record type may be provided.
+   * The field of mirror record type. Only one mirror record type can be provided:
    * current - The current mirror record.
-   * lastSuccessful - The last successful mirror record
+   * lastSuccessful - The last successful mirror record.
    *
    */
   "mirrorRecordType": GetMirrorRecordRequest.MirrorRecordType;

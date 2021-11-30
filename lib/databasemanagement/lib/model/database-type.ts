@@ -19,18 +19,21 @@ import common = require("oci-common");
 
 /**
  * The type of Oracle Database installation:
-* <p>
-- EXTERNAL_SIDB: Single instance external database.
-* - EXTERNAL_RAC: Oracle Real Application Clusters (Oracle RAC) external database.
-* - CLOUD_SIDB: Single instance database in Oracle Cloud.
-* - CLOUD_RAC: Oracle RAC database in Oracle Cloud.
-* 
-**/
+ * - EXTERNAL_SIDB: Single instance external database.
+ * - EXTERNAL_RAC: Oracle Real Application Clusters (Oracle RAC) external database.
+ * - CLOUD_SIDB: Single instance database in Oracle Cloud.
+ * - CLOUD_RAC: Oracle RAC database in Oracle Cloud.
+ * - SHARED: Autonomous shared database in Oracle Cloud.
+ * - DEDICATED: Autonomous dedicated database in Oracle Cloud.
+ *
+ **/
 export enum DatabaseType {
   ExternalSidb = "EXTERNAL_SIDB",
   ExternalRac = "EXTERNAL_RAC",
   CloudSidb = "CLOUD_SIDB",
   CloudRac = "CLOUD_RAC",
+  Shared = "SHARED",
+  Dedicated = "DEDICATED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

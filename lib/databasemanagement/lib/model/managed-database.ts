@@ -38,7 +38,9 @@ export interface ManagedDatabase {
    */
   "databaseType": model.DatabaseType;
   /**
-   * The subtype of the Oracle Database. Indicates whether the database is a Container Database, Pluggable Database, or a Non-container Database.
+   * The subtype of the Oracle Database. Indicates whether the database is a Container Database,
+   * Pluggable Database, Non-container Database, Autonomous Database, or Autonomous Container Database.
+   *
    */
   "databaseSubType": model.DatabaseSubType;
   /**
@@ -49,6 +51,10 @@ export interface ManagedDatabase {
    * The management option used when enabling Database Management.
    */
   "managementOption"?: model.ManagementOption;
+  /**
+   * The workload type of the Autonomous Database.
+   */
+  "workloadType"?: model.WorkloadType;
   /**
    * Indicates whether the Oracle Database is part of a cluster.
    */

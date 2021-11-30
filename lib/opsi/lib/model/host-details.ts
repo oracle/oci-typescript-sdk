@@ -26,6 +26,10 @@ export interface HostDetails {
    */
   "id": string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   */
+  "compartmentId": string;
+  /**
    * The host name. The host name is unique amongst the hosts managed by the same management agent.
    */
   "hostName": string;

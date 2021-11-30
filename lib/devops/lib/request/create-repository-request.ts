@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateRepositoryRequest extends common.BaseRequest {
   /**
-   * Details for the new Repository.
+   * Details for the new repository.
    */
   "createRepositoryDetails": model.CreateRepositoryDetails;
   /**

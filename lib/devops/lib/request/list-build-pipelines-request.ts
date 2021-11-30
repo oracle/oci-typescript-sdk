@@ -31,7 +31,7 @@ export interface ListBuildPipelinesRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only BuildPipelines that matches the given lifecycleState
+   * A filter to return only build pipelines that matches the given lifecycle state.
    */
   "lifecycleState"?: string;
   /**

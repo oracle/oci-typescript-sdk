@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of a Database currently using a Private Endpoint.
+ * The summary of a database currently using a Database Management private endpoint.
  */
 export interface AssociatedDatabaseSummary {
   /**
-   * The OCID of the database.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the database.
    */
   "id": string;
   /**
@@ -30,11 +30,11 @@ export interface AssociatedDatabaseSummary {
    */
   "name": string;
   /**
-   * The compartment ID of the database.
+   * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the database.
    */
   "compartmentId": string;
   /**
-   * The time when the database was registered for Database Management.
+   * The time when Database Management was enabled for the database.
    */
   "timeRegistered": Date;
 }

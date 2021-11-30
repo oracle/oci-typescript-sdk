@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details about a line within the diff.
+ * Details about a line within the difference.
  */
 export interface DiffLineDetails {
   /**
@@ -31,7 +31,7 @@ export interface DiffLineDetails {
    */
   "lineContent"?: string;
   /**
-   * Indicates whether a line in a conflicted section of the diff is from the base version, the target version, or if its just a marker indicating the beginning, middle, or end of a conflicted section.
+   * Indicates whether a line in a conflicted section of the difference is from the base version, the target version, or if its just a marker indicating the beginning, middle, or end of a conflicted section.
    */
   "conflictMarker"?: DiffLineDetails.ConflictMarker;
 }

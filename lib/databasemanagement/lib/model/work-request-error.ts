@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface WorkRequestError {
   /**
-   * The identifier of the work request erorr.
+   * The identifier of the work request error.
    */
   "id": string;
   /**
@@ -30,22 +30,21 @@ export interface WorkRequestError {
    */
   "workRequestId": string;
   /**
-   * A machine-usable code for the error that occured. Error codes are listed on
-   * (https://docs.us-phoenix-1.oraclecloud.com/Content/API/References/apierrors.htm)
+   * A machine-usable code for the error that occurred. Error codes are listed on
+   * (https://docs.us-phoenix-1.oraclecloud.com/Content/API/References/apierrors.htm).
    *
    */
   "code": string;
   /**
-   * A human readable description of the issue encountered.
+   * A human-readable description of the issue that occurred.
    */
   "message": string;
   /**
-   * To determine the work request error is retryable or not
+   * Determines if the work request error can be reproduced and tried again.
    */
   "isRetryable"?: boolean;
   /**
-   * The time the error occured.
-   * An RFC3339 formatted datetime string. The precision for the time object is milliseconds.
+   * The date and time the error occurred as described in [RFC 3339](https://tools.ietf.org/rfc/rfc3339). The precision for the time object is in milliseconds.
    *
    */
   "timestamp": Date;

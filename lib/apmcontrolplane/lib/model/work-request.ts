@@ -1,7 +1,7 @@
 /**
- * Application Performance Monitoring (APM) Control Plane API
- * Provide a set of APIs for tenant to perform operations like create, update, delete and list APM domains, and also
-work request APIs to monitor progress of these operations.
+ * Application Performance Monitoring Control Plane API
+ * Use the Application Performance Monitoring Control Plane API to perform operations such as creating, updating,
+deleting and listing APM domains and monitoring the progress of these operations using the work request APIs.
 
  * OpenAPI spec version: 20200630
  * 
@@ -17,11 +17,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A description of workrequest status
+ * A description of work request.
  */
 export interface WorkRequest {
   /**
-   * Type of the work request
+   * The type of the work request.
    */
   "operationType": model.OperationTypes;
   /**
@@ -29,16 +29,16 @@ export interface WorkRequest {
    */
   "status": model.OperationStatus;
   /**
-   * The id of the work request.
+   * The ID of the work request.
    */
   "id": string;
   /**
-   * The ocid of the compartment that contains the work request.
+   * The OCID of the compartment that contains the work request.
    *
    */
   "compartmentId": string;
   /**
-   * The resources affected by this work request.
+   * The resources affected by the work request.
    */
   "resources": Array<model.WorkRequestResource>;
   /**

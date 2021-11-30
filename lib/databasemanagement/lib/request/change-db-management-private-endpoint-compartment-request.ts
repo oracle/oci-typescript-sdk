@@ -23,7 +23,7 @@ export interface ChangeDbManagementPrivateEndpointCompartmentRequest extends com
    */
   "dbManagementPrivateEndpointId": string;
   /**
-   * The details used to change the compartment of a Database Management private endpoint.
+   * The details used to move the Database Management private endpoint to another compartment.
    */
   "changeDbManagementPrivateEndpointCompartmentDetails": model.ChangeDbManagementPrivateEndpointCompartmentDetails;
   /**

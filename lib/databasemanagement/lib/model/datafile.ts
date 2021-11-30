@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of a datafile.
+ * The details of a data file.
  */
 export interface Datafile {
   /**
-   * The filename (including the path) of the datafile or tempfile.
+   * The filename (including the path) of the data file or temp file.
    */
   "name": string;
   /**
-   * The status of the file. INVALID status is used when the file number is not in use, for example, a file in a tablespace that was dropped.
+   * The status of the file. INVALID status is used when the file number is not in use, for example, a file in a tablespace that was removed.
    */
   "status"?: Datafile.Status;
   /**
@@ -34,7 +34,7 @@ export interface Datafile {
    */
   "onlineStatus"?: Datafile.OnlineStatus;
   /**
-   * Indicates whether the datafile is auto-extensible.
+   * Indicates whether the data file is auto-extensible.
    */
   "isAutoExtensible"?: boolean;
   /**
@@ -66,11 +66,11 @@ export interface Datafile {
    */
   "incrementBy"?: number;
   /**
-   * The free space available in the datafile in KB. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The free space available in the data file in KB. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "freeSpaceKB"?: number;
   /**
-   * The total space used in the datafile in KB. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total space used in the data file in KB. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usedSpaceKB"?: number;
   /**

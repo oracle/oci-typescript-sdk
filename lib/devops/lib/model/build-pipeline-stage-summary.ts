@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -19,35 +19,35 @@ import common = require("oci-common");
  */
 export interface BuildPipelineStageSummary {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that is immutable on creation.
    */
   "id": string;
   /**
-   * Stage identifier which can be renamed and is not necessarily unique
+   * Stage display name, which can be renamed and is not necessarily unique. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
-   * Build Project Identifier
+   * The OCID of the DevOps project.
    */
   "projectId": string;
   /**
-   * Build Pipeline Identifier
+   * The OCID of the build pipeline.
    */
   "buildPipelineId": string;
   /**
-   * Compartment Identifier
+   * The OCID of the compartment where the pipeline is created.
    */
   "compartmentId": string;
   /**
-   * The time at which the Stage was created. An RFC3339 formatted datetime string
+   * The time the stage was created. Format defined by [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339).
    */
   "timeCreated"?: Date;
   /**
-   * The time at which the Stage was updated. An RFC3339 formatted datetime string
+   * The time the stage was updated. Format defined by [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339).
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the Stage.
+   * The current state of the stage.
    *
    */
   "lifecycleState"?: string;
@@ -56,7 +56,7 @@ export interface BuildPipelineStageSummary {
    */
   "lifecycleDetails"?: string;
   /**
-   * Optional description about the BuildStage
+   * Optional description about the build stage.
    */
   "description"?: string;
   "buildPipelineStagePredecessorCollection"?: model.BuildPipelineStagePredecessorCollection;

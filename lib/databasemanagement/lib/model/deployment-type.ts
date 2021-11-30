@@ -25,6 +25,7 @@ import common = require("oci-common");
 * - VM: Virtual machines in Oracle Cloud.
 * - EXADATA: Exadata infrastructure in Oracle Cloud.
 * - EXADATA_CC: Exadata Cloud@Customer infrastructure in customer's data center.
+* - AUTONOMOUS: Oracle Autonomous Cloud infrastructure
 * 
 **/
 export enum DeploymentType {
@@ -33,6 +34,7 @@ export enum DeploymentType {
   Vm = "VM",
   Exadata = "EXADATA",
   ExadataCc = "EXADATA_CC",
+  Autonomous = "AUTONOMOUS",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
