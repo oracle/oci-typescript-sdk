@@ -146,6 +146,8 @@ import * as DeleteVmClusterNetworkResponse from "./delete-vm-cluster-network-res
 export import DeleteVmClusterNetworkResponse = DeleteVmClusterNetworkResponse.DeleteVmClusterNetworkResponse;
 import * as DeregisterAutonomousDatabaseDataSafeResponse from "./deregister-autonomous-database-data-safe-response";
 export import DeregisterAutonomousDatabaseDataSafeResponse = DeregisterAutonomousDatabaseDataSafeResponse.DeregisterAutonomousDatabaseDataSafeResponse;
+import * as DisableAutonomousDatabaseManagementResponse from "./disable-autonomous-database-management-response";
+export import DisableAutonomousDatabaseManagementResponse = DisableAutonomousDatabaseManagementResponse.DisableAutonomousDatabaseManagementResponse;
 import * as DisableAutonomousDatabaseOperationsInsightsResponse from "./disable-autonomous-database-operations-insights-response";
 export import DisableAutonomousDatabaseOperationsInsightsResponse = DisableAutonomousDatabaseOperationsInsightsResponse.DisableAutonomousDatabaseOperationsInsightsResponse;
 import * as DisableDatabaseManagementResponse from "./disable-database-management-response";
@@ -166,6 +168,8 @@ import * as DownloadValidationReportResponse from "./download-validation-report-
 export import DownloadValidationReportResponse = DownloadValidationReportResponse.DownloadValidationReportResponse;
 import * as DownloadVmClusterNetworkConfigFileResponse from "./download-vm-cluster-network-config-file-response";
 export import DownloadVmClusterNetworkConfigFileResponse = DownloadVmClusterNetworkConfigFileResponse.DownloadVmClusterNetworkConfigFileResponse;
+import * as EnableAutonomousDatabaseManagementResponse from "./enable-autonomous-database-management-response";
+export import EnableAutonomousDatabaseManagementResponse = EnableAutonomousDatabaseManagementResponse.EnableAutonomousDatabaseManagementResponse;
 import * as EnableAutonomousDatabaseOperationsInsightsResponse from "./enable-autonomous-database-operations-insights-response";
 export import EnableAutonomousDatabaseOperationsInsightsResponse = EnableAutonomousDatabaseOperationsInsightsResponse.EnableAutonomousDatabaseOperationsInsightsResponse;
 import * as EnableDatabaseManagementResponse from "./enable-database-management-response";

@@ -443,7 +443,8 @@ export class BlockchainPlatformClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deleteBlockchainPlatformRequest.opcRequestId,
-      "if-match": deleteBlockchainPlatformRequest.ifMatch
+      "if-match": deleteBlockchainPlatformRequest.ifMatch,
+      "opc-retry-token": deleteBlockchainPlatformRequest.opcRetryToken
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -573,7 +574,8 @@ export class BlockchainPlatformClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": deletePeerRequest.opcRequestId,
-      "if-match": deletePeerRequest.ifMatch
+      "if-match": deletePeerRequest.ifMatch,
+      "opc-retry-token": deletePeerRequest.opcRetryToken
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -946,6 +948,79 @@ export class BlockchainPlatformClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List Blockchain Platform Patches
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBlockchainPlatformPatchesRequest
+   * @return ListBlockchainPlatformPatchesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListBlockchainPlatformPatches.ts.html |here} to see how to use ListBlockchainPlatformPatches API.
+   */
+  public async listBlockchainPlatformPatches(
+    listBlockchainPlatformPatchesRequest: requests.ListBlockchainPlatformPatchesRequest
+  ): Promise<responses.ListBlockchainPlatformPatchesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation BlockchainPlatformClient#listBlockchainPlatformPatches."
+      );
+    const pathParams = {
+      "{blockchainPlatformId}": listBlockchainPlatformPatchesRequest.blockchainPlatformId
+    };
+
+    const queryParams = {
+      "page": listBlockchainPlatformPatchesRequest.page,
+      "limit": listBlockchainPlatformPatchesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBlockchainPlatformPatchesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBlockchainPlatformPatchesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/blockchainPlatforms/{blockchainPlatformId}/patches",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBlockchainPlatformPatchesResponse>{},
+        body: await response.json(),
+        bodyKey: "blockchainPlatformPatchCollection",
+        bodyModel: model.BlockchainPlatformPatchCollection,
+        type: "model.BlockchainPlatformPatchCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
           }
         ]
       });
@@ -1876,6 +1951,77 @@ export class BlockchainPlatformClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Upgrade a Blockchain Platform version
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpgradeBlockchainPlatformRequest
+   * @return UpgradeBlockchainPlatformResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/UpgradeBlockchainPlatform.ts.html |here} to see how to use UpgradeBlockchainPlatform API.
+   */
+  public async upgradeBlockchainPlatform(
+    upgradeBlockchainPlatformRequest: requests.UpgradeBlockchainPlatformRequest
+  ): Promise<responses.UpgradeBlockchainPlatformResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#upgradeBlockchainPlatform.");
+    const pathParams = {
+      "{blockchainPlatformId}": upgradeBlockchainPlatformRequest.blockchainPlatformId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": upgradeBlockchainPlatformRequest.ifMatch,
+      "opc-request-id": upgradeBlockchainPlatformRequest.opcRequestId,
+      "opc-retry-token": upgradeBlockchainPlatformRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      upgradeBlockchainPlatformRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/blockchainPlatforms/{blockchainPlatformId}/actions/upgrade",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        upgradeBlockchainPlatformRequest.upgradeBlockchainPlatformDetails,
+        "UpgradeBlockchainPlatformDetails",
+        model.UpgradeBlockchainPlatformDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpgradeBlockchainPlatformResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

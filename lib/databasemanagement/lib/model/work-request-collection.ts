@@ -18,12 +18,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Lists all work requests in a given compartment. Contains WorkRequestSummary items.
+ * Lists all work requests in a specific compartment. This contains WorkRequestSummary items.
  *
  */
 export interface WorkRequestCollection {
   /**
-   * Collection of work requests
+   * A collection of work requests.
    */
   "items": Array<model.WorkRequestSummary>;
 }

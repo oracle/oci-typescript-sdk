@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface PutRepositoryRefRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**
-   * A filter to return only resources that match the given Ref name.
+   * A filter to return only resources that match the given reference name.
    */
   "refName": string;
   /**
-   * The information to create a Ref with the type specified in the query
+   * The information to create a reference with the type specified in the query.
    */
   "putRepositoryRefDetails": model.PutRepositoryTagDetails | model.PutRepositoryBranchDetails;
   /**

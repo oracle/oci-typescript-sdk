@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details used to change the compartment of a Database Management private endpoint.
+ * The details used to move the Database Management private endpoint to another compartment.
  */
 export interface ChangeDbManagementPrivateEndpointCompartmentDetails {
   /**
-   * The OCID of the new compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to which the Database Management private endpoint needs to be moved.
    */
   "compartmentId"?: string;
 }

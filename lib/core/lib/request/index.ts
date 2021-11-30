@@ -532,6 +532,8 @@ import * as DetachServiceIdRequest from "./detach-service-id-request";
 export import DetachServiceIdRequest = DetachServiceIdRequest.DetachServiceIdRequest;
 import * as GetAllDrgAttachmentsRequest from "./get-all-drg-attachments-request";
 export import GetAllDrgAttachmentsRequest = GetAllDrgAttachmentsRequest.GetAllDrgAttachmentsRequest;
+import * as GetAllowedIkeIPSecParametersRequest from "./get-allowed-ike-ipsec-parameters-request";
+export import GetAllowedIkeIPSecParametersRequest = GetAllowedIkeIPSecParametersRequest.GetAllowedIkeIPSecParametersRequest;
 import * as GetByoipRangeRequest from "./get-byoip-range-request";
 export import GetByoipRangeRequest = GetByoipRangeRequest.GetByoipRangeRequest;
 import * as GetCpeRequest from "./get-cpe-request";
@@ -572,6 +574,8 @@ import * as GetIPSecConnectionDeviceStatusRequest from "./get-ipsec-connection-d
 export import GetIPSecConnectionDeviceStatusRequest = GetIPSecConnectionDeviceStatusRequest.GetIPSecConnectionDeviceStatusRequest;
 import * as GetIPSecConnectionTunnelRequest from "./get-ipsec-connection-tunnel-request";
 export import GetIPSecConnectionTunnelRequest = GetIPSecConnectionTunnelRequest.GetIPSecConnectionTunnelRequest;
+import * as GetIPSecConnectionTunnelErrorRequest from "./get-ipsec-connection-tunnel-error-request";
+export import GetIPSecConnectionTunnelErrorRequest = GetIPSecConnectionTunnelErrorRequest.GetIPSecConnectionTunnelErrorRequest;
 import * as GetIPSecConnectionTunnelSharedSecretRequest from "./get-ipsec-connection-tunnel-shared-secret-request";
 export import GetIPSecConnectionTunnelSharedSecretRequest = GetIPSecConnectionTunnelSharedSecretRequest.GetIPSecConnectionTunnelSharedSecretRequest;
 import * as GetInternetGatewayRequest from "./get-internet-gateway-request";
@@ -668,6 +672,10 @@ import * as ListFastConnectProviderServicesRequest from "./list-fast-connect-pro
 export import ListFastConnectProviderServicesRequest = ListFastConnectProviderServicesRequest.ListFastConnectProviderServicesRequest;
 import * as ListFastConnectProviderVirtualCircuitBandwidthShapesRequest from "./list-fast-connect-provider-virtual-circuit-bandwidth-shapes-request";
 export import ListFastConnectProviderVirtualCircuitBandwidthShapesRequest = ListFastConnectProviderVirtualCircuitBandwidthShapesRequest.ListFastConnectProviderVirtualCircuitBandwidthShapesRequest;
+import * as ListIPSecConnectionTunnelRoutesRequest from "./list-ipsec-connection-tunnel-routes-request";
+export import ListIPSecConnectionTunnelRoutesRequest = ListIPSecConnectionTunnelRoutesRequest.ListIPSecConnectionTunnelRoutesRequest;
+import * as ListIPSecConnectionTunnelSecurityAssociationsRequest from "./list-ipsec-connection-tunnel-security-associations-request";
+export import ListIPSecConnectionTunnelSecurityAssociationsRequest = ListIPSecConnectionTunnelSecurityAssociationsRequest.ListIPSecConnectionTunnelSecurityAssociationsRequest;
 import * as ListIPSecConnectionTunnelsRequest from "./list-ipsec-connection-tunnels-request";
 export import ListIPSecConnectionTunnelsRequest = ListIPSecConnectionTunnelsRequest.ListIPSecConnectionTunnelsRequest;
 import * as ListIPSecConnectionsRequest from "./list-ipsec-connections-request";

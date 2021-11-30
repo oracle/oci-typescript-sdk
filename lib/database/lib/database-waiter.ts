@@ -1529,6 +1529,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDisableAutonomousDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns DisableAutonomousDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forDisableAutonomousDatabaseManagement(
+    request: serviceRequests.DisableAutonomousDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.DisableAutonomousDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const disableAutonomousDatabaseManagementResponse = await this.client.disableAutonomousDatabaseManagement(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      disableAutonomousDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: disableAutonomousDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forDisableAutonomousDatabaseOperationsInsights
    *
    * @param request the request to send
@@ -1704,6 +1730,32 @@ export class DatabaseWaiter {
     );
     return {
       response: disableExternalPluggableDatabaseOperationsInsightsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forEnableAutonomousDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns EnableAutonomousDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forEnableAutonomousDatabaseManagement(
+    request: serviceRequests.EnableAutonomousDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.EnableAutonomousDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const enableAutonomousDatabaseManagementResponse = await this.client.enableAutonomousDatabaseManagement(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      enableAutonomousDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: enableAutonomousDatabaseManagementResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

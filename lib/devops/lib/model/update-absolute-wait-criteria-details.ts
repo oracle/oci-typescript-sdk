@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,13 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies the absolute wait criteria, user can specify fixed length of wait duration.
+ * Specifies the absolute wait criteria. You can specify fixed length of wait duration.
  */
 export interface UpdateAbsoluteWaitCriteriaDetails extends model.UpdateWaitCriteriaDetails {
   /**
    * The absolute wait duration.
-   * Minimum waitDuration should be 5 seconds.
-   * Maximum waitDuration can be up to 2 days.
+   * Minimum wait duration must be 5 seconds.
+   * Maximum wait duration can be up to 2 days.
    *
    */
   "waitDuration"?: string;

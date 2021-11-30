@@ -31,7 +31,7 @@ export interface CreateDomainDetails {
    */
   "description": string;
   /**
-    * The region's name. See [Regions and Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm)
+    * The region's name identifier. See [Regions and Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm)
 * for the full list of supported region names.
 * <p>
 Example: `us-phoenix-1`

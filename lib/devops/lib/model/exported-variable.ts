@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,16 +15,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Values for Exported variables.
+ * Values for exported variables.
  */
 export interface ExportedVariable {
   /**
-   * Name of the parameter (Case-sensitive).
+   * Name of the parameter (case-sensitive). Parameter name must be ^[a-zA-Z][a-zA-Z_0-9]*$.
    *
    */
   "name": string;
   /**
-   * value of the argument
+   * Value of the argument.
    */
   "value": string;
 }

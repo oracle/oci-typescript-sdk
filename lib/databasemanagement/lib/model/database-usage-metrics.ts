@@ -34,7 +34,9 @@ export interface DatabaseUsageMetrics {
    */
   "databaseType"?: model.DatabaseType;
   /**
-   * The subtype of the Oracle Database. Indicates whether the database is a Container Database, Pluggable Database, or a Non-container Database.
+   * The subtype of the Oracle Database. Indicates whether the database is a Container Database,
+   * Pluggable Database, Non-container Database, Autonomous Database, or Autonomous Container Database.
+   *
    */
   "databaseSubType"?: model.DatabaseSubType;
   /**
@@ -45,6 +47,10 @@ export interface DatabaseUsageMetrics {
    * The Oracle Database version.
    */
   "databaseVersion"?: string;
+  /**
+   * The workload type of the Autonomous Database.
+   */
+  "workloadType"?: model.WorkloadType;
   /**
    * The display name of the Managed Database.
    */

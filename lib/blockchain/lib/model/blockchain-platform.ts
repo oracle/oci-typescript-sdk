@@ -47,6 +47,10 @@ export interface BlockchainPlatform {
    */
   "timeUpdated"?: Date;
   /**
+   * Platform Version
+   */
+  "platformVersion"?: string;
+  /**
    * The version of the Platform Instance.
    */
   "serviceVersion"?: string;

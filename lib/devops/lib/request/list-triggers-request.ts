@@ -27,7 +27,7 @@ export interface ListTriggersRequest extends common.BaseRequest {
    */
   "projectId"?: string;
   /**
-   * A filter to return only Triggers that matches the given lifecycleState
+   * A filter to return only triggers that matches the given lifecycle state.
    */
   "lifecycleState"?: string;
   /**
@@ -35,7 +35,7 @@ export interface ListTriggersRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * unique Trigger identifier
+   * Unique trigger identifier.
    */
   "id"?: string;
   /**

@@ -22,15 +22,19 @@ import common = require("oci-common");
  */
 export interface CreateDbManagementPrivateEndpointDetails {
   /**
-   * The display name for the private endpoint. It is changeable.
+   * The display name of the Database Management private endpoint.
    */
   "name": string;
   /**
-   * The OCID of the compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
-   * The OCID of the subnet.
+   * Specifies whether the Database Management private endpoint will be used for Oracle Databases in a cluster.
+   */
+  "isCluster"?: boolean;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet.
    */
   "subnetId": string;
   /**
@@ -38,7 +42,7 @@ export interface CreateDbManagementPrivateEndpointDetails {
    */
   "description"?: string;
   /**
-   * The OCIDs of the network security groups that the private endpoint belongs to.
+   * The OCIDs of the Network Security Groups to which the Database Management private endpoint belongs.
    *
    */
   "nsgIds"?: Array<string>;

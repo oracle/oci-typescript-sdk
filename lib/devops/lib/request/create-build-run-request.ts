@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateBuildRunRequest extends common.BaseRequest {
   /**
-   * Details the input parameters required to create a new build run.
+   * Parameter details required to create a new build run.
    */
   "createBuildRunDetails": model.CreateBuildRunDetails;
   /**

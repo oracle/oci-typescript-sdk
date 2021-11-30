@@ -61,6 +61,16 @@ export interface DeploymentBackupSummary {
    */
   "timeOfBackup"?: Date;
   /**
+   * The time of the resource backup finish. The format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   *
+   */
+  "timeBackupFinished"?: Date;
+  /**
+   * The size of the backup stored in object storage (in bytes)
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "sizeInBytes"?: number;
+  /**
    * Possible Deployment backup types.
    *
    */

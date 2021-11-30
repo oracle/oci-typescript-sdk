@@ -19,17 +19,17 @@ import common = require("oci-common");
  */
 export interface ListPathsRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**
-   * The name of branch/tag or commit hash it points to. If names conflict order of preference is commit > branch > tag.
-   * You can disambiguate with \"heads/foobar\" and \"tags/foobar\". Repository's default branch will be used if left blank.
+   * The name of branch/tag or commit hash it points to. If names conflict, order of preference is commit > branch > tag.
+   * You can disambiguate with \"heads/foobar\" and \"tags/foobar\". If left blank repository's default branch will be used.
    *
    */
   "ref"?: string;
   /**
-   * Flag to determine if files should be retrived recursively. false by default
+   * Flag to determine if files must be retrived recursively. Flag is False by default.
    */
   "pathsInSubtree"?: boolean;
   /**

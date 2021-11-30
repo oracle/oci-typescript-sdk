@@ -30,6 +30,10 @@ export interface DatabaseDetails {
    */
   "databaseId": string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   */
+  "compartmentId": string;
+  /**
    * The database name. The database name is unique within the tenancy.
    */
   "databaseName": string;

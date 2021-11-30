@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetWorkRequestRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the async Work Request.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the asynchronous work request.
    */
   "workRequestId": string;
   /**

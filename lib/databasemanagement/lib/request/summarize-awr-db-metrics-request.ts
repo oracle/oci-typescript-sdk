@@ -61,7 +61,7 @@ export interface SummarizeAwrDbMetricsRequest extends common.BaseRequest {
    */
   "containerId"?: number;
   /**
-   * The page token representing the page, from where the next set of paginated results
+   * The page token representing the page from where the next set of paginated results
    * are retrieved. This is usually retrieved from a previous list call.
    *
    */

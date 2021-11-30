@@ -747,7 +747,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Deletes the specified Database Management private endpoint.
+   * Deletes a specific Database Management private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDbManagementPrivateEndpointRequest
    * @return DeleteDbManagementPrivateEndpointResponse
@@ -1291,7 +1291,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets the details of the specified Database Management private endpoint.
+   * Gets the details of a specific Database Management private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDbManagementPrivateEndpointRequest
    * @return GetDbManagementPrivateEndpointResponse
@@ -1689,9 +1689,10 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets a summary of the resource usage metrics like DB Time, CPU, User I/O, Wait, Storage, and Memory
-   * for each Pdb under specified Container database in same compartment as container database.
-   * If comparmentId is provided then for each Pdb under specified compartmentId.
+   * Gets a summary of the resource usage metrics such as CPU, User I/O, and Storage for each
+   * PDB within a specific CDB. If comparmentId is specified, then the metrics for
+   * each PDB (within the CDB) in the specified compartment are retrieved.
+   * If compartmentId is not specified, then the metrics for all the PDBs within the CDB are retrieved.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPdbMetricsRequest
@@ -1760,7 +1761,71 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets information of the work request with the given Work Request Id.
+   * Gets the details of a specific user for the specified managedDatabaseId and userName.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetUserRequest
+   * @return GetUserResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetUser.ts.html |here} to see how to use GetUser API.
+   */
+  public async getUser(
+    getUserRequest: requests.GetUserRequest
+  ): Promise<responses.GetUserResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getUser.");
+    const pathParams = {
+      "{managedDatabaseId}": getUserRequest.managedDatabaseId,
+      "{userName}": getUserRequest.userName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getUserRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getUserRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/users/{userName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetUserResponse>{},
+        body: await response.json(),
+        bodyKey: "user",
+        bodyModel: model.User,
+        type: "model.User",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the status of the work request with the given Work Request ID
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
@@ -1827,7 +1892,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets the list of Databases using the specified Database Management private endpoint.
+   * Gets the list of databases using a specific Database Management private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAssociatedDatabasesRequest
    * @return ListAssociatedDatabasesResponse
@@ -2060,6 +2125,156 @@ export class DbManagementClient {
   }
 
   /**
+   * Gets the list of Consumer Group Privileges granted for the specified user.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListConsumerGroupPrivilegesRequest
+   * @return ListConsumerGroupPrivilegesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListConsumerGroupPrivileges.ts.html |here} to see how to use ListConsumerGroupPrivileges API.
+   */
+  public async listConsumerGroupPrivileges(
+    listConsumerGroupPrivilegesRequest: requests.ListConsumerGroupPrivilegesRequest
+  ): Promise<responses.ListConsumerGroupPrivilegesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listConsumerGroupPrivileges.");
+    const pathParams = {
+      "{managedDatabaseId}": listConsumerGroupPrivilegesRequest.managedDatabaseId,
+      "{userName}": listConsumerGroupPrivilegesRequest.userName
+    };
+
+    const queryParams = {
+      "name": listConsumerGroupPrivilegesRequest.name,
+      "sortBy": listConsumerGroupPrivilegesRequest.sortBy,
+      "sortOrder": listConsumerGroupPrivilegesRequest.sortOrder,
+      "limit": listConsumerGroupPrivilegesRequest.limit,
+      "page": listConsumerGroupPrivilegesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listConsumerGroupPrivilegesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConsumerGroupPrivilegesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/users/{userName}/consumerGroupPrivileges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListConsumerGroupPrivilegesResponse>{},
+        body: await response.json(),
+        bodyKey: "consumerGroupPrivilegeCollection",
+        bodyModel: model.ConsumerGroupPrivilegeCollection,
+        type: "model.ConsumerGroupPrivilegeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of Containers if it does not apply to all containers for the specified user.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDataAccessContainersRequest
+   * @return ListDataAccessContainersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListDataAccessContainers.ts.html |here} to see how to use ListDataAccessContainers API.
+   */
+  public async listDataAccessContainers(
+    listDataAccessContainersRequest: requests.ListDataAccessContainersRequest
+  ): Promise<responses.ListDataAccessContainersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listDataAccessContainers.");
+    const pathParams = {
+      "{managedDatabaseId}": listDataAccessContainersRequest.managedDatabaseId,
+      "{userName}": listDataAccessContainersRequest.userName
+    };
+
+    const queryParams = {
+      "name": listDataAccessContainersRequest.name,
+      "sortBy": listDataAccessContainersRequest.sortBy,
+      "sortOrder": listDataAccessContainersRequest.sortOrder,
+      "limit": listDataAccessContainersRequest.limit,
+      "page": listDataAccessContainersRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDataAccessContainersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataAccessContainersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/users/{userName}/dataAccessContainers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDataAccessContainersResponse>{},
+        body: await response.json(),
+        bodyKey: "dataAccessContainerCollection",
+        bodyModel: model.DataAccessContainerCollection,
+        type: "model.DataAccessContainerCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the list of database parameters for the specified Managed Database. The parameters are listed in alphabetical order, along with their current values.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2149,6 +2364,7 @@ export class DbManagementClient {
       "compartmentId": listDbManagementPrivateEndpointsRequest.compartmentId,
       "name": listDbManagementPrivateEndpointsRequest.name,
       "vcnId": listDbManagementPrivateEndpointsRequest.vcnId,
+      "isCluster": listDbManagementPrivateEndpointsRequest.isCluster,
       "lifecycleState": listDbManagementPrivateEndpointsRequest.lifecycleState,
       "limit": listDbManagementPrivateEndpointsRequest.limit,
       "page": listDbManagementPrivateEndpointsRequest.page,
@@ -2610,6 +2826,378 @@ export class DbManagementClient {
   }
 
   /**
+   * Gets the list of Object Privileges granted for the specified user.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListObjectPrivilegesRequest
+   * @return ListObjectPrivilegesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListObjectPrivileges.ts.html |here} to see how to use ListObjectPrivileges API.
+   */
+  public async listObjectPrivileges(
+    listObjectPrivilegesRequest: requests.ListObjectPrivilegesRequest
+  ): Promise<responses.ListObjectPrivilegesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listObjectPrivileges.");
+    const pathParams = {
+      "{managedDatabaseId}": listObjectPrivilegesRequest.managedDatabaseId,
+      "{userName}": listObjectPrivilegesRequest.userName
+    };
+
+    const queryParams = {
+      "name": listObjectPrivilegesRequest.name,
+      "sortBy": listObjectPrivilegesRequest.sortBy,
+      "sortOrder": listObjectPrivilegesRequest.sortOrder,
+      "limit": listObjectPrivilegesRequest.limit,
+      "page": listObjectPrivilegesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listObjectPrivilegesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listObjectPrivilegesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/users/{userName}/objectPrivileges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListObjectPrivilegesResponse>{},
+        body: await response.json(),
+        bodyKey: "objectPrivilegeCollection",
+        bodyModel: model.ObjectPrivilegeCollection,
+        type: "model.ObjectPrivilegeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of Users for which the current user acts as proxy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListProxiedForUsersRequest
+   * @return ListProxiedForUsersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListProxiedForUsers.ts.html |here} to see how to use ListProxiedForUsers API.
+   */
+  public async listProxiedForUsers(
+    listProxiedForUsersRequest: requests.ListProxiedForUsersRequest
+  ): Promise<responses.ListProxiedForUsersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listProxiedForUsers.");
+    const pathParams = {
+      "{managedDatabaseId}": listProxiedForUsersRequest.managedDatabaseId,
+      "{userName}": listProxiedForUsersRequest.userName
+    };
+
+    const queryParams = {
+      "name": listProxiedForUsersRequest.name,
+      "sortBy": listProxiedForUsersRequest.sortBy,
+      "sortOrder": listProxiedForUsersRequest.sortOrder,
+      "limit": listProxiedForUsersRequest.limit,
+      "page": listProxiedForUsersRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listProxiedForUsersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProxiedForUsersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/users/{userName}/proxiedForUsers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListProxiedForUsersResponse>{},
+        body: await response.json(),
+        bodyKey: "proxiedForUserCollection",
+        bodyModel: model.ProxiedForUserCollection,
+        type: "model.ProxiedForUserCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of proxy users for the current User.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListProxyUsersRequest
+   * @return ListProxyUsersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListProxyUsers.ts.html |here} to see how to use ListProxyUsers API.
+   */
+  public async listProxyUsers(
+    listProxyUsersRequest: requests.ListProxyUsersRequest
+  ): Promise<responses.ListProxyUsersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listProxyUsers.");
+    const pathParams = {
+      "{managedDatabaseId}": listProxyUsersRequest.managedDatabaseId,
+      "{userName}": listProxyUsersRequest.userName
+    };
+
+    const queryParams = {
+      "name": listProxyUsersRequest.name,
+      "sortBy": listProxyUsersRequest.sortBy,
+      "sortOrder": listProxyUsersRequest.sortOrder,
+      "limit": listProxyUsersRequest.limit,
+      "page": listProxyUsersRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listProxyUsersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProxyUsersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/users/{userName}/proxyUsers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListProxyUsersResponse>{},
+        body: await response.json(),
+        bodyKey: "proxyUserCollection",
+        bodyModel: model.ProxyUserCollection,
+        type: "model.ProxyUserCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of roles granted for the specified user.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListRolesRequest
+   * @return ListRolesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListRoles.ts.html |here} to see how to use ListRoles API.
+   */
+  public async listRoles(
+    listRolesRequest: requests.ListRolesRequest
+  ): Promise<responses.ListRolesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listRoles.");
+    const pathParams = {
+      "{managedDatabaseId}": listRolesRequest.managedDatabaseId,
+      "{userName}": listRolesRequest.userName
+    };
+
+    const queryParams = {
+      "name": listRolesRequest.name,
+      "sortBy": listRolesRequest.sortBy,
+      "sortOrder": listRolesRequest.sortOrder,
+      "limit": listRolesRequest.limit,
+      "page": listRolesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRolesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRolesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/users/{userName}/roles",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRolesResponse>{},
+        body: await response.json(),
+        bodyKey: "roleCollection",
+        bodyModel: model.RoleCollection,
+        type: "model.RoleCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of System Privileges granted for the specified user.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSystemPrivilegesRequest
+   * @return ListSystemPrivilegesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSystemPrivileges.ts.html |here} to see how to use ListSystemPrivileges API.
+   */
+  public async listSystemPrivileges(
+    listSystemPrivilegesRequest: requests.ListSystemPrivilegesRequest
+  ): Promise<responses.ListSystemPrivilegesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listSystemPrivileges.");
+    const pathParams = {
+      "{managedDatabaseId}": listSystemPrivilegesRequest.managedDatabaseId,
+      "{userName}": listSystemPrivilegesRequest.userName
+    };
+
+    const queryParams = {
+      "name": listSystemPrivilegesRequest.name,
+      "sortBy": listSystemPrivilegesRequest.sortBy,
+      "sortOrder": listSystemPrivilegesRequest.sortOrder,
+      "limit": listSystemPrivilegesRequest.limit,
+      "page": listSystemPrivilegesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSystemPrivilegesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSystemPrivilegesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/users/{userName}/systemPrivileges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSystemPrivilegesResponse>{},
+        body: await response.json(),
+        bodyKey: "systemPrivilegeCollection",
+        bodyModel: model.SystemPrivilegeCollection,
+        type: "model.SystemPrivilegeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the list of tablespaces for the specified managedDatabaseId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTablespacesRequest
@@ -2683,7 +3271,80 @@ export class DbManagementClient {
   }
 
   /**
-   * Returns a (paginated) list of errors for a given work request.
+   * Gets the list of users for the specified managedDatabaseId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListUsersRequest
+   * @return ListUsersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListUsers.ts.html |here} to see how to use ListUsers API.
+   */
+  public async listUsers(
+    listUsersRequest: requests.ListUsersRequest
+  ): Promise<responses.ListUsersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listUsers.");
+    const pathParams = {
+      "{managedDatabaseId}": listUsersRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "name": listUsersRequest.name,
+      "sortBy": listUsersRequest.sortBy,
+      "sortOrder": listUsersRequest.sortOrder,
+      "limit": listUsersRequest.limit,
+      "page": listUsersRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listUsersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listUsersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/users",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListUsersResponse>{},
+        body: await response.json(),
+        bodyKey: "userCollection",
+        bodyModel: model.UserCollection,
+        type: "model.UserCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a paginated list of errors for a given work request.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
@@ -2757,7 +3418,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Returns a (paginated) list of logs for a given work request.
+   * Returns a paginated list of logs for a given work request.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
@@ -2830,7 +3491,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Lists all the work requests in the specified compartment.
+   * The list of work requests in a specific compartment was retrieved successfully.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
@@ -3886,7 +4547,7 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
-   * Updates one or more attributes of the specified Database Management private endpoint.
+   * Updates one or more attributes of a specific Database Management private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDbManagementPrivateEndpointRequest
    * @return UpdateDbManagementPrivateEndpointResponse
@@ -4098,6 +4759,758 @@ Note that this API does not return information on the number of times each datab
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum SqlTuningApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class SqlTuningClient {
+  protected static serviceEndpointTemplate = "https://dbmgmt.{region}.oci.{secondLevelDomain}";
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
+
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20201101";
+    if (this.logger) this.logger.info(`SqlTuningClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      SqlTuningClient.serviceEndpointTemplate,
+      region
+    );
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      SqlTuningClient.serviceEndpointTemplate,
+      regionId
+    );
+  }
+
+  /**
+   * Clone and start a SQL tuning task for a given SQL tuning task.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CloneSqlTuningTaskRequest
+   * @return CloneSqlTuningTaskResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CloneSqlTuningTask.ts.html |here} to see how to use CloneSqlTuningTask API.
+   */
+  public async cloneSqlTuningTask(
+    cloneSqlTuningTaskRequest: requests.CloneSqlTuningTaskRequest
+  ): Promise<responses.CloneSqlTuningTaskResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#cloneSqlTuningTask.");
+    const pathParams = {
+      "{managedDatabaseId}": cloneSqlTuningTaskRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": cloneSqlTuningTaskRequest.opcRequestId,
+      "opc-retry-token": cloneSqlTuningTaskRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cloneSqlTuningTaskRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/actions/cloneSqlTuningTask",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        cloneSqlTuningTaskRequest.cloneSqlTuningTaskDetails,
+        "CloneSqlTuningTaskDetails",
+        model.CloneSqlTuningTaskDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CloneSqlTuningTaskResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningTaskReturn",
+        bodyModel: model.SqlTuningTaskReturn,
+        type: "model.SqlTuningTaskReturn",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Drop a SQL tuning task and its related results from the database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DropSqlTuningTaskRequest
+   * @return DropSqlTuningTaskResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlTuningTask.ts.html |here} to see how to use DropSqlTuningTask API.
+   */
+  public async dropSqlTuningTask(
+    dropSqlTuningTaskRequest: requests.DropSqlTuningTaskRequest
+  ): Promise<responses.DropSqlTuningTaskResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#dropSqlTuningTask.");
+    const pathParams = {
+      "{managedDatabaseId}": dropSqlTuningTaskRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": dropSqlTuningTaskRequest.opcRequestId,
+      "opc-retry-token": dropSqlTuningTaskRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      dropSqlTuningTaskRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/actions/dropSqlTuningTask",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        dropSqlTuningTaskRequest.dropSqlTuningTaskDetails,
+        "DropSqlTuningTaskDetails",
+        model.DropSqlTuningTaskDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DropSqlTuningTaskResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * A SQL tuning task may suggest new execution plan for a SQL. The API returns the
+   * stats comparison report for the plans.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetExecutionPlanStatsComparisionRequest
+   * @return GetExecutionPlanStatsComparisionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExecutionPlanStatsComparision.ts.html |here} to see how to use GetExecutionPlanStatsComparision API.
+   */
+  public async getExecutionPlanStatsComparision(
+    getExecutionPlanStatsComparisionRequest: requests.GetExecutionPlanStatsComparisionRequest
+  ): Promise<responses.GetExecutionPlanStatsComparisionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SqlTuningClient#getExecutionPlanStatsComparision.");
+    const pathParams = {
+      "{managedDatabaseId}": getExecutionPlanStatsComparisionRequest.managedDatabaseId,
+      "{sqlTuningAdvisorTaskId}": getExecutionPlanStatsComparisionRequest.sqlTuningAdvisorTaskId
+    };
+
+    const queryParams = {
+      "sqlObjectId": getExecutionPlanStatsComparisionRequest.sqlObjectId,
+      "executionId": getExecutionPlanStatsComparisionRequest.executionId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExecutionPlanStatsComparisionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExecutionPlanStatsComparisionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlTuningAdvisorTasks/{sqlTuningAdvisorTaskId}/executionPlanStatsComparision",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExecutionPlanStatsComparisionResponse>{},
+        body: await response.json(),
+        bodyKey: "executionPlanStatsComparision",
+        bodyModel: model.ExecutionPlanStatsComparision,
+        type: "model.ExecutionPlanStatsComparision",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve a SQL execution plan for a SQL being tuned, for original or new plan
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSqlExecutionPlanRequest
+   * @return GetSqlExecutionPlanResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetSqlExecutionPlan.ts.html |here} to see how to use GetSqlExecutionPlan API.
+   */
+  public async getSqlExecutionPlan(
+    getSqlExecutionPlanRequest: requests.GetSqlExecutionPlanRequest
+  ): Promise<responses.GetSqlExecutionPlanResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#getSqlExecutionPlan.");
+    const pathParams = {
+      "{managedDatabaseId}": getSqlExecutionPlanRequest.managedDatabaseId,
+      "{sqlTuningAdvisorTaskId}": getSqlExecutionPlanRequest.sqlTuningAdvisorTaskId
+    };
+
+    const queryParams = {
+      "sqlObjectId": getSqlExecutionPlanRequest.sqlObjectId,
+      "attribute": getSqlExecutionPlanRequest.attribute
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSqlExecutionPlanRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSqlExecutionPlanRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlTuningAdvisorTasks/{sqlTuningAdvisorTaskId}/sqlExecutionPlan",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSqlExecutionPlanResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningAdvisorTaskSqlExecutionPlan",
+        bodyModel: model.SqlTuningAdvisorTaskSqlExecutionPlan,
+        type: "model.SqlTuningAdvisorTaskSqlExecutionPlan",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the summary report for the specific SQL Tuning Advisor task.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSqlTuningAdvisorTaskSummaryReportRequest
+   * @return GetSqlTuningAdvisorTaskSummaryReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetSqlTuningAdvisorTaskSummaryReport.ts.html |here} to see how to use GetSqlTuningAdvisorTaskSummaryReport API.
+   */
+  public async getSqlTuningAdvisorTaskSummaryReport(
+    getSqlTuningAdvisorTaskSummaryReportRequest: requests.GetSqlTuningAdvisorTaskSummaryReportRequest
+  ): Promise<responses.GetSqlTuningAdvisorTaskSummaryReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SqlTuningClient#getSqlTuningAdvisorTaskSummaryReport.");
+    const pathParams = {
+      "{managedDatabaseId}": getSqlTuningAdvisorTaskSummaryReportRequest.managedDatabaseId,
+      "{sqlTuningAdvisorTaskId}": getSqlTuningAdvisorTaskSummaryReportRequest.sqlTuningAdvisorTaskId
+    };
+
+    const queryParams = {
+      "searchPeriod": getSqlTuningAdvisorTaskSummaryReportRequest.searchPeriod,
+      "timeGreaterThanOrEqualTo":
+        getSqlTuningAdvisorTaskSummaryReportRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": getSqlTuningAdvisorTaskSummaryReportRequest.timeLessThanOrEqualTo,
+      "beginExecIdGreaterThanOrEqualTo":
+        getSqlTuningAdvisorTaskSummaryReportRequest.beginExecIdGreaterThanOrEqualTo,
+      "endExecIdLessThanOrEqualTo":
+        getSqlTuningAdvisorTaskSummaryReportRequest.endExecIdLessThanOrEqualTo
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSqlTuningAdvisorTaskSummaryReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSqlTuningAdvisorTaskSummaryReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlTuningAdvisorTasks/{sqlTuningAdvisorTaskId}/summaryReport",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSqlTuningAdvisorTaskSummaryReportResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningAdvisorTaskSummaryReport",
+        bodyModel: model.SqlTuningAdvisorTaskSummaryReport,
+        type: "model.SqlTuningAdvisorTaskSummaryReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Takes in a task id, and a finding/object type filter and applies some SQLs to find return the output.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSqlTuningAdvisorTaskFindingsRequest
+   * @return ListSqlTuningAdvisorTaskFindingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningAdvisorTaskFindings.ts.html |here} to see how to use ListSqlTuningAdvisorTaskFindings API.
+   */
+  public async listSqlTuningAdvisorTaskFindings(
+    listSqlTuningAdvisorTaskFindingsRequest: requests.ListSqlTuningAdvisorTaskFindingsRequest
+  ): Promise<responses.ListSqlTuningAdvisorTaskFindingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SqlTuningClient#listSqlTuningAdvisorTaskFindings.");
+    const pathParams = {
+      "{managedDatabaseId}": listSqlTuningAdvisorTaskFindingsRequest.managedDatabaseId,
+      "{sqlTuningAdvisorTaskId}": listSqlTuningAdvisorTaskFindingsRequest.sqlTuningAdvisorTaskId
+    };
+
+    const queryParams = {
+      "beginExecId": listSqlTuningAdvisorTaskFindingsRequest.beginExecId,
+      "endExecId": listSqlTuningAdvisorTaskFindingsRequest.endExecId,
+      "searchPeriod": listSqlTuningAdvisorTaskFindingsRequest.searchPeriod,
+      "findingFilter": listSqlTuningAdvisorTaskFindingsRequest.findingFilter,
+      "statsHashFilter": listSqlTuningAdvisorTaskFindingsRequest.statsHashFilter,
+      "indexHashFilter": listSqlTuningAdvisorTaskFindingsRequest.indexHashFilter,
+      "sortBy": listSqlTuningAdvisorTaskFindingsRequest.sortBy,
+      "sortOrder": listSqlTuningAdvisorTaskFindingsRequest.sortOrder,
+      "page": listSqlTuningAdvisorTaskFindingsRequest.page,
+      "limit": listSqlTuningAdvisorTaskFindingsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlTuningAdvisorTaskFindingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlTuningAdvisorTaskFindingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlTuningAdvisorTasks/{sqlTuningAdvisorTaskId}/findings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlTuningAdvisorTaskFindingsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningAdvisorTaskFindingCollection",
+        bodyModel: model.SqlTuningAdvisorTaskFindingCollection,
+        type: "model.SqlTuningAdvisorTaskFindingCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Takes in a task id and object id and returns the recommendations/findings.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSqlTuningAdvisorTaskRecommendationsRequest
+   * @return ListSqlTuningAdvisorTaskRecommendationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningAdvisorTaskRecommendations.ts.html |here} to see how to use ListSqlTuningAdvisorTaskRecommendations API.
+   */
+  public async listSqlTuningAdvisorTaskRecommendations(
+    listSqlTuningAdvisorTaskRecommendationsRequest: requests.ListSqlTuningAdvisorTaskRecommendationsRequest
+  ): Promise<responses.ListSqlTuningAdvisorTaskRecommendationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation SqlTuningClient#listSqlTuningAdvisorTaskRecommendations."
+      );
+    const pathParams = {
+      "{managedDatabaseId}": listSqlTuningAdvisorTaskRecommendationsRequest.managedDatabaseId,
+      "{sqlTuningAdvisorTaskId}":
+        listSqlTuningAdvisorTaskRecommendationsRequest.sqlTuningAdvisorTaskId
+    };
+
+    const queryParams = {
+      "sqlObjectId": listSqlTuningAdvisorTaskRecommendationsRequest.sqlObjectId,
+      "executionId": listSqlTuningAdvisorTaskRecommendationsRequest.executionId,
+      "sortBy": listSqlTuningAdvisorTaskRecommendationsRequest.sortBy,
+      "sortOrder": listSqlTuningAdvisorTaskRecommendationsRequest.sortOrder,
+      "page": listSqlTuningAdvisorTaskRecommendationsRequest.page,
+      "limit": listSqlTuningAdvisorTaskRecommendationsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlTuningAdvisorTaskRecommendationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlTuningAdvisorTaskRecommendationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlTuningAdvisorTasks/{sqlTuningAdvisorTaskId}/recommendations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlTuningAdvisorTaskRecommendationsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningAdvisorTaskRecommendationCollection",
+        bodyModel: model.SqlTuningAdvisorTaskRecommendationCollection,
+        type: "model.SqlTuningAdvisorTaskRecommendationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the SQL Tuning Advisor tasks for the specified Managed Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSqlTuningAdvisorTasksRequest
+   * @return ListSqlTuningAdvisorTasksResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningAdvisorTasks.ts.html |here} to see how to use ListSqlTuningAdvisorTasks API.
+   */
+  public async listSqlTuningAdvisorTasks(
+    listSqlTuningAdvisorTasksRequest: requests.ListSqlTuningAdvisorTasksRequest
+  ): Promise<responses.ListSqlTuningAdvisorTasksResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SqlTuningClient#listSqlTuningAdvisorTasks.");
+    const pathParams = {
+      "{managedDatabaseId}": listSqlTuningAdvisorTasksRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "name": listSqlTuningAdvisorTasksRequest.name,
+      "status": listSqlTuningAdvisorTasksRequest.status,
+      "timeGreaterThanOrEqualTo": listSqlTuningAdvisorTasksRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": listSqlTuningAdvisorTasksRequest.timeLessThanOrEqualTo,
+      "page": listSqlTuningAdvisorTasksRequest.page,
+      "limit": listSqlTuningAdvisorTasksRequest.limit,
+      "sortBy": listSqlTuningAdvisorTasksRequest.sortBy,
+      "sortOrder": listSqlTuningAdvisorTasksRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlTuningAdvisorTasksRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlTuningAdvisorTasksRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlTuningAdvisorTasks",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlTuningAdvisorTasksResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningAdvisorTaskCollection",
+        bodyModel: model.SqlTuningAdvisorTaskCollection,
+        type: "model.SqlTuningAdvisorTaskCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Start a SQL tuning task for a given set of SQLs from active session history
+   * top SQLs.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param StartSqlTuningTaskRequest
+   * @return StartSqlTuningTaskResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/StartSqlTuningTask.ts.html |here} to see how to use StartSqlTuningTask API.
+   */
+  public async startSqlTuningTask(
+    startSqlTuningTaskRequest: requests.StartSqlTuningTaskRequest
+  ): Promise<responses.StartSqlTuningTaskResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#startSqlTuningTask.");
+    const pathParams = {
+      "{managedDatabaseId}": startSqlTuningTaskRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": startSqlTuningTaskRequest.opcRequestId,
+      "opc-retry-token": startSqlTuningTaskRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startSqlTuningTaskRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/actions/startSqlTuningTask",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        startSqlTuningTaskRequest.startSqlTuningTaskDetails,
+        "StartSqlTuningTaskDetails",
+        model.StartSqlTuningTaskDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartSqlTuningTaskResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningTaskReturn",
+        bodyModel: model.SqlTuningTaskReturn,
+        type: "model.SqlTuningTaskReturn",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

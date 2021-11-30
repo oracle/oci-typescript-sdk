@@ -35,6 +35,14 @@ export interface ImpactedResourceSummary {
    */
   "compartmentId": string;
   /**
+   * Identifier for the sighting type
+   */
+  "sightingType"?: string;
+  /**
+   * Name of the sighting type
+   */
+  "sightingTypeDisplayName"?: string;
+  /**
    * Name of the Impacted Resource
    */
   "resourceName": string;

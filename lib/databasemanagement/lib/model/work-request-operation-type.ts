@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Type of work request operation
+ * The type of work request operation.
  **/
 export enum WorkRequestOperationType {
   CreateDbManagementPrivateEndpoint = "CREATE_DB_MANAGEMENT_PRIVATE_ENDPOINT",

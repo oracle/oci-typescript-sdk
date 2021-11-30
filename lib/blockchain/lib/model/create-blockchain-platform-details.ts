@@ -43,6 +43,10 @@ export interface CreateBlockchainPlatformDetails {
    */
   "isByol"?: boolean;
   /**
+   * Platform version
+   */
+  "platformVersion"?: string;
+  /**
    * IDCS access token with Identity Domain Administrator role
    */
   "idcsAccessToken": string;

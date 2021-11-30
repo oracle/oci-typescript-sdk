@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Trigger specific to Gitlab
+ * Trigger specific to GitLab.
  */
 export interface GitlabTrigger extends model.Trigger {
   /**
-   * The endpoint which listens to Trigger events
+   * The endpoint that listens to trigger events.
    */
   "triggerUrl": string;
 

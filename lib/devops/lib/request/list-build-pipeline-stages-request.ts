@@ -23,7 +23,7 @@ export interface ListBuildPipelineStagesRequest extends common.BaseRequest {
    */
   "id"?: string;
   /**
-   * The ID of the parent build pipeline.
+   * The OCID of the parent build pipeline.
    */
   "buildPipelineId"?: string;
   /**
@@ -31,7 +31,7 @@ export interface ListBuildPipelineStagesRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return the stages that match with the given lifecycleState.
+   * A filter to return the stages that matches the given lifecycle state.
    */
   "lifecycleState"?: string;
   /**

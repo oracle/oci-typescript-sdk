@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface ListRefsRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**
-   * Ref type to distinguish between branch and tag. If it is not specified, return all refs.
+   * Reference type to distinguish between branch and tag. If it is not specified, all references are returned.
    */
   "refType"?: ListRefsRequest.RefType;
   /**
-   * Commit id in a repository
+   * Commit ID in a repository.
    */
   "commitId"?: string;
   /**
@@ -39,7 +39,7 @@ export interface ListRefsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * A filter to return only resources that match the given Ref name.
+   * A filter to return only resources that match the given reference name.
    */
   "refName"?: string;
   /**
@@ -47,7 +47,7 @@ export interface ListRefsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for refName is ascending. Default order for refType is ascending. If no value is specified refName is default.
+   * The field to sort by. Only one sort order may be provided. Default order for reference name is ascending. Default order for reference type is ascending. If no value is specified reference name is default.
    *
    */
   "sortBy"?: ListRefsRequest.SortBy;

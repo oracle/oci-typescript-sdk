@@ -1,7 +1,7 @@
 /**
- * Application Performance Monitoring (APM) Control Plane API
- * Provide a set of APIs for tenant to perform operations like create, update, delete and list APM domains, and also
-work request APIs to monitor progress of these operations.
+ * Application Performance Monitoring Control Plane API
+ * Use the Application Performance Monitoring Control Plane API to perform operations such as creating, updating,
+deleting and listing APM domains and monitoring the progress of these operations using the work request APIs.
 
  * OpenAPI spec version: 20200630
  * 
@@ -21,8 +21,8 @@ import common = require("oci-common");
  */
 export interface WorkRequestError {
   /**
-   * A machine-usable code for the error that occured. Error codes are listed on
-   * (https://docs.us-phoenix-1.oraclecloud.com/Content/API/References/apierrors.htm)
+   * A machine-usable code for the error that occured. Error codes are listed at
+   * [API Errors](https://docs.cloud.oracle.com/iaas/Content/API/References/apierrors.htm)
    *
    */
   "code": string;
@@ -31,7 +31,7 @@ export interface WorkRequestError {
    */
   "message": string;
   /**
-   * The time the error occured. An RFC3339 formatted datetime string.
+   * The time the error occurred, expressed in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
    */
   "timestamp": Date;
 }

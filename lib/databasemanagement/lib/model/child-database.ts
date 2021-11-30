@@ -38,11 +38,17 @@ export interface ChildDatabase {
    */
   "deploymentType"?: model.DeploymentType;
   /**
+   * The workload type of the Autonomous Database.
+   */
+  "workloadType"?: model.WorkloadType;
+  /**
    * The type of Oracle Database installation.
    */
   "databaseType"?: model.DatabaseType;
   /**
-   * The subtype of the Oracle Database. Indicates whether the database is a Container Database, Pluggable Database, or a Non-container Database.
+   * The subtype of the Oracle Database. Indicates whether the database is a Container Database,
+   * Pluggable Database, Non-container Database, Autonomous Database, or Autonomous Container Database.
+   *
    */
   "databaseSubType"?: model.DatabaseSubType;
   /**

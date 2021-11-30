@@ -29,6 +29,9 @@ export interface DatabaseHomeMetricDefinition {
   "ioAggregateMetrics": model.DatabaseIOAggregateMetrics;
   "memoryAggregateMetrics": model.MemoryAggregateMetrics;
   "dbStorageAggregateMetrics": model.DatabaseStorageAggregateMetrics;
+  "cpuUtilizationAggregateMetrics"?: model.CpuUtilizationAggregateMetrics;
+  "statementsAggregateMetrics"?: model.StatementsAggregateMetrics;
+  "failedConnectionsAggregateMetrics"?: model.FailedConnectionsAggregateMetrics;
 }
 
 export namespace DatabaseHomeMetricDefinition {
@@ -52,6 +55,17 @@ export namespace DatabaseHomeMetricDefinition {
           : undefined,
         "dbStorageAggregateMetrics": obj.dbStorageAggregateMetrics
           ? model.DatabaseStorageAggregateMetrics.getJsonObj(obj.dbStorageAggregateMetrics)
+          : undefined,
+        "cpuUtilizationAggregateMetrics": obj.cpuUtilizationAggregateMetrics
+          ? model.CpuUtilizationAggregateMetrics.getJsonObj(obj.cpuUtilizationAggregateMetrics)
+          : undefined,
+        "statementsAggregateMetrics": obj.statementsAggregateMetrics
+          ? model.StatementsAggregateMetrics.getJsonObj(obj.statementsAggregateMetrics)
+          : undefined,
+        "failedConnectionsAggregateMetrics": obj.failedConnectionsAggregateMetrics
+          ? model.FailedConnectionsAggregateMetrics.getJsonObj(
+              obj.failedConnectionsAggregateMetrics
+            )
           : undefined
       }
     };
@@ -79,6 +93,19 @@ export namespace DatabaseHomeMetricDefinition {
         "dbStorageAggregateMetrics": obj.dbStorageAggregateMetrics
           ? model.DatabaseStorageAggregateMetrics.getDeserializedJsonObj(
               obj.dbStorageAggregateMetrics
+            )
+          : undefined,
+        "cpuUtilizationAggregateMetrics": obj.cpuUtilizationAggregateMetrics
+          ? model.CpuUtilizationAggregateMetrics.getDeserializedJsonObj(
+              obj.cpuUtilizationAggregateMetrics
+            )
+          : undefined,
+        "statementsAggregateMetrics": obj.statementsAggregateMetrics
+          ? model.StatementsAggregateMetrics.getDeserializedJsonObj(obj.statementsAggregateMetrics)
+          : undefined,
+        "failedConnectionsAggregateMetrics": obj.failedConnectionsAggregateMetrics
+          ? model.FailedConnectionsAggregateMetrics.getDeserializedJsonObj(
+              obj.failedConnectionsAggregateMetrics
             )
           : undefined
       }

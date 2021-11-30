@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -19,17 +19,17 @@ import common = require("oci-common");
  */
 export interface TriggerSchedule {
   /**
-   * Different types to trigger schedule
-   * - NONE - No automated sync schedule.
-   * - DEFAULT - Trigger Schedule will be every 30 minutes.
-   * - CUSTOM - Custom triggering schedule.
+   * Different types of trigger schedule:
+   * None - No automated synchronization schedule.
+   * Default - Trigger schedule is every 30 minutes.
+   * Custom - Custom triggering schedule.
    *
    */
   "scheduleType": TriggerSchedule.ScheduleType;
   /**
    * Valid if type is CUSTOM. Following RFC 5545 recurrence rules, we can specify starting time, occurrence frequency, and interval size.
-   * Example for frequency could be DAILY/WEEKLY/HOURLY or any RFC 5545 supported frequency, which is followed by start time of this window, we can
-   * control the start time with BYHOUR, BYMINUTE and BYSECONDS. It is followed by the interval size.
+   * Example for frequency could be DAILY/WEEKLY/HOURLY or any RFC 5545 supported frequency, which is followed by start time of this window.
+   * You can control the start time with BYHOUR, BYMINUTE and BYSECONDS. It is followed by the interval size.
    *
    */
   "customSchedule"?: string;

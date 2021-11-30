@@ -2342,6 +2342,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets a list of database insight configurations based on the query parameters specified. Either compartmentId or databaseInsightId query parameter must be specified.
+   * When both compartmentId and compartmentIdInSubtree are specified, a list of database insight configurations in that compartment and in all sub-compartments will be returned.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDatabaseConfigurationsRequest
@@ -2372,7 +2373,8 @@ export class OperationsInsightsClient {
       "definedTagEquals": listDatabaseConfigurationsRequest.definedTagEquals,
       "freeformTagEquals": listDatabaseConfigurationsRequest.freeformTagEquals,
       "definedTagExists": listDatabaseConfigurationsRequest.definedTagExists,
-      "freeformTagExists": listDatabaseConfigurationsRequest.freeformTagExists
+      "freeformTagExists": listDatabaseConfigurationsRequest.freeformTagExists,
+      "compartmentIdInSubtree": listDatabaseConfigurationsRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -2431,6 +2433,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets a list of database insights based on the query parameters specified. Either compartmentId or id query parameter must be specified.
+   * When both compartmentId and compartmentIdInSubtree are specified, a list of database insights in that compartment and in all sub-compartments will be returned.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDatabaseInsightsRequest
@@ -2458,7 +2461,8 @@ export class OperationsInsightsClient {
       "page": listDatabaseInsightsRequest.page,
       "sortOrder": listDatabaseInsightsRequest.sortOrder,
       "sortBy": listDatabaseInsightsRequest.sortBy,
-      "exadataInsightId": listDatabaseInsightsRequest.exadataInsightId
+      "exadataInsightId": listDatabaseInsightsRequest.exadataInsightId,
+      "compartmentIdInSubtree": listDatabaseInsightsRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -2517,6 +2521,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets a list of Operations Insights Enterprise Manager bridges. Either compartmentId or id must be specified.
+   * When both compartmentId and compartmentIdInSubtree are specified, a list of bridges in that compartment and in all sub-compartments will be returned.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListEnterpriseManagerBridgesRequest
@@ -2539,7 +2544,8 @@ export class OperationsInsightsClient {
       "limit": listEnterpriseManagerBridgesRequest.limit,
       "page": listEnterpriseManagerBridgesRequest.page,
       "sortOrder": listEnterpriseManagerBridgesRequest.sortOrder,
-      "sortBy": listEnterpriseManagerBridgesRequest.sortBy
+      "sortBy": listEnterpriseManagerBridgesRequest.sortBy,
+      "compartmentIdInSubtree": listEnterpriseManagerBridgesRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -2676,6 +2682,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets a list of Exadata insights based on the query parameters specified. Either compartmentId or id query parameter must be specified.
+   * When both compartmentId and compartmentIdInSubtree are specified, a list of Exadata insights in that compartment and in all sub-compartments will be returned.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListExadataInsightsRequest
@@ -2700,7 +2707,8 @@ export class OperationsInsightsClient {
       "limit": listExadataInsightsRequest.limit,
       "page": listExadataInsightsRequest.page,
       "sortOrder": listExadataInsightsRequest.sortOrder,
-      "sortBy": listExadataInsightsRequest.sortBy
+      "sortBy": listExadataInsightsRequest.sortBy,
+      "compartmentIdInSubtree": listExadataInsightsRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -2787,7 +2795,8 @@ export class OperationsInsightsClient {
       "definedTagEquals": listHostConfigurationsRequest.definedTagEquals,
       "freeformTagEquals": listHostConfigurationsRequest.freeformTagEquals,
       "definedTagExists": listHostConfigurationsRequest.definedTagExists,
-      "freeformTagExists": listHostConfigurationsRequest.freeformTagExists
+      "freeformTagExists": listHostConfigurationsRequest.freeformTagExists,
+      "compartmentIdInSubtree": listHostConfigurationsRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -2846,6 +2855,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets a list of host insights based on the query parameters specified. Either compartmentId or id query parameter must be specified.
+   * When both compartmentId and compartmentIdInSubtree are specified, a list of host insights in that compartment and in all sub-compartments will be returned.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListHostInsightsRequest
@@ -2872,7 +2882,8 @@ export class OperationsInsightsClient {
       "sortOrder": listHostInsightsRequest.sortOrder,
       "sortBy": listHostInsightsRequest.sortBy,
       "enterpriseManagerBridgeId": listHostInsightsRequest.enterpriseManagerBridgeId,
-      "exadataInsightId": listHostInsightsRequest.exadataInsightId
+      "exadataInsightId": listHostInsightsRequest.exadataInsightId,
+      "compartmentIdInSubtree": listHostInsightsRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -3242,7 +3253,8 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Search SQL by SQL Identifier across databases and get the SQL Text and the details of the databases executing the SQL for a given time period.
+   * Search SQL by SQL Identifier across databases in a compartment and in all sub-compartments if specified.
+   * And get the SQL Text and the details of the databases executing the SQL for a given time period.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSqlSearchesRequest
@@ -3267,7 +3279,8 @@ export class OperationsInsightsClient {
       "definedTagEquals": listSqlSearchesRequest.definedTagEquals,
       "freeformTagEquals": listSqlSearchesRequest.freeformTagEquals,
       "definedTagExists": listSqlSearchesRequest.definedTagExists,
-      "freeformTagExists": listSqlSearchesRequest.freeformTagExists
+      "freeformTagExists": listSqlSearchesRequest.freeformTagExists,
+      "compartmentIdInSubtree": listSqlSearchesRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -3320,7 +3333,7 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Query SQL Warehouse to get the full SQL Text for a SQL.
+   * Query SQL Warehouse to get the full SQL Text for a SQL in a compartment and in all sub-compartments if specified.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSqlTextsRequest
@@ -3343,7 +3356,8 @@ export class OperationsInsightsClient {
       "definedTagEquals": listSqlTextsRequest.definedTagEquals,
       "freeformTagEquals": listSqlTextsRequest.freeformTagEquals,
       "definedTagExists": listSqlTextsRequest.definedTagExists,
-      "freeformTagExists": listSqlTextsRequest.freeformTagExists
+      "freeformTagExists": listSqlTextsRequest.freeformTagExists,
+      "compartmentIdInSubtree": listSqlTextsRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -3623,6 +3637,7 @@ export class OperationsInsightsClient {
   /**
    * Returns response with time series data (endTimestamp, capacity, baseCapacity) for the time period specified.
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
+   * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeDatabaseInsightResourceCapacityTrendRequest
@@ -3662,7 +3677,9 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeDatabaseInsightResourceCapacityTrendRequest.definedTagEquals,
       "freeformTagEquals": summarizeDatabaseInsightResourceCapacityTrendRequest.freeformTagEquals,
       "definedTagExists": summarizeDatabaseInsightResourceCapacityTrendRequest.definedTagExists,
-      "freeformTagExists": summarizeDatabaseInsightResourceCapacityTrendRequest.freeformTagExists
+      "freeformTagExists": summarizeDatabaseInsightResourceCapacityTrendRequest.freeformTagExists,
+      "compartmentIdInSubtree":
+        summarizeDatabaseInsightResourceCapacityTrendRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -3716,6 +3733,7 @@ export class OperationsInsightsClient {
 
   /**
    * Get Forecast predictions for CPU and Storage resources since a time in the past.
+   * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeDatabaseInsightResourceForecastTrendRequest
@@ -3757,7 +3775,9 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeDatabaseInsightResourceForecastTrendRequest.definedTagEquals,
       "freeformTagEquals": summarizeDatabaseInsightResourceForecastTrendRequest.freeformTagEquals,
       "definedTagExists": summarizeDatabaseInsightResourceForecastTrendRequest.definedTagExists,
-      "freeformTagExists": summarizeDatabaseInsightResourceForecastTrendRequest.freeformTagExists
+      "freeformTagExists": summarizeDatabaseInsightResourceForecastTrendRequest.freeformTagExists,
+      "compartmentIdInSubtree":
+        summarizeDatabaseInsightResourceForecastTrendRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -3811,7 +3831,7 @@ export class OperationsInsightsClient {
 
   /**
    * Lists the Resource statistics (usage,capacity, usage change percent, utilization percent, base capacity, isAutoScalingEnabled)
-   * for each database filtered by utilization level.
+   * for each database filtered by utilization level in a compartment and in all sub-compartments if specified.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeDatabaseInsightResourceStatisticsRequest
@@ -3853,7 +3873,9 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeDatabaseInsightResourceStatisticsRequest.definedTagEquals,
       "freeformTagEquals": summarizeDatabaseInsightResourceStatisticsRequest.freeformTagEquals,
       "definedTagExists": summarizeDatabaseInsightResourceStatisticsRequest.definedTagExists,
-      "freeformTagExists": summarizeDatabaseInsightResourceStatisticsRequest.freeformTagExists
+      "freeformTagExists": summarizeDatabaseInsightResourceStatisticsRequest.freeformTagExists,
+      "compartmentIdInSubtree":
+        summarizeDatabaseInsightResourceStatisticsRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -3909,6 +3931,7 @@ export class OperationsInsightsClient {
    * A cumulative distribution function is used to rank the usage data points per database within the specified time period.
    * For each database, the minimum data point with a ranking > the percentile value is included in the summation.
    * Linear regression functions are used to calculate the usage change percentage.
+   * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeDatabaseInsightResourceUsageRequest
@@ -3943,7 +3966,8 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeDatabaseInsightResourceUsageRequest.definedTagEquals,
       "freeformTagEquals": summarizeDatabaseInsightResourceUsageRequest.freeformTagEquals,
       "definedTagExists": summarizeDatabaseInsightResourceUsageRequest.definedTagExists,
-      "freeformTagExists": summarizeDatabaseInsightResourceUsageRequest.freeformTagExists
+      "freeformTagExists": summarizeDatabaseInsightResourceUsageRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeDatabaseInsightResourceUsageRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -3998,6 +4022,7 @@ export class OperationsInsightsClient {
   /**
    * Returns response with time series data (endTimestamp, usage, capacity) for the time period specified.
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
+   * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeDatabaseInsightResourceUsageTrendRequest
@@ -4034,7 +4059,9 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeDatabaseInsightResourceUsageTrendRequest.definedTagEquals,
       "freeformTagEquals": summarizeDatabaseInsightResourceUsageTrendRequest.freeformTagEquals,
       "definedTagExists": summarizeDatabaseInsightResourceUsageTrendRequest.definedTagExists,
-      "freeformTagExists": summarizeDatabaseInsightResourceUsageTrendRequest.freeformTagExists
+      "freeformTagExists": summarizeDatabaseInsightResourceUsageTrendRequest.freeformTagExists,
+      "compartmentIdInSubtree":
+        summarizeDatabaseInsightResourceUsageTrendRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -4088,6 +4115,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets resources with current utilization (high and low) and projected utilization (high and low) for a resource type over specified time period.
+   * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeDatabaseInsightResourceUtilizationInsightRequest
@@ -4129,7 +4157,9 @@ export class OperationsInsightsClient {
       "definedTagExists":
         summarizeDatabaseInsightResourceUtilizationInsightRequest.definedTagExists,
       "freeformTagExists":
-        summarizeDatabaseInsightResourceUtilizationInsightRequest.freeformTagExists
+        summarizeDatabaseInsightResourceUtilizationInsightRequest.freeformTagExists,
+      "compartmentIdInSubtree":
+        summarizeDatabaseInsightResourceUtilizationInsightRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -5119,6 +5149,7 @@ export class OperationsInsightsClient {
   /**
    * Returns response with time series data (endTimestamp, capacity) for the time period specified.
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
+   * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeHostInsightResourceCapacityTrendRequest
@@ -5151,7 +5182,9 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeHostInsightResourceCapacityTrendRequest.definedTagEquals,
       "freeformTagEquals": summarizeHostInsightResourceCapacityTrendRequest.freeformTagEquals,
       "definedTagExists": summarizeHostInsightResourceCapacityTrendRequest.definedTagExists,
-      "freeformTagExists": summarizeHostInsightResourceCapacityTrendRequest.freeformTagExists
+      "freeformTagExists": summarizeHostInsightResourceCapacityTrendRequest.freeformTagExists,
+      "compartmentIdInSubtree":
+        summarizeHostInsightResourceCapacityTrendRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -5205,6 +5238,7 @@ export class OperationsInsightsClient {
 
   /**
    * Get Forecast predictions for CPU or memory resources since a time in the past.
+   * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeHostInsightResourceForecastTrendRequest
@@ -5239,7 +5273,9 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeHostInsightResourceForecastTrendRequest.definedTagEquals,
       "freeformTagEquals": summarizeHostInsightResourceForecastTrendRequest.freeformTagEquals,
       "definedTagExists": summarizeHostInsightResourceForecastTrendRequest.definedTagExists,
-      "freeformTagExists": summarizeHostInsightResourceForecastTrendRequest.freeformTagExists
+      "freeformTagExists": summarizeHostInsightResourceForecastTrendRequest.freeformTagExists,
+      "compartmentIdInSubtree":
+        summarizeHostInsightResourceForecastTrendRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -5288,7 +5324,7 @@ export class OperationsInsightsClient {
 
   /**
    * Lists the resource statistics (usage, capacity, usage change percent, utilization percent, load) for each host filtered
-   * by utilization level.
+   * by utilization level in a compartment and in all sub-compartments if specified.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeHostInsightResourceStatisticsRequest
@@ -5324,7 +5360,8 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeHostInsightResourceStatisticsRequest.definedTagEquals,
       "freeformTagEquals": summarizeHostInsightResourceStatisticsRequest.freeformTagEquals,
       "definedTagExists": summarizeHostInsightResourceStatisticsRequest.definedTagExists,
-      "freeformTagExists": summarizeHostInsightResourceStatisticsRequest.freeformTagExists
+      "freeformTagExists": summarizeHostInsightResourceStatisticsRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeHostInsightResourceStatisticsRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -5380,6 +5417,7 @@ export class OperationsInsightsClient {
    * A cumulative distribution function is used to rank the usage data points per host within the specified time period.
    * For each host, the minimum data point with a ranking > the percentile value is included in the summation.
    * Linear regression functions are used to calculate the usage change percentage.
+   * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeHostInsightResourceUsageRequest
@@ -5410,7 +5448,8 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeHostInsightResourceUsageRequest.definedTagEquals,
       "freeformTagEquals": summarizeHostInsightResourceUsageRequest.freeformTagEquals,
       "definedTagExists": summarizeHostInsightResourceUsageRequest.definedTagExists,
-      "freeformTagExists": summarizeHostInsightResourceUsageRequest.freeformTagExists
+      "freeformTagExists": summarizeHostInsightResourceUsageRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeHostInsightResourceUsageRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -5460,6 +5499,7 @@ export class OperationsInsightsClient {
   /**
    * Returns response with time series data (endTimestamp, usage, capacity) for the time period specified.
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
+   * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeHostInsightResourceUsageTrendRequest
@@ -5491,7 +5531,8 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeHostInsightResourceUsageTrendRequest.definedTagEquals,
       "freeformTagEquals": summarizeHostInsightResourceUsageTrendRequest.freeformTagEquals,
       "definedTagExists": summarizeHostInsightResourceUsageTrendRequest.definedTagExists,
-      "freeformTagExists": summarizeHostInsightResourceUsageTrendRequest.freeformTagExists
+      "freeformTagExists": summarizeHostInsightResourceUsageTrendRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeHostInsightResourceUsageTrendRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -5545,6 +5586,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets resources with current utilization (high and low) and projected utilization (high and low) for a resource type over specified time period.
+   * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeHostInsightResourceUtilizationInsightRequest
@@ -5576,7 +5618,9 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeHostInsightResourceUtilizationInsightRequest.definedTagEquals,
       "freeformTagEquals": summarizeHostInsightResourceUtilizationInsightRequest.freeformTagEquals,
       "definedTagExists": summarizeHostInsightResourceUtilizationInsightRequest.definedTagExists,
-      "freeformTagExists": summarizeHostInsightResourceUtilizationInsightRequest.freeformTagExists
+      "freeformTagExists": summarizeHostInsightResourceUtilizationInsightRequest.freeformTagExists,
+      "compartmentIdInSubtree":
+        summarizeHostInsightResourceUtilizationInsightRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -5625,7 +5669,7 @@ export class OperationsInsightsClient {
 
   /**
    * Query SQL Warehouse to get the performance insights for SQLs taking greater than X% database time for a given
-   * time period across the given databases or database types.
+   * time period across the given databases or database types in a compartment and in all sub-compartments if specified.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeSqlInsightsRequest
@@ -5656,7 +5700,8 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeSqlInsightsRequest.definedTagEquals,
       "freeformTagEquals": summarizeSqlInsightsRequest.freeformTagEquals,
       "definedTagExists": summarizeSqlInsightsRequest.definedTagExists,
-      "freeformTagExists": summarizeSqlInsightsRequest.freeformTagExists
+      "freeformTagExists": summarizeSqlInsightsRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeSqlInsightsRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -5866,7 +5911,7 @@ export class OperationsInsightsClient {
 
   /**
    * Query SQL Warehouse to get the performance statistics for SQLs taking greater than X% database time for a given
-   * time period across the given databases or database types.
+   * time period across the given databases or database types in a compartment and in all sub-compartments if specified.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeSqlStatisticsRequest
@@ -5902,7 +5947,8 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeSqlStatisticsRequest.definedTagEquals,
       "freeformTagEquals": summarizeSqlStatisticsRequest.freeformTagEquals,
       "definedTagExists": summarizeSqlStatisticsRequest.definedTagExists,
-      "freeformTagExists": summarizeSqlStatisticsRequest.freeformTagExists
+      "freeformTagExists": summarizeSqlStatisticsRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeSqlStatisticsRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -5955,7 +6001,8 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Query SQL Warehouse to get the performance statistics time series for a given SQL across given databases for a given time period.
+   * Query SQL Warehouse to get the performance statistics time series for a given SQL across given databases for a
+   * given time period in a compartment and in all sub-compartments if specified.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeSqlStatisticsTimeSeriesRequest
@@ -5987,7 +6034,8 @@ export class OperationsInsightsClient {
       "definedTagEquals": summarizeSqlStatisticsTimeSeriesRequest.definedTagEquals,
       "freeformTagEquals": summarizeSqlStatisticsTimeSeriesRequest.freeformTagEquals,
       "definedTagExists": summarizeSqlStatisticsTimeSeriesRequest.definedTagExists,
-      "freeformTagExists": summarizeSqlStatisticsTimeSeriesRequest.freeformTagExists
+      "freeformTagExists": summarizeSqlStatisticsTimeSeriesRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeSqlStatisticsTimeSeriesRequest.compartmentIdInSubtree
     };
 
     let headerParams = {

@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The summary of Pdb's and it's resource usage metrics (CPU, IO, Storage and Active sessions) for a specified Container database.
+ * The summary of Pluggable Databases (PDBs) and their resource usage metrics, within a specific Container Database (CDB).
  */
 export interface PdbMetrics {
   /**
-   * The summary of Pdb's and it's resource usage metrics (CPU, IO, Storage and Active sessions) for a specified Container database.
+   * A summary of PDBs and their resource usage metrics such as CPU, User I/O, and Storage, within a specific CDB.
    */
   "databaseUsageMetrics": Array<model.DatabaseUsageMetrics>;
 }

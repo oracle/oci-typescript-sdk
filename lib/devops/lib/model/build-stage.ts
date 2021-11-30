@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,24 +15,24 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies the build Stage.
+ * Specifies the build stage.
  */
 export interface BuildStage extends model.BuildPipelineStage {
   /**
-   * Image name for the Build Environment
+   * Image name for the build environment.
    */
   "image": BuildStage.Image;
   /**
-   * The path to the build specification file for this Environment. The default location if not specified is build_spec.yaml
+   * The path to the build specification file for this environment. The default location of the file if not specified is build_spec.yaml.
    */
   "buildSpecFile"?: string;
   /**
-   * Timeout for the Build Stage Execution. Value in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Timeout for the build stage execution. Specify value in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "stageExecutionTimeoutInSeconds"?: number;
   "buildSourceCollection": model.BuildSourceCollection;
   /**
-   * Name of the BuildSource in which the build_spec.yml file need to be located. If not specified, the 1st entry in the BuildSource collection will be chosen as Primary.
+   * Name of the build source where the build_spec.yml file is located. If not specified, then the first entry in the build source collection is chosen as primary build source.
    */
   "primaryBuildSource"?: string;
 

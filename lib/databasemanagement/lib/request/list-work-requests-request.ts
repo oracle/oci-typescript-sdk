@@ -31,11 +31,11 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The ID of the asynchronous work request.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the asynchronous work request.
    */
   "workRequestId"?: string;
   /**
-   * A filter to return only resources their status matches the given WorkRequestStatus.
+   * A filter that returns the resources whose status matches the given WorkRequestStatus.
    */
   "status"?: model.WorkRequestStatus;
   /**
@@ -43,18 +43,18 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrders;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for timeAccepted is descending.
+   * The field to sort by. Only one sort order may be provided and the default order for timeAccepted is descending.
    *
    */
   "sortBy"?: ListWorkRequestsRequest.SortBy;
   /**
-   * The page token representing the page, from where the next set of paginated results
+   * The page token representing the page from where the next set of paginated results
    * are retrieved. This is usually retrieved from a previous list call.
    *
    */
   "page"?: string;
   /**
-   * The maximum number of records returned in paginated response.
+   * The maximum number of records returned in the paginated response.
    */
   "limit"?: number;
 }

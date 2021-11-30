@@ -39,7 +39,7 @@ export interface ListBuildRunsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * A filter to return only Build Runs that matches the given lifecycleState.
+   * A filter to return only build runs that matches the given lifecycle state.
    */
   "lifecycleState"?: string;
   /**

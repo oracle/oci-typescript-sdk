@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateConnectionRequest extends common.BaseRequest {
   /**
-   * Details for the new Connection.
+   * Details for the new connection.
    */
   "createConnectionDetails":
     | model.CreateGithubAccessTokenConnectionDetails

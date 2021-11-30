@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,39 +15,39 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of Trigger Create response.
+ * Details of the trigger create response.
  */
 export interface TriggerCreateResult {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that is immutable on creation.
    */
   "id": string;
   /**
-   * Name for Trigger.
+   * Trigger display name. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
-   * Description about the Trigger
+   * Description about the trigger.
    */
   "description"?: string;
   /**
-   * Project to which the Trigger belongs
+   * The OCID of the DevOps project to which the trigger belongs to.
    */
   "projectId": string;
   /**
-   * Compartment to which the Trigger belongs
+   * The OCID of the compartment that contains the trigger.
    */
   "compartmentId": string;
   /**
-   * The time the the Trigger was created. An RFC3339 formatted datetime string
+   * The time the trigger was created. Format defined by [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339).
    */
   "timeCreated"?: Date;
   /**
-   * The time the Trigger was updated. An RFC3339 formatted datetime string
+   * The time the trigger was updated. Format defined by [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339).
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the Trigger.
+   * The current state of the trigger.
    */
   "lifecycleState"?: string;
   /**
@@ -55,7 +55,7 @@ export interface TriggerCreateResult {
    */
   "lifecycleDetails"?: string;
   /**
-   * The list of actions that are to be performed for this Trigger
+   * The list of actions that are to be performed for this trigger.
    */
   "actions": Array<model.TriggerAction>;
   /**

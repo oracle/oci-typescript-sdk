@@ -46,6 +46,7 @@ export interface DatabaseInstanceHomeMetricsDefinition {
   "dbTimeAggregateMetrics": model.DatabaseTimeAggregateMetrics;
   "ioAggregateMetrics": model.DatabaseIOAggregateMetrics;
   "memoryAggregateMetrics": model.MemoryAggregateMetrics;
+  "cpuUtilizationAggregateMetrics"?: model.CpuUtilizationAggregateMetrics;
 }
 
 export namespace DatabaseInstanceHomeMetricsDefinition {
@@ -66,6 +67,9 @@ export namespace DatabaseInstanceHomeMetricsDefinition {
           : undefined,
         "memoryAggregateMetrics": obj.memoryAggregateMetrics
           ? model.MemoryAggregateMetrics.getJsonObj(obj.memoryAggregateMetrics)
+          : undefined,
+        "cpuUtilizationAggregateMetrics": obj.cpuUtilizationAggregateMetrics
+          ? model.CpuUtilizationAggregateMetrics.getJsonObj(obj.cpuUtilizationAggregateMetrics)
           : undefined
       }
     };
@@ -89,6 +93,11 @@ export namespace DatabaseInstanceHomeMetricsDefinition {
           : undefined,
         "memoryAggregateMetrics": obj.memoryAggregateMetrics
           ? model.MemoryAggregateMetrics.getDeserializedJsonObj(obj.memoryAggregateMetrics)
+          : undefined,
+        "cpuUtilizationAggregateMetrics": obj.cpuUtilizationAggregateMetrics
+          ? model.CpuUtilizationAggregateMetrics.getDeserializedJsonObj(
+              obj.cpuUtilizationAggregateMetrics
+            )
           : undefined
       }
     };

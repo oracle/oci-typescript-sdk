@@ -99,4 +99,9 @@ export interface ListSqlSearchesRequest extends common.BaseRequest {
    *
    */
   "freeformTagExists"?: Array<string>;
+  /**
+   * A flag to search all resources within a given compartment and all sub-compartments.
+   *
+   */
+  "compartmentIdInSubtree"?: boolean;
 }

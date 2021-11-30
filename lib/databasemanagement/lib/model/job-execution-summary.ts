@@ -62,6 +62,10 @@ export interface JobExecutionSummary {
    */
   "isCluster"?: boolean;
   /**
+   * The workload type of the Autonomous Database.
+   */
+  "workloadType"?: model.WorkloadType;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the parent job.
    */
   "jobId": string;

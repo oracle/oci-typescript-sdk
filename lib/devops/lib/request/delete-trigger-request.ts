@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteTriggerRequest extends common.BaseRequest {
   /**
-   * unique Trigger identifier
+   * Unique trigger identifier.
    */
   "triggerId": string;
   /**

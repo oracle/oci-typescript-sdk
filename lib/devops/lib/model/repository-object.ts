@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Object containing information about files and directories in a repository
+ * Object containing information about files and directories in a repository.
  */
 export interface RepositoryObject {
   /**
@@ -23,15 +23,15 @@ export interface RepositoryObject {
    */
   "type": RepositoryObject.Type;
   /**
-   * Size in Bytes Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Size in bytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInBytes": number;
   /**
-   * SHA-1 hash of git object
+   * SHA-1 hash of git object.
    */
   "sha": string;
   /**
-   * flag to determine is the object contains binary file content or not.
+   * Flag to determine if the object contains binary file content or not.
    */
   "isBinary"?: boolean;
 }

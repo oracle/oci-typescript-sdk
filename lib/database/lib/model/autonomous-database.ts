@@ -277,6 +277,10 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "operationsInsightsStatus"?: AutonomousDatabase.OperationsInsightsStatus;
   /**
+   * Status of Database Management for this Autonomous Database.
+   */
+  "databaseManagementStatus"?: AutonomousDatabase.DatabaseManagementStatus;
+  /**
    * The date and time when maintenance will begin.
    */
   "timeMaintenanceBegin"?: Date;
@@ -465,6 +469,20 @@ export namespace AutonomousDatabase {
   }
 
   export enum OperationsInsightsStatus {
+    Enabling = "ENABLING",
+    Enabled = "ENABLED",
+    Disabling = "DISABLING",
+    NotEnabled = "NOT_ENABLED",
+    FailedEnabling = "FAILED_ENABLING",
+    FailedDisabling = "FAILED_DISABLING",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DatabaseManagementStatus {
     Enabling = "ENABLING",
     Enabled = "ENABLED",
     Disabling = "DISABLING",

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateBuildPipelineStageRequest extends common.BaseRequest {
   /**
-   * Details for the new Stage.
+   * Details for the new stage.
    */
   "createBuildPipelineStageDetails":
     | model.CreateDeliverArtifactStageDetails

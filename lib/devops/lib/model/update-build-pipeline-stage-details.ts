@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateBuildPipelineStageDetails {
   /**
-   * Stage identifier which can be renamed and is not necessarily unique
+   * Stage display name, which can be renamed and is not necessarily unique. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
-   * Optional description about the BuildStage
+   * Optional description about the build stage.
    */
   "description"?: string;
   "buildPipelineStagePredecessorCollection"?: model.BuildPipelineStagePredecessorCollection;

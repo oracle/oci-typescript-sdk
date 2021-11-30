@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateApmDomainRequest extends common.BaseRequest {
   /**
-   * Details for the new APM Domain.
+   * Details for the new APM domain.
    */
   "createApmDomainDetails": model.CreateApmDomainDetails;
   /**

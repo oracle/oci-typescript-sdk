@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetRepositoryRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**
@@ -27,7 +27,7 @@ export interface GetRepositoryRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * Fields param can contain multiple flags useful in deciding the API functionality
+   * Fields parameter can contain multiple flags useful in deciding the API functionality.
    */
   "fields"?: Array<GetRepositoryRequest.Fields>;
 }

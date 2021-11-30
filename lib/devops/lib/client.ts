@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -142,7 +142,7 @@ export class DevopsClient {
 
   /**
    * Submit stage approval.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ApproveDeploymentRequest
    * @return ApproveDeploymentResponse
    * @throws OciError when an error occurs
@@ -165,7 +165,7 @@ export class DevopsClient {
       "opc-retry-token": approveDeploymentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       approveDeploymentRequest.retryConfiguration,
@@ -215,8 +215,8 @@ export class DevopsClient {
   }
 
   /**
-   * Cancels the Build Run based on build run id provided in request
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Cancels the build run based on the build run ID provided in the request.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelBuildRunRequest
    * @return CancelBuildRunResponse
    * @throws OciError when an error occurs
@@ -239,7 +239,7 @@ export class DevopsClient {
       "opc-retry-token": cancelBuildRunRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cancelBuildRunRequest.retryConfiguration,
@@ -290,7 +290,7 @@ export class DevopsClient {
 
   /**
    * Cancels a deployment resource by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelDeploymentRequest
    * @return CancelDeploymentResponse
    * @throws OciError when an error occurs
@@ -313,7 +313,7 @@ export class DevopsClient {
       "opc-retry-token": cancelDeploymentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cancelDeploymentRequest.retryConfiguration,
@@ -364,7 +364,7 @@ export class DevopsClient {
 
   /**
    * Moves a project resource from one compartment OCID to another.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeProjectCompartmentRequest
    * @return ChangeProjectCompartmentResponse
    * @throws OciError when an error occurs
@@ -387,7 +387,7 @@ export class DevopsClient {
       "opc-retry-token": changeProjectCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeProjectCompartmentRequest.retryConfiguration,
@@ -433,9 +433,9 @@ export class DevopsClient {
   }
 
   /**
-   * Creates a new BuildPipeline.
+   * Creates a new build pipeline.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateBuildPipelineRequest
    * @return CreateBuildPipelineResponse
    * @throws OciError when an error occurs
@@ -455,7 +455,7 @@ export class DevopsClient {
       "opc-request-id": createBuildPipelineRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createBuildPipelineRequest.retryConfiguration,
@@ -515,9 +515,9 @@ export class DevopsClient {
   }
 
   /**
-   * Creates a new Stage.
+   * Creates a new stage.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateBuildPipelineStageRequest
    * @return CreateBuildPipelineStageResponse
    * @throws OciError when an error occurs
@@ -537,7 +537,7 @@ export class DevopsClient {
       "opc-request-id": createBuildPipelineStageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createBuildPipelineStageRequest.retryConfiguration,
@@ -597,9 +597,9 @@ export class DevopsClient {
   }
 
   /**
-   * Starts a build pipeline run for a predefined build pipeline
+   * Starts a build pipeline run for a predefined build pipeline.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateBuildRunRequest
    * @return CreateBuildRunResponse
    * @throws OciError when an error occurs
@@ -620,7 +620,7 @@ export class DevopsClient {
       "if-match": createBuildRunRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createBuildRunRequest.retryConfiguration,
@@ -675,9 +675,9 @@ export class DevopsClient {
   }
 
   /**
-   * Creates a new Connection.
+   * Creates a new connection.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateConnectionRequest
    * @return CreateConnectionResponse
    * @throws OciError when an error occurs
@@ -697,7 +697,7 @@ export class DevopsClient {
       "opc-request-id": createConnectionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createConnectionRequest.retryConfiguration,
@@ -758,7 +758,7 @@ export class DevopsClient {
 
   /**
    * Creates a new deployment artifact.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDeployArtifactRequest
    * @return CreateDeployArtifactResponse
    * @throws OciError when an error occurs
@@ -778,7 +778,7 @@ export class DevopsClient {
       "opc-request-id": createDeployArtifactRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDeployArtifactRequest.retryConfiguration,
@@ -839,7 +839,7 @@ export class DevopsClient {
 
   /**
    * Creates a new deployment environment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDeployEnvironmentRequest
    * @return CreateDeployEnvironmentResponse
    * @throws OciError when an error occurs
@@ -859,7 +859,7 @@ export class DevopsClient {
       "opc-request-id": createDeployEnvironmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDeployEnvironmentRequest.retryConfiguration,
@@ -920,7 +920,7 @@ export class DevopsClient {
 
   /**
    * Creates a new deployment pipeline.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDeployPipelineRequest
    * @return CreateDeployPipelineResponse
    * @throws OciError when an error occurs
@@ -940,7 +940,7 @@ export class DevopsClient {
       "opc-request-id": createDeployPipelineRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDeployPipelineRequest.retryConfiguration,
@@ -1001,7 +1001,7 @@ export class DevopsClient {
 
   /**
    * Creates a new deployment stage.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDeployStageRequest
    * @return CreateDeployStageResponse
    * @throws OciError when an error occurs
@@ -1021,7 +1021,7 @@ export class DevopsClient {
       "opc-request-id": createDeployStageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDeployStageRequest.retryConfiguration,
@@ -1082,7 +1082,7 @@ export class DevopsClient {
 
   /**
    * Creates a new deployment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDeploymentRequest
    * @return CreateDeploymentResponse
    * @throws OciError when an error occurs
@@ -1102,7 +1102,7 @@ export class DevopsClient {
       "opc-request-id": createDeploymentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDeploymentRequest.retryConfiguration,
@@ -1153,7 +1153,7 @@ export class DevopsClient {
 
   /**
    * Creates a new project.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateProjectRequest
    * @return CreateProjectResponse
    * @throws OciError when an error occurs
@@ -1173,7 +1173,7 @@ export class DevopsClient {
       "opc-request-id": createProjectRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createProjectRequest.retryConfiguration,
@@ -1233,9 +1233,9 @@ export class DevopsClient {
   }
 
   /**
-   * Creates a new Repository.
+   * Creates a new repository.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateRepositoryRequest
    * @return CreateRepositoryResponse
    * @throws OciError when an error occurs
@@ -1255,7 +1255,7 @@ export class DevopsClient {
       "opc-request-id": createRepositoryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createRepositoryRequest.retryConfiguration,
@@ -1315,9 +1315,9 @@ export class DevopsClient {
   }
 
   /**
-   * Creates a new Trigger.
+   * Creates a new trigger.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateTriggerRequest
    * @return CreateTriggerResponse
    * @throws OciError when an error occurs
@@ -1337,7 +1337,7 @@ export class DevopsClient {
       "opc-request-id": createTriggerRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createTriggerRequest.retryConfiguration,
@@ -1397,8 +1397,8 @@ export class DevopsClient {
   }
 
   /**
-   * Deletes a BuildPipeline resource by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Deletes a build pipeline resource by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteBuildPipelineRequest
    * @return DeleteBuildPipelineResponse
    * @throws OciError when an error occurs
@@ -1420,7 +1420,7 @@ export class DevopsClient {
       "opc-request-id": deleteBuildPipelineRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteBuildPipelineRequest.retryConfiguration,
@@ -1461,8 +1461,8 @@ export class DevopsClient {
   }
 
   /**
-   * Deletes a Stage based on stage id provided in request
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Deletes a stage based on the stage ID provided in the request.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteBuildPipelineStageRequest
    * @return DeleteBuildPipelineStageResponse
    * @throws OciError when an error occurs
@@ -1484,7 +1484,7 @@ export class DevopsClient {
       "opc-request-id": deleteBuildPipelineStageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteBuildPipelineStageRequest.retryConfiguration,
@@ -1525,8 +1525,8 @@ export class DevopsClient {
   }
 
   /**
-   * Deletes a Connection resource by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Deletes a connection resource by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteConnectionRequest
    * @return DeleteConnectionResponse
    * @throws OciError when an error occurs
@@ -1548,7 +1548,7 @@ export class DevopsClient {
       "opc-request-id": deleteConnectionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteConnectionRequest.retryConfiguration,
@@ -1590,7 +1590,7 @@ export class DevopsClient {
 
   /**
    * Deletes a deployment artifact resource by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDeployArtifactRequest
    * @return DeleteDeployArtifactResponse
    * @throws OciError when an error occurs
@@ -1612,7 +1612,7 @@ export class DevopsClient {
       "opc-request-id": deleteDeployArtifactRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDeployArtifactRequest.retryConfiguration,
@@ -1654,7 +1654,7 @@ export class DevopsClient {
 
   /**
    * Deletes a deployment environment resource by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDeployEnvironmentRequest
    * @return DeleteDeployEnvironmentResponse
    * @throws OciError when an error occurs
@@ -1676,7 +1676,7 @@ export class DevopsClient {
       "opc-request-id": deleteDeployEnvironmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDeployEnvironmentRequest.retryConfiguration,
@@ -1718,7 +1718,7 @@ export class DevopsClient {
 
   /**
    * Deletes a deployment pipeline resource by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDeployPipelineRequest
    * @return DeleteDeployPipelineResponse
    * @throws OciError when an error occurs
@@ -1740,7 +1740,7 @@ export class DevopsClient {
       "opc-request-id": deleteDeployPipelineRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDeployPipelineRequest.retryConfiguration,
@@ -1782,7 +1782,7 @@ export class DevopsClient {
 
   /**
    * Deletes a deployment stage resource by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDeployStageRequest
    * @return DeleteDeployStageResponse
    * @throws OciError when an error occurs
@@ -1804,7 +1804,7 @@ export class DevopsClient {
       "opc-request-id": deleteDeployStageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDeployStageRequest.retryConfiguration,
@@ -1846,7 +1846,7 @@ export class DevopsClient {
 
   /**
    * Deletes a project resource by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
    * @throws OciError when an error occurs
@@ -1868,7 +1868,7 @@ export class DevopsClient {
       "opc-request-id": deleteProjectRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteProjectRequest.retryConfiguration,
@@ -1910,7 +1910,7 @@ export class DevopsClient {
 
   /**
    * Deletes a Repository's Ref by its name. Returns an error if the name is ambiguous. Can be disambiguated by using full names like \"heads/<name>\" or \"tags/<name>\".
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteRefRequest
    * @return DeleteRefResponse
    * @throws OciError when an error occurs
@@ -1934,7 +1934,7 @@ export class DevopsClient {
       "opc-request-id": deleteRefRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteRefRequest.retryConfiguration,
@@ -1975,8 +1975,8 @@ export class DevopsClient {
   }
 
   /**
-   * Deletes a Repository resource by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Deletes a repository resource by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteRepositoryRequest
    * @return DeleteRepositoryResponse
    * @throws OciError when an error occurs
@@ -1998,7 +1998,7 @@ export class DevopsClient {
       "opc-request-id": deleteRepositoryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteRepositoryRequest.retryConfiguration,
@@ -2039,8 +2039,8 @@ export class DevopsClient {
   }
 
   /**
-   * Deletes a Trigger resource by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Deletes a trigger resource by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteTriggerRequest
    * @return DeleteTriggerResponse
    * @throws OciError when an error occurs
@@ -2062,7 +2062,7 @@ export class DevopsClient {
       "opc-request-id": deleteTriggerRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteTriggerRequest.retryConfiguration,
@@ -2103,8 +2103,8 @@ export class DevopsClient {
   }
 
   /**
-   * Gets a BuildPipeline by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Retrieves a build pipeline by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetBuildPipelineRequest
    * @return GetBuildPipelineResponse
    * @throws OciError when an error occurs
@@ -2125,7 +2125,7 @@ export class DevopsClient {
       "opc-request-id": getBuildPipelineRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getBuildPipelineRequest.retryConfiguration,
@@ -2170,8 +2170,8 @@ export class DevopsClient {
   }
 
   /**
-   * Gets a Stage based on the stage id provided in request
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Retrieves a stage based on the stage ID provided in the request.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetBuildPipelineStageRequest
    * @return GetBuildPipelineStageResponse
    * @throws OciError when an error occurs
@@ -2192,7 +2192,7 @@ export class DevopsClient {
       "opc-request-id": getBuildPipelineStageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getBuildPipelineStageRequest.retryConfiguration,
@@ -2237,9 +2237,9 @@ export class DevopsClient {
   }
 
   /**
-   * Returns the details of a build exection for a given build run id.
+   * Returns the details of a build run for a given build run ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetBuildRunRequest
    * @return GetBuildRunResponse
    * @throws OciError when an error occurs
@@ -2260,7 +2260,7 @@ export class DevopsClient {
       "opc-request-id": getBuildRunRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getBuildRunRequest.retryConfiguration,
@@ -2305,8 +2305,8 @@ export class DevopsClient {
   }
 
   /**
-   * Gets a Repository's Commit by commitId
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Retrieves a repository's commit by commit ID.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCommitRequest
    * @return GetCommitResponse
    * @throws OciError when an error occurs
@@ -2328,7 +2328,7 @@ export class DevopsClient {
       "opc-request-id": getCommitRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCommitRequest.retryConfiguration,
@@ -2373,9 +2373,9 @@ export class DevopsClient {
   }
 
   /**
-   * Compares two revisions for their differences. Supports comparison between two refs or commits.
+   * Compares two revisions for their differences. Supports comparison between two references or commits.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCommitDiffRequest
    * @return GetCommitDiffResponse
    * @throws OciError when an error occurs
@@ -2400,7 +2400,7 @@ export class DevopsClient {
       "opc-request-id": getCommitDiffRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCommitDiffRequest.retryConfiguration,
@@ -2445,8 +2445,8 @@ export class DevopsClient {
   }
 
   /**
-   * Gets a Connection by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Retrieves a connection by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetConnectionRequest
    * @return GetConnectionResponse
    * @throws OciError when an error occurs
@@ -2467,7 +2467,7 @@ export class DevopsClient {
       "opc-request-id": getConnectionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getConnectionRequest.retryConfiguration,
@@ -2513,7 +2513,7 @@ export class DevopsClient {
 
   /**
    * Retrieves a deployment artifact by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDeployArtifactRequest
    * @return GetDeployArtifactResponse
    * @throws OciError when an error occurs
@@ -2534,7 +2534,7 @@ export class DevopsClient {
       "opc-request-id": getDeployArtifactRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDeployArtifactRequest.retryConfiguration,
@@ -2580,7 +2580,7 @@ export class DevopsClient {
 
   /**
    * Retrieves a deployment environment by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDeployEnvironmentRequest
    * @return GetDeployEnvironmentResponse
    * @throws OciError when an error occurs
@@ -2601,7 +2601,7 @@ export class DevopsClient {
       "opc-request-id": getDeployEnvironmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDeployEnvironmentRequest.retryConfiguration,
@@ -2647,7 +2647,7 @@ export class DevopsClient {
 
   /**
    * Retrieves a deployment pipeline by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDeployPipelineRequest
    * @return GetDeployPipelineResponse
    * @throws OciError when an error occurs
@@ -2668,7 +2668,7 @@ export class DevopsClient {
       "opc-request-id": getDeployPipelineRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDeployPipelineRequest.retryConfiguration,
@@ -2714,7 +2714,7 @@ export class DevopsClient {
 
   /**
    * Retrieves a deployment stage by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDeployStageRequest
    * @return GetDeployStageResponse
    * @throws OciError when an error occurs
@@ -2735,7 +2735,7 @@ export class DevopsClient {
       "opc-request-id": getDeployStageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDeployStageRequest.retryConfiguration,
@@ -2781,7 +2781,7 @@ export class DevopsClient {
 
   /**
    * Retrieves a deployment by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDeploymentRequest
    * @return GetDeploymentResponse
    * @throws OciError when an error occurs
@@ -2802,7 +2802,7 @@ export class DevopsClient {
       "opc-request-id": getDeploymentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDeploymentRequest.retryConfiguration,
@@ -2849,7 +2849,7 @@ export class DevopsClient {
   /**
    * Gets the line-by-line difference between files on different commits.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFileDiffRequest
    * @return GetFileDiffResponse
    * @throws OciError when an error occurs
@@ -2875,7 +2875,7 @@ export class DevopsClient {
       "opc-request-id": getFileDiffRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFileDiffRequest.retryConfiguration,
@@ -2920,9 +2920,9 @@ export class DevopsClient {
   }
 
   /**
-   * Returns either current mirror record or last successful mirror record for a specific mirror repository
+   * Returns either current mirror record or last successful mirror record for a specific mirror repository.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMirrorRecordRequest
    * @return GetMirrorRecordResponse
    * @throws OciError when an error occurs
@@ -2944,7 +2944,7 @@ export class DevopsClient {
       "opc-request-id": getMirrorRecordRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getMirrorRecordRequest.retryConfiguration,
@@ -2989,9 +2989,9 @@ export class DevopsClient {
   }
 
   /**
-   * Get blob of specific branch name/commit id and file path
+   * Retrieves blob of specific branch name/commit ID and file path.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetObjectRequest
    * @return GetObjectResponse
    * @throws OciError when an error occurs
@@ -3015,7 +3015,7 @@ export class DevopsClient {
       "opc-request-id": getObjectRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getObjectRequest.retryConfiguration,
@@ -3060,9 +3060,9 @@ export class DevopsClient {
   }
 
   /**
-   * Get contents of a specified Object
+   * Retrieve contents of a specified object.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetObjectContentRequest
    * @return GetObjectContentResponse
    * @throws OciError when an error occurs
@@ -3086,7 +3086,7 @@ export class DevopsClient {
       "opc-request-id": getObjectContentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getObjectContentRequest.retryConfiguration,
@@ -3137,7 +3137,7 @@ export class DevopsClient {
 
   /**
    * Retrieves a project by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetProjectRequest
    * @return GetProjectResponse
    * @throws OciError when an error occurs
@@ -3158,7 +3158,7 @@ export class DevopsClient {
       "opc-request-id": getProjectRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getProjectRequest.retryConfiguration,
@@ -3203,8 +3203,8 @@ export class DevopsClient {
   }
 
   /**
-   * Gets a Repository's Ref by its name with preference for branches over tags if the name is ambiguous. Can be disambiguated by using full names like \"heads/<name>\" or \"tags/<name>\".
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Retrieves a repository's reference by its name with preference for branches over tags if the name is ambiguous. This can be disambiguated by using full names like \"heads/<name>\" or \"tags/<name>\".
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRefRequest
    * @return GetRefResponse
    * @throws OciError when an error occurs
@@ -3224,7 +3224,7 @@ export class DevopsClient {
       "opc-request-id": getRefRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getRefRequest.retryConfiguration,
@@ -3269,8 +3269,8 @@ export class DevopsClient {
   }
 
   /**
-   * Gets a Repository by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Retrieves a repository by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRepositoryRequest
    * @return GetRepositoryResponse
    * @throws OciError when an error occurs
@@ -3293,7 +3293,7 @@ export class DevopsClient {
       "opc-request-id": getRepositoryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getRepositoryRequest.retryConfiguration,
@@ -3338,9 +3338,9 @@ export class DevopsClient {
   }
 
   /**
-   * Return the archived repository information
+   * Returns the archived repository information.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRepositoryArchiveContentRequest
    * @return GetRepositoryArchiveContentResponse
    * @throws OciError when an error occurs
@@ -3365,7 +3365,7 @@ export class DevopsClient {
       "opc-request-id": getRepositoryArchiveContentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getRepositoryArchiveContentRequest.retryConfiguration,
@@ -3415,9 +3415,9 @@ export class DevopsClient {
   }
 
   /**
-   * Get lines of a specified file. Supports starting line number and limit.
+   * Retrieve lines of a specified file. Supports starting line number and limit.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRepositoryFileLinesRequest
    * @return GetRepositoryFileLinesResponse
    * @throws OciError when an error occurs
@@ -3443,7 +3443,7 @@ export class DevopsClient {
       "opc-request-id": getRepositoryFileLinesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getRepositoryFileLinesRequest.retryConfiguration,
@@ -3488,8 +3488,8 @@ export class DevopsClient {
   }
 
   /**
-   * Gets a Trigger by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Retrieves a trigger by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTriggerRequest
    * @return GetTriggerResponse
    * @throws OciError when an error occurs
@@ -3510,7 +3510,7 @@ export class DevopsClient {
       "opc-request-id": getTriggerRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTriggerRequest.retryConfiguration,
@@ -3556,7 +3556,7 @@ export class DevopsClient {
 
   /**
    * Retrieves the status of the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -3577,7 +3577,7 @@ export class DevopsClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -3622,9 +3622,9 @@ export class DevopsClient {
   }
 
   /**
-   * Get a list of all the authors
+   * Retrieve a list of all the authors.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAuthorsRequest
    * @return ListAuthorsResponse
    * @throws OciError when an error occurs
@@ -3650,7 +3650,7 @@ export class DevopsClient {
       "opc-request-id": listAuthorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAuthorsRequest.retryConfiguration,
@@ -3695,9 +3695,9 @@ export class DevopsClient {
   }
 
   /**
-   * Returns summary of list of all Stages in a compartment or buildPipeline
+   * Returns a list of all stages in a compartment or build pipeline.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListBuildPipelineStagesRequest
    * @return ListBuildPipelineStagesResponse
    * @throws OciError when an error occurs
@@ -3726,7 +3726,7 @@ export class DevopsClient {
       "opc-request-id": listBuildPipelineStagesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listBuildPipelineStagesRequest.retryConfiguration,
@@ -3771,9 +3771,9 @@ export class DevopsClient {
   }
 
   /**
-   * Returns a list of BuildPipelines.
+   * Returns a list of build pipelines.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListBuildPipelinesRequest
    * @return ListBuildPipelinesResponse
    * @throws OciError when an error occurs
@@ -3802,7 +3802,7 @@ export class DevopsClient {
       "opc-request-id": listBuildPipelinesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listBuildPipelinesRequest.retryConfiguration,
@@ -3847,9 +3847,9 @@ export class DevopsClient {
   }
 
   /**
-   * Returns a list of build runs summary.
+   * Returns a list of build run summary.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListBuildRunsRequest
    * @return ListBuildRunsResponse
    * @throws OciError when an error occurs
@@ -3879,7 +3879,7 @@ export class DevopsClient {
       "opc-request-id": listBuildRunsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listBuildRunsRequest.retryConfiguration,
@@ -3924,9 +3924,9 @@ export class DevopsClient {
   }
 
   /**
-   * Compares two revisions and lists the differences. Supports comparison between two refs or commits.
+   * Compares two revisions and lists the differences. Supports comparison between two references or commits.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCommitDiffsRequest
    * @return ListCommitDiffsResponse
    * @throws OciError when an error occurs
@@ -3953,7 +3953,7 @@ export class DevopsClient {
       "opc-request-id": listCommitDiffsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCommitDiffsRequest.retryConfiguration,
@@ -3998,9 +3998,9 @@ export class DevopsClient {
   }
 
   /**
-   * Returns a list of Commits.
+   * Returns a list of commits.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCommitsRequest
    * @return ListCommitsResponse
    * @throws OciError when an error occurs
@@ -4031,7 +4031,7 @@ export class DevopsClient {
       "opc-request-id": listCommitsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCommitsRequest.retryConfiguration,
@@ -4076,9 +4076,9 @@ export class DevopsClient {
   }
 
   /**
-   * Returns a list of Connections.
+   * Returns a list of connections.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListConnectionsRequest
    * @return ListConnectionsResponse
    * @throws OciError when an error occurs
@@ -4108,7 +4108,7 @@ export class DevopsClient {
       "opc-request-id": listConnectionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listConnectionsRequest.retryConfiguration,
@@ -4154,7 +4154,7 @@ export class DevopsClient {
 
   /**
    * Returns a list of deployment artifacts.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDeployArtifactsRequest
    * @return ListDeployArtifactsResponse
    * @throws OciError when an error occurs
@@ -4183,7 +4183,7 @@ export class DevopsClient {
       "opc-request-id": listDeployArtifactsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDeployArtifactsRequest.retryConfiguration,
@@ -4229,7 +4229,7 @@ export class DevopsClient {
 
   /**
    * Returns a list of deployment environments.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDeployEnvironmentsRequest
    * @return ListDeployEnvironmentsResponse
    * @throws OciError when an error occurs
@@ -4258,7 +4258,7 @@ export class DevopsClient {
       "opc-request-id": listDeployEnvironmentsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDeployEnvironmentsRequest.retryConfiguration,
@@ -4304,7 +4304,7 @@ export class DevopsClient {
 
   /**
    * Returns a list of deployment pipelines.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDeployPipelinesRequest
    * @return ListDeployPipelinesResponse
    * @throws OciError when an error occurs
@@ -4333,7 +4333,7 @@ export class DevopsClient {
       "opc-request-id": listDeployPipelinesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDeployPipelinesRequest.retryConfiguration,
@@ -4379,7 +4379,7 @@ export class DevopsClient {
 
   /**
    * Retrieves a list of deployment stages.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDeployStagesRequest
    * @return ListDeployStagesResponse
    * @throws OciError when an error occurs
@@ -4408,7 +4408,7 @@ export class DevopsClient {
       "opc-request-id": listDeployStagesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDeployStagesRequest.retryConfiguration,
@@ -4454,7 +4454,7 @@ export class DevopsClient {
 
   /**
    * Returns a list of deployments.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDeploymentsRequest
    * @return ListDeploymentsResponse
    * @throws OciError when an error occurs
@@ -4486,7 +4486,7 @@ export class DevopsClient {
       "opc-request-id": listDeploymentsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDeploymentsRequest.retryConfiguration,
@@ -4531,9 +4531,9 @@ export class DevopsClient {
   }
 
   /**
-   * Returns a list of mirror entry in history within 30 days
+   * Returns a list of mirror entry in history within 30 days.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMirrorRecordsRequest
    * @return ListMirrorRecordsResponse
    * @throws OciError when an error occurs
@@ -4558,7 +4558,7 @@ export class DevopsClient {
       "opc-request-id": listMirrorRecordsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMirrorRecordsRequest.retryConfiguration,
@@ -4603,9 +4603,9 @@ export class DevopsClient {
   }
 
   /**
-   * Fetches a list of files and directories in a repository.
+   * Retrieves a list of files and directories in a repository.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListPathsRequest
    * @return ListPathsResponse
    * @throws OciError when an error occurs
@@ -4635,7 +4635,7 @@ export class DevopsClient {
       "opc-request-id": listPathsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listPathsRequest.retryConfiguration,
@@ -4681,7 +4681,7 @@ export class DevopsClient {
 
   /**
    * Returns a list of projects.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListProjectsRequest
    * @return ListProjectsResponse
    * @throws OciError when an error occurs
@@ -4709,7 +4709,7 @@ export class DevopsClient {
       "opc-request-id": listProjectsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listProjectsRequest.retryConfiguration,
@@ -4754,9 +4754,9 @@ export class DevopsClient {
   }
 
   /**
-   * Returns a list of Refs.
+   * Returns a list of references.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRefsRequest
    * @return ListRefsResponse
    * @throws OciError when an error occurs
@@ -4785,7 +4785,7 @@ export class DevopsClient {
       "opc-request-id": listRefsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listRefsRequest.retryConfiguration,
@@ -4830,9 +4830,9 @@ export class DevopsClient {
   }
 
   /**
-   * Returns a list of Repositories given a compartmentId or a projectId.
+   * Returns a list of repositories given a compartment ID or a project ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRepositoriesRequest
    * @return ListRepositoriesResponse
    * @throws OciError when an error occurs
@@ -4861,7 +4861,7 @@ export class DevopsClient {
       "opc-request-id": listRepositoriesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listRepositoriesRequest.retryConfiguration,
@@ -4906,9 +4906,9 @@ export class DevopsClient {
   }
 
   /**
-   * Returns a list of Triggers.
+   * Returns a list of triggers.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTriggersRequest
    * @return ListTriggersResponse
    * @throws OciError when an error occurs
@@ -4937,7 +4937,7 @@ export class DevopsClient {
       "opc-request-id": listTriggersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTriggersRequest.retryConfiguration,
@@ -4983,7 +4983,7 @@ export class DevopsClient {
 
   /**
    * Returns a list of errors for a given work request.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -5009,7 +5009,7 @@ export class DevopsClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -5055,7 +5055,7 @@ export class DevopsClient {
 
   /**
    * Returns a list of logs for a given work request.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -5081,7 +5081,7 @@ export class DevopsClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -5127,7 +5127,7 @@ export class DevopsClient {
 
   /**
    * Lists the work requests in a compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -5155,7 +5155,7 @@ export class DevopsClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -5200,9 +5200,9 @@ export class DevopsClient {
   }
 
   /**
-   * Synchronize a mirrored repository to the latest version from external providers
+   * Synchronize a mirrored repository to the latest version from external providers.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param MirrorRepositoryRequest
    * @return MirrorRepositoryResponse
    * @throws OciError when an error occurs
@@ -5224,7 +5224,7 @@ export class DevopsClient {
       "opc-request-id": mirrorRepositoryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       mirrorRepositoryRequest.retryConfiguration,
@@ -5265,9 +5265,9 @@ export class DevopsClient {
   }
 
   /**
-   * Creates a new Ref or updates an existing one.
+   * Creates a new reference or updates an existing one.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PutRepositoryRefRequest
    * @return PutRepositoryRefResponse
    * @throws OciError when an error occurs
@@ -5291,7 +5291,7 @@ export class DevopsClient {
       "opc-request-id": putRepositoryRefRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       putRepositoryRefRequest.retryConfiguration,
@@ -5351,8 +5351,8 @@ export class DevopsClient {
   }
 
   /**
-   * Updates the BuildPipeline
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Updates the build pipeline.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateBuildPipelineRequest
    * @return UpdateBuildPipelineResponse
    * @throws OciError when an error occurs
@@ -5374,7 +5374,7 @@ export class DevopsClient {
       "opc-request-id": updateBuildPipelineRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateBuildPipelineRequest.retryConfiguration,
@@ -5434,8 +5434,8 @@ export class DevopsClient {
   }
 
   /**
-   * Updates the Stage based on the stage id provided in request
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Updates the stage based on the stage ID provided in the request.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateBuildPipelineStageRequest
    * @return UpdateBuildPipelineStageResponse
    * @throws OciError when an error occurs
@@ -5457,7 +5457,7 @@ export class DevopsClient {
       "opc-request-id": updateBuildPipelineStageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateBuildPipelineStageRequest.retryConfiguration,
@@ -5517,8 +5517,8 @@ export class DevopsClient {
   }
 
   /**
-   * Updates the BuildRun
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Updates the build run.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateBuildRunRequest
    * @return UpdateBuildRunResponse
    * @throws OciError when an error occurs
@@ -5540,7 +5540,7 @@ export class DevopsClient {
       "opc-request-id": updateBuildRunRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateBuildRunRequest.retryConfiguration,
@@ -5595,8 +5595,8 @@ export class DevopsClient {
   }
 
   /**
-   * Updates the Connection
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Updates the connection.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateConnectionRequest
    * @return UpdateConnectionResponse
    * @throws OciError when an error occurs
@@ -5618,7 +5618,7 @@ export class DevopsClient {
       "opc-request-id": updateConnectionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateConnectionRequest.retryConfiguration,
@@ -5679,7 +5679,7 @@ export class DevopsClient {
 
   /**
    * Updates the deployment artifact.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDeployArtifactRequest
    * @return UpdateDeployArtifactResponse
    * @throws OciError when an error occurs
@@ -5701,7 +5701,7 @@ export class DevopsClient {
       "opc-request-id": updateDeployArtifactRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDeployArtifactRequest.retryConfiguration,
@@ -5762,7 +5762,7 @@ export class DevopsClient {
 
   /**
    * Updates the deployment environment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDeployEnvironmentRequest
    * @return UpdateDeployEnvironmentResponse
    * @throws OciError when an error occurs
@@ -5784,7 +5784,7 @@ export class DevopsClient {
       "opc-request-id": updateDeployEnvironmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDeployEnvironmentRequest.retryConfiguration,
@@ -5845,7 +5845,7 @@ export class DevopsClient {
 
   /**
    * Updates the deployment pipeline.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDeployPipelineRequest
    * @return UpdateDeployPipelineResponse
    * @throws OciError when an error occurs
@@ -5867,7 +5867,7 @@ export class DevopsClient {
       "opc-request-id": updateDeployPipelineRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDeployPipelineRequest.retryConfiguration,
@@ -5928,7 +5928,7 @@ export class DevopsClient {
 
   /**
    * Updates the deployment stage.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDeployStageRequest
    * @return UpdateDeployStageResponse
    * @throws OciError when an error occurs
@@ -5950,7 +5950,7 @@ export class DevopsClient {
       "opc-request-id": updateDeployStageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDeployStageRequest.retryConfiguration,
@@ -6011,7 +6011,7 @@ export class DevopsClient {
 
   /**
    * Updates the deployment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDeploymentRequest
    * @return UpdateDeploymentResponse
    * @throws OciError when an error occurs
@@ -6033,7 +6033,7 @@ export class DevopsClient {
       "opc-request-id": updateDeploymentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDeploymentRequest.retryConfiguration,
@@ -6084,7 +6084,7 @@ export class DevopsClient {
 
   /**
    * Updates the project.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateProjectRequest
    * @return UpdateProjectResponse
    * @throws OciError when an error occurs
@@ -6106,7 +6106,7 @@ export class DevopsClient {
       "opc-request-id": updateProjectRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateProjectRequest.retryConfiguration,
@@ -6166,8 +6166,8 @@ export class DevopsClient {
   }
 
   /**
-   * Updates the Repository
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Updates the repository.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateRepositoryRequest
    * @return UpdateRepositoryResponse
    * @throws OciError when an error occurs
@@ -6189,7 +6189,7 @@ export class DevopsClient {
       "opc-request-id": updateRepositoryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateRepositoryRequest.retryConfiguration,
@@ -6244,8 +6244,8 @@ export class DevopsClient {
   }
 
   /**
-   * Updates the Trigger
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Updates the trigger.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateTriggerRequest
    * @return UpdateTriggerResponse
    * @throws OciError when an error occurs
@@ -6267,7 +6267,7 @@ export class DevopsClient {
       "opc-request-id": updateTriggerRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateTriggerRequest.retryConfiguration,

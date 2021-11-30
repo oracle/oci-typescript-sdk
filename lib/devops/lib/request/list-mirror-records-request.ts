@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListMirrorRecordsRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**

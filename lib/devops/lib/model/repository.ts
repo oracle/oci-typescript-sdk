@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of Repository.
+ * Repositories containing the source code to build and deploy.
  */
 export interface Repository {
   /**
@@ -27,55 +27,55 @@ export interface Repository {
    */
   "name"?: string;
   /**
-   * The OCID of the repository's Compartment.
+   * The OCID of the repository's compartment.
    */
   "compartmentId": string;
   /**
-   * Tenancy unique namespace
+   * Tenancy unique namespace.
    */
   "namespace"?: string;
   /**
-   * The OCID of the Project containing the repository.
+   * The OCID of the DevOps project containing the repository.
    */
   "projectId": string;
   /**
-   * Project unique Name under namespace
+   * Unique project name in a namespace.
    */
   "projectName"?: string;
   /**
-   * ssh url user utilized to git clone, pull and push
+   * SSH URL that you use to git clone, pull and push.
    */
   "sshUrl"?: string;
   /**
-   * http url user utilized to git clone, pull and push
+   * HTTP URL that you use to git clone, pull and push.
    */
   "httpUrl"?: string;
   /**
-   * The description of this repository. Avoid entering confidential information
+   * Details of the repository. Avoid entering confidential information.
    */
   "description"?: string;
   /**
-   * The default branch of the repository
+   * The default branch of the repository.
    */
   "defaultBranch"?: string;
   /**
-   * Type of repository
-   * MIRRORED - Repository was created by mirroring an existing repository.
-   * HOSTED - Repository was created and hosted using OCI Devops Code Repository.
+   * Type of repository:
+   * Mirrored - Repository created by mirroring an existing repository.
+   * Hosted - Repository created and hosted using OCI DevOps code repository.
    *
    */
   "repositoryType"?: Repository.RepositoryType;
   "mirrorRepositoryConfig"?: model.MirrorRepositoryConfig;
   /**
-   * The time the the Repository was created. An RFC3339 formatted datetime string
+   * The time the repository was created. Format defined by [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339).
    */
   "timeCreated"?: Date;
   /**
-   * The time the Repository was updated. An RFC3339 formatted datetime string
+   * The time the repository was updated. Format defined by [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339).
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the Repository.
+   * The current state of the repository.
    */
   "lifecycleState"?: Repository.LifecycleState;
   /**
@@ -95,9 +95,9 @@ export interface Repository {
    */
   "sizeInBytes"?: number;
   /**
-   * Trigger Build Events supported for this repository
-   * PUSH - Build is triggered when a push event occurs
-   * COMMIT_UPDATES - Build is triggered when new commits are mirrored into repository
+   * Trigger build events supported for this repository:
+   * Push - Build is triggered when a push event occurs.
+   * Commit updates - Build is triggered when new commits are mirrored into a repository.
    *
    */
   "triggerBuildEvents"?: Array<Repository.TriggerBuildEvents>;

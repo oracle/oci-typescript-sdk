@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Commit object with commit information
+ * Commit object with commit information.
  */
 export interface RepositoryCommit {
   /**
-   * Commit hash pointed to by Ref name
+   * Commit hash pointed to by reference name.
    */
   "commitId": string;
   /**
@@ -27,23 +27,23 @@ export interface RepositoryCommit {
    */
   "commitMessage": string;
   /**
-   * The name of the author of the repository.
+   * Name of the author of the repository.
    */
   "authorName"?: string;
   /**
-   * The email of the author of the repository.
+   * Email of the author of the repository.
    */
   "authorEmail"?: string;
   /**
-   * The name of who create the commit.
+   * Name of who creates the commit.
    */
   "committerName"?: string;
   /**
-   * The email of who create the commit.
+   * Email of who creates the commit.
    */
   "committerEmail"?: string;
   /**
-   * An array of parent commit ids of created commit.
+   * An array of parent commit IDs of created commit.
    */
   "parentCommitIds"?: Array<string>;
   /**
@@ -51,7 +51,7 @@ export interface RepositoryCommit {
    */
   "timeCreated"?: Date;
   /**
-   * Tree information for the specified commit
+   * Tree information for the specified commit.
    */
   "treeId"?: string;
 }

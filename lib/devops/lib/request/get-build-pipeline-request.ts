@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetBuildPipelineRequest extends common.BaseRequest {
   /**
-   * unique BuildPipeline identifier
+   * Unique build pipeline identifier.
    */
   "buildPipelineId": string;
   /**

@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface GetCommitRequest extends common.BaseRequest {
   /**
-   * unique Repository identifier.
+   * Unique repository identifier.
    */
   "repositoryId": string;
   /**
-   * A filter to return only resources that match the given commit Id.
+   * A filter to return only resources that match the given commit ID.
    */
   "commitId": string;
   /**

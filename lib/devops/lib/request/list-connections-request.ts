@@ -31,7 +31,7 @@ export interface ListConnectionsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only Connections that matches the given lifecycleState
+   * A filter to return only connections that matches the given lifecycle state.
    */
   "lifecycleState"?: string;
   /**
@@ -39,7 +39,7 @@ export interface ListConnectionsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * A filter to return only resources that match the connection type given.
+   * A filter to return only resources that match the given connection type.
    */
   "connectionType"?: string;
   /**

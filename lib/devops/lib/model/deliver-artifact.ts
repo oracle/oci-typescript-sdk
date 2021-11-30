@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Artifact info that need to be pushed to the artifactory stores.
+ * Artifact information that need to be pushed to the artifactory stores.
  */
 export interface DeliverArtifact {
   /**
-   * Name of the artifact specified in the build_spec.yml file.
+   * Name of the artifact specified in the build_spec.yaml file.
    */
   "artifactName": string;
   /**
-   * Artifact Identifier which contains the Artifact Definition.
+   * Artifact identifier that contains the artifact definition.
    */
   "artifactId": string;
 }

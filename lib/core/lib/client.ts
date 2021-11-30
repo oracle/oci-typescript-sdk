@@ -21202,6 +21202,68 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   }
 
   /**
+   * The allowed parameters for IKE IPSec
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAllowedIkeIPSecParametersRequest
+   * @return GetAllowedIkeIPSecParametersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetAllowedIkeIPSecParameters.ts.html |here} to see how to use GetAllowedIkeIPSecParameters API.
+   */
+  public async getAllowedIkeIPSecParameters(
+    getAllowedIkeIPSecParametersRequest: requests.GetAllowedIkeIPSecParametersRequest
+  ): Promise<responses.GetAllowedIkeIPSecParametersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getAllowedIkeIPSecParameters.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAllowedIkeIPSecParametersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAllowedIkeIPSecParametersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipsecAlgorithms",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAllowedIkeIPSecParametersResponse>{},
+        body: await response.json(),
+        bodyKey: "allowedIkeIPSecParameters",
+        bodyModel: model.AllowedIkeIPSecParameters,
+        type: "model.AllowedIkeIPSecParameters",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the `ByoipRange` resource. You must specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -22534,6 +22596,70 @@ The operation returns configuration information for *all* of the
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the identified error for the specified IPSec Tunnel ID.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetIPSecConnectionTunnelErrorRequest
+   * @return GetIPSecConnectionTunnelErrorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnectionTunnelError.ts.html |here} to see how to use GetIPSecConnectionTunnelError API.
+   */
+  public async getIPSecConnectionTunnelError(
+    getIPSecConnectionTunnelErrorRequest: requests.GetIPSecConnectionTunnelErrorRequest
+  ): Promise<responses.GetIPSecConnectionTunnelErrorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionTunnelError.");
+    const pathParams = {
+      "{ipscId}": getIPSecConnectionTunnelErrorRequest.ipscId,
+      "{tunnelId}": getIPSecConnectionTunnelErrorRequest.tunnelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIPSecConnectionTunnelErrorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipsecConnections/{ipscId}/tunnels/{tunnelId}/error",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetIPSecConnectionTunnelErrorResponse>{},
+        body: await response.json(),
+        bodyKey: "iPSecConnectionTunnelErrorDetails",
+        bodyModel: model.IPSecConnectionTunnelErrorDetails,
+        type: "model.IPSecConnectionTunnelErrorDetails",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -26769,6 +26895,271 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   ): AsyncIterableIterator<responses.ListFastConnectProviderVirtualCircuitBandwidthShapesResponse> {
     return paginateResponses(request, req =>
       this.listFastConnectProviderVirtualCircuitBandwidthShapes(req)
+    );
+  }
+
+  /**
+   * The routes advertised to the Customer and the routes received from the Customer.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListIPSecConnectionTunnelRoutesRequest
+   * @return ListIPSecConnectionTunnelRoutesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIPSecConnectionTunnelRoutes.ts.html |here} to see how to use ListIPSecConnectionTunnelRoutes API.
+   */
+  public async listIPSecConnectionTunnelRoutes(
+    listIPSecConnectionTunnelRoutesRequest: requests.ListIPSecConnectionTunnelRoutesRequest
+  ): Promise<responses.ListIPSecConnectionTunnelRoutesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listIPSecConnectionTunnelRoutes.");
+    const pathParams = {
+      "{ipscId}": listIPSecConnectionTunnelRoutesRequest.ipscId,
+      "{tunnelId}": listIPSecConnectionTunnelRoutesRequest.tunnelId
+    };
+
+    const queryParams = {
+      "limit": listIPSecConnectionTunnelRoutesRequest.limit,
+      "page": listIPSecConnectionTunnelRoutesRequest.page,
+      "advertiser": listIPSecConnectionTunnelRoutesRequest.advertiser
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIPSecConnectionTunnelRoutesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipsecConnections/{ipscId}/tunnels/{tunnelId}/routes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListIPSecConnectionTunnelRoutesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.TunnelRouteSummary,
+        type: "Array<model.TunnelRouteSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listIPSecConnectionTunnelRoutesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.TunnelRouteSummary objects
+   * contained in responses from the listIPSecConnectionTunnelRoutes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllIPSecConnectionTunnelRoutes(
+    request: requests.ListIPSecConnectionTunnelRoutesRequest
+  ): AsyncIterableIterator<model.TunnelRouteSummary> {
+    return paginateRecords(request, req => this.listIPSecConnectionTunnelRoutes(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listIPSecConnectionTunnelRoutesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listIPSecConnectionTunnelRoutes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllIPSecConnectionTunnelRoutesResponses(
+    request: requests.ListIPSecConnectionTunnelRoutesRequest
+  ): AsyncIterableIterator<responses.ListIPSecConnectionTunnelRoutesResponse> {
+    return paginateResponses(request, req => this.listIPSecConnectionTunnelRoutes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.TunnelRouteSummary objects
+   * contained in responses from the listIPSecConnectionTunnelRoutes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIPSecConnectionTunnelRoutesRecordIterator(
+    request: requests.ListIPSecConnectionTunnelRoutesRequest
+  ): AsyncIterableIterator<model.TunnelRouteSummary> {
+    return paginateRecords(request, req => this.listIPSecConnectionTunnelRoutes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIPSecConnectionTunnelRoutes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIPSecConnectionTunnelRoutesResponseIterator(
+    request: requests.ListIPSecConnectionTunnelRoutesRequest
+  ): AsyncIterableIterator<responses.ListIPSecConnectionTunnelRoutesResponse> {
+    return paginateResponses(request, req => this.listIPSecConnectionTunnelRoutes(req));
+  }
+
+  /**
+   * Lists the tunnel Security Associations information for the specified IPSec Tunnel ID.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListIPSecConnectionTunnelSecurityAssociationsRequest
+   * @return ListIPSecConnectionTunnelSecurityAssociationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIPSecConnectionTunnelSecurityAssociations.ts.html |here} to see how to use ListIPSecConnectionTunnelSecurityAssociations API.
+   */
+  public async listIPSecConnectionTunnelSecurityAssociations(
+    listIPSecConnectionTunnelSecurityAssociationsRequest: requests.ListIPSecConnectionTunnelSecurityAssociationsRequest
+  ): Promise<responses.ListIPSecConnectionTunnelSecurityAssociationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listIPSecConnectionTunnelSecurityAssociations."
+      );
+    const pathParams = {
+      "{ipscId}": listIPSecConnectionTunnelSecurityAssociationsRequest.ipscId,
+      "{tunnelId}": listIPSecConnectionTunnelSecurityAssociationsRequest.tunnelId
+    };
+
+    const queryParams = {
+      "limit": listIPSecConnectionTunnelSecurityAssociationsRequest.limit,
+      "page": listIPSecConnectionTunnelSecurityAssociationsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIPSecConnectionTunnelSecurityAssociationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipsecConnections/{ipscId}/tunnels/{tunnelId}/tunnelSecurityAssociations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListIPSecConnectionTunnelSecurityAssociationsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.TunnelSecurityAssociationSummary,
+        type: "Array<model.TunnelSecurityAssociationSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listIPSecConnectionTunnelSecurityAssociationsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.TunnelSecurityAssociationSummary objects
+   * contained in responses from the listIPSecConnectionTunnelSecurityAssociations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllIPSecConnectionTunnelSecurityAssociations(
+    request: requests.ListIPSecConnectionTunnelSecurityAssociationsRequest
+  ): AsyncIterableIterator<model.TunnelSecurityAssociationSummary> {
+    return paginateRecords(request, req => this.listIPSecConnectionTunnelSecurityAssociations(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listIPSecConnectionTunnelSecurityAssociationsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listIPSecConnectionTunnelSecurityAssociations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllIPSecConnectionTunnelSecurityAssociationsResponses(
+    request: requests.ListIPSecConnectionTunnelSecurityAssociationsRequest
+  ): AsyncIterableIterator<responses.ListIPSecConnectionTunnelSecurityAssociationsResponse> {
+    return paginateResponses(request, req =>
+      this.listIPSecConnectionTunnelSecurityAssociations(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.TunnelSecurityAssociationSummary objects
+   * contained in responses from the listIPSecConnectionTunnelSecurityAssociations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIPSecConnectionTunnelSecurityAssociationsRecordIterator(
+    request: requests.ListIPSecConnectionTunnelSecurityAssociationsRequest
+  ): AsyncIterableIterator<model.TunnelSecurityAssociationSummary> {
+    return paginateRecords(request, req => this.listIPSecConnectionTunnelSecurityAssociations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIPSecConnectionTunnelSecurityAssociations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIPSecConnectionTunnelSecurityAssociationsResponseIterator(
+    request: requests.ListIPSecConnectionTunnelSecurityAssociationsRequest
+  ): AsyncIterableIterator<responses.ListIPSecConnectionTunnelSecurityAssociationsResponse> {
+    return paginateResponses(request, req =>
+      this.listIPSecConnectionTunnelSecurityAssociations(req)
     );
   }
 

@@ -26,7 +26,7 @@ export interface TablespaceSummary {
    */
   "name": string;
   /**
-   * The type of the tablespace.
+   * The type of tablespace.
    */
   "type": TablespaceSummary.Type;
   /**
@@ -34,7 +34,7 @@ export interface TablespaceSummary {
    */
   "status"?: TablespaceSummary.Status;
   /**
-   * The tablespace block size in bytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The tablespace block size. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockSizeBytes"?: number;
   /**
@@ -86,19 +86,19 @@ export interface TablespaceSummary {
    */
   "compressFor"?: TablespaceSummary.CompressFor;
   /**
-   * Indicates whether the In-Memory Column Store (IM column store) is by default enabled or disabled for tables in this tablespace.
+   * Indicates whether the In-Memory Column Store (IM column store) is by default enabled or disabled for tables in the tablespace.
    */
   "defaultInMemory"?: TablespaceSummary.DefaultInMemory;
   /**
-   * Indicates the default priority for In-Memory Column Store (IM column store) population for this tablespace.
+   * Indicates the default priority for In-Memory Column Store (IM column store) population for the tablespace.
    */
   "defaultInMemoryPriority"?: TablespaceSummary.DefaultInMemoryPriority;
   /**
-   * Indicates how the IM column store is distributed by default for this tablespace in an Oracle Real Application Clusters (Oracle RAC) environment.
+   * Indicates how the IM column store is distributed by default for the tablespace in an Oracle Real Application Clusters (Oracle RAC) environment.
    */
   "defaultInMemoryDistribute"?: TablespaceSummary.DefaultInMemoryDistribute;
   /**
-   * Indicates the default compression level for the IM column store for this tablespace.
+   * Indicates the default compression level for the IM column store for the tablespace.
    */
   "defaultInMemoryCompression"?: TablespaceSummary.DefaultInMemoryCompression;
   /**
@@ -122,11 +122,11 @@ export interface TablespaceSummary {
    */
   "defaultCellMemory"?: string;
   /**
-   * Indicates how the IM column store is populated on various instances by default for this tablespace.
+   * Indicates how the IM column store is populated on various instances by default for the tablespace.
    */
   "defaultInMemoryService"?: TablespaceSummary.DefaultInMemoryService;
   /**
-   * Indicates the service name for the service on which the IM column store should be populated by default for this tablespace. This column has a value only when the corresponding DEF_INMEMORY_SERVICE is USER_DEFINED. In all other cases, this column is null.
+   * Indicates the service name for the service on which the IM column store should be populated by default for the tablespace. This column has a value only when the corresponding DEF_INMEMORY_SERVICE is USER_DEFINED. In all other cases, this column is null.
    */
   "defaultInMemoryServiceName"?: string;
   /**
@@ -142,7 +142,7 @@ export interface TablespaceSummary {
    */
   "tempGroup"?: string;
   /**
-   * The maximum tablespace size in KB. If the tablespace contains any datafiles with Autoextend enabled, then this column displays the amount of underlying free storage space for the tablespace. For example, if the current tablespace size is 1 GB, the combined maximum size of all its datafiles is 32 GB, and its underlying storage (for example, ASM or file system storage) has 20 GB of free space, then this column will have a value of approximately 20 GB. If the tablespace contains only datafiles with autoextend disabled, then this column displays the allocated space for the entire tablespace, that is, the combined size of all datafiles in the tablespace. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum tablespace size in KB. If the tablespace contains any data files with Autoextend enabled, then this column displays the amount of underlying free storage space for the tablespace. For example, if the current tablespace size is 1 GB, the combined maximum size of all its data files is 32 GB, and its underlying storage (for example, ASM or file system storage) has 20 GB of free space, then this column will have a value of approximately 20 GB. If the tablespace contains only data files with autoextend disabled, then this column displays the allocated space for the entire tablespace, that is, the combined size of all data files in the tablespace. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxSizeKB"?: number;
   /**
@@ -154,7 +154,7 @@ export interface TablespaceSummary {
    */
   "userSizeKB"?: number;
   /**
-   * The free space available in this tablespace in KB. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The free space available in the tablespace in KB. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "freeSpaceKB"?: number;
   /**
@@ -170,7 +170,7 @@ export interface TablespaceSummary {
    */
   "usedPercentAllocated"?: number;
   /**
-   * A list of the datafiles associated with the tablespace.
+   * A list of the data files associated with the tablespace.
    */
   "datafiles"?: Array<model.Datafile>;
 }

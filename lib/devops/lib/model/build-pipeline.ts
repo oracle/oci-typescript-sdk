@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps APIs to create a DevOps project to group the pipelines,  add reference to target deployment environments, add artifacts to deploy,  and create deployment pipelines needed to deploy your software.
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -15,39 +15,39 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A set of stages whose predecessor relation forms a directed acyclic graph.
+ * A set of stages forming a directed acyclic graph that defines the build process.
  */
 export interface BuildPipeline {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that is immutable on creation.
    */
   "id": string;
   /**
-   * Optional description about the BuildPipeline
+   * Optional description about the build pipeline.
    */
   "description"?: string;
   /**
-   * BuildPipeline identifier which can be renamed and is not necessarily unique
+   * Build pipeline display name, which can be renamed and is not necessarily unique. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
-   * Compartment Identifier
+   * The OCID of the compartment where the build pipeline is created.
    */
   "compartmentId": string;
   /**
-   * Project Identifier
+   * The OCID of the DevOps project.
    */
   "projectId": string;
   /**
-   * The time the BuildPipeline was created. An RFC3339 formatted datetime string
+   * The time the build pipeline was created. Format defined by [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339).
    */
   "timeCreated"?: Date;
   /**
-   * The time at which the BuildPipeline was updated. An RFC3339 formatted datetime string
+   * The time the build pipeline was updated. Format defined by [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339).
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the BuildPipeline.
+   * The current state of the build pipeline.
    */
   "lifecycleState"?: BuildPipeline.LifecycleState;
   /**
