@@ -909,6 +909,74 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Returns the difference between the two input payloads, including intraline differences.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CompareContentRequest
+   * @return CompareContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CompareContent.ts.html |here} to see how to use CompareContent API.
+   */
+  public async compareContent(
+    compareContentRequest: requests.CompareContentRequest
+  ): Promise<responses.CompareContentResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#compareContent.");
+    const pathParams = {
+      "{namespaceName}": compareContentRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": compareContentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      compareContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/search/actions/compareContent",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        compareContentRequest.compareContentDetails,
+        "CompareContentDetails",
+        model.CompareContentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CompareContentResponse>{},
+        body: await response.json(),
+        bodyKey: "compareContentResult",
+        bodyModel: model.CompareContentResult,
+        type: "model.CompareContentResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Add configuration for enterprise manager bridge. Enterprise manager bridge is used to automatically add selected entities from enterprise manager cloud control. A corresponding OCI bridge configuration is required in enterprise manager.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateLogAnalyticsEmBridgeRequest
@@ -3338,6 +3406,70 @@ export class LogAnalyticsClient {
         bodyKey: "associationSummaryReport",
         bodyModel: model.AssociationSummaryReport,
         type: "model.AssociationSummaryReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets detailed information about the category with the specified name.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCategoryRequest
+   * @return GetCategoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetCategory.ts.html |here} to see how to use GetCategory API.
+   */
+  public async getCategory(
+    getCategoryRequest: requests.GetCategoryRequest
+  ): Promise<responses.GetCategoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getCategory.");
+    const pathParams = {
+      "{namespaceName}": getCategoryRequest.namespaceName,
+      "{categoryName}": getCategoryRequest.categoryName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCategoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCategoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/categories/{categoryName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCategoryResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsCategory",
+        bodyModel: model.LogAnalyticsCategory,
+        type: "model.LogAnalyticsCategory",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5852,6 +5984,87 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Returns a list of categories, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by information such as category name or description.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListCategoriesRequest
+   * @return ListCategoriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListCategories.ts.html |here} to see how to use ListCategories API.
+   */
+  public async listCategories(
+    listCategoriesRequest: requests.ListCategoriesRequest
+  ): Promise<responses.ListCategoriesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listCategories.");
+    const pathParams = {
+      "{namespaceName}": listCategoriesRequest.namespaceName
+    };
+
+    const queryParams = {
+      "categoryType": listCategoriesRequest.categoryType,
+      "categoryDisplayText": listCategoriesRequest.categoryDisplayText,
+      "sortOrder": listCategoriesRequest.sortOrder,
+      "sortBy": listCategoriesRequest.sortBy,
+      "limit": listCategoriesRequest.limit,
+      "page": listCategoriesRequest.page,
+      "name": listCategoriesRequest.name
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCategoriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCategoriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/categories",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCategoriesResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsCategoryCollection",
+        bodyModel: model.LogAnalyticsCategoryCollection,
+        type: "model.LogAnalyticsCategoryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns the list of configuration work requests such as association or lookup operations, containing detailed information about them. You may paginate or limit the number of results.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -6582,6 +6795,82 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Return a log analytics entity topology collection that contains a set of log analytics entities and a set of relationships between those, for the input source entity.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListLogAnalyticsEntityTopologyRequest
+   * @return ListLogAnalyticsEntityTopologyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsEntityTopology.ts.html |here} to see how to use ListLogAnalyticsEntityTopology API.
+   */
+  public async listLogAnalyticsEntityTopology(
+    listLogAnalyticsEntityTopologyRequest: requests.ListLogAnalyticsEntityTopologyRequest
+  ): Promise<responses.ListLogAnalyticsEntityTopologyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEntityTopology.");
+    const pathParams = {
+      "{namespaceName}": listLogAnalyticsEntityTopologyRequest.namespaceName,
+      "{logAnalyticsEntityId}": listLogAnalyticsEntityTopologyRequest.logAnalyticsEntityId
+    };
+
+    const queryParams = {
+      "lifecycleState": listLogAnalyticsEntityTopologyRequest.lifecycleState,
+      "limit": listLogAnalyticsEntityTopologyRequest.limit,
+      "page": listLogAnalyticsEntityTopologyRequest.page,
+      "sortOrder": listLogAnalyticsEntityTopologyRequest.sortOrder,
+      "sortBy": listLogAnalyticsEntityTopologyRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listLogAnalyticsEntityTopologyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listLogAnalyticsEntityTopologyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/namespaces/{namespaceName}/logAnalyticsEntities/{logAnalyticsEntityId}/entityTopology",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListLogAnalyticsEntityTopologyResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsEntityTopologyCollection",
+        bodyModel: model.LogAnalyticsEntityTopologyCollection,
+        type: "model.LogAnalyticsEntityTopologyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Return a list of log analytics entity types.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListLogAnalyticsEntityTypesRequest
@@ -6913,6 +7202,7 @@ export class LogAnalyticsClient {
       "isSystem": listLookupsRequest.isSystem,
       "sortBy": listLookupsRequest.sortBy,
       "status": listLookupsRequest.status,
+      "categories": listLookupsRequest.categories,
       "isHideSpecial": listLookupsRequest.isHideSpecial,
       "limit": listLookupsRequest.limit,
       "page": listLookupsRequest.page,
@@ -7296,6 +7586,7 @@ export class LogAnalyticsClient {
       "parserName": listParsersRequest.parserName,
       "parserDisplayText": listParsersRequest.parserDisplayText,
       "parserType": listParsersRequest.parserType,
+      "categories": listParsersRequest.categories,
       "isSystem": listParsersRequest.isSystem,
       "limit": listParsersRequest.limit,
       "page": listParsersRequest.page,
@@ -7507,6 +7798,89 @@ export class LogAnalyticsClient {
           {
             value: response.headers.get("opc-prev-page"),
             key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of resources and their category assignments.
+   * You may limit the number of results, provide sorting order, and filter by information such as resource type.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListResourceCategoriesRequest
+   * @return ListResourceCategoriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListResourceCategories.ts.html |here} to see how to use ListResourceCategories API.
+   */
+  public async listResourceCategories(
+    listResourceCategoriesRequest: requests.ListResourceCategoriesRequest
+  ): Promise<responses.ListResourceCategoriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#listResourceCategories.");
+    const pathParams = {
+      "{namespaceName}": listResourceCategoriesRequest.namespaceName
+    };
+
+    const queryParams = {
+      "categories": listResourceCategoriesRequest.categories,
+      "resourceTypes": listResourceCategoriesRequest.resourceTypes,
+      "resourceIds": listResourceCategoriesRequest.resourceIds,
+      "sortOrder": listResourceCategoriesRequest.sortOrder,
+      "sortBy": listResourceCategoriesRequest.sortBy,
+      "limit": listResourceCategoriesRequest.limit,
+      "page": listResourceCategoriesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listResourceCategoriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResourceCategoriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/categories/resourceCategories",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListResourceCategoriesResponse>{},
+        body: await response.json(),
+        bodyKey: "logAnalyticsResourceCategoryCollection",
+        bodyModel: model.LogAnalyticsResourceCategoryCollection,
+        type: "model.LogAnalyticsResourceCategoryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -8112,6 +8486,7 @@ export class LogAnalyticsClient {
       "limit": listSourcesRequest.limit,
       "page": listSourcesRequest.page,
       "name": listSourcesRequest.name,
+      "categories": listSourcesRequest.categories,
       "isSimplified": listSourcesRequest.isSimplified,
       "compartmentId": listSourcesRequest.compartmentId
     };
@@ -9887,6 +10262,71 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Removes the category assignments of DASHBOARD and SAVEDSEARCH resources.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveResourceCategoriesRequest
+   * @return RemoveResourceCategoriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RemoveResourceCategories.ts.html |here} to see how to use RemoveResourceCategories API.
+   */
+  public async removeResourceCategories(
+    removeResourceCategoriesRequest: requests.RemoveResourceCategoriesRequest
+  ): Promise<responses.RemoveResourceCategoriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#removeResourceCategories.");
+    const pathParams = {
+      "{namespaceName}": removeResourceCategoriesRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeResourceCategoriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeResourceCategoriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/categories/actions/removeResourceCategories",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeResourceCategoriesRequest.removeResourceCategoriesDetails,
+        "LogAnalyticsResourceCategoryDetails",
+        model.LogAnalyticsResourceCategoryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveResourceCategoriesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Remove one or more event types from a source.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -11014,6 +11454,71 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Updates the category assignments of DASHBOARD and SAVEDSEARCH resources.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateResourceCategoriesRequest
+   * @return UpdateResourceCategoriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateResourceCategories.ts.html |here} to see how to use UpdateResourceCategories API.
+   */
+  public async updateResourceCategories(
+    updateResourceCategoriesRequest: requests.UpdateResourceCategoriesRequest
+  ): Promise<responses.UpdateResourceCategoriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#updateResourceCategories.");
+    const pathParams = {
+      "{namespaceName}": updateResourceCategoriesRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateResourceCategoriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateResourceCategoriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/categories/actions/updateResourceCategories",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateResourceCategoriesRequest.updateResourceCategoriesDetails,
+        "LogAnalyticsResourceCategoryDetails",
+        model.LogAnalyticsResourceCategoryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateResourceCategoriesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Update the scheduled task. Schedules may be updated only for taskType SAVED_SEARCH and PURGE.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateScheduledTaskRequest
@@ -12044,6 +12549,74 @@ export class LogAnalyticsClient {
         bodyKey: "sourceMappingResponse",
         bodyModel: model.SourceMappingResponse,
         type: "model.SourceMappingResponse",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Verify the accelerated saved search task specified by {scheduledTaskId}.
+   * For internal use only.
+   * Optionally specify whether to return accelerated search results; the default is false.
+   * The ScheduledTask taskType must be ACCELERATION.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param VerifyRequest
+   * @return VerifyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Verify.ts.html |here} to see how to use Verify API.
+   */
+  public async verify(verifyRequest: requests.VerifyRequest): Promise<responses.VerifyResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#verify.");
+    const pathParams = {
+      "{namespaceName}": verifyRequest.namespaceName,
+      "{scheduledTaskId}": verifyRequest.scheduledTaskId
+    };
+
+    const queryParams = {
+      "shouldIncludeResults": verifyRequest.shouldIncludeResults
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": verifyRequest.opcRequestId,
+      "opc-retry-token": verifyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      verifyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/scheduledTasks/{scheduledTaskId}/actions/verify",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.VerifyResponse>{},
+        body: await response.json(),
+        bodyKey: "verifyOutput",
+        bodyModel: model.VerifyOutput,
+        type: "model.VerifyOutput",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

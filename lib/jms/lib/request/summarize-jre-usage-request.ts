@@ -87,4 +87,8 @@ export interface SummarizeJreUsageRequest extends common.BaseRequest {
    * The operating system type.
    */
   "osFamily"?: Array<model.OsFamily>;
+  /**
+   * The security status of the Java Runtime.
+   */
+  "jreSecurityStatus"?: model.JreSecurityStatus;
 }

@@ -33,7 +33,7 @@ export interface InstallationUsage {
    */
   "jreVersion": string;
   /**
-   * The file system path of the installation.
+   * The file system path of the Java installation.
    */
   "path": string;
   /**

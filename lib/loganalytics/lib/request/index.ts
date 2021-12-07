@@ -34,6 +34,8 @@ import * as ChangeScheduledTaskCompartmentRequest from "./change-scheduled-task-
 export import ChangeScheduledTaskCompartmentRequest = ChangeScheduledTaskCompartmentRequest.ChangeScheduledTaskCompartmentRequest;
 import * as CleanRequest from "./clean-request";
 export import CleanRequest = CleanRequest.CleanRequest;
+import * as CompareContentRequest from "./compare-content-request";
+export import CompareContentRequest = CompareContentRequest.CompareContentRequest;
 import * as CreateLogAnalyticsEmBridgeRequest from "./create-log-analytics-em-bridge-request";
 export import CreateLogAnalyticsEmBridgeRequest = CreateLogAnalyticsEmBridgeRequest.CreateLogAnalyticsEmBridgeRequest;
 import * as CreateLogAnalyticsEntityRequest from "./create-log-analytics-entity-request";
@@ -106,6 +108,8 @@ import * as FilterRequest from "./filter-request";
 export import FilterRequest = FilterRequest.FilterRequest;
 import * as GetAssociationSummaryRequest from "./get-association-summary-request";
 export import GetAssociationSummaryRequest = GetAssociationSummaryRequest.GetAssociationSummaryRequest;
+import * as GetCategoryRequest from "./get-category-request";
+export import GetCategoryRequest = GetCategoryRequest.GetCategoryRequest;
 import * as GetColumnNamesRequest from "./get-column-names-request";
 export import GetColumnNamesRequest = GetColumnNamesRequest.GetColumnNamesRequest;
 import * as GetConfigWorkRequestRequest from "./get-config-work-request-request";
@@ -178,6 +182,8 @@ import * as ListAssociatedEntitiesRequest from "./list-associated-entities-reque
 export import ListAssociatedEntitiesRequest = ListAssociatedEntitiesRequest.ListAssociatedEntitiesRequest;
 import * as ListAutoAssociationsRequest from "./list-auto-associations-request";
 export import ListAutoAssociationsRequest = ListAutoAssociationsRequest.ListAutoAssociationsRequest;
+import * as ListCategoriesRequest from "./list-categories-request";
+export import ListCategoriesRequest = ListCategoriesRequest.ListCategoriesRequest;
 import * as ListConfigWorkRequestsRequest from "./list-config-work-requests-request";
 export import ListConfigWorkRequestsRequest = ListConfigWorkRequestsRequest.ListConfigWorkRequestsRequest;
 import * as ListEntityAssociationsRequest from "./list-entity-associations-request";
@@ -196,6 +202,8 @@ import * as ListLogAnalyticsEmBridgesRequest from "./list-log-analytics-em-bridg
 export import ListLogAnalyticsEmBridgesRequest = ListLogAnalyticsEmBridgesRequest.ListLogAnalyticsEmBridgesRequest;
 import * as ListLogAnalyticsEntitiesRequest from "./list-log-analytics-entities-request";
 export import ListLogAnalyticsEntitiesRequest = ListLogAnalyticsEntitiesRequest.ListLogAnalyticsEntitiesRequest;
+import * as ListLogAnalyticsEntityTopologyRequest from "./list-log-analytics-entity-topology-request";
+export import ListLogAnalyticsEntityTopologyRequest = ListLogAnalyticsEntityTopologyRequest.ListLogAnalyticsEntityTopologyRequest;
 import * as ListLogAnalyticsEntityTypesRequest from "./list-log-analytics-entity-types-request";
 export import ListLogAnalyticsEntityTypesRequest = ListLogAnalyticsEntityTypesRequest.ListLogAnalyticsEntityTypesRequest;
 import * as ListLogAnalyticsLogGroupsRequest from "./list-log-analytics-log-groups-request";
@@ -220,6 +228,8 @@ import * as ListQueryWorkRequestsRequest from "./list-query-work-requests-reques
 export import ListQueryWorkRequestsRequest = ListQueryWorkRequestsRequest.ListQueryWorkRequestsRequest;
 import * as ListRecalledDataRequest from "./list-recalled-data-request";
 export import ListRecalledDataRequest = ListRecalledDataRequest.ListRecalledDataRequest;
+import * as ListResourceCategoriesRequest from "./list-resource-categories-request";
+export import ListResourceCategoriesRequest = ListResourceCategoriesRequest.ListResourceCategoriesRequest;
 import * as ListScheduledTasksRequest from "./list-scheduled-tasks-request";
 export import ListScheduledTasksRequest = ListScheduledTasksRequest.ListScheduledTasksRequest;
 import * as ListSourceAssociationsRequest from "./list-source-associations-request";
@@ -282,6 +292,8 @@ import * as RemoveEntityAssociationsRequest from "./remove-entity-associations-r
 export import RemoveEntityAssociationsRequest = RemoveEntityAssociationsRequest.RemoveEntityAssociationsRequest;
 import * as RemovePreferencesRequest from "./remove-preferences-request";
 export import RemovePreferencesRequest = RemovePreferencesRequest.RemovePreferencesRequest;
+import * as RemoveResourceCategoriesRequest from "./remove-resource-categories-request";
+export import RemoveResourceCategoriesRequest = RemoveResourceCategoriesRequest.RemoveResourceCategoriesRequest;
 import * as RemoveSourceEventTypesRequest from "./remove-source-event-types-request";
 export import RemoveSourceEventTypesRequest = RemoveSourceEventTypesRequest.RemoveSourceEventTypesRequest;
 import * as ResumeScheduledTaskRequest from "./resume-scheduled-task-request";
@@ -314,6 +326,8 @@ import * as UpdateLookupDataRequest from "./update-lookup-data-request";
 export import UpdateLookupDataRequest = UpdateLookupDataRequest.UpdateLookupDataRequest;
 import * as UpdatePreferencesRequest from "./update-preferences-request";
 export import UpdatePreferencesRequest = UpdatePreferencesRequest.UpdatePreferencesRequest;
+import * as UpdateResourceCategoriesRequest from "./update-resource-categories-request";
+export import UpdateResourceCategoriesRequest = UpdateResourceCategoriesRequest.UpdateResourceCategoriesRequest;
 import * as UpdateScheduledTaskRequest from "./update-scheduled-task-request";
 export import UpdateScheduledTaskRequest = UpdateScheduledTaskRequest.UpdateScheduledTaskRequest;
 import * as UpdateStorageRequest from "./update-storage-request";
@@ -342,3 +356,5 @@ import * as ValidateSourceExtendedFieldDetailsRequest from "./validate-source-ex
 export import ValidateSourceExtendedFieldDetailsRequest = ValidateSourceExtendedFieldDetailsRequest.ValidateSourceExtendedFieldDetailsRequest;
 import * as ValidateSourceMappingRequest from "./validate-source-mapping-request";
 export import ValidateSourceMappingRequest = ValidateSourceMappingRequest.ValidateSourceMappingRequest;
+import * as VerifyRequest from "./verify-request";
+export import VerifyRequest = VerifyRequest.VerifyRequest;

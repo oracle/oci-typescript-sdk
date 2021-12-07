@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * LoganParserDetails
+ * LogAnalyticsParserSummary
  */
 export interface LogAnalyticsParserSummary {
   /**

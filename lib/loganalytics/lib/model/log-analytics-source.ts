@@ -170,6 +170,12 @@ export interface LogAnalyticsSource {
    * An array of event types.
    */
   "eventTypes"?: Array<model.EventType>;
+  /**
+   * An array of categories assigned to this source.
+   * The isSystem flag denotes if each category assignment is user-created or Oracle-defined.
+   *
+   */
+  "categories"?: Array<model.LogAnalyticsCategory>;
 }
 
 export namespace LogAnalyticsSource {
@@ -269,6 +275,11 @@ export namespace LogAnalyticsSource {
         "eventTypes": obj.eventTypes
           ? obj.eventTypes.map(item => {
               return model.EventType.getJsonObj(item);
+            })
+          : undefined,
+        "categories": obj.categories
+          ? obj.categories.map(item => {
+              return model.LogAnalyticsCategory.getJsonObj(item);
             })
           : undefined
       }
@@ -372,6 +383,11 @@ export namespace LogAnalyticsSource {
         "eventTypes": obj.eventTypes
           ? obj.eventTypes.map(item => {
               return model.EventType.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "categories": obj.categories
+          ? obj.categories.map(item => {
+              return model.LogAnalyticsCategory.getDeserializedJsonObj(item);
             })
           : undefined
       }

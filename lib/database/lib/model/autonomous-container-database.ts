@@ -58,6 +58,15 @@ export interface AutonomousContainerDatabase {
    */
   "vaultId"?: string;
   /**
+   * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation.
+   *
+   */
+  "kmsKeyVersionId"?: string;
+  /**
+   * Key History Entry.
+   */
+  "keyHistoryEntry"?: Array<model.AutonomousDatabaseKeyHistoryEntry>;
+  /**
    * The current state of the Autonomous Container Database.
    */
   "lifecycleState": AutonomousContainerDatabase.LifecycleState;
@@ -197,6 +206,12 @@ export namespace AutonomousContainerDatabase {
     const jsonObj = {
       ...obj,
       ...{
+        "keyHistoryEntry": obj.keyHistoryEntry
+          ? obj.keyHistoryEntry.map(item => {
+              return model.AutonomousDatabaseKeyHistoryEntry.getJsonObj(item);
+            })
+          : undefined,
+
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined,
@@ -213,6 +228,12 @@ export namespace AutonomousContainerDatabase {
     const jsonObj = {
       ...obj,
       ...{
+        "keyHistoryEntry": obj.keyHistoryEntry
+          ? obj.keyHistoryEntry.map(item => {
+              return model.AutonomousDatabaseKeyHistoryEntry.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
           : undefined,

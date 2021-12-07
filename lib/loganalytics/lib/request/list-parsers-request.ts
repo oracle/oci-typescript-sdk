@@ -56,6 +56,10 @@ export interface ListParsersRequest extends common.BaseRequest {
    */
   "parserType"?: ListParsersRequest.ParserType;
   /**
+   * A comma-separated list of categories used for filtering
+   */
+  "categories"?: string;
+  /**
    * The system value used for filtering.  Only items with the specified system value
    * will be returned.  Valid values are built in, custom (for user defined items), or
    * all (for all items, regardless of system value).

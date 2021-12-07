@@ -1,6 +1,6 @@
 {
   "name": "oci-devops",
-  "version": "2.9.0",
+  "version": "2.9.1",
   "description": "OCI NodeJS client for Devops Service",
   "repository": {
     "type": "git",

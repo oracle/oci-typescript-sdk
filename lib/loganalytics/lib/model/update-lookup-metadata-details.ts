@@ -35,6 +35,12 @@ export interface UpdateLookupMetadataDetails {
    * The maximum number of matches. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxMatches"?: number;
+  /**
+   * An array of categories to assign to the lookup. Specifying the name attribute for each category would suffice.
+   * Oracle-defined category assignments cannot be removed.
+   *
+   */
+  "categories"?: Array<model.LogAnalyticsCategory>;
 }
 
 export namespace UpdateLookupMetadataDetails {
@@ -45,6 +51,12 @@ export namespace UpdateLookupMetadataDetails {
         "fields": obj.fields
           ? obj.fields.map(item => {
               return model.LogAnalyticsLookupFields.getJsonObj(item);
+            })
+          : undefined,
+
+        "categories": obj.categories
+          ? obj.categories.map(item => {
+              return model.LogAnalyticsCategory.getJsonObj(item);
             })
           : undefined
       }
@@ -59,6 +71,12 @@ export namespace UpdateLookupMetadataDetails {
         "fields": obj.fields
           ? obj.fields.map(item => {
               return model.LogAnalyticsLookupFields.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "categories": obj.categories
+          ? obj.categories.map(item => {
+              return model.LogAnalyticsCategory.getDeserializedJsonObj(item);
             })
           : undefined
       }

@@ -554,7 +554,8 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Returns a list of all the Fleets contained by a compartment.
+   * Returns a list of all the Fleets contained by a compartment. The query parameter `compartmentId`
+   * is required unless the query parameter `id` is specified.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListFleetsRequest
@@ -608,6 +609,83 @@ export class JavaManagementServiceClient {
         bodyKey: "fleetCollection",
         bodyModel: model.FleetCollection,
         type: "model.FleetCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List Java Runtime usage in a specified host filtered by query parameters.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListJreUsageRequest
+   * @return ListJreUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJreUsage.ts.html |here} to see how to use ListJreUsage API.
+   */
+  public async listJreUsage(
+    listJreUsageRequest: requests.ListJreUsageRequest
+  ): Promise<responses.ListJreUsageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listJreUsage.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listJreUsageRequest.compartmentId,
+      "hostId": listJreUsageRequest.hostId,
+      "applicationId": listJreUsageRequest.applicationId,
+      "applicationName": listJreUsageRequest.applicationName,
+      "timeStart": listJreUsageRequest.timeStart,
+      "timeEnd": listJreUsageRequest.timeEnd,
+      "limit": listJreUsageRequest.limit,
+      "page": listJreUsageRequest.page,
+      "sortOrder": listJreUsageRequest.sortOrder,
+      "sortBy": listJreUsageRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listJreUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJreUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/listJreUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListJreUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "jreUsageCollection",
+        bodyModel: model.JreUsageCollection,
+        type: "model.JreUsageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -773,7 +851,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * List the work requests in a compartment.
+   * List the work requests in a compartment. The query parameter `compartmentId` is required unless the query parameter `id` is specified.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
@@ -1044,7 +1122,8 @@ export class JavaManagementServiceClient {
       "page": summarizeJreUsageRequest.page,
       "sortOrder": summarizeJreUsageRequest.sortOrder,
       "sortBy": summarizeJreUsageRequest.sortBy,
-      "osFamily": summarizeJreUsageRequest.osFamily
+      "osFamily": summarizeJreUsageRequest.osFamily,
+      "jreSecurityStatus": summarizeJreUsageRequest.jreSecurityStatus
     };
 
     let headerParams = {
@@ -1171,6 +1250,74 @@ export class JavaManagementServiceClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve the inventory of JMS resources in the specified compartment: a list of the number of _active_ fleets, managed instances, Java Runtimes, Java installations, and applications.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeResourceInventoryRequest
+   * @return SummarizeResourceInventoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeResourceInventory.ts.html |here} to see how to use SummarizeResourceInventory API.
+   */
+  public async summarizeResourceInventory(
+    summarizeResourceInventoryRequest: requests.SummarizeResourceInventoryRequest
+  ): Promise<responses.SummarizeResourceInventoryResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#summarizeResourceInventory."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeResourceInventoryRequest.compartmentId,
+      "timeStart": summarizeResourceInventoryRequest.timeStart,
+      "timeEnd": summarizeResourceInventoryRequest.timeEnd
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeResourceInventoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeResourceInventoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/summarizeResourceInventory",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeResourceInventoryResponse>{},
+        body: await response.json(),
+        bodyKey: "resourceInventory",
+        bodyModel: model.ResourceInventory,
+        type: "model.ResourceInventory",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

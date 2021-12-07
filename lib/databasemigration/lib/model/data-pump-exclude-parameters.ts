@@ -21,7 +21,13 @@ import common = require("oci-common");
 export enum DataPumpExcludeParameters {
   Index = "INDEX",
   MaterializedView = "MATERIALIZED_VIEW",
-  MaterializedViewLog = "MATERIALIZED_VIEW_LOG"
+  MaterializedViewLog = "MATERIALIZED_VIEW_LOG",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace DataPumpExcludeParameters {

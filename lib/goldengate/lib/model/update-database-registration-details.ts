@@ -63,6 +63,11 @@ export interface UpdateDatabaseRegistrationDetails {
    */
   "connectionString"?: string;
   /**
+   * The mode of the database connection session to be established by the data client. REDIRECT - for a RAC database, DIRECT - for a non-RAC database. Connection to a RAC database involves a redirection received from the SCAN listeners to the database node to connect to. By default the mode would be DIRECT.
+   *
+   */
+  "sessionMode"?: UpdateDatabaseRegistrationDetails.SessionMode;
+  /**
    * The wallet contents Oracle GoldenGate uses to make connections to a database.  This attribute is expected to be base64 encoded.
    *
    */
@@ -75,6 +80,11 @@ export interface UpdateDatabaseRegistrationDetails {
 }
 
 export namespace UpdateDatabaseRegistrationDetails {
+  export enum SessionMode {
+    Direct = "DIRECT",
+    Redirect = "REDIRECT"
+  }
+
   export function getJsonObj(obj: UpdateDatabaseRegistrationDetails): object {
     const jsonObj = { ...obj, ...{} };
 

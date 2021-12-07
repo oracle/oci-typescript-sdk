@@ -16,6 +16,7 @@ import common = require("oci-common");
 
 /**
  * Operating System of the platform on which the Java Runtime was reported.
+ *
  */
 export interface OperatingSystem {
   /**

@@ -19,6 +19,30 @@ import common = require("oci-common");
  */
 export interface JreUsage {
   /**
+   * The internal identifier of the Java Runtime.
+   */
+  "id"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the related fleet.  This property value is present only for /actions/listJreUsage.
+   */
+  "fleetId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the related managed instance. This property value is present only for /actions/listJreUsage.
+   */
+  "managedInstanceId"?: string;
+  /**
+   * The security status of the Java Runtime.
+   */
+  "securityStatus"?: model.JreSecurityStatus;
+  /**
+   * The release date of the Java Runtime (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+   */
+  "releaseDate"?: Date;
+  /**
+   * The End of Support Life (EOSL) date of the Java Runtime (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+   */
+  "endOfSupportLifeDate"?: Date;
+  /**
    * The vendor of the Java Runtime.
    */
   "vendor": string;

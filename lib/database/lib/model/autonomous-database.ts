@@ -49,6 +49,11 @@ export interface AutonomousDatabase {
    */
   "kmsKeyLifecycleDetails"?: string;
   /**
+   * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation.
+   *
+   */
+  "kmsKeyVersionId"?: string;
+  /**
    * The database name.
    */
   "dbName": string;
