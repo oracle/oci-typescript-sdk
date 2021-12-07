@@ -21,7 +21,13 @@ export enum OperatorType {
   In = "IN",
   NotIn = "NOT_IN",
   Equals = "EQUALS",
-  NotEquals = "NOT_EQUALS"
+  NotEquals = "NOT_EQUALS",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace OperatorType {

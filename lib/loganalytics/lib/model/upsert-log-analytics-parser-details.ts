@@ -126,6 +126,12 @@ export interface UpsertLogAnalyticsParserDetails {
    *
    */
   "isNamespaceAware"?: boolean;
+  /**
+   * An array of categories to assign to the parser. Specifying the name attribute for each category would suffice.
+   * Oracle-defined category assignments cannot be removed.
+   *
+   */
+  "categories"?: Array<model.LogAnalyticsCategory>;
 }
 
 export namespace UpsertLogAnalyticsParserDetails {
@@ -151,6 +157,12 @@ export namespace UpsertLogAnalyticsParserDetails {
           ? obj.parserFunctions.map(item => {
               return model.LogAnalyticsParserFunction.getJsonObj(item);
             })
+          : undefined,
+
+        "categories": obj.categories
+          ? obj.categories.map(item => {
+              return model.LogAnalyticsCategory.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -170,6 +182,12 @@ export namespace UpsertLogAnalyticsParserDetails {
         "parserFunctions": obj.parserFunctions
           ? obj.parserFunctions.map(item => {
               return model.LogAnalyticsParserFunction.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "categories": obj.categories
+          ? obj.categories.map(item => {
+              return model.LogAnalyticsCategory.getDeserializedJsonObj(item);
             })
           : undefined
       }

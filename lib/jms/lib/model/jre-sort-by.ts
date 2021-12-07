@@ -26,7 +26,8 @@ export enum JreSortBy {
   ApproximateInstallationCount = "approximateInstallationCount",
   ApproximateApplicationCount = "approximateApplicationCount",
   ApproximateManagedInstanceCount = "approximateManagedInstanceCount",
-  OsName = "osName"
+  OsName = "osName",
+  SecurityStatus = "securityStatus"
 }
 
 export namespace JreSortBy {

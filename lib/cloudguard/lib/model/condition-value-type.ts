@@ -19,7 +19,13 @@ import common = require("oci-common");
  **/
 export enum ConditionValueType {
   Managed = "MANAGED",
-  Custom = "CUSTOM"
+  Custom = "CUSTOM",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace ConditionValueType {

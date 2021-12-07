@@ -76,6 +76,10 @@ export interface ListSourcesRequest extends common.BaseRequest {
    */
   "name"?: string;
   /**
+   * A comma-separated list of categories used for filtering
+   */
+  "categories"?: string;
+  /**
    * A flag specifying whether or not to return all source information, or a subset of the
    * information about each source.  A value of true will return only the source unique
    * identifier and the source name.  A value of false will return all source information

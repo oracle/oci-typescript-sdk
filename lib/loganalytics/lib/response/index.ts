@@ -34,6 +34,8 @@ import * as ChangeScheduledTaskCompartmentResponse from "./change-scheduled-task
 export import ChangeScheduledTaskCompartmentResponse = ChangeScheduledTaskCompartmentResponse.ChangeScheduledTaskCompartmentResponse;
 import * as CleanResponse from "./clean-response";
 export import CleanResponse = CleanResponse.CleanResponse;
+import * as CompareContentResponse from "./compare-content-response";
+export import CompareContentResponse = CompareContentResponse.CompareContentResponse;
 import * as CreateLogAnalyticsEmBridgeResponse from "./create-log-analytics-em-bridge-response";
 export import CreateLogAnalyticsEmBridgeResponse = CreateLogAnalyticsEmBridgeResponse.CreateLogAnalyticsEmBridgeResponse;
 import * as CreateLogAnalyticsEntityResponse from "./create-log-analytics-entity-response";
@@ -106,6 +108,8 @@ import * as FilterResponse from "./filter-response";
 export import FilterResponse = FilterResponse.FilterResponse;
 import * as GetAssociationSummaryResponse from "./get-association-summary-response";
 export import GetAssociationSummaryResponse = GetAssociationSummaryResponse.GetAssociationSummaryResponse;
+import * as GetCategoryResponse from "./get-category-response";
+export import GetCategoryResponse = GetCategoryResponse.GetCategoryResponse;
 import * as GetColumnNamesResponse from "./get-column-names-response";
 export import GetColumnNamesResponse = GetColumnNamesResponse.GetColumnNamesResponse;
 import * as GetConfigWorkRequestResponse from "./get-config-work-request-response";
@@ -178,6 +182,8 @@ import * as ListAssociatedEntitiesResponse from "./list-associated-entities-resp
 export import ListAssociatedEntitiesResponse = ListAssociatedEntitiesResponse.ListAssociatedEntitiesResponse;
 import * as ListAutoAssociationsResponse from "./list-auto-associations-response";
 export import ListAutoAssociationsResponse = ListAutoAssociationsResponse.ListAutoAssociationsResponse;
+import * as ListCategoriesResponse from "./list-categories-response";
+export import ListCategoriesResponse = ListCategoriesResponse.ListCategoriesResponse;
 import * as ListConfigWorkRequestsResponse from "./list-config-work-requests-response";
 export import ListConfigWorkRequestsResponse = ListConfigWorkRequestsResponse.ListConfigWorkRequestsResponse;
 import * as ListEntityAssociationsResponse from "./list-entity-associations-response";
@@ -196,6 +202,8 @@ import * as ListLogAnalyticsEmBridgesResponse from "./list-log-analytics-em-brid
 export import ListLogAnalyticsEmBridgesResponse = ListLogAnalyticsEmBridgesResponse.ListLogAnalyticsEmBridgesResponse;
 import * as ListLogAnalyticsEntitiesResponse from "./list-log-analytics-entities-response";
 export import ListLogAnalyticsEntitiesResponse = ListLogAnalyticsEntitiesResponse.ListLogAnalyticsEntitiesResponse;
+import * as ListLogAnalyticsEntityTopologyResponse from "./list-log-analytics-entity-topology-response";
+export import ListLogAnalyticsEntityTopologyResponse = ListLogAnalyticsEntityTopologyResponse.ListLogAnalyticsEntityTopologyResponse;
 import * as ListLogAnalyticsEntityTypesResponse from "./list-log-analytics-entity-types-response";
 export import ListLogAnalyticsEntityTypesResponse = ListLogAnalyticsEntityTypesResponse.ListLogAnalyticsEntityTypesResponse;
 import * as ListLogAnalyticsLogGroupsResponse from "./list-log-analytics-log-groups-response";
@@ -220,6 +228,8 @@ import * as ListQueryWorkRequestsResponse from "./list-query-work-requests-respo
 export import ListQueryWorkRequestsResponse = ListQueryWorkRequestsResponse.ListQueryWorkRequestsResponse;
 import * as ListRecalledDataResponse from "./list-recalled-data-response";
 export import ListRecalledDataResponse = ListRecalledDataResponse.ListRecalledDataResponse;
+import * as ListResourceCategoriesResponse from "./list-resource-categories-response";
+export import ListResourceCategoriesResponse = ListResourceCategoriesResponse.ListResourceCategoriesResponse;
 import * as ListScheduledTasksResponse from "./list-scheduled-tasks-response";
 export import ListScheduledTasksResponse = ListScheduledTasksResponse.ListScheduledTasksResponse;
 import * as ListSourceAssociationsResponse from "./list-source-associations-response";
@@ -282,6 +292,8 @@ import * as RemoveEntityAssociationsResponse from "./remove-entity-associations-
 export import RemoveEntityAssociationsResponse = RemoveEntityAssociationsResponse.RemoveEntityAssociationsResponse;
 import * as RemovePreferencesResponse from "./remove-preferences-response";
 export import RemovePreferencesResponse = RemovePreferencesResponse.RemovePreferencesResponse;
+import * as RemoveResourceCategoriesResponse from "./remove-resource-categories-response";
+export import RemoveResourceCategoriesResponse = RemoveResourceCategoriesResponse.RemoveResourceCategoriesResponse;
 import * as RemoveSourceEventTypesResponse from "./remove-source-event-types-response";
 export import RemoveSourceEventTypesResponse = RemoveSourceEventTypesResponse.RemoveSourceEventTypesResponse;
 import * as ResumeScheduledTaskResponse from "./resume-scheduled-task-response";
@@ -314,6 +326,8 @@ import * as UpdateLookupDataResponse from "./update-lookup-data-response";
 export import UpdateLookupDataResponse = UpdateLookupDataResponse.UpdateLookupDataResponse;
 import * as UpdatePreferencesResponse from "./update-preferences-response";
 export import UpdatePreferencesResponse = UpdatePreferencesResponse.UpdatePreferencesResponse;
+import * as UpdateResourceCategoriesResponse from "./update-resource-categories-response";
+export import UpdateResourceCategoriesResponse = UpdateResourceCategoriesResponse.UpdateResourceCategoriesResponse;
 import * as UpdateScheduledTaskResponse from "./update-scheduled-task-response";
 export import UpdateScheduledTaskResponse = UpdateScheduledTaskResponse.UpdateScheduledTaskResponse;
 import * as UpdateStorageResponse from "./update-storage-response";
@@ -342,3 +356,5 @@ import * as ValidateSourceExtendedFieldDetailsResponse from "./validate-source-e
 export import ValidateSourceExtendedFieldDetailsResponse = ValidateSourceExtendedFieldDetailsResponse.ValidateSourceExtendedFieldDetailsResponse;
 import * as ValidateSourceMappingResponse from "./validate-source-mapping-response";
 export import ValidateSourceMappingResponse = ValidateSourceMappingResponse.ValidateSourceMappingResponse;
+import * as VerifyResponse from "./verify-response";
+export import VerifyResponse = VerifyResponse.VerifyResponse;

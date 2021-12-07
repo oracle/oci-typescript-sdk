@@ -114,6 +114,11 @@ export interface DatabaseRegistration {
    */
   "connectionString"?: string;
   /**
+   * The mode of the database connection session to be established by the data client. REDIRECT - for a RAC database, DIRECT - for a non-RAC database. Connection to a RAC database involves a redirection received from the SCAN listeners to the database node to connect to. By default the mode would be DIRECT.
+   *
+   */
+  "sessionMode"?: DatabaseRegistration.SessionMode;
+  /**
    * Credential store alias.
    *
    */
@@ -141,6 +146,16 @@ export interface DatabaseRegistration {
 }
 
 export namespace DatabaseRegistration {
+  export enum SessionMode {
+    Direct = "DIRECT",
+    Redirect = "REDIRECT",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: DatabaseRegistration): object {
     const jsonObj = { ...obj, ...{} };
 

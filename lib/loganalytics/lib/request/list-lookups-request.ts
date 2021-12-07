@@ -49,6 +49,10 @@ export interface ListLookupsRequest extends common.BaseRequest {
    */
   "status"?: ListLookupsRequest.Status;
   /**
+   * A comma-separated list of categories used for filtering
+   */
+  "categories"?: string;
+  /**
    * A flag indicating whether or not to return OMC annotated or hidden lookups.
    *
    */

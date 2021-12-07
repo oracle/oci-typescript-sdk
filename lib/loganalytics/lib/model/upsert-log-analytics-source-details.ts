@@ -136,6 +136,12 @@ export interface UpsertLogAnalyticsSourceDetails {
    * An array of custom parsers.
    */
   "userParsers"?: Array<model.LogAnalyticsParser>;
+  /**
+   * An array of categories to assign to the source. Specifying the name attribute for each category would suffice.
+   * Oracle-defined category assignments cannot be removed.
+   *
+   */
+  "categories"?: Array<model.LogAnalyticsCategory>;
 }
 
 export namespace UpsertLogAnalyticsSourceDetails {
@@ -222,6 +228,11 @@ export namespace UpsertLogAnalyticsSourceDetails {
         "userParsers": obj.userParsers
           ? obj.userParsers.map(item => {
               return model.LogAnalyticsParser.getJsonObj(item);
+            })
+          : undefined,
+        "categories": obj.categories
+          ? obj.categories.map(item => {
+              return model.LogAnalyticsCategory.getJsonObj(item);
             })
           : undefined
       }
@@ -312,6 +323,11 @@ export namespace UpsertLogAnalyticsSourceDetails {
         "userParsers": obj.userParsers
           ? obj.userParsers.map(item => {
               return model.LogAnalyticsParser.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "categories": obj.categories
+          ? obj.categories.map(item => {
+              return model.LogAnalyticsCategory.getDeserializedJsonObj(item);
             })
           : undefined
       }

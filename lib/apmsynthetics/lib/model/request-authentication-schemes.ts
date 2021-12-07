@@ -21,7 +21,13 @@ export enum RequestAuthenticationSchemes {
   Oauth = "OAUTH",
   None = "NONE",
   Basic = "BASIC",
-  Bearer = "BEARER"
+  Bearer = "BEARER",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace RequestAuthenticationSchemes {

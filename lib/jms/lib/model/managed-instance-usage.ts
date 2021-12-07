@@ -35,6 +35,11 @@ export interface ManagedInstanceUsage {
    * The hostname of the managed instance (if applicable).
    */
   "hostname"?: string;
+  /**
+   * The host [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the related managed instance.
+   *
+   */
+  "hostId"?: string;
   "operatingSystem"?: model.OperatingSystem;
   /**
    * The approximate count of applications reported by this managed instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

@@ -134,6 +134,11 @@ export namespace AbstractCommandDescriptor {
             <model.GeoStatsCommandDescriptor>(<object>jsonObj),
             true
           );
+        case "JSON_EXTRACT":
+          return model.JsonExtractCommandDescriptor.getJsonObj(
+            <model.JsonExtractCommandDescriptor>(<object>jsonObj),
+            true
+          );
         case "MAP":
           return model.MapCommandDescriptor.getJsonObj(
             <model.MapCommandDescriptor>(<object>jsonObj),
@@ -284,6 +289,11 @@ export namespace AbstractCommandDescriptor {
             <model.RenameCommandDescriptor>(<object>jsonObj),
             true
           );
+        case "XML_EXTRACT":
+          return model.XmlExtractCommandDescriptor.getJsonObj(
+            <model.XmlExtractCommandDescriptor>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.name);
       }
@@ -372,6 +382,11 @@ export namespace AbstractCommandDescriptor {
         case "GEO_STATS":
           return model.GeoStatsCommandDescriptor.getDeserializedJsonObj(
             <model.GeoStatsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "JSON_EXTRACT":
+          return model.JsonExtractCommandDescriptor.getDeserializedJsonObj(
+            <model.JsonExtractCommandDescriptor>(<object>jsonObj),
             true
           );
         case "MAP":
@@ -522,6 +537,11 @@ export namespace AbstractCommandDescriptor {
         case "RENAME":
           return model.RenameCommandDescriptor.getDeserializedJsonObj(
             <model.RenameCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "XML_EXTRACT":
+          return model.XmlExtractCommandDescriptor.getDeserializedJsonObj(
+            <model.XmlExtractCommandDescriptor>(<object>jsonObj),
             true
           );
         default:

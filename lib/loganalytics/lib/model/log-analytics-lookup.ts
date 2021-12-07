@@ -77,6 +77,12 @@ export interface LogAnalyticsLookup {
    * The last updated date.
    */
   "timeUpdated"?: Date;
+  /**
+   * An array of categories assigned to this lookup.
+   * The isSystem flag denotes if each category assignment is user-created or Oracle-defined.
+   *
+   */
+  "categories"?: Array<model.LogAnalyticsCategory>;
 }
 
 export namespace LogAnalyticsLookup {
@@ -105,6 +111,12 @@ export namespace LogAnalyticsLookup {
           : undefined,
         "statusSummary": obj.statusSummary
           ? model.StatusSummary.getJsonObj(obj.statusSummary)
+          : undefined,
+
+        "categories": obj.categories
+          ? obj.categories.map(item => {
+              return model.LogAnalyticsCategory.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -126,6 +138,12 @@ export namespace LogAnalyticsLookup {
           : undefined,
         "statusSummary": obj.statusSummary
           ? model.StatusSummary.getDeserializedJsonObj(obj.statusSummary)
+          : undefined,
+
+        "categories": obj.categories
+          ? obj.categories.map(item => {
+              return model.LogAnalyticsCategory.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

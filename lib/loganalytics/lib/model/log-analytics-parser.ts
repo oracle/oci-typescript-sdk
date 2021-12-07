@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * LoganParserDetails
+ * LogAnalyticsParser
  */
 export interface LogAnalyticsParser {
   /**
@@ -152,6 +152,12 @@ export interface LogAnalyticsParser {
    *
    */
   "isNamespaceAware"?: boolean;
+  /**
+   * An array of categories assigned to this parser.
+   * The isSystem flag denotes if each category assignment is user-created or Oracle-defined.
+   *
+   */
+  "categories"?: Array<model.LogAnalyticsCategory>;
 }
 
 export namespace LogAnalyticsParser {
@@ -198,6 +204,12 @@ export namespace LogAnalyticsParser {
           ? obj.sources.map(item => {
               return model.LogAnalyticsSource.getJsonObj(item);
             })
+          : undefined,
+
+        "categories": obj.categories
+          ? obj.categories.map(item => {
+              return model.LogAnalyticsCategory.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -233,6 +245,12 @@ export namespace LogAnalyticsParser {
         "sources": obj.sources
           ? obj.sources.map(item => {
               return model.LogAnalyticsSource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "categories": obj.categories
+          ? obj.categories.map(item => {
+              return model.LogAnalyticsCategory.getDeserializedJsonObj(item);
             })
           : undefined
       }

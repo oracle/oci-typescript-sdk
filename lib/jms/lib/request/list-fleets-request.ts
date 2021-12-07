@@ -20,6 +20,7 @@ import common = require("oci-common");
 export interface ListFleetsRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
+   *
    */
   "compartmentId"?: string;
   /**
