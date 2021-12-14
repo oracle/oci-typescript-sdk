@@ -88,6 +88,10 @@ export interface Attribute {
    */
   "isNullable"?: boolean;
   /**
+   * The type of the attribute. Type keys can be found via the '/types' endpoint.
+   */
+  "typeKey"?: string;
+  /**
    * The minimum count for the number of instances of a given type stored in this collection type attribute,applicable if this attribute is a complex type. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minCollectionCount"?: number;

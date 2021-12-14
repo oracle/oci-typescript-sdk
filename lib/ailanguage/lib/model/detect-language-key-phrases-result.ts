@@ -1,6 +1,6 @@
 /**
- * Oracle Cloud Infrastructure Artificial Intelligence Services API
- * OCI AI Service solutions can help Enterprise customers integrate AI into their products immediately using our proven,
+ * Language API
+ * OCI Language Service solutions can help enterprise customers integrate AI into their products immediately using our proven,
     pre-trained and custom models or containers, without a need to set up an house team of AI and ML experts.
     This allows enterprises to focus on business drivers and development work rather than AI and ML operations, which shortens the time to market.
 
@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface DetectLanguageKeyPhrasesResult {
   /**
-   * List of keyPhrases.
+   * List of detected keyPhrases.
    */
   "keyPhrases": Array<model.KeyPhrase>;
 }

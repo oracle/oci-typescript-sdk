@@ -24,6 +24,7 @@ export interface ApiSpecificationRequestPolicies {
   "authentication"?: model.JwtAuthenticationPolicy | model.CustomAuthenticationPolicy;
   "rateLimiting"?: model.RateLimitingPolicy;
   "cors"?: model.CorsPolicy;
+  "mutualTls"?: model.MutualTlsDetails;
 }
 
 export namespace ApiSpecificationRequestPolicies {
@@ -37,7 +38,8 @@ export namespace ApiSpecificationRequestPolicies {
         "rateLimiting": obj.rateLimiting
           ? model.RateLimitingPolicy.getJsonObj(obj.rateLimiting)
           : undefined,
-        "cors": obj.cors ? model.CorsPolicy.getJsonObj(obj.cors) : undefined
+        "cors": obj.cors ? model.CorsPolicy.getJsonObj(obj.cors) : undefined,
+        "mutualTls": obj.mutualTls ? model.MutualTlsDetails.getJsonObj(obj.mutualTls) : undefined
       }
     };
 
@@ -53,7 +55,10 @@ export namespace ApiSpecificationRequestPolicies {
         "rateLimiting": obj.rateLimiting
           ? model.RateLimitingPolicy.getDeserializedJsonObj(obj.rateLimiting)
           : undefined,
-        "cors": obj.cors ? model.CorsPolicy.getDeserializedJsonObj(obj.cors) : undefined
+        "cors": obj.cors ? model.CorsPolicy.getDeserializedJsonObj(obj.cors) : undefined,
+        "mutualTls": obj.mutualTls
+          ? model.MutualTlsDetails.getDeserializedJsonObj(obj.mutualTls)
+          : undefined
       }
     };
 

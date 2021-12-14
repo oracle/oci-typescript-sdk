@@ -66,6 +66,10 @@ export interface AutonomousVmClusterSummary {
    */
   "cpusEnabled"?: number;
   /**
+   * The number of enabled OCPU cores. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "ocpusEnabled"?: number;
+  /**
    * The numnber of CPU cores available. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCpus"?: number;
@@ -81,6 +85,10 @@ export interface AutonomousVmClusterSummary {
    * The total data storage allocated in TBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs"?: number;
+  /**
+   * The total data storage allocated in GBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dataStorageSizeInGBs"?: number;
   /**
    * The data storage available in TBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

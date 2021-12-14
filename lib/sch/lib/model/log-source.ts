@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The log source.
+ * The logs for this Logging source.
  *
  */
 export interface LogSource {

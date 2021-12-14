@@ -1,6 +1,7 @@
 /**
  * Oracle Cloud VMware Solution API
- * Use this API to manage your [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
+ * Use the Oracle Cloud VMware API to create SDDCs and manage ESXi hosts and software. 
+For more information, see [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20200501
  * 

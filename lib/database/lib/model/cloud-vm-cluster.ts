@@ -119,6 +119,10 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "cpuCoreCount": number;
   /**
+   * The number of OCPU cores to enable on the cloud VM cluster. Only 1 decimal place is allowed for the fractional part. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "ocpuCount"?: number;
+  /**
    * The cluster name for cloud VM cluster. The cluster name must begin with an alphabetic character, and may contain hyphens (-). Underscores (_) are not permitted. The cluster name can be no longer than 11 characters and is not case sensitive.
    *
    */

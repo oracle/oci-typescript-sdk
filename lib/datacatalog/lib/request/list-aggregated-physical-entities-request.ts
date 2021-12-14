@@ -38,7 +38,7 @@ export interface ListAggregatedPhysicalEntitiesRequest extends common.BaseReques
   /**
    * A filter to return only resources that match display name pattern given. The match is not case sensitive.
    * For Example : /folders?displayNameContains=Cu.*
-   * The above would match all folders with display name that starts with \"Cu\".
+   * The above would match all folders with display name that starts with \"Cu\" or has the pattern \"Cu\" anywhere in between.
    *
    */
   "displayNameContains"?: string;
@@ -59,6 +59,10 @@ export interface ListAggregatedPhysicalEntitiesRequest extends common.BaseReques
    * The page token representing the page at which to start retrieving results. This is usually retrieved from a previous list call.
    */
   "page"?: string;
+  /**
+   * Indicates whether the properties map will be provided in the response.
+   */
+  "isIncludeProperties"?: boolean;
   /**
    * The client request ID for tracing.
    */

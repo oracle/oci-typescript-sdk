@@ -19,6 +19,8 @@ import common = require("oci-common");
 
 /**
  * The function used for the Functions target.
+ * For configuration instructions, see
+ * [To create a service connector](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/managingconnectors.htm#create).
  *
  */
 export interface FunctionsTargetDetails extends model.TargetDetails {

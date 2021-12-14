@@ -35,6 +35,7 @@ export interface HostConfigurationSummary {
   "hostName": string;
   /**
    * Platform type.
+   *
    */
   "platformType": HostConfigurationSummary.PlatformType;
   /**

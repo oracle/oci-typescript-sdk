@@ -35,6 +35,11 @@ export interface UserCapabilities {
    */
   "canUseSmtpCredentials"?: boolean;
   /**
+   * Indicates if the user can use DB passwords.
+   *
+   */
+  "canUseDbCredentials"?: boolean;
+  /**
    * Indicates if the user can use SigV4 symmetric keys.
    */
   "canUseCustomerSecretKeys"?: boolean;

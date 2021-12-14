@@ -47,6 +47,7 @@ export interface EmManagedExternalHostInsight extends model.HostInsight {
   "enterpriseManagerBridgeId": string;
   /**
    * Platform type.
+   *
    */
   "platformType"?: EmManagedExternalHostInsight.PlatformType;
   /**

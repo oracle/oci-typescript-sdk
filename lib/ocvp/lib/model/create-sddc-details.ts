@@ -1,6 +1,7 @@
 /**
  * Oracle Cloud VMware Solution API
- * Use this API to manage your [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
+ * Use the Oracle Cloud VMware API to create SDDCs and manage ESXi hosts and software. 
+For more information, see [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20200501
  * 
@@ -57,7 +58,7 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
    * (see {@link #createEsxiHost(CreateEsxiHostRequest) createEsxiHost}).
    * <p>
    **Note:** If you later delete EXSi hosts from the SDDC to total less than 3,
-   * you are still billed for the 3 minimum recommended EXSi hosts. Also,
+   * you are still billed for the 3 minimum recommended ESXi hosts. Also,
    * you cannot add more VMware workloads to the SDDC until it again has at least
    * 3 ESXi hosts.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

@@ -79,6 +79,25 @@ export class BdsWaiter {
   }
 
   /**
+   * Waits forBdsMetastoreConfiguration till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetBdsMetastoreConfigurationResponse | null (null in case of 404 response)
+   */
+  public async forBdsMetastoreConfiguration(
+    request: serviceRequests.GetBdsMetastoreConfigurationRequest,
+    ...targetStates: models.BdsMetastoreConfiguration.LifecycleState[]
+  ): Promise<serviceResponses.GetBdsMetastoreConfigurationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getBdsMetastoreConfiguration(request),
+      response => targetStates.includes(response.bdsMetastoreConfiguration.lifecycleState!),
+      targetStates.includes(models.BdsMetastoreConfiguration.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

@@ -19,6 +19,8 @@ import common = require("oci-common");
 
 /**
  * The log rule task.
+ * For configuration instructions, see
+ * [To create a service connector](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/managingconnectors.htm#create).
  *
  */
 export interface LogRuleTaskDetails extends model.TaskDetails {

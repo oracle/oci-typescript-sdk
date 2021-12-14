@@ -24,6 +24,10 @@ export interface UpdateUserDetails {
    */
   "email"?: string;
   /**
+   * DB username of the DB credential. Has to be unique across the tenancy.
+   */
+  "dbUserName"?: string;
+  /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
    * Example: `{\"Department\": \"Finance\"}`

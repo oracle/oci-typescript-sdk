@@ -39,6 +39,7 @@ export interface HostDetails {
   "hostDisplayName"?: string;
   /**
    * Platform type.
+   *
    */
   "platformType": HostDetails.PlatformType;
   /**

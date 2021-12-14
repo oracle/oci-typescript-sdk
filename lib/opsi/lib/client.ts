@@ -506,6 +506,94 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Create a AWR hub resource for the tenant in Operations Insights.
+   * This resource will be created in root compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateAwrHubRequest
+   * @return CreateAwrHubResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateAwrHub.ts.html |here} to see how to use CreateAwrHub API.
+   */
+  public async createAwrHub(
+    createAwrHubRequest: requests.CreateAwrHubRequest
+  ): Promise<responses.CreateAwrHubResponse> {
+    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#createAwrHub.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createAwrHubRequest.opcRetryToken,
+      "opc-request-id": createAwrHubRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAwrHubRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAwrHubRequest.createAwrHubDetails,
+        "CreateAwrHubDetails",
+        model.CreateAwrHubDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAwrHubResponse>{},
+        body: await response.json(),
+        bodyKey: "awrHub",
+        bodyModel: model.AwrHub,
+        type: "model.AwrHub",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a Database Insight resource for a database in Operations Insights. The database will be enabled in Operations Insights. Database metric collection and analysis will be started.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -860,6 +948,252 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Create a Operations Insights Warehouse resource for the tenant in Operations Insights. New ADW will be provisioned for this tenant.
+   * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateOperationsInsightsWarehouseRequest
+   * @return CreateOperationsInsightsWarehouseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateOperationsInsightsWarehouse.ts.html |here} to see how to use CreateOperationsInsightsWarehouse API.
+   */
+  public async createOperationsInsightsWarehouse(
+    createOperationsInsightsWarehouseRequest: requests.CreateOperationsInsightsWarehouseRequest
+  ): Promise<responses.CreateOperationsInsightsWarehouseResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#createOperationsInsightsWarehouse."
+      );
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOperationsInsightsWarehouseRequest.opcRetryToken,
+      "opc-request-id": createOperationsInsightsWarehouseRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOperationsInsightsWarehouseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsWarehouses",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOperationsInsightsWarehouseRequest.createOperationsInsightsWarehouseDetails,
+        "CreateOperationsInsightsWarehouseDetails",
+        model.CreateOperationsInsightsWarehouseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOperationsInsightsWarehouseResponse>{},
+        body: await response.json(),
+        bodyKey: "operationsInsightsWarehouse",
+        bodyModel: model.OperationsInsightsWarehouse,
+        type: "model.OperationsInsightsWarehouse",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a Operations Insights Warehouse user resource for the tenant in Operations Insights.
+   * This resource will be created in root compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateOperationsInsightsWarehouseUserRequest
+   * @return CreateOperationsInsightsWarehouseUserResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateOperationsInsightsWarehouseUser.ts.html |here} to see how to use CreateOperationsInsightsWarehouseUser API.
+   */
+  public async createOperationsInsightsWarehouseUser(
+    createOperationsInsightsWarehouseUserRequest: requests.CreateOperationsInsightsWarehouseUserRequest
+  ): Promise<responses.CreateOperationsInsightsWarehouseUserResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#createOperationsInsightsWarehouseUser."
+      );
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOperationsInsightsWarehouseUserRequest.opcRetryToken,
+      "opc-request-id": createOperationsInsightsWarehouseUserRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOperationsInsightsWarehouseUserRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsWarehouseUsers",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOperationsInsightsWarehouseUserRequest.createOperationsInsightsWarehouseUserDetails,
+        "CreateOperationsInsightsWarehouseUserDetails",
+        model.CreateOperationsInsightsWarehouseUserDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOperationsInsightsWarehouseUserResponse>{},
+        body: await response.json(),
+        bodyKey: "operationsInsightsWarehouseUser",
+        bodyModel: model.OperationsInsightsWarehouseUser,
+        type: "model.OperationsInsightsWarehouseUser",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes an AWR hub.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteAwrHubRequest
+   * @return DeleteAwrHubResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteAwrHub.ts.html |here} to see how to use DeleteAwrHub API.
+   */
+  public async deleteAwrHub(
+    deleteAwrHubRequest: requests.DeleteAwrHubRequest
+  ): Promise<responses.DeleteAwrHubResponse> {
+    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#deleteAwrHub.");
+    const pathParams = {
+      "{awrHubId}": deleteAwrHubRequest.awrHubId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAwrHubRequest.ifMatch,
+      "opc-request-id": deleteAwrHubRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAwrHubRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAwrHubResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a database insight. The database insight will be deleted and cannot be enabled again.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDatabaseInsightRequest
@@ -1122,6 +1456,146 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Deletes an Operations Insights Warehouse. There is only expected to be 1 warehouse per tenant.
+   * The warehouse is expected to be in the root compartment.
+   * User must delete AWR Hub resource for this warehouse before calling this operation.
+   * User must delete the warehouse users before calling this operation.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteOperationsInsightsWarehouseRequest
+   * @return DeleteOperationsInsightsWarehouseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOperationsInsightsWarehouse.ts.html |here} to see how to use DeleteOperationsInsightsWarehouse API.
+   */
+  public async deleteOperationsInsightsWarehouse(
+    deleteOperationsInsightsWarehouseRequest: requests.DeleteOperationsInsightsWarehouseRequest
+  ): Promise<responses.DeleteOperationsInsightsWarehouseResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#deleteOperationsInsightsWarehouse."
+      );
+    const pathParams = {
+      "{operationsInsightsWarehouseId}":
+        deleteOperationsInsightsWarehouseRequest.operationsInsightsWarehouseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOperationsInsightsWarehouseRequest.ifMatch,
+      "opc-request-id": deleteOperationsInsightsWarehouseRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOperationsInsightsWarehouseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsWarehouses/{operationsInsightsWarehouseId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOperationsInsightsWarehouseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes an Operations Insights Warehouse User.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteOperationsInsightsWarehouseUserRequest
+   * @return DeleteOperationsInsightsWarehouseUserResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOperationsInsightsWarehouseUser.ts.html |here} to see how to use DeleteOperationsInsightsWarehouseUser API.
+   */
+  public async deleteOperationsInsightsWarehouseUser(
+    deleteOperationsInsightsWarehouseUserRequest: requests.DeleteOperationsInsightsWarehouseUserRequest
+  ): Promise<responses.DeleteOperationsInsightsWarehouseUserResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#deleteOperationsInsightsWarehouseUser."
+      );
+    const pathParams = {
+      "{operationsInsightsWarehouseUserId}":
+        deleteOperationsInsightsWarehouseUserRequest.operationsInsightsWarehouseUserId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOperationsInsightsWarehouseUserRequest.ifMatch,
+      "opc-request-id": deleteOperationsInsightsWarehouseUserRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOperationsInsightsWarehouseUserRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsWarehouseUsers/{operationsInsightsWarehouseUserId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOperationsInsightsWarehouseUserResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disables a database in Operations Insights. Database metric collection and analysis will be stopped.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableDatabaseInsightRequest
@@ -1309,6 +1783,94 @@ export class OperationsInsightsClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Download the ADW wallet for Operations Insights Warehouse using which the Hub data is exposed.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DownloadOperationsInsightsWarehouseWalletRequest
+   * @return DownloadOperationsInsightsWarehouseWalletResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DownloadOperationsInsightsWarehouseWallet.ts.html |here} to see how to use DownloadOperationsInsightsWarehouseWallet API.
+   */
+  public async downloadOperationsInsightsWarehouseWallet(
+    downloadOperationsInsightsWarehouseWalletRequest: requests.DownloadOperationsInsightsWarehouseWalletRequest
+  ): Promise<responses.DownloadOperationsInsightsWarehouseWalletResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#downloadOperationsInsightsWarehouseWallet."
+      );
+    const pathParams = {
+      "{operationsInsightsWarehouseId}":
+        downloadOperationsInsightsWarehouseWalletRequest.operationsInsightsWarehouseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": downloadOperationsInsightsWarehouseWalletRequest.opcRequestId,
+      "opc-retry-token": downloadOperationsInsightsWarehouseWalletRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadOperationsInsightsWarehouseWalletRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/operationsInsightsWarehouses/{operationsInsightsWarehouseId}/actions/downloadWarehouseWallet",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadOperationsInsightsWarehouseWalletRequest.downloadOperationsInsightsWarehouseWalletDetails,
+        "DownloadOperationsInsightsWarehouseWalletDetails",
+        model.DownloadOperationsInsightsWarehouseWalletDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadOperationsInsightsWarehouseWalletResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
           }
         ]
       });
@@ -1518,6 +2080,147 @@ export class OperationsInsightsClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets details of an AWR hub.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAwrHubRequest
+   * @return GetAwrHubResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrHub.ts.html |here} to see how to use GetAwrHub API.
+   */
+  public async getAwrHub(
+    getAwrHubRequest: requests.GetAwrHubRequest
+  ): Promise<responses.GetAwrHubResponse> {
+    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#getAwrHub.");
+    const pathParams = {
+      "{awrHubId}": getAwrHubRequest.awrHubId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAwrHubRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAwrHubRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAwrHubResponse>{},
+        body: await response.json(),
+        bodyKey: "awrHub",
+        bodyModel: model.AwrHub,
+        type: "model.AwrHub",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the AWR report for the specified source database in the AWR hub. The difference between the timeGreaterThanOrEqualTo and timeLessThanOrEqualTo should not be greater than 7 days.
+   * Either beginSnapshotIdentifierGreaterThanOrEqualTo & endSnapshotIdentifierLessThanOrEqualTo params Or timeGreaterThanOrEqualTo & timeLessThanOrEqualTo params are required.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAwrReportRequest
+   * @return GetAwrReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrReport.ts.html |here} to see how to use GetAwrReport API.
+   */
+  public async getAwrReport(
+    getAwrReportRequest: requests.GetAwrReportRequest
+  ): Promise<responses.GetAwrReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#getAwrReport.");
+    const pathParams = {
+      "{awrHubId}": getAwrReportRequest.awrHubId
+    };
+
+    const queryParams = {
+      "awrSourceDatabaseIdentifier": getAwrReportRequest.awrSourceDatabaseIdentifier,
+      "reportFormat": getAwrReportRequest.reportFormat,
+      "instanceNumber": getAwrReportRequest.instanceNumber,
+      "beginSnapshotIdentifierGreaterThanOrEqualTo":
+        getAwrReportRequest.beginSnapshotIdentifierGreaterThanOrEqualTo,
+      "endSnapshotIdentifierLessThanOrEqualTo":
+        getAwrReportRequest.endSnapshotIdentifierLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": getAwrReportRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": getAwrReportRequest.timeLessThanOrEqualTo
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAwrReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAwrReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrReport",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAwrReportResponse>{},
+        body: await response.json(),
+        bodyKey: "awrReport",
+        bodyModel: model.AwrReport,
+        type: "model.AwrReport",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1784,6 +2487,150 @@ export class OperationsInsightsClient {
         bodyKey: "hostInsight",
         bodyModel: model.HostInsight,
         type: "model.HostInsight",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets details of an Operations Insights Warehouse.
+   * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOperationsInsightsWarehouseRequest
+   * @return GetOperationsInsightsWarehouseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOperationsInsightsWarehouse.ts.html |here} to see how to use GetOperationsInsightsWarehouse API.
+   */
+  public async getOperationsInsightsWarehouse(
+    getOperationsInsightsWarehouseRequest: requests.GetOperationsInsightsWarehouseRequest
+  ): Promise<responses.GetOperationsInsightsWarehouseResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#getOperationsInsightsWarehouse."
+      );
+    const pathParams = {
+      "{operationsInsightsWarehouseId}":
+        getOperationsInsightsWarehouseRequest.operationsInsightsWarehouseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOperationsInsightsWarehouseRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOperationsInsightsWarehouseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsWarehouses/{operationsInsightsWarehouseId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOperationsInsightsWarehouseResponse>{},
+        body: await response.json(),
+        bodyKey: "operationsInsightsWarehouse",
+        bodyModel: model.OperationsInsightsWarehouse,
+        type: "model.OperationsInsightsWarehouse",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets details of an Operations Insights Warehouse User.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOperationsInsightsWarehouseUserRequest
+   * @return GetOperationsInsightsWarehouseUserResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOperationsInsightsWarehouseUser.ts.html |here} to see how to use GetOperationsInsightsWarehouseUser API.
+   */
+  public async getOperationsInsightsWarehouseUser(
+    getOperationsInsightsWarehouseUserRequest: requests.GetOperationsInsightsWarehouseUserRequest
+  ): Promise<responses.GetOperationsInsightsWarehouseUserResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#getOperationsInsightsWarehouseUser."
+      );
+    const pathParams = {
+      "{operationsInsightsWarehouseUserId}":
+        getOperationsInsightsWarehouseUserRequest.operationsInsightsWarehouseUserId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOperationsInsightsWarehouseUserRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOperationsInsightsWarehouseUserRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsWarehouseUsers/{operationsInsightsWarehouseUserId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOperationsInsightsWarehouseUserResponse>{},
+        body: await response.json(),
+        bodyKey: "operationsInsightsWarehouseUser",
+        bodyModel: model.OperationsInsightsWarehouseUser,
+        type: "model.OperationsInsightsWarehouseUser",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2262,6 +3109,84 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * The SQL Stats endpoint takes in a JSON payload, persists it in Operations Insights ingest pipeline.
+   * Either databaseId or id must be specified.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param IngestSqlStatsRequest
+   * @return IngestSqlStatsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlStats.ts.html |here} to see how to use IngestSqlStats API.
+   */
+  public async ingestSqlStats(
+    ingestSqlStatsRequest: requests.IngestSqlStatsRequest
+  ): Promise<responses.IngestSqlStatsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#ingestSqlStats.");
+    const pathParams = {};
+
+    const queryParams = {
+      "databaseId": ingestSqlStatsRequest.databaseId,
+      "id": ingestSqlStatsRequest.id
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": ingestSqlStatsRequest.opcRequestId,
+      "if-match": ingestSqlStatsRequest.ifMatch,
+      "opc-retry-token": ingestSqlStatsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      ingestSqlStatsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/actions/ingestSqlStatsMetric",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        ingestSqlStatsRequest.ingestSqlStatsDetails,
+        "IngestSqlStatsDetails",
+        model.IngestSqlStatsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.IngestSqlStatsResponse>{},
+        body: await response.json(),
+        bodyKey: "ingestSqlStatsResponseDetails",
+        bodyModel: model.IngestSqlStatsResponseDetails,
+        type: "model.IngestSqlStatsResponseDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * The SqlText endpoint takes in a JSON payload, persists it in Operation Insights ingest pipeline.
    * Either databaseId or id must be specified.
    * Disclaimer: SQL text being uploaded explicitly via APIs is not masked. Any sensitive literals contained in the sqlFullText column should be masked prior to ingestion.
@@ -2329,6 +3254,160 @@ export class OperationsInsightsClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of AWR hubs. Either compartmentId or id must be specified. All these resources are expected to be in root compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAwrHubsRequest
+   * @return ListAwrHubsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrHubs.ts.html |here} to see how to use ListAwrHubs API.
+   */
+  public async listAwrHubs(
+    listAwrHubsRequest: requests.ListAwrHubsRequest
+  ): Promise<responses.ListAwrHubsResponse> {
+    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#listAwrHubs.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAwrHubsRequest.compartmentId,
+      "displayName": listAwrHubsRequest.displayName,
+      "id": listAwrHubsRequest.id,
+      "operationsInsightsWarehouseId": listAwrHubsRequest.operationsInsightsWarehouseId,
+      "lifecycleState": listAwrHubsRequest.lifecycleState,
+      "limit": listAwrHubsRequest.limit,
+      "page": listAwrHubsRequest.page,
+      "sortOrder": listAwrHubsRequest.sortOrder,
+      "sortBy": listAwrHubsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAwrHubsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAwrHubsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAwrHubsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrHubSummaryCollection",
+        bodyModel: model.AwrHubSummaryCollection,
+        type: "model.AwrHubSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists AWR snapshots for the specified source database in the AWR hub. The difference between the timeGreaterThanOrEqualTo and timeLessThanOrEqualTo should not exceed an elapsed range of 1 day.
+   * The timeGreaterThanOrEqualTo & timeLessThanOrEqualTo params are optional. If these params are not provided, by default last 1 day snapshots will be returned.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAwrSnapshotsRequest
+   * @return ListAwrSnapshotsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrSnapshots.ts.html |here} to see how to use ListAwrSnapshots API.
+   */
+  public async listAwrSnapshots(
+    listAwrSnapshotsRequest: requests.ListAwrSnapshotsRequest
+  ): Promise<responses.ListAwrSnapshotsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listAwrSnapshots.");
+    const pathParams = {
+      "{awrHubId}": listAwrSnapshotsRequest.awrHubId
+    };
+
+    const queryParams = {
+      "awrSourceDatabaseIdentifier": listAwrSnapshotsRequest.awrSourceDatabaseIdentifier,
+      "timeGreaterThanOrEqualTo": listAwrSnapshotsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": listAwrSnapshotsRequest.timeLessThanOrEqualTo,
+      "limit": listAwrSnapshotsRequest.limit,
+      "page": listAwrSnapshotsRequest.page,
+      "sortOrder": listAwrSnapshotsRequest.sortOrder,
+      "sortBy": listAwrSnapshotsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAwrSnapshotsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAwrSnapshotsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrSnapshots",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAwrSnapshotsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrSnapshotCollection",
+        bodyModel: model.AwrSnapshotCollection,
+        type: "model.AwrSnapshotCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -3179,6 +4258,165 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Gets a list of Operations Insights Warehouse users. Either compartmentId or id must be specified. All these resources are expected to be in root compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOperationsInsightsWarehouseUsersRequest
+   * @return ListOperationsInsightsWarehouseUsersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOperationsInsightsWarehouseUsers.ts.html |here} to see how to use ListOperationsInsightsWarehouseUsers API.
+   */
+  public async listOperationsInsightsWarehouseUsers(
+    listOperationsInsightsWarehouseUsersRequest: requests.ListOperationsInsightsWarehouseUsersRequest
+  ): Promise<responses.ListOperationsInsightsWarehouseUsersResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#listOperationsInsightsWarehouseUsers."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOperationsInsightsWarehouseUsersRequest.compartmentId,
+      "displayName": listOperationsInsightsWarehouseUsersRequest.displayName,
+      "id": listOperationsInsightsWarehouseUsersRequest.id,
+      "operationsInsightsWarehouseId":
+        listOperationsInsightsWarehouseUsersRequest.operationsInsightsWarehouseId,
+      "lifecycleState": listOperationsInsightsWarehouseUsersRequest.lifecycleState,
+      "limit": listOperationsInsightsWarehouseUsersRequest.limit,
+      "page": listOperationsInsightsWarehouseUsersRequest.page,
+      "sortOrder": listOperationsInsightsWarehouseUsersRequest.sortOrder,
+      "sortBy": listOperationsInsightsWarehouseUsersRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOperationsInsightsWarehouseUsersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOperationsInsightsWarehouseUsersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsWarehouseUsers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOperationsInsightsWarehouseUsersResponse>{},
+        body: await response.json(),
+        bodyKey: "operationsInsightsWarehouseUserSummaryCollection",
+        bodyModel: model.OperationsInsightsWarehouseUserSummaryCollection,
+        type: "model.OperationsInsightsWarehouseUserSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of Operations Insights warehouses. Either compartmentId or id must be specified.
+   * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOperationsInsightsWarehousesRequest
+   * @return ListOperationsInsightsWarehousesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOperationsInsightsWarehouses.ts.html |here} to see how to use ListOperationsInsightsWarehouses API.
+   */
+  public async listOperationsInsightsWarehouses(
+    listOperationsInsightsWarehousesRequest: requests.ListOperationsInsightsWarehousesRequest
+  ): Promise<responses.ListOperationsInsightsWarehousesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#listOperationsInsightsWarehouses."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOperationsInsightsWarehousesRequest.compartmentId,
+      "displayName": listOperationsInsightsWarehousesRequest.displayName,
+      "id": listOperationsInsightsWarehousesRequest.id,
+      "lifecycleState": listOperationsInsightsWarehousesRequest.lifecycleState,
+      "limit": listOperationsInsightsWarehousesRequest.limit,
+      "page": listOperationsInsightsWarehousesRequest.page,
+      "sortOrder": listOperationsInsightsWarehousesRequest.sortOrder,
+      "sortBy": listOperationsInsightsWarehousesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOperationsInsightsWarehousesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOperationsInsightsWarehousesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsWarehouses",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOperationsInsightsWarehousesResponse>{},
+        body: await response.json(),
+        bodyKey: "operationsInsightsWarehouseSummaryCollection",
+        bodyModel: model.OperationsInsightsWarehouseSummaryCollection,
+        type: "model.OperationsInsightsWarehouseSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Query SQL Warehouse to list the plan xml for a given SQL execution plan. This returns a SqlPlanCollection object, but is currently limited to a single plan.
    * Either databaseId or id must be specified.
    *
@@ -3614,6 +4852,151 @@ export class OperationsInsightsClient {
         bodyKey: "workRequestCollection",
         bodyModel: model.WorkRequestCollection,
         type: "model.WorkRequestCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Rotate the ADW wallet for Operations Insights Warehouse using which the Hub data is exposed.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RotateOperationsInsightsWarehouseWalletRequest
+   * @return RotateOperationsInsightsWarehouseWalletResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/RotateOperationsInsightsWarehouseWallet.ts.html |here} to see how to use RotateOperationsInsightsWarehouseWallet API.
+   */
+  public async rotateOperationsInsightsWarehouseWallet(
+    rotateOperationsInsightsWarehouseWalletRequest: requests.RotateOperationsInsightsWarehouseWalletRequest
+  ): Promise<responses.RotateOperationsInsightsWarehouseWalletResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#rotateOperationsInsightsWarehouseWallet."
+      );
+    const pathParams = {
+      "{operationsInsightsWarehouseId}":
+        rotateOperationsInsightsWarehouseWalletRequest.operationsInsightsWarehouseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": rotateOperationsInsightsWarehouseWalletRequest.opcRequestId,
+      "if-match": rotateOperationsInsightsWarehouseWalletRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rotateOperationsInsightsWarehouseWalletRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/operationsInsightsWarehouses/{operationsInsightsWarehouseId}/actions/rotateWarehouseWallet",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RotateOperationsInsightsWarehouseWalletResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of summary of AWR Sources.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeAwrSourcesSummariesRequest
+   * @return SummarizeAwrSourcesSummariesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrSourcesSummaries.ts.html |here} to see how to use SummarizeAwrSourcesSummaries API.
+   */
+  public async summarizeAwrSourcesSummaries(
+    summarizeAwrSourcesSummariesRequest: requests.SummarizeAwrSourcesSummariesRequest
+  ): Promise<responses.SummarizeAwrSourcesSummariesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAwrSourcesSummaries.");
+    const pathParams = {
+      "{awrHubId}": summarizeAwrSourcesSummariesRequest.awrHubId
+    };
+
+    const queryParams = {
+      "compartmentId": summarizeAwrSourcesSummariesRequest.compartmentId,
+      "name": summarizeAwrSourcesSummariesRequest.name,
+      "limit": summarizeAwrSourcesSummariesRequest.limit,
+      "page": summarizeAwrSourcesSummariesRequest.page,
+      "sortBy": summarizeAwrSourcesSummariesRequest.sortBy,
+      "sortOrder": summarizeAwrSourcesSummariesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrSourcesSummariesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrSourcesSummariesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrSourcesSummary",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrSourcesSummariesResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeAwrSourcesSummariesCollection",
+        bodyModel: model.SummarizeAwrSourcesSummariesCollection,
+        type: "model.SummarizeAwrSourcesSummariesCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5668,6 +7051,79 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Gets the details of resources used by an Operations Insights Warehouse.
+   * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeOperationsInsightsWarehouseResourceUsageRequest
+   * @return SummarizeOperationsInsightsWarehouseResourceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeOperationsInsightsWarehouseResourceUsage.ts.html |here} to see how to use SummarizeOperationsInsightsWarehouseResourceUsage API.
+   */
+  public async summarizeOperationsInsightsWarehouseResourceUsage(
+    summarizeOperationsInsightsWarehouseResourceUsageRequest: requests.SummarizeOperationsInsightsWarehouseResourceUsageRequest
+  ): Promise<responses.SummarizeOperationsInsightsWarehouseResourceUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeOperationsInsightsWarehouseResourceUsage."
+      );
+    const pathParams = {
+      "{operationsInsightsWarehouseId}":
+        summarizeOperationsInsightsWarehouseResourceUsageRequest.operationsInsightsWarehouseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeOperationsInsightsWarehouseResourceUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeOperationsInsightsWarehouseResourceUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsWarehouses/{operationsInsightsWarehouseId}/resourceUsageSummary",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeOperationsInsightsWarehouseResourceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeOperationsInsightsWarehouseResourceUsageAggregation",
+        bodyModel: model.SummarizeOperationsInsightsWarehouseResourceUsageAggregation,
+        type: "model.SummarizeOperationsInsightsWarehouseResourceUsageAggregation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Query SQL Warehouse to get the performance insights for SQLs taking greater than X% database time for a given
    * time period across the given databases or database types in a compartment and in all sub-compartments if specified.
    *
@@ -6167,6 +7623,75 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Updates the configuration of a hub .
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateAwrHubRequest
+   * @return UpdateAwrHubResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateAwrHub.ts.html |here} to see how to use UpdateAwrHub API.
+   */
+  public async updateAwrHub(
+    updateAwrHubRequest: requests.UpdateAwrHubRequest
+  ): Promise<responses.UpdateAwrHubResponse> {
+    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#updateAwrHub.");
+    const pathParams = {
+      "{awrHubId}": updateAwrHubRequest.awrHubId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAwrHubRequest.ifMatch,
+      "opc-request-id": updateAwrHubRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAwrHubRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAwrHubRequest.updateAwrHubDetails,
+        "UpdateAwrHubDetails",
+        model.UpdateAwrHubDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAwrHubResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates configuration of a database insight.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDatabaseInsightRequest
@@ -6428,6 +7953,154 @@ export class OperationsInsightsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateHostInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the configuration of an Operations Insights Warehouse.
+   * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateOperationsInsightsWarehouseRequest
+   * @return UpdateOperationsInsightsWarehouseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOperationsInsightsWarehouse.ts.html |here} to see how to use UpdateOperationsInsightsWarehouse API.
+   */
+  public async updateOperationsInsightsWarehouse(
+    updateOperationsInsightsWarehouseRequest: requests.UpdateOperationsInsightsWarehouseRequest
+  ): Promise<responses.UpdateOperationsInsightsWarehouseResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#updateOperationsInsightsWarehouse."
+      );
+    const pathParams = {
+      "{operationsInsightsWarehouseId}":
+        updateOperationsInsightsWarehouseRequest.operationsInsightsWarehouseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOperationsInsightsWarehouseRequest.ifMatch,
+      "opc-request-id": updateOperationsInsightsWarehouseRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOperationsInsightsWarehouseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsWarehouses/{operationsInsightsWarehouseId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOperationsInsightsWarehouseRequest.updateOperationsInsightsWarehouseDetails,
+        "UpdateOperationsInsightsWarehouseDetails",
+        model.UpdateOperationsInsightsWarehouseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOperationsInsightsWarehouseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the configuration of an Operations Insights Warehouse User.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateOperationsInsightsWarehouseUserRequest
+   * @return UpdateOperationsInsightsWarehouseUserResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOperationsInsightsWarehouseUser.ts.html |here} to see how to use UpdateOperationsInsightsWarehouseUser API.
+   */
+  public async updateOperationsInsightsWarehouseUser(
+    updateOperationsInsightsWarehouseUserRequest: requests.UpdateOperationsInsightsWarehouseUserRequest
+  ): Promise<responses.UpdateOperationsInsightsWarehouseUserResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#updateOperationsInsightsWarehouseUser."
+      );
+    const pathParams = {
+      "{operationsInsightsWarehouseUserId}":
+        updateOperationsInsightsWarehouseUserRequest.operationsInsightsWarehouseUserId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOperationsInsightsWarehouseUserRequest.ifMatch,
+      "opc-request-id": updateOperationsInsightsWarehouseUserRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOperationsInsightsWarehouseUserRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsWarehouseUsers/{operationsInsightsWarehouseUserId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOperationsInsightsWarehouseUserRequest.updateOperationsInsightsWarehouseUserDetails,
+        "UpdateOperationsInsightsWarehouseUserDetails",
+        model.UpdateOperationsInsightsWarehouseUserDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOperationsInsightsWarehouseUserResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

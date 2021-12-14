@@ -58,6 +58,10 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * An array of CA bundles that should be used on the Gateway for TLS validation.
+   */
+  "caBundles"?: Array<model.CaBundle>;
 }
 
 export namespace UpdateGatewayDetails {
@@ -67,6 +71,12 @@ export namespace UpdateGatewayDetails {
       ...{
         "responseCacheDetails": obj.responseCacheDetails
           ? model.ResponseCacheDetails.getJsonObj(obj.responseCacheDetails)
+          : undefined,
+
+        "caBundles": obj.caBundles
+          ? obj.caBundles.map(item => {
+              return model.CaBundle.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -79,6 +89,12 @@ export namespace UpdateGatewayDetails {
       ...{
         "responseCacheDetails": obj.responseCacheDetails
           ? model.ResponseCacheDetails.getDeserializedJsonObj(obj.responseCacheDetails)
+          : undefined,
+
+        "caBundles": obj.caBundles
+          ? obj.caBundles.map(item => {
+              return model.CaBundle.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

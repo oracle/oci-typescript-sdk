@@ -20,7 +20,6 @@ import common = require("oci-common");
 export interface DetectLanguageTextClassificationRequest extends common.BaseRequest {
   /**
    * The details to make text classification detect call.
-   * Example: `{\"text\": \"If an emerging growth company, indicate by check mark if the registrant has elected not to use the extended transition period for complying\"}`
    *
    */
   "detectLanguageTextClassificationDetails": model.DetectLanguageTextClassificationDetails;

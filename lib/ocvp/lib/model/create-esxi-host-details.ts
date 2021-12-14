@@ -1,6 +1,7 @@
 /**
  * Oracle Cloud VMware Solution API
- * Use this API to manage your [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
+ * Use the Oracle Cloud VMware API to create SDDCs and manage ESXi hosts and software. 
+For more information, see [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20200501
  * 
@@ -58,6 +59,14 @@ Avoid entering confidential information.
    *
    */
   "computeAvailabilityDomain"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the esxi host that
+   * is failed. It is an optional param, when user supplies this param, new Esxi
+   * Host will be created to replace the failed one, and failedEsxiHostId field
+   * will be udpated in the newly created EsxiHost.
+   *
+   */
+  "failedEsxiHostId"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).

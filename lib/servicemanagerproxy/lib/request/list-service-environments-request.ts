@@ -19,15 +19,20 @@ import common = require("oci-common");
  */
 export interface ListServiceEnvironmentsRequest extends common.BaseRequest {
   /**
-   * The unique identifier for the compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) for the compartment.
    */
   "compartmentId": string;
   /**
-   * The Id associated with the service environment.
+   * The unique identifier associated with the service environment.
+   * <p>
+   **Note:** Not an [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "serviceEnvironmentId"?: string;
   /**
-   * The service definition type of the environment.
+   * The environment's service definition type.
+   * For example, \"RGBUOROMS\" is the service definition type for \"Oracle Retail Order Management Cloud Service\".
+   *
    */
   "serviceEnvironmentType"?: string;
   /**

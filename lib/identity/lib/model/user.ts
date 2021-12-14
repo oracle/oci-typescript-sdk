@@ -67,6 +67,10 @@ export interface User {
    */
   "emailVerified"?: boolean;
   /**
+   * DB username of the DB credential. Has to be unique across the tenancy.
+   */
+  "dbUserName"?: string;
+  /**
    * The OCID of the `IdentityProvider` this user belongs to.
    */
   "identityProviderId"?: string;

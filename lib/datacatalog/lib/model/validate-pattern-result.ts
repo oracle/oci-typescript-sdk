@@ -33,7 +33,11 @@ export interface ValidatePatternResult {
    */
   "expression"?: string;
   /**
-   * Collection of logical entities derived from the expression applied to a list of file paths.
+   * The prefix used in the pattern validation.
+   */
+  "filePathPrefix"?: string;
+  /**
+   * Collection of logical entities derived from the pattern, as applied to a list of file paths.
    */
   "derivedLogicalEntities"?: Array<model.DerivedLogicalEntities>;
 }

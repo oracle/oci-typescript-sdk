@@ -18,12 +18,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The logging source.
+ * The Logging source.
+ * For configuration instructions, see
+ * [To create a service connector](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/managingconnectors.htm#create).
  *
  */
 export interface LoggingSourceDetails extends model.SourceDetails {
   /**
-   * The resources affected by this work request.
+   * The logs for this Logging source.
    *
    */
   "logSources": Array<model.LogSource>;

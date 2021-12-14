@@ -1,6 +1,6 @@
 /**
- * Oracle Cloud Infrastructure Artificial Intelligence Services API
- * OCI AI Service solutions can help Enterprise customers integrate AI into their products immediately using our proven,
+ * Language API
+ * OCI Language Service solutions can help enterprise customers integrate AI into their products immediately using our proven,
     pre-trained and custom models or containers, without a need to set up an house team of AI and ML experts.
     This allows enterprises to focus on business drivers and development work rather than AI and ML operations, which shortens the time to market.
 
@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Aspect object.
+ * Sentiment aspect object.
  */
 export interface SentimentAspect {
   /**
@@ -26,7 +26,7 @@ export interface SentimentAspect {
    */
   "offset"?: number;
   /**
-   * Length of text. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Length of aspect text. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "length"?: number;
   /**
@@ -38,8 +38,8 @@ export interface SentimentAspect {
    */
   "sentiment"?: string;
   /**
-   * Scores for each sentiment.
-   * Example: \"{\\\"positive\\\": 1.0, \\\"negative\\\": 0.0}\"
+   * Scores or confidences for each sentiment.
+   * Example: `{\"positive\": 1.0, \"negative\": 0.0}`
    *
    */
   "scores"?: { [key: string]: number };

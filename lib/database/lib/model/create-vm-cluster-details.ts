@@ -38,6 +38,10 @@ export interface CreateVmClusterDetails {
    */
   "cpuCoreCount": number;
   /**
+   * The number of OCPU cores to enable for the VM cluster. Only 1 decimal place is allowed for the fractional part. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "ocpuCount"?: number;
+  /**
    * The memory to be allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs"?: number;
@@ -49,6 +53,10 @@ export interface CreateVmClusterDetails {
    * The data disk group size to be allocated in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs"?: number;
+  /**
+   * The data disk group size to be allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dataStorageSizeInGBs"?: number;
   /**
    * The public key portion of one or more key pairs used for SSH access to the VM cluster.
    */

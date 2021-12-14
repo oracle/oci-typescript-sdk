@@ -27,6 +27,25 @@ export class OperationsInsightsWaiter {
   ) {}
 
   /**
+   * Waits forAwrHub till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAwrHubResponse | null (null in case of 404 response)
+   */
+  public async forAwrHub(
+    request: serviceRequests.GetAwrHubRequest,
+    ...targetStates: models.AwrHubLifecycleState[]
+  ): Promise<serviceResponses.GetAwrHubResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAwrHub(request),
+      response => targetStates.includes(response.awrHub.lifecycleState!),
+      targetStates.includes(models.AwrHubLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDatabaseInsight till it reaches any of the provided states
    *
    * @param request the request to send
@@ -99,6 +118,44 @@ export class OperationsInsightsWaiter {
       () => this.client.getHostInsight(request),
       response => targetStates.includes(response.hostInsight.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forOperationsInsightsWarehouse till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetOperationsInsightsWarehouseResponse | null (null in case of 404 response)
+   */
+  public async forOperationsInsightsWarehouse(
+    request: serviceRequests.GetOperationsInsightsWarehouseRequest,
+    ...targetStates: models.OperationsInsightsWarehouseLifecycleState[]
+  ): Promise<serviceResponses.GetOperationsInsightsWarehouseResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getOperationsInsightsWarehouse(request),
+      response => targetStates.includes(response.operationsInsightsWarehouse.lifecycleState!),
+      targetStates.includes(models.OperationsInsightsWarehouseLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forOperationsInsightsWarehouseUser till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetOperationsInsightsWarehouseUserResponse | null (null in case of 404 response)
+   */
+  public async forOperationsInsightsWarehouseUser(
+    request: serviceRequests.GetOperationsInsightsWarehouseUserRequest,
+    ...targetStates: models.OperationsInsightsWarehouseUserLifecycleState[]
+  ): Promise<serviceResponses.GetOperationsInsightsWarehouseUserResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getOperationsInsightsWarehouseUser(request),
+      response => targetStates.includes(response.operationsInsightsWarehouseUser.lifecycleState!),
+      targetStates.includes(models.OperationsInsightsWarehouseUserLifecycleState.Deleted)
     );
   }
 

@@ -223,6 +223,10 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    * Indicates whether the Autonomous Database requires mTLS connections.
    */
   "isMtlsConnectionRequired"?: boolean;
+  /**
+   * list of scheduled operations
+   */
+  "scheduledOperations"?: Array<model.ScheduledOperationDetails>;
 }
 
 export namespace UpdateAutonomousDatabaseDetails {
@@ -261,6 +265,12 @@ export namespace UpdateAutonomousDatabaseDetails {
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getJsonObj(item);
             })
+          : undefined,
+
+        "scheduledOperations": obj.scheduledOperations
+          ? obj.scheduledOperations.map(item => {
+              return model.ScheduledOperationDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -274,6 +284,12 @@ export namespace UpdateAutonomousDatabaseDetails {
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "scheduledOperations": obj.scheduledOperations
+          ? obj.scheduledOperations.map(item => {
+              return model.ScheduledOperationDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

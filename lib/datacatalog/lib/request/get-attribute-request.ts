@@ -77,6 +77,7 @@ export namespace GetAttributeRequest {
     DatatypeEntityKey = "datatypeEntityKey",
     ExternalDatatypeEntityKey = "externalDatatypeEntityKey",
     ParentAttributeKey = "parentAttributeKey",
-    ExternalParentAttributeKey = "externalParentAttributeKey"
+    ExternalParentAttributeKey = "externalParentAttributeKey",
+    TypeKey = "typeKey"
   }
 }

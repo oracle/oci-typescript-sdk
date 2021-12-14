@@ -54,6 +54,10 @@ export interface AutonomousContainerDatabaseSummary {
    */
   "infrastructureType"?: AutonomousContainerDatabaseSummary.InfrastructureType;
   /**
+   * The OCID of the cloud Autonomous VM Cluster.
+   */
+  "cloudAutonomousVmClusterId"?: string;
+  /**
    * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
    */
   "kmsKeyId"?: string;

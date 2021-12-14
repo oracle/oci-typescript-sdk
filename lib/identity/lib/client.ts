@@ -606,7 +606,7 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
   }
 
   /**
-     * Edits the specified list of tag key definitions for the selected resources. 
+     * Edits the specified list of tag key definitions for the selected resources.
 * This operation triggers a process that edits the tags on all selected resources. The possible actions are:
 * <p>
   * Add a defined tag when the tag does not already exist on the resource.
@@ -616,9 +616,9 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
 * <p>
 See {@link #bulkEditOperationDetails(BulkEditOperationDetailsRequest) bulkEditOperationDetails} for more information.
 * <p>
-The edits can include a combination of operations and tag sets. 
+The edits can include a combination of operations and tag sets.
 * However, multiple operations cannot apply to one key definition in the same request.
-* For example, if one request adds `tag set-1` to a resource and sets a tag value to `tag set-2`, 
+* For example, if one request adds `tag set-1` to a resource and sets a tag value to `tag set-2`,
 * `tag set-1` and `tag set-2` cannot have any common tag definitions.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1316,6 +1316,80 @@ Every user has permission to create a secret key for *their own user ID*. An adm
         bodyKey: "customerSecretKey",
         bodyModel: model.CustomerSecretKey,
         type: "model.CustomerSecretKey",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new DB credential for the specified user.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateDbCredentialRequest
+   * @return CreateDbCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/CreateDbCredential.ts.html |here} to see how to use CreateDbCredential API.
+   */
+  public async createDbCredential(
+    createDbCredentialRequest: requests.CreateDbCredentialRequest
+  ): Promise<responses.CreateDbCredentialResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#createDbCredential.");
+    const pathParams = {
+      "{userId}": createDbCredentialRequest.userId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createDbCredentialRequest.opcRequestId,
+      "opc-retry-token": createDbCredentialRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDbCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/users/{userId}/dbCredentials",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDbCredentialRequest.createDbCredentialDetails,
+        "CreateDbCredentialDetails",
+        model.CreateDbCredentialDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDbCredentialResponse>{},
+        body: await response.json(),
+        bodyKey: "dbCredential",
+        bodyModel: model.DbCredential,
+        type: "model.DbCredential",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3065,6 +3139,67 @@ Every user has permission to use this operation to delete a key for *their own u
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCustomerSecretKeyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified DB credential for the specified user.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDbCredentialRequest
+   * @return DeleteDbCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteDbCredential.ts.html |here} to see how to use DeleteDbCredential API.
+   */
+  public async deleteDbCredential(
+    deleteDbCredentialRequest: requests.DeleteDbCredentialRequest
+  ): Promise<responses.DeleteDbCredentialResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteDbCredential.");
+    const pathParams = {
+      "{userId}": deleteDbCredentialRequest.userId,
+      "{dbCredentialId}": deleteDbCredentialRequest.dbCredentialId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteDbCredentialRequest.opcRequestId,
+      "if-match": deleteDbCredentialRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDbCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/users/{userId}/dbCredentials/{dbCredentialId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDbCredentialResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6429,6 +6564,133 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
     } catch (err) {
       throw err;
     }
+  }
+
+  /**
+   * Lists the DB credentials for the specified user. The returned object contains the credential's OCID
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDbCredentialsRequest
+   * @return ListDbCredentialsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListDbCredentials.ts.html |here} to see how to use ListDbCredentials API.
+   */
+  public async listDbCredentials(
+    listDbCredentialsRequest: requests.ListDbCredentialsRequest
+  ): Promise<responses.ListDbCredentialsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#listDbCredentials.");
+    const pathParams = {
+      "{userId}": listDbCredentialsRequest.userId
+    };
+
+    const queryParams = {
+      "page": listDbCredentialsRequest.page,
+      "limit": listDbCredentialsRequest.limit,
+      "name": listDbCredentialsRequest.name,
+      "sortBy": listDbCredentialsRequest.sortBy,
+      "sortOrder": listDbCredentialsRequest.sortOrder,
+      "lifecycleState": listDbCredentialsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDbCredentialsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbCredentialsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/users/{userId}/dbCredentials",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDbCredentialsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.DbCredentialSummary,
+        type: "Array<model.DbCredentialSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDbCredentialsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.DbCredentialSummary objects
+   * contained in responses from the listDbCredentials operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDbCredentials(
+    request: requests.ListDbCredentialsRequest
+  ): AsyncIterableIterator<model.DbCredentialSummary> {
+    return paginateRecords(request, req => this.listDbCredentials(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDbCredentialsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listDbCredentials operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDbCredentialsResponses(
+    request: requests.ListDbCredentialsRequest
+  ): AsyncIterableIterator<responses.ListDbCredentialsResponse> {
+    return paginateResponses(request, req => this.listDbCredentials(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DbCredentialSummary objects
+   * contained in responses from the listDbCredentials operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbCredentialsRecordIterator(
+    request: requests.ListDbCredentialsRequest
+  ): AsyncIterableIterator<model.DbCredentialSummary> {
+    return paginateRecords(request, req => this.listDbCredentials(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbCredentials operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbCredentialsResponseIterator(
+    request: requests.ListDbCredentialsRequest
+  ): AsyncIterableIterator<responses.ListDbCredentialsResponse> {
+    return paginateResponses(request, req => this.listDbCredentials(req));
   }
 
   /**

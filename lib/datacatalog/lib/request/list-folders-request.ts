@@ -37,14 +37,14 @@ export interface ListFoldersRequest extends common.BaseRequest {
   /**
    * A filter to return only resources that match display name or business name pattern given. The match is not case sensitive.
    * For Example : /folders?displayOrBusinessNameContains=Cu.*
-   * The above would match all folders with display name or business name that starts with \"Cu\".
+   * The above would match all folders with display name or business name that starts with \"Cu\" or has the pattern \"Cu\" anywhere in between.
    *
    */
   "displayOrBusinessNameContains"?: string;
   /**
    * A filter to return only resources that match display name pattern given. The match is not case sensitive.
    * For Example : /folders?displayNameContains=Cu.*
-   * The above would match all folders with display name that starts with \"Cu\".
+   * The above would match all folders with display name that starts with \"Cu\" or has the pattern \"Cu\" anywhere in between.
    *
    */
   "displayNameContains"?: string;
