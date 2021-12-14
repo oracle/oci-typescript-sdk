@@ -27,6 +27,7 @@ export interface HostImportableAgentEntitySummary extends model.ImportableAgentE
   "hostName": string;
   /**
    * Platform type.
+   *
    */
   "platformType": HostImportableAgentEntitySummary.PlatformType;
 

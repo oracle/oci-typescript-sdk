@@ -26,6 +26,10 @@ export interface UpdateVmClusterDetails {
    */
   "cpuCoreCount"?: number;
   /**
+   * The number of OCPU cores to enable for the VM cluster. Only 1 decimal place is allowed for the fractional part. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "ocpuCount"?: number;
+  /**
    * The memory to be allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs"?: number;
@@ -37,6 +41,10 @@ export interface UpdateVmClusterDetails {
    * The data disk group size to be allocated in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs"?: number;
+  /**
+   * The data disk group size to be allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dataStorageSizeInGBs"?: number;
   /**
    * The Oracle license model that applies to the VM cluster. The default is BRING_YOUR_OWN_LICENSE.
    *

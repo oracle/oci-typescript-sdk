@@ -31,6 +31,10 @@ export interface CreateEntityDetails {
    */
   "businessName"?: string;
   /**
+   * The type of data entity object. Type key's can be found via the '/types' endpoint.
+   */
+  "typeKey"?: string;
+  /**
    * Detailed description of a data entity.
    */
   "description"?: string;

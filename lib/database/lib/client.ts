@@ -866,6 +866,82 @@ export class DatabaseClient {
   }
 
   /**
+   * To move a cloud Autonomous VM cluster and its dependent resources to another compartment, use the
+   * {@link #changeCloudAutonomousVmClusterCompartment(ChangeCloudAutonomousVmClusterCompartmentRequest) changeCloudAutonomousVmClusterCompartment} operation.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeCloudAutonomousVmClusterCompartmentRequest
+   * @return ChangeCloudAutonomousVmClusterCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudAutonomousVmClusterCompartment.ts.html |here} to see how to use ChangeCloudAutonomousVmClusterCompartment API.
+   */
+  public async changeCloudAutonomousVmClusterCompartment(
+    changeCloudAutonomousVmClusterCompartmentRequest: requests.ChangeCloudAutonomousVmClusterCompartmentRequest
+  ): Promise<responses.ChangeCloudAutonomousVmClusterCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeCloudAutonomousVmClusterCompartment."
+      );
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}":
+        changeCloudAutonomousVmClusterCompartmentRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeCloudAutonomousVmClusterCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeCloudAutonomousVmClusterCompartmentRequest.opcRequestId,
+      "if-match": changeCloudAutonomousVmClusterCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCloudAutonomousVmClusterCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeCloudAutonomousVmClusterCompartmentRequest.changeCloudAutonomousVmClusterCompartmentDetails,
+        "ChangeCloudAutonomousVmClusterCompartmentDetails",
+        model.ChangeCloudAutonomousVmClusterCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeCloudAutonomousVmClusterCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a cloud Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud Service instances only. For more information about moving resources to a different compartment, see [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2392,6 +2468,84 @@ export class DatabaseClient {
         bodyModel: model.BackupDestination,
         type: "model.BackupDestination",
         responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a cloud Autonomous VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateCloudAutonomousVmClusterRequest
+   * @return CreateCloudAutonomousVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateCloudAutonomousVmCluster.ts.html |here} to see how to use CreateCloudAutonomousVmCluster API.
+   */
+  public async createCloudAutonomousVmCluster(
+    createCloudAutonomousVmClusterRequest: requests.CreateCloudAutonomousVmClusterRequest
+  ): Promise<responses.CreateCloudAutonomousVmClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createCloudAutonomousVmCluster.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createCloudAutonomousVmClusterRequest.opcRetryToken,
+      "opc-request-id": createCloudAutonomousVmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCloudAutonomousVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCloudAutonomousVmClusterRequest.createCloudAutonomousVmClusterDetails,
+        "CreateCloudAutonomousVmClusterDetails",
+        model.CreateCloudAutonomousVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCloudAutonomousVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudAutonomousVmCluster",
+        bodyModel: model.CloudAutonomousVmCluster,
+        type: "model.CloudAutonomousVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("etag"),
             key: "etag",
@@ -4061,6 +4215,73 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBackupDestinationResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified cloud Autonomous VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteCloudAutonomousVmClusterRequest
+   * @return DeleteCloudAutonomousVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteCloudAutonomousVmCluster.ts.html |here} to see how to use DeleteCloudAutonomousVmCluster API.
+   */
+  public async deleteCloudAutonomousVmCluster(
+    deleteCloudAutonomousVmClusterRequest: requests.DeleteCloudAutonomousVmClusterRequest
+  ): Promise<responses.DeleteCloudAutonomousVmClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteCloudAutonomousVmCluster.");
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}":
+        deleteCloudAutonomousVmClusterRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteCloudAutonomousVmClusterRequest.ifMatch,
+      "opc-request-id": deleteCloudAutonomousVmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCloudAutonomousVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCloudAutonomousVmClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -7824,6 +8045,74 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * Gets information about the specified cloud Autonomous VM cluster.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCloudAutonomousVmClusterRequest
+   * @return GetCloudAutonomousVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudAutonomousVmCluster.ts.html |here} to see how to use GetCloudAutonomousVmCluster API.
+   */
+  public async getCloudAutonomousVmCluster(
+    getCloudAutonomousVmClusterRequest: requests.GetCloudAutonomousVmClusterRequest
+  ): Promise<responses.GetCloudAutonomousVmClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getCloudAutonomousVmCluster.");
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}": getCloudAutonomousVmClusterRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudAutonomousVmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudAutonomousVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudAutonomousVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudAutonomousVmCluster",
+        bodyModel: model.CloudAutonomousVmCluster,
+        type: "model.CloudAutonomousVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -10586,7 +10875,10 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "lifecycleState": listAutonomousContainerDatabasesRequest.lifecycleState,
       "availabilityDomain": listAutonomousContainerDatabasesRequest.availabilityDomain,
       "displayName": listAutonomousContainerDatabasesRequest.displayName,
-      "serviceLevelAgreementType": listAutonomousContainerDatabasesRequest.serviceLevelAgreementType
+      "serviceLevelAgreementType":
+        listAutonomousContainerDatabasesRequest.serviceLevelAgreementType,
+      "cloudAutonomousVmClusterId":
+        listAutonomousContainerDatabasesRequest.cloudAutonomousVmClusterId
     };
 
     let headerParams = {
@@ -12084,6 +12376,136 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     request: requests.ListBackupsRequest
   ): AsyncIterableIterator<responses.ListBackupsResponse> {
     return paginateResponses(request, req => this.listBackups(req));
+  }
+
+  /**
+   * Gets a list of the Autonomous cloud VM clusters in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListCloudAutonomousVmClustersRequest
+   * @return ListCloudAutonomousVmClustersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudAutonomousVmClusters.ts.html |here} to see how to use ListCloudAutonomousVmClusters API.
+   */
+  public async listCloudAutonomousVmClusters(
+    listCloudAutonomousVmClustersRequest: requests.ListCloudAutonomousVmClustersRequest
+  ): Promise<responses.ListCloudAutonomousVmClustersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listCloudAutonomousVmClusters.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudAutonomousVmClustersRequest.compartmentId,
+      "cloudExadataInfrastructureId":
+        listCloudAutonomousVmClustersRequest.cloudExadataInfrastructureId,
+      "limit": listCloudAutonomousVmClustersRequest.limit,
+      "page": listCloudAutonomousVmClustersRequest.page,
+      "sortBy": listCloudAutonomousVmClustersRequest.sortBy,
+      "sortOrder": listCloudAutonomousVmClustersRequest.sortOrder,
+      "lifecycleState": listCloudAutonomousVmClustersRequest.lifecycleState,
+      "availabilityDomain": listCloudAutonomousVmClustersRequest.availabilityDomain,
+      "displayName": listCloudAutonomousVmClustersRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudAutonomousVmClustersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudAutonomousVmClustersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudAutonomousVmClustersResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.CloudAutonomousVmClusterSummary,
+        type: "Array<model.CloudAutonomousVmClusterSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listCloudAutonomousVmClustersRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.CloudAutonomousVmClusterSummary objects
+   * contained in responses from the listCloudAutonomousVmClusters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudAutonomousVmClusters(
+    request: requests.ListCloudAutonomousVmClustersRequest
+  ): AsyncIterableIterator<model.CloudAutonomousVmClusterSummary> {
+    return paginateRecords(request, req => this.listCloudAutonomousVmClusters(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listCloudAutonomousVmClustersResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listCloudAutonomousVmClusters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudAutonomousVmClustersResponses(
+    request: requests.ListCloudAutonomousVmClustersRequest
+  ): AsyncIterableIterator<responses.ListCloudAutonomousVmClustersResponse> {
+    return paginateResponses(request, req => this.listCloudAutonomousVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CloudAutonomousVmClusterSummary objects
+   * contained in responses from the listCloudAutonomousVmClusters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudAutonomousVmClustersRecordIterator(
+    request: requests.ListCloudAutonomousVmClustersRequest
+  ): AsyncIterableIterator<model.CloudAutonomousVmClusterSummary> {
+    return paginateRecords(request, req => this.listCloudAutonomousVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCloudAutonomousVmClusters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudAutonomousVmClustersResponseIterator(
+    request: requests.ListCloudAutonomousVmClustersRequest
+  ): AsyncIterableIterator<responses.ListCloudAutonomousVmClustersResponse> {
+    return paginateResponses(request, req => this.listCloudAutonomousVmClusters(req));
   }
 
   /**
@@ -17801,6 +18223,144 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Rotates Oracle REST Data Services (ORDS) certs for a cloud Autonomous VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RotateCloudAutonomousVmClusterOrdsCertsRequest
+   * @return RotateCloudAutonomousVmClusterOrdsCertsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateCloudAutonomousVmClusterOrdsCerts.ts.html |here} to see how to use RotateCloudAutonomousVmClusterOrdsCerts API.
+   */
+  public async rotateCloudAutonomousVmClusterOrdsCerts(
+    rotateCloudAutonomousVmClusterOrdsCertsRequest: requests.RotateCloudAutonomousVmClusterOrdsCertsRequest
+  ): Promise<responses.RotateCloudAutonomousVmClusterOrdsCertsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#rotateCloudAutonomousVmClusterOrdsCerts."
+      );
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}":
+        rotateCloudAutonomousVmClusterOrdsCertsRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": rotateCloudAutonomousVmClusterOrdsCertsRequest.opcRetryToken,
+      "opc-request-id": rotateCloudAutonomousVmClusterOrdsCertsRequest.opcRequestId,
+      "if-match": rotateCloudAutonomousVmClusterOrdsCertsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rotateCloudAutonomousVmClusterOrdsCertsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}/actions/rotateOrdsCerts",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RotateCloudAutonomousVmClusterOrdsCertsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Rotates SSL certs for a cloud Autonomous VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RotateCloudAutonomousVmClusterSslCertsRequest
+   * @return RotateCloudAutonomousVmClusterSslCertsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateCloudAutonomousVmClusterSslCerts.ts.html |here} to see how to use RotateCloudAutonomousVmClusterSslCerts API.
+   */
+  public async rotateCloudAutonomousVmClusterSslCerts(
+    rotateCloudAutonomousVmClusterSslCertsRequest: requests.RotateCloudAutonomousVmClusterSslCertsRequest
+  ): Promise<responses.RotateCloudAutonomousVmClusterSslCertsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#rotateCloudAutonomousVmClusterSslCerts.");
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}":
+        rotateCloudAutonomousVmClusterSslCertsRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": rotateCloudAutonomousVmClusterSslCertsRequest.opcRetryToken,
+      "opc-request-id": rotateCloudAutonomousVmClusterSslCertsRequest.opcRequestId,
+      "if-match": rotateCloudAutonomousVmClusterSslCertsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rotateCloudAutonomousVmClusterSslCertsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}/actions/rotateSslCerts",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RotateCloudAutonomousVmClusterSslCertsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Rotates Oracle REST Data Services (ORDS) certs for an Autonomous Exadata Infrastructure resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -19337,6 +19897,87 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         bodyModel: model.BackupDestination,
         type: "model.BackupDestination",
         responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified cloud VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudAutonomousVmClusterRequest
+   * @return UpdateCloudAutonomousVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateCloudAutonomousVmCluster.ts.html |here} to see how to use UpdateCloudAutonomousVmCluster API.
+   */
+  public async updateCloudAutonomousVmCluster(
+    updateCloudAutonomousVmClusterRequest: requests.UpdateCloudAutonomousVmClusterRequest
+  ): Promise<responses.UpdateCloudAutonomousVmClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateCloudAutonomousVmCluster.");
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}":
+        updateCloudAutonomousVmClusterRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateCloudAutonomousVmClusterRequest.ifMatch,
+      "opc-request-id": updateCloudAutonomousVmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudAutonomousVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudAutonomousVmClusterRequest.updateCloudAutonomousVmClusterDetails,
+        "UpdateCloudAutonomousVmClusterDetails",
+        model.UpdateCloudAutonomousVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudAutonomousVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudAutonomousVmCluster",
+        bodyModel: model.CloudAutonomousVmCluster,
+        type: "model.CloudAutonomousVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("etag"),
             key: "etag",

@@ -42,6 +42,16 @@ export interface EntitySummary {
    */
   "description"?: string;
   /**
+   * Property that identifies if the object is a physical object (materialized) or virtual/logical object
+   * defined on other objects.
+   *
+   */
+  "isLogical"?: boolean;
+  /**
+   * Property that identifies if an object is a sub object of a physical or materialized parent object.
+   */
+  "isPartition"?: boolean;
+  /**
    * Unique key of the parent data asset.
    */
   "dataAssetKey"?: string;
@@ -96,6 +106,15 @@ export interface EntitySummary {
    * State of the data entity.
    */
   "lifecycleState"?: model.LifecycleState;
+  /**
+   * A map of maps that contains the properties which are specific to the entity type. Each entity type
+   * definition defines it's set of required and optional properties. The map keys are category names and the
+   * values are maps of property name to property value. Every property is contained inside of a category. Most
+   * data entities have required properties within the \"default\" category.
+   * Example: `{\"properties\": { \"default\": { \"key1\": \"value1\"}}}`
+   *
+   */
+  "properties"?: { [key: string]: { [key: string]: string } };
 }
 
 export namespace EntitySummary {

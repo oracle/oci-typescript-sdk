@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.9.1",
+  "version": "2.10.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -110,7 +110,9 @@
     "oci-certificatesmanagement": "file:lib/certificatesmanagement",
     "oci-databasetools": "file:lib/databasetools",
     "oci-servicemanagerproxy": "file:lib/servicemanagerproxy",
-    "oci-appmgmtcontrol": "file:lib/appmgmtcontrol"
+    "oci-appmgmtcontrol": "file:lib/appmgmtcontrol",
+    "oci-identitydataplane": "file:lib/identitydataplane",
+    "oci-ospgateway": "file:lib/ospgateway"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

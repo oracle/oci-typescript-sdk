@@ -236,6 +236,10 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "autonomousMaintenanceScheduleType"?: CreateAutonomousDatabaseBase.AutonomousMaintenanceScheduleType;
+  /**
+   * list of scheduled operations
+   */
+  "scheduledOperations"?: Array<model.ScheduledOperationDetails>;
 
   "source": string;
 }
@@ -265,6 +269,12 @@ export namespace CreateAutonomousDatabaseBase {
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getJsonObj(item);
+            })
+          : undefined,
+
+        "scheduledOperations": obj.scheduledOperations
+          ? obj.scheduledOperations.map(item => {
+              return model.ScheduledOperationDetails.getJsonObj(item);
             })
           : undefined
       }
@@ -315,6 +325,12 @@ export namespace CreateAutonomousDatabaseBase {
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "scheduledOperations": obj.scheduledOperations
+          ? obj.scheduledOperations.map(item => {
+              return model.ScheduledOperationDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

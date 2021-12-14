@@ -17,8 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a patterns listing.  A Pattern is defined using an expression and can be used as data selectors or filters
- * to provide a singular view of an entity across multiple physical data artifacts.
+ * Results of a pattern listing. Patterns are used in entity harvesting.
  *
  */
 export interface PatternCollection {

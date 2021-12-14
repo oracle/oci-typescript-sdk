@@ -399,6 +399,10 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    *
    */
   "autonomousMaintenanceScheduleType"?: AutonomousDatabaseSummary.AutonomousMaintenanceScheduleType;
+  /**
+   * list of scheduled operations
+   */
+  "scheduledOperations"?: Array<model.ScheduledOperationDetails>;
 }
 
 export namespace AutonomousDatabaseSummary {
@@ -606,6 +610,12 @@ export namespace AutonomousDatabaseSummary {
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getJsonObj(item);
             })
+          : undefined,
+
+        "scheduledOperations": obj.scheduledOperations
+          ? obj.scheduledOperations.map(item => {
+              return model.ScheduledOperationDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -643,6 +653,12 @@ export namespace AutonomousDatabaseSummary {
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "scheduledOperations": obj.scheduledOperations
+          ? obj.scheduledOperations.map(item => {
+              return model.ScheduledOperationDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

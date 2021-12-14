@@ -20,8 +20,6 @@ import common = require("oci-common");
 export interface DetectLanguageEntitiesRequest extends common.BaseRequest {
   /**
    * The details to make a Entity detect call.
-   * Example: `{\"text\": \"If an emerging growth company, indicate by check mark if the registrant has elected not
-   *            to use the extended transition period for complying\"}`
    *
    */
   "detectLanguageEntitiesDetails": model.DetectLanguageEntitiesDetails;

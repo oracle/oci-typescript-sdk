@@ -3500,7 +3500,7 @@ export class DataCatalogClient {
 
   /**
    * Returns the fully expanded tree hierarchy of parent and child terms in this glossary.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ExpandTreeForGlossaryRequest
    * @return ExpandTreeForGlossaryResponse
    * @throws OciError when an error occurs
@@ -3524,7 +3524,7 @@ export class DataCatalogClient {
       "opc-retry-token": expandTreeForGlossaryRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       expandTreeForGlossaryRequest.retryConfiguration,
@@ -3641,7 +3641,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific entity attribute by key.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAttributeRequest
    * @return GetAttributeResponse
    * @throws OciError when an error occurs
@@ -3668,7 +3668,7 @@ export class DataCatalogClient {
       "opc-request-id": getAttributeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAttributeRequest.retryConfiguration,
@@ -3715,7 +3715,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific entity attribute tag by key.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAttributeTagRequest
    * @return GetAttributeTagResponse
    * @throws OciError when an error occurs
@@ -3742,7 +3742,7 @@ export class DataCatalogClient {
       "opc-request-id": getAttributeTagRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAttributeTagRequest.retryConfiguration,
@@ -3789,7 +3789,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a data catalog by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCatalogRequest
    * @return GetCatalogResponse
    * @throws OciError when an error occurs
@@ -3810,7 +3810,7 @@ export class DataCatalogClient {
       "opc-request-id": getCatalogRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCatalogRequest.retryConfiguration,
@@ -3856,7 +3856,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific private reverse connection by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCatalogPrivateEndpointRequest
    * @return GetCatalogPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -3878,7 +3878,7 @@ export class DataCatalogClient {
       "opc-request-id": getCatalogPrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCatalogPrivateEndpointRequest.retryConfiguration,
@@ -3924,7 +3924,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific data asset connection by key.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetConnectionRequest
    * @return GetConnectionResponse
    * @throws OciError when an error occurs
@@ -3949,7 +3949,7 @@ export class DataCatalogClient {
       "opc-request-id": getConnectionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getConnectionRequest.retryConfiguration,
@@ -3995,7 +3995,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific custom property for the given key within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCustomPropertyRequest
    * @return GetCustomPropertyResponse
    * @throws OciError when an error occurs
@@ -4020,7 +4020,7 @@ export class DataCatalogClient {
       "opc-request-id": getCustomPropertyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCustomPropertyRequest.retryConfiguration,
@@ -4066,7 +4066,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific data asset for the given key within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDataAssetRequest
    * @return GetDataAssetResponse
    * @throws OciError when an error occurs
@@ -4090,7 +4090,7 @@ export class DataCatalogClient {
       "opc-request-id": getDataAssetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDataAssetRequest.retryConfiguration,
@@ -4136,7 +4136,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific data asset tag by key.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDataAssetTagRequest
    * @return GetDataAssetTagResponse
    * @throws OciError when an error occurs
@@ -4161,7 +4161,7 @@ export class DataCatalogClient {
       "opc-request-id": getDataAssetTagRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDataAssetTagRequest.retryConfiguration,
@@ -4207,7 +4207,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific data entity by key for a data asset.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetEntityRequest
    * @return GetEntityResponse
    * @throws OciError when an error occurs
@@ -4233,7 +4233,7 @@ export class DataCatalogClient {
       "opc-request-id": getEntityRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getEntityRequest.retryConfiguration,
@@ -4279,7 +4279,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific entity tag by key.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetEntityTagRequest
    * @return GetEntityTagResponse
    * @throws OciError when an error occurs
@@ -4305,7 +4305,7 @@ export class DataCatalogClient {
       "opc-request-id": getEntityTagRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getEntityTagRequest.retryConfiguration,
@@ -4351,7 +4351,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific data asset folder by key.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFolderRequest
    * @return GetFolderResponse
    * @throws OciError when an error occurs
@@ -4377,7 +4377,7 @@ export class DataCatalogClient {
       "opc-request-id": getFolderRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFolderRequest.retryConfiguration,
@@ -4423,7 +4423,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific folder tag by key.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFolderTagRequest
    * @return GetFolderTagResponse
    * @throws OciError when an error occurs
@@ -4449,7 +4449,7 @@ export class DataCatalogClient {
       "opc-request-id": getFolderTagRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFolderTagRequest.retryConfiguration,
@@ -4495,7 +4495,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific glossary by key within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetGlossaryRequest
    * @return GetGlossaryResponse
    * @throws OciError when an error occurs
@@ -4519,7 +4519,7 @@ export class DataCatalogClient {
       "opc-request-id": getGlossaryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getGlossaryRequest.retryConfiguration,
@@ -4565,7 +4565,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific job by key within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobRequest
    * @return GetJobResponse
    * @throws OciError when an error occurs
@@ -4587,7 +4587,7 @@ export class DataCatalogClient {
       "opc-request-id": getJobRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getJobRequest.retryConfiguration,
@@ -4633,7 +4633,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific job definition by key within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobDefinitionRequest
    * @return GetJobDefinitionResponse
    * @throws OciError when an error occurs
@@ -4657,7 +4657,7 @@ export class DataCatalogClient {
       "opc-request-id": getJobDefinitionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getJobDefinitionRequest.retryConfiguration,
@@ -4703,7 +4703,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific job execution by key.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobExecutionRequest
    * @return GetJobExecutionResponse
    * @throws OciError when an error occurs
@@ -4728,7 +4728,7 @@ export class DataCatalogClient {
       "opc-request-id": getJobExecutionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getJobExecutionRequest.retryConfiguration,
@@ -4774,7 +4774,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific job log by key.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobLogRequest
    * @return GetJobLogResponse
    * @throws OciError when an error occurs
@@ -4800,7 +4800,7 @@ export class DataCatalogClient {
       "opc-request-id": getJobLogRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getJobLogRequest.retryConfiguration,
@@ -4846,7 +4846,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific job metric by key.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobMetricsRequest
    * @return GetJobMetricsResponse
    * @throws OciError when an error occurs
@@ -4872,7 +4872,7 @@ export class DataCatalogClient {
       "opc-request-id": getJobMetricsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getJobMetricsRequest.retryConfiguration,
@@ -4919,7 +4919,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a metastore by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMetastoreRequest
    * @return GetMetastoreResponse
    * @throws OciError when an error occurs
@@ -4940,7 +4940,7 @@ export class DataCatalogClient {
       "opc-request-id": getMetastoreRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getMetastoreRequest.retryConfiguration,
@@ -4986,7 +4986,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific namespace for the given key within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetNamespaceRequest
    * @return GetNamespaceResponse
    * @throws OciError when an error occurs
@@ -5010,7 +5010,7 @@ export class DataCatalogClient {
       "opc-request-id": getNamespaceRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getNamespaceRequest.retryConfiguration,
@@ -5056,7 +5056,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific pattern for the given key within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetPatternRequest
    * @return GetPatternResponse
    * @throws OciError when an error occurs
@@ -5080,7 +5080,7 @@ export class DataCatalogClient {
       "opc-request-id": getPatternRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getPatternRequest.retryConfiguration,
@@ -5126,7 +5126,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific glossary term by key.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTermRequest
    * @return GetTermResponse
    * @throws OciError when an error occurs
@@ -5151,7 +5151,7 @@ export class DataCatalogClient {
       "opc-request-id": getTermRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTermRequest.retryConfiguration,
@@ -5197,7 +5197,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific glossary term relationship by key.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTermRelationshipRequest
    * @return GetTermRelationshipResponse
    * @throws OciError when an error occurs
@@ -5223,7 +5223,7 @@ export class DataCatalogClient {
       "opc-request-id": getTermRelationshipRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTermRelationshipRequest.retryConfiguration,
@@ -5270,7 +5270,7 @@ export class DataCatalogClient {
 
   /**
    * Gets a specific type by key within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTypeRequest
    * @return GetTypeResponse
    * @throws OciError when an error occurs
@@ -5294,7 +5294,7 @@ export class DataCatalogClient {
       "opc-request-id": getTypeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTypeRequest.retryConfiguration,
@@ -5340,7 +5340,7 @@ export class DataCatalogClient {
 
   /**
    * Gets the status of the work request with the given OCID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -5361,7 +5361,7 @@ export class DataCatalogClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -5631,7 +5631,7 @@ export class DataCatalogClient {
 
   /**
    * List the physical entities aggregated by this logical entity.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAggregatedPhysicalEntitiesRequest
    * @return ListAggregatedPhysicalEntitiesResponse
    * @throws OciError when an error occurs
@@ -5654,7 +5654,8 @@ export class DataCatalogClient {
       "sortBy": listAggregatedPhysicalEntitiesRequest.sortBy,
       "sortOrder": listAggregatedPhysicalEntitiesRequest.sortOrder,
       "limit": listAggregatedPhysicalEntitiesRequest.limit,
-      "page": listAggregatedPhysicalEntitiesRequest.page
+      "page": listAggregatedPhysicalEntitiesRequest.page,
+      "isIncludeProperties": listAggregatedPhysicalEntitiesRequest.isIncludeProperties
     };
 
     let headerParams = {
@@ -5662,7 +5663,7 @@ export class DataCatalogClient {
       "opc-request-id": listAggregatedPhysicalEntitiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAggregatedPhysicalEntitiesRequest.retryConfiguration,
@@ -5704,7 +5705,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all tags for an entity attribute.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAttributeTagsRequest
    * @return ListAttributeTagsResponse
    * @throws OciError when an error occurs
@@ -5740,7 +5741,7 @@ export class DataCatalogClient {
       "opc-request-id": listAttributeTagsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAttributeTagsRequest.retryConfiguration,
@@ -5787,7 +5788,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all attributes of an data entity.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAttributesRequest
    * @return ListAttributesResponse
    * @throws OciError when an error occurs
@@ -5834,7 +5835,7 @@ export class DataCatalogClient {
       "opc-request-id": listAttributesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAttributesRequest.retryConfiguration,
@@ -5881,7 +5882,7 @@ export class DataCatalogClient {
   /**
    * Returns a list of all the catalog private endpoints in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCatalogPrivateEndpointsRequest
    * @return ListCatalogPrivateEndpointsResponse
    * @throws OciError when an error occurs
@@ -5909,7 +5910,7 @@ export class DataCatalogClient {
       "opc-request-id": listCatalogPrivateEndpointsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCatalogPrivateEndpointsRequest.retryConfiguration,
@@ -6008,7 +6009,7 @@ export class DataCatalogClient {
   /**
    * Returns a list of all the data catalogs in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCatalogsRequest
    * @return ListCatalogsResponse
    * @throws OciError when an error occurs
@@ -6035,7 +6036,7 @@ export class DataCatalogClient {
       "opc-request-id": listCatalogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCatalogsRequest.retryConfiguration,
@@ -6133,7 +6134,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all Connections for a data asset.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListConnectionsRequest
    * @return ListConnectionsResponse
    * @throws OciError when an error occurs
@@ -6171,7 +6172,7 @@ export class DataCatalogClient {
       "opc-request-id": listConnectionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listConnectionsRequest.retryConfiguration,
@@ -6217,7 +6218,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of custom properties within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCustomPropertiesRequest
    * @return ListCustomPropertiesResponse
    * @throws OciError when an error occurs
@@ -6254,7 +6255,7 @@ export class DataCatalogClient {
       "opc-request-id": listCustomPropertiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCustomPropertiesRequest.retryConfiguration,
@@ -6300,7 +6301,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all tags for a data asset.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDataAssetTagsRequest
    * @return ListDataAssetTagsResponse
    * @throws OciError when an error occurs
@@ -6334,7 +6335,7 @@ export class DataCatalogClient {
       "opc-request-id": listDataAssetTagsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDataAssetTagsRequest.retryConfiguration,
@@ -6380,7 +6381,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of data assets within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDataAssetsRequest
    * @return ListDataAssetsResponse
    * @throws OciError when an error occurs
@@ -6416,7 +6417,7 @@ export class DataCatalogClient {
       "opc-request-id": listDataAssetsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDataAssetsRequest.retryConfiguration,
@@ -6462,7 +6463,7 @@ export class DataCatalogClient {
 
   /**
    * List logical entities derived from this pattern.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDerivedLogicalEntitiesRequest
    * @return ListDerivedLogicalEntitiesResponse
    * @throws OciError when an error occurs
@@ -6493,7 +6494,7 @@ export class DataCatalogClient {
       "opc-retry-token": listDerivedLogicalEntitiesRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDerivedLogicalEntitiesRequest.retryConfiguration,
@@ -6534,7 +6535,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all entities of a data asset.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListEntitiesRequest
    * @return ListEntitiesResponse
    * @throws OciError when an error occurs
@@ -6582,7 +6583,7 @@ export class DataCatalogClient {
       "opc-request-id": listEntitiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listEntitiesRequest.retryConfiguration,
@@ -6628,7 +6629,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all tags for a data entity.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListEntityTagsRequest
    * @return ListEntityTagsResponse
    * @throws OciError when an error occurs
@@ -6663,7 +6664,7 @@ export class DataCatalogClient {
       "opc-request-id": listEntityTagsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listEntityTagsRequest.retryConfiguration,
@@ -6709,7 +6710,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all tags for a folder.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFolderTagsRequest
    * @return ListFolderTagsResponse
    * @throws OciError when an error occurs
@@ -6744,7 +6745,7 @@ export class DataCatalogClient {
       "opc-request-id": listFolderTagsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listFolderTagsRequest.retryConfiguration,
@@ -6790,7 +6791,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all folders.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFoldersRequest
    * @return ListFoldersResponse
    * @throws OciError when an error occurs
@@ -6832,7 +6833,7 @@ export class DataCatalogClient {
       "opc-request-id": listFoldersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listFoldersRequest.retryConfiguration,
@@ -6878,7 +6879,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all glossaries within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListGlossariesRequest
    * @return ListGlossariesResponse
    * @throws OciError when an error occurs
@@ -6912,7 +6913,7 @@ export class DataCatalogClient {
       "opc-request-id": listGlossariesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listGlossariesRequest.retryConfiguration,
@@ -6958,7 +6959,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of job definitions within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListJobDefinitionsRequest
    * @return ListJobDefinitionsResponse
    * @throws OciError when an error occurs
@@ -6998,7 +6999,7 @@ export class DataCatalogClient {
       "opc-request-id": listJobDefinitionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listJobDefinitionsRequest.retryConfiguration,
@@ -7044,7 +7045,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of job executions for a job.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListJobExecutionsRequest
    * @return ListJobExecutionsResponse
    * @throws OciError when an error occurs
@@ -7088,7 +7089,7 @@ export class DataCatalogClient {
       "opc-request-id": listJobExecutionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listJobExecutionsRequest.retryConfiguration,
@@ -7134,7 +7135,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of job logs.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListJobLogsRequest
    * @return ListJobLogsResponse
    * @throws OciError when an error occurs
@@ -7169,7 +7170,7 @@ export class DataCatalogClient {
       "opc-request-id": listJobLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listJobLogsRequest.retryConfiguration,
@@ -7215,7 +7216,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of job metrics.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListJobMetricsRequest
    * @return ListJobMetricsResponse
    * @throws OciError when an error occurs
@@ -7256,7 +7257,7 @@ export class DataCatalogClient {
       "opc-request-id": listJobMetricsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listJobMetricsRequest.retryConfiguration,
@@ -7302,7 +7303,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of jobs within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListJobsRequest
    * @return ListJobsResponse
    * @throws OciError when an error occurs
@@ -7346,7 +7347,7 @@ export class DataCatalogClient {
       "opc-request-id": listJobsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listJobsRequest.retryConfiguration,
@@ -7393,7 +7394,7 @@ export class DataCatalogClient {
   /**
    * Returns a list of all metastores in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMetastoresRequest
    * @return ListMetastoresResponse
    * @throws OciError when an error occurs
@@ -7420,7 +7421,7 @@ export class DataCatalogClient {
       "opc-request-id": listMetastoresRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMetastoresRequest.retryConfiguration,
@@ -7518,7 +7519,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of namespaces within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListNamespacesRequest
    * @return ListNamespacesResponse
    * @throws OciError when an error occurs
@@ -7552,7 +7553,7 @@ export class DataCatalogClient {
       "opc-request-id": listNamespacesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listNamespacesRequest.retryConfiguration,
@@ -7598,7 +7599,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of patterns within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListPatternsRequest
    * @return ListPatternsResponse
    * @throws OciError when an error occurs
@@ -7632,7 +7633,7 @@ export class DataCatalogClient {
       "opc-request-id": listPatternsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listPatternsRequest.retryConfiguration,
@@ -7678,7 +7679,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all rules of a data entity.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRulesRequest
    * @return ListRulesResponse
    * @throws OciError when an error occurs
@@ -7717,7 +7718,7 @@ export class DataCatalogClient {
       "opc-request-id": listRulesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listRulesRequest.retryConfiguration,
@@ -7763,7 +7764,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all user created tags in the system.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTagsRequest
    * @return ListTagsResponse
    * @throws OciError when an error occurs
@@ -7793,7 +7794,7 @@ export class DataCatalogClient {
       "opc-request-id": listTagsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTagsRequest.retryConfiguration,
@@ -7839,7 +7840,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all term relationships within a glossary.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTermRelationshipsRequest
    * @return ListTermRelationshipsResponse
    * @throws OciError when an error occurs
@@ -7872,7 +7873,7 @@ export class DataCatalogClient {
       "opc-request-id": listTermRelationshipsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTermRelationshipsRequest.retryConfiguration,
@@ -7918,7 +7919,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all terms within a glossary.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTermsRequest
    * @return ListTermsResponse
    * @throws OciError when an error occurs
@@ -7953,7 +7954,7 @@ export class DataCatalogClient {
       "opc-request-id": listTermsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTermsRequest.retryConfiguration,
@@ -7999,7 +8000,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of all types within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTypesRequest
    * @return ListTypesResponse
    * @throws OciError when an error occurs
@@ -8033,7 +8034,7 @@ export class DataCatalogClient {
       "opc-request-id": listTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTypesRequest.retryConfiguration,
@@ -8080,7 +8081,7 @@ export class DataCatalogClient {
   /**
    * Returns a (paginated) list of errors for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -8107,7 +8108,7 @@ export class DataCatalogClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -8206,7 +8207,7 @@ export class DataCatalogClient {
   /**
    * Returns a (paginated) list of logs for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -8232,7 +8233,7 @@ export class DataCatalogClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -8331,7 +8332,7 @@ export class DataCatalogClient {
   /**
    * Lists the work requests in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -8354,7 +8355,7 @@ export class DataCatalogClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -8452,7 +8453,7 @@ export class DataCatalogClient {
 
   /**
    * Returns stats on objects by type in the repository.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ObjectStatsRequest
    * @return ObjectStatsResponse
    * @throws OciError when an error occurs
@@ -8478,7 +8479,7 @@ export class DataCatalogClient {
       "opc-request-id": objectStatsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       objectStatsRequest.retryConfiguration,
@@ -8822,7 +8823,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of search results within a data catalog.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SearchCriteriaRequest
    * @return SearchCriteriaResponse
    * @throws OciError when an error occurs
@@ -8852,7 +8853,7 @@ export class DataCatalogClient {
       "opc-request-id": searchCriteriaRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       searchCriteriaRequest.retryConfiguration,
@@ -8903,7 +8904,7 @@ export class DataCatalogClient {
 
   /**
    * Returns a list of potential string matches for a given input string.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SuggestMatchesRequest
    * @return SuggestMatchesResponse
    * @throws OciError when an error occurs
@@ -8928,7 +8929,7 @@ export class DataCatalogClient {
       "opc-request-id": suggestMatchesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       suggestMatchesRequest.retryConfiguration,
@@ -9041,7 +9042,7 @@ export class DataCatalogClient {
 
   /**
    * Test the connection by connecting to the data asset using credentials in the metadata.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param TestConnectionRequest
    * @return TestConnectionResponse
    * @throws OciError when an error occurs
@@ -9065,7 +9066,7 @@ export class DataCatalogClient {
       "opc-retry-token": testConnectionRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       testConnectionRequest.retryConfiguration,
@@ -10379,7 +10380,7 @@ export class DataCatalogClient {
 
   /**
    * Returns active users in the system.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UsersRequest
    * @return UsersResponse
    * @throws OciError when an error occurs
@@ -10403,7 +10404,7 @@ export class DataCatalogClient {
       "opc-request-id": usersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       usersRequest.retryConfiguration,
@@ -10449,7 +10450,7 @@ export class DataCatalogClient {
 
   /**
    * Validate connection by connecting to the data asset using credentials in metadata.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ValidateConnectionRequest
    * @return ValidateConnectionResponse
    * @throws OciError when an error occurs
@@ -10472,7 +10473,7 @@ export class DataCatalogClient {
       "opc-retry-token": validateConnectionRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       validateConnectionRequest.retryConfiguration,
@@ -10523,7 +10524,7 @@ export class DataCatalogClient {
 
   /**
    * Validate pattern by deriving file groups representing logical entities using the expression
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ValidatePatternRequest
    * @return ValidatePatternResponse
    * @throws OciError when an error occurs
@@ -10546,7 +10547,7 @@ export class DataCatalogClient {
       "opc-retry-token": validatePatternRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       validatePatternRequest.retryConfiguration,

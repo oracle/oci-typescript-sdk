@@ -175,3 +175,5 @@ export import certificatesmanagement = require("oci-certificatesmanagement");
 export import databasetools = require("oci-databasetools");
 export import servicemanagerproxy = require("oci-servicemanagerproxy");
 export import appmgmtcontrol = require("oci-appmgmtcontrol");
+export import identitydataplane = require("oci-identitydataplane");
+export import ospgateway = require("oci-ospgateway");

@@ -261,6 +261,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeCloudAutonomousVmClusterCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeCloudAutonomousVmClusterCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeCloudAutonomousVmClusterCompartment(
+    request: serviceRequests.ChangeCloudAutonomousVmClusterCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeCloudAutonomousVmClusterCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeCloudAutonomousVmClusterCompartmentResponse = await this.client.changeCloudAutonomousVmClusterCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeCloudAutonomousVmClusterCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeCloudAutonomousVmClusterCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeCloudExadataInfrastructureCompartment
    *
    * @param request the request to send
@@ -735,6 +761,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreateCloudAutonomousVmCluster
+   *
+   * @param request the request to send
+   * @return response returns CreateCloudAutonomousVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateCloudAutonomousVmCluster(
+    request: serviceRequests.CreateCloudAutonomousVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.CreateCloudAutonomousVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createCloudAutonomousVmClusterResponse = await this.client.createCloudAutonomousVmCluster(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createCloudAutonomousVmClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: createCloudAutonomousVmClusterResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateCloudExadataInfrastructure
    *
    * @param request the request to send
@@ -1186,6 +1238,32 @@ export class DatabaseWaiter {
       deleteBackupResponse.opcWorkRequestId
     );
     return { response: deleteBackupResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteCloudAutonomousVmCluster
+   *
+   * @param request the request to send
+   * @return response returns DeleteCloudAutonomousVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteCloudAutonomousVmCluster(
+    request: serviceRequests.DeleteCloudAutonomousVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.DeleteCloudAutonomousVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteCloudAutonomousVmClusterResponse = await this.client.deleteCloudAutonomousVmCluster(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteCloudAutonomousVmClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteCloudAutonomousVmClusterResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**
@@ -2232,6 +2310,25 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCloudAutonomousVmCluster till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCloudAutonomousVmClusterResponse | null (null in case of 404 response)
+   */
+  public async forCloudAutonomousVmCluster(
+    request: serviceRequests.GetCloudAutonomousVmClusterRequest,
+    ...targetStates: models.CloudAutonomousVmCluster.LifecycleState[]
+  ): Promise<serviceResponses.GetCloudAutonomousVmClusterResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCloudAutonomousVmCluster(request),
+      response => targetStates.includes(response.cloudAutonomousVmCluster.lifecycleState!),
+      targetStates.includes(models.CloudAutonomousVmCluster.LifecycleState.Terminated)
+    );
+  }
+
+  /**
    * Waits forCloudExadataInfrastructure till it reaches any of the provided states
    *
    * @param request the request to send
@@ -3123,6 +3220,58 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forRotateCloudAutonomousVmClusterOrdsCerts
+   *
+   * @param request the request to send
+   * @return response returns RotateCloudAutonomousVmClusterOrdsCertsResponse, GetWorkRequestResponse tuple
+   */
+  public async forRotateCloudAutonomousVmClusterOrdsCerts(
+    request: serviceRequests.RotateCloudAutonomousVmClusterOrdsCertsRequest
+  ): Promise<{
+    response: serviceResponses.RotateCloudAutonomousVmClusterOrdsCertsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const rotateCloudAutonomousVmClusterOrdsCertsResponse = await this.client.rotateCloudAutonomousVmClusterOrdsCerts(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      rotateCloudAutonomousVmClusterOrdsCertsResponse.opcWorkRequestId
+    );
+    return {
+      response: rotateCloudAutonomousVmClusterOrdsCertsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRotateCloudAutonomousVmClusterSslCerts
+   *
+   * @param request the request to send
+   * @return response returns RotateCloudAutonomousVmClusterSslCertsResponse, GetWorkRequestResponse tuple
+   */
+  public async forRotateCloudAutonomousVmClusterSslCerts(
+    request: serviceRequests.RotateCloudAutonomousVmClusterSslCertsRequest
+  ): Promise<{
+    response: serviceResponses.RotateCloudAutonomousVmClusterSslCertsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const rotateCloudAutonomousVmClusterSslCertsResponse = await this.client.rotateCloudAutonomousVmClusterSslCerts(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      rotateCloudAutonomousVmClusterSslCertsResponse.opcWorkRequestId
+    );
+    return {
+      response: rotateCloudAutonomousVmClusterSslCertsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forRotateOrdsCerts
    *
    * @param request the request to send
@@ -3603,6 +3752,32 @@ export class DatabaseWaiter {
     );
     return {
       response: updateAutonomousVmClusterResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateCloudAutonomousVmCluster
+   *
+   * @param request the request to send
+   * @return response returns UpdateCloudAutonomousVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateCloudAutonomousVmCluster(
+    request: serviceRequests.UpdateCloudAutonomousVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.UpdateCloudAutonomousVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateCloudAutonomousVmClusterResponse = await this.client.updateCloudAutonomousVmCluster(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateCloudAutonomousVmClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: updateCloudAutonomousVmClusterResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

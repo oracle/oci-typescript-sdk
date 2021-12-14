@@ -144,6 +144,79 @@ export class BdsClient {
   }
 
   /**
+   * Activate specified metastore configuration.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ActivateBdsMetastoreConfigurationRequest
+   * @return ActivateBdsMetastoreConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ActivateBdsMetastoreConfiguration.ts.html |here} to see how to use ActivateBdsMetastoreConfiguration API.
+   */
+  public async activateBdsMetastoreConfiguration(
+    activateBdsMetastoreConfigurationRequest: requests.ActivateBdsMetastoreConfigurationRequest
+  ): Promise<responses.ActivateBdsMetastoreConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#activateBdsMetastoreConfiguration.");
+    const pathParams = {
+      "{bdsInstanceId}": activateBdsMetastoreConfigurationRequest.bdsInstanceId,
+      "{metastoreConfigId}": activateBdsMetastoreConfigurationRequest.metastoreConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": activateBdsMetastoreConfigurationRequest.opcRequestId,
+      "opc-retry-token": activateBdsMetastoreConfigurationRequest.opcRetryToken,
+      "if-match": activateBdsMetastoreConfigurationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateBdsMetastoreConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/metastoreConfigs/{metastoreConfigId}/actions/activate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        activateBdsMetastoreConfigurationRequest.activateBdsMetastoreConfigurationDetails,
+        "ActivateBdsMetastoreConfigurationDetails",
+        model.ActivateBdsMetastoreConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ActivateBdsMetastoreConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Add an autoscale configuration to the cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -708,6 +781,77 @@ export class BdsClient {
   }
 
   /**
+   * Create and activate external metastore configuration.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateBdsMetastoreConfigurationRequest
+   * @return CreateBdsMetastoreConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateBdsMetastoreConfiguration.ts.html |here} to see how to use CreateBdsMetastoreConfiguration API.
+   */
+  public async createBdsMetastoreConfiguration(
+    createBdsMetastoreConfigurationRequest: requests.CreateBdsMetastoreConfigurationRequest
+  ): Promise<responses.CreateBdsMetastoreConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#createBdsMetastoreConfiguration.");
+    const pathParams = {
+      "{bdsInstanceId}": createBdsMetastoreConfigurationRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createBdsMetastoreConfigurationRequest.opcRetryToken,
+      "opc-request-id": createBdsMetastoreConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBdsMetastoreConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/metastoreConfigs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createBdsMetastoreConfigurationRequest.createBdsMetastoreConfigurationDetails,
+        "CreateBdsMetastoreConfigurationDetails",
+        model.CreateBdsMetastoreConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateBdsMetastoreConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the user's API key represented by the provided ID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBdsApiKeyRequest
@@ -816,6 +960,72 @@ export class BdsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBdsInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete the BDS metastore configuration represented by the provided ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteBdsMetastoreConfigurationRequest
+   * @return DeleteBdsMetastoreConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteBdsMetastoreConfiguration.ts.html |here} to see how to use DeleteBdsMetastoreConfiguration API.
+   */
+  public async deleteBdsMetastoreConfiguration(
+    deleteBdsMetastoreConfigurationRequest: requests.DeleteBdsMetastoreConfigurationRequest
+  ): Promise<responses.DeleteBdsMetastoreConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#deleteBdsMetastoreConfiguration.");
+    const pathParams = {
+      "{bdsInstanceId}": deleteBdsMetastoreConfigurationRequest.bdsInstanceId,
+      "{metastoreConfigId}": deleteBdsMetastoreConfigurationRequest.metastoreConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteBdsMetastoreConfigurationRequest.opcRequestId,
+      "if-match": deleteBdsMetastoreConfigurationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBdsMetastoreConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/metastoreConfigs/{metastoreConfigId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteBdsMetastoreConfigurationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1020,6 +1230,74 @@ export class BdsClient {
         bodyKey: "bdsInstance",
         bodyModel: model.BdsInstance,
         type: "model.BdsInstance",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the BDS Metastore configuration information for the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetBdsMetastoreConfigurationRequest
+   * @return GetBdsMetastoreConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetBdsMetastoreConfiguration.ts.html |here} to see how to use GetBdsMetastoreConfiguration API.
+   */
+  public async getBdsMetastoreConfiguration(
+    getBdsMetastoreConfigurationRequest: requests.GetBdsMetastoreConfigurationRequest
+  ): Promise<responses.GetBdsMetastoreConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#getBdsMetastoreConfiguration.");
+    const pathParams = {
+      "{bdsInstanceId}": getBdsMetastoreConfigurationRequest.bdsInstanceId,
+      "{metastoreConfigId}": getBdsMetastoreConfigurationRequest.metastoreConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBdsMetastoreConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBdsMetastoreConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/metastoreConfigs/{metastoreConfigId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBdsMetastoreConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsMetastoreConfiguration",
+        bodyModel: model.BdsMetastoreConfiguration,
+        type: "model.BdsMetastoreConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1488,6 +1766,137 @@ export class BdsClient {
     request: requests.ListBdsInstancesRequest
   ): AsyncIterableIterator<responses.ListBdsInstancesResponse> {
     return paginateResponses(request, req => this.listBdsInstances(req));
+  }
+
+  /**
+   * Returns a list of metastore configurations ssociated with this Big Data Service cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBdsMetastoreConfigurationsRequest
+   * @return ListBdsMetastoreConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsMetastoreConfigurations.ts.html |here} to see how to use ListBdsMetastoreConfigurations API.
+   */
+  public async listBdsMetastoreConfigurations(
+    listBdsMetastoreConfigurationsRequest: requests.ListBdsMetastoreConfigurationsRequest
+  ): Promise<responses.ListBdsMetastoreConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#listBdsMetastoreConfigurations.");
+    const pathParams = {
+      "{bdsInstanceId}": listBdsMetastoreConfigurationsRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "metastoreType": listBdsMetastoreConfigurationsRequest.metastoreType,
+      "metastoreId": listBdsMetastoreConfigurationsRequest.metastoreId,
+      "lifecycleState": listBdsMetastoreConfigurationsRequest.lifecycleState,
+      "bdsApiKeyId": listBdsMetastoreConfigurationsRequest.bdsApiKeyId,
+      "page": listBdsMetastoreConfigurationsRequest.page,
+      "limit": listBdsMetastoreConfigurationsRequest.limit,
+      "sortBy": listBdsMetastoreConfigurationsRequest.sortBy,
+      "sortOrder": listBdsMetastoreConfigurationsRequest.sortOrder,
+      "displayName": listBdsMetastoreConfigurationsRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBdsMetastoreConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBdsMetastoreConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/metastoreConfigs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBdsMetastoreConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.BdsMetastoreConfigurationSummary,
+        type: "Array<model.BdsMetastoreConfigurationSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBdsMetastoreConfigurationsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.BdsMetastoreConfigurationSummary objects
+   * contained in responses from the listBdsMetastoreConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBdsMetastoreConfigurations(
+    request: requests.ListBdsMetastoreConfigurationsRequest
+  ): AsyncIterableIterator<model.BdsMetastoreConfigurationSummary> {
+    return paginateRecords(request, req => this.listBdsMetastoreConfigurations(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBdsMetastoreConfigurationsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listBdsMetastoreConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBdsMetastoreConfigurationsResponses(
+    request: requests.ListBdsMetastoreConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListBdsMetastoreConfigurationsResponse> {
+    return paginateResponses(request, req => this.listBdsMetastoreConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BdsMetastoreConfigurationSummary objects
+   * contained in responses from the listBdsMetastoreConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBdsMetastoreConfigurationsRecordIterator(
+    request: requests.ListBdsMetastoreConfigurationsRequest
+  ): AsyncIterableIterator<model.BdsMetastoreConfigurationSummary> {
+    return paginateRecords(request, req => this.listBdsMetastoreConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBdsMetastoreConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBdsMetastoreConfigurationsResponseIterator(
+    request: requests.ListBdsMetastoreConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListBdsMetastoreConfigurationsResponse> {
+    return paginateResponses(request, req => this.listBdsMetastoreConfigurations(req));
   }
 
   /**
@@ -2083,6 +2492,78 @@ export class BdsClient {
   }
 
   /**
+   * Test specified metastore configuration.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param TestBdsMetastoreConfigurationRequest
+   * @return TestBdsMetastoreConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/TestBdsMetastoreConfiguration.ts.html |here} to see how to use TestBdsMetastoreConfiguration API.
+   */
+  public async testBdsMetastoreConfiguration(
+    testBdsMetastoreConfigurationRequest: requests.TestBdsMetastoreConfigurationRequest
+  ): Promise<responses.TestBdsMetastoreConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#testBdsMetastoreConfiguration.");
+    const pathParams = {
+      "{bdsInstanceId}": testBdsMetastoreConfigurationRequest.bdsInstanceId,
+      "{metastoreConfigId}": testBdsMetastoreConfigurationRequest.metastoreConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": testBdsMetastoreConfigurationRequest.opcRequestId,
+      "if-match": testBdsMetastoreConfigurationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      testBdsMetastoreConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/metastoreConfigs/{metastoreConfigId}/actions/test",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        testBdsMetastoreConfigurationRequest.testBdsMetastoreConfigurationDetails,
+        "TestBdsMetastoreConfigurationDetails",
+        model.TestBdsMetastoreConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TestBdsMetastoreConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Test access to specified Object Storage bucket using the API key.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param TestBdsObjectStorageConnectionRequest
@@ -2284,6 +2765,77 @@ export class BdsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the BDS metastore configuration represented by the provided ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateBdsMetastoreConfigurationRequest
+   * @return UpdateBdsMetastoreConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateBdsMetastoreConfiguration.ts.html |here} to see how to use UpdateBdsMetastoreConfiguration API.
+   */
+  public async updateBdsMetastoreConfiguration(
+    updateBdsMetastoreConfigurationRequest: requests.UpdateBdsMetastoreConfigurationRequest
+  ): Promise<responses.UpdateBdsMetastoreConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#updateBdsMetastoreConfiguration.");
+    const pathParams = {
+      "{bdsInstanceId}": updateBdsMetastoreConfigurationRequest.bdsInstanceId,
+      "{metastoreConfigId}": updateBdsMetastoreConfigurationRequest.metastoreConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateBdsMetastoreConfigurationRequest.opcRequestId,
+      "if-match": updateBdsMetastoreConfigurationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBdsMetastoreConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/metastoreConfigs/{metastoreConfigId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateBdsMetastoreConfigurationRequest.updateBdsMetastoreConfigurationDetails,
+        "UpdateBdsMetastoreConfigurationDetails",
+        model.UpdateBdsMetastoreConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateBdsMetastoreConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

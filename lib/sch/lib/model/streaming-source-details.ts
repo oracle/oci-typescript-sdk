@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The streaming source.
+ * The Streaming source.
  *
  */
 export interface StreamingSourceDetails extends model.SourceDetails {

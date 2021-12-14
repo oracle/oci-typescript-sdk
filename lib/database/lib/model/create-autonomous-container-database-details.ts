@@ -53,6 +53,10 @@ export interface CreateAutonomousContainerDatabaseDetails {
    */
   "protectionMode"?: CreateAutonomousContainerDatabaseDetails.ProtectionMode;
   /**
+   * The OCID of the peer cloud Autonomous VM Cluster.
+   */
+  "peerCloudAutonomousVmClusterId"?: string;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the peer Autonomous VM cluster for Autonomous Data Guard. Required to enable Data Guard.
    *
    */
@@ -73,6 +77,10 @@ export interface CreateAutonomousContainerDatabaseDetails {
    * The OCID of the Autonomous VM Cluster.
    */
   "autonomousVmClusterId"?: string;
+  /**
+   * The OCID of the cloud Autonomous VM Cluster.
+   */
+  "cloudAutonomousVmClusterId"?: string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the Autonomous Container Database.
    */

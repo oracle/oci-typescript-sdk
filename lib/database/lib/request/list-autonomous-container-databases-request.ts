@@ -69,6 +69,10 @@ export interface ListAutonomousContainerDatabasesRequest extends common.BaseRequ
    * A filter to return only resources that match the given service-level agreement type exactly.
    */
   "serviceLevelAgreementType"?: string;
+  /**
+   * The cloud Autonomous VM Cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   */
+  "cloudAutonomousVmClusterId"?: string;
 }
 
 export namespace ListAutonomousContainerDatabasesRequest {

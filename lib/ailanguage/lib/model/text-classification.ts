@@ -1,6 +1,6 @@
 /**
- * Oracle Cloud Infrastructure Artificial Intelligence Services API
- * OCI AI Service solutions can help Enterprise customers integrate AI into their products immediately using our proven,
+ * Language API
+ * OCI Language Service solutions can help enterprise customers integrate AI into their products immediately using our proven,
     pre-trained and custom models or containers, without a need to set up an house team of AI and ML experts.
     This allows enterprises to focus on business drivers and development work rather than AI and ML operations, which shortens the time to market.
 
@@ -26,7 +26,9 @@ export interface TextClassification {
    */
   "label": string;
   /**
-   * Score of the given text. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Score or confidence of extracted text label.
+   * Example: `0.9999856066867399`
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "score": number;
 }

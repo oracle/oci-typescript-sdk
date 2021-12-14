@@ -27,6 +27,7 @@ export interface MacsManagedExternalHostInsightSummary extends model.HostInsight
   "managementAgentId": string;
   /**
    * Platform type.
+   *
    */
   "platformType"?: MacsManagedExternalHostInsightSummary.PlatformType;
 

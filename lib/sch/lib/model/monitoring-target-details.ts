@@ -19,6 +19,8 @@ import common = require("oci-common");
 
 /**
  * The metric and metric namespace used for the Monitoring target.
+ * For configuration instructions, see
+ * [To create a service connector](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/managingconnectors.htm#create).
  *
  */
 export interface MonitoringTargetDetails extends model.TargetDetails {
@@ -41,6 +43,11 @@ Example: `CpuUtilization`
 * 
     */
   "metric": string;
+  /**
+   * List of dimension names and values.
+   *
+   */
+  "dimensions"?: Array<model.DimensionDetails>;
 
   "kind": string;
 }
@@ -49,7 +56,13 @@ export namespace MonitoringTargetDetails {
   export function getJsonObj(obj: MonitoringTargetDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.TargetDetails.getJsonObj(obj) as MonitoringTargetDetails)),
-      ...{}
+      ...{
+        "dimensions": obj.dimensions
+          ? obj.dimensions.map(item => {
+              return model.DimensionDetails.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -63,7 +76,13 @@ export namespace MonitoringTargetDetails {
       ...(isParentJsonObj
         ? obj
         : (model.TargetDetails.getDeserializedJsonObj(obj) as MonitoringTargetDetails)),
-      ...{}
+      ...{
+        "dimensions": obj.dimensions
+          ? obj.dimensions.map(item => {
+              return model.DimensionDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

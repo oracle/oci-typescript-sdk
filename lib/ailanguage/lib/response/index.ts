@@ -1,6 +1,6 @@
 /**
- * Oracle Cloud Infrastructure Artificial Intelligence Services API
- * OCI AI Service solutions can help Enterprise customers integrate AI into their products immediately using our proven,
+ * Language API
+ * OCI Language Service solutions can help enterprise customers integrate AI into their products immediately using our proven,
     pre-trained and custom models or containers, without a need to set up an house team of AI and ML experts.
     This allows enterprises to focus on business drivers and development work rather than AI and ML operations, which shortens the time to market.
 
@@ -14,6 +14,16 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as BatchDetectDominantLanguageResponse from "./batch-detect-dominant-language-response";
+export import BatchDetectDominantLanguageResponse = BatchDetectDominantLanguageResponse.BatchDetectDominantLanguageResponse;
+import * as BatchDetectLanguageEntitiesResponse from "./batch-detect-language-entities-response";
+export import BatchDetectLanguageEntitiesResponse = BatchDetectLanguageEntitiesResponse.BatchDetectLanguageEntitiesResponse;
+import * as BatchDetectLanguageKeyPhrasesResponse from "./batch-detect-language-key-phrases-response";
+export import BatchDetectLanguageKeyPhrasesResponse = BatchDetectLanguageKeyPhrasesResponse.BatchDetectLanguageKeyPhrasesResponse;
+import * as BatchDetectLanguageSentimentsResponse from "./batch-detect-language-sentiments-response";
+export import BatchDetectLanguageSentimentsResponse = BatchDetectLanguageSentimentsResponse.BatchDetectLanguageSentimentsResponse;
+import * as BatchDetectLanguageTextClassificationResponse from "./batch-detect-language-text-classification-response";
+export import BatchDetectLanguageTextClassificationResponse = BatchDetectLanguageTextClassificationResponse.BatchDetectLanguageTextClassificationResponse;
 import * as DetectDominantLanguageResponse from "./detect-dominant-language-response";
 export import DetectDominantLanguageResponse = DetectDominantLanguageResponse.DetectDominantLanguageResponse;
 import * as DetectLanguageEntitiesResponse from "./detect-language-entities-response";

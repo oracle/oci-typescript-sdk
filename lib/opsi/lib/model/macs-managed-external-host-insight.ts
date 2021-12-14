@@ -31,6 +31,7 @@ export interface MacsManagedExternalHostInsight extends model.HostInsight {
   "platformName"?: string;
   /**
    * Platform type.
+   *
    */
   "platformType"?: MacsManagedExternalHostInsight.PlatformType;
   /**

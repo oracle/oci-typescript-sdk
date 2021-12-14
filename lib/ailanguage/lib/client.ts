@@ -1,6 +1,6 @@
 /**
- * Oracle Cloud Infrastructure Artificial Intelligence Services API
- * OCI AI Service solutions can help Enterprise customers integrate AI into their products immediately using our proven,
+ * Language API
+ * OCI Language Service solutions can help enterprise customers integrate AI into their products immediately using our proven,
     pre-trained and custom models or containers, without a need to set up an house team of AI and ML experts.
     This allows enterprises to focus on business drivers and development work rather than AI and ML operations, which shortens the time to market.
 
@@ -117,6 +117,340 @@ export class AIServiceLanguageClient {
       AIServiceLanguageClient.serviceEndpointTemplate,
       regionId
     );
+  }
+
+  /**
+   * Make a detect call to language detection pre-deployed model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param BatchDetectDominantLanguageRequest
+   * @return BatchDetectDominantLanguageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectDominantLanguage.ts.html |here} to see how to use BatchDetectDominantLanguage API.
+   */
+  public async batchDetectDominantLanguage(
+    batchDetectDominantLanguageRequest: requests.BatchDetectDominantLanguageRequest
+  ): Promise<responses.BatchDetectDominantLanguageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceLanguageClient#batchDetectDominantLanguage.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": batchDetectDominantLanguageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      batchDetectDominantLanguageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/batchDetectDominantLanguage",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        batchDetectDominantLanguageRequest.batchDetectDominantLanguageDetails,
+        "BatchDetectDominantLanguageDetails",
+        model.BatchDetectDominantLanguageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BatchDetectDominantLanguageResponse>{},
+        body: await response.json(),
+        bodyKey: "batchDetectDominantLanguageResult",
+        bodyModel: model.BatchDetectDominantLanguageResult,
+        type: "model.BatchDetectDominantLanguageResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Make a batch detect call to entity pre-deployed model
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param BatchDetectLanguageEntitiesRequest
+   * @return BatchDetectLanguageEntitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguageEntities.ts.html |here} to see how to use BatchDetectLanguageEntities API.
+   */
+  public async batchDetectLanguageEntities(
+    batchDetectLanguageEntitiesRequest: requests.BatchDetectLanguageEntitiesRequest
+  ): Promise<responses.BatchDetectLanguageEntitiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceLanguageClient#batchDetectLanguageEntities.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": batchDetectLanguageEntitiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      batchDetectLanguageEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/batchDetectLanguageEntities",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        batchDetectLanguageEntitiesRequest.batchDetectLanguageEntitiesDetails,
+        "BatchDetectLanguageEntitiesDetails",
+        model.BatchDetectLanguageEntitiesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BatchDetectLanguageEntitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "batchDetectLanguageEntitiesResult",
+        bodyModel: model.BatchDetectLanguageEntitiesResult,
+        type: "model.BatchDetectLanguageEntitiesResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Make a detect call to the keyPhrase pre-deployed model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param BatchDetectLanguageKeyPhrasesRequest
+   * @return BatchDetectLanguageKeyPhrasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguageKeyPhrases.ts.html |here} to see how to use BatchDetectLanguageKeyPhrases API.
+   */
+  public async batchDetectLanguageKeyPhrases(
+    batchDetectLanguageKeyPhrasesRequest: requests.BatchDetectLanguageKeyPhrasesRequest
+  ): Promise<responses.BatchDetectLanguageKeyPhrasesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceLanguageClient#batchDetectLanguageKeyPhrases.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": batchDetectLanguageKeyPhrasesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      batchDetectLanguageKeyPhrasesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/batchDetectLanguageKeyPhrases",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        batchDetectLanguageKeyPhrasesRequest.batchDetectLanguageKeyPhrasesDetails,
+        "BatchDetectLanguageKeyPhrasesDetails",
+        model.BatchDetectLanguageKeyPhrasesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BatchDetectLanguageKeyPhrasesResponse>{},
+        body: await response.json(),
+        bodyKey: "batchDetectLanguageKeyPhrasesResult",
+        bodyModel: model.BatchDetectLanguageKeyPhrasesResult,
+        type: "model.BatchDetectLanguageKeyPhrasesResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Make a detect call to sentiment pre-deployed model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param BatchDetectLanguageSentimentsRequest
+   * @return BatchDetectLanguageSentimentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguageSentiments.ts.html |here} to see how to use BatchDetectLanguageSentiments API.
+   */
+  public async batchDetectLanguageSentiments(
+    batchDetectLanguageSentimentsRequest: requests.BatchDetectLanguageSentimentsRequest
+  ): Promise<responses.BatchDetectLanguageSentimentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceLanguageClient#batchDetectLanguageSentiments.");
+    const pathParams = {};
+
+    const queryParams = {
+      "level": batchDetectLanguageSentimentsRequest.level
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": batchDetectLanguageSentimentsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      batchDetectLanguageSentimentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/batchDetectLanguageSentiments",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        batchDetectLanguageSentimentsRequest.batchDetectLanguageSentimentsDetails,
+        "BatchDetectLanguageSentimentsDetails",
+        model.BatchDetectLanguageSentimentsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BatchDetectLanguageSentimentsResponse>{},
+        body: await response.json(),
+        bodyKey: "batchDetectLanguageSentimentsResult",
+        bodyModel: model.BatchDetectLanguageSentimentsResult,
+        type: "model.BatchDetectLanguageSentimentsResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Make a detect call to text classification from the pre-deployed model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param BatchDetectLanguageTextClassificationRequest
+   * @return BatchDetectLanguageTextClassificationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguageTextClassification.ts.html |here} to see how to use BatchDetectLanguageTextClassification API.
+   */
+  public async batchDetectLanguageTextClassification(
+    batchDetectLanguageTextClassificationRequest: requests.BatchDetectLanguageTextClassificationRequest
+  ): Promise<responses.BatchDetectLanguageTextClassificationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AIServiceLanguageClient#batchDetectLanguageTextClassification."
+      );
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": batchDetectLanguageTextClassificationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      batchDetectLanguageTextClassificationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/batchDetectLanguageTextClassification",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        batchDetectLanguageTextClassificationRequest.batchDetectLanguageTextClassificationDetails,
+        "BatchDetectLanguageTextClassificationDetails",
+        model.BatchDetectLanguageTextClassificationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BatchDetectLanguageTextClassificationResponse>{},
+        body: await response.json(),
+        bodyKey: "batchDetectLanguageTextClassificationResult",
+        bodyModel: model.BatchDetectLanguageTextClassificationResult,
+        type: "model.BatchDetectLanguageTextClassificationResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

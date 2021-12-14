@@ -75,6 +75,10 @@ export interface VmClusterSummary {
    */
   "cpusEnabled"?: number;
   /**
+   * The number of enabled OCPU cores. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "ocpusEnabled"?: number;
+  /**
    * The memory allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs"?: number;
@@ -86,6 +90,10 @@ export interface VmClusterSummary {
    * Size, in terabytes, of the DATA disk group. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs"?: number;
+  /**
+   * Size, in gigabytes, of the DATA disk group. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dataStorageSizeInGBs"?: number;
   /**
    * The shape of the Exadata infrastructure. The shape determines the amount of CPU, storage, and memory resources allocated to the instance.
    *

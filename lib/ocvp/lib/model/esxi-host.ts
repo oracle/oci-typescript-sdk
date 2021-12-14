@@ -1,6 +1,7 @@
 /**
  * Oracle Cloud VMware Solution API
- * Use this API to manage your [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
+ * Use the Oracle Cloud VMware API to create SDDCs and manage ESXi hosts and software. 
+For more information, see [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20200501
  * 
@@ -95,6 +96,25 @@ Example: `2016-08-25T21:10:29.600Z`
    *
    */
   "billingContractEndDate": Date;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the esxi host that
+   * is failed.
+   *
+   */
+  "failedEsxiHostId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the esxi host that
+   * is newly created to replace the failed node.
+   *
+   */
+  "replacementEsxiHostId"?: string;
+  /**
+   * The date and time when the new esxi host should start billing cycle.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * Example: `2021-07-25T21:10:29.600Z`
+   *
+   */
+  "gracePeriodEndDate"?: Date;
   /**
    * The availability domain of the ESXi host.
    *

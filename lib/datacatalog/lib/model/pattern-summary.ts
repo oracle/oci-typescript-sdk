@@ -17,8 +17,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of a pattern. A Pattern is defined using an expression and can be used as data selectors or filters
- * to provide a singular view of an entity across multiple physical data artifacts.
+ * Summary of a pattern. A pattern is a data selector or filter which can provide a singular,
+ * logical entity view aggregating multiple physical data artifacts for ease of use.
  *
  */
 export interface PatternSummary {
@@ -47,9 +47,19 @@ export interface PatternSummary {
    */
   "timeCreated"?: Date;
   /**
-   * The expression used in the pattern that may include qualifiers.
+   * Input string which drives the selection process, allowing for fine-grained control using qualifiers.
+   * Refer to the user documentation for details of the format and examples. A pattern cannot include both
+   * a prefix and an expression.
+   *
    */
   "expression"?: string;
+  /**
+   * Input string which drives the selection process.
+   * Refer to the user documentation for details of the format and examples. A pattern cannot include both
+   * a prefix and an expression.
+   *
+   */
+  "filePathPrefix"?: string;
   /**
    * State of the pattern.
    */

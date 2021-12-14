@@ -30,6 +30,10 @@ export interface UpdateCloudVmClusterDetails {
    */
   "cpuCoreCount"?: number;
   /**
+   * The number of OCPU cores to enable for a cloud VM cluster. Only 1 decimal place is allowed for the fractional part. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "ocpuCount"?: number;
+  /**
    * The Oracle license model that applies to the cloud VM cluster. The default is BRING_YOUR_OWN_LICENSE. Applies to Exadata Cloud Service instances only.
    *
    */
