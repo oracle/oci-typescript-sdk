@@ -181,10 +181,17 @@ export class ConfigFileAuthenticationDetailsProvider
   }
 
   /**
-   * Get the rehion
+   * Get the region
    */
   public getRegion(): Region {
     return this.delegate.getRegion();
+  }
+
+  /**
+   * Set the region
+   */
+  public setRegion(regionId: string): void {
+    this.delegate.setRegion(this.retrieveRegionFromRegionId(regionId));
   }
 
   /**

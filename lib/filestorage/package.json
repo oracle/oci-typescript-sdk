@@ -1,6 +1,6 @@
 {
   "name": "oci-filestorage",
-  "version": "2.10.0",
+  "version": "2.11.0",
   "description": "OCI NodeJS client for File Storage",
   "repository": {
     "type": "git",

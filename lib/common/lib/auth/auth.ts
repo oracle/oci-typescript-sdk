@@ -145,6 +145,13 @@ export class SimpleAuthenticationDetailsProvider
   }
 
   /**
+   * Set the region
+   */
+  public setRegion(region: Region): void {
+    this.region = region;
+  }
+
+  /**
    * Get the authType
    */
   public getAuthType(): string | undefined {
