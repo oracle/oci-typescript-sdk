@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface NormalizedVertex {
   /**
-   * X axis coordinate Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The X axis coordinate. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "x": number;
   /**
-   * Y axis coordinate Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The Y axis coordinate. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "y": number;
 }

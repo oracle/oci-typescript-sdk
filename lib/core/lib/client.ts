@@ -2918,6 +2918,73 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
+   * Gets information for the specified volume group replica.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetVolumeGroupReplicaRequest
+   * @return GetVolumeGroupReplicaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeGroupReplica.ts.html |here} to see how to use GetVolumeGroupReplica API.
+   */
+  public async getVolumeGroupReplica(
+    getVolumeGroupReplicaRequest: requests.GetVolumeGroupReplicaRequest
+  ): Promise<responses.GetVolumeGroupReplicaResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#getVolumeGroupReplica.");
+    const pathParams = {
+      "{volumeGroupReplicaId}": getVolumeGroupReplicaRequest.volumeGroupReplicaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVolumeGroupReplicaRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/volumeGroupReplicas/{volumeGroupReplicaId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVolumeGroupReplicaResponse>{},
+        body: await response.json(),
+        bodyKey: "volumeGroupReplica",
+        bodyModel: model.VolumeGroupReplica,
+        type: "model.VolumeGroupReplica",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the Key Management encryption key assigned to the specified volume.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -3870,6 +3937,134 @@ For more information about Oracle defined backup policies and user defined backu
   }
 
   /**
+   * Lists the volume group replicas in the specified compartment. You can filter the results by volume group.
+   * For more information, see [Volume Group Replication](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroupreplication.htm).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListVolumeGroupReplicasRequest
+   * @return ListVolumeGroupReplicasResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumeGroupReplicas.ts.html |here} to see how to use ListVolumeGroupReplicas API.
+   */
+  public async listVolumeGroupReplicas(
+    listVolumeGroupReplicasRequest: requests.ListVolumeGroupReplicasRequest
+  ): Promise<responses.ListVolumeGroupReplicasResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#listVolumeGroupReplicas.");
+    const pathParams = {};
+
+    const queryParams = {
+      "availabilityDomain": listVolumeGroupReplicasRequest.availabilityDomain,
+      "compartmentId": listVolumeGroupReplicasRequest.compartmentId,
+      "limit": listVolumeGroupReplicasRequest.limit,
+      "page": listVolumeGroupReplicasRequest.page,
+      "displayName": listVolumeGroupReplicasRequest.displayName,
+      "sortBy": listVolumeGroupReplicasRequest.sortBy,
+      "sortOrder": listVolumeGroupReplicasRequest.sortOrder,
+      "lifecycleState": listVolumeGroupReplicasRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVolumeGroupReplicasRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/volumeGroupReplicas",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVolumeGroupReplicasResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.VolumeGroupReplica,
+        type: "Array<model.VolumeGroupReplica>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listVolumeGroupReplicasRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.VolumeGroupReplica objects
+   * contained in responses from the listVolumeGroupReplicas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVolumeGroupReplicas(
+    request: requests.ListVolumeGroupReplicasRequest
+  ): AsyncIterableIterator<model.VolumeGroupReplica> {
+    return paginateRecords(request, req => this.listVolumeGroupReplicas(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listVolumeGroupReplicasResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listVolumeGroupReplicas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVolumeGroupReplicasResponses(
+    request: requests.ListVolumeGroupReplicasRequest
+  ): AsyncIterableIterator<responses.ListVolumeGroupReplicasResponse> {
+    return paginateResponses(request, req => this.listVolumeGroupReplicas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VolumeGroupReplica objects
+   * contained in responses from the listVolumeGroupReplicas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumeGroupReplicasRecordIterator(
+    request: requests.ListVolumeGroupReplicasRequest
+  ): AsyncIterableIterator<model.VolumeGroupReplica> {
+    return paginateRecords(request, req => this.listVolumeGroupReplicas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVolumeGroupReplicas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVolumeGroupReplicasResponseIterator(
+    request: requests.ListVolumeGroupReplicasRequest
+  ): AsyncIterableIterator<responses.ListVolumeGroupReplicasResponse> {
+    return paginateResponses(request, req => this.listVolumeGroupReplicas(req));
+  }
+
+  /**
    * Lists the volume groups in the specified compartment and availability domain.
    * For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
@@ -4582,7 +4777,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       "{volumeGroupId}": updateVolumeGroupRequest.volumeGroupId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "preserveVolumeReplica": updateVolumeGroupRequest.preserveVolumeReplica
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An Annotation represents a user/machine generated annotation for a given record.  The details of the annotation are captured in the RecordAnnotationDetails.
+ * An annotation represents a user- or machine-generated annotation for a given record.  The details of the annotation are captured in the RecordAnnotationDetails.
  */
 export interface Annotation {
   /**
-   * The OCID of the annotation
+   * The OCID of the annotation.
    */
   "id": string;
   /**
@@ -31,19 +31,19 @@ export interface Annotation {
    */
   "timeUpdated": Date;
   /**
-   * The OCID of the principal who created the annotation
+   * The OCID of the principal which created the annotation.
    */
   "createdBy": string;
   /**
-   * The OCID of the principal who updated the annotation
+   * The OCID of the principal which updated the annotation.
    */
   "updatedBy": string;
   /**
-   * The OCID of the record annotated
+   * The OCID of the record annotated.
    */
   "recordId": string;
   /**
-   * The entity types will be validated against the dataset to ensure consistency.
+   * The entity types are validated against the dataset to ensure consistency.
    */
   "entities": Array<model.Entity>;
   /**
@@ -51,22 +51,22 @@ export interface Annotation {
    */
   "compartmentId": string;
   /**
-   * Lifecycle State of an Annotation.
-   * ACTIVE - Annotation is active to be used for labeling.
-   * INACTIVE - Annotation has been marked as inactive and should not be used for labeling.
-   * DELETED - Annotation been deleted and no longer available for labeling.
+   * The lifecycle state of an annotation.
+   * ACTIVE - The annotation is active to be used for labeling.
+   * INACTIVE - The annotation has been marked as inactive and should not be used for labeling.
+   * DELETED - Tha annotation been deleted and no longer available for labeling.
    *
    */
   "lifecycleState": Annotation.LifecycleState;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
+   * For example: `{\"bar-key\": \"value\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * The defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * For example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

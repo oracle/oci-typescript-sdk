@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A dataset is a logical collection of records. The dataset contains all the information necessary to describe a record's source, format, type of annotations allowed on these records, and labels allowed on annotations.
+ * A dataset is a logical collection of records. The dataset contains all the information necessary to describe a record's source, format, the type of annotations allowed for the record, and the labels allowed on annotations.
  *
  */
 export interface Dataset {
   /**
-   * The OCID of the Dataset.
+   * The OCID of the dataset.
    */
   "id": string;
   /**
@@ -32,7 +32,7 @@ export interface Dataset {
    */
   "compartmentId": string;
   /**
-   * A user provided description of the dataset
+   * A user-provided description of the dataset
    */
   "description"?: string;
   /**
@@ -45,10 +45,10 @@ export interface Dataset {
   "timeUpdated": Date;
   /**
    * The state of a dataset.
-   * CREATING - The dataset is being created.  It will transition to ACTIVE when it is ready for labeling.
+   * CREATING - The dataset is being created.  It transitions to ACTIVE when it is ready for labeling.
    * ACTIVE   - The dataset is ready for labeling.
-   * UPDATING - The dataset is being updated.  It and its related resources may be unavailable for other updates until it returns to ACTIVE.
-   * NEEDS_ATTENTION - A dataset updation operation has failed due to validation or other errors and needs attention.
+   * UPDATING - The dataset is being updated.  It, and its related resources, might be unavailable for other updates until it returns to ACTIVE.
+   * NEEDS_ATTENTION - A dataset updaten operation has failed due to validation or other errors, and needs attention.
    * DELETING - The dataset and its related resources are being deleted.
    * DELETED  - The dataset has been deleted and is no longer available.
    * FAILED   - The dataset has failed due to validation or other errors.
@@ -71,20 +71,24 @@ export interface Dataset {
   "labelSet": model.LabelSet;
   "initialRecordGenerationConfiguration"?: model.InitialRecordGenerationConfiguration;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * The labeling instructions for human labelers in rich text format
+   */
+  "labelingInstructions"?: string;
+  /**
+   * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
+   * For example: `{\"bar-key\": \"value\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * The defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * For example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * The usage of system tag keys. These predefined keys are scoped to namespaces.
+   * For example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };

@@ -34,6 +34,7 @@ export class Realm {
   public static OC3: Realm = Realm.register("oc3", "oraclegovcloud.com");
   public static OC4: Realm = Realm.register("oc4", "oraclegovcloud.uk");
   public static OC8: Realm = Realm.register("oc8", "oraclecloud8.com");
+  public static OC9: Realm = Realm.register("oc9", "oraclecloud9.com");
   public static register(realmId: string, secondLevelDomain: string): Realm {
     if (!realmId) throw Error("Realm Id can not be empty or undefined");
     if (!secondLevelDomain) throw Error("secondLevelDomain can not be empty or undefined");

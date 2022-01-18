@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface BoundingPolygon {
   /**
-   * The normalized vertices that make up the polygon.  They are in order of the segments that they connect.
+   * The normalized vertices that make up the polygon.  They are in the order of the segments they connect.
    */
   "normalizedVertices": Array<model.NormalizedVertex>;
 }

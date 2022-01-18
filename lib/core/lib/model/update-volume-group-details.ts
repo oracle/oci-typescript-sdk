@@ -46,16 +46,40 @@ Example: `{\"Department\": \"Finance\"}`
    * OCIDs for the volumes in this volume group.
    */
   "volumeIds"?: Array<string>;
+  /**
+   * The list of volume group replicas that this volume group will be updated to have
+   * in the specified destination availability domains.
+   *
+   */
+  "volumeGroupReplicas"?: Array<model.VolumeGroupReplicaDetails>;
 }
 
 export namespace UpdateVolumeGroupDetails {
   export function getJsonObj(obj: UpdateVolumeGroupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "volumeGroupReplicas": obj.volumeGroupReplicas
+          ? obj.volumeGroupReplicas.map(item => {
+              return model.VolumeGroupReplicaDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateVolumeGroupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "volumeGroupReplicas": obj.volumeGroupReplicas
+          ? obj.volumeGroupReplicas.map(item => {
+              return model.VolumeGroupReplicaDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

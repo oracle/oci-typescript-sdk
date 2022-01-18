@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a record search. Contains both RecordSummary items and other data.
+ * The results of a record search. It contains RecordSummary items and other data.
  */
 export interface RecordCollection {
   /**
-   * List of records.
+   * The list of records.
    */
   "items": Array<model.RecordSummary>;
 }

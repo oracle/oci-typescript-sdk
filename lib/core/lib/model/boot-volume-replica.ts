@@ -105,6 +105,11 @@ Example: `{\"Department\": \"Finance\"}`
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalDataTransferredInGBs"?: number;
+  /**
+   * The OCID of the volume group replica.
+   *
+   */
+  "volumeGroupReplicaId"?: string;
 }
 
 export namespace BootVolumeReplica {

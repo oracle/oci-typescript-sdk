@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -15,24 +15,24 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Aggregation entities are required by the api consistency guidelines for API Consistency Guidelines#AnalyticsAPIs.  These are used to summarize annotations for a given dataset and will be used to populate UI elements.  Aggregations need to have the fields that identify the exact scope that they're summarizing.  Any filters to the list API we apply would have to show up in the aggregation. We should limit the number of filters and dimensions as much as possible.
+ * Aggregation entities are required by the API consistency guidelines for API Consistency Guidelines#AnalyticsAPIs.  These are used to summarize annotations for a given dataset and will be used to populate UI elements.  Aggregations need to have the fields that identify the exact scope that they're summarizing.  Any filters applied to the list API, have to show up in the aggregation.
  */
 export interface AnnotationAnalyticsAggregation {
   /**
-   * the count of the matching results Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The count of the matching results. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count": number;
   /**
-   * OCID of the dataset the annotations belongs to
+   * The OCID of the dataset the annotations belong to.
    */
   "datasetId": string;
   "dimensions"?: model.AnnotationAggregationDimensions;
   /**
-   * The OCID of the principal who updated the annotation
+   * The OCID of the principal which updated the annotation.
    */
   "updatedBy"?: string;
   /**
-   * OCID of the compartment containing the annotations
+   * The OCID of the compartment containing the annotations.
    */
   "compartmentId": string;
   /**

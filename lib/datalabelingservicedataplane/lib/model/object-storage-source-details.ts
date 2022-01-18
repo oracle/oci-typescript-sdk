@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -31,7 +31,7 @@ export interface ObjectStorageSourceDetails extends model.SourceDetails {
    */
   "offset"?: number;
   /**
-   * The length from offset into the file containing the content. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The length from the offset into the file containing the content. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "length"?: number;
 

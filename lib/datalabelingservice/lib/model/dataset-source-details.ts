@@ -1,6 +1,6 @@
 /**
- * DataLabelingService API
- * A description of the DataLabelingService API
+ * Data Labeling Management API
+ * Use Data Labeling Management API to create, list, edit & delete datasets.
  * OpenAPI spec version: 20211001
  *
  *

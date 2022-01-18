@@ -402,6 +402,8 @@ import * as SwitchoverDataGuardAssociationDetails from "./switchover-data-guard-
 export import SwitchoverDataGuardAssociationDetails = SwitchoverDataGuardAssociationDetails.SwitchoverDataGuardAssociationDetails;
 import * as Update from "./update";
 export import Update = Update.Update;
+import * as UpdateAutonomousContainerDatabaseDataGuardAssociationDetails from "./update-autonomous-container-database-data-guard-association-details";
+export import UpdateAutonomousContainerDatabaseDataGuardAssociationDetails = UpdateAutonomousContainerDatabaseDataGuardAssociationDetails.UpdateAutonomousContainerDatabaseDataGuardAssociationDetails;
 import * as UpdateAutonomousContainerDatabaseDetails from "./update-autonomous-container-database-details";
 export import UpdateAutonomousContainerDatabaseDetails = UpdateAutonomousContainerDatabaseDetails.UpdateAutonomousContainerDatabaseDetails;
 import * as UpdateAutonomousDatabaseDetails from "./update-autonomous-database-details";

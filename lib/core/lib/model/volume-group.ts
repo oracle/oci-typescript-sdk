@@ -75,6 +75,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "sizeInGBs"?: number;
   "sourceDetails"?:
+    | model.VolumeGroupSourceFromVolumeGroupReplicaDetails
     | model.VolumeGroupSourceFromVolumeGroupDetails
     | model.VolumeGroupSourceFromVolumesDetails
     | model.VolumeGroupSourceFromVolumeGroupBackupDetails;
@@ -92,6 +93,10 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "isHydrated"?: boolean;
+  /**
+   * The list of volume group replicas of this volume group.
+   */
+  "volumeGroupReplicas"?: Array<model.VolumeGroupReplicaInfo>;
 }
 
 export namespace VolumeGroup {
@@ -114,6 +119,12 @@ export namespace VolumeGroup {
       ...{
         "sourceDetails": obj.sourceDetails
           ? model.VolumeGroupSourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "volumeGroupReplicas": obj.volumeGroupReplicas
+          ? obj.volumeGroupReplicas.map(item => {
+              return model.VolumeGroupReplicaInfo.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -126,6 +137,12 @@ export namespace VolumeGroup {
       ...{
         "sourceDetails": obj.sourceDetails
           ? model.VolumeGroupSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "volumeGroupReplicas": obj.volumeGroupReplicas
+          ? obj.volumeGroupReplicas.map(item => {
+              return model.VolumeGroupReplicaInfo.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

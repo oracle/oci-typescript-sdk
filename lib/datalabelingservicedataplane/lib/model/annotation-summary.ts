@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface AnnotationSummary {
   /**
-   * The OCID of the annotation
+   * The OCID of the annotation.
    */
   "id": string;
   /**
@@ -31,11 +31,11 @@ export interface AnnotationSummary {
    */
   "timeUpdated": Date;
   /**
-   * The OCID of the record annotated
+   * The OCID of the record annotated.
    */
   "recordId": string;
   /**
-   * The OCID of the compartment for the annotation
+   * The OCID of the compartment for the annotation.
    */
   "compartmentId": string;
   /**
@@ -43,14 +43,14 @@ export interface AnnotationSummary {
    */
   "lifecycleState": string;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
+   * For example: `{\"bar-key\": \"value\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * The defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * For example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

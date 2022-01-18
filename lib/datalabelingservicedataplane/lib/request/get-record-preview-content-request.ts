@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetRecordPreviewContentRequest extends common.BaseRequest {
   /**
-   * The OCID of the record annotated
+   * The OCID of the record annotated.
    */
   "recordId": string;
   /**

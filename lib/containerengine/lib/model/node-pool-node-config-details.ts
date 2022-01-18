@@ -32,6 +32,14 @@ export interface NodePoolNodeConfigDetails {
    */
   "nsgIds"?: Array<string>;
   /**
+   * The OCID of the Key Management Service key assigned to the boot volume.
+   */
+  "kmsKeyId"?: string;
+  /**
+   * Whether to enable in-transit encryption for the data volume's paravirtualized attachment. This field applies to both block volumes and boot volumes. The default value is false.
+   */
+  "isPvEncryptionInTransitEnabled"?: boolean;
+  /**
     * The placement configurations for the node pool. Provide one placement
 * configuration for each availability domain in which you intend to launch a node.
 * <p>

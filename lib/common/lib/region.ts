@@ -107,6 +107,9 @@ export class Region {
   public static AP_CHIYODA_1: Region = Region.register("ap-chiyoda-1", Realm.OC8, "nja");
   public static AP_IBARAKI_1: Region = Region.register("ap-ibaraki-1", Realm.OC8, "ukb");
 
+  // OC9
+  public static ME_DCC_MUSCAT_1: Region = Region.register("me-dcc-muscat-1", Realm.OC9, "mct");
+
   /**
    * Return all known Regions in this version of the SDK, except possibly the region returned by IMDS (Instance Metadata
    * Service, only available on OCI instances), since IMDS is not automatically contacted by this method.

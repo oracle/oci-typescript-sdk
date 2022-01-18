@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetDatasetRequest extends common.BaseRequest {
   /**
-   * Unique Dataset OCID
+   * A unique dataset OCID.
    */
   "datasetId": string;
   /**

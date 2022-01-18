@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -15,16 +15,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * This is an extensible entity type for users and the base entity type for some annotation formats
+ * This is an extensible entity type for users, and the base entity type for some annotation formats.
  */
 export interface GenericEntity extends model.Entity {
   /**
-   * collection of Label entities
+   * A collection of label entities.
    */
   "labels": Array<model.Label>;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
+   * For example: `{\"bar-key\": \"value\"}`
    *
    */
   "extendedMetadata"?: { [key: string]: string };

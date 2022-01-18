@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -214,7 +214,7 @@ export class DataLabelingClient {
   }
 
   /**
-   * Creates a Record.
+   * Creates a record.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRecordRequest
@@ -286,7 +286,7 @@ export class DataLabelingClient {
   }
 
   /**
-   * Deletes an Annotation resource by identifier
+   * It deletes an annotation resource by identifier.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAnnotationRequest
@@ -346,7 +346,7 @@ export class DataLabelingClient {
   }
 
   /**
-   * Deletes a Record resource by identifier
+   * Deletes a record resource by identifier.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRecordRequest
@@ -406,7 +406,7 @@ export class DataLabelingClient {
   }
 
   /**
-   * Gets an Annotation
+   * Gets an annotation.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAnnotationRequest
@@ -474,7 +474,7 @@ export class DataLabelingClient {
   }
 
   /**
-   * Gets a Dataset by identifier
+   * Gets a dataset by identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDatasetRequest
    * @return GetDatasetResponse
@@ -541,7 +541,7 @@ export class DataLabelingClient {
   }
 
   /**
-   * Gets a record
+   * Gets a record.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRecordRequest
@@ -609,7 +609,7 @@ export class DataLabelingClient {
   }
 
   /**
-   * Retrieves the content of the record from the Dataset source.
+   * Retrieves the content of the record from the dataset source.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRecordContentRequest
@@ -698,7 +698,7 @@ export class DataLabelingClient {
   }
 
   /**
-   * Retrieves the preview of the record content from the Dataset source.
+   * Retrieves the preview of the record content from the dataset source.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRecordPreviewContentRequest
@@ -788,7 +788,7 @@ export class DataLabelingClient {
   }
 
   /**
-   * Returns a list of Annotations.
+   * Returns a list of annotations.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAnnotationsRequest
@@ -867,7 +867,7 @@ export class DataLabelingClient {
   }
 
   /**
-   * List Record in the specified compartment.
+   * The list of records in the specified compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRecordsRequest
@@ -945,7 +945,7 @@ export class DataLabelingClient {
   }
 
   /**
-   * Summarize annotations created for a given dataset
+   * Summarize the annotations created for a given dataset.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeAnnotationAnalyticsRequest
@@ -1022,7 +1022,7 @@ export class DataLabelingClient {
   }
 
   /**
-   * Summarize records created for a given dataset
+   * Summarize the records created for a given dataset.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeRecordAnalyticsRequest
@@ -1172,7 +1172,7 @@ export class DataLabelingClient {
   }
 
   /**
-   * Updates record.
+   * Updates a record.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRecordRequest

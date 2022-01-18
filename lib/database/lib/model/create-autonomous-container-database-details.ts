@@ -53,6 +53,11 @@ export interface CreateAutonomousContainerDatabaseDetails {
    */
   "protectionMode"?: CreateAutonomousContainerDatabaseDetails.ProtectionMode;
   /**
+   * Indicates whether Automatic Failover is enabled for Autonomous Container Database Dataguard Association
+   *
+   */
+  "isAutomaticFailoverEnabled"?: boolean;
+  /**
    * The OCID of the peer cloud Autonomous VM Cluster.
    */
   "peerCloudAutonomousVmClusterId"?: string;

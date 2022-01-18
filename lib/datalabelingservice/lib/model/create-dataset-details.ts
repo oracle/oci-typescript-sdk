@@ -1,6 +1,6 @@
 /**
- * DataLabelingService API
- * A description of the DataLabelingService API
+ * Data Labeling Management API
+ * Use Data Labeling Management API to create, list, edit & delete datasets.
  * OpenAPI spec version: 20211001
  *
  *
@@ -42,14 +42,18 @@ export interface CreateDatasetDetails {
   "initialRecordGenerationConfiguration"?: model.InitialRecordGenerationConfiguration;
   "labelSet": model.LabelSet;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * The labeling instructions for human labelers in rich text format
+   */
+  "labelingInstructions"?: string;
+  /**
+   * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
+   * For example: `{\"bar-key\": \"value\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * The defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * For example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

@@ -82,6 +82,11 @@ Example: `180 Mb per second`
     */
   "applyRate"?: string;
   /**
+   * Indicates whether Automatic Failover is enabled for Autonomous Container Database Dataguard Association
+   *
+   */
+  "isAutomaticFailoverEnabled"?: boolean;
+  /**
     * The approximate number of seconds of redo data not yet available on the standby Autonomous Container Database,
 * as computed by the reporting database.
 * <p>

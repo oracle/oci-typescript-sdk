@@ -1,6 +1,6 @@
 /**
- * DataLabelingService API
- * A description of the DataLabelingService API
+ * Data Labeling Management API
+ * Use Data Labeling Management API to create, list, edit & delete datasets.
  * OpenAPI spec version: 20211001
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies how to process the data. Supported formats include IMAGE and TEXT.
+ * Specifies how to process the data. Supported formats include DOCUMENT, IMAGE and TEXT.
  */
 export interface DatasetFormatDetails {
   "formatType": string;
