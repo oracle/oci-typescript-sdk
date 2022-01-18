@@ -23,19 +23,19 @@ export interface ListRecordsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * Filter results by the OCID of the dataset.
+   * Filter the results by the OCID of the dataset.
    */
   "datasetId": string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources whose lifecycleState matches the given lifecycleState.
    */
   "lifecycleState"?: string;
   /**
-   * Name of the record
+   * The name of the record.
    */
   "name"?: string;
   /**
-   * Unique OCID identifier
+   * The unique OCID identifier.
    */
   "id"?: string;
   /**
@@ -43,7 +43,7 @@ export interface ListRecordsRequest extends common.BaseRequest {
    */
   "isLabeled"?: boolean;
   /**
-   * Allows the user to filter records based on the related annotations.
+   * Lets the user filter records based on the related annotations.
    *
    */
   "annotationLabelsContains"?: Array<string>;
@@ -60,7 +60,7 @@ export interface ListRecordsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrders;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending. Default order for name is ascending. If no value is specified timeCreated is default.
+   * The field to sort by. Only one sort order may be provided. The default order for timeCreated is descending. The default order for name is ascending. If no value is specified, timeCreated is used by default.
    *
    */
   "sortBy"?: ListRecordsRequest.SortBy;

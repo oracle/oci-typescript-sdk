@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetAnnotationRequest extends common.BaseRequest {
   /**
-   * unique Annotation identifier
+   * A unique annotation identifier.
    */
   "annotationId": string;
   /**

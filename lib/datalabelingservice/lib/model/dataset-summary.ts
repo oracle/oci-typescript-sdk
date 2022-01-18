@@ -1,6 +1,6 @@
 /**
- * DataLabelingService API
- * A description of the DataLabelingService API
+ * Data Labeling Management API
+ * Use Data Labeling Management API to create, list, edit & delete datasets.
  * OpenAPI spec version: 20211001
  *
  *
@@ -55,20 +55,20 @@ export interface DatasetSummary {
     | model.DocumentDatasetFormatDetails
     | model.TextDatasetFormatDetails;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
+   * For example: `{\"bar-key\": \"value\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * The defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * For example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * The usage of system tag keys. These predefined keys are scoped to namespaces.
+   * For example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };

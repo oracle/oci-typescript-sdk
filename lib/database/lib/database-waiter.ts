@@ -3631,6 +3631,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forUpdateAutonomousContainerDatabaseDataguardAssociation
+   *
+   * @param request the request to send
+   * @return response returns UpdateAutonomousContainerDatabaseDataguardAssociationResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateAutonomousContainerDatabaseDataguardAssociation(
+    request: serviceRequests.UpdateAutonomousContainerDatabaseDataguardAssociationRequest
+  ): Promise<{
+    response: serviceResponses.UpdateAutonomousContainerDatabaseDataguardAssociationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateAutonomousContainerDatabaseDataguardAssociationResponse = await this.client.updateAutonomousContainerDatabaseDataguardAssociation(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateAutonomousContainerDatabaseDataguardAssociationResponse.opcWorkRequestId
+    );
+    return {
+      response: updateAutonomousContainerDatabaseDataguardAssociationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forUpdateAutonomousDatabase
    *
    * @param request the request to send

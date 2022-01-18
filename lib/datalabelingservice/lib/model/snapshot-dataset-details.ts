@@ -1,6 +1,6 @@
 /**
- * DataLabelingService API
- * A description of the DataLabelingService API
+ * Data Labeling Management API
+ * Use Data Labeling Management API to create, list, edit & delete datasets.
  * OpenAPI spec version: 20211001
  *
  *
@@ -27,6 +27,7 @@ export interface SnapshotDatasetDetails {
    */
   "areUnannotatedRecordsIncluded": boolean;
   "exportDetails": model.ObjectStorageSnapshotExportDetails;
+  "exportFormat"?: model.ExportFormat;
 }
 
 export namespace SnapshotDatasetDetails {
@@ -36,6 +37,9 @@ export namespace SnapshotDatasetDetails {
       ...{
         "exportDetails": obj.exportDetails
           ? model.ObjectStorageSnapshotExportDetails.getJsonObj(obj.exportDetails)
+          : undefined,
+        "exportFormat": obj.exportFormat
+          ? model.ExportFormat.getJsonObj(obj.exportFormat)
           : undefined
       }
     };
@@ -48,6 +52,9 @@ export namespace SnapshotDatasetDetails {
       ...{
         "exportDetails": obj.exportDetails
           ? model.ObjectStorageSnapshotExportDetails.getDeserializedJsonObj(obj.exportDetails)
+          : undefined,
+        "exportFormat": obj.exportFormat
+          ? model.ExportFormat.getDeserializedJsonObj(obj.exportFormat)
           : undefined
       }
     };

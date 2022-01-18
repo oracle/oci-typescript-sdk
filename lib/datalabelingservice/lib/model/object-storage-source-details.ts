@@ -1,6 +1,6 @@
 /**
- * DataLabelingService API
- * A description of the DataLabelingService API
+ * Data Labeling Management API
+ * Use Data Labeling Management API to create, list, edit & delete datasets.
  * OpenAPI spec version: 20211001
  *
  *
@@ -28,7 +28,7 @@ export interface ObjectStorageSourceDetails extends model.DatasetSourceDetails {
    */
   "bucket": string;
   /**
-   * A common path prefix shared by the objects that make up the dataset.
+   * A common path prefix shared by the objects that make up the dataset. Records will not be generated for objects whose name match exactly with prefix.
    */
   "prefix"?: string;
 

@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -15,17 +15,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * This allows the labeler to highlight text by specifying an offset and a length and apply labels to it.
+ * This lets the labeler highlight text, by specifying an offset and a length, and apply labels to it.
  */
 export interface TextSelectionEntity extends model.Entity {
   /**
-   * Collection of Label entities
+   * A collection of label entities.
    */
   "labels": Array<model.Label>;
   "textSpan": model.TextSpan;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
+   * For example: `{\"bar-key\": \"value\"}`
    *
    */
   "extendedMetadata"?: { [key: string]: string };

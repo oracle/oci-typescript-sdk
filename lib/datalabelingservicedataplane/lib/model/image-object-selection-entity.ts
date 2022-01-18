@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -15,17 +15,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * This allows the labeler to use specify a series of coordinates in the image to represent an object and apply labels to it.  The coordinates will be connected in the order that they are provided and the last coordinate in the array will be connected to the first.
+ * This lets the labeler specify a series of coordinates in the image to represent an object and apply labels to it.  The coordinates are connected in the order that they are provided. The last coordinate in the array is connected to the first coordinate.
  */
 export interface ImageObjectSelectionEntity extends model.Entity {
   /**
-   * Collection of Label entities
+   * A collection of label entities.
    */
   "labels": Array<model.Label>;
   "boundingPolygon": model.BoundingPolygon;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
+   * For example: `{\"bar-key\": \"value\"}`
    *
    */
   "extendedMetadata"?: { [key: string]: string };

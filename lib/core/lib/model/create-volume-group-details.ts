@@ -57,9 +57,16 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   "sourceDetails":
+    | model.VolumeGroupSourceFromVolumeGroupReplicaDetails
     | model.VolumeGroupSourceFromVolumeGroupDetails
     | model.VolumeGroupSourceFromVolumesDetails
     | model.VolumeGroupSourceFromVolumeGroupBackupDetails;
+  /**
+   * The list of volume group replicas that this volume group will be enabled to have
+   * in the specified destination availability domains.
+   *
+   */
+  "volumeGroupReplicas"?: Array<model.VolumeGroupReplicaDetails>;
 }
 
 export namespace CreateVolumeGroupDetails {
@@ -69,6 +76,11 @@ export namespace CreateVolumeGroupDetails {
       ...{
         "sourceDetails": obj.sourceDetails
           ? model.VolumeGroupSourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined,
+        "volumeGroupReplicas": obj.volumeGroupReplicas
+          ? obj.volumeGroupReplicas.map(item => {
+              return model.VolumeGroupReplicaDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -81,6 +93,11 @@ export namespace CreateVolumeGroupDetails {
       ...{
         "sourceDetails": obj.sourceDetails
           ? model.VolumeGroupSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined,
+        "volumeGroupReplicas": obj.volumeGroupReplicas
+          ? obj.volumeGroupReplicas.map(item => {
+              return model.VolumeGroupReplicaDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

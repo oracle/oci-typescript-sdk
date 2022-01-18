@@ -23,23 +23,23 @@ export interface ListAnnotationsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * Filter results by the OCID of the dataset.
+   * Filter the results by the OCID of the dataset.
    */
   "datasetId": string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources whose lifecycleState matches the given lifecycleState.
    */
   "lifecycleState"?: string;
   /**
-   * Unique OCID identifier
+   * The unique OCID identifier.
    */
   "id"?: string;
   /**
-   * The OCID of the principal who updated the annotation.
+   * The OCID of the principal which updated the annotation.
    */
   "updatedBy"?: string;
   /**
-   * The OCID of the record annotated
+   * The OCID of the record annotated.
    */
   "recordId"?: string;
   /**
@@ -65,7 +65,7 @@ export interface ListAnnotationsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrders;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending. If no value is specified timeCreated is default.
+   * The field to sort by. Only one sort order may be provided. The default order for timeCreated is descending. If no value is specified timeCreated is used by default.
    */
   "sortBy"?: ListAnnotationsRequest.SortBy;
   /**

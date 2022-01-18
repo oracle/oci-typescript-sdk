@@ -1,6 +1,6 @@
 /**
- * DataLabelingService API
- * A description of the DataLabelingService API
+ * Data Labeling Management API
+ * Use Data Labeling Management API to create, list, edit & delete datasets.
  * OpenAPI spec version: 20211001
  *
  *
@@ -35,6 +35,8 @@ import * as DatasetSourceDetails from "./dataset-source-details";
 export import DatasetSourceDetails = DatasetSourceDetails.DatasetSourceDetails;
 import * as DatasetSummary from "./dataset-summary";
 export import DatasetSummary = DatasetSummary.DatasetSummary;
+import * as ExportFormat from "./export-format";
+export import ExportFormat = ExportFormat.ExportFormat;
 import * as GenerateDatasetRecordsDetails from "./generate-dataset-records-details";
 export import GenerateDatasetRecordsDetails = GenerateDatasetRecordsDetails.GenerateDatasetRecordsDetails;
 import * as InitialRecordGenerationConfiguration from "./initial-record-generation-configuration";

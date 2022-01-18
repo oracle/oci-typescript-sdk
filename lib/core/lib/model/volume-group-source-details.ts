@@ -32,6 +32,11 @@ export namespace VolumeGroupSourceDetails {
 
     if ("type" in obj && obj.type) {
       switch (obj.type) {
+        case "volumeGroupReplicaId":
+          return model.VolumeGroupSourceFromVolumeGroupReplicaDetails.getJsonObj(
+            <model.VolumeGroupSourceFromVolumeGroupReplicaDetails>(<object>jsonObj),
+            true
+          );
         case "volumeGroupId":
           return model.VolumeGroupSourceFromVolumeGroupDetails.getJsonObj(
             <model.VolumeGroupSourceFromVolumeGroupDetails>(<object>jsonObj),
@@ -58,6 +63,11 @@ export namespace VolumeGroupSourceDetails {
 
     if ("type" in obj && obj.type) {
       switch (obj.type) {
+        case "volumeGroupReplicaId":
+          return model.VolumeGroupSourceFromVolumeGroupReplicaDetails.getDeserializedJsonObj(
+            <model.VolumeGroupSourceFromVolumeGroupReplicaDetails>(<object>jsonObj),
+            true
+          );
         case "volumeGroupId":
           return model.VolumeGroupSourceFromVolumeGroupDetails.getDeserializedJsonObj(
             <model.VolumeGroupSourceFromVolumeGroupDetails>(<object>jsonObj),

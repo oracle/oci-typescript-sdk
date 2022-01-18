@@ -16,12 +16,12 @@ import common = require("oci-common");
 
 export interface RenameDatasetLabelsResponse {
   /**
-   * Unique Oracle-assigned identifier for the asynchronous request. You can use this to query status of the asynchronous operation.
+   * A unique Oracle-assigned identifier for the asynchronous request. You can use this to query the status of the asynchronous operation.
    *
    */
   "opcWorkRequestId": string;
   /**
-   * Unique Oracle-assigned identifier for the request. If you need to contact
+   * A unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
    *
    */

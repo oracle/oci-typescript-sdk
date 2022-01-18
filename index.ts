@@ -177,3 +177,4 @@ export import servicemanagerproxy = require("oci-servicemanagerproxy");
 export import appmgmtcontrol = require("oci-appmgmtcontrol");
 export import identitydataplane = require("oci-identitydataplane");
 export import ospgateway = require("oci-ospgateway");
+export import visualbuilder = require("oci-visualbuilder");

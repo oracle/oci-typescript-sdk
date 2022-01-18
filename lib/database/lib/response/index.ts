@@ -468,6 +468,8 @@ import * as TerminateDbSystemResponse from "./terminate-db-system-response";
 export import TerminateDbSystemResponse = TerminateDbSystemResponse.TerminateDbSystemResponse;
 import * as UpdateAutonomousContainerDatabaseResponse from "./update-autonomous-container-database-response";
 export import UpdateAutonomousContainerDatabaseResponse = UpdateAutonomousContainerDatabaseResponse.UpdateAutonomousContainerDatabaseResponse;
+import * as UpdateAutonomousContainerDatabaseDataguardAssociationResponse from "./update-autonomous-container-database-dataguard-association-response";
+export import UpdateAutonomousContainerDatabaseDataguardAssociationResponse = UpdateAutonomousContainerDatabaseDataguardAssociationResponse.UpdateAutonomousContainerDatabaseDataguardAssociationResponse;
 import * as UpdateAutonomousDatabaseResponse from "./update-autonomous-database-response";
 export import UpdateAutonomousDatabaseResponse = UpdateAutonomousDatabaseResponse.UpdateAutonomousDatabaseResponse;
 import * as UpdateAutonomousDatabaseRegionalWalletResponse from "./update-autonomous-database-regional-wallet-response";

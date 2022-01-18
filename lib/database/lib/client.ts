@@ -19464,6 +19464,92 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Update Autonomous Data Guard association.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateAutonomousContainerDatabaseDataguardAssociationRequest
+   * @return UpdateAutonomousContainerDatabaseDataguardAssociationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use UpdateAutonomousContainerDatabaseDataguardAssociation API.
+   */
+  public async updateAutonomousContainerDatabaseDataguardAssociation(
+    updateAutonomousContainerDatabaseDataguardAssociationRequest: requests.UpdateAutonomousContainerDatabaseDataguardAssociationRequest
+  ): Promise<responses.UpdateAutonomousContainerDatabaseDataguardAssociationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#updateAutonomousContainerDatabaseDataguardAssociation."
+      );
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        updateAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseId,
+      "{autonomousContainerDatabaseDataguardAssociationId}":
+        updateAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseDataguardAssociationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAutonomousContainerDatabaseDataguardAssociationRequest.ifMatch,
+      "opc-request-id": updateAutonomousContainerDatabaseDataguardAssociationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/autonomousContainerDatabaseDataguardAssociations/{autonomousContainerDatabaseDataguardAssociationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAutonomousContainerDatabaseDataguardAssociationRequest.updateAutonomousContainerDatabaseDataGuardAssociationDetails,
+        "UpdateAutonomousContainerDatabaseDataGuardAssociationDetails",
+        model.UpdateAutonomousContainerDatabaseDataGuardAssociationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAutonomousContainerDatabaseDataguardAssociationResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabaseDataguardAssociation",
+        bodyModel: model.AutonomousContainerDatabaseDataguardAssociation,
+        type: "model.AutonomousContainerDatabaseDataguardAssociation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates one or more attributes of the specified Autonomous Database. See the UpdateAutonomousDatabaseDetails resource for a full list of attributes that can be updated.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -59,6 +59,8 @@ import * as RecordAnalyticsAggregationCollection from "./record-analytics-aggreg
 export import RecordAnalyticsAggregationCollection = RecordAnalyticsAggregationCollection.RecordAnalyticsAggregationCollection;
 import * as RecordCollection from "./record-collection";
 export import RecordCollection = RecordCollection.RecordCollection;
+import * as RecordMetadata from "./record-metadata";
+export import RecordMetadata = RecordMetadata.RecordMetadata;
 import * as RecordSummary from "./record-summary";
 export import RecordSummary = RecordSummary.RecordSummary;
 import * as SortOrders from "./sort-orders";
@@ -76,10 +78,14 @@ import * as CreateObjectStorageSourceDetails from "./create-object-storage-sourc
 export import CreateObjectStorageSourceDetails = CreateObjectStorageSourceDetails.CreateObjectStorageSourceDetails;
 import * as DocumentDatasetFormatDetails from "./document-dataset-format-details";
 export import DocumentDatasetFormatDetails = DocumentDatasetFormatDetails.DocumentDatasetFormatDetails;
+import * as DocumentMetadata from "./document-metadata";
+export import DocumentMetadata = DocumentMetadata.DocumentMetadata;
 import * as GenericEntity from "./generic-entity";
 export import GenericEntity = GenericEntity.GenericEntity;
 import * as ImageDatasetFormatDetails from "./image-dataset-format-details";
 export import ImageDatasetFormatDetails = ImageDatasetFormatDetails.ImageDatasetFormatDetails;
+import * as ImageMetadata from "./image-metadata";
+export import ImageMetadata = ImageMetadata.ImageMetadata;
 import * as ImageObjectSelectionEntity from "./image-object-selection-entity";
 export import ImageObjectSelectionEntity = ImageObjectSelectionEntity.ImageObjectSelectionEntity;
 import * as ObjectStorageDatasetSourceDetails from "./object-storage-dataset-source-details";
@@ -88,5 +94,7 @@ import * as ObjectStorageSourceDetails from "./object-storage-source-details";
 export import ObjectStorageSourceDetails = ObjectStorageSourceDetails.ObjectStorageSourceDetails;
 import * as TextDatasetFormatDetails from "./text-dataset-format-details";
 export import TextDatasetFormatDetails = TextDatasetFormatDetails.TextDatasetFormatDetails;
+import * as TextMetadata from "./text-metadata";
+export import TextMetadata = TextMetadata.TextMetadata;
 import * as TextSelectionEntity from "./text-selection-entity";
 export import TextSelectionEntity = TextSelectionEntity.TextSelectionEntity;

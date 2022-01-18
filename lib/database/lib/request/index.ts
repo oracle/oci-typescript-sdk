@@ -468,6 +468,8 @@ import * as TerminateDbSystemRequest from "./terminate-db-system-request";
 export import TerminateDbSystemRequest = TerminateDbSystemRequest.TerminateDbSystemRequest;
 import * as UpdateAutonomousContainerDatabaseRequest from "./update-autonomous-container-database-request";
 export import UpdateAutonomousContainerDatabaseRequest = UpdateAutonomousContainerDatabaseRequest.UpdateAutonomousContainerDatabaseRequest;
+import * as UpdateAutonomousContainerDatabaseDataguardAssociationRequest from "./update-autonomous-container-database-dataguard-association-request";
+export import UpdateAutonomousContainerDatabaseDataguardAssociationRequest = UpdateAutonomousContainerDatabaseDataguardAssociationRequest.UpdateAutonomousContainerDatabaseDataguardAssociationRequest;
 import * as UpdateAutonomousDatabaseRequest from "./update-autonomous-database-request";
 export import UpdateAutonomousDatabaseRequest = UpdateAutonomousDatabaseRequest.UpdateAutonomousDatabaseRequest;
 import * as UpdateAutonomousDatabaseRegionalWalletRequest from "./update-autonomous-database-regional-wallet-request";

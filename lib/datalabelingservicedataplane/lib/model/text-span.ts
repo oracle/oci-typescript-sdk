@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A wrapper class for offset and length, which together represent a span of text in a text document.
+ * A wrapper class for offset and length, which together, represent a span of text in a text document.
  */
 export interface TextSpan {
   /**
-   * Offset of the selected text within the entire text. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The offset of the selected text within the entire text. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "offset"?: number;
   /**
-   * Length of the selected text. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The length of the selected text. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "length"?: number;
 }

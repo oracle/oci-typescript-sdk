@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Initial Generate Records configuration, generates records from the Dataset's source.
+ * The initial generate records configuration It generates records from the dataset's source.
  */
 export interface InitialRecordGenerationConfiguration {
   /**
-   * the maximum number of records to generate. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum number of records to generate. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "limit"?: number;
 }

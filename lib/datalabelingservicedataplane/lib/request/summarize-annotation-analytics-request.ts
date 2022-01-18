@@ -23,15 +23,15 @@ export interface SummarizeAnnotationAnalyticsRequest extends common.BaseRequest 
    */
   "compartmentId": string;
   /**
-   * Filter results by the OCID of the dataset.
+   * Filter the results by the OCID of the dataset.
    */
   "datasetId": string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources whose lifecycleState matches the given lifecycleState.
    */
   "lifecycleState"?: string;
   /**
-   * This field is used to summarize annotations with specified label.
+   * It summarizes annotations with the specified label.
    */
   "label"?: string;
   /**
@@ -47,11 +47,11 @@ export interface SummarizeAnnotationAnalyticsRequest extends common.BaseRequest 
    */
   "sortOrder"?: model.SortOrders;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order is descending. If no value is specified updatedBy is default.
+   * The field to sort by. Only one sort order may be provided. The default order is descending. If no value is specified, updatedBy is used by default.
    */
   "sortBy"?: SummarizeAnnotationAnalyticsRequest.SortBy;
   /**
-   * The field to group by. If no value is specified updatedBy is default.
+   * The field to group by. If no value is specified, updatedBy is used by default.
    */
   "annotationGroupBy"?: SummarizeAnnotationAnalyticsRequest.AnnotationGroupBy;
   /**

@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An entity allows the labeler to identify an object in the record to label.  This can be a snippet of text, an entire image, a bounding box within an image, or, eventually, a custom format that works for them.  All entity types will have an array of labels that we'll index. If more than one label is provided, but the annotationType on the corresponding Dataset is for single class, the API will reject the create annotation request.
+ * An entity allows the labeler to identify an object in the record to label.  This can be, for example, a snippet of text, an entire image, or a bounding box within an image.  All entity types have an array of labels that are indexed. If more than one label is provided, but the annotationType on the corresponding dataset is for a single class, the API rejects the create annotation request.
  *
  */
 export interface Entity {

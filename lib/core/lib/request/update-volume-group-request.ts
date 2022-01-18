@@ -33,4 +33,11 @@ export interface UpdateVolumeGroupRequest extends common.BaseRequest {
    *
    */
   "ifMatch"?: string;
+  /**
+   * Specifies whether to disable or preserve the individual volume replication when removing a volume from the
+   * replication enabled volume group. When set to `true`, the individual volume replica is preserved. The default
+   * value is `true`.
+   *
+   */
+  "preserveVolumeReplica"?: boolean;
 }

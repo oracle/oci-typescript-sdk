@@ -1,6 +1,6 @@
 /**
- * DlsDataPlane API
- * A description of the DlsDataPlane API.
+ * Data Labeling API
+ * Use Data Labeling API to create Annotations on Images, Texts & Documents, and generate snapshots.
  * OpenAPI spec version: 20211001
  *
  *
@@ -15,20 +15,20 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies the dataset location in object storage. This requires that all records are in this bucket, and under this prefix. We do not support a dataset with objects in arbitrary locations across buckets or prefixes.
+ * Specifies the dataset location in object storage. This requires that all records are in this bucket, and under this prefix. A dataset with objects in arbitrary locations across buckets or prefixes is not allowed.
  *
  */
 export interface ObjectStorageDatasetSourceDetails extends model.DatasetSourceDetails {
   /**
-   * Namespace of the bucket that contains the dataset data source
+   * The namespace of the bucket that contains the dataset data source.
    */
   "namespace": string;
   /**
-   * The object storage bucket that contains the dataset data source
+   * The object storage bucket that contains the dataset data source.
    */
   "bucket": string;
   /**
-   * A common path prefix shared by the objects that make up the dataset.
+   * A common path prefix shared by the objects that make up the dataset. Records will not be generated for objects whose name match exactly with prefix.
    */
   "prefix"?: string;
 
