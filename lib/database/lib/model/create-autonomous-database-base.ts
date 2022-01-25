@@ -105,13 +105,13 @@ For Autonomous Databases on dedicated Exadata infrastructure, the maximum number
   /**
    * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle PaaS and IaaS services in the cloud.
    * License Included allows you to subscribe to new Oracle Database software licenses and the Database service.
-   * Note that when provisioning an Autonomous Database on [dedicated Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adbddoverview.htm), this attribute must be null because the attribute is already set at the
-   * Autonomous Exadata Infrastructure level. When using [shared Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adboverview.htm#AEI), if a value is not specified, the system will supply the value of `BRING_YOUR_OWN_LICENSE`.
+   * Note that when provisioning an Autonomous Database on [dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null because the attribute is already set at the
+   * Autonomous Exadata Infrastructure level. When using [shared Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), if a value is not specified, the system will supply the value of `BRING_YOUR_OWN_LICENSE`.
    *
    */
   "licenseModel"?: CreateAutonomousDatabaseBase.LicenseModel;
   /**
-   * If set to `TRUE`, indicates that an Autonomous Database preview version is being provisioned, and that the preview version's terms of service have been accepted. Note that preview version software is only available for databases on [shared Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adboverview.htm#AEI).
+   * If set to `TRUE`, indicates that an Autonomous Database preview version is being provisioned, and that the preview version's terms of service have been accepted. Note that preview version software is only available for databases on [shared Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html).
    *
    */
   "isPreviewVersionWithServiceTermsAccepted"?: boolean;
@@ -121,7 +121,7 @@ For Autonomous Databases on dedicated Exadata infrastructure, the maximum number
    */
   "isAutoScalingEnabled"?: boolean;
   /**
-   * True if the database is on [dedicated Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adbddoverview.htm).
+   * True if the database is on [dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html).
    *
    */
   "isDedicated"?: boolean;
@@ -141,7 +141,7 @@ This property is applicable only to Autonomous Databases on the Exadata Cloud@Cu
     */
   "isAccessControlEnabled"?: boolean;
   /**
-    * The client IP access control list (ACL). This feature is available for autonomous databases on [shared Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adboverview.htm#AEI) and on Exadata Cloud@Customer.
+    * The client IP access control list (ACL). This feature is available for autonomous databases on [shared Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) and on Exadata Cloud@Customer.
 * Only clients connecting from an IP address included in the ACL may access the Autonomous Database instance.
 * <p>
 For shared Exadata infrastructure, this is an array of CIDR (Classless Inter-Domain Routing) notations for a subnet or VCN OCID.
@@ -162,7 +162,7 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "arePrimaryWhitelistedIpsUsed"?: boolean;
   /**
-    * The client IP access control list (ACL). This feature is available for autonomous databases on [shared Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adboverview.htm#AEI) and on Exadata Cloud@Customer.
+    * The client IP access control list (ACL). This feature is available for autonomous databases on [shared Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) and on Exadata Cloud@Customer.
 * Only clients connecting from an IP address included in the ACL may access the Autonomous Database instance.
 * <p>
 For shared Exadata infrastructure, this is an array of CIDR (Classless Inter-Domain Routing) notations for a subnet or VCN OCID.
@@ -176,7 +176,9 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
     */
   "standbyWhitelistedIps"?: Array<string>;
   /**
-   * Indicates whether the Autonomous Database has Data Guard enabled.
+   * Indicates whether the Autonomous Database has local (in-region) Data Guard enabled. Not applicable to cross-region Autonomous Data Guard associations, or to
+   * Autonomous Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
+   *
    */
   "isDataGuardEnabled"?: boolean;
   /**

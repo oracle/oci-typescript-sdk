@@ -631,7 +631,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Moves the Autonomous Exadata Infrastructure resource and its dependent resources to the specified compartment.
+   * **Deprecated.** Use the {@link #changeCloudExadataInfrastructureCompartment(ChangeCloudExadataInfrastructureCompartmentRequest) changeCloudExadataInfrastructureCompartment} operation to move an Exadata infrastructure resource to a different compartment and  {@link #changeCloudAutonomousVmClusterCompartment(ChangeCloudAutonomousVmClusterCompartmentRequest) changeCloudAutonomousVmClusterCompartment} operation to move an Autonomous Exadata VM cluster to a different compartment.
    * For more information, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
@@ -714,8 +714,7 @@ export class DatabaseClient {
   }
 
   /**
-   * To move an Autonomous VM cluster and its dependent resources to another compartment, use the
-   * {@link #changeAutonomousVmClusterCompartment(ChangeAutonomousVmClusterCompartmentRequest) changeAutonomousVmClusterCompartment} operation.
+   * Moves an Autonomous VM cluster and its dependent resources to another compartment. Applies to Exadata Cloud@Customer  only. For systems in the Oracle cloud, see {@link #changeAutonomousVmClusterCompartment(ChangeAutonomousVmClusterCompartmentRequest) changeAutonomousVmClusterCompartment}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeAutonomousVmClusterCompartmentRequest
@@ -866,8 +865,7 @@ export class DatabaseClient {
   }
 
   /**
-   * To move a cloud Autonomous VM cluster and its dependent resources to another compartment, use the
-   * {@link #changeCloudAutonomousVmClusterCompartment(ChangeCloudAutonomousVmClusterCompartmentRequest) changeCloudAutonomousVmClusterCompartment} operation.
+   * Moves an Autonomous Exadata VM cluster in the Oracle cloud and its dependent resources to another compartment. For Exadata Cloud@Customer systems, see {@link #changeAutonomousVmClusterCompartment(ChangeAutonomousVmClusterCompartmentRequest) changeAutonomousVmClusterCompartment}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCloudAutonomousVmClusterCompartmentRequest
@@ -942,7 +940,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Moves a cloud Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud Service instances only. For more information about moving resources to a different compartment, see [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   * Moves a cloud Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.For more information about moving resources to a different compartment, see [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCloudExadataInfrastructureCompartmentRequest
@@ -1017,7 +1015,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Moves a cloud VM cluster and its dependent resources to another compartment. Applies to Exadata Cloud Service instances only.
+   * Moves a cloud VM cluster and its dependent resources to another compartment. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCloudVmClusterCompartmentRequest
@@ -2262,7 +2260,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Creates an Autonomous VM cluster for Exadata Cloud@Customer.
+   * Creates an Autonomous VM cluster for Exadata Cloud@Customer. To create an Autonomous VM Cluster in the Oracle cloud, see {@link #createCloudAutonomousVmCluster(CreateCloudAutonomousVmClusterRequest) createCloudAutonomousVmCluster}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAutonomousVmClusterRequest
@@ -2488,7 +2486,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Creates a cloud Autonomous VM cluster.
+   * Creates an Autonomous Exadata VM cluster in the Oracle cloud. For Exadata Cloud@Customer systems, see {@link #createAutonomousVmCluster(CreateAutonomousVmClusterRequest) createAutonomousVmCluster}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateCloudAutonomousVmClusterRequest
@@ -2566,7 +2564,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Creates a cloud Exadata infrastructure resource. This resource is used to create an [Exadata Cloud Service](https://docs.cloud.oracle.com/Content/Database/Concepts/exaoverview.htm) instance.
+   * Creates a cloud Exadata infrastructure resource. This resource is used to create either an [Exadata Cloud Service](https://docs.cloud.oracle.com/Content/Database/Concepts/exaoverview.htm) instance or an Autonomous Database on dedicated Exadata infrastructure.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateCloudExadataInfrastructureRequest
@@ -4041,7 +4039,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Deletes the specified Autonomous VM cluster in an Exadata Cloud@Customer system.
+   * Deletes the specified Autonomous VM cluster in an Exadata Cloud@Customer system. To delete an Autonomous VM Cluster in the Oracle cloud, see {@link #deleteCloudAutonomousVmCluster(DeleteCloudAutonomousVmClusterRequest) deleteCloudAutonomousVmCluster}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAutonomousVmClusterRequest
@@ -4230,7 +4228,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Deletes the specified cloud Autonomous VM cluster.
+   * Deletes the specified Autonomous Exadata VM cluster in the Oracle cloud. For Exadata Cloud@Customer systems, see {@link #deleteAutonomousVmCluster(DeleteAutonomousVmClusterRequest) deleteAutonomousVmCluster}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCloudAutonomousVmClusterRequest
@@ -4297,7 +4295,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Deletes the cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances only.
+   * Deletes the cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCloudExadataInfrastructureRequest
@@ -4366,7 +4364,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Deletes the specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
+   * Deletes the specified cloud VM cluster. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCloudVmClusterRequest
@@ -7710,7 +7708,8 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified Autonomous Exadata Infrastructure resource.
+   * **Deprecated.** Use the {@link #getCloudExadataInfrastructure(GetCloudExadataInfrastructureRequest) getCloudExadataInfrastructure} operation to get details of an Exadata Infrastructure resource and the {@link #getCloudAutonomousVmCluster(GetCloudAutonomousVmClusterRequest) getCloudAutonomousVmCluster} operation to get details of an Autonomous Exadata VM cluster.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousExadataInfrastructureRequest
    * @return GetAutonomousExadataInfrastructureResponse
@@ -7844,7 +7843,8 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified Autonomous VM cluster for an Exadata Cloud@Customer system.
+   * Gets information about the specified Autonomous VM cluster for an Exadata Cloud@Customer system. To get information about an Autonomous VM Cluster in the Oracle cloud, see {@link #getCloudAutonomousVmCluster(GetCloudAutonomousVmClusterRequest) getCloudAutonomousVmCluster}.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousVmClusterRequest
    * @return GetAutonomousVmClusterResponse
@@ -8045,7 +8045,8 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified cloud Autonomous VM cluster.
+   * Gets information about the specified Autonomous Exadata VM cluster in the Oracle cloud. For Exadata Cloud@Custustomer systems, see {@link #getAutonomousVmCluster(GetAutonomousVmClusterRequest) getAutonomousVmCluster}.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCloudAutonomousVmClusterRequest
    * @return GetCloudAutonomousVmClusterResponse
@@ -8113,7 +8114,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances only.
+   * Gets information about the specified cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCloudExadataInfrastructureRequest
@@ -8183,7 +8184,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
+   * Gets information about the specified cloud VM cluster. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCloudVmClusterRequest
@@ -10549,7 +10550,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   }
 
   /**
-   * Creates a new Autonomous Exadata Infrastructure in the specified compartment and availability domain.
+   * **Deprecated** To create a new Autonomous Database system on dedicated Exadata Infrastructure, use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructureRequest) createCloudExadataInfrastructure} and {@link #createCloudAutonomousVmCluster(CreateCloudAutonomousVmClusterRequest) createCloudAutonomousVmCluster} operations instead. Note that to create an Autonomous VM cluster, you must have an existing Exadata Infrastructure resource to contain the VM cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param LaunchAutonomousExadataInfrastructureRequest
@@ -11500,7 +11501,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
 
   /**
    * Gets a list of supported Autonomous Database versions. Note that preview version software is only available for
-   * databases with [shared Exadata infrastructure](https://docs.cloud.oracle.com/Content/Database/Concepts/adboverview.htm#AEI).
+   * databases with [shared Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDbPreviewVersionsRequest
@@ -11749,7 +11750,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Gets a list of the shapes that can be used to launch a new Autonomous Exadata Infrastructure resource. The shape determines resources to allocate (CPU cores, memory and storage).
+   * **Deprecated.**
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousExadataInfrastructureShapesRequest
    * @return ListAutonomousExadataInfrastructureShapesResponse
@@ -11874,7 +11876,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Gets a list of the Autonomous Exadata Infrastructures in the specified compartment.
+   * **Deprecated.** Use the {@link #listCloudExadataInfrastructures(ListCloudExadataInfrastructuresRequest) listCloudExadataInfrastructures} operation to list Exadata Infrastructures in the Oracle cloud and the  {@link #listCloudAutonomousVmClusters(ListCloudAutonomousVmClustersRequest) listCloudAutonomousVmClusters} operation to list Autonomous Exadata VM clusters.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousExadataInfrastructuresRequest
@@ -12001,7 +12003,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Gets a list of Exadata Cloud@Customer Autonomous VM clusters in the specified compartment.
+   * Gets a list of Exadata Cloud@Customer Autonomous VM clusters in the specified compartment. To list Autonomous VM Clusters in the Oracle Cloud, see {@link #listCloudAutonomousVmClusters(ListCloudAutonomousVmClustersRequest) listCloudAutonomousVmClusters}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousVmClustersRequest
@@ -12379,7 +12381,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Gets a list of the Autonomous cloud VM clusters in the specified compartment.
+   * Lists Autonomous Exadata VM clusters in the Oracle cloud. For Exadata Cloud@Customer systems, see {@link #listAutonomousVmClusters(ListAutonomousVmClustersRequest) listAutonomousVmClusters}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCloudAutonomousVmClustersRequest
@@ -12509,7 +12511,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Gets a list of the cloud Exadata infrastructure resources in the specified compartment. Applies to Exadata Cloud Service instances only.
+   * Gets a list of the cloud Exadata infrastructure resources in the specified compartment. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCloudExadataInfrastructuresRequest
@@ -12886,7 +12888,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Gets a list of the cloud VM clusters in the specified compartment. Applies to Exadata Cloud Service instances only.
+   * Gets a list of the cloud VM clusters in the specified compartment. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCloudVmClustersRequest
@@ -18223,7 +18225,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Rotates Oracle REST Data Services (ORDS) certs for a cloud Autonomous VM cluster.
+   * Rotates the Oracle REST Data Services (ORDS) certificates for a cloud Autonomous Exadata VM cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RotateCloudAutonomousVmClusterOrdsCertsRequest
@@ -18293,7 +18295,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Rotates SSL certs for a cloud Autonomous VM cluster.
+   * Rotates the SSL certficates for a cloud Autonomous Exadata VM cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RotateCloudAutonomousVmClusterSslCertsRequest
@@ -18361,7 +18363,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Rotates Oracle REST Data Services (ORDS) certs for an Autonomous Exadata Infrastructure resource.
+   * **Deprecated.** Use the {@link #rotateCloudAutonomousVmClusterOrdsCerts(RotateCloudAutonomousVmClusterOrdsCertsRequest) rotateCloudAutonomousVmClusterOrdsCerts} to rotate Oracle REST Data Services (ORDS) certs for an Autonomous Exadata VM cluster instead.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RotateOrdsCertsRequest
@@ -18429,7 +18431,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Rotates SSL certs for an Autonomous Exadata Infrastructure resource.
+   * **Deprecated.** Use the {@link #rotateCloudAutonomousVmClusterSslCerts(RotateCloudAutonomousVmClusterSslCertsRequest) rotateCloudAutonomousVmClusterSslCerts} to rotate SSL certs for an Autonomous Exadata VM cluster instead.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RotateSslCertsRequest
@@ -19250,7 +19252,8 @@ A switchover guarantees no data loss.
   }
 
   /**
-   * Terminates an Autonomous Exadata Infrastructure, which permanently deletes the infrastructure resource and any container databases and databases contained in the resource. The database data is local to the Autonomous Exadata Infrastructure and will be lost when the system is terminated. Oracle recommends that you back up any data in the Autonomous Exadata Infrastructure prior to terminating it.
+   * **Deprecated.** To terminate an Exadata Infrastructure resource in the Oracle cloud, use the {@link #deleteCloudExadataInfrastructure(DeleteCloudExadataInfrastructureRequest) deleteCloudExadataInfrastructure} operation. To delete an Autonomous Exadata VM cluster in the Oracle cloud, use the {@link #deleteCloudAutonomousVmCluster(DeleteCloudAutonomousVmClusterRequest) deleteCloudAutonomousVmCluster} operation.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param TerminateAutonomousExadataInfrastructureRequest
    * @return TerminateAutonomousExadataInfrastructureResponse
@@ -19768,7 +19771,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Updates the properties of an Autonomous Exadata Infrastructure, such as the CPU core count.
+   * **Deprecated.** Use the {@link #updateCloudExadataInfrastructure(UpdateCloudExadataInfrastructureRequest) updateCloudExadataInfrastructure} operation to update an Exadata Infrastructure resource and  {@link #updateCloudAutonomousVmCluster(UpdateCloudAutonomousVmClusterRequest) updateCloudAutonomousVmCluster} operation to update an Autonomous Exadata VM cluster.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousExadataInfrastructureRequest
    * @return UpdateAutonomousExadataInfrastructureResponse
@@ -19847,7 +19851,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Updates the specified Autonomous VM cluster for the Exadata Cloud@Customer system.
+   * Updates the specified Autonomous VM cluster for the Exadata Cloud@Customer system.To update an Autonomous VM Cluster in the Oracle cloud, see {@link #updateCloudAutonomousVmCluster(UpdateCloudAutonomousVmClusterRequest) updateCloudAutonomousVmCluster}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousVmClusterRequest
@@ -20003,7 +20007,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Updates the specified cloud VM cluster.
+   * Updates the specified Autonomous Exadata VM cluster in the Oracle cloud. For Exadata Cloud@Customer systems, see {@link #updateAutonomousVmCluster(UpdateAutonomousVmClusterRequest) updateAutonomousVmCluster}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCloudAutonomousVmClusterRequest
@@ -20084,7 +20088,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Updates the Cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances only.
+   * Updates the Cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCloudExadataInfrastructureRequest
@@ -20165,7 +20169,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Updates the specified cloud VM cluster. Applies to Exadata Cloud Service instances only.
+   * Updates the specified cloud VM cluster. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCloudVmClusterRequest

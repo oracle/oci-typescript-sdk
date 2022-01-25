@@ -117,6 +117,11 @@ export interface RunSummary {
    *
    */
   "timeUpdated": Date;
+  /**
+   * The Spark application processing type.
+   *
+   */
+  "type"?: model.ApplicationType;
 }
 
 export namespace RunSummary {

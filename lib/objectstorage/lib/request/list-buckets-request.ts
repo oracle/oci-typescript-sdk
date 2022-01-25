@@ -41,8 +41,7 @@ export interface ListBucketsRequest extends common.BaseRequest {
   "page"?: string;
   /**
    * Bucket summary in list of buckets includes the 'namespace', 'name', 'compartmentId', 'createdBy', 'timeCreated',
-   * and 'etag' fields. This parameter can also include 'tags' (freeformTags and definedTags). The only supported value
-   * of this parameter is 'tags' for now. Example 'tags'.
+   * and 'etag' fields. This parameter can also include 'tags' (freeformTags and definedTags). The only supported value of this parameter is 'tags' for now. Example 'tags'.
    *
    */
   "fields"?: Array<ListBucketsRequest.Fields>;

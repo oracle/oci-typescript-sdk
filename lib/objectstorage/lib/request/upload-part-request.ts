@@ -69,7 +69,10 @@ export interface UploadPartRequest extends common.BaseRequest {
    */
   "ifNoneMatch"?: string;
   /**
-   * 100-continue
+   * A value of `100-continue` requests preliminary verification of the request method, path, and headers before the request body is sent.
+   * If no error results from such verification, the server will send a 100 (Continue) interim response to indicate readiness for the request body.
+   * The only allowed value for this parameter is \"100-Continue\" (case-insensitive).
+   *
    */
   "expect"?: string;
   /**

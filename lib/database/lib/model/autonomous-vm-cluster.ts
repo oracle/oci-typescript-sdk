@@ -86,7 +86,7 @@ export interface AutonomousVmCluster {
    */
   "dataStorageSizeInTBs"?: number;
   /**
-   * The total data storage allocated in GBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total data storage allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs"?: number;
   /**

@@ -19,7 +19,8 @@ import common = require("oci-common");
  */
 export interface LaunchAutonomousExadataInfrastructureRequest extends common.BaseRequest {
   /**
-   * Request to create an Autonomous Exadata Infrastructure resource.
+   * **Deprecated.** Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructureRequest) createCloudExadataInfrastructure} or {@link #createCloudAutonomousVmCluster(CreateCloudAutonomousVmClusterRequest) createCloudAutonomousVmCluster} operations instead.
+   *
    */
   "launchAutonomousExadataInfrastructureDetails": model.LaunchAutonomousExadataInfrastructureDetails;
   /**

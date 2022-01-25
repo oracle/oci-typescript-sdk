@@ -233,6 +233,11 @@ export interface Run {
    */
   "totalOCpu"?: number;
   /**
+   * The Spark application processing type.
+   *
+   */
+  "type"?: model.ApplicationType;
+  /**
    * An Oracle Cloud Infrastructure URI of the bucket to be used as default warehouse directory
    * for BATCH SQL runs.
    * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.

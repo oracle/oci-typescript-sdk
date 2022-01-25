@@ -178,3 +178,7 @@ export import appmgmtcontrol = require("oci-appmgmtcontrol");
 export import identitydataplane = require("oci-identitydataplane");
 export import ospgateway = require("oci-ospgateway");
 export import visualbuilder = require("oci-visualbuilder");
+export import osubbillingschedule = require("oci-osubbillingschedule");
+export import osuborganizationsubscription = require("oci-osuborganizationsubscription");
+export import osubsubscription = require("oci-osubsubscription");
+export import osubusage = require("oci-osubusage");

@@ -91,7 +91,7 @@ export interface VmCluster {
    */
   "dataStorageSizeInTBs"?: number;
   /**
-   * Size, in gigabytes, of the DATA disk group. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Size of the DATA disk group in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs"?: number;
   /**

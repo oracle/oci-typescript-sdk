@@ -22,6 +22,8 @@ import * as ApplicationParameter from "./application-parameter";
 export import ApplicationParameter = ApplicationParameter.ApplicationParameter;
 import * as ApplicationSummary from "./application-summary";
 export import ApplicationSummary = ApplicationSummary.ApplicationSummary;
+import * as ApplicationType from "./application-type";
+export import ApplicationType = ApplicationType.ApplicationType;
 import * as ChangeApplicationCompartmentDetails from "./change-application-compartment-details";
 export import ChangeApplicationCompartmentDetails = ChangeApplicationCompartmentDetails.ChangeApplicationCompartmentDetails;
 import * as ChangePrivateEndpointCompartmentDetails from "./change-private-endpoint-compartment-details";

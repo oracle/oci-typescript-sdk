@@ -50,7 +50,7 @@ export interface AutonomousContainerDatabase {
    */
   "infrastructureType"?: AutonomousContainerDatabase.InfrastructureType;
   /**
-   * The OCID of the cloud Autonomous VM Cluster.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the cloud Autonomous Exadata VM Cluster.
    */
   "cloudAutonomousVmClusterId"?: string;
   /**
