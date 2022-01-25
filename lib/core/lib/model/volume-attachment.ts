@@ -90,14 +90,15 @@ Example: `2016-08-25T21:10:29.600Z`
   "volumeId": string;
   /**
    * Whether in-transit encryption for the data volume's paravirtualized attachment is enabled or not.
+   *
    */
   "isPvEncryptionInTransitEnabled"?: boolean;
   /**
-   * Whether the attachment is multipath or not.
+   * Whether the Iscsi or Paravirtualized attachment is multipath or not, it is not applicable to NVMe attachment.
    */
   "isMultipath"?: boolean;
   /**
-   * The iscsi login state of the volume attachment. For a multipath volume attachment,
+   * The iscsi login state of the volume attachment. For a Iscsi volume attachment,
    * all iscsi sessions need to be all logged-in or logged-out to be in logged-in or logged-out state.
    *
    */

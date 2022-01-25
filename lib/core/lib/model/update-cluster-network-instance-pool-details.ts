@@ -53,6 +53,11 @@ Example: `{\"Department\": \"Finance\"}`
    * The number of instances that should be in the instance pool. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "size"?: number;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance configuration associated with the instance pool.
+   *
+   */
+  "instanceConfigurationId"?: string;
 }
 
 export namespace UpdateClusterNetworkInstancePoolDetails {

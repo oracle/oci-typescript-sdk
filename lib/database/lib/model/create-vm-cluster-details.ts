@@ -38,7 +38,7 @@ export interface CreateVmClusterDetails {
    */
   "cpuCoreCount": number;
   /**
-   * The number of OCPU cores to enable for the VM cluster. Only 1 decimal place is allowed for the fractional part. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of OCPU cores to enable for the VM cluster. Only one decimal place is allowed for the fractional part. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpuCount"?: number;
   /**

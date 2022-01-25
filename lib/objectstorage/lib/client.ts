@@ -151,7 +151,7 @@ export class ObjectStorageClient {
   /**
    * Aborts an in-progress multipart upload and deletes all parts that have been uploaded.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AbortMultipartUploadRequest
    * @return AbortMultipartUploadResponse
    * @throws OciError when an error occurs
@@ -177,7 +177,7 @@ export class ObjectStorageClient {
       "opc-client-request-id": abortMultipartUploadRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       abortMultipartUploadRequest.retryConfiguration,
@@ -220,7 +220,7 @@ export class ObjectStorageClient {
   /**
    * Cancels a work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
@@ -241,7 +241,7 @@ export class ObjectStorageClient {
       "opc-client-request-id": cancelWorkRequestRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cancelWorkRequestRequest.retryConfiguration,
@@ -284,7 +284,7 @@ export class ObjectStorageClient {
   /**
    * Commits a multipart upload, which involves checking part numbers and entity tags (ETags) of the parts, to create an aggregate object.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CommitMultipartUploadRequest
    * @return CommitMultipartUploadResponse
    * @throws OciError when an error occurs
@@ -312,7 +312,7 @@ export class ObjectStorageClient {
       "opc-client-request-id": commitMultipartUploadRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       commitMultipartUploadRequest.retryConfiguration,
@@ -378,14 +378,17 @@ export class ObjectStorageClient {
   }
 
   /**
-   * Creates a request to copy an object within a region or to another region.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param CopyObjectRequest
-   * @return CopyObjectResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CopyObject.ts.html |here} to see how to use CopyObject API.
-   */
+     * Creates a request to copy an object within a region or to another region.
+* <p>
+See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingobjects.htm#namerequirements)
+* for object naming requirements.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CopyObjectRequest
+     * @return CopyObjectResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CopyObject.ts.html |here} to see how to use CopyObject API.
+     */
   public async copyObject(
     copyObjectRequest: requests.CopyObjectRequest
   ): Promise<responses.CopyObjectResponse> {
@@ -409,7 +412,7 @@ export class ObjectStorageClient {
       "opc-sse-kms-key-id": copyObjectRequest.opcSseKmsKeyId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       copyObjectRequest.retryConfiguration,
@@ -463,7 +466,7 @@ export class ObjectStorageClient {
    * Creates a bucket in the given namespace with a bucket name and optional user-defined metadata. Avoid entering
    * confidential information in bucket names.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateBucketRequest
    * @return CreateBucketResponse
    * @throws OciError when an error occurs
@@ -484,7 +487,7 @@ export class ObjectStorageClient {
       "opc-client-request-id": createBucketRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createBucketRequest.retryConfiguration,
@@ -544,14 +547,17 @@ export class ObjectStorageClient {
   }
 
   /**
-   * Starts a new multipart upload to a specific object in the given bucket in the given namespace.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param CreateMultipartUploadRequest
-   * @return CreateMultipartUploadResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CreateMultipartUpload.ts.html |here} to see how to use CreateMultipartUpload API.
-   */
+     * Starts a new multipart upload to a specific object in the given bucket in the given namespace.
+* <p>
+See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingobjects.htm#namerequirements)
+* for object naming requirements.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CreateMultipartUploadRequest
+     * @return CreateMultipartUploadResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CreateMultipartUpload.ts.html |here} to see how to use CreateMultipartUpload API.
+     */
   public async createMultipartUpload(
     createMultipartUploadRequest: requests.CreateMultipartUploadRequest
   ): Promise<responses.CreateMultipartUploadResponse> {
@@ -575,7 +581,7 @@ export class ObjectStorageClient {
       "opc-sse-kms-key-id": createMultipartUploadRequest.opcSseKmsKeyId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createMultipartUploadRequest.retryConfiguration,
@@ -632,7 +638,7 @@ export class ObjectStorageClient {
   /**
    * Creates a pre-authenticated request specific to the bucket.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreatePreauthenticatedRequestRequest
    * @return CreatePreauthenticatedRequestResponse
    * @throws OciError when an error occurs
@@ -655,7 +661,7 @@ export class ObjectStorageClient {
       "opc-client-request-id": createPreauthenticatedRequestRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createPreauthenticatedRequestRequest.retryConfiguration,
@@ -707,7 +713,7 @@ export class ObjectStorageClient {
   /**
    * Creates a replication policy for the specified bucket.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateReplicationPolicyRequest
    * @return CreateReplicationPolicyResponse
    * @throws OciError when an error occurs
@@ -730,7 +736,7 @@ export class ObjectStorageClient {
       "opc-client-request-id": createReplicationPolicyRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createReplicationPolicyRequest.retryConfiguration,
@@ -783,7 +789,7 @@ export class ObjectStorageClient {
    * Creates a new retention rule in the specified bucket. The new rule will take effect typically within 30 seconds.
    * Note that a maximum of 100 rules are supported on a bucket.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateRetentionRuleRequest
    * @return CreateRetentionRuleResponse
    * @throws OciError when an error occurs
@@ -806,7 +812,7 @@ export class ObjectStorageClient {
       "opc-client-request-id": createRetentionRuleRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createRetentionRuleRequest.retryConfiguration,
@@ -866,7 +872,7 @@ export class ObjectStorageClient {
    * you cannot delete a bucket that has a multipart upload in progress or a pre-authenticated
    * request associated with that bucket.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteBucketRequest
    * @return DeleteBucketResponse
    * @throws OciError when an error occurs
@@ -889,7 +895,7 @@ export class ObjectStorageClient {
       "opc-client-request-id": deleteBucketRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteBucketRequest.retryConfiguration,
@@ -932,7 +938,7 @@ export class ObjectStorageClient {
   /**
    * Deletes an object.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteObjectRequest
    * @return DeleteObjectResponse
    * @throws OciError when an error occurs
@@ -958,7 +964,7 @@ export class ObjectStorageClient {
       "opc-client-request-id": deleteObjectRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteObjectRequest.retryConfiguration,
@@ -1016,7 +1022,7 @@ export class ObjectStorageClient {
   /**
    * Deletes the object lifecycle policy for the bucket.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteObjectLifecyclePolicyRequest
    * @return DeleteObjectLifecyclePolicyResponse
    * @throws OciError when an error occurs
@@ -1040,7 +1046,7 @@ export class ObjectStorageClient {
       "if-match": deleteObjectLifecyclePolicyRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteObjectLifecyclePolicyRequest.retryConfiguration,
@@ -1082,7 +1088,7 @@ export class ObjectStorageClient {
 
   /**
    * Deletes the pre-authenticated request for the bucket.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeletePreauthenticatedRequestRequest
    * @return DeletePreauthenticatedRequestResponse
    * @throws OciError when an error occurs
@@ -1106,7 +1112,7 @@ export class ObjectStorageClient {
       "opc-client-request-id": deletePreauthenticatedRequestRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deletePreauthenticatedRequestRequest.retryConfiguration,
@@ -1149,7 +1155,7 @@ export class ObjectStorageClient {
   /**
    * Deletes the replication policy associated with the source bucket.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteReplicationPolicyRequest
    * @return DeleteReplicationPolicyResponse
    * @throws OciError when an error occurs
@@ -1173,7 +1179,7 @@ export class ObjectStorageClient {
       "opc-client-request-id": deleteReplicationPolicyRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteReplicationPolicyRequest.retryConfiguration,
@@ -1215,7 +1221,7 @@ export class ObjectStorageClient {
 
   /**
    * Deletes the specified rule. The deletion takes effect typically within 30 seconds.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteRetentionRuleRequest
    * @return DeleteRetentionRuleResponse
    * @throws OciError when an error occurs
@@ -1240,7 +1246,7 @@ export class ObjectStorageClient {
       "opc-client-request-id": deleteRetentionRuleRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteRetentionRuleRequest.retryConfiguration,
@@ -1283,7 +1289,7 @@ export class ObjectStorageClient {
   /**
    * Gets the current representation of the given bucket in the given Object Storage namespace.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetBucketRequest
    * @return GetBucketResponse
    * @throws OciError when an error occurs
@@ -1309,7 +1315,7 @@ export class ObjectStorageClient {
       "opc-client-request-id": getBucketRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getBucketRequest.retryConfiguration,
@@ -1367,7 +1373,7 @@ GetNamespace returns the name of the Object Storage namespace for the user makin
 * If an optional compartmentId query parameter is provided, GetNamespace returns the namespace name of the corresponding
 * tenancy, provided the user has access to it.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetNamespaceRequest
      * @return GetNamespaceResponse
      * @throws OciError when an error occurs
@@ -1388,7 +1394,7 @@ GetNamespace returns the name of the Object Storage namespace for the user makin
       "opc-client-request-id": getNamespaceRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getNamespaceRequest.retryConfiguration,
@@ -1430,7 +1436,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
 * to give users access, see
 * [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetNamespaceMetadataRequest
      * @return GetNamespaceMetadataResponse
      * @throws OciError when an error occurs
@@ -1452,7 +1458,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getNamespaceMetadataRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getNamespaceMetadataRequest.retryConfiguration,
@@ -1499,7 +1505,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   /**
    * Gets the metadata and body of an object.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetObjectRequest
    * @return GetObjectResponse
    * @throws OciError when an error occurs
@@ -1536,7 +1542,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-sse-customer-key-sha256": getObjectRequest.opcSseCustomerKeySha256
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getObjectRequest.retryConfiguration,
@@ -1671,7 +1677,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   /**
    * Gets the object lifecycle policy for the bucket.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetObjectLifecyclePolicyRequest
    * @return GetObjectLifecyclePolicyResponse
    * @throws OciError when an error occurs
@@ -1694,7 +1700,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getObjectLifecyclePolicyRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getObjectLifecyclePolicyRequest.retryConfiguration,
@@ -1745,7 +1751,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
 
   /**
    * Gets the pre-authenticated request for the bucket.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetPreauthenticatedRequestRequest
    * @return GetPreauthenticatedRequestResponse
    * @throws OciError when an error occurs
@@ -1769,7 +1775,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getPreauthenticatedRequestRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getPreauthenticatedRequestRequest.retryConfiguration,
@@ -1816,7 +1822,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   /**
    * Get the replication policy.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetReplicationPolicyRequest
    * @return GetReplicationPolicyResponse
    * @throws OciError when an error occurs
@@ -1840,7 +1846,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getReplicationPolicyRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getReplicationPolicyRequest.retryConfiguration,
@@ -1886,7 +1892,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
 
   /**
    * Get the specified retention rule.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRetentionRuleRequest
    * @return GetRetentionRuleResponse
    * @throws OciError when an error occurs
@@ -1909,7 +1915,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getRetentionRuleRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getRetentionRuleRequest.retryConfiguration,
@@ -1965,7 +1971,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
 
   /**
    * Gets the status of the work request for the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1986,7 +1992,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getWorkRequestRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -2038,7 +2044,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   /**
    * Efficiently checks to see if a bucket exists and gets the current entity tag (ETag) for the bucket.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param HeadBucketRequest
    * @return HeadBucketResponse
    * @throws OciError when an error occurs
@@ -2062,7 +2068,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": headBucketRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       headBucketRequest.retryConfiguration,
@@ -2110,7 +2116,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   /**
    * Gets the user-defined metadata and entity tag (ETag) for an object.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param HeadObjectRequest
    * @return HeadObjectResponse
    * @throws OciError when an error occurs
@@ -2140,7 +2146,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-sse-customer-key-sha256": headObjectRequest.opcSseCustomerKeySha256
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       headObjectRequest.retryConfiguration,
@@ -2269,7 +2275,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
 * talk to an administrator. If you are an administrator who needs to write policies to give users access, see
 * [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListBucketsRequest
      * @return ListBucketsResponse
      * @throws OciError when an error occurs
@@ -2295,7 +2301,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listBucketsRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listBucketsRequest.retryConfiguration,
@@ -2399,7 +2405,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   /**
    * Lists the parts of an in-progress multipart upload.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMultipartUploadPartsRequest
    * @return ListMultipartUploadPartsResponse
    * @throws OciError when an error occurs
@@ -2427,7 +2433,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listMultipartUploadPartsRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMultipartUploadPartsRequest.retryConfiguration,
@@ -2531,7 +2537,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   /**
    * Lists all of the in-progress multipart uploads for the given bucket in the given Object Storage namespace.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMultipartUploadsRequest
    * @return ListMultipartUploadsResponse
    * @throws OciError when an error occurs
@@ -2557,7 +2563,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listMultipartUploadsRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMultipartUploadsRequest.retryConfiguration,
@@ -2668,7 +2674,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
 * talk to an administrator. If you are an administrator who needs to write policies to give users access, see
 * [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListObjectVersionsRequest
      * @return ListObjectVersionsResponse
      * @throws OciError when an error occurs
@@ -2699,7 +2705,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listObjectVersionsRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listObjectVersionsRequest.retryConfiguration,
@@ -2760,7 +2766,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
 * talk to an administrator. If you are an administrator who needs to write policies to give users access, see
 * [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListObjectsRequest
      * @return ListObjectsResponse
      * @throws OciError when an error occurs
@@ -2790,7 +2796,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listObjectsRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listObjectsRequest.retryConfiguration,
@@ -2911,7 +2917,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   /**
    * Lists pre-authenticated requests for the bucket.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListPreauthenticatedRequestsRequest
    * @return ListPreauthenticatedRequestsResponse
    * @throws OciError when an error occurs
@@ -2938,7 +2944,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listPreauthenticatedRequestsRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listPreauthenticatedRequestsRequest.retryConfiguration,
@@ -3042,7 +3048,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   /**
    * List the replication policies associated with a bucket.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListReplicationPoliciesRequest
    * @return ListReplicationPoliciesResponse
    * @throws OciError when an error occurs
@@ -3068,7 +3074,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listReplicationPoliciesRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listReplicationPoliciesRequest.retryConfiguration,
@@ -3172,7 +3178,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   /**
    * List the replication sources of a destination bucket.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListReplicationSourcesRequest
    * @return ListReplicationSourcesResponse
    * @throws OciError when an error occurs
@@ -3198,7 +3204,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listReplicationSourcesRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listReplicationSourcesRequest.retryConfiguration,
@@ -3303,7 +3309,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    * List the retention rules for a bucket. The retention rules are sorted based on creation time,
    * with the most recently created retention rule returned first.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRetentionRulesRequest
    * @return ListRetentionRulesResponse
    * @throws OciError when an error occurs
@@ -3326,7 +3332,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listRetentionRulesRequest.retryConfiguration,
@@ -3377,7 +3383,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
 
   /**
    * Lists the errors of the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -3402,7 +3408,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listWorkRequestErrorsRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -3505,7 +3511,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
 
   /**
    * Lists the logs of the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -3530,7 +3536,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listWorkRequestLogsRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -3634,7 +3640,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   /**
    * Lists the work requests in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -3657,7 +3663,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listWorkRequestsRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -3764,7 +3770,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
    * automatically from the source bucket. MakeBucketWritable removes the replication policy. This bucket is no
    * longer the target for replication and is now writable, allowing users to make changes to bucket contents.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param MakeBucketWritableRequest
    * @return MakeBucketWritableResponse
    * @throws OciError when an error occurs
@@ -3786,7 +3792,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": makeBucketWritableRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       makeBucketWritableRequest.retryConfiguration,
@@ -3836,7 +3842,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
 See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/Content/API/Concepts/signingrequests.htm#ObjectStoragePut)
 * for request signature requirements.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param PutObjectRequest
      * @return PutObjectResponse
      * @throws OciError when an error occurs
@@ -3878,7 +3884,7 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
         Object.assign(headerParams, { ["opc-meta-" + key]: value });
       });
     }
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       putObjectRequest.retryConfiguration,
@@ -3943,7 +3949,7 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
   /**
    * Creates or replaces the object lifecycle policy for the bucket.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PutObjectLifecyclePolicyRequest
    * @return PutObjectLifecyclePolicyResponse
    * @throws OciError when an error occurs
@@ -3968,7 +3974,7 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
       "if-none-match": putObjectLifecyclePolicyRequest.ifNoneMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       putObjectLifecyclePolicyRequest.retryConfiguration,
@@ -4039,7 +4045,7 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
 * of the work request task.
 * All the versions of objects will be re-encrypted whether versioning is enabled or suspended at the bucket.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ReencryptBucketRequest
      * @return ReencryptBucketResponse
      * @throws OciError when an error occurs
@@ -4061,7 +4067,7 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
       "opc-client-request-id": reencryptBucketRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       reencryptBucketRequest.retryConfiguration,
@@ -4117,7 +4123,7 @@ You can alternatively employ one of these encryption strategies for an object:
 * <p>
 - You can encrypt an object using your own encryption key. The key you supply is known as a customer-provided encryption key (SSE-C).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ReencryptObjectRequest
      * @return ReencryptObjectResponse
      * @throws OciError when an error occurs
@@ -4142,7 +4148,7 @@ You can alternatively employ one of these encryption strategies for an object:
       "opc-client-request-id": reencryptObjectRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       reencryptObjectRequest.retryConfiguration,
@@ -4191,9 +4197,9 @@ You can alternatively employ one of these encryption strategies for an object:
      * Rename an object in the given Object Storage namespace.
 * <p>
 See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingobjects.htm#namerequirements)
-* for object naming requirements. 
+* for object naming requirements.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param RenameObjectRequest
      * @return RenameObjectResponse
      * @throws OciError when an error occurs
@@ -4215,7 +4221,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": renameObjectRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       renameObjectRequest.retryConfiguration,
@@ -4279,7 +4285,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
    * Restores one or more objects specified by the objectName parameter.
    * By default objects will be restored for 24 hours. Duration can be configured using the hours parameter.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RestoreObjectsRequest
    * @return RestoreObjectsResponse
    * @throws OciError when an error occurs
@@ -4301,7 +4307,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": restoreObjectsRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       restoreObjectsRequest.retryConfiguration,
@@ -4353,7 +4359,7 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
 * of the compartment that you want to move the bucket to. For more information about moving resources between compartments,
 * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateBucketRequest
      * @return UpdateBucketResponse
      * @throws OciError when an error occurs
@@ -4376,7 +4382,7 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
       "opc-client-request-id": updateBucketRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateBucketRequest.retryConfiguration,
@@ -4439,7 +4445,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
 * buckets will be modified. A user must have OBJECTSTORAGE_NAMESPACE_UPDATE permission to make changes to the default
 * compartments for Amazon S3 and Swift.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateNamespaceMetadataRequest
      * @return UpdateNamespaceMetadataResponse
      * @throws OciError when an error occurs
@@ -4461,7 +4467,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       "opc-client-request-id": updateNamespaceMetadataRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateNamespaceMetadataRequest.retryConfiguration,
@@ -4513,7 +4519,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
   /**
    * Changes the storage tier of the object specified by the objectName parameter.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateObjectStorageTierRequest
    * @return UpdateObjectStorageTierResponse
    * @throws OciError when an error occurs
@@ -4536,7 +4542,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       "opc-client-request-id": updateObjectStorageTierRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateObjectStorageTierRequest.retryConfiguration,
@@ -4584,7 +4590,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
   /**
    * Updates the specified retention rule. Rule changes take effect typically within 30 seconds.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateRetentionRuleRequest
    * @return UpdateRetentionRuleResponse
    * @throws OciError when an error occurs
@@ -4609,7 +4615,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       "opc-client-request-id": updateRetentionRuleRequest.opcClientRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateRetentionRuleRequest.retryConfiguration,
@@ -4666,7 +4672,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
   /**
    * Uploads a single part of a multipart upload.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UploadPartRequest
    * @return UploadPartResponse
    * @throws OciError when an error occurs
@@ -4700,7 +4706,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       "opc-sse-kms-key-id": uploadPartRequest.opcSseKmsKeyId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       uploadPartRequest.retryConfiguration,

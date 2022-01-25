@@ -86,6 +86,11 @@ export interface ApplicationSummary {
    *
    */
   "timeUpdated": Date;
+  /**
+   * The Spark application processing type.
+   *
+   */
+  "type"?: model.ApplicationType;
 }
 
 export namespace ApplicationSummary {

@@ -58,7 +58,7 @@ export interface CreateAutonomousContainerDatabaseDetails {
    */
   "isAutomaticFailoverEnabled"?: boolean;
   /**
-   * The OCID of the peer cloud Autonomous VM Cluster.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the peer cloud Autonomous Exadata VM Cluster.
    */
   "peerCloudAutonomousVmClusterId"?: string;
   /**
@@ -83,7 +83,7 @@ export interface CreateAutonomousContainerDatabaseDetails {
    */
   "autonomousVmClusterId"?: string;
   /**
-   * The OCID of the cloud Autonomous VM Cluster.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the cloud Autonomous Exadata VM Cluster.
    */
   "cloudAutonomousVmClusterId"?: string;
   /**

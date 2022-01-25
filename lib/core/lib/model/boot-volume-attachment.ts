@@ -69,6 +69,7 @@ Example: `2016-08-25T21:10:29.600Z`
   "timeCreated": Date;
   /**
    * Whether in-transit encryption for the boot volume's paravirtualized attachment is enabled or not.
+   *
    */
   "isPvEncryptionInTransitEnabled"?: boolean;
   /**
