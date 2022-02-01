@@ -37,6 +37,8 @@ export interface ClusterCreateOptions {
    * Configurable cluster admission controllers
    */
   "admissionControllerOptions"?: model.AdmissionControllerOptions;
+  "persistentVolumeConfig"?: model.PersistentVolumeConfigDetails;
+  "serviceLbConfig"?: model.ServiceLbConfigDetails;
 }
 
 export namespace ClusterCreateOptions {
@@ -50,6 +52,12 @@ export namespace ClusterCreateOptions {
         "addOns": obj.addOns ? model.AddOnOptions.getJsonObj(obj.addOns) : undefined,
         "admissionControllerOptions": obj.admissionControllerOptions
           ? model.AdmissionControllerOptions.getJsonObj(obj.admissionControllerOptions)
+          : undefined,
+        "persistentVolumeConfig": obj.persistentVolumeConfig
+          ? model.PersistentVolumeConfigDetails.getJsonObj(obj.persistentVolumeConfig)
+          : undefined,
+        "serviceLbConfig": obj.serviceLbConfig
+          ? model.ServiceLbConfigDetails.getJsonObj(obj.serviceLbConfig)
           : undefined
       }
     };
@@ -66,6 +74,12 @@ export namespace ClusterCreateOptions {
         "addOns": obj.addOns ? model.AddOnOptions.getDeserializedJsonObj(obj.addOns) : undefined,
         "admissionControllerOptions": obj.admissionControllerOptions
           ? model.AdmissionControllerOptions.getDeserializedJsonObj(obj.admissionControllerOptions)
+          : undefined,
+        "persistentVolumeConfig": obj.persistentVolumeConfig
+          ? model.PersistentVolumeConfigDetails.getDeserializedJsonObj(obj.persistentVolumeConfig)
+          : undefined,
+        "serviceLbConfig": obj.serviceLbConfig
+          ? model.ServiceLbConfigDetails.getDeserializedJsonObj(obj.serviceLbConfig)
           : undefined
       }
     };

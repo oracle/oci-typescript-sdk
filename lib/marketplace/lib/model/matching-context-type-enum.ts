@@ -1,6 +1,6 @@
 /**
  * Marketplace Service API
- * Manage applications in Oracle Cloud Infrastructure Marketplace.
+ * Use the Marketplace API to manage applications in Oracle Cloud Infrastructure Marketplace. For more information, see [Overview of Marketplace](/Content/Marketplace/Concepts/marketoverview.htm)
  * OpenAPI spec version: 20181001
  *
  *
@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 /**
  * Possible values for matching context returned in the response.
- * If you specify HIGHLIGHTS, then the service will highlight fragments in its response. Default value is NONE.
+ * If you specify HIGHLIGHTS, then the service will highlight fragments in its response. The default value is NONE.
  *
  **/
 export enum MatchingContextTypeEnum {

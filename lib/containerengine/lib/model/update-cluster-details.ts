@@ -31,6 +31,20 @@ export interface UpdateClusterDetails {
   "kubernetesVersion"?: string;
   "options"?: model.UpdateClusterOptionsDetails;
   /**
+   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * Example: `{\"Department\": \"Finance\"}`
+   *
+   */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * The image verification policy for signature validation. Once a policy is created and enabled with
    * one or more kms keys, the policy will ensure all images deployed has been signed with the key(s)
    * attached to the policy.
@@ -47,6 +61,7 @@ export namespace UpdateClusterDetails {
         "options": obj.options
           ? model.UpdateClusterOptionsDetails.getJsonObj(obj.options)
           : undefined,
+
         "imagePolicyConfig": obj.imagePolicyConfig
           ? model.UpdateImagePolicyConfigDetails.getJsonObj(obj.imagePolicyConfig)
           : undefined
@@ -62,6 +77,7 @@ export namespace UpdateClusterDetails {
         "options": obj.options
           ? model.UpdateClusterOptionsDetails.getDeserializedJsonObj(obj.options)
           : undefined,
+
         "imagePolicyConfig": obj.imagePolicyConfig
           ? model.UpdateImagePolicyConfigDetails.getDeserializedJsonObj(obj.imagePolicyConfig)
           : undefined

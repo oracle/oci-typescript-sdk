@@ -27,6 +27,10 @@ export interface ListListingsRequest extends common.BaseRequest {
    */
   "listingId"?: string;
   /**
+   * Image ID of the listing
+   */
+  "imageId"?: string;
+  /**
    * Limit results to just this publisher.
    */
   "publisherId"?: string;

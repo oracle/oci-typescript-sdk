@@ -366,7 +366,8 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "keyStoreWalletName"?: string;
   /**
-   * The list of regions that support the creation of Autonomous Data Guard standby database.
+   * The list of regions that support the creation of an Autonomous Database clone or an Autonomous Data Guard standby database.
+   *
    */
   "supportedRegionsToCloneTo"?: Array<string>;
   /**

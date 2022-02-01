@@ -110,6 +110,9 @@ export class Region {
   // OC9
   public static ME_DCC_MUSCAT_1: Region = Region.register("me-dcc-muscat-1", Realm.OC9, "mct");
 
+  // OC10
+  public static AP_DCC_CANBERRA_1: Region = Region.register("ap-dcc-canberra-1", Realm.OC10, "wga");
+
   /**
    * Return all known Regions in this version of the SDK, except possibly the region returned by IMDS (Instance Metadata
    * Service, only available on OCI instances), since IMDS is not automatically contacted by this method.

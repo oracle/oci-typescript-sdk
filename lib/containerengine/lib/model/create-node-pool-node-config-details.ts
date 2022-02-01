@@ -40,6 +40,20 @@ export interface CreateNodePoolNodeConfigDetails {
    */
   "isPvEncryptionInTransitEnabled"?: boolean;
   /**
+   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * Example: `{\"Department\": \"Finance\"}`
+   *
+   */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
     * The placement configurations for the node pool. Provide one placement
 * configuration for each availability domain in which you intend to launch a node.
 * <p>

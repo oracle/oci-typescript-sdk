@@ -31,6 +31,10 @@ export interface NodePoolPlacementConfigDetails {
    * The OCID of the subnet in which to place nodes.
    */
   "subnetId": string;
+  /**
+   * The OCID of the compute capacity reservation in which to place the compute instance.
+   */
+  "capacityReservationId"?: string;
 }
 
 export namespace NodePoolPlacementConfigDetails {

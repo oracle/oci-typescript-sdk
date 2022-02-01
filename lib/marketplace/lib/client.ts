@@ -1,6 +1,6 @@
 /**
  * Marketplace Service API
- * Manage applications in Oracle Cloud Infrastructure Marketplace.
+ * Use the Marketplace API to manage applications in Oracle Cloud Infrastructure Marketplace. For more information, see [Overview of Marketplace](/Content/Marketplace/Concepts/marketoverview.htm)
  * OpenAPI spec version: 20181001
  *
  *
@@ -1546,6 +1546,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     const queryParams = {
       "name": listListingsRequest.name,
       "listingId": listListingsRequest.listingId,
+      "imageId": listListingsRequest.imageId,
       "publisherId": listListingsRequest.publisherId,
       "packageType": listListingsRequest.packageType,
       "limit": listListingsRequest.limit,
@@ -2387,8 +2388,8 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   }
 
   /**
-   * Find listings that match the specified criteria. The search query could be free text
-   * or structured.
+   * Queries all Marketplace Applications to find listings that match the specified criteria. To search
+   * for a listing, you can use a free text or structured search.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SearchListingsRequest
