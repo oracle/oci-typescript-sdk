@@ -1,6 +1,6 @@
 /**
  * Marketplace Service API
- * Manage applications in Oracle Cloud Infrastructure Marketplace.
+ * Use the Marketplace API to manage applications in Oracle Cloud Infrastructure Marketplace. For more information, see [Overview of Marketplace](/Content/Marketplace/Concepts/marketoverview.htm)
  * OpenAPI spec version: 20181001
  *
  *
@@ -15,7 +15,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The model for a request that uses Search's structured query language.
+ * A request that uses Search's structured query language to specify filter conditions to
+ * apply to search listings. For more information about writing search queries, see [Search Language Syntax](https://docs.cloud.oracle.com/Content/Search/Concepts/querysyntax.htm).
+ *
  */
 export interface StructuredSearchDetails extends model.SearchListingsDetails {
   /**

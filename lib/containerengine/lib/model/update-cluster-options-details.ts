@@ -25,6 +25,8 @@ export interface UpdateClusterOptionsDetails {
    * Configurable cluster admission controllers
    */
   "admissionControllerOptions"?: model.AdmissionControllerOptions;
+  "persistentVolumeConfig"?: model.PersistentVolumeConfigDetails;
+  "serviceLbConfig"?: model.ServiceLbConfigDetails;
 }
 
 export namespace UpdateClusterOptionsDetails {
@@ -34,6 +36,12 @@ export namespace UpdateClusterOptionsDetails {
       ...{
         "admissionControllerOptions": obj.admissionControllerOptions
           ? model.AdmissionControllerOptions.getJsonObj(obj.admissionControllerOptions)
+          : undefined,
+        "persistentVolumeConfig": obj.persistentVolumeConfig
+          ? model.PersistentVolumeConfigDetails.getJsonObj(obj.persistentVolumeConfig)
+          : undefined,
+        "serviceLbConfig": obj.serviceLbConfig
+          ? model.ServiceLbConfigDetails.getJsonObj(obj.serviceLbConfig)
           : undefined
       }
     };
@@ -46,6 +54,12 @@ export namespace UpdateClusterOptionsDetails {
       ...{
         "admissionControllerOptions": obj.admissionControllerOptions
           ? model.AdmissionControllerOptions.getDeserializedJsonObj(obj.admissionControllerOptions)
+          : undefined,
+        "persistentVolumeConfig": obj.persistentVolumeConfig
+          ? model.PersistentVolumeConfigDetails.getDeserializedJsonObj(obj.persistentVolumeConfig)
+          : undefined,
+        "serviceLbConfig": obj.serviceLbConfig
+          ? model.ServiceLbConfigDetails.getDeserializedJsonObj(obj.serviceLbConfig)
           : undefined
       }
     };

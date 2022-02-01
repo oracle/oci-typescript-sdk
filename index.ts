@@ -182,3 +182,4 @@ export import osubbillingschedule = require("oci-osubbillingschedule");
 export import osuborganizationsubscription = require("oci-osuborganizationsubscription");
 export import osubsubscription = require("oci-osubsubscription");
 export import osubusage = require("oci-osubusage");
+export import dashboardservice = require("oci-dashboardservice");
