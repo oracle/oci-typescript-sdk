@@ -23,28 +23,28 @@ import common = require("oci-common");
  */
 export interface SqlTuningAdvisorTaskRecommendationSummary {
   /**
-   * Unique identifier of the task. It is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The unique identifier of the task. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sqlTuningAdvisorTaskId": number;
   /**
-   * Key of the object to which these recommendations apply. It is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The key of the object to which these recommendations apply. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sqlTuningAdvisorTaskObjectId": number;
   /**
-   * Unique identifier of the recommendation in the scope of the task. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The unique identifier of the recommendation in the scope of the task. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "recommendationKey": number;
   /**
-   * Type of recommendation
+   * Type of recommendation.
    */
   "recommendationType": SqlTuningAdvisorTaskRecommendationSummary.RecommendationType;
   /**
-   * Summary of the issue found for the SQL statement.
+   * Summary of the issue found in the SQL statement.
    */
   "finding"?: string;
   /**
-   * Particular recommendation for the finding.
+   * The recommendation for a specific finding.
    */
   "recommendation"?: string;
   /**

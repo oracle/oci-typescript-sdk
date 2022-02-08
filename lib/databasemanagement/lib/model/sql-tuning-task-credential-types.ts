@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The types of credential that can be used to connect to database.
+ * The types of credentials that can be used to connect to the database.
  **/
 export enum SqlTuningTaskCredentialTypes {
   Secret = "SECRET",

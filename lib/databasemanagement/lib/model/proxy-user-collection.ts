@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A collection of proxy users for the current User.
+ * A collection of proxy users for the current user.
  */
 export interface ProxyUserCollection {
   /**
-   * An array of User resources.
+   * An array of user resources.
    */
   "items": Array<model.ProxyUserSummary>;
 }

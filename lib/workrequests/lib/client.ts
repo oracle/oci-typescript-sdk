@@ -35,6 +35,7 @@ export enum WorkRequestApiKeys {}
  */
 export class WorkRequestClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WorkRequestWaiter;
@@ -105,7 +106,8 @@ export class WorkRequestClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       WorkRequestClient.serviceEndpointTemplate,
-      region
+      region,
+      WorkRequestClient.endpointServiceName
     );
   }
 
@@ -120,7 +122,8 @@ export class WorkRequestClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       WorkRequestClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      WorkRequestClient.endpointServiceName
     );
   }
 

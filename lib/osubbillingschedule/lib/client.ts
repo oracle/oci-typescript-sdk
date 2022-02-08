@@ -29,6 +29,7 @@ export enum BillingScheduleApiKeys {}
  */
 export class BillingScheduleClient {
   protected static serviceEndpointTemplate = "https://csaap-e.oracle.com";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -98,7 +99,8 @@ export class BillingScheduleClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       BillingScheduleClient.serviceEndpointTemplate,
-      region
+      region,
+      BillingScheduleClient.endpointServiceName
     );
   }
 
@@ -113,7 +115,8 @@ export class BillingScheduleClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       BillingScheduleClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      BillingScheduleClient.endpointServiceName
     );
   }
 

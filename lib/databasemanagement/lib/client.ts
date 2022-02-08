@@ -31,6 +31,7 @@ export enum DbManagementApiKeys {}
  */
 export class DbManagementClient {
   protected static serviceEndpointTemplate = "https://dbmgmt.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DbManagementWaiter;
@@ -101,7 +102,8 @@ export class DbManagementClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DbManagementClient.serviceEndpointTemplate,
-      region
+      region,
+      DbManagementClient.endpointServiceName
     );
   }
 
@@ -116,7 +118,8 @@ export class DbManagementClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DbManagementClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DbManagementClient.endpointServiceName
     );
   }
 
@@ -141,6 +144,77 @@ export class DbManagementClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Adds data files or temp files to the tablespace.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddDataFilesRequest
+   * @return AddDataFilesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/AddDataFiles.ts.html |here} to see how to use AddDataFiles API.
+   */
+  public async addDataFiles(
+    addDataFilesRequest: requests.AddDataFilesRequest
+  ): Promise<responses.AddDataFilesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#addDataFiles.");
+    const pathParams = {
+      "{managedDatabaseId}": addDataFilesRequest.managedDatabaseId,
+      "{tablespaceName}": addDataFilesRequest.tablespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addDataFilesRequest.opcRequestId,
+      "opc-retry-token": addDataFilesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDataFilesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/tablespaces/{tablespaceName}/actions/addDataFiles",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDataFilesRequest.addDataFilesDetails,
+        "AddDataFilesDetails",
+        model.AddDataFilesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDataFilesResponse>{},
+        body: await response.json(),
+        bodyKey: "tablespaceAdminStatus",
+        bodyModel: model.TablespaceAdminStatus,
+        type: "model.TablespaceAdminStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -747,6 +821,75 @@ export class DbManagementClient {
   }
 
   /**
+   * Creates a tablespace within the Managed Database specified by managedDatabaseId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateTablespaceRequest
+   * @return CreateTablespaceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateTablespace.ts.html |here} to see how to use CreateTablespace API.
+   */
+  public async createTablespace(
+    createTablespaceRequest: requests.CreateTablespaceRequest
+  ): Promise<responses.CreateTablespaceResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#createTablespace.");
+    const pathParams = {
+      "{managedDatabaseId}": createTablespaceRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createTablespaceRequest.opcRequestId,
+      "opc-retry-token": createTablespaceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTablespaceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/tablespaces",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createTablespaceRequest.createTablespaceDetails,
+        "CreateTablespaceDetails",
+        model.CreateTablespaceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateTablespaceResponse>{},
+        body: await response.json(),
+        bodyKey: "tablespace",
+        bodyModel: model.Tablespace,
+        type: "model.Tablespace",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a specific Database Management private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDbManagementPrivateEndpointRequest
@@ -918,6 +1061,77 @@ export class DbManagementClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteManagedDatabaseGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Drops the tablespace specified by tablespaceName within the Managed Database specified by managedDatabaseId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DropTablespaceRequest
+   * @return DropTablespaceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropTablespace.ts.html |here} to see how to use DropTablespace API.
+   */
+  public async dropTablespace(
+    dropTablespaceRequest: requests.DropTablespaceRequest
+  ): Promise<responses.DropTablespaceResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#dropTablespace.");
+    const pathParams = {
+      "{managedDatabaseId}": dropTablespaceRequest.managedDatabaseId,
+      "{tablespaceName}": dropTablespaceRequest.tablespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": dropTablespaceRequest.opcRequestId,
+      "opc-retry-token": dropTablespaceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      dropTablespaceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/tablespaces/{tablespaceName}/actions/dropTablespace",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        dropTablespaceRequest.dropTablespaceDetails,
+        "DropTablespaceDetails",
+        model.DropTablespaceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DropTablespaceResponse>{},
+        body: await response.json(),
+        bodyKey: "tablespaceAdminStatus",
+        bodyModel: model.TablespaceAdminStatus,
+        type: "model.TablespaceAdminStatus",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1761,7 +1975,71 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets the details of a specific user for the specified managedDatabaseId and userName.
+   * Gets the details of the tablespace specified by tablespaceName within the Managed Database specified by managedDatabaseId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetTablespaceRequest
+   * @return GetTablespaceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetTablespace.ts.html |here} to see how to use GetTablespace API.
+   */
+  public async getTablespace(
+    getTablespaceRequest: requests.GetTablespaceRequest
+  ): Promise<responses.GetTablespaceResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getTablespace.");
+    const pathParams = {
+      "{managedDatabaseId}": getTablespaceRequest.managedDatabaseId,
+      "{tablespaceName}": getTablespaceRequest.tablespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getTablespaceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTablespaceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/tablespaces/{tablespaceName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetTablespaceResponse>{},
+        body: await response.json(),
+        bodyKey: "tablespace",
+        bodyModel: model.Tablespace,
+        type: "model.Tablespace",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the user specified by managedDatabaseId and userName.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetUserRequest
@@ -1881,6 +2159,79 @@ export class DbManagementClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of ASM properties for the specified managedDatabaseId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAsmPropertiesRequest
+   * @return ListAsmPropertiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAsmProperties.ts.html |here} to see how to use ListAsmProperties API.
+   */
+  public async listAsmProperties(
+    listAsmPropertiesRequest: requests.ListAsmPropertiesRequest
+  ): Promise<responses.ListAsmPropertiesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listAsmProperties.");
+    const pathParams = {
+      "{managedDatabaseId}": listAsmPropertiesRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "name": listAsmPropertiesRequest.name,
+      "sortBy": listAsmPropertiesRequest.sortBy,
+      "sortOrder": listAsmPropertiesRequest.sortOrder,
+      "page": listAsmPropertiesRequest.page,
+      "limit": listAsmPropertiesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAsmPropertiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAsmPropertiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/asmProperties",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAsmPropertiesResponse>{},
+        body: await response.json(),
+        bodyKey: "asmPropertyCollection",
+        bodyModel: model.AsmPropertyCollection,
+        type: "model.AsmPropertyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
           }
         ]
       });
@@ -2125,7 +2476,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets the list of Consumer Group Privileges granted for the specified user.
+   * Gets the list of consumer group privileges granted to a specific user.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListConsumerGroupPrivilegesRequest
    * @return ListConsumerGroupPrivilegesResponse
@@ -2200,7 +2551,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets the list of Containers if it does not apply to all containers for the specified user.
+   * Gets the list of containers for a specific user. This is only applicable if ALL_CONTAINERS !='Y'.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataAccessContainersRequest
    * @return ListDataAccessContainersResponse
@@ -2826,7 +3177,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets the list of Object Privileges granted for the specified user.
+   * Gets the list of object privileges granted to a specific user.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListObjectPrivilegesRequest
    * @return ListObjectPrivilegesResponse
@@ -2901,7 +3252,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets the list of Users for which the current user acts as proxy.
+   * Gets the list of users on whose behalf the current user acts as proxy.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProxiedForUsersRequest
    * @return ListProxiedForUsersResponse
@@ -2975,7 +3326,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets the list of proxy users for the current User.
+   * Gets the list of proxy users for the current user.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProxyUsersRequest
    * @return ListProxyUsersResponse
@@ -3049,7 +3400,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets the list of roles granted for the specified user.
+   * Gets the list of roles granted to a specific user.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRolesRequest
    * @return ListRolesResponse
@@ -3123,7 +3474,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Gets the list of System Privileges granted for the specified user.
+   * Gets the list of system privileges granted to a specific user.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSystemPrivilegesRequest
    * @return ListSystemPrivilegesResponse
@@ -3566,6 +3917,77 @@ export class DbManagementClient {
   }
 
   /**
+   * Removes a data file or temp file from the tablespace.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveDataFileRequest
+   * @return RemoveDataFileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/RemoveDataFile.ts.html |here} to see how to use RemoveDataFile API.
+   */
+  public async removeDataFile(
+    removeDataFileRequest: requests.RemoveDataFileRequest
+  ): Promise<responses.RemoveDataFileResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#removeDataFile.");
+    const pathParams = {
+      "{managedDatabaseId}": removeDataFileRequest.managedDatabaseId,
+      "{tablespaceName}": removeDataFileRequest.tablespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeDataFileRequest.opcRequestId,
+      "opc-retry-token": removeDataFileRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDataFileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/tablespaces/{tablespaceName}/actions/removeDataFile",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDataFileRequest.removeDataFileDetails,
+        "RemoveDataFileDetails",
+        model.RemoveDataFileDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDataFileResponse>{},
+        body: await response.json(),
+        bodyKey: "tablespaceAdminStatus",
+        bodyModel: model.TablespaceAdminStatus,
+        type: "model.TablespaceAdminStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a Managed Database from a Managed Database Group. Any management
    * activities that are currently running on this database will continue to
    * run to completion. However, any activities scheduled to run in the future
@@ -3692,6 +4114,77 @@ export class DbManagementClient {
         bodyKey: "updateDatabaseParametersResult",
         bodyModel: model.UpdateDatabaseParametersResult,
         type: "model.UpdateDatabaseParametersResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Resizes a data file or temp file within the tablespace.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ResizeDataFileRequest
+   * @return ResizeDataFileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ResizeDataFile.ts.html |here} to see how to use ResizeDataFile API.
+   */
+  public async resizeDataFile(
+    resizeDataFileRequest: requests.ResizeDataFileRequest
+  ): Promise<responses.ResizeDataFileResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#resizeDataFile.");
+    const pathParams = {
+      "{managedDatabaseId}": resizeDataFileRequest.managedDatabaseId,
+      "{tablespaceName}": resizeDataFileRequest.tablespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": resizeDataFileRequest.opcRequestId,
+      "opc-retry-token": resizeDataFileRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      resizeDataFileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/tablespaces/{tablespaceName}/actions/resizeDataFile",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        resizeDataFileRequest.resizeDataFileDetails,
+        "ResizeDataFileDetails",
+        model.ResizeDataFileDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ResizeDataFileResponse>{},
+        body: await response.json(),
+        bodyKey: "tablespaceAdminStatus",
+        bodyModel: model.TablespaceAdminStatus,
+        type: "model.TablespaceAdminStatus",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4769,6 +5262,75 @@ Note that this API does not return information on the number of times each datab
       throw err;
     }
   }
+
+  /**
+   * Updates the attributes of the tablespace specified by tablespaceName within the Managed Database specified by managedDatabaseId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateTablespaceRequest
+   * @return UpdateTablespaceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateTablespace.ts.html |here} to see how to use UpdateTablespace API.
+   */
+  public async updateTablespace(
+    updateTablespaceRequest: requests.UpdateTablespaceRequest
+  ): Promise<responses.UpdateTablespaceResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateTablespace.");
+    const pathParams = {
+      "{managedDatabaseId}": updateTablespaceRequest.managedDatabaseId,
+      "{tablespaceName}": updateTablespaceRequest.tablespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateTablespaceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTablespaceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/tablespaces/{tablespaceName}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateTablespaceRequest.updateTablespaceDetails,
+        "UpdateTablespaceDetails",
+        model.UpdateTablespaceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateTablespaceResponse>{},
+        body: await response.json(),
+        bodyKey: "tablespace",
+        bodyModel: model.Tablespace,
+        type: "model.Tablespace",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 export enum SqlTuningApiKeys {}
 /**
@@ -4776,6 +5338,7 @@ export enum SqlTuningApiKeys {}
  */
 export class SqlTuningClient {
   protected static serviceEndpointTemplate = "https://dbmgmt.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -4845,7 +5408,8 @@ export class SqlTuningClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       SqlTuningClient.serviceEndpointTemplate,
-      region
+      region,
+      SqlTuningClient.endpointServiceName
     );
   }
 
@@ -4860,12 +5424,13 @@ export class SqlTuningClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       SqlTuningClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      SqlTuningClient.endpointServiceName
     );
   }
 
   /**
-   * Clone and start a SQL tuning task for a given SQL tuning task.
+   * Clones and runs a SQL tuning task in the database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CloneSqlTuningTaskRequest
@@ -4934,7 +5499,7 @@ export class SqlTuningClient {
   }
 
   /**
-   * Drop a SQL tuning task and its related results from the database.
+   * Drops a SQL tuning task and its related results from the database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DropSqlTuningTaskRequest
@@ -4999,8 +5564,9 @@ export class SqlTuningClient {
   }
 
   /**
-   * A SQL tuning task may suggest new execution plan for a SQL. The API returns the
-   * stats comparison report for the plans.
+   * Retrieves a comparison of the existing SQL execution plan and a new plan.
+   * A SQL tuning task may suggest a new execution plan for a SQL,
+   * and this API retrieves the comparison report of the statistics of the two plans.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExecutionPlanStatsComparisionRequest
@@ -5069,7 +5635,7 @@ export class SqlTuningClient {
   }
 
   /**
-   * Retrieve a SQL execution plan for a SQL being tuned, for original or new plan
+   * Retrieves a SQL execution plan for the SQL being tuned.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSqlExecutionPlanRequest
@@ -5137,7 +5703,7 @@ export class SqlTuningClient {
   }
 
   /**
-   * Gets the summary report for the specific SQL Tuning Advisor task.
+   * Gets the summary report for the specified SQL Tuning Advisor task.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSqlTuningAdvisorTaskSummaryReportRequest
@@ -5212,7 +5778,7 @@ export class SqlTuningClient {
   }
 
   /**
-   * Takes in a task id, and a finding/object type filter and applies some SQLs to find return the output.
+   * Gets an array of the details of the findings that match specific filters.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSqlTuningAdvisorTaskFindingsRequest
@@ -5294,7 +5860,8 @@ export class SqlTuningClient {
   }
 
   /**
-   * Takes in a task id and object id and returns the recommendations/findings.
+   * Gets the findings and possible actions for a given object in a SQL tuning task.
+   * The task ID and object ID are used to retrieve the findings and recommendations.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSqlTuningAdvisorTaskRecommendationsRequest
@@ -5453,8 +6020,7 @@ export class SqlTuningClient {
   }
 
   /**
-   * Start a SQL tuning task for a given set of SQLs from active session history
-   * top SQLs.
+   * Starts a SQL tuning task for a given set of SQL statements from the active session history top SQL statements.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StartSqlTuningTaskRequest

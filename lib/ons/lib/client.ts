@@ -31,6 +31,7 @@ export enum NotificationControlPlaneApiKeys {}
  */
 export class NotificationControlPlaneClient {
   protected static serviceEndpointTemplate = "https://notification.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -101,7 +102,8 @@ export class NotificationControlPlaneClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       NotificationControlPlaneClient.serviceEndpointTemplate,
-      region
+      region,
+      NotificationControlPlaneClient.endpointServiceName
     );
   }
 
@@ -116,7 +118,8 @@ export class NotificationControlPlaneClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       NotificationControlPlaneClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      NotificationControlPlaneClient.endpointServiceName
     );
   }
 
@@ -627,6 +630,7 @@ export enum NotificationDataPlaneApiKeys {}
  */
 export class NotificationDataPlaneClient {
   protected static serviceEndpointTemplate = "https://notification.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": NotificationDataPlaneWaiter;
@@ -698,7 +702,8 @@ export class NotificationDataPlaneClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       NotificationDataPlaneClient.serviceEndpointTemplate,
-      region
+      region,
+      NotificationDataPlaneClient.endpointServiceName
     );
   }
 
@@ -713,7 +718,8 @@ export class NotificationDataPlaneClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       NotificationDataPlaneClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      NotificationDataPlaneClient.endpointServiceName
     );
   }
 

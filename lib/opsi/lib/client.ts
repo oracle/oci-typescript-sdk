@@ -32,6 +32,7 @@ export enum OperationsInsightsApiKeys {}
 export class OperationsInsightsClient {
   protected static serviceEndpointTemplate =
     "https://operationsinsights.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OperationsInsightsWaiter;
@@ -102,7 +103,8 @@ export class OperationsInsightsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       OperationsInsightsClient.serviceEndpointTemplate,
-      region
+      region,
+      OperationsInsightsClient.endpointServiceName
     );
   }
 
@@ -117,7 +119,8 @@ export class OperationsInsightsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       OperationsInsightsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      OperationsInsightsClient.endpointServiceName
     );
   }
 

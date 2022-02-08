@@ -29,6 +29,7 @@ export enum JavaManagementServiceApiKeys {}
 export class JavaManagementServiceClient {
   protected static serviceEndpointTemplate =
     "https://javamanagement.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": JavaManagementServiceWaiter;
@@ -100,7 +101,8 @@ export class JavaManagementServiceClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       JavaManagementServiceClient.serviceEndpointTemplate,
-      region
+      region,
+      JavaManagementServiceClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class JavaManagementServiceClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       JavaManagementServiceClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      JavaManagementServiceClient.endpointServiceName
     );
   }
 

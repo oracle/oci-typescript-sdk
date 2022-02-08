@@ -28,6 +28,7 @@ export enum DatabaseMigrationApiKeys {}
  */
 export class DatabaseMigrationClient {
   protected static serviceEndpointTemplate = "https://odms.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DatabaseMigrationWaiter;
@@ -98,7 +99,8 @@ export class DatabaseMigrationClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DatabaseMigrationClient.serviceEndpointTemplate,
-      region
+      region,
+      DatabaseMigrationClient.endpointServiceName
     );
   }
 
@@ -113,7 +115,8 @@ export class DatabaseMigrationClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DatabaseMigrationClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DatabaseMigrationClient.endpointServiceName
     );
   }
 

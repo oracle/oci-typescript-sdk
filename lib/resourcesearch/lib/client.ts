@@ -28,6 +28,7 @@ export enum ResourceSearchApiKeys {}
  */
 export class ResourceSearchClient {
   protected static serviceEndpointTemplate = "https://query.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -97,7 +98,8 @@ export class ResourceSearchClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ResourceSearchClient.serviceEndpointTemplate,
-      region
+      region,
+      ResourceSearchClient.endpointServiceName
     );
   }
 
@@ -112,7 +114,8 @@ export class ResourceSearchClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ResourceSearchClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ResourceSearchClient.endpointServiceName
     );
   }
 

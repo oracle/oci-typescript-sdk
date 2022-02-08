@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of ContainerDataAccess user
+ * A summary of the ContainerDataAccess user.
  */
 export interface DataAccessContainerSummary {
   /**
-   * The name of a container included in this attribute if it does not apply to all containers.
+   * The name of the container included in the attribute.
    */
   "name"?: string;
 }

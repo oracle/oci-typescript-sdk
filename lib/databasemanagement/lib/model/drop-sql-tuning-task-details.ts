@@ -18,13 +18,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Request to drop a SQL tuning task.
+ * The request to drop a SQL tuning task.
  */
 export interface DropSqlTuningTaskDetails {
   /**
-   * The identifier of the task being dropped. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The identifier of the SQL tuning task being dropped. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    * It can be retrieved from the following endpoint
-   * {@link #listSqlTuningAdvisorTasks(ListSqlTuningAdvisorTasksRequest) listSqlTuningAdvisorTasks}
+   * {@link #listSqlTuningAdvisorTasks(ListSqlTuningAdvisorTasksRequest) listSqlTuningAdvisorTasks}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "taskId": number;

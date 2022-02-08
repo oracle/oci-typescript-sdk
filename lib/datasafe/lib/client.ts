@@ -29,6 +29,7 @@ export enum DataSafeApiKeys {}
  */
 export class DataSafeClient {
   protected static serviceEndpointTemplate = "https://datasafe.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DataSafeWaiter;
@@ -99,7 +100,8 @@ export class DataSafeClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DataSafeClient.serviceEndpointTemplate,
-      region
+      region,
+      DataSafeClient.endpointServiceName
     );
   }
 
@@ -114,7 +116,8 @@ export class DataSafeClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DataSafeClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DataSafeClient.endpointServiceName
     );
   }
 

@@ -34,6 +34,7 @@ export enum ApplicationMigrationApiKeys {}
 export class ApplicationMigrationClient {
   protected static serviceEndpointTemplate =
     "https://applicationmigration.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ApplicationMigrationWaiter;
@@ -105,7 +106,8 @@ export class ApplicationMigrationClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ApplicationMigrationClient.serviceEndpointTemplate,
-      region
+      region,
+      ApplicationMigrationClient.endpointServiceName
     );
   }
 
@@ -120,7 +122,8 @@ export class ApplicationMigrationClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ApplicationMigrationClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ApplicationMigrationClient.endpointServiceName
     );
   }
 

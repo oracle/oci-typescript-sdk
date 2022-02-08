@@ -29,6 +29,7 @@ export enum BastionApiKeys {}
  */
 export class BastionClient {
   protected static serviceEndpointTemplate = "https://bastion.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": BastionWaiter;
@@ -99,7 +100,8 @@ export class BastionClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       BastionClient.serviceEndpointTemplate,
-      region
+      region,
+      BastionClient.endpointServiceName
     );
   }
 
@@ -114,7 +116,8 @@ export class BastionClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       BastionClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      BastionClient.endpointServiceName
     );
   }
 

@@ -38,6 +38,7 @@ export enum BlockstorageApiKeys {}
  */
 export class BlockstorageClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": BlockstorageWaiter;
@@ -108,7 +109,8 @@ export class BlockstorageClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       BlockstorageClient.serviceEndpointTemplate,
-      region
+      region,
+      BlockstorageClient.endpointServiceName
     );
   }
 
@@ -123,7 +125,8 @@ export class BlockstorageClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       BlockstorageClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      BlockstorageClient.endpointServiceName
     );
   }
 
@@ -4982,6 +4985,7 @@ export enum ComputeApiKeys {}
  */
 export class ComputeClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ComputeWaiter;
@@ -5052,7 +5056,8 @@ export class ComputeClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ComputeClient.serviceEndpointTemplate,
-      region
+      region,
+      ComputeClient.endpointServiceName
     );
   }
 
@@ -5067,7 +5072,8 @@ export class ComputeClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ComputeClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ComputeClient.endpointServiceName
     );
   }
 
@@ -12266,6 +12272,7 @@ export enum ComputeManagementApiKeys {}
  */
 export class ComputeManagementClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ComputeManagementWaiter;
@@ -12336,7 +12343,8 @@ export class ComputeManagementClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ComputeManagementClient.serviceEndpointTemplate,
-      region
+      region,
+      ComputeManagementClient.endpointServiceName
     );
   }
 
@@ -12351,7 +12359,8 @@ export class ComputeManagementClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ComputeManagementClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ComputeManagementClient.endpointServiceName
     );
   }
 
@@ -14914,6 +14923,7 @@ export enum VirtualNetworkApiKeys {}
  */
 export class VirtualNetworkClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": VirtualNetworkWaiter;
@@ -14984,7 +14994,8 @@ export class VirtualNetworkClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       VirtualNetworkClient.serviceEndpointTemplate,
-      region
+      region,
+      VirtualNetworkClient.endpointServiceName
     );
   }
 
@@ -14999,7 +15010,8 @@ export class VirtualNetworkClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       VirtualNetworkClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      VirtualNetworkClient.endpointServiceName
     );
   }
 

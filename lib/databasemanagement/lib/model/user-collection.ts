@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A collection of Users for a specific database.
+ * A collection of users for a specific database.
  */
 export interface UserCollection {
   /**

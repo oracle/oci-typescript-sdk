@@ -32,6 +32,7 @@ export enum NosqlApiKeys {}
  */
 export class NosqlClient {
   protected static serviceEndpointTemplate = "https://nosql.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": NosqlWaiter;
@@ -102,7 +103,8 @@ export class NosqlClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       NosqlClient.serviceEndpointTemplate,
-      region
+      region,
+      NosqlClient.endpointServiceName
     );
   }
 
@@ -117,7 +119,8 @@ export class NosqlClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       NosqlClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      NosqlClient.endpointServiceName
     );
   }
 

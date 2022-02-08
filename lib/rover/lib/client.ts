@@ -30,6 +30,7 @@ export enum RoverClusterApiKeys {}
  */
 export class RoverClusterClient {
   protected static serviceEndpointTemplate = "https://rover.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": RoverClusterWaiter;
@@ -100,7 +101,8 @@ export class RoverClusterClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       RoverClusterClient.serviceEndpointTemplate,
-      region
+      region,
+      RoverClusterClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class RoverClusterClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       RoverClusterClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      RoverClusterClient.endpointServiceName
     );
   }
 
@@ -633,6 +636,7 @@ export enum RoverEntitlementApiKeys {}
  */
 export class RoverEntitlementClient {
   protected static serviceEndpointTemplate = "https://rover.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": RoverEntitlementWaiter;
@@ -703,7 +707,8 @@ export class RoverEntitlementClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       RoverEntitlementClient.serviceEndpointTemplate,
-      region
+      region,
+      RoverEntitlementClient.endpointServiceName
     );
   }
 
@@ -718,7 +723,8 @@ export class RoverEntitlementClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       RoverEntitlementClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      RoverEntitlementClient.endpointServiceName
     );
   }
 
@@ -1177,6 +1183,7 @@ export enum RoverNodeApiKeys {}
  */
 export class RoverNodeClient {
   protected static serviceEndpointTemplate = "https://rover.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": RoverNodeWaiter;
@@ -1247,7 +1254,8 @@ export class RoverNodeClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       RoverNodeClient.serviceEndpointTemplate,
-      region
+      region,
+      RoverNodeClient.endpointServiceName
     );
   }
 
@@ -1262,7 +1270,8 @@ export class RoverNodeClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       RoverNodeClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      RoverNodeClient.endpointServiceName
     );
   }
 

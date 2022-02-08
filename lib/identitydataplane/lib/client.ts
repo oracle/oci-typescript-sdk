@@ -27,6 +27,7 @@ export enum DataplaneApiKeys {}
  */
 export class DataplaneClient {
   protected static serviceEndpointTemplate = "https://auth.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -96,7 +97,8 @@ export class DataplaneClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DataplaneClient.serviceEndpointTemplate,
-      region
+      region,
+      DataplaneClient.endpointServiceName
     );
   }
 
@@ -111,7 +113,8 @@ export class DataplaneClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DataplaneClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DataplaneClient.endpointServiceName
     );
   }
 

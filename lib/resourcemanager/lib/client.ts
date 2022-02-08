@@ -33,6 +33,7 @@ export enum ResourceManagerApiKeys {}
  */
 export class ResourceManagerClient {
   protected static serviceEndpointTemplate = "https://resourcemanager.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ResourceManagerWaiter;
@@ -103,7 +104,8 @@ export class ResourceManagerClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ResourceManagerClient.serviceEndpointTemplate,
-      region
+      region,
+      ResourceManagerClient.endpointServiceName
     );
   }
 
@@ -118,7 +120,8 @@ export class ResourceManagerClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ResourceManagerClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ResourceManagerClient.endpointServiceName
     );
   }
 

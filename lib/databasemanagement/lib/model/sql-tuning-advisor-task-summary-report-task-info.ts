@@ -18,39 +18,39 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * SQL Tuning advisor task general info.
+ * The general information regarding the SQL Tuning Advisor task.
  */
 export interface SqlTuningAdvisorTaskSummaryReportTaskInfo {
   /**
-   * The SQL Tuning Advisor task id. It is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The ID of the SQL Tuning Advisor task. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "id": number;
   /**
-   * The SQL Tuning Advisor task name.
+   * The name of the SQL Tuning Advisor task.
    */
   "name": string;
   /**
-   * The SQL Tuning Advisor task description. Not defined on Auto SQL Tuning tasks.
+   * The description of the SQL Tuning Advisor task. This is not defined for Auto SQL Tuning tasks.
    */
   "description"?: string;
   /**
-   * The SQL Tuning Advisor task user owner.
+   * The owner of the SQL Tuning Advisor task.
    */
   "owner": string;
   /**
-   * The SQL Tuning Advisor task status. Not defined on Auto SQL Tuning tasks.
+   * The status of the SQL Tuning Advisor task. This is not defined for Auto SQL Tuning tasks.
    */
   "status"?: model.SqlTuningTaskStatusTypes;
   /**
-   * Start timestamp of task execution.
+   * The start time of the task execution.
    */
   "timeStarted": Date;
   /**
-   * End timestamp of task execution.
+   * The end time of the task execution.
    */
   "timeEnded": Date;
   /**
-   * The total running time in seconds. Not defined on Auto SQL Tuning tasks. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total running time in seconds. This is not defined for Auto SQL Tuning tasks. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "runningTime"?: number;
 }

@@ -35,6 +35,7 @@ export enum EmailApiKeys {}
  */
 export class EmailClient {
   protected static serviceEndpointTemplate = "https://ctrl.email.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": EmailWaiter;
@@ -105,7 +106,8 @@ export class EmailClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       EmailClient.serviceEndpointTemplate,
-      region
+      region,
+      EmailClient.endpointServiceName
     );
   }
 
@@ -120,7 +122,8 @@ export class EmailClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       EmailClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      EmailClient.endpointServiceName
     );
   }
 

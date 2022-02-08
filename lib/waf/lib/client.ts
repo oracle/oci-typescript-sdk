@@ -30,6 +30,7 @@ export enum WafApiKeys {}
  */
 export class WafClient {
   protected static serviceEndpointTemplate = "https://waf.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WafWaiter;
@@ -100,7 +101,8 @@ export class WafClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       WafClient.serviceEndpointTemplate,
-      region
+      region,
+      WafClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class WafClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       WafClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      WafClient.endpointServiceName
     );
   }
 

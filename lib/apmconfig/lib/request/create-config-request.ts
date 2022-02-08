@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface CreateConfigRequest extends common.BaseRequest {
   /**
-   * The APM Domain Id the request is intended for.
+   * The APM Domain ID the request is intended for.
    *
    */
   "apmDomainId": string;
   /**
-   * The configuration details describing the new item
+   * The configuration details of the new item.
    */
   "createConfigDetails":
     | model.CreateSpanFilterDetails
@@ -46,8 +46,8 @@ export interface CreateConfigRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * Indicates that this request is a dry-run.
-   * If set to \"true\", nothing will be modified, only the validation will be performed.
+   * Indicates that the request is a dry run, if set to \"true\". A dry run request does not modify the
+   * configuration item details and is used only to perform validation on the submitted data.
    *
    */
   "opcDryRun"?: string;

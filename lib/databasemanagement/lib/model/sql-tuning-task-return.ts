@@ -18,13 +18,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The returned object for starting/cloning a SQL tuning advisor task.
+ * The returned object for starting or cloning a SQL tuning advisor task.
  */
 export interface SqlTuningTaskReturn {
   /**
-   * The identifier of the task being cloned. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The identifier of the task being started or cloned. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    * It can be retrieved from the following endpoint
-   * {@link #listSqlTuningAdvisorTasks(ListSqlTuningAdvisorTasksRequest) listSqlTuningAdvisorTasks}
+   * {@link #listSqlTuningAdvisorTasks(ListSqlTuningAdvisorTasksRequest) listSqlTuningAdvisorTasks}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sqlTuningTaskId": number;

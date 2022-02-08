@@ -31,6 +31,7 @@ export enum DataCatalogApiKeys {}
  */
 export class DataCatalogClient {
   protected static serviceEndpointTemplate = "https://datacatalog.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DataCatalogWaiter;
@@ -101,7 +102,8 @@ export class DataCatalogClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DataCatalogClient.serviceEndpointTemplate,
-      region
+      region,
+      DataCatalogClient.endpointServiceName
     );
   }
 
@@ -116,7 +118,8 @@ export class DataCatalogClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DataCatalogClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DataCatalogClient.endpointServiceName
     );
   }
 

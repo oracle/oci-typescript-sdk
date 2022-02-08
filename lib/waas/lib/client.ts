@@ -32,6 +32,7 @@ export enum RedirectApiKeys {
  */
 export class RedirectClient {
   protected static serviceEndpointTemplate = "https://waas.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": RedirectWaiter;
@@ -102,7 +103,8 @@ export class RedirectClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       RedirectClient.serviceEndpointTemplate,
-      region
+      region,
+      RedirectClient.endpointServiceName
     );
   }
 
@@ -117,7 +119,8 @@ export class RedirectClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       RedirectClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      RedirectClient.endpointServiceName
     );
   }
 
@@ -615,6 +618,7 @@ export enum WaasApiKeys {
  */
 export class WaasClient {
   protected static serviceEndpointTemplate = "https://waas.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WaasWaiter;
@@ -685,7 +689,8 @@ export class WaasClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       WaasClient.serviceEndpointTemplate,
-      region
+      region,
+      WaasClient.endpointServiceName
     );
   }
 
@@ -700,7 +705,8 @@ export class WaasClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       WaasClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      WaasClient.endpointServiceName
     );
   }
 

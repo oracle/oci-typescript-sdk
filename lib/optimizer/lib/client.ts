@@ -31,6 +31,7 @@ export enum OptimizerApiKeys {}
  */
 export class OptimizerClient {
   protected static serviceEndpointTemplate = "https://optimizer.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OptimizerWaiter;
@@ -101,7 +102,8 @@ export class OptimizerClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       OptimizerClient.serviceEndpointTemplate,
-      region
+      region,
+      OptimizerClient.endpointServiceName
     );
   }
 
@@ -116,7 +118,8 @@ export class OptimizerClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       OptimizerClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      OptimizerClient.endpointServiceName
     );
   }
 

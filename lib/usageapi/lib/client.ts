@@ -27,6 +27,7 @@ export enum UsageapiApiKeys {}
  */
 export class UsageapiClient {
   protected static serviceEndpointTemplate = "https://usageapi.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -96,7 +97,8 @@ export class UsageapiClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       UsageapiClient.serviceEndpointTemplate,
-      region
+      region,
+      UsageapiClient.endpointServiceName
     );
   }
 
@@ -111,7 +113,8 @@ export class UsageapiClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       UsageapiClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      UsageapiClient.endpointServiceName
     );
   }
 

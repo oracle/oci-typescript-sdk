@@ -29,6 +29,7 @@ export enum OrganizationSubscriptionApiKeys {}
  */
 export class OrganizationSubscriptionClient {
   protected static serviceEndpointTemplate = "https://csaap-e.oracle.com";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -99,7 +100,8 @@ export class OrganizationSubscriptionClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       OrganizationSubscriptionClient.serviceEndpointTemplate,
-      region
+      region,
+      OrganizationSubscriptionClient.endpointServiceName
     );
   }
 
@@ -114,7 +116,8 @@ export class OrganizationSubscriptionClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       OrganizationSubscriptionClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      OrganizationSubscriptionClient.endpointServiceName
     );
   }
 

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The SQL Tuning Advisor task finding list.
+ * The list of findings for a SQL Tuning Advisor task.
  */
 export interface SqlTuningAdvisorTaskFindingCollection {
   /**

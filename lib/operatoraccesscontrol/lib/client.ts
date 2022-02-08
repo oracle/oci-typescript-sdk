@@ -35,6 +35,7 @@ export enum AccessRequestsApiKeys {}
 export class AccessRequestsClient {
   protected static serviceEndpointTemplate =
     "https://operator-access-control.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": AccessRequestsWaiter;
@@ -105,7 +106,8 @@ export class AccessRequestsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       AccessRequestsClient.serviceEndpointTemplate,
-      region
+      region,
+      AccessRequestsClient.endpointServiceName
     );
   }
 
@@ -120,7 +122,8 @@ export class AccessRequestsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       AccessRequestsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      AccessRequestsClient.endpointServiceName
     );
   }
 
@@ -658,6 +661,7 @@ export enum OperatorActionsApiKeys {}
 export class OperatorActionsClient {
   protected static serviceEndpointTemplate =
     "https://operator-access-control.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -727,7 +731,8 @@ export class OperatorActionsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       OperatorActionsClient.serviceEndpointTemplate,
-      region
+      region,
+      OperatorActionsClient.endpointServiceName
     );
   }
 
@@ -742,7 +747,8 @@ export class OperatorActionsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       OperatorActionsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      OperatorActionsClient.endpointServiceName
     );
   }
 
@@ -892,6 +898,7 @@ export enum OperatorControlApiKeys {}
 export class OperatorControlClient {
   protected static serviceEndpointTemplate =
     "https://operator-access-control.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OperatorControlWaiter;
@@ -962,7 +969,8 @@ export class OperatorControlClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       OperatorControlClient.serviceEndpointTemplate,
-      region
+      region,
+      OperatorControlClient.endpointServiceName
     );
   }
 
@@ -977,7 +985,8 @@ export class OperatorControlClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       OperatorControlClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      OperatorControlClient.endpointServiceName
     );
   }
 
@@ -1439,6 +1448,7 @@ export enum OperatorControlAssignmentApiKeys {}
 export class OperatorControlAssignmentClient {
   protected static serviceEndpointTemplate =
     "https://operator-access-control.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OperatorControlAssignmentWaiter;
@@ -1510,7 +1520,8 @@ export class OperatorControlAssignmentClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       OperatorControlAssignmentClient.serviceEndpointTemplate,
-      region
+      region,
+      OperatorControlAssignmentClient.endpointServiceName
     );
   }
 
@@ -1525,7 +1536,8 @@ export class OperatorControlAssignmentClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       OperatorControlAssignmentClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      OperatorControlAssignmentClient.endpointServiceName
     );
   }
 

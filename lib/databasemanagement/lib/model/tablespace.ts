@@ -170,6 +170,10 @@ export interface Tablespace {
    */
   "usedPercentAllocated"?: number;
   /**
+   * Indicates whether this is the default tablespace.
+   */
+  "isDefault"?: boolean;
+  /**
    * A list of the data files associated with the tablespace.
    */
   "datafiles"?: Array<model.Datafile>;
@@ -180,50 +184,95 @@ export namespace Tablespace {
     Undo = "UNDO",
     LostWriteProtection = "LOST_WRITE_PROTECTION",
     Permanent = "PERMANENT",
-    Temporary = "TEMPORARY"
+    Temporary = "TEMPORARY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Status {
     Online = "ONLINE",
     Offline = "OFFLINE",
-    ReadOnly = "READ_ONLY"
+    ReadOnly = "READ_ONLY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Logging {
     Logging = "LOGGING",
-    Nologging = "NOLOGGING"
+    Nologging = "NOLOGGING",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum ExtentManagement {
     Local = "LOCAL",
-    Dictionary = "DICTIONARY"
+    Dictionary = "DICTIONARY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum AllocationType {
     System = "SYSTEM",
     Uniform = "UNIFORM",
-    User = "USER"
+    User = "USER",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum SegmentSpaceManagement {
     Manual = "MANUAL",
-    Auto = "AUTO"
+    Auto = "AUTO",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum DefaultTableCompression {
     Enabled = "ENABLED",
-    Disabled = "DISABLED"
+    Disabled = "DISABLED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Retention {
     Guarantee = "GUARANTEE",
     Noguarantee = "NOGUARANTEE",
-    NotApply = "NOT_APPLY"
+    NotApply = "NOT_APPLY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum PredicateEvaluation {
     Host = "HOST",
-    Storage = "STORAGE"
+    Storage = "STORAGE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum CompressFor {
@@ -234,12 +283,22 @@ export namespace Tablespace {
     ArchiveLow = "ARCHIVE_LOW",
     ArchiveHigh = "ARCHIVE_HIGH",
     DirectLoadOnly = "DIRECT_LOAD_ONLY",
-    ForAllOperations = "FOR_ALL_OPERATIONS"
+    ForAllOperations = "FOR_ALL_OPERATIONS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum DefaultInMemory {
     Enabled = "ENABLED",
-    Disabled = "DISABLED"
+    Disabled = "DISABLED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum DefaultInMemoryPriority {
@@ -247,14 +306,24 @@ export namespace Tablespace {
     Medium = "MEDIUM",
     High = "HIGH",
     Critical = "CRITICAL",
-    None = "NONE"
+    None = "NONE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum DefaultInMemoryDistribute {
     Auto = "AUTO",
     ByRowidRange = "BY_ROWID_RANGE",
     ByPartition = "BY_PARTITION",
-    BySubpartition = "BY_SUBPARTITION"
+    BySubpartition = "BY_SUBPARTITION",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum DefaultInMemoryCompression {
@@ -263,42 +332,78 @@ export namespace Tablespace {
     ForQueryLow = "FOR_QUERY_LOW",
     ForQueryHigh = "FOR_QUERY_HIGH",
     ForCapacityLow = "FOR_CAPACITY_LOW",
-    ForCapacityHigh = "FOR_CAPACITY_HIGH"
+    ForCapacityHigh = "FOR_CAPACITY_HIGH",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum DefaultInMemoryDuplicate {
     NoDuplicate = "NO_DUPLICATE",
     Duplicate = "DUPLICATE",
-    DuplicateAll = "DUPLICATE_ALL"
+    DuplicateAll = "DUPLICATE_ALL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum Shared {
     Shared = "SHARED",
     LocalOnLeaf = "LOCAL_ON_LEAF",
-    LocalOnAll = "LOCAL_ON_ALL"
+    LocalOnAll = "LOCAL_ON_ALL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum DefaultIndexCompression {
     Enabled = "ENABLED",
-    Disabled = "DISABLED"
+    Disabled = "DISABLED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum IndexCompressFor {
     AdvancedLow = "ADVANCED_LOW",
-    AdvancedHigh = "ADVANCED_HIGH"
+    AdvancedHigh = "ADVANCED_HIGH",
+    None = "NONE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum DefaultInMemoryService {
     Default = "DEFAULT",
     None = "NONE",
     All = "ALL",
-    UserDefined = "USER_DEFINED"
+    UserDefined = "USER_DEFINED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LostWriteProtect {
     Enabled = "ENABLED",
     ProtectOff = "PROTECT_OFF",
-    Suspend = "SUSPEND"
+    Suspend = "SUSPEND",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: Tablespace): object {

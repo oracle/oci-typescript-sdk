@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The detail of the SQL statements on which SQL tuning is performed.
+ * The details of the SQL statements on which SQL tuning is performed.
  */
 export interface SqlTuningTaskSqlDetail {
   /**

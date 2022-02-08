@@ -32,6 +32,7 @@ export enum AuditApiKeys {}
  */
 export class AuditClient {
   protected static serviceEndpointTemplate = "https://audit.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -101,7 +102,8 @@ export class AuditClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       AuditClient.serviceEndpointTemplate,
-      region
+      region,
+      AuditClient.endpointServiceName
     );
   }
 
@@ -116,7 +118,8 @@ export class AuditClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       AuditClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      AuditClient.endpointServiceName
     );
   }
 

@@ -36,6 +36,7 @@ export enum DomainApiKeys {}
 export class DomainClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DomainWaiter;
@@ -106,7 +107,8 @@ export class DomainClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DomainClient.serviceEndpointTemplate,
-      region
+      region,
+      DomainClient.endpointServiceName
     );
   }
 
@@ -121,7 +123,8 @@ export class DomainClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DomainClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DomainClient.endpointServiceName
     );
   }
 
@@ -506,6 +509,7 @@ export enum DomainGovernanceApiKeys {}
 export class DomainGovernanceClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DomainGovernanceWaiter;
@@ -576,7 +580,8 @@ export class DomainGovernanceClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DomainGovernanceClient.serviceEndpointTemplate,
-      region
+      region,
+      DomainGovernanceClient.endpointServiceName
     );
   }
 
@@ -591,7 +596,8 @@ export class DomainGovernanceClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DomainGovernanceClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DomainGovernanceClient.endpointServiceName
     );
   }
 
@@ -976,6 +982,7 @@ export enum LinkApiKeys {}
 export class LinkClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": LinkWaiter;
@@ -1046,7 +1053,8 @@ export class LinkClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       LinkClient.serviceEndpointTemplate,
-      region
+      region,
+      LinkClient.endpointServiceName
     );
   }
 
@@ -1061,7 +1069,8 @@ export class LinkClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       LinkClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      LinkClient.endpointServiceName
     );
   }
 
@@ -1298,6 +1307,7 @@ export enum OrdersApiKeys {}
 export class OrdersClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -1367,7 +1377,8 @@ export class OrdersClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       OrdersClient.serviceEndpointTemplate,
-      region
+      region,
+      OrdersClient.endpointServiceName
     );
   }
 
@@ -1382,7 +1393,8 @@ export class OrdersClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       OrdersClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      OrdersClient.endpointServiceName
     );
   }
 
@@ -1525,6 +1537,7 @@ export enum OrganizationApiKeys {}
 export class OrganizationClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OrganizationWaiter;
@@ -1595,7 +1608,8 @@ export class OrganizationClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       OrganizationClient.serviceEndpointTemplate,
-      region
+      region,
+      OrganizationClient.endpointServiceName
     );
   }
 
@@ -1610,7 +1624,8 @@ export class OrganizationClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       OrganizationClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      OrganizationClient.endpointServiceName
     );
   }
 
@@ -2272,6 +2287,7 @@ export enum RecipientInvitationApiKeys {}
 export class RecipientInvitationClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": RecipientInvitationWaiter;
@@ -2343,7 +2359,8 @@ export class RecipientInvitationClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       RecipientInvitationClient.serviceEndpointTemplate,
-      region
+      region,
+      RecipientInvitationClient.endpointServiceName
     );
   }
 
@@ -2358,7 +2375,8 @@ export class RecipientInvitationClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       RecipientInvitationClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      RecipientInvitationClient.endpointServiceName
     );
   }
 
@@ -2743,6 +2761,7 @@ export enum SenderInvitationApiKeys {}
 export class SenderInvitationClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": SenderInvitationWaiter;
@@ -2813,7 +2832,8 @@ export class SenderInvitationClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       SenderInvitationClient.serviceEndpointTemplate,
-      region
+      region,
+      SenderInvitationClient.endpointServiceName
     );
   }
 
@@ -2828,7 +2848,8 @@ export class SenderInvitationClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       SenderInvitationClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      SenderInvitationClient.endpointServiceName
     );
   }
 
@@ -3224,6 +3245,7 @@ export enum SubscriptionApiKeys {}
 export class SubscriptionClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": SubscriptionWaiter;
@@ -3294,7 +3316,8 @@ export class SubscriptionClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       SubscriptionClient.serviceEndpointTemplate,
-      region
+      region,
+      SubscriptionClient.endpointServiceName
     );
   }
 
@@ -3309,7 +3332,8 @@ export class SubscriptionClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       SubscriptionClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      SubscriptionClient.endpointServiceName
     );
   }
 
@@ -3974,6 +3998,7 @@ export enum WorkRequestApiKeys {}
 export class WorkRequestClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WorkRequestWaiter;
@@ -4044,7 +4069,8 @@ export class WorkRequestClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       WorkRequestClient.serviceEndpointTemplate,
-      region
+      region,
+      WorkRequestClient.endpointServiceName
     );
   }
 
@@ -4059,7 +4085,8 @@ export class WorkRequestClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       WorkRequestClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      WorkRequestClient.endpointServiceName
     );
   }
 

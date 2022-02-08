@@ -29,6 +29,7 @@ export enum BudgetApiKeys {}
  */
 export class BudgetClient {
   protected static serviceEndpointTemplate = "https://usage.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": BudgetWaiter;
@@ -99,7 +100,8 @@ export class BudgetClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       BudgetClient.serviceEndpointTemplate,
-      region
+      region,
+      BudgetClient.endpointServiceName
     );
   }
 
@@ -114,7 +116,8 @@ export class BudgetClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       BudgetClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      BudgetClient.endpointServiceName
     );
   }
 

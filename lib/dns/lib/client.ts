@@ -36,6 +36,7 @@ export enum DnsApiKeys {}
  */
 export class DnsClient {
   protected static serviceEndpointTemplate = "https://dns.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DnsWaiter;
@@ -106,7 +107,8 @@ export class DnsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DnsClient.serviceEndpointTemplate,
-      region
+      region,
+      DnsClient.endpointServiceName
     );
   }
 
@@ -121,7 +123,8 @@ export class DnsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DnsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DnsClient.endpointServiceName
     );
   }
 

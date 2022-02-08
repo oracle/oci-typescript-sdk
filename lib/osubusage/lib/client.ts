@@ -29,6 +29,7 @@ export enum ComputedUsageApiKeys {}
  */
 export class ComputedUsageClient {
   protected static serviceEndpointTemplate = "https://csaap-e.oracle.com";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -98,7 +99,8 @@ export class ComputedUsageClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ComputedUsageClient.serviceEndpointTemplate,
-      region
+      region,
+      ComputedUsageClient.endpointServiceName
     );
   }
 
@@ -113,7 +115,8 @@ export class ComputedUsageClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ComputedUsageClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ComputedUsageClient.endpointServiceName
     );
   }
 

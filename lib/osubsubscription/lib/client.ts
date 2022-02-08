@@ -29,6 +29,7 @@ export enum CommitmentApiKeys {}
  */
 export class CommitmentClient {
   protected static serviceEndpointTemplate = "https://csaap-e.oracle.com";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -98,7 +99,8 @@ export class CommitmentClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       CommitmentClient.serviceEndpointTemplate,
-      region
+      region,
+      CommitmentClient.endpointServiceName
     );
   }
 
@@ -113,7 +115,8 @@ export class CommitmentClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       CommitmentClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      CommitmentClient.endpointServiceName
     );
   }
 
@@ -315,6 +318,7 @@ export enum RatecardApiKeys {}
  */
 export class RatecardClient {
   protected static serviceEndpointTemplate = "https://csaap-e.oracle.com";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -384,7 +388,8 @@ export class RatecardClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       RatecardClient.serviceEndpointTemplate,
-      region
+      region,
+      RatecardClient.endpointServiceName
     );
   }
 
@@ -399,7 +404,8 @@ export class RatecardClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       RatecardClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      RatecardClient.endpointServiceName
     );
   }
 
@@ -539,6 +545,7 @@ export enum SubscriptionApiKeys {}
  */
 export class SubscriptionClient {
   protected static serviceEndpointTemplate = "https://csaap-e.oracle.com";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -608,7 +615,8 @@ export class SubscriptionClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       SubscriptionClient.serviceEndpointTemplate,
-      region
+      region,
+      SubscriptionClient.endpointServiceName
     );
   }
 
@@ -623,7 +631,8 @@ export class SubscriptionClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       SubscriptionClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      SubscriptionClient.endpointServiceName
     );
   }
 

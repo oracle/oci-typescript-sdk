@@ -32,6 +32,7 @@ export enum AnomalyDetectionApiKeys {}
 export class AnomalyDetectionClient {
   protected static serviceEndpointTemplate =
     "https://anomalydetection.aiservice.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": AnomalyDetectionWaiter;
@@ -102,7 +103,8 @@ export class AnomalyDetectionClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       AnomalyDetectionClient.serviceEndpointTemplate,
-      region
+      region,
+      AnomalyDetectionClient.endpointServiceName
     );
   }
 
@@ -117,7 +119,8 @@ export class AnomalyDetectionClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       AnomalyDetectionClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      AnomalyDetectionClient.endpointServiceName
     );
   }
 

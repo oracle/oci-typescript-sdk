@@ -30,6 +30,7 @@ export enum GenericArtifactsContentApiKeys {}
 export class GenericArtifactsContentClient {
   protected static serviceEndpointTemplate =
     "https://generic.artifacts.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -100,7 +101,8 @@ export class GenericArtifactsContentClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       GenericArtifactsContentClient.serviceEndpointTemplate,
-      region
+      region,
+      GenericArtifactsContentClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class GenericArtifactsContentClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       GenericArtifactsContentClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      GenericArtifactsContentClient.endpointServiceName
     );
   }
 

@@ -31,6 +31,7 @@ export enum DashxApisApiKeys {}
 export class DashxApisClient {
   protected static serviceEndpointTemplate =
     "https://managementdashboard.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DashxApisWaiter;
@@ -101,7 +102,8 @@ export class DashxApisClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DashxApisClient.serviceEndpointTemplate,
-      region
+      region,
+      DashxApisClient.endpointServiceName
     );
   }
 
@@ -116,7 +118,8 @@ export class DashxApisClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DashxApisClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DashxApisClient.endpointServiceName
     );
   }
 

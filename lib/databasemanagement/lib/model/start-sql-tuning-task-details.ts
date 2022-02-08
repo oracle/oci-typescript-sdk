@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Request to start a SQL tuning task
+ * The request to start a SQL tuning task.
  */
 export interface StartSqlTuningTaskDetails {
   /**
-   * The name of the SQL tuning task. The name is unique per user in a database, and it is case sensitive.
+   * The name of the SQL tuning task. The name is unique per user in a database, and it is case-sensitive.
    */
   "taskName": string;
   /**
@@ -38,27 +38,27 @@ export interface StartSqlTuningTaskDetails {
   "totalTimeLimitInMinutes": number;
   /**
    * The scope for the SQL tuning task. For LIMITED scope, the SQL profile recommendation
-   * is excluded, so the task is faster. For COMPREHENSIVE scope, the SQL profile recommendation
+   * is excluded, so the task is executed faster. For COMPREHENSIVE scope, the SQL profile recommendation
    * is included.
    *
    */
   "scope": StartSqlTuningTaskDetails.Scope;
   /**
-   * The time limit per SQL statement in minutes. This is for task with COMPREHENSIVE scope.
-   * Per statement time limit should not be larger than the total time limit.
+   * The time limit per SQL statement (in minutes). This is for a task with the COMPREHENSIVE scope.
+   * The time limit per SQL statement should not be more than the total time limit.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "statementTimeLimitInMinutes"?: number;
   /**
-   * The array of the details of SQL statments on which the tuning is performed.
+   * The array of the details of SQL statement on which tuning is performed.
    */
   "sqlDetails": Array<model.SqlTuningTaskSqlDetail>;
   /**
-   * The start time of the period, in which SQL statements are running.
+   * The start time of the period in which SQL statements are running.
    */
   "timeStarted": Date;
   /**
-   * The end time of the period, in which SQL statements are running.
+   * The end time of the period in which SQL statements are running.
    */
   "timeEnded": Date;
 }

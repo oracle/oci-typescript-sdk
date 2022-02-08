@@ -49,7 +49,7 @@ export interface ListSqlTuningAdvisorTasksRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The option to sort the SQL Tuning advisor task summary data.
+   * The option to sort the SQL Tuning Advisor task summary data.
    */
   "sortBy"?: ListSqlTuningAdvisorTasksRequest.SortBy;
   /**

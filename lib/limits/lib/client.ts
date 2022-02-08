@@ -29,6 +29,7 @@ export enum LimitsApiKeys {}
  */
 export class LimitsClient {
   protected static serviceEndpointTemplate = "https://limits.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -97,7 +98,8 @@ export class LimitsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       LimitsClient.serviceEndpointTemplate,
-      region
+      region,
+      LimitsClient.endpointServiceName
     );
   }
 
@@ -112,7 +114,8 @@ export class LimitsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       LimitsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      LimitsClient.endpointServiceName
     );
   }
 
@@ -573,6 +576,7 @@ export enum QuotasApiKeys {}
  */
 export class QuotasClient {
   protected static serviceEndpointTemplate = "https://limits.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": QuotasWaiter;
@@ -642,7 +646,8 @@ export class QuotasClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       QuotasClient.serviceEndpointTemplate,
-      region
+      region,
+      QuotasClient.endpointServiceName
     );
   }
 
@@ -657,7 +662,8 @@ export class QuotasClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       QuotasClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      QuotasClient.endpointServiceName
     );
   }
 

@@ -18,31 +18,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The finding counts data for the SQL Tuning Advisor summary report.
+ * The number of findings in the SQL Tuning Advisor summary report.
  */
 export interface SqlTuningAdvisorTaskSummaryFindingCounts {
   /**
-   * The count of distinct SQL statements with recommended SQL profiles. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of distinct SQL statements with recommended SQL profiles. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "recommendedSqlProfile": number;
   /**
-   * The count of distinct SQL statements with implemented SQL profiles. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of distinct SQL statements with implemented SQL profiles. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "implementedSqlProfile": number;
   /**
-   * The count of distinct SQL statements with index recommendations. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of distinct SQL statements with index recommendations. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "index": number;
   /**
-   * The count of distinct SQL statements with restructure SQL recommendations. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of distinct SQL statements with restructured SQL recommendations. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "restructure": number;
   /**
-   * The count of distinct SQL statements with stale/missing optimizer statistics recommendations. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of distinct SQL statements with stale or missing optimizer statistics recommendations. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "statistics": number;
   /**
-   * The count of distinct SQL statements with alternative plan recommendations. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of distinct SQL statements with alternative plan recommendations. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "alternatePlan": number;
 }

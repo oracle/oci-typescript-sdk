@@ -29,6 +29,7 @@ export enum AccountApiKeys {}
  */
 export class AccountClient {
   protected static serviceEndpointTemplate = "https://marketplace.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -98,7 +99,8 @@ export class AccountClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       AccountClient.serviceEndpointTemplate,
-      region
+      region,
+      AccountClient.endpointServiceName
     );
   }
 
@@ -113,7 +115,8 @@ export class AccountClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       AccountClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      AccountClient.endpointServiceName
     );
   }
 
@@ -249,6 +252,7 @@ export enum MarketplaceApiKeys {}
  */
 export class MarketplaceClient {
   protected static serviceEndpointTemplate = "https://marketplace.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": MarketplaceWaiter;
@@ -319,7 +323,8 @@ export class MarketplaceClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       MarketplaceClient.serviceEndpointTemplate,
-      region
+      region,
+      MarketplaceClient.endpointServiceName
     );
   }
 
@@ -334,7 +339,8 @@ export class MarketplaceClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       MarketplaceClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      MarketplaceClient.endpointServiceName
     );
   }
 

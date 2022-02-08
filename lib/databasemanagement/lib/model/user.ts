@@ -26,7 +26,7 @@ export interface User {
    */
   "name": string;
   /**
-   * The account status of the User
+   * The status of the user account.
    */
   "status": User.Status;
   /**
@@ -34,7 +34,7 @@ export interface User {
    */
   "timeLocked"?: Date;
   /**
-   * The date of expiration of the account
+   * The date and time of the expiration of the user account.
    */
   "timeExpiring"?: Date;
   /**
@@ -46,11 +46,11 @@ export interface User {
    */
   "tempTablespace": string;
   /**
-   * The default local temporary tablespace for the User.
+   * The default local temporary tablespace for the user.
    */
   "localTempTablespace"?: string;
   /**
-   * The User creation date.
+   * The date and time the user was created.
    */
   "timeCreated": Date;
   /**
@@ -62,19 +62,19 @@ export interface User {
    */
   "consumerGroup"?: string;
   /**
-   * The external name of User.
+   * The external name of the user.
    */
   "externalName"?: string;
   /**
-   * The list of versions of the password hashes (also known as \"verifiers\") existing for the account.
+   * The list of existing versions of the password hashes (also known as \"verifiers\") for the account.
    */
   "passwordVersions"?: string;
   /**
-   * Indicates whether editions have been enabled for the corresponding user (Y) or not (N)
+   * Indicates whether editions have been enabled for the corresponding user (Y) or not (N).
    */
   "editionsEnabled"?: User.EditionsEnabled;
   /**
-   * The authentication mechanism for the user
+   * The authentication mechanism for the user.
    */
   "authentication"?: User.Authentication;
   /**
@@ -88,29 +88,29 @@ export interface User {
    */
   "common"?: User.Common;
   /**
-   * The time of the last user login.
+   * The date and time of the last user login.
    * This column is not populated when a user connects to the database with administrative privileges, that is, AS { SYSASM | SYSBACKUP | SYSDBA | SYSDG | SYSOPER | SYSRAC | SYSKM }.
    *
    */
   "timeLastLogin"?: Date;
   /**
-   * Indicates whether the user was created, and is maintained, by Oracle-supplied scripts (such as catalog.sql or catproc.sql).
+   * Indicates whether the user was created and is maintained by Oracle-supplied scripts (such as catalog.sql or catproc.sql).
    */
   "oracleMaintained"?: User.OracleMaintained;
   /**
-   * Indicates whether the user definition was inherited from another container (YES) or not (NO)
+   * Indicates whether the user definition is inherited from another container (YES) or not (NO).
    */
   "inherited"?: User.Inherited;
   /**
-   * The default collation for the user\u2019s schema.
+   * The default collation for the user schema.
    */
   "defaultCollation"?: string;
   /**
-   * Indicates whether this user is a common user created by an implicit application (YES) or not (NO)
+   * Indicates whether the user is a common user created by an implicit application (YES) or not (NO).
    */
   "implicit"?: User.Implicit;
   /**
-   * In a sharded database, the value in this column indicates whether the user was created with shard DDL enabled.
+   * In a sharded database, indicates whether the user is created with shard DDL enabled (YES) or not (NO).
    */
   "allShared"?: User.AllShared;
   /**
@@ -118,7 +118,7 @@ export interface User {
    */
   "externalShared"?: User.ExternalShared;
   /**
-   * The date on which the user's password was last set.
+   * The date and time when the user password was last set.
    * This column is populated only when the value of the AUTHENTICATION_TYPE column is PASSWORD. Otherwise, this column is null.
    *
    */

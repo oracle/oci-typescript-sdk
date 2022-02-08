@@ -32,6 +32,7 @@ export enum KmsCryptoApiKeys {}
  */
 export class KmsCryptoClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -487,6 +488,7 @@ export enum KmsManagementApiKeys {}
  */
 export class KmsManagementClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": KmsManagementWaiter;
@@ -2296,6 +2298,7 @@ export enum KmsVaultApiKeys {}
  */
 export class KmsVaultClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": KmsVaultWaiter;
@@ -2365,7 +2368,8 @@ export class KmsVaultClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       KmsVaultClient.serviceEndpointTemplate,
-      region
+      region,
+      KmsVaultClient.endpointServiceName
     );
   }
 
@@ -2380,7 +2384,8 @@ export class KmsVaultClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       KmsVaultClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      KmsVaultClient.endpointServiceName
     );
   }
 

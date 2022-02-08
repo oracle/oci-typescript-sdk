@@ -18,55 +18,55 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The summary for a SQL Tuning Advisor task.
+ * The summary of a SQL Tuning Advisor task.
  */
 export interface SqlTuningAdvisorTaskSummary {
   /**
-   * Unique identifier of the task. It is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The unique identifier of the SQL Tuning Advisor task. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sqlTuningAdvisorTaskId": number;
   /**
-   * The instance id of the task. It is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The instance ID of the SQL Tuning Advisor task. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "instanceId"?: number;
   /**
-   * The name of the task.
+   * The name of the SQL Tuning Advisor task.
    */
   "name"?: string;
   /**
-   * The description of the task.
+   * The description of the SQL Tuning Advisor task.
    */
   "description"?: string;
   /**
-   * The owner of the task.
+   * The owner of the SQL Tuning Advisor task.
    */
   "owner"?: string;
   /**
-   * Creation date of the task.
+   * The Creation date of the SQL Tuning Advisor task.
    */
   "timeCreated"?: Date;
   /**
-   * The status of the task.
+   * The status of the SQL Tuning Advisor task.
    */
   "taskStatus"?: model.SqlTuningTaskStatusTypes;
   /**
-   * Days to expire the task. If the value equals -1 then the task has no expiration time (UNLIMITED). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of days left before the task expires. If the value equals -1, then the task has no expiration time (UNLIMITED). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "daysToExpire"?: number;
   /**
-   * Start timestamp of task execution.
+   * The start time of the task execution.
    */
   "timeExecutionStarted"?: Date;
   /**
-   * End timestamp of task execution.
+   * The end time of the task execution.
    */
   "timeExecutionEnded"?: Date;
   /**
-   * The total number of SQL statements related to the SQL tuning advisor task. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total number of SQL statements related to the SQL Tuning Advisor task. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalSqlStatements"?: number;
   /**
-   * Number of recommendations produced. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of recommendations provided for the SQL Tuning Advisor task. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "recommendationCount"?: number;
 }

@@ -29,6 +29,7 @@ export enum CloudGuardApiKeys {}
 export class CloudGuardClient {
   protected static serviceEndpointTemplate =
     "https://cloudguard-cp-api.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": CloudGuardWaiter;
@@ -99,7 +100,8 @@ export class CloudGuardClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       CloudGuardClient.serviceEndpointTemplate,
-      region
+      region,
+      CloudGuardClient.endpointServiceName
     );
   }
 
@@ -114,7 +116,8 @@ export class CloudGuardClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       CloudGuardClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      CloudGuardClient.endpointServiceName
     );
   }
 

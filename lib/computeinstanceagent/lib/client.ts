@@ -31,6 +31,7 @@ export enum ComputeInstanceAgentApiKeys {}
  */
 export class ComputeInstanceAgentClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ComputeInstanceAgentWaiter;
@@ -102,7 +103,8 @@ export class ComputeInstanceAgentClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ComputeInstanceAgentClient.serviceEndpointTemplate,
-      region
+      region,
+      ComputeInstanceAgentClient.endpointServiceName
     );
   }
 
@@ -117,7 +119,8 @@ export class ComputeInstanceAgentClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ComputeInstanceAgentClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ComputeInstanceAgentClient.endpointServiceName
     );
   }
 
@@ -689,6 +692,7 @@ export enum PluginApiKeys {}
  */
 export class PluginClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -758,7 +762,8 @@ export class PluginClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       PluginClient.serviceEndpointTemplate,
-      region
+      region,
+      PluginClient.endpointServiceName
     );
   }
 
@@ -773,7 +778,8 @@ export class PluginClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       PluginClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      PluginClient.endpointServiceName
     );
   }
 
@@ -975,6 +981,7 @@ export enum PluginconfigApiKeys {}
  */
 export class PluginconfigClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -1044,7 +1051,8 @@ export class PluginconfigClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       PluginconfigClient.serviceEndpointTemplate,
-      region
+      region,
+      PluginconfigClient.endpointServiceName
     );
   }
 
@@ -1059,7 +1067,8 @@ export class PluginconfigClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       PluginconfigClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      PluginconfigClient.endpointServiceName
     );
   }
 

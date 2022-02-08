@@ -31,6 +31,7 @@ export enum ApmDomainApiKeys {}
  */
 export class ApmDomainClient {
   protected static serviceEndpointTemplate = "https://apm-cp.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ApmDomainWaiter;
@@ -101,7 +102,8 @@ export class ApmDomainClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ApmDomainClient.serviceEndpointTemplate,
-      region
+      region,
+      ApmDomainClient.endpointServiceName
     );
   }
 
@@ -116,7 +118,8 @@ export class ApmDomainClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ApmDomainClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ApmDomainClient.endpointServiceName
     );
   }
 

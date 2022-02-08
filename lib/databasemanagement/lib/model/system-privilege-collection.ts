@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A collection of SystemPrivileges granted to the current User.
+ * A collection of system privileges granted to the current user.
  */
 export interface SystemPrivilegeCollection {
   /**
-   * An array of User resources.
+   * An array of system privileges.
    */
   "items": Array<model.SystemPrivilegeSummary>;
 }

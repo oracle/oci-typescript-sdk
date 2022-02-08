@@ -23,7 +23,7 @@ export interface StartSqlTuningTaskRequest extends common.BaseRequest {
    */
   "managedDatabaseId": string;
   /**
-   * Detail inputs for starting a SQL tuning task
+   * The detailed inputs required to start a SQL tuning task.
    */
   "startSqlTuningTaskDetails": model.StartSqlTuningTaskDetails;
   /**

@@ -29,6 +29,7 @@ export enum StreamApiKeys {}
  */
 export class StreamClient {
   protected static serviceEndpointTemplate = "https://streaming.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -630,6 +631,7 @@ export enum StreamAdminApiKeys {}
  */
 export class StreamAdminClient {
   protected static serviceEndpointTemplate = "https://streaming.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": StreamAdminWaiter;
@@ -700,7 +702,8 @@ export class StreamAdminClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       StreamAdminClient.serviceEndpointTemplate,
-      region
+      region,
+      StreamAdminClient.endpointServiceName
     );
   }
 
@@ -715,7 +718,8 @@ export class StreamAdminClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       StreamAdminClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      StreamAdminClient.endpointServiceName
     );
   }
 

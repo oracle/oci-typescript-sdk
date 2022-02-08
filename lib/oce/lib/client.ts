@@ -29,6 +29,7 @@ export enum OceInstanceApiKeys {}
  */
 export class OceInstanceClient {
   protected static serviceEndpointTemplate = "https://cp.oce.{region}.ocp.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OceInstanceWaiter;
@@ -99,7 +100,8 @@ export class OceInstanceClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       OceInstanceClient.serviceEndpointTemplate,
-      region
+      region,
+      OceInstanceClient.endpointServiceName
     );
   }
 
@@ -114,7 +116,8 @@ export class OceInstanceClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       OceInstanceClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      OceInstanceClient.endpointServiceName
     );
   }
 

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The comparision report of SQL execution plans' statistics between the original plan and modified plan.
+ * The comparison report of the SQL execution plan statistics in the original and modified plan.
  *
  */
 export interface ExecutionPlanStatsComparision {

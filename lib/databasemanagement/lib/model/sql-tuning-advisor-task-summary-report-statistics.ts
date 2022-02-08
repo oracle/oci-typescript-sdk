@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Statistics of statements and findings for the SQL Tuning Advisor summary report.
+ * The statistics of the statements and findings in the SQL Tuning Advisor summary report.
  */
 export interface SqlTuningAdvisorTaskSummaryReportStatistics {
   "statementCounts": model.SqlTuningAdvisorTaskSummaryReportStatementCounts;

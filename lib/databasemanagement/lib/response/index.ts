@@ -14,6 +14,8 @@ running a SQL job on a Managed Database or Managed Database Group.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddDataFilesResponse from "./add-data-files-response";
+export import AddDataFilesResponse = AddDataFilesResponse.AddDataFilesResponse;
 import * as AddManagedDatabaseToManagedDatabaseGroupResponse from "./add-managed-database-to-managed-database-group-response";
 export import AddManagedDatabaseToManagedDatabaseGroupResponse = AddManagedDatabaseToManagedDatabaseGroupResponse.AddManagedDatabaseToManagedDatabaseGroupResponse;
 import * as ChangeDatabaseParametersResponse from "./change-database-parameters-response";
@@ -30,12 +32,16 @@ import * as CreateJobResponse from "./create-job-response";
 export import CreateJobResponse = CreateJobResponse.CreateJobResponse;
 import * as CreateManagedDatabaseGroupResponse from "./create-managed-database-group-response";
 export import CreateManagedDatabaseGroupResponse = CreateManagedDatabaseGroupResponse.CreateManagedDatabaseGroupResponse;
+import * as CreateTablespaceResponse from "./create-tablespace-response";
+export import CreateTablespaceResponse = CreateTablespaceResponse.CreateTablespaceResponse;
 import * as DeleteDbManagementPrivateEndpointResponse from "./delete-db-management-private-endpoint-response";
 export import DeleteDbManagementPrivateEndpointResponse = DeleteDbManagementPrivateEndpointResponse.DeleteDbManagementPrivateEndpointResponse;
 import * as DeleteJobResponse from "./delete-job-response";
 export import DeleteJobResponse = DeleteJobResponse.DeleteJobResponse;
 import * as DeleteManagedDatabaseGroupResponse from "./delete-managed-database-group-response";
 export import DeleteManagedDatabaseGroupResponse = DeleteManagedDatabaseGroupResponse.DeleteManagedDatabaseGroupResponse;
+import * as DropTablespaceResponse from "./drop-tablespace-response";
+export import DropTablespaceResponse = DropTablespaceResponse.DropTablespaceResponse;
 import * as GetAwrDbReportResponse from "./get-awr-db-report-response";
 export import GetAwrDbReportResponse = GetAwrDbReportResponse.GetAwrDbReportResponse;
 import * as GetAwrDbSqlReportResponse from "./get-awr-db-sql-report-response";
@@ -60,10 +66,14 @@ import * as GetManagedDatabaseGroupResponse from "./get-managed-database-group-r
 export import GetManagedDatabaseGroupResponse = GetManagedDatabaseGroupResponse.GetManagedDatabaseGroupResponse;
 import * as GetPdbMetricsResponse from "./get-pdb-metrics-response";
 export import GetPdbMetricsResponse = GetPdbMetricsResponse.GetPdbMetricsResponse;
+import * as GetTablespaceResponse from "./get-tablespace-response";
+export import GetTablespaceResponse = GetTablespaceResponse.GetTablespaceResponse;
 import * as GetUserResponse from "./get-user-response";
 export import GetUserResponse = GetUserResponse.GetUserResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
+import * as ListAsmPropertiesResponse from "./list-asm-properties-response";
+export import ListAsmPropertiesResponse = ListAsmPropertiesResponse.ListAsmPropertiesResponse;
 import * as ListAssociatedDatabasesResponse from "./list-associated-databases-response";
 export import ListAssociatedDatabasesResponse = ListAssociatedDatabasesResponse.ListAssociatedDatabasesResponse;
 import * as ListAwrDbSnapshotsResponse from "./list-awr-db-snapshots-response";
@@ -108,10 +118,14 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as RemoveDataFileResponse from "./remove-data-file-response";
+export import RemoveDataFileResponse = RemoveDataFileResponse.RemoveDataFileResponse;
 import * as RemoveManagedDatabaseFromManagedDatabaseGroupResponse from "./remove-managed-database-from-managed-database-group-response";
 export import RemoveManagedDatabaseFromManagedDatabaseGroupResponse = RemoveManagedDatabaseFromManagedDatabaseGroupResponse.RemoveManagedDatabaseFromManagedDatabaseGroupResponse;
 import * as ResetDatabaseParametersResponse from "./reset-database-parameters-response";
 export import ResetDatabaseParametersResponse = ResetDatabaseParametersResponse.ResetDatabaseParametersResponse;
+import * as ResizeDataFileResponse from "./resize-data-file-response";
+export import ResizeDataFileResponse = ResizeDataFileResponse.ResizeDataFileResponse;
 import * as SummarizeAwrDbCpuUsagesResponse from "./summarize-awr-db-cpu-usages-response";
 export import SummarizeAwrDbCpuUsagesResponse = SummarizeAwrDbCpuUsagesResponse.SummarizeAwrDbCpuUsagesResponse;
 import * as SummarizeAwrDbMetricsResponse from "./summarize-awr-db-metrics-response";
@@ -138,6 +152,8 @@ import * as UpdateJobResponse from "./update-job-response";
 export import UpdateJobResponse = UpdateJobResponse.UpdateJobResponse;
 import * as UpdateManagedDatabaseGroupResponse from "./update-managed-database-group-response";
 export import UpdateManagedDatabaseGroupResponse = UpdateManagedDatabaseGroupResponse.UpdateManagedDatabaseGroupResponse;
+import * as UpdateTablespaceResponse from "./update-tablespace-response";
+export import UpdateTablespaceResponse = UpdateTablespaceResponse.UpdateTablespaceResponse;
 import * as CloneSqlTuningTaskResponse from "./clone-sql-tuning-task-response";
 export import CloneSqlTuningTaskResponse = CloneSqlTuningTaskResponse.CloneSqlTuningTaskResponse;
 import * as DropSqlTuningTaskResponse from "./drop-sql-tuning-task-response";

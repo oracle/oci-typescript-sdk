@@ -37,6 +37,7 @@ export enum DashboardApiKeys {}
  */
 export class DashboardClient {
   protected static serviceEndpointTemplate = "https://dashboard.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DashboardWaiter;
@@ -107,7 +108,8 @@ export class DashboardClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DashboardClient.serviceEndpointTemplate,
-      region
+      region,
+      DashboardClient.endpointServiceName
     );
   }
 
@@ -122,7 +124,8 @@ export class DashboardClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DashboardClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DashboardClient.endpointServiceName
     );
   }
 
@@ -511,6 +514,7 @@ export enum DashboardGroupApiKeys {}
  */
 export class DashboardGroupClient {
   protected static serviceEndpointTemplate = "https://dashboard.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DashboardGroupWaiter;
@@ -581,7 +585,8 @@ export class DashboardGroupClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DashboardGroupClient.serviceEndpointTemplate,
-      region
+      region,
+      DashboardGroupClient.endpointServiceName
     );
   }
 
@@ -596,7 +601,8 @@ export class DashboardGroupClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DashboardGroupClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DashboardGroupClient.endpointServiceName
     );
   }
 
