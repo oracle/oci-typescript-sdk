@@ -40,6 +40,8 @@ import * as CreateNotebookSessionDetails from "./create-notebook-session-details
 export import CreateNotebookSessionDetails = CreateNotebookSessionDetails.CreateNotebookSessionDetails;
 import * as CreateProjectDetails from "./create-project-details";
 export import CreateProjectDetails = CreateProjectDetails.CreateProjectDetails;
+import * as FastLaunchJobConfigSummary from "./fast-launch-job-config-summary";
+export import FastLaunchJobConfigSummary = FastLaunchJobConfigSummary.FastLaunchJobConfigSummary;
 import * as InstanceConfiguration from "./instance-configuration";
 export import InstanceConfiguration = InstanceConfiguration.InstanceConfiguration;
 import * as Job from "./job";

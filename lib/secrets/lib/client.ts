@@ -29,6 +29,7 @@ export enum SecretsApiKeys {}
 export class SecretsClient {
   protected static serviceEndpointTemplate =
     "https://secrets.vaults.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -98,7 +99,8 @@ export class SecretsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       SecretsClient.serviceEndpointTemplate,
-      region
+      region,
+      SecretsClient.endpointServiceName
     );
   }
 
@@ -113,7 +115,8 @@ export class SecretsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       SecretsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      SecretsClient.endpointServiceName
     );
   }
 

@@ -33,6 +33,7 @@ export enum ChannelsApiKeys {}
  */
 export class ChannelsClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ChannelsWaiter;
@@ -103,7 +104,8 @@ export class ChannelsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ChannelsClient.serviceEndpointTemplate,
-      region
+      region,
+      ChannelsClient.endpointServiceName
     );
   }
 
@@ -118,7 +120,8 @@ export class ChannelsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ChannelsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ChannelsClient.endpointServiceName
     );
   }
 
@@ -700,6 +703,7 @@ export enum DbBackupsApiKeys {}
  */
 export class DbBackupsClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DbBackupsWaiter;
@@ -770,7 +774,8 @@ export class DbBackupsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DbBackupsClient.serviceEndpointTemplate,
-      region
+      region,
+      DbBackupsClient.endpointServiceName
     );
   }
 
@@ -785,7 +790,8 @@ export class DbBackupsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DbBackupsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DbBackupsClient.endpointServiceName
     );
   }
 
@@ -1294,6 +1300,7 @@ export enum DbSystemApiKeys {}
  */
 export class DbSystemClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DbSystemWaiter;
@@ -1364,7 +1371,8 @@ export class DbSystemClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DbSystemClient.serviceEndpointTemplate,
-      region
+      region,
+      DbSystemClient.endpointServiceName
     );
   }
 
@@ -1379,7 +1387,8 @@ export class DbSystemClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DbSystemClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DbSystemClient.endpointServiceName
     );
   }
 
@@ -3286,6 +3295,7 @@ export enum MysqlaasApiKeys {}
  */
 export class MysqlaasClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": MysqlaasWaiter;
@@ -3356,7 +3366,8 @@ export class MysqlaasClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       MysqlaasClient.serviceEndpointTemplate,
-      region
+      region,
+      MysqlaasClient.endpointServiceName
     );
   }
 
@@ -3371,7 +3382,8 @@ export class MysqlaasClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       MysqlaasClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      MysqlaasClient.endpointServiceName
     );
   }
 
@@ -3958,6 +3970,7 @@ export enum WorkRequestsApiKeys {}
  */
 export class WorkRequestsClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WorkRequestsWaiter;
@@ -4028,7 +4041,8 @@ export class WorkRequestsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       WorkRequestsClient.serviceEndpointTemplate,
-      region
+      region,
+      WorkRequestsClient.endpointServiceName
     );
   }
 
@@ -4043,7 +4057,8 @@ export class WorkRequestsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       WorkRequestsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      WorkRequestsClient.endpointServiceName
     );
   }
 

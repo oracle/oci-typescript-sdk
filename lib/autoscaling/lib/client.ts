@@ -34,6 +34,7 @@ export enum AutoScalingApiKeys {}
  */
 export class AutoScalingClient {
   protected static serviceEndpointTemplate = "https://autoscaling.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -103,7 +104,8 @@ export class AutoScalingClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       AutoScalingClient.serviceEndpointTemplate,
-      region
+      region,
+      AutoScalingClient.endpointServiceName
     );
   }
 
@@ -118,7 +120,8 @@ export class AutoScalingClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       AutoScalingClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      AutoScalingClient.endpointServiceName
     );
   }
 

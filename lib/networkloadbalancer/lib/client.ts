@@ -29,6 +29,7 @@ export enum NetworkLoadBalancerApiKeys {}
 export class NetworkLoadBalancerClient {
   protected static serviceEndpointTemplate =
     "https://network-load-balancer-api.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": NetworkLoadBalancerWaiter;
@@ -100,7 +101,8 @@ export class NetworkLoadBalancerClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       NetworkLoadBalancerClient.serviceEndpointTemplate,
-      region
+      region,
+      NetworkLoadBalancerClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class NetworkLoadBalancerClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       NetworkLoadBalancerClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      NetworkLoadBalancerClient.endpointServiceName
     );
   }
 

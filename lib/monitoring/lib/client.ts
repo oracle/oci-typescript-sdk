@@ -32,6 +32,7 @@ export enum MonitoringApiKeys {}
  */
 export class MonitoringClient {
   protected static serviceEndpointTemplate = "https://telemetry.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": MonitoringWaiter;
@@ -102,7 +103,8 @@ export class MonitoringClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       MonitoringClient.serviceEndpointTemplate,
-      region
+      region,
+      MonitoringClient.endpointServiceName
     );
   }
 
@@ -117,7 +119,8 @@ export class MonitoringClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       MonitoringClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      MonitoringClient.endpointServiceName
     );
   }
 

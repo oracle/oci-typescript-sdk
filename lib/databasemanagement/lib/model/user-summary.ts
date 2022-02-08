@@ -26,11 +26,11 @@ export interface UserSummary {
    */
   "name": string;
   /**
-   * The account status of the User
+   * The status of the user account.
    */
   "status": UserSummary.Status;
   /**
-   * The date of expiration of the account
+   * The date and time of the expiration of the user account.
    */
   "timeExpiring"?: Date;
   /**
@@ -42,7 +42,7 @@ export interface UserSummary {
    */
   "tempTablespace": string;
   /**
-   * The User creation date.
+   * The date and time the user was created.
    */
   "timeCreated": Date;
   /**

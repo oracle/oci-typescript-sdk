@@ -23,7 +23,7 @@ export interface CloneSqlTuningTaskRequest extends common.BaseRequest {
    */
   "managedDatabaseId": string;
   /**
-   * Detail inputs for cloning a SQL tuning task
+   * The detailed inputs required to clone a SQL tuning task.
    */
   "cloneSqlTuningTaskDetails": model.CloneSqlTuningTaskDetails;
   /**

@@ -30,6 +30,7 @@ export enum DataScienceApiKeys {}
  */
 export class DataScienceClient {
   protected static serviceEndpointTemplate = "https://datascience.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DataScienceWaiter;
@@ -100,7 +101,8 @@ export class DataScienceClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DataScienceClient.serviceEndpointTemplate,
-      region
+      region,
+      DataScienceClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class DataScienceClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DataScienceClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DataScienceClient.endpointServiceName
     );
   }
 
@@ -2967,6 +2970,133 @@ export class DataScienceClient {
   }
 
   /**
+   * List fast launch capable job configs in the specified compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListFastLaunchJobConfigsRequest
+   * @return ListFastLaunchJobConfigsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListFastLaunchJobConfigs.ts.html |here} to see how to use ListFastLaunchJobConfigs API.
+   */
+  public async listFastLaunchJobConfigs(
+    listFastLaunchJobConfigsRequest: requests.ListFastLaunchJobConfigsRequest
+  ): Promise<responses.ListFastLaunchJobConfigsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listFastLaunchJobConfigs.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listFastLaunchJobConfigsRequest.compartmentId,
+      "limit": listFastLaunchJobConfigsRequest.limit,
+      "page": listFastLaunchJobConfigsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listFastLaunchJobConfigsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFastLaunchJobConfigsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fastLaunchJobConfigs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListFastLaunchJobConfigsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.FastLaunchJobConfigSummary,
+        type: "Array<model.FastLaunchJobConfigSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listFastLaunchJobConfigsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.FastLaunchJobConfigSummary objects
+   * contained in responses from the listFastLaunchJobConfigs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllFastLaunchJobConfigs(
+    request: requests.ListFastLaunchJobConfigsRequest
+  ): AsyncIterableIterator<model.FastLaunchJobConfigSummary> {
+    return paginateRecords(request, req => this.listFastLaunchJobConfigs(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listFastLaunchJobConfigsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listFastLaunchJobConfigs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllFastLaunchJobConfigsResponses(
+    request: requests.ListFastLaunchJobConfigsRequest
+  ): AsyncIterableIterator<responses.ListFastLaunchJobConfigsResponse> {
+    return paginateResponses(request, req => this.listFastLaunchJobConfigs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.FastLaunchJobConfigSummary objects
+   * contained in responses from the listFastLaunchJobConfigs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFastLaunchJobConfigsRecordIterator(
+    request: requests.ListFastLaunchJobConfigsRequest
+  ): AsyncIterableIterator<model.FastLaunchJobConfigSummary> {
+    return paginateRecords(request, req => this.listFastLaunchJobConfigs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listFastLaunchJobConfigs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFastLaunchJobConfigsResponseIterator(
+    request: requests.ListFastLaunchJobConfigsRequest
+  ): AsyncIterableIterator<responses.ListFastLaunchJobConfigsResponse> {
+    return paginateResponses(request, req => this.listFastLaunchJobConfigs(req));
+  }
+
+  /**
    * List out job runs.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListJobRunsRequest
@@ -4619,7 +4749,7 @@ export class DataScienceClient {
 
   /**
    * Updates the properties of a model deployment. Some of the properties of `modelDeploymentConfigurationDetails` or `CategoryLogDetails` can also be updated with zero down time
-   * when the model deployment\u2019s lifecycle state is ACTIVE or NEEDS_ATTENTION i.e `instanceShapeName`, `instanceCount` and `modelId`, separately `loadBalancerShape` or `CategoryLogDetails`
+   * when the model deployment's lifecycle state is ACTIVE or NEEDS_ATTENTION i.e `instanceShapeName`, `instanceCount` and `modelId`, separately `loadBalancerShape` or `CategoryLogDetails`
    * can also be updated independently. All of the fields can be updated when the deployment is in the INACTIVE lifecycle state. Changes will take effect the next time the model
    * deployment is activated.
    *

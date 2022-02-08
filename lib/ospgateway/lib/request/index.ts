@@ -1,6 +1,6 @@
 /**
- * Billing Center Gateway API
- * This site describes all the Rest endpoints of Billing Center Gateway.
+ * OSP Gateway API
+ * This site describes all the Rest endpoints of OSP Gateway.
  * OpenAPI spec version: 20191001
  * Contact: osp_team_oci_cam_ww_grp@oracle.com
  *
@@ -21,3 +21,13 @@ import * as ListInvoicesRequest from "./list-invoices-request";
 export import ListInvoicesRequest = ListInvoicesRequest.ListInvoicesRequest;
 import * as PayInvoiceRequest from "./pay-invoice-request";
 export import PayInvoiceRequest = PayInvoiceRequest.PayInvoiceRequest;
+import * as AuthorizeSubscriptionPaymentRequest from "./authorize-subscription-payment-request";
+export import AuthorizeSubscriptionPaymentRequest = AuthorizeSubscriptionPaymentRequest.AuthorizeSubscriptionPaymentRequest;
+import * as GetSubscriptionRequest from "./get-subscription-request";
+export import GetSubscriptionRequest = GetSubscriptionRequest.GetSubscriptionRequest;
+import * as ListSubscriptionsRequest from "./list-subscriptions-request";
+export import ListSubscriptionsRequest = ListSubscriptionsRequest.ListSubscriptionsRequest;
+import * as PaySubscriptionRequest from "./pay-subscription-request";
+export import PaySubscriptionRequest = PaySubscriptionRequest.PaySubscriptionRequest;
+import * as UpdateSubscriptionRequest from "./update-subscription-request";
+export import UpdateSubscriptionRequest = UpdateSubscriptionRequest.UpdateSubscriptionRequest;

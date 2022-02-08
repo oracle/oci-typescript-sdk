@@ -29,6 +29,7 @@ export enum ServiceCatalogApiKeys {}
 export class ServiceCatalogClient {
   protected static serviceEndpointTemplate =
     "https://service-catalog.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ServiceCatalogWaiter;
@@ -99,7 +100,8 @@ export class ServiceCatalogClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ServiceCatalogClient.serviceEndpointTemplate,
-      region
+      region,
+      ServiceCatalogClient.endpointServiceName
     );
   }
 
@@ -114,7 +116,8 @@ export class ServiceCatalogClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ServiceCatalogClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ServiceCatalogClient.endpointServiceName
     );
   }
 

@@ -28,6 +28,7 @@ export enum AnnouncementApiKeys {}
  */
 export class AnnouncementClient {
   protected static serviceEndpointTemplate = "https://announcements.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -97,7 +98,8 @@ export class AnnouncementClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       AnnouncementClient.serviceEndpointTemplate,
-      region
+      region,
+      AnnouncementClient.endpointServiceName
     );
   }
 
@@ -112,7 +114,8 @@ export class AnnouncementClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       AnnouncementClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      AnnouncementClient.endpointServiceName
     );
   }
 
@@ -397,6 +400,7 @@ export enum AnnouncementsPreferencesApiKeys {}
  */
 export class AnnouncementsPreferencesClient {
   protected static serviceEndpointTemplate = "https://announcements.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -467,7 +471,8 @@ export class AnnouncementsPreferencesClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       AnnouncementsPreferencesClient.serviceEndpointTemplate,
-      region
+      region,
+      AnnouncementsPreferencesClient.endpointServiceName
     );
   }
 
@@ -482,7 +487,8 @@ export class AnnouncementsPreferencesClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       AnnouncementsPreferencesClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      AnnouncementsPreferencesClient.endpointServiceName
     );
   }
 

@@ -29,6 +29,7 @@ export enum IntegrationInstanceApiKeys {}
  */
 export class IntegrationInstanceClient {
   protected static serviceEndpointTemplate = "https://integration.{region}.ocp.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": IntegrationInstanceWaiter;
@@ -100,7 +101,8 @@ export class IntegrationInstanceClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       IntegrationInstanceClient.serviceEndpointTemplate,
-      region
+      region,
+      IntegrationInstanceClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class IntegrationInstanceClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       IntegrationInstanceClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      IntegrationInstanceClient.endpointServiceName
     );
   }
 

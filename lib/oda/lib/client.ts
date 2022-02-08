@@ -30,6 +30,7 @@ export enum OdaApiKeys {}
 export class OdaClient {
   protected static serviceEndpointTemplate =
     "https://digitalassistant-api.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OdaWaiter;
@@ -100,7 +101,8 @@ export class OdaClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       OdaClient.serviceEndpointTemplate,
-      region
+      region,
+      OdaClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class OdaClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       OdaClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      OdaClient.endpointServiceName
     );
   }
 

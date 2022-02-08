@@ -29,6 +29,7 @@ export enum VaultsApiKeys {}
  */
 export class VaultsClient {
   protected static serviceEndpointTemplate = "https://vaults.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": VaultsWaiter;
@@ -99,7 +100,8 @@ export class VaultsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       VaultsClient.serviceEndpointTemplate,
-      region
+      region,
+      VaultsClient.endpointServiceName
     );
   }
 
@@ -114,7 +116,8 @@ export class VaultsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       VaultsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      VaultsClient.endpointServiceName
     );
   }
 

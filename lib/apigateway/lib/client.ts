@@ -34,6 +34,7 @@ export enum ApiGatewayApiKeys {}
  */
 export class ApiGatewayClient {
   protected static serviceEndpointTemplate = "https://apigateway.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ApiGatewayWaiter;
@@ -104,7 +105,8 @@ export class ApiGatewayClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ApiGatewayClient.serviceEndpointTemplate,
-      region
+      region,
+      ApiGatewayClient.endpointServiceName
     );
   }
 
@@ -119,7 +121,8 @@ export class ApiGatewayClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ApiGatewayClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ApiGatewayClient.endpointServiceName
     );
   }
 
@@ -1649,6 +1652,7 @@ export enum DeploymentApiKeys {}
  */
 export class DeploymentClient {
   protected static serviceEndpointTemplate = "https://apigateway.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DeploymentWaiter;
@@ -1719,7 +1723,8 @@ export class DeploymentClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DeploymentClient.serviceEndpointTemplate,
-      region
+      region,
+      DeploymentClient.endpointServiceName
     );
   }
 
@@ -1734,7 +1739,8 @@ export class DeploymentClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DeploymentClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DeploymentClient.endpointServiceName
     );
   }
 
@@ -2200,6 +2206,7 @@ export enum GatewayApiKeys {}
  */
 export class GatewayClient {
   protected static serviceEndpointTemplate = "https://apigateway.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": GatewayWaiter;
@@ -2270,7 +2277,8 @@ export class GatewayClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       GatewayClient.serviceEndpointTemplate,
-      region
+      region,
+      GatewayClient.endpointServiceName
     );
   }
 
@@ -2285,7 +2293,8 @@ export class GatewayClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       GatewayClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      GatewayClient.endpointServiceName
     );
   }
 
@@ -2750,6 +2759,7 @@ export enum WorkRequestsApiKeys {}
  */
 export class WorkRequestsClient {
   protected static serviceEndpointTemplate = "https://apigateway.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WorkRequestsWaiter;
@@ -2820,7 +2830,8 @@ export class WorkRequestsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       WorkRequestsClient.serviceEndpointTemplate,
-      region
+      region,
+      WorkRequestsClient.endpointServiceName
     );
   }
 
@@ -2835,7 +2846,8 @@ export class WorkRequestsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       WorkRequestsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      WorkRequestsClient.endpointServiceName
     );
   }
 

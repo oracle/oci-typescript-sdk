@@ -35,6 +35,7 @@ export enum ApplianceExportJobApiKeys {}
 export class ApplianceExportJobClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ApplianceExportJobWaiter;
@@ -105,7 +106,8 @@ export class ApplianceExportJobClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ApplianceExportJobClient.serviceEndpointTemplate,
-      region
+      region,
+      ApplianceExportJobClient.endpointServiceName
     );
   }
 
@@ -120,7 +122,8 @@ export class ApplianceExportJobClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ApplianceExportJobClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ApplianceExportJobClient.endpointServiceName
     );
   }
 
@@ -620,6 +623,7 @@ export enum ShippingVendorsApiKeys {}
 export class ShippingVendorsClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -689,7 +693,8 @@ export class ShippingVendorsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ShippingVendorsClient.serviceEndpointTemplate,
-      region
+      region,
+      ShippingVendorsClient.endpointServiceName
     );
   }
 
@@ -704,7 +709,8 @@ export class ShippingVendorsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ShippingVendorsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ShippingVendorsClient.endpointServiceName
     );
   }
 
@@ -775,6 +781,7 @@ export enum TransferApplianceApiKeys {}
 export class TransferApplianceClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": TransferApplianceWaiter;
@@ -845,7 +852,8 @@ export class TransferApplianceClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       TransferApplianceClient.serviceEndpointTemplate,
-      region
+      region,
+      TransferApplianceClient.endpointServiceName
     );
   }
 
@@ -860,7 +868,8 @@ export class TransferApplianceClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       TransferApplianceClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      TransferApplianceClient.endpointServiceName
     );
   }
 
@@ -1451,6 +1460,7 @@ export enum TransferApplianceEntitlementApiKeys {}
 export class TransferApplianceEntitlementClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": TransferApplianceEntitlementWaiter;
@@ -1522,7 +1532,8 @@ export class TransferApplianceEntitlementClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       TransferApplianceEntitlementClient.serviceEndpointTemplate,
-      region
+      region,
+      TransferApplianceEntitlementClient.endpointServiceName
     );
   }
 
@@ -1537,7 +1548,8 @@ export class TransferApplianceEntitlementClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       TransferApplianceEntitlementClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      TransferApplianceEntitlementClient.endpointServiceName
     );
   }
 
@@ -1778,6 +1790,7 @@ export enum TransferDeviceApiKeys {}
 export class TransferDeviceClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": TransferDeviceWaiter;
@@ -1848,7 +1861,8 @@ export class TransferDeviceClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       TransferDeviceClient.serviceEndpointTemplate,
-      region
+      region,
+      TransferDeviceClient.endpointServiceName
     );
   }
 
@@ -1863,7 +1877,8 @@ export class TransferDeviceClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       TransferDeviceClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      TransferDeviceClient.endpointServiceName
     );
   }
 
@@ -2235,6 +2250,7 @@ export enum TransferJobApiKeys {}
 export class TransferJobClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": TransferJobWaiter;
@@ -2305,7 +2321,8 @@ export class TransferJobClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       TransferJobClient.serviceEndpointTemplate,
-      region
+      region,
+      TransferJobClient.endpointServiceName
     );
   }
 
@@ -2320,7 +2337,8 @@ export class TransferJobClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       TransferJobClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      TransferJobClient.endpointServiceName
     );
   }
 
@@ -2817,6 +2835,7 @@ export enum TransferPackageApiKeys {}
 export class TransferPackageClient {
   protected static serviceEndpointTemplate =
     "https://datatransfer.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": TransferPackageWaiter;
@@ -2887,7 +2906,8 @@ export class TransferPackageClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       TransferPackageClient.serviceEndpointTemplate,
-      region
+      region,
+      TransferPackageClient.endpointServiceName
     );
   }
 
@@ -2902,7 +2922,8 @@ export class TransferPackageClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       TransferPackageClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      TransferPackageClient.endpointServiceName
     );
   }
 

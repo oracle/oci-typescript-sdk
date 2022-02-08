@@ -32,6 +32,7 @@ export enum EsxiHostApiKeys {}
  */
 export class EsxiHostClient {
   protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": EsxiHostWaiter;
@@ -102,7 +103,8 @@ export class EsxiHostClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       EsxiHostClient.serviceEndpointTemplate,
-      region
+      region,
+      EsxiHostClient.endpointServiceName
     );
   }
 
@@ -117,7 +119,8 @@ export class EsxiHostClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       EsxiHostClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      EsxiHostClient.endpointServiceName
     );
   }
 
@@ -524,6 +527,7 @@ export enum SddcApiKeys {}
  */
 export class SddcClient {
   protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": SddcWaiter;
@@ -594,7 +598,8 @@ export class SddcClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       SddcClient.serviceEndpointTemplate,
-      region
+      region,
+      SddcClient.endpointServiceName
     );
   }
 
@@ -609,7 +614,8 @@ export class SddcClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       SddcClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      SddcClient.endpointServiceName
     );
   }
 
@@ -1488,6 +1494,7 @@ export enum WorkRequestApiKeys {}
  */
 export class WorkRequestClient {
   protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WorkRequestWaiter;
@@ -1558,7 +1565,8 @@ export class WorkRequestClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       WorkRequestClient.serviceEndpointTemplate,
-      region
+      region,
+      WorkRequestClient.endpointServiceName
     );
   }
 
@@ -1573,7 +1581,8 @@ export class WorkRequestClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       WorkRequestClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      WorkRequestClient.endpointServiceName
     );
   }
 

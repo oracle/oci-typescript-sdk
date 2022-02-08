@@ -31,6 +31,7 @@ export enum BdsApiKeys {}
 export class BdsClient {
   protected static serviceEndpointTemplate =
     "https://bigdataservice.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": BdsWaiter;
@@ -101,7 +102,8 @@ export class BdsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       BdsClient.serviceEndpointTemplate,
-      region
+      region,
+      BdsClient.endpointServiceName
     );
   }
 
@@ -116,7 +118,8 @@ export class BdsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       BdsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      BdsClient.endpointServiceName
     );
   }
 

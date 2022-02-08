@@ -37,6 +37,7 @@ export enum ObjectStorageApiKeys {}
  */
 export class ObjectStorageClient {
   protected static serviceEndpointTemplate = "https://objectstorage.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ObjectStorageWaiter;
@@ -106,7 +107,8 @@ export class ObjectStorageClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ObjectStorageClient.serviceEndpointTemplate,
-      region
+      region,
+      ObjectStorageClient.endpointServiceName
     );
   }
 
@@ -121,7 +123,8 @@ export class ObjectStorageClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ObjectStorageClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ObjectStorageClient.endpointServiceName
     );
   }
 

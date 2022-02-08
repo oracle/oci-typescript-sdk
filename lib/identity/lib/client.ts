@@ -29,6 +29,7 @@ export enum IdentityApiKeys {}
  */
 export class IdentityClient {
   protected static serviceEndpointTemplate = "https://identity.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": IdentityWaiter;
@@ -99,7 +100,8 @@ export class IdentityClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       IdentityClient.serviceEndpointTemplate,
-      region
+      region,
+      IdentityClient.endpointServiceName
     );
   }
 
@@ -114,7 +116,8 @@ export class IdentityClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       IdentityClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      IdentityClient.endpointServiceName
     );
   }
 

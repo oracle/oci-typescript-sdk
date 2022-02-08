@@ -33,6 +33,7 @@ export enum ContainerEngineApiKeys {}
 export class ContainerEngineClient {
   protected static serviceEndpointTemplate =
     "https://containerengine.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ContainerEngineWaiter;
@@ -103,7 +104,8 @@ export class ContainerEngineClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ContainerEngineClient.serviceEndpointTemplate,
-      region
+      region,
+      ContainerEngineClient.endpointServiceName
     );
   }
 
@@ -118,7 +120,8 @@ export class ContainerEngineClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ContainerEngineClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ContainerEngineClient.endpointServiceName
     );
   }
 

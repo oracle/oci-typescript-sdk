@@ -18,51 +18,51 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A step of a SQL execution plan.
+ * A step in the SQL execution plan.
  */
 export interface SqlTuningTaskSqlExecutionPlanStep {
   /**
-   * Numerical representation of the execution plan Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The numerical representation of the SQL execution plan. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "planHashValue"?: number;
   /**
-   * Identification number for this step in the execution plan. It is unique within the execution plan.
-   * It is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The identification number of a step in the SQL execution plan. This is unique within the SQL execution plan.
+   * This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "stepId"?: number;
   /**
-   * ID of the next step that operates on the results of this step.
-   * It is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The ID of the next step that operates on the results of this step.
+   * This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parentStepId"?: number;
   /**
-   * Order of processing for steps with the same parent ID. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The order of processing for steps with the same parent ID. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "position"?: number;
   /**
-   * Name of the operation performed at this step
+   * The name of the operation performed at this step.
    */
   "operation"?: string;
   /**
-   * Options used for the operation performed at this step.
+   * The options used for the operation performed at this step.
    */
   "options"?: string;
   /**
-   * Current mode of the optimizer, such as all_rows, first_rows_n (where n = 1, 10, 100, 1000 etc).
+   * The current mode of the optimizer, such as all_rows, first_rows_n (where n = 1, 10, 100, 1000, and so on).
    */
   "optimizerMode"?: string;
   /**
-   * Cost of the current operation estimated by the cost-based optimizer (CBO). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The cost of the current operation estimated by the cost-based optimizer (CBO). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cost"?: number;
   /**
-   * Number of rows returned by the current operation (estimated by the CBO). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of rows returned by the current operation (estimated by the CBO). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cardinality"?: number;
   /**
-   * Number of bytes returned by the current operation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of bytes returned by the current operation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "bytes"?: number;
   /**
@@ -74,58 +74,58 @@ export interface SqlTuningTaskSqlExecutionPlanStep {
    */
   "ioCost"?: number;
   /**
-   * Temporary space usage (in bytes) of the operation (sort or hash-join) as estimated by the CBO. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The temporary space usage (in bytes) of the operation (sort or hash-join) as estimated by the CBO. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "tempSpace"?: number;
   /**
-   * Elapsed time (in seconds) of the operation as estimated by the CBO. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The elapsed time (in seconds) of the operation as estimated by the CBO. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "time"?: number;
   /**
-   * Name of the database link used to reference the object.
+   * The name of the database link used to reference the object.
    */
   "objectNode"?: string;
   /**
-   * Owner of the object.
+   * The owner of the object.
    */
   "objectOwner"?: string;
   /**
-   * Name of the object.
+   * The name of the object.
    */
   "objectName"?: string;
   /**
-   * Numbered position of the object name in the original SQL statement. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The numbered position of the object name in the original SQL statement. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectPosition"?: number;
   /**
-   * Descriptive modifier that further describes the type of object.
+   * The descriptive modifier that further describes the type of object.
    */
   "objectType"?: string;
   /**
-   * A step may get data from a range of partitions of a partitioned object, such table or index,
+   * A step may get data from a range of partitions of a partitioned object, such as table or index,
    * based on predicates and sorting order. The partionStart is the starting partition of the range.
-   * The partitionStop is the ending partition of the range
+   * The partitionStop is the ending partition of the range.
    *
    */
   "partitionStart"?: string;
   /**
-   * A step may get data from a range of partitions of a partitioned object, such table or index,
+   * A step may get data from a range of partitions of a partitioned object, such as table or index,
    * based on predicates and sorting order. The partionStart is the starting partition of the range.
-   * The partitionStop is the ending partition of the range
+   * The partitionStop is the ending partition of the range.
    *
    */
   "partitionStop"?: string;
   /**
-   * The id of the step in the execution plan that has computed the pair of values of the partitionStart and partitionStop
+   * The ID of the step in the execution plan that has computed the pair of values of partitionStart and partitionStop.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "partitionId"?: number;
   /**
-   * Place for comments that can be added to the steps of the execution plan.
+   * The place for comments that can be added to the steps of the execution plan.
    */
   "remarks"?: string;
   /**
-   * Number of index columns with start and stop keys (that is, the number of columns with matching predicates)
+   * Number of index columns with start and stop keys (that is, the number of columns with matching predicates).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "numberOfSearchColumn"?: number;
@@ -138,17 +138,17 @@ export interface SqlTuningTaskSqlExecutionPlanStep {
    */
   "otherTag"?: string;
   /**
-   * Text string identifying the type of the execution plan.
+   * The text string identifying the type of execution plan.
    */
   "attribute"?: string;
   /**
-   * Predicates used to locate rows in an access structure. For example,
+   * The predicates used to locate rows in an access structure. For example,
    * start or stop predicates for an index range scan.
    *
    */
   "accessPredicates"?: string;
   /**
-   * Predicates used to filter rows before producing them.
+   * The predicates used to filter rows before producing them.
    */
   "filterPredicates"?: string;
 }

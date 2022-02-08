@@ -28,6 +28,7 @@ export enum BlockchainPlatformApiKeys {}
  */
 export class BlockchainPlatformClient {
   protected static serviceEndpointTemplate = "https://blockchain.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": BlockchainPlatformWaiter;
@@ -98,7 +99,8 @@ export class BlockchainPlatformClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       BlockchainPlatformClient.serviceEndpointTemplate,
-      region
+      region,
+      BlockchainPlatformClient.endpointServiceName
     );
   }
 
@@ -113,7 +115,8 @@ export class BlockchainPlatformClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       BlockchainPlatformClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      BlockchainPlatformClient.endpointServiceName
     );
   }
 

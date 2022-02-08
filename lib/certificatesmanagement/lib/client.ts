@@ -29,6 +29,7 @@ export enum CertificatesManagementApiKeys {}
 export class CertificatesManagementClient {
   protected static serviceEndpointTemplate =
     "https://certificatesmanagement.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": CertificatesManagementWaiter;
@@ -100,7 +101,8 @@ export class CertificatesManagementClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       CertificatesManagementClient.serviceEndpointTemplate,
-      region
+      region,
+      CertificatesManagementClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class CertificatesManagementClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       CertificatesManagementClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      CertificatesManagementClient.endpointServiceName
     );
   }
 

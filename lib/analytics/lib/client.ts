@@ -30,6 +30,7 @@ export enum AnalyticsApiKeys {}
  */
 export class AnalyticsClient {
   protected static serviceEndpointTemplate = "https://analytics.{region}.ocp.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": AnalyticsWaiter;
@@ -100,7 +101,8 @@ export class AnalyticsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       AnalyticsClient.serviceEndpointTemplate,
-      region
+      region,
+      AnalyticsClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class AnalyticsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       AnalyticsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      AnalyticsClient.endpointServiceName
     );
   }
 

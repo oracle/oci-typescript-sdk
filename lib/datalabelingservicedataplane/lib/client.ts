@@ -29,6 +29,7 @@ export enum DataLabelingApiKeys {}
 export class DataLabelingClient {
   protected static serviceEndpointTemplate =
     "https://datalabeling-dp.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DataLabelingWaiter;
@@ -99,7 +100,8 @@ export class DataLabelingClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DataLabelingClient.serviceEndpointTemplate,
-      region
+      region,
+      DataLabelingClient.endpointServiceName
     );
   }
 
@@ -114,7 +116,8 @@ export class DataLabelingClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DataLabelingClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DataLabelingClient.endpointServiceName
     );
   }
 

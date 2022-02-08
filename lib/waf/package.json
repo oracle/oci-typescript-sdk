@@ -1,6 +1,6 @@
 {
   "name": "oci-waf",
-  "version": "2.12.1",
+  "version": "2.13.0",
   "description": "OCI NodeJS client for Waf Service",
   "repository": {
     "type": "git",

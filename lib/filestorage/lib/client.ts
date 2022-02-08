@@ -30,6 +30,7 @@ export enum FileStorageApiKeys {}
  */
 export class FileStorageClient {
   protected static serviceEndpointTemplate = "https://filestorage.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": FileStorageWaiter;
@@ -100,7 +101,8 @@ export class FileStorageClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       FileStorageClient.serviceEndpointTemplate,
-      region
+      region,
+      FileStorageClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class FileStorageClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       FileStorageClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      FileStorageClient.endpointServiceName
     );
   }
 

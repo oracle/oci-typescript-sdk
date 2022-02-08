@@ -30,6 +30,7 @@ export enum LogAnalyticsApiKeys {}
 export class LogAnalyticsClient {
   protected static serviceEndpointTemplate =
     "https://loganalytics.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": LogAnalyticsWaiter;
@@ -100,7 +101,8 @@ export class LogAnalyticsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       LogAnalyticsClient.serviceEndpointTemplate,
-      region
+      region,
+      LogAnalyticsClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class LogAnalyticsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       LogAnalyticsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      LogAnalyticsClient.endpointServiceName
     );
   }
 

@@ -1,6 +1,6 @@
 /**
- * Billing Center Gateway API
- * This site describes all the Rest endpoints of Billing Center Gateway.
+ * OSP Gateway API
+ * This site describes all the Rest endpoints of OSP Gateway.
  * OpenAPI spec version: 20191001
  * Contact: osp_team_oci_cam_ww_grp@oracle.com
  *
@@ -17,7 +17,7 @@ import common = require("oci-common");
 /**
  * Address details model
  */
-export interface Address {
+export interface BillToAddress {
   /**
    * Name of the contact person
    */
@@ -73,8 +73,8 @@ export interface Address {
   "province"?: string;
 }
 
-export namespace Address {
-  export function getJsonObj(obj: Address): object {
+export namespace BillToAddress {
+  export function getJsonObj(obj: BillToAddress): object {
     const jsonObj = {
       ...obj,
       ...{
@@ -84,7 +84,7 @@ export namespace Address {
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: Address): object {
+  export function getDeserializedJsonObj(obj: BillToAddress): object {
     const jsonObj = {
       ...obj,
       ...{

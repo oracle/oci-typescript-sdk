@@ -94,6 +94,8 @@ import * as HeadJobArtifactRequest from "./head-job-artifact-request";
 export import HeadJobArtifactRequest = HeadJobArtifactRequest.HeadJobArtifactRequest;
 import * as HeadModelArtifactRequest from "./head-model-artifact-request";
 export import HeadModelArtifactRequest = HeadModelArtifactRequest.HeadModelArtifactRequest;
+import * as ListFastLaunchJobConfigsRequest from "./list-fast-launch-job-configs-request";
+export import ListFastLaunchJobConfigsRequest = ListFastLaunchJobConfigsRequest.ListFastLaunchJobConfigsRequest;
 import * as ListJobRunsRequest from "./list-job-runs-request";
 export import ListJobRunsRequest = ListJobRunsRequest.ListJobRunsRequest;
 import * as ListJobShapesRequest from "./list-job-shapes-request";

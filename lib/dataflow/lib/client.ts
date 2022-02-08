@@ -30,6 +30,7 @@ export enum DataFlowApiKeys {}
  */
 export class DataFlowClient {
   protected static serviceEndpointTemplate = "https://dataflow.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DataFlowWaiter;
@@ -100,7 +101,8 @@ export class DataFlowClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DataFlowClient.serviceEndpointTemplate,
-      region
+      region,
+      DataFlowClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class DataFlowClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DataFlowClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DataFlowClient.endpointServiceName
     );
   }
 

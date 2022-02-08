@@ -28,6 +28,7 @@ export enum DevopsApiKeys {}
  */
 export class DevopsClient {
   protected static serviceEndpointTemplate = "https://devops.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DevopsWaiter;
@@ -98,7 +99,8 @@ export class DevopsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DevopsClient.serviceEndpointTemplate,
-      region
+      region,
+      DevopsClient.endpointServiceName
     );
   }
 
@@ -113,7 +115,8 @@ export class DevopsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DevopsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DevopsClient.endpointServiceName
     );
   }
 

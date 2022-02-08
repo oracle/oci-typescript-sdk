@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The status types of a SQL tuning advisor task.
+ * The status types of a SQL Tuning Advisor task.
  **/
 export enum SqlTuningTaskStatusTypes {
   Completed = "COMPLETED",

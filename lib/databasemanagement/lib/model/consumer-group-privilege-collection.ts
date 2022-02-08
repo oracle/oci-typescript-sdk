@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A collection of ConsumerGroupPrivileges granted to the current User.
+ * A collection of consumer group privileges granted to the current user.
  */
 export interface ConsumerGroupPrivilegeCollection {
   /**
-   * An array of User resources.
+   * An array of consumer group privileges.
    */
   "items": Array<model.ConsumerGroupPrivilegeSummary>;
 }

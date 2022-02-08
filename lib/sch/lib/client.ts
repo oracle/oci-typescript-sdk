@@ -32,6 +32,7 @@ export enum ServiceConnectorApiKeys {}
 export class ServiceConnectorClient {
   protected static serviceEndpointTemplate =
     "https://service-connector-hub.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ServiceConnectorWaiter;
@@ -102,7 +103,8 @@ export class ServiceConnectorClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ServiceConnectorClient.serviceEndpointTemplate,
-      region
+      region,
+      ServiceConnectorClient.endpointServiceName
     );
   }
 
@@ -117,7 +119,8 @@ export class ServiceConnectorClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ServiceConnectorClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ServiceConnectorClient.endpointServiceName
     );
   }
 

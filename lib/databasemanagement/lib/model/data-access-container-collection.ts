@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A collection of Containers if it does not apply to all containers for the current User.
+ * A collection of specific containers for the current user. This is only applicable if ALL_CONTAINERS !='Y'.
  */
 export interface DataAccessContainerCollection {
   /**
-   * An array of Container resources.
+   * An array of container resources.
    */
   "items": Array<model.DataAccessContainerSummary>;
 }

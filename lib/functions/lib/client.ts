@@ -30,6 +30,7 @@ export enum FunctionsInvokeApiKeys {}
  */
 export class FunctionsInvokeClient {
   protected static serviceEndpointTemplate = "https://functions.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -152,6 +153,7 @@ export enum FunctionsManagementApiKeys {}
  */
 export class FunctionsManagementClient {
   protected static serviceEndpointTemplate = "https://functions.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": FunctionsManagementWaiter;
@@ -223,7 +225,8 @@ export class FunctionsManagementClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       FunctionsManagementClient.serviceEndpointTemplate,
-      region
+      region,
+      FunctionsManagementClient.endpointServiceName
     );
   }
 
@@ -238,7 +241,8 @@ export class FunctionsManagementClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       FunctionsManagementClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      FunctionsManagementClient.endpointServiceName
     );
   }
 

@@ -31,6 +31,7 @@ export enum DatabaseApiKeys {}
  */
 export class DatabaseClient {
   protected static serviceEndpointTemplate = "https://database.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DatabaseWaiter;
@@ -101,7 +102,8 @@ export class DatabaseClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DatabaseClient.serviceEndpointTemplate,
-      region
+      region,
+      DatabaseClient.endpointServiceName
     );
   }
 
@@ -116,7 +118,8 @@ export class DatabaseClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DatabaseClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DatabaseClient.endpointServiceName
     );
   }
 

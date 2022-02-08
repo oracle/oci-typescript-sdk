@@ -27,7 +27,7 @@ export interface GetSqlExecutionPlanRequest extends common.BaseRequest {
    */
   "sqlTuningAdvisorTaskId": number;
   /**
-   * The SQL object id for the SQL tuning task. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The SQL object ID for the SQL tuning task. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */
   "sqlObjectId": number;
   /**

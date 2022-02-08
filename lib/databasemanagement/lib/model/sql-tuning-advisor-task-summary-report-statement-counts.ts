@@ -18,23 +18,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The statement counts data for the SQL Tuning Advisor summary report.
+ * The number of statements in the SQL Tuning Advisor summary report.
  */
 export interface SqlTuningAdvisorTaskSummaryReportStatementCounts {
   /**
-   * The count of distinct SQL statements. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of distinct SQL statements. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "distinctSql": number;
   /**
-   * The total count of SQL statements. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total number of SQL statements. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalSql": number;
   /**
-   * The count of distinct SQL statements with findings. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of distinct SQL statements with findings. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "findingCount": number;
   /**
-   * The count of distinct SQL statements with errors. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of distinct SQL statements with errors. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "errorCount": number;
 }

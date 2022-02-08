@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface SqlTuningAdvisorTaskSqlExecutionPlan {
   /**
-   * A SQL execution plan as a list of steps
+   * A SQL execution plan as a list of steps.
    */
   "plan": Array<model.SqlTuningTaskSqlExecutionPlanStep>;
 }

@@ -19,12 +19,13 @@ import common = require("oci-common");
  */
 export interface DeleteConfigRequest extends common.BaseRequest {
   /**
-   * The APM Domain Id the request is intended for.
+   * The APM Domain ID the request is intended for.
    *
    */
   "apmDomainId": string;
   /**
-   * The OCID of the ConfiguredItem.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the configuration item.
+   *
    */
   "configId": string;
   /**

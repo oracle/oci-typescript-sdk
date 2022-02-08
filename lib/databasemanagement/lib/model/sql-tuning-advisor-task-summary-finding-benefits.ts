@@ -18,25 +18,25 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The finding benefits data for the SQL Tuning Advisor summary report.
+ * The benefits of the findings in the SQL Tuning Advisor summary report.
  */
 export interface SqlTuningAdvisorTaskSummaryFindingBenefits {
   /**
-   * The count of Potential database time before SQL recommendations are implemented. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The actual database time of the SQL statements for which SQL Tuning Advisor recommendations are not implemented. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dbTimeBeforeRecommended": number;
   /**
-   * The count of Potential database time after SQL recommendations are implemented. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The estimated database time of the above SQL statements, if SQL Tuning Advisor recommendations are implemented. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dbTimeAfterRecommended": number;
   /**
-   * The count of database time benefit before SQL recommendations are implemented. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "dbTimeBeforeImplemented": number;
-  /**
-   * The count of database time benefit after SQL recommendations are implemented. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The actual database time of the SQL statements for which SQL Tuning Advisor recommendations are implemented. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dbTimeAfterImplemented": number;
+  /**
+   * The actual database time of the above SQL statements, before SQL Tuning Advisor recommendations are implemented. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dbTimeBeforeImplemented": number;
 }
 
 export namespace SqlTuningAdvisorTaskSummaryFindingBenefits {

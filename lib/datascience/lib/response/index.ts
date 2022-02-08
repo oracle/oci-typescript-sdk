@@ -94,6 +94,8 @@ import * as HeadJobArtifactResponse from "./head-job-artifact-response";
 export import HeadJobArtifactResponse = HeadJobArtifactResponse.HeadJobArtifactResponse;
 import * as HeadModelArtifactResponse from "./head-model-artifact-response";
 export import HeadModelArtifactResponse = HeadModelArtifactResponse.HeadModelArtifactResponse;
+import * as ListFastLaunchJobConfigsResponse from "./list-fast-launch-job-configs-response";
+export import ListFastLaunchJobConfigsResponse = ListFastLaunchJobConfigsResponse.ListFastLaunchJobConfigsResponse;
 import * as ListJobRunsResponse from "./list-job-runs-response";
 export import ListJobRunsResponse = ListJobRunsResponse.ListJobRunsResponse;
 import * as ListJobShapesResponse from "./list-job-shapes-response";

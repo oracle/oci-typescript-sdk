@@ -170,6 +170,10 @@ export interface TablespaceSummary {
    */
   "usedPercentAllocated"?: number;
   /**
+   * Indicates whether this is the default tablespace.
+   */
+  "isDefault"?: boolean;
+  /**
    * A list of the data files associated with the tablespace.
    */
   "datafiles"?: Array<model.Datafile>;
@@ -371,6 +375,7 @@ export namespace TablespaceSummary {
   export enum IndexCompressFor {
     AdvancedLow = "ADVANCED_LOW",
     AdvancedHigh = "ADVANCED_HIGH",
+    None = "NONE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

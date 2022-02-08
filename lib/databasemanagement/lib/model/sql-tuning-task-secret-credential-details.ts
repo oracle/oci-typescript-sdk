@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * User provides a secret OCID, which will be used to retrieve the password to connect to the database.
+ * The OCID of the Secret provided by the user to retrieve the password to connect to the database.
  *
  */
 export interface SqlTuningTaskSecretCredentialDetails extends model.SqlTuningTaskCredentialDetails {

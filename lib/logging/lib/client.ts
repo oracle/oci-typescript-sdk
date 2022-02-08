@@ -29,6 +29,7 @@ export enum LoggingManagementApiKeys {}
  */
 export class LoggingManagementClient {
   protected static serviceEndpointTemplate = "https://logging.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": LoggingManagementWaiter;
@@ -99,7 +100,8 @@ export class LoggingManagementClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       LoggingManagementClient.serviceEndpointTemplate,
-      region
+      region,
+      LoggingManagementClient.endpointServiceName
     );
   }
 
@@ -114,7 +116,8 @@ export class LoggingManagementClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       LoggingManagementClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      LoggingManagementClient.endpointServiceName
     );
   }
 

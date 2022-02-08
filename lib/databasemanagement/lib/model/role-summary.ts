@@ -18,34 +18,34 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of each role.
+ * A summary of each role.
  */
 export interface RoleSummary {
   /**
-   * The name of a granted role
+   * The name of the role granted to the user.
    */
   "name"?: string;
   /**
-   * Indicates whether the grant was with the ADMIN OPTION (YES) or not (NO)
+   * Indicates whether the role is granted with the ADMIN OPTION (YES) or not (NO).
    */
   "adminOption"?: RoleSummary.AdminOption;
   /**
-   * Indicates whether the grant was with the DELEGATE OPTION (YES) or not (NO)
+   * Indicates whether the role is granted with the DELEGATE OPTION (YES) or not (NO).
    */
   "delegateOption"?: RoleSummary.DelegateOption;
   /**
-   * Indicates whether the role is designated as a DEFAULT ROLE for the user (YES) or not (NO)
+   * Indicates whether the role is designated as a DEFAULT ROLE for the user (YES) or not (NO).
    */
   "defaultRole"?: RoleSummary.DefaultRole;
   /**
-   * Indicates how the grant was made. Possible values:
-   * YES if the role was granted commonly (CONTAINER=ALL was used)
-   * NO if the role was granted locally (CONTAINER=ALL was not used)
+   * Indicates how the role was granted. Possible values:
+   * YES if the role is granted commonly (CONTAINER=ALL is used)
+   * NO if the role is granted locally (CONTAINER=ALL is not used)
    *
    */
   "common"?: RoleSummary.Common;
   /**
-   * Indicates whether the role grant was inherited from another container (YES) or not (NO)
+   * Indicates whether the granted role is inherited from another container (YES) or not (NO).
    */
   "inherited"?: RoleSummary.Inherited;
 }

@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of proxy user
+ * A summary of the proxy user.
  */
 export interface ProxyUserSummary {
   /**
-   * The name of a proxy user or name of the user who the proxy user can act as
+   * The name of a proxy user or the name of the client user.
    */
   "name"?: string;
   /**
-   * Indicates whether the proxy is required to supply the client credentials (YES) or not (NO)
+   * Indicates whether the proxy is required to supply the client credentials (YES) or not (NO).
    */
   "authentication"?: ProxyUserSummary.Authentication;
   /**
-   * Flags associated with the proxy/client pair
+   * The flags associated with the proxy/client pair.
    */
   "flags"?: ProxyUserSummary.Flags;
 }

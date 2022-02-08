@@ -31,6 +31,7 @@ export enum LoadBalancerApiKeys {}
  */
 export class LoadBalancerClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": LoadBalancerWaiter;
@@ -101,7 +102,8 @@ export class LoadBalancerClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       LoadBalancerClient.serviceEndpointTemplate,
-      region
+      region,
+      LoadBalancerClient.endpointServiceName
     );
   }
 
@@ -116,7 +118,8 @@ export class LoadBalancerClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       LoadBalancerClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      LoadBalancerClient.endpointServiceName
     );
   }
 

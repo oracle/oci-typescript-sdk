@@ -27,6 +27,7 @@ export enum LogSearchApiKeys {}
  */
 export class LogSearchClient {
   protected static serviceEndpointTemplate = "https://logging.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -96,7 +97,8 @@ export class LogSearchClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       LogSearchClient.serviceEndpointTemplate,
-      region
+      region,
+      LogSearchClient.endpointServiceName
     );
   }
 
@@ -111,7 +113,8 @@ export class LogSearchClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       LogSearchClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      LogSearchClient.endpointServiceName
     );
   }
 

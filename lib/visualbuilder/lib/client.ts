@@ -31,6 +31,7 @@ export enum VbInstanceApiKeys {}
 export class VbInstanceClient {
   protected static serviceEndpointTemplate =
     "https://visualbuilder.{region}.ocp.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": VbInstanceWaiter;
@@ -101,7 +102,8 @@ export class VbInstanceClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       VbInstanceClient.serviceEndpointTemplate,
-      region
+      region,
+      VbInstanceClient.endpointServiceName
     );
   }
 
@@ -116,7 +118,8 @@ export class VbInstanceClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       VbInstanceClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      VbInstanceClient.endpointServiceName
     );
   }
 

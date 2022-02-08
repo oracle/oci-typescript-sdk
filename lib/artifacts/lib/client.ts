@@ -30,6 +30,7 @@ export enum ArtifactsApiKeys {}
  */
 export class ArtifactsClient {
   protected static serviceEndpointTemplate = "https://artifacts.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ArtifactsWaiter;
@@ -100,7 +101,8 @@ export class ArtifactsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ArtifactsClient.serviceEndpointTemplate,
-      region
+      region,
+      ArtifactsClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class ArtifactsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ArtifactsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ArtifactsClient.endpointServiceName
     );
   }
 

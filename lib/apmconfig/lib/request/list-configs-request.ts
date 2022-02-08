@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListConfigsRequest extends common.BaseRequest {
   /**
-   * The APM Domain Id the request is intended for.
+   * The APM Domain ID the request is intended for.
    *
    */
   "apmDomainId": string;
@@ -30,13 +30,13 @@ export interface ListConfigsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A filter to match only configuration items of the given type.
+   * A filter to match configuration items of a given type.
    * Supported values are SPAN_FILTER, METRIC_GROUP, and APDEX.
    *
    */
   "configType"?: string;
   /**
-   * A filter to return only resources that match the entire display name given.
+   * A filter to return resources that match the given display name.
    */
   "displayName"?: string;
   /**
@@ -44,23 +44,21 @@ export interface ListConfigsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
- * For list pagination. The maximum number of results per page, or items to return in a paginated
-* \"List\" call. For important details about how pagination works, see
-* [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
-* <p>
-Example: `50`
-* 
- */
+   * The maximum number of results per page, or items to return in a paginated \"List\" call. For information on
+   * how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * Example: `50`
+   *
+   */
   "page"?: string;
   /**
    * The sort order to use, either ascending (`ASC`) or descending (`DESC`). The displayName sort order
-   * is case sensitive.
+   * is case-sensitive.
    *
    */
   "sortOrder"?: model.SortOrders;
   /**
-   * The field to sort by. You can provide one sort by (`sortBy`). Default order for displayName, timeCreated and
-   * timeUpdated is ascending. The displayName sort by is case sensitive.
+   * The field to sort by. You can provide one \"sortBy\" value. The default order for displayName, timeCreated
+   * and timeUpdated is ascending. The displayName sort by is case-sensitive.
    *
    */
   "sortBy"?: ListConfigsRequest.SortBy;

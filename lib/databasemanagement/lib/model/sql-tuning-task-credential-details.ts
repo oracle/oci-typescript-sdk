@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The credential to be used to connect to the database.
+ * The credential used to connect to the database.
  */
 export interface SqlTuningTaskCredentialDetails {
   /**
-   * The user to connect to the database.
+   * The user name used to connect to the database.
    */
   "username": string;
   /**

@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of consumerGroupPrivileges.
+ * A summary of consumer group privileges.
  */
 export interface ConsumerGroupPrivilegeSummary {
   /**
-   * The name of granted consumer group.
+   * The name of the granted consumer group privilege.
    */
   "name"?: string;
   /**
-   * Indicates whether the grant was with the GRANT option (YES) or not (NO).
+   * Indicates whether the privilege is granted with the GRANT option (YES) or not (NO).
    */
   "grantOption"?: ConsumerGroupPrivilegeSummary.GrantOption;
   /**
-   * Indicates whether the consumer group is designated as the default for this user or role (YES) or not (NO)
+   * Indicates whether the consumer group is designated as the default for this user or role (YES) or not (NO).
    */
   "initialGroup"?: ConsumerGroupPrivilegeSummary.InitialGroup;
 }

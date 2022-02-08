@@ -31,6 +31,7 @@ export enum EventApiKeys {}
  */
 export class EventClient {
   protected static serviceEndpointTemplate = "https://osms.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -100,7 +101,8 @@ export class EventClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       EventClient.serviceEndpointTemplate,
-      region
+      region,
+      EventClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class EventClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       EventClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      EventClient.endpointServiceName
     );
   }
 
@@ -692,6 +695,7 @@ export enum OsManagementApiKeys {}
  */
 export class OsManagementClient {
   protected static serviceEndpointTemplate = "https://osms.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OsManagementWaiter;
@@ -762,7 +766,8 @@ export class OsManagementClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       OsManagementClient.serviceEndpointTemplate,
-      region
+      region,
+      OsManagementClient.endpointServiceName
     );
   }
 
@@ -777,7 +782,8 @@ export class OsManagementClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       OsManagementClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      OsManagementClient.endpointServiceName
     );
   }
 

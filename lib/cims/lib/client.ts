@@ -29,6 +29,7 @@ export enum IncidentApiKeys {}
 export class IncidentClient {
   protected static serviceEndpointTemplate =
     "https://incidentmanagement.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -98,7 +99,8 @@ export class IncidentClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       IncidentClient.serviceEndpointTemplate,
-      region
+      region,
+      IncidentClient.endpointServiceName
     );
   }
 
@@ -113,7 +115,8 @@ export class IncidentClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       IncidentClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      IncidentClient.endpointServiceName
     );
   }
 
@@ -714,6 +717,7 @@ export enum UserApiKeys {}
 export class UserClient {
   protected static serviceEndpointTemplate =
     "https://incidentmanagement.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -783,7 +787,8 @@ export class UserClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       UserClient.serviceEndpointTemplate,
-      region
+      region,
+      UserClient.endpointServiceName
     );
   }
 
@@ -798,7 +803,8 @@ export class UserClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       UserClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      UserClient.endpointServiceName
     );
   }
 

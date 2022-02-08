@@ -30,6 +30,7 @@ export enum GoldenGateApiKeys {}
  */
 export class GoldenGateClient {
   protected static serviceEndpointTemplate = "https://goldengate.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": GoldenGateWaiter;
@@ -100,7 +101,8 @@ export class GoldenGateClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       GoldenGateClient.serviceEndpointTemplate,
-      region
+      region,
+      GoldenGateClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class GoldenGateClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       GoldenGateClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      GoldenGateClient.endpointServiceName
     );
   }
 

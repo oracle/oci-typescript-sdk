@@ -1,6 +1,6 @@
 /**
- * Billing Center Gateway API
- * This site describes all the Rest endpoints of Billing Center Gateway.
+ * OSP Gateway API
+ * This site describes all the Rest endpoints of OSP Gateway.
  * OpenAPI spec version: 20191001
  * Contact: osp_team_oci_cam_ww_grp@oracle.com
  *
@@ -107,7 +107,7 @@ export interface Invoice {
     | model.OtherPaymentDetail
     | model.PaypalPaymentDetail
     | model.CreditCardPaymentDetail;
-  "billToAddress"?: model.Address;
+  "billToAddress"?: model.BillToAddress;
   /**
    * List of subscription identifiers
    */
@@ -152,7 +152,9 @@ export namespace Invoice {
         "lastPaymentDetail": obj.lastPaymentDetail
           ? model.PaymentDetail.getJsonObj(obj.lastPaymentDetail)
           : undefined,
-        "billToAddress": obj.billToAddress ? model.Address.getJsonObj(obj.billToAddress) : undefined
+        "billToAddress": obj.billToAddress
+          ? model.BillToAddress.getJsonObj(obj.billToAddress)
+          : undefined
       }
     };
 
@@ -168,7 +170,7 @@ export namespace Invoice {
           ? model.PaymentDetail.getDeserializedJsonObj(obj.lastPaymentDetail)
           : undefined,
         "billToAddress": obj.billToAddress
-          ? model.Address.getDeserializedJsonObj(obj.billToAddress)
+          ? model.BillToAddress.getDeserializedJsonObj(obj.billToAddress)
           : undefined
       }
     };

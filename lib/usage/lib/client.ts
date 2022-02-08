@@ -27,6 +27,7 @@ export enum RewardsApiKeys {}
  */
 export class RewardsClient {
   protected static serviceEndpointTemplate = "https://identity.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -96,7 +97,8 @@ export class RewardsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       RewardsClient.serviceEndpointTemplate,
-      region
+      region,
+      RewardsClient.endpointServiceName
     );
   }
 
@@ -111,7 +113,8 @@ export class RewardsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       RewardsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      RewardsClient.endpointServiceName
     );
   }
 

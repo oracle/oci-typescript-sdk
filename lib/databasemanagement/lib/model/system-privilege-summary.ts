@@ -18,26 +18,26 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of SystemPrivileges.
+ * A Summary of system privileges.
  */
 export interface SystemPrivilegeSummary {
   /**
-   * The name of a system privilege
+   * The name of a system privilege.
    */
   "name"?: string;
   /**
-   * Indicates whether the grant was with the ADMIN option (YES) or not (NO)
+   * Indicates whether the system privilege is granted with the ADMIN option (YES) or not (NO).
    */
   "adminOption"?: SystemPrivilegeSummary.AdminOption;
   /**
-   * Indicates how the grant was made. Possible values:
-   * YES if the role was granted commonly (CONTAINER=ALL was used)
-   * NO if the role was granted locally (CONTAINER=ALL was not used)
+   * Indicates how the system privilege was granted. Possible values:
+   * YES if the system privilege is granted commonly (CONTAINER=ALL is used)
+   * NO if the system privilege is granted locally (CONTAINER=ALL is not used)
    *
    */
   "common"?: SystemPrivilegeSummary.Common;
   /**
-   * Indicates whether the role grant was inherited from another container (YES) or not (NO)
+   * Indicates whether the granted system privilege is inherited from another container (YES) or not (NO).
    */
   "inherited"?: SystemPrivilegeSummary.Inherited;
 }

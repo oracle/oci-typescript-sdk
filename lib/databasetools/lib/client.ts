@@ -28,6 +28,7 @@ export enum DatabaseToolsApiKeys {}
  */
 export class DatabaseToolsClient {
   protected static serviceEndpointTemplate = "https://dbtools.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DatabaseToolsWaiter;
@@ -98,7 +99,8 @@ export class DatabaseToolsClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DatabaseToolsClient.serviceEndpointTemplate,
-      region
+      region,
+      DatabaseToolsClient.endpointServiceName
     );
   }
 
@@ -113,7 +115,8 @@ export class DatabaseToolsClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DatabaseToolsClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      DatabaseToolsClient.endpointServiceName
     );
   }
 

@@ -28,6 +28,7 @@ export enum AppmgmtControlApiKeys {}
  */
 export class AppmgmtControlClient {
   protected static serviceEndpointTemplate = "https://cp.appmgmt.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": AppmgmtControlWaiter;
@@ -98,7 +99,8 @@ export class AppmgmtControlClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       AppmgmtControlClient.serviceEndpointTemplate,
-      region
+      region,
+      AppmgmtControlClient.endpointServiceName
     );
   }
 
@@ -113,7 +115,8 @@ export class AppmgmtControlClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       AppmgmtControlClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      AppmgmtControlClient.endpointServiceName
     );
   }
 

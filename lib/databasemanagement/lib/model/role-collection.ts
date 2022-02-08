@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A collection of Roles granted to the current User.
+ * A collection of roles granted to the current User.
  */
 export interface RoleCollection {
   /**
-   * An array of User resources.
+   * An array of roles.
    */
   "items": Array<model.RoleSummary>;
 }

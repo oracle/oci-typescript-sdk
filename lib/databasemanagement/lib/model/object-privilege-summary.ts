@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of objectPrivileges.
+ * A summary of object privileges.
  */
 export interface ObjectPrivilegeSummary {
   /**
@@ -26,7 +26,7 @@ export interface ObjectPrivilegeSummary {
    */
   "name"?: string;
   /**
-   * The type of the object.
+   * The type of object.
    */
   "schemaType"?: string;
   /**
@@ -34,11 +34,11 @@ export interface ObjectPrivilegeSummary {
    */
   "owner"?: string;
   /**
-   * The name of the user who performed the grant
+   * The name of the user who granted the object privilege.
    */
   "grantor"?: string;
   /**
-   * Indicates whether the privilege was granted with the HIERARCHY OPTION (YES) or not (NO)
+   * Indicates whether the privilege is granted with the HIERARCHY OPTION (YES) or not (NO).
    */
   "hierarchy"?: ObjectPrivilegeSummary.Hierarchy;
   /**
@@ -46,18 +46,18 @@ export interface ObjectPrivilegeSummary {
    */
   "object"?: string;
   /**
-   * Indicates whether the privilege was granted with the GRANT OPTION (YES) or not (NO)
+   * Indicates whether the privilege is granted with the GRANT OPTION (YES) or not (NO).
    */
   "grantOption"?: ObjectPrivilegeSummary.GrantOption;
   /**
-   * Indicates how the grant was made. Possible values:
-   * YES if the role was granted commonly (CONTAINER=ALL was used)
-   * NO if the role was granted locally (CONTAINER=ALL was not used)
+   * Indicates how the object privilege was granted. Possible values:
+   * YES if the role is granted commonly (CONTAINER=ALL is used)
+   * NO if the role is granted locally (CONTAINER=ALL is not used)
    *
    */
   "common"?: ObjectPrivilegeSummary.Common;
   /**
-   * Indicates whether the role grant was inherited from another container (YES) or not (NO)
+   * Indicates whether the granted privilege is inherited from another container (YES) or not (NO).
    */
   "inherited"?: ObjectPrivilegeSummary.Inherited;
 }

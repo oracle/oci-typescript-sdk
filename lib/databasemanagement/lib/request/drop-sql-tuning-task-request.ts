@@ -23,7 +23,7 @@ export interface DropSqlTuningTaskRequest extends common.BaseRequest {
    */
   "managedDatabaseId": string;
   /**
-   * Detail inputs for dropping a SQL tuning task
+   * The detailed inputs required to drop a SQL tuning task.
    */
   "dropSqlTuningTaskDetails": model.DropSqlTuningTaskDetails;
   /**

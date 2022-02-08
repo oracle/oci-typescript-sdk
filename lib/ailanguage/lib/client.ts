@@ -31,6 +31,7 @@ export enum AIServiceLanguageApiKeys {}
 export class AIServiceLanguageClient {
   protected static serviceEndpointTemplate =
     "https://language.aiservice.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -100,7 +101,8 @@ export class AIServiceLanguageClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       AIServiceLanguageClient.serviceEndpointTemplate,
-      region
+      region,
+      AIServiceLanguageClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class AIServiceLanguageClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       AIServiceLanguageClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      AIServiceLanguageClient.endpointServiceName
     );
   }
 

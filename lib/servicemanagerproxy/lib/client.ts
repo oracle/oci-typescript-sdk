@@ -29,6 +29,7 @@ export enum ServiceManagerProxyApiKeys {}
  */
 export class ServiceManagerProxyClient {
   protected static serviceEndpointTemplate = "https://smproxy.{region}.ocs.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -99,7 +100,8 @@ export class ServiceManagerProxyClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ServiceManagerProxyClient.serviceEndpointTemplate,
-      region
+      region,
+      ServiceManagerProxyClient.endpointServiceName
     );
   }
 
@@ -114,7 +116,8 @@ export class ServiceManagerProxyClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ServiceManagerProxyClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ServiceManagerProxyClient.endpointServiceName
     );
   }
 

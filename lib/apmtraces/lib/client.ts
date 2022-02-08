@@ -29,6 +29,7 @@ export enum QueryApiKeys {}
  */
 export class QueryClient {
   protected static serviceEndpointTemplate = "https://apm-trace.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -98,7 +99,8 @@ export class QueryClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       QueryClient.serviceEndpointTemplate,
-      region
+      region,
+      QueryClient.endpointServiceName
     );
   }
 
@@ -113,7 +115,8 @@ export class QueryClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       QueryClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      QueryClient.endpointServiceName
     );
   }
 
@@ -421,6 +424,7 @@ export enum TraceApiKeys {}
  */
 export class TraceClient {
   protected static serviceEndpointTemplate = "https://apm-trace.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -490,7 +494,8 @@ export class TraceClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       TraceClient.serviceEndpointTemplate,
-      region
+      region,
+      TraceClient.endpointServiceName
     );
   }
 
@@ -505,7 +510,8 @@ export class TraceClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       TraceClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      TraceClient.endpointServiceName
     );
   }
 

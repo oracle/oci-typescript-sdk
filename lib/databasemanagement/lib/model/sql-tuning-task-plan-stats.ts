@@ -18,12 +18,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The statistics of an SQL execution plan.
+ * The statistics of a SQL execution plan.
  *
  */
 export interface SqlTuningTaskPlanStats {
   /**
-   * The type of the plan for the original or the new plan with profile/index etc.
+   * The type of the original or modified plan with profile, index, and so on.
    */
   "planType": string;
   /**

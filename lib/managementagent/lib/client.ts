@@ -30,6 +30,7 @@ export enum ManagementAgentApiKeys {}
 export class ManagementAgentClient {
   protected static serviceEndpointTemplate =
     "https://management-agent.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ManagementAgentWaiter;
@@ -100,7 +101,8 @@ export class ManagementAgentClient {
   public set region(region: common.Region) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ManagementAgentClient.serviceEndpointTemplate,
-      region
+      region,
+      ManagementAgentClient.endpointServiceName
     );
   }
 
@@ -115,7 +117,8 @@ export class ManagementAgentClient {
   public set regionId(regionId: string) {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ManagementAgentClient.serviceEndpointTemplate,
-      regionId
+      regionId,
+      ManagementAgentClient.endpointServiceName
     );
   }
 
