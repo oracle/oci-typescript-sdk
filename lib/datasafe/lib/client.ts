@@ -216,6 +216,638 @@ export class DataSafeClient {
   }
 
   /**
+   * Adds columns to the specified masking policy from the associated sensitive data model. It
+   * automatically pulls all the sensitive columns and their relationships from the sensitive
+   * data model and uses this information to create columns in the masking policy. It also assigns
+   * default masking formats to these columns based on the associated sensitive types.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddMaskingColumnsFromSdmRequest
+   * @return AddMaskingColumnsFromSdmResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/AddMaskingColumnsFromSdm.ts.html |here} to see how to use AddMaskingColumnsFromSdm API.
+   */
+  public async addMaskingColumnsFromSdm(
+    addMaskingColumnsFromSdmRequest: requests.AddMaskingColumnsFromSdmRequest
+  ): Promise<responses.AddMaskingColumnsFromSdmResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#addMaskingColumnsFromSdm.");
+    const pathParams = {
+      "{maskingPolicyId}": addMaskingColumnsFromSdmRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addMaskingColumnsFromSdmRequest.ifMatch,
+      "opc-request-id": addMaskingColumnsFromSdmRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addMaskingColumnsFromSdmRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/actions/addMaskingColumnsFromSdm",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddMaskingColumnsFromSdmResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Applies the results of a discovery job to the specified sensitive data model. Note that the plannedAction attribute
+   * of discovery results is used for processing them. You should first use PatchDiscoveryJobResults to set the plannedAction
+   * attribute of the discovery results you want to process. ApplyDiscoveryJobResults automatically reads the plannedAction
+   * attribute and updates the sensitive data model to reflect the actions you planned.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ApplyDiscoveryJobResultsRequest
+   * @return ApplyDiscoveryJobResultsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ApplyDiscoveryJobResults.ts.html |here} to see how to use ApplyDiscoveryJobResults API.
+   */
+  public async applyDiscoveryJobResults(
+    applyDiscoveryJobResultsRequest: requests.ApplyDiscoveryJobResultsRequest
+  ): Promise<responses.ApplyDiscoveryJobResultsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#applyDiscoveryJobResults.");
+    const pathParams = {
+      "{sensitiveDataModelId}": applyDiscoveryJobResultsRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": applyDiscoveryJobResultsRequest.ifMatch,
+      "opc-request-id": applyDiscoveryJobResultsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      applyDiscoveryJobResultsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/sensitiveDataModels/{sensitiveDataModelId}/sensitiveColumns/actions/applyDiscoveryJobResults",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        applyDiscoveryJobResultsRequest.applyDiscoveryJobResultsDetails,
+        "ApplyDiscoveryJobResultsDetails",
+        model.ApplyDiscoveryJobResultsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ApplyDiscoveryJobResultsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Calculates the volume of audit events available on the target database to be collected. Measurable up to the defined retention period of the audit target resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CalculateAuditVolumeAvailableRequest
+   * @return CalculateAuditVolumeAvailableResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CalculateAuditVolumeAvailable.ts.html |here} to see how to use CalculateAuditVolumeAvailable API.
+   */
+  public async calculateAuditVolumeAvailable(
+    calculateAuditVolumeAvailableRequest: requests.CalculateAuditVolumeAvailableRequest
+  ): Promise<responses.CalculateAuditVolumeAvailableResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#calculateAuditVolumeAvailable.");
+    const pathParams = {
+      "{auditProfileId}": calculateAuditVolumeAvailableRequest.auditProfileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": calculateAuditVolumeAvailableRequest.ifMatch,
+      "opc-retry-token": calculateAuditVolumeAvailableRequest.opcRetryToken,
+      "opc-request-id": calculateAuditVolumeAvailableRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      calculateAuditVolumeAvailableRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditProfiles/{auditProfileId}/actions/calculateAuditVolumeAvailable",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        calculateAuditVolumeAvailableRequest.calculateAuditVolumeAvailableDetails,
+        "CalculateAuditVolumeAvailableDetails",
+        model.CalculateAuditVolumeAvailableDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CalculateAuditVolumeAvailableResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Calculates the volume of audit events collected by data safe.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CalculateAuditVolumeCollectedRequest
+   * @return CalculateAuditVolumeCollectedResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CalculateAuditVolumeCollected.ts.html |here} to see how to use CalculateAuditVolumeCollected API.
+   */
+  public async calculateAuditVolumeCollected(
+    calculateAuditVolumeCollectedRequest: requests.CalculateAuditVolumeCollectedRequest
+  ): Promise<responses.CalculateAuditVolumeCollectedResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#calculateAuditVolumeCollected.");
+    const pathParams = {
+      "{auditProfileId}": calculateAuditVolumeCollectedRequest.auditProfileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": calculateAuditVolumeCollectedRequest.ifMatch,
+      "opc-retry-token": calculateAuditVolumeCollectedRequest.opcRetryToken,
+      "opc-request-id": calculateAuditVolumeCollectedRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      calculateAuditVolumeCollectedRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditProfiles/{auditProfileId}/actions/calculateAuditVolumeCollected",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        calculateAuditVolumeCollectedRequest.calculateAuditVolumeCollectedDetails,
+        "CalculateAuditVolumeCollectedDetails",
+        model.CalculateAuditVolumeCollectedDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CalculateAuditVolumeCollectedResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Cancel the given work request.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CancelWorkRequestRequest
+   * @return CancelWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   */
+  public async cancelWorkRequest(
+    cancelWorkRequestRequest: requests.CancelWorkRequestRequest
+  ): Promise<responses.CancelWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#cancelWorkRequest.");
+    const pathParams = {
+      "{workRequestId}": cancelWorkRequestRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": cancelWorkRequestRequest.opcRetryToken,
+      "opc-request-id": cancelWorkRequestRequest.opcRequestId,
+      "if-match": cancelWorkRequestRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelWorkRequestResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified alert into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeAlertCompartmentRequest
+   * @return ChangeAlertCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAlertCompartment.ts.html |here} to see how to use ChangeAlertCompartment API.
+   */
+  public async changeAlertCompartment(
+    changeAlertCompartmentRequest: requests.ChangeAlertCompartmentRequest
+  ): Promise<responses.ChangeAlertCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#changeAlertCompartment.");
+    const pathParams = {
+      "{alertId}": changeAlertCompartmentRequest.alertId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeAlertCompartmentRequest.opcRequestId,
+      "if-match": changeAlertCompartmentRequest.ifMatch,
+      "opc-retry-token": changeAlertCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAlertCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alerts/{alertId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAlertCompartmentRequest.changeAlertCompartmentDetails,
+        "ChangeAlertCompartmentDetails",
+        model.ChangeAlertCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAlertCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the archive retreival to the specified compartment. When provided, if-Match is checked against ETag value of the resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeAuditArchiveRetrievalCompartmentRequest
+   * @return ChangeAuditArchiveRetrievalCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAuditArchiveRetrievalCompartment.ts.html |here} to see how to use ChangeAuditArchiveRetrievalCompartment API.
+   */
+  public async changeAuditArchiveRetrievalCompartment(
+    changeAuditArchiveRetrievalCompartmentRequest: requests.ChangeAuditArchiveRetrievalCompartmentRequest
+  ): Promise<responses.ChangeAuditArchiveRetrievalCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeAuditArchiveRetrievalCompartment.");
+    const pathParams = {
+      "{auditArchiveRetrievalId}":
+        changeAuditArchiveRetrievalCompartmentRequest.auditArchiveRetrievalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeAuditArchiveRetrievalCompartmentRequest.ifMatch,
+      "opc-request-id": changeAuditArchiveRetrievalCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeAuditArchiveRetrievalCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAuditArchiveRetrievalCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditArchiveRetrievals/{auditArchiveRetrievalId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAuditArchiveRetrievalCompartmentRequest.changeAuditArchiveRetrievalCompartmentDetails,
+        "ChangeAuditArchiveRetrievalCompartmentDetails",
+        model.ChangeAuditArchiveRetrievalCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAuditArchiveRetrievalCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified audit policy and its dependent resources into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeAuditPolicyCompartmentRequest
+   * @return ChangeAuditPolicyCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAuditPolicyCompartment.ts.html |here} to see how to use ChangeAuditPolicyCompartment API.
+   */
+  public async changeAuditPolicyCompartment(
+    changeAuditPolicyCompartmentRequest: requests.ChangeAuditPolicyCompartmentRequest
+  ): Promise<responses.ChangeAuditPolicyCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeAuditPolicyCompartment.");
+    const pathParams = {
+      "{auditPolicyId}": changeAuditPolicyCompartmentRequest.auditPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeAuditPolicyCompartmentRequest.ifMatch,
+      "opc-request-id": changeAuditPolicyCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeAuditPolicyCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAuditPolicyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditPolicies/{auditPolicyId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAuditPolicyCompartmentRequest.changeAuditPolicyCompartmentDetails,
+        "ChangeAuditPolicyCompartmentDetails",
+        model.ChangeAuditPolicyCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAuditPolicyCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified audit profile and its dependent resources into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeAuditProfileCompartmentRequest
+   * @return ChangeAuditProfileCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAuditProfileCompartment.ts.html |here} to see how to use ChangeAuditProfileCompartment API.
+   */
+  public async changeAuditProfileCompartment(
+    changeAuditProfileCompartmentRequest: requests.ChangeAuditProfileCompartmentRequest
+  ): Promise<responses.ChangeAuditProfileCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeAuditProfileCompartment.");
+    const pathParams = {
+      "{auditProfileId}": changeAuditProfileCompartmentRequest.auditProfileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeAuditProfileCompartmentRequest.ifMatch,
+      "opc-retry-token": changeAuditProfileCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeAuditProfileCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAuditProfileCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditProfiles/{auditProfileId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAuditProfileCompartmentRequest.changeAuditProfileCompartmentDetails,
+        "ChangeAuditProfileCompartmentDetails",
+        model.ChangeAuditProfileCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAuditProfileCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the Data Safe private endpoint and its dependent resources to the specified compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDataSafePrivateEndpointCompartmentRequest
@@ -274,6 +906,205 @@ export class DataSafeClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified discovery job and its dependent resources into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeDiscoveryJobCompartmentRequest
+   * @return ChangeDiscoveryJobCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeDiscoveryJobCompartment.ts.html |here} to see how to use ChangeDiscoveryJobCompartment API.
+   */
+  public async changeDiscoveryJobCompartment(
+    changeDiscoveryJobCompartmentRequest: requests.ChangeDiscoveryJobCompartmentRequest
+  ): Promise<responses.ChangeDiscoveryJobCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeDiscoveryJobCompartment.");
+    const pathParams = {
+      "{discoveryJobId}": changeDiscoveryJobCompartmentRequest.discoveryJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDiscoveryJobCompartmentRequest.ifMatch,
+      "opc-request-id": changeDiscoveryJobCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeDiscoveryJobCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDiscoveryJobCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/discoveryJobs/{discoveryJobId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDiscoveryJobCompartmentRequest.changeDiscoveryJobCompartmentDetails,
+        "ChangeDiscoveryJobCompartmentDetails",
+        model.ChangeDiscoveryJobCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDiscoveryJobCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified library masking format into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeLibraryMaskingFormatCompartmentRequest
+   * @return ChangeLibraryMaskingFormatCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeLibraryMaskingFormatCompartment.ts.html |here} to see how to use ChangeLibraryMaskingFormatCompartment API.
+   */
+  public async changeLibraryMaskingFormatCompartment(
+    changeLibraryMaskingFormatCompartmentRequest: requests.ChangeLibraryMaskingFormatCompartmentRequest
+  ): Promise<responses.ChangeLibraryMaskingFormatCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeLibraryMaskingFormatCompartment.");
+    const pathParams = {
+      "{libraryMaskingFormatId}":
+        changeLibraryMaskingFormatCompartmentRequest.libraryMaskingFormatId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeLibraryMaskingFormatCompartmentRequest.ifMatch,
+      "opc-retry-token": changeLibraryMaskingFormatCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeLibraryMaskingFormatCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeLibraryMaskingFormatCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/libraryMaskingFormats/{libraryMaskingFormatId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeLibraryMaskingFormatCompartmentRequest.changeLibraryMaskingFormatCompartmentDetails,
+        "ChangeLibraryMaskingFormatCompartmentDetails",
+        model.ChangeLibraryMaskingFormatCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeLibraryMaskingFormatCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified masking policy and its dependent resources into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeMaskingPolicyCompartmentRequest
+   * @return ChangeMaskingPolicyCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeMaskingPolicyCompartment.ts.html |here} to see how to use ChangeMaskingPolicyCompartment API.
+   */
+  public async changeMaskingPolicyCompartment(
+    changeMaskingPolicyCompartmentRequest: requests.ChangeMaskingPolicyCompartmentRequest
+  ): Promise<responses.ChangeMaskingPolicyCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeMaskingPolicyCompartment.");
+    const pathParams = {
+      "{maskingPolicyId}": changeMaskingPolicyCompartmentRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeMaskingPolicyCompartmentRequest.ifMatch,
+      "opc-retry-token": changeMaskingPolicyCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeMaskingPolicyCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMaskingPolicyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeMaskingPolicyCompartmentRequest.changeMaskingPolicyCompartmentDetails,
+        "ChangeMaskingPolicyCompartmentDetails",
+        model.ChangeMaskingPolicyCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeMaskingPolicyCompartmentResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -355,6 +1186,217 @@ export class DataSafeClient {
   }
 
   /**
+   * Moves a resource into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeReportCompartmentRequest
+   * @return ChangeReportCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeReportCompartment.ts.html |here} to see how to use ChangeReportCompartment API.
+   */
+  public async changeReportCompartment(
+    changeReportCompartmentRequest: requests.ChangeReportCompartmentRequest
+  ): Promise<responses.ChangeReportCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#changeReportCompartment.");
+    const pathParams = {
+      "{reportId}": changeReportCompartmentRequest.reportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeReportCompartmentRequest.ifMatch,
+      "opc-request-id": changeReportCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeReportCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeReportCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reports/{reportId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeReportCompartmentRequest.changeReportCompartmentDetails,
+        "ChangeReportCompartmentDetails",
+        model.ChangeReportCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeReportCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a resource into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeReportDefinitionCompartmentRequest
+   * @return ChangeReportDefinitionCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeReportDefinitionCompartment.ts.html |here} to see how to use ChangeReportDefinitionCompartment API.
+   */
+  public async changeReportDefinitionCompartment(
+    changeReportDefinitionCompartmentRequest: requests.ChangeReportDefinitionCompartmentRequest
+  ): Promise<responses.ChangeReportDefinitionCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeReportDefinitionCompartment.");
+    const pathParams = {
+      "{reportDefinitionId}": changeReportDefinitionCompartmentRequest.reportDefinitionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeReportDefinitionCompartmentRequest.ifMatch,
+      "opc-request-id": changeReportDefinitionCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeReportDefinitionCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeReportDefinitionCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reportDefinitions/{reportDefinitionId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeReportDefinitionCompartmentRequest.changeReportDefinitionCompartmentDetails,
+        "ChangeReportDefinitionCompartmentDetails",
+        model.ChangeReportDefinitionCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeReportDefinitionCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Change the online and offline months .
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeRetentionRequest
+   * @return ChangeRetentionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeRetention.ts.html |here} to see how to use ChangeRetention API.
+   */
+  public async changeRetention(
+    changeRetentionRequest: requests.ChangeRetentionRequest
+  ): Promise<responses.ChangeRetentionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#changeRetention.");
+    const pathParams = {
+      "{auditProfileId}": changeRetentionRequest.auditProfileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeRetentionRequest.ifMatch,
+      "opc-request-id": changeRetentionRequest.opcRequestId,
+      "opc-retry-token": changeRetentionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRetentionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditProfiles/{auditProfileId}/actions/changeRetention",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeRetentionRequest.changeRetentionDetails,
+        "ChangeRetentionDetails",
+        model.ChangeRetentionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeRetentionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Moves the specified saved security assessment or future scheduled assessments into a different compartment.
 * <p>
 To start, call first the operation ListSecurityAssessments with filters \"type = save_schedule\". This returns the scheduleAssessmentId. Then, call this changeCompartment with the scheduleAssessmentId.
@@ -410,6 +1452,208 @@ The existing saved security assessments created due to the schedule are not move
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSecurityAssessmentCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified sensitive data model and its dependent resources into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeSensitiveDataModelCompartmentRequest
+   * @return ChangeSensitiveDataModelCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSensitiveDataModelCompartment.ts.html |here} to see how to use ChangeSensitiveDataModelCompartment API.
+   */
+  public async changeSensitiveDataModelCompartment(
+    changeSensitiveDataModelCompartmentRequest: requests.ChangeSensitiveDataModelCompartmentRequest
+  ): Promise<responses.ChangeSensitiveDataModelCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSensitiveDataModelCompartment.");
+    const pathParams = {
+      "{sensitiveDataModelId}": changeSensitiveDataModelCompartmentRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSensitiveDataModelCompartmentRequest.ifMatch,
+      "opc-request-id": changeSensitiveDataModelCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSensitiveDataModelCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSensitiveDataModelCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSensitiveDataModelCompartmentRequest.changeSensitiveDataModelCompartmentDetails,
+        "ChangeSensitiveDataModelCompartmentDetails",
+        model.ChangeSensitiveDataModelCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSensitiveDataModelCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified sensitive type into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeSensitiveTypeCompartmentRequest
+   * @return ChangeSensitiveTypeCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSensitiveTypeCompartment.ts.html |here} to see how to use ChangeSensitiveTypeCompartment API.
+   */
+  public async changeSensitiveTypeCompartment(
+    changeSensitiveTypeCompartmentRequest: requests.ChangeSensitiveTypeCompartmentRequest
+  ): Promise<responses.ChangeSensitiveTypeCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSensitiveTypeCompartment.");
+    const pathParams = {
+      "{sensitiveTypeId}": changeSensitiveTypeCompartmentRequest.sensitiveTypeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSensitiveTypeCompartmentRequest.ifMatch,
+      "opc-request-id": changeSensitiveTypeCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSensitiveTypeCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSensitiveTypeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypes/{sensitiveTypeId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSensitiveTypeCompartmentRequest.changeSensitiveTypeCompartmentDetails,
+        "ChangeSensitiveTypeCompartmentDetails",
+        model.ChangeSensitiveTypeCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSensitiveTypeCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified target-alert policy Association into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeTargetAlertPolicyAssociationCompartmentRequest
+   * @return ChangeTargetAlertPolicyAssociationCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeTargetAlertPolicyAssociationCompartment.ts.html |here} to see how to use ChangeTargetAlertPolicyAssociationCompartment API.
+   */
+  public async changeTargetAlertPolicyAssociationCompartment(
+    changeTargetAlertPolicyAssociationCompartmentRequest: requests.ChangeTargetAlertPolicyAssociationCompartmentRequest
+  ): Promise<responses.ChangeTargetAlertPolicyAssociationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#changeTargetAlertPolicyAssociationCompartment."
+      );
+    const pathParams = {
+      "{targetAlertPolicyAssociationId}":
+        changeTargetAlertPolicyAssociationCompartmentRequest.targetAlertPolicyAssociationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeTargetAlertPolicyAssociationCompartmentRequest.opcRequestId,
+      "if-match": changeTargetAlertPolicyAssociationCompartmentRequest.ifMatch,
+      "opc-retry-token": changeTargetAlertPolicyAssociationCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeTargetAlertPolicyAssociationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/targetAlertPolicyAssociations/{targetAlertPolicyAssociationId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeTargetAlertPolicyAssociationCompartmentRequest.changeTargetAlertPolicyAssociationCompartmentDetails,
+        "ChangeTargetAlertPolicyAssociationCompartmentDetails",
+        model.ChangeTargetAlertPolicyAssociationCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeTargetAlertPolicyAssociationCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -708,6 +1952,86 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * Creates a work request to retrieve archived audit data. This asynchronous process will usually take over an hour to complete.
+   * Save the id from the response of this operation. Call GetAuditArchiveRetrieval operation after an hour, passing the id to know the status of
+   * this operation.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateAuditArchiveRetrievalRequest
+   * @return CreateAuditArchiveRetrievalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateAuditArchiveRetrieval.ts.html |here} to see how to use CreateAuditArchiveRetrieval API.
+   */
+  public async createAuditArchiveRetrieval(
+    createAuditArchiveRetrievalRequest: requests.CreateAuditArchiveRetrievalRequest
+  ): Promise<responses.CreateAuditArchiveRetrievalResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createAuditArchiveRetrieval.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createAuditArchiveRetrievalRequest.opcRetryToken,
+      "opc-request-id": createAuditArchiveRetrievalRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAuditArchiveRetrievalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditArchiveRetrievals",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAuditArchiveRetrievalRequest.createAuditArchiveRetrievalDetails,
+        "CreateAuditArchiveRetrievalDetails",
+        model.CreateAuditArchiveRetrievalDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAuditArchiveRetrievalResponse>{},
+        body: await response.json(),
+        bodyKey: "auditArchiveRetrieval",
+        bodyModel: model.AuditArchiveRetrieval,
+        type: "model.AuditArchiveRetrieval",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Data Safe private endpoint.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -760,6 +2084,366 @@ The existing saved security assessments created due to the schedule are not move
         bodyKey: "dataSafePrivateEndpoint",
         bodyModel: model.DataSafePrivateEndpoint,
         type: "model.DataSafePrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Performs incremental data discovery for the specified sensitive data model. It uses the target database associated
+   * with the sensitive data model.
+   * After performing data discovery, you can use ListDiscoveryJobResults to view the discovery results, PatchDiscoveryJobResults
+   * to specify the action you want perform on these results, and then ApplyDiscoveryJobResults to process the results
+   * and apply them to the sensitive data model.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateDiscoveryJobRequest
+   * @return CreateDiscoveryJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateDiscoveryJob.ts.html |here} to see how to use CreateDiscoveryJob API.
+   */
+  public async createDiscoveryJob(
+    createDiscoveryJobRequest: requests.CreateDiscoveryJobRequest
+  ): Promise<responses.CreateDiscoveryJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createDiscoveryJob.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDiscoveryJobRequest.opcRetryToken,
+      "opc-request-id": createDiscoveryJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDiscoveryJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/discoveryJobs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDiscoveryJobRequest.createDiscoveryJobDetails,
+        "CreateDiscoveryJobDetails",
+        model.CreateDiscoveryJobDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDiscoveryJobResponse>{},
+        body: await response.json(),
+        bodyKey: "discoveryJob",
+        bodyModel: model.DiscoveryJob,
+        type: "model.DiscoveryJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new library masking format. A masking format can have one or more
+   * format entries. The combined output of all the format entries is used for masking.
+   * It provides the flexibility to define a masking format that can generate different
+   * parts of a data value separately and then combine them to get the final data value
+   * for masking. Note that you cannot define masking condition in a library masking format.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateLibraryMaskingFormatRequest
+   * @return CreateLibraryMaskingFormatResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateLibraryMaskingFormat.ts.html |here} to see how to use CreateLibraryMaskingFormat API.
+   */
+  public async createLibraryMaskingFormat(
+    createLibraryMaskingFormatRequest: requests.CreateLibraryMaskingFormatRequest
+  ): Promise<responses.CreateLibraryMaskingFormatResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createLibraryMaskingFormat.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createLibraryMaskingFormatRequest.opcRetryToken,
+      "opc-request-id": createLibraryMaskingFormatRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createLibraryMaskingFormatRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/libraryMaskingFormats",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createLibraryMaskingFormatRequest.createLibraryMaskingFormatDetails,
+        "CreateLibraryMaskingFormatDetails",
+        model.CreateLibraryMaskingFormatDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateLibraryMaskingFormatResponse>{},
+        body: await response.json(),
+        bodyKey: "libraryMaskingFormat",
+        bodyModel: model.LibraryMaskingFormat,
+        type: "model.LibraryMaskingFormat",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Creates a new masking column in the specified masking policy. Use this operation
+* to add parent columns only. It automatically adds the child columns from the
+* associated sensitive data model or target database. If you provide the
+* sensitiveTypeId attribute but not the maskingFormats attribute, it automatically
+* assigns the default masking format associated with the specified sensitive type.
+* Alternatively, if you provide the maskingFormats attribute, the specified masking
+* formats are assigned to the column.
+* <p>
+Using the maskingFormats attribute, you can assign one or more masking formats
+* to a column. You need to specify a condition as part of each masking format. It
+* enables you to do <a href=\"https://docs.oracle.com/en/cloud/paas/data-safe/udscs/conditional-masking.html\">conditional masking</a>
+* so that you can mask the column data values differently using different 
+* masking conditions. A masking format can have one or more format entries. The
+* combined output of all the format entries is used for masking. It provides the
+* flexibility to define a masking format that can generate different parts of a data
+* value separately and then combine them to get the final data value for masking.
+* <p>
+You can use the maskingColumnGroup attribute to group the columns that you would
+* like to mask together. It enables you to do <a href=\"https://docs.oracle.com/en/cloud/paas/data-safe/udscs/group-masking1.html#GUID-755056B9-9540-48C0-9491-262A44A85037\">group or compound masking</a> that ensures that the
+* masked data across the columns in a group continue to retain the same logical relationship.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateMaskingColumnRequest
+     * @return CreateMaskingColumnResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateMaskingColumn.ts.html |here} to see how to use CreateMaskingColumn API.
+     */
+  public async createMaskingColumn(
+    createMaskingColumnRequest: requests.CreateMaskingColumnRequest
+  ): Promise<responses.CreateMaskingColumnResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createMaskingColumn.");
+    const pathParams = {
+      "{maskingPolicyId}": createMaskingColumnRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createMaskingColumnRequest.opcRetryToken,
+      "opc-request-id": createMaskingColumnRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMaskingColumnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/maskingColumns",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMaskingColumnRequest.createMaskingColumnDetails,
+        "CreateMaskingColumnDetails",
+        model.CreateMaskingColumnDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMaskingColumnResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Creates a new masking policy and associates it with a sensitive data model or a reference target database.
+* <p>
+To use a sensitive data model as the source of masking columns, set the columnSource attribute to 
+* SENSITIVE_DATA_MODEL and provide the sensitiveDataModelId attribute. After creating a masking policy,
+* you can use the AddMaskingColumnsFromSdm operation to automatically add all the columns from
+* the associated sensitive data model. In this case, the target database associated with the
+* sensitive data model is used for column and masking format validations.
+* <p>
+You can also create a masking policy without using a sensitive data model. In this case,
+* you need to associate your masking policy with a target database by setting the columnSource
+* attribute to TARGET and providing the targetId attribute. The specified target database
+* is used for column and masking format validations.
+* <p>
+After creating a masking policy, you can use the CreateMaskingColumn or PatchMaskingColumns
+* operation to manually add columns to the policy. You need to add the parent columns only,
+* and it automatically adds the child columns (in referential relationship with the parent columns) 
+* from the associated sensitive data model or target database.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateMaskingPolicyRequest
+     * @return CreateMaskingPolicyResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateMaskingPolicy.ts.html |here} to see how to use CreateMaskingPolicy API.
+     */
+  public async createMaskingPolicy(
+    createMaskingPolicyRequest: requests.CreateMaskingPolicyRequest
+  ): Promise<responses.CreateMaskingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createMaskingPolicy.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createMaskingPolicyRequest.opcRetryToken,
+      "opc-request-id": createMaskingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMaskingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMaskingPolicyRequest.createMaskingPolicyDetails,
+        "CreateMaskingPolicyDetails",
+        model.CreateMaskingPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMaskingPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingPolicy",
+        bodyModel: model.MaskingPolicy,
+        type: "model.MaskingPolicy",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -873,6 +2557,83 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * Creates a new report definition with parameters specified in the body. The report definition is stored in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateReportDefinitionRequest
+   * @return CreateReportDefinitionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateReportDefinition.ts.html |here} to see how to use CreateReportDefinition API.
+   */
+  public async createReportDefinition(
+    createReportDefinitionRequest: requests.CreateReportDefinitionRequest
+  ): Promise<responses.CreateReportDefinitionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createReportDefinition.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createReportDefinitionRequest.opcRetryToken,
+      "opc-request-id": createReportDefinitionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createReportDefinitionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reportDefinitions",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createReportDefinitionRequest.createReportDefinitionDetails,
+        "CreateReportDefinitionDetails",
+        model.CreateReportDefinitionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateReportDefinitionResponse>{},
+        body: await response.json(),
+        bodyKey: "reportDefinition",
+        bodyModel: model.ReportDefinition,
+        type: "model.ReportDefinition",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new saved security assessment for one or multiple targets in a compartment. When this operation is performed,
    * it will save the latest assessments in the specified compartment. If a schedule is passed, it will persist the latest assessments,
    * at the defined date and time, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
@@ -927,6 +2688,328 @@ The existing saved security assessments created due to the schedule are not move
         bodyKey: "securityAssessment",
         bodyModel: model.SecurityAssessment,
         type: "model.SecurityAssessment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new sensitive column in the specified sensitive data model.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateSensitiveColumnRequest
+   * @return CreateSensitiveColumnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSensitiveColumn.ts.html |here} to see how to use CreateSensitiveColumn API.
+   */
+  public async createSensitiveColumn(
+    createSensitiveColumnRequest: requests.CreateSensitiveColumnRequest
+  ): Promise<responses.CreateSensitiveColumnResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createSensitiveColumn.");
+    const pathParams = {
+      "{sensitiveDataModelId}": createSensitiveColumnRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSensitiveColumnRequest.opcRetryToken,
+      "opc-request-id": createSensitiveColumnRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSensitiveColumnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/sensitiveColumns",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSensitiveColumnRequest.createSensitiveColumnDetails,
+        "CreateSensitiveColumnDetails",
+        model.CreateSensitiveColumnDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSensitiveColumnResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new sensitive data model. If schemas and sensitive types are provided, it automatically runs data discovery
+   * and adds the discovered columns to the sensitive data model. Otherwise, it creates an empty sensitive data model
+   * that can be updated later.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateSensitiveDataModelRequest
+   * @return CreateSensitiveDataModelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSensitiveDataModel.ts.html |here} to see how to use CreateSensitiveDataModel API.
+   */
+  public async createSensitiveDataModel(
+    createSensitiveDataModelRequest: requests.CreateSensitiveDataModelRequest
+  ): Promise<responses.CreateSensitiveDataModelResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createSensitiveDataModel.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSensitiveDataModelRequest.opcRetryToken,
+      "opc-request-id": createSensitiveDataModelRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSensitiveDataModelRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSensitiveDataModelRequest.createSensitiveDataModelDetails,
+        "CreateSensitiveDataModelDetails",
+        model.CreateSensitiveDataModelDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSensitiveDataModelResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveDataModel",
+        bodyModel: model.SensitiveDataModel,
+        type: "model.SensitiveDataModel",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new sensitive type, which can be a basic sensitive type with regular expressions or a sensitive category.
+   * While sensitive types are used for data discovery, sensitive categories are used for logically grouping the related
+   * or similar sensitive types.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateSensitiveTypeRequest
+   * @return CreateSensitiveTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSensitiveType.ts.html |here} to see how to use CreateSensitiveType API.
+   */
+  public async createSensitiveType(
+    createSensitiveTypeRequest: requests.CreateSensitiveTypeRequest
+  ): Promise<responses.CreateSensitiveTypeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createSensitiveType.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSensitiveTypeRequest.opcRetryToken,
+      "opc-request-id": createSensitiveTypeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSensitiveTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSensitiveTypeRequest.createSensitiveTypeDetails,
+        "CreateSensitiveTypeDetails",
+        model.CreateSensitiveTypeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSensitiveTypeResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveType",
+        bodyModel: model.SensitiveType,
+        type: "model.SensitiveType",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new target-alert policy association to track a alert policy applied on target.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateTargetAlertPolicyAssociationRequest
+   * @return CreateTargetAlertPolicyAssociationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateTargetAlertPolicyAssociation.ts.html |here} to see how to use CreateTargetAlertPolicyAssociation API.
+   */
+  public async createTargetAlertPolicyAssociation(
+    createTargetAlertPolicyAssociationRequest: requests.CreateTargetAlertPolicyAssociationRequest
+  ): Promise<responses.CreateTargetAlertPolicyAssociationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createTargetAlertPolicyAssociation.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createTargetAlertPolicyAssociationRequest.opcRetryToken,
+      "opc-request-id": createTargetAlertPolicyAssociationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTargetAlertPolicyAssociationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetAlertPolicyAssociations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createTargetAlertPolicyAssociationRequest.createTargetAlertPolicyAssociationDetails,
+        "CreateTargetAlertPolicyAssociationDetails",
+        model.CreateTargetAlertPolicyAssociationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateTargetAlertPolicyAssociationResponse>{},
+        body: await response.json(),
+        bodyKey: "targetAlertPolicyAssociation",
+        bodyModel: model.TargetAlertPolicyAssociation,
+        type: "model.TargetAlertPolicyAssociation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1191,6 +3274,137 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * To unload retrieved archive data, call the operation ListAuditArchiveRetrieval first.
+   * This will return the auditArchiveRetrievalId. Then call this operation with auditArchiveRetrievalId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteAuditArchiveRetrievalRequest
+   * @return DeleteAuditArchiveRetrievalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAuditArchiveRetrieval.ts.html |here} to see how to use DeleteAuditArchiveRetrieval API.
+   */
+  public async deleteAuditArchiveRetrieval(
+    deleteAuditArchiveRetrievalRequest: requests.DeleteAuditArchiveRetrievalRequest
+  ): Promise<responses.DeleteAuditArchiveRetrievalResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteAuditArchiveRetrieval.");
+    const pathParams = {
+      "{auditArchiveRetrievalId}": deleteAuditArchiveRetrievalRequest.auditArchiveRetrievalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAuditArchiveRetrievalRequest.ifMatch,
+      "opc-request-id": deleteAuditArchiveRetrievalRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAuditArchiveRetrievalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditArchiveRetrievals/{auditArchiveRetrievalId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAuditArchiveRetrievalResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified audit trail.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteAuditTrailRequest
+   * @return DeleteAuditTrailResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAuditTrail.ts.html |here} to see how to use DeleteAuditTrail API.
+   */
+  public async deleteAuditTrail(
+    deleteAuditTrailRequest: requests.DeleteAuditTrailRequest
+  ): Promise<responses.DeleteAuditTrailResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteAuditTrail.");
+    const pathParams = {
+      "{auditTrailId}": deleteAuditTrailRequest.auditTrailId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAuditTrailRequest.ifMatch,
+      "opc-request-id": deleteAuditTrailRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAuditTrailRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditTrails/{auditTrailId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAuditTrailResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified Data Safe private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDataSafePrivateEndpointRequest
@@ -1235,6 +3449,315 @@ The existing saved security assessments created due to the schedule are not move
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDataSafePrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified discovery job.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDiscoveryJobRequest
+   * @return DeleteDiscoveryJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteDiscoveryJob.ts.html |here} to see how to use DeleteDiscoveryJob API.
+   */
+  public async deleteDiscoveryJob(
+    deleteDiscoveryJobRequest: requests.DeleteDiscoveryJobRequest
+  ): Promise<responses.DeleteDiscoveryJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteDiscoveryJob.");
+    const pathParams = {
+      "{discoveryJobId}": deleteDiscoveryJobRequest.discoveryJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDiscoveryJobRequest.ifMatch,
+      "opc-request-id": deleteDiscoveryJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDiscoveryJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/discoveryJobs/{discoveryJobId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDiscoveryJobResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified discovery result.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDiscoveryJobResultRequest
+   * @return DeleteDiscoveryJobResultResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteDiscoveryJobResult.ts.html |here} to see how to use DeleteDiscoveryJobResult API.
+   */
+  public async deleteDiscoveryJobResult(
+    deleteDiscoveryJobResultRequest: requests.DeleteDiscoveryJobResultRequest
+  ): Promise<responses.DeleteDiscoveryJobResultResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteDiscoveryJobResult.");
+    const pathParams = {
+      "{discoveryJobId}": deleteDiscoveryJobResultRequest.discoveryJobId,
+      "{resultKey}": deleteDiscoveryJobResultRequest.resultKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDiscoveryJobResultRequest.ifMatch,
+      "opc-request-id": deleteDiscoveryJobResultRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDiscoveryJobResultRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/discoveryJobs/{discoveryJobId}/results/{resultKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDiscoveryJobResultResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified library masking format.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteLibraryMaskingFormatRequest
+   * @return DeleteLibraryMaskingFormatResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteLibraryMaskingFormat.ts.html |here} to see how to use DeleteLibraryMaskingFormat API.
+   */
+  public async deleteLibraryMaskingFormat(
+    deleteLibraryMaskingFormatRequest: requests.DeleteLibraryMaskingFormatRequest
+  ): Promise<responses.DeleteLibraryMaskingFormatResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteLibraryMaskingFormat.");
+    const pathParams = {
+      "{libraryMaskingFormatId}": deleteLibraryMaskingFormatRequest.libraryMaskingFormatId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteLibraryMaskingFormatRequest.ifMatch,
+      "opc-request-id": deleteLibraryMaskingFormatRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteLibraryMaskingFormatRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/libraryMaskingFormats/{libraryMaskingFormatId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteLibraryMaskingFormatResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified masking column.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteMaskingColumnRequest
+   * @return DeleteMaskingColumnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteMaskingColumn.ts.html |here} to see how to use DeleteMaskingColumn API.
+   */
+  public async deleteMaskingColumn(
+    deleteMaskingColumnRequest: requests.DeleteMaskingColumnRequest
+  ): Promise<responses.DeleteMaskingColumnResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteMaskingColumn.");
+    const pathParams = {
+      "{maskingColumnKey}": deleteMaskingColumnRequest.maskingColumnKey,
+      "{maskingPolicyId}": deleteMaskingColumnRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteMaskingColumnRequest.ifMatch,
+      "opc-request-id": deleteMaskingColumnRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMaskingColumnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/maskingColumns/{maskingColumnKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteMaskingColumnResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified masking policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteMaskingPolicyRequest
+   * @return DeleteMaskingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteMaskingPolicy.ts.html |here} to see how to use DeleteMaskingPolicy API.
+   */
+  public async deleteMaskingPolicy(
+    deleteMaskingPolicyRequest: requests.DeleteMaskingPolicyRequest
+  ): Promise<responses.DeleteMaskingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteMaskingPolicy.");
+    const pathParams = {
+      "{maskingPolicyId}": deleteMaskingPolicyRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteMaskingPolicyRequest.ifMatch,
+      "opc-request-id": deleteMaskingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMaskingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteMaskingPolicyResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1320,6 +3843,70 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * Deletes the specified report definition. Only the user created report definition can be deleted. The seeded report definitions cannot be deleted.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteReportDefinitionRequest
+   * @return DeleteReportDefinitionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteReportDefinition.ts.html |here} to see how to use DeleteReportDefinition API.
+   */
+  public async deleteReportDefinition(
+    deleteReportDefinitionRequest: requests.DeleteReportDefinitionRequest
+  ): Promise<responses.DeleteReportDefinitionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteReportDefinition.");
+    const pathParams = {
+      "{reportDefinitionId}": deleteReportDefinitionRequest.reportDefinitionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteReportDefinitionRequest.ifMatch,
+      "opc-request-id": deleteReportDefinitionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteReportDefinitionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reportDefinitions/{reportDefinitionId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteReportDefinitionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified saved security assessment or schedule. To delete a security assessment schedule,
    * first call the operation ListSecurityAssessments with filters \"type = save_schedule\".
    * That operation returns the scheduleAssessmentId. Then, call DeleteSecurityAssessment with the scheduleAssessmentId.
@@ -1368,6 +3955,256 @@ The existing saved security assessments created due to the schedule are not move
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSecurityAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified sensitive column.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteSensitiveColumnRequest
+   * @return DeleteSensitiveColumnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSensitiveColumn.ts.html |here} to see how to use DeleteSensitiveColumn API.
+   */
+  public async deleteSensitiveColumn(
+    deleteSensitiveColumnRequest: requests.DeleteSensitiveColumnRequest
+  ): Promise<responses.DeleteSensitiveColumnResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteSensitiveColumn.");
+    const pathParams = {
+      "{sensitiveDataModelId}": deleteSensitiveColumnRequest.sensitiveDataModelId,
+      "{sensitiveColumnKey}": deleteSensitiveColumnRequest.sensitiveColumnKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSensitiveColumnRequest.ifMatch,
+      "opc-request-id": deleteSensitiveColumnRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSensitiveColumnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/sensitiveColumns/{sensitiveColumnKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSensitiveColumnResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified sensitive data model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteSensitiveDataModelRequest
+   * @return DeleteSensitiveDataModelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSensitiveDataModel.ts.html |here} to see how to use DeleteSensitiveDataModel API.
+   */
+  public async deleteSensitiveDataModel(
+    deleteSensitiveDataModelRequest: requests.DeleteSensitiveDataModelRequest
+  ): Promise<responses.DeleteSensitiveDataModelResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteSensitiveDataModel.");
+    const pathParams = {
+      "{sensitiveDataModelId}": deleteSensitiveDataModelRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSensitiveDataModelRequest.ifMatch,
+      "opc-request-id": deleteSensitiveDataModelRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSensitiveDataModelRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSensitiveDataModelResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified sensitive type.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteSensitiveTypeRequest
+   * @return DeleteSensitiveTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSensitiveType.ts.html |here} to see how to use DeleteSensitiveType API.
+   */
+  public async deleteSensitiveType(
+    deleteSensitiveTypeRequest: requests.DeleteSensitiveTypeRequest
+  ): Promise<responses.DeleteSensitiveTypeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteSensitiveType.");
+    const pathParams = {
+      "{sensitiveTypeId}": deleteSensitiveTypeRequest.sensitiveTypeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSensitiveTypeRequest.ifMatch,
+      "opc-request-id": deleteSensitiveTypeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSensitiveTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypes/{sensitiveTypeId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSensitiveTypeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified target-alert policy Association.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteTargetAlertPolicyAssociationRequest
+   * @return DeleteTargetAlertPolicyAssociationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteTargetAlertPolicyAssociation.ts.html |here} to see how to use DeleteTargetAlertPolicyAssociation API.
+   */
+  public async deleteTargetAlertPolicyAssociation(
+    deleteTargetAlertPolicyAssociationRequest: requests.DeleteTargetAlertPolicyAssociationRequest
+  ): Promise<responses.DeleteTargetAlertPolicyAssociationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteTargetAlertPolicyAssociation.");
+    const pathParams = {
+      "{targetAlertPolicyAssociationId}":
+        deleteTargetAlertPolicyAssociationRequest.targetAlertPolicyAssociationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteTargetAlertPolicyAssociationRequest.ifMatch,
+      "opc-request-id": deleteTargetAlertPolicyAssociationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTargetAlertPolicyAssociationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetAlertPolicyAssociations/{targetAlertPolicyAssociationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteTargetAlertPolicyAssociationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1521,6 +4358,394 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * Updates the list of audit trails created under audit profile.The
+   * operation can be used to create new audit trails for target database
+   * when they become available for audit collection because of change of database version
+   * or change of database unified mode or change of data base  edition or being deleted previously etc.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DiscoverAuditTrailsRequest
+   * @return DiscoverAuditTrailsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DiscoverAuditTrails.ts.html |here} to see how to use DiscoverAuditTrails API.
+   */
+  public async discoverAuditTrails(
+    discoverAuditTrailsRequest: requests.DiscoverAuditTrailsRequest
+  ): Promise<responses.DiscoverAuditTrailsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#discoverAuditTrails.");
+    const pathParams = {
+      "{auditProfileId}": discoverAuditTrailsRequest.auditProfileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": discoverAuditTrailsRequest.opcRequestId,
+      "if-match": discoverAuditTrailsRequest.ifMatch,
+      "opc-retry-token": discoverAuditTrailsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      discoverAuditTrailsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditProfiles/{auditProfileId}/actions/discoverAuditTrails",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DiscoverAuditTrailsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads an already-generated discovery report. Note that the GenerateDiscoveryReportForDownload operation is a
+   * prerequisite for the DownloadDiscoveryReport operation. Use GenerateDiscoveryReportForDownload to generate a discovery
+   * report file and then use DownloadDiscoveryReport to download the generated file. By default, it downloads report for
+   * all the columns in a sensitive data model. Use the discoveryJobId attribute to download report for a specific discovery job.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DownloadDiscoveryReportRequest
+   * @return DownloadDiscoveryReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadDiscoveryReport.ts.html |here} to see how to use DownloadDiscoveryReport API.
+   */
+  public async downloadDiscoveryReport(
+    downloadDiscoveryReportRequest: requests.DownloadDiscoveryReportRequest
+  ): Promise<responses.DownloadDiscoveryReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadDiscoveryReport.");
+    const pathParams = {
+      "{sensitiveDataModelId}": downloadDiscoveryReportRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": downloadDiscoveryReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadDiscoveryReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/actions/downloadReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadDiscoveryReportRequest.downloadDiscoveryReportDetails,
+        "DownloadDiscoveryReportDetails",
+        model.DownloadDiscoveryReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadDiscoveryReportResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads the masking log generated by the last masking operation on a target database using the specified masking policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DownloadMaskingLogRequest
+   * @return DownloadMaskingLogResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadMaskingLog.ts.html |here} to see how to use DownloadMaskingLog API.
+   */
+  public async downloadMaskingLog(
+    downloadMaskingLogRequest: requests.DownloadMaskingLogRequest
+  ): Promise<responses.DownloadMaskingLogResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadMaskingLog.");
+    const pathParams = {
+      "{maskingPolicyId}": downloadMaskingLogRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": downloadMaskingLogRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadMaskingLogRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/actions/downloadLog",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadMaskingLogRequest.downloadMaskingLogDetails,
+        "DownloadMaskingLogDetails",
+        model.DownloadMaskingLogDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadMaskingLogResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads an already-generated file corresponding to the specified masking policy.
+   * Note that the GenerateMaskingPolicyForDownload operation is a prerequisite for the
+   * DownloadMaskingPolicy operation. Use GenerateMaskingPolicyForDownload to generate
+   * a masking policy file and then use DownloadMaskingPolicy to download the generated file.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DownloadMaskingPolicyRequest
+   * @return DownloadMaskingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadMaskingPolicy.ts.html |here} to see how to use DownloadMaskingPolicy API.
+   */
+  public async downloadMaskingPolicy(
+    downloadMaskingPolicyRequest: requests.DownloadMaskingPolicyRequest
+  ): Promise<responses.DownloadMaskingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadMaskingPolicy.");
+    const pathParams = {
+      "{maskingPolicyId}": downloadMaskingPolicyRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": downloadMaskingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadMaskingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/actions/download",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadMaskingPolicyRequest.downloadMaskingPolicyDetails,
+        "DownloadMaskingPolicyDetails",
+        model.DownloadMaskingPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadMaskingPolicyResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads an already-generated masking report. Note that the GenerateMaskingReportForDownload
+   * operation is a prerequisite for the DownloadMaskingReport operation. Use GenerateMaskingReportForDownload
+   * to generate a masking report file and then use DownloadMaskingReport to download the generated file.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DownloadMaskingReportRequest
+   * @return DownloadMaskingReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadMaskingReport.ts.html |here} to see how to use DownloadMaskingReport API.
+   */
+  public async downloadMaskingReport(
+    downloadMaskingReportRequest: requests.DownloadMaskingReportRequest
+  ): Promise<responses.DownloadMaskingReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadMaskingReport.");
+    const pathParams = {
+      "{maskingPolicyId}": downloadMaskingReportRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": downloadMaskingReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadMaskingReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/actions/downloadReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadMaskingReportRequest.downloadMaskingReportDetails,
+        "DownloadMaskingReportDetails",
+        model.DownloadMaskingReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadMaskingReportResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Downloads the privilege script to grant/revoke required roles from the Data Safe account on the target database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1646,6 +4871,88 @@ The existing saved security assessments created due to the schedule are not move
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadSecurityAssessmentReportResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads an already-generated file corresponding to the specified sensitive data model. Note that the
+   * GenerateSensitiveDataModelForDownload operation is a prerequisite for the DownloadSensitiveDataModel operation.
+   * Use GenerateSensitiveDataModelForDownload to generate a data model file and then use DownloadSensitiveDataModel
+   * to download the generated file.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DownloadSensitiveDataModelRequest
+   * @return DownloadSensitiveDataModelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadSensitiveDataModel.ts.html |here} to see how to use DownloadSensitiveDataModel API.
+   */
+  public async downloadSensitiveDataModel(
+    downloadSensitiveDataModelRequest: requests.DownloadSensitiveDataModelRequest
+  ): Promise<responses.DownloadSensitiveDataModelResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#downloadSensitiveDataModel.");
+    const pathParams = {
+      "{sensitiveDataModelId}": downloadSensitiveDataModelRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": downloadSensitiveDataModelRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadSensitiveDataModelRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/actions/download",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadSensitiveDataModelRequest.downloadSensitiveDataModelDetails,
+        "DownloadSensitiveDataModelDetails",
+        model.DownloadSensitiveDataModelDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadSensitiveDataModelResponse>{},
 
         body: response.body!,
         bodyKey: "value",
@@ -1829,6 +5136,226 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * Generates a downloadable discovery report. It's a prerequisite for the DownloadDiscoveryReport operation. Use this
+   * endpoint to generate a discovery report file and then use DownloadDiscoveryReport to download the generated file.
+   * By default, it generates report for all the columns in a sensitive data model. Use the discoveryJobId attribute
+   * to generate report for a specific discovery job.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GenerateDiscoveryReportForDownloadRequest
+   * @return GenerateDiscoveryReportForDownloadResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateDiscoveryReportForDownload.ts.html |here} to see how to use GenerateDiscoveryReportForDownload API.
+   */
+  public async generateDiscoveryReportForDownload(
+    generateDiscoveryReportForDownloadRequest: requests.GenerateDiscoveryReportForDownloadRequest
+  ): Promise<responses.GenerateDiscoveryReportForDownloadResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateDiscoveryReportForDownload.");
+    const pathParams = {
+      "{sensitiveDataModelId}": generateDiscoveryReportForDownloadRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateDiscoveryReportForDownloadRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateDiscoveryReportForDownloadRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/actions/generateReportForDownload",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateDiscoveryReportForDownloadRequest.generateDiscoveryReportForDownloadDetails,
+        "GenerateDiscoveryReportForDownloadDetails",
+        model.GenerateDiscoveryReportForDownloadDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateDiscoveryReportForDownloadResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Generates a downloadable file corresponding to the specified masking policy. It's
+   * a prerequisite for the DownloadMaskingPolicy operation. Use this endpoint to generate
+   * a masking policy file and then use DownloadMaskingPolicy to download the generated file.
+   * Note that file generation and download are serial operations. The download operation
+   * can't be invoked while the generate operation is in progress.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GenerateMaskingPolicyForDownloadRequest
+   * @return GenerateMaskingPolicyForDownloadResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateMaskingPolicyForDownload.ts.html |here} to see how to use GenerateMaskingPolicyForDownload API.
+   */
+  public async generateMaskingPolicyForDownload(
+    generateMaskingPolicyForDownloadRequest: requests.GenerateMaskingPolicyForDownloadRequest
+  ): Promise<responses.GenerateMaskingPolicyForDownloadResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateMaskingPolicyForDownload.");
+    const pathParams = {
+      "{maskingPolicyId}": generateMaskingPolicyForDownloadRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateMaskingPolicyForDownloadRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateMaskingPolicyForDownloadRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/actions/generatePolicyForDownload",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateMaskingPolicyForDownloadRequest.generateMaskingPolicyForDownloadDetails,
+        "GenerateMaskingPolicyForDownloadDetails",
+        model.GenerateMaskingPolicyForDownloadDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateMaskingPolicyForDownloadResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Generates a downloadable masking report. It's a prerequisite for the
+   * DownloadMaskingReport operation. Use this endpoint to generate a
+   * masking report file and then use DownloadMaskingReport to download
+   * the generated file.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GenerateMaskingReportForDownloadRequest
+   * @return GenerateMaskingReportForDownloadResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateMaskingReportForDownload.ts.html |here} to see how to use GenerateMaskingReportForDownload API.
+   */
+  public async generateMaskingReportForDownload(
+    generateMaskingReportForDownloadRequest: requests.GenerateMaskingReportForDownloadRequest
+  ): Promise<responses.GenerateMaskingReportForDownloadResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateMaskingReportForDownload.");
+    const pathParams = {
+      "{maskingPolicyId}": generateMaskingReportForDownloadRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateMaskingReportForDownloadRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateMaskingReportForDownloadRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/actions/generateReportForDownload",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateMaskingReportForDownloadRequest.generateMaskingReportForDownloadDetails,
+        "GenerateMaskingReportForDownloadDetails",
+        model.GenerateMaskingReportForDownloadDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateMaskingReportForDownloadResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates and downloads the configuration of the specified on-premises connector.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1899,6 +5426,78 @@ The existing saved security assessments created due to the schedule are not move
             value: response.headers.get("last-modified"),
             key: "lastModified",
             dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Generates a PDF or XLS report based on parameters and report definition.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GenerateReportRequest
+   * @return GenerateReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateReport.ts.html |here} to see how to use GenerateReport API.
+   */
+  public async generateReport(
+    generateReportRequest: requests.GenerateReportRequest
+  ): Promise<responses.GenerateReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#generateReport.");
+    const pathParams = {
+      "{reportDefinitionId}": generateReportRequest.reportDefinitionId
+    };
+
+    const queryParams = {
+      "scimQuery": generateReportRequest.scimQuery
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": generateReportRequest.ifMatch,
+      "opc-request-id": generateReportRequest.opcRequestId,
+      "opc-retry-token": generateReportRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reportDefinitions/{reportDefinitionId}/actions/generateReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateReportRequest.generateReportDetails,
+        "GenerateReportDetails",
+        model.GenerateReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateReportResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -1983,6 +5582,79 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * Generates a downloadable file corresponding to the specified sensitive data model. It's a prerequisite for the
+   * DownloadSensitiveDataModel operation. Use this endpoint to generate a data model file and then use DownloadSensitiveDataModel
+   * to download the generated file. Note that file generation and download are serial operations. The download operation
+   * can't be invoked while the generate operation is in progress.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GenerateSensitiveDataModelForDownloadRequest
+   * @return GenerateSensitiveDataModelForDownloadResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateSensitiveDataModelForDownload.ts.html |here} to see how to use GenerateSensitiveDataModelForDownload API.
+   */
+  public async generateSensitiveDataModelForDownload(
+    generateSensitiveDataModelForDownloadRequest: requests.GenerateSensitiveDataModelForDownloadRequest
+  ): Promise<responses.GenerateSensitiveDataModelForDownloadResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateSensitiveDataModelForDownload.");
+    const pathParams = {
+      "{sensitiveDataModelId}": generateSensitiveDataModelForDownloadRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateSensitiveDataModelForDownloadRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateSensitiveDataModelForDownloadRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/actions/generateDataModelForDownload",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateSensitiveDataModelForDownloadRequest.generateSensitiveDataModelForDownloadDetails,
+        "GenerateSensitiveDataModelForDownloadDetails",
+        model.GenerateSensitiveDataModelForDownloadDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateSensitiveDataModelForDownloadResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Generates the report of the specified user assessment. The report is available in PDF or XLS format.
    * After generating the report, use DownloadUserAssessmentReport to download it in the preferred format.
    *
@@ -2044,6 +5716,572 @@ The existing saved security assessments created due to the schedule are not move
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of alert by its ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAlertRequest
+   * @return GetAlertResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAlert.ts.html |here} to see how to use GetAlert API.
+   */
+  public async getAlert(
+    getAlertRequest: requests.GetAlertRequest
+  ): Promise<responses.GetAlertResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAlert.");
+    const pathParams = {
+      "{alertId}": getAlertRequest.alertId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAlertRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAlertRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alerts/{alertId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAlertResponse>{},
+        body: await response.json(),
+        bodyKey: "alert",
+        bodyModel: model.Alert,
+        type: "model.Alert",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of alert policy by its ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAlertPolicyRequest
+   * @return GetAlertPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAlertPolicy.ts.html |here} to see how to use GetAlertPolicy API.
+   */
+  public async getAlertPolicy(
+    getAlertPolicyRequest: requests.GetAlertPolicyRequest
+  ): Promise<responses.GetAlertPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAlertPolicy.");
+    const pathParams = {
+      "{alertPolicyId}": getAlertPolicyRequest.alertPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAlertPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAlertPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alertPolicies/{alertPolicyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAlertPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "alertPolicy",
+        bodyModel: model.AlertPolicy,
+        type: "model.AlertPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified archive retreival.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAuditArchiveRetrievalRequest
+   * @return GetAuditArchiveRetrievalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAuditArchiveRetrieval.ts.html |here} to see how to use GetAuditArchiveRetrieval API.
+   */
+  public async getAuditArchiveRetrieval(
+    getAuditArchiveRetrievalRequest: requests.GetAuditArchiveRetrievalRequest
+  ): Promise<responses.GetAuditArchiveRetrievalResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getAuditArchiveRetrieval.");
+    const pathParams = {
+      "{auditArchiveRetrievalId}": getAuditArchiveRetrievalRequest.auditArchiveRetrievalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": getAuditArchiveRetrievalRequest.ifMatch,
+      "opc-request-id": getAuditArchiveRetrievalRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAuditArchiveRetrievalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditArchiveRetrievals/{auditArchiveRetrievalId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAuditArchiveRetrievalResponse>{},
+        body: await response.json(),
+        bodyKey: "auditArchiveRetrieval",
+        bodyModel: model.AuditArchiveRetrieval,
+        type: "model.AuditArchiveRetrieval",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a audit policy by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAuditPolicyRequest
+   * @return GetAuditPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAuditPolicy.ts.html |here} to see how to use GetAuditPolicy API.
+   */
+  public async getAuditPolicy(
+    getAuditPolicyRequest: requests.GetAuditPolicyRequest
+  ): Promise<responses.GetAuditPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAuditPolicy.");
+    const pathParams = {
+      "{auditPolicyId}": getAuditPolicyRequest.auditPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAuditPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAuditPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditPolicies/{auditPolicyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAuditPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "auditPolicy",
+        bodyModel: model.AuditPolicy,
+        type: "model.AuditPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of audit profile resource and associated audit trails of the audit profile.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAuditProfileRequest
+   * @return GetAuditProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAuditProfile.ts.html |here} to see how to use GetAuditProfile API.
+   */
+  public async getAuditProfile(
+    getAuditProfileRequest: requests.GetAuditProfileRequest
+  ): Promise<responses.GetAuditProfileResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAuditProfile.");
+    const pathParams = {
+      "{auditProfileId}": getAuditProfileRequest.auditProfileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAuditProfileRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAuditProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditProfiles/{auditProfileId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAuditProfileResponse>{},
+        body: await response.json(),
+        bodyKey: "auditProfile",
+        bodyModel: model.AuditProfile,
+        type: "model.AuditProfile",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of audit trail.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAuditTrailRequest
+   * @return GetAuditTrailResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAuditTrail.ts.html |here} to see how to use GetAuditTrail API.
+   */
+  public async getAuditTrail(
+    getAuditTrailRequest: requests.GetAuditTrailRequest
+  ): Promise<responses.GetAuditTrailResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAuditTrail.");
+    const pathParams = {
+      "{auditTrailId}": getAuditTrailRequest.auditTrailId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAuditTrailRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAuditTrailRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditTrails/{auditTrailId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAuditTrailResponse>{},
+        body: await response.json(),
+        bodyKey: "auditTrail",
+        bodyModel: model.AuditTrail,
+        type: "model.AuditTrail",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of basic masking formats compatible with the supported data types.
+   * The data types are grouped into the following categories -
+   * Character - Includes CHAR, NCHAR, VARCHAR2, and NVARCHAR2
+   * Numeric - Includes NUMBER, FLOAT, RAW, BINARY_FLOAT, and BINARY_DOUBLE
+   * Date - Includes DATE and TIMESTAMP
+   * LOB - Includes BLOB, CLOB, and NCLOB
+   * All - Includes all the supported data types
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCompatibleFormatsForDataTypesRequest
+   * @return GetCompatibleFormatsForDataTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetCompatibleFormatsForDataTypes.ts.html |here} to see how to use GetCompatibleFormatsForDataTypes API.
+   */
+  public async getCompatibleFormatsForDataTypes(
+    getCompatibleFormatsForDataTypesRequest: requests.GetCompatibleFormatsForDataTypesRequest
+  ): Promise<responses.GetCompatibleFormatsForDataTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getCompatibleFormatsForDataTypes.");
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": getCompatibleFormatsForDataTypesRequest.limit,
+      "page": getCompatibleFormatsForDataTypesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCompatibleFormatsForDataTypesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCompatibleFormatsForDataTypesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/compatibleFormatsForDataTypes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCompatibleFormatsForDataTypesResponse>{},
+        body: await response.json(),
+        bodyKey: "compatibleFormatsForDataTypes",
+        bodyModel: model.CompatibleFormatsForDataTypes,
+        type: "model.CompatibleFormatsForDataTypes",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of library masking formats compatible with the existing sensitive types.
+   * For each sensitive type, it returns the assigned default masking format as well as
+   * the other library masking formats that have the sensitiveTypeIds attribute containing
+   * the OCID of the sensitive type.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCompatibleFormatsForSensitiveTypesRequest
+   * @return GetCompatibleFormatsForSensitiveTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetCompatibleFormatsForSensitiveTypes.ts.html |here} to see how to use GetCompatibleFormatsForSensitiveTypes API.
+   */
+  public async getCompatibleFormatsForSensitiveTypes(
+    getCompatibleFormatsForSensitiveTypesRequest: requests.GetCompatibleFormatsForSensitiveTypesRequest
+  ): Promise<responses.GetCompatibleFormatsForSensitiveTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getCompatibleFormatsForSensitiveTypes.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": getCompatibleFormatsForSensitiveTypesRequest.compartmentId,
+      "compartmentIdInSubtree": getCompatibleFormatsForSensitiveTypesRequest.compartmentIdInSubtree,
+      "accessLevel": getCompatibleFormatsForSensitiveTypesRequest.accessLevel,
+      "limit": getCompatibleFormatsForSensitiveTypesRequest.limit,
+      "page": getCompatibleFormatsForSensitiveTypesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCompatibleFormatsForSensitiveTypesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCompatibleFormatsForSensitiveTypesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/compatibleFormatsForSensitiveTypes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCompatibleFormatsForSensitiveTypesResponse>{},
+        body: await response.json(),
+        bodyKey: "compatibleFormatsForSensitiveTypes",
+        bodyModel: model.CompatibleFormatsForSensitiveTypes,
+        type: "model.CompatibleFormatsForSensitiveTypes",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
             dataType: "string"
           }
         ]
@@ -2192,6 +6430,410 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * Gets the details of the specified discovery job.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetDiscoveryJobRequest
+   * @return GetDiscoveryJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDiscoveryJob.ts.html |here} to see how to use GetDiscoveryJob API.
+   */
+  public async getDiscoveryJob(
+    getDiscoveryJobRequest: requests.GetDiscoveryJobRequest
+  ): Promise<responses.GetDiscoveryJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getDiscoveryJob.");
+    const pathParams = {
+      "{discoveryJobId}": getDiscoveryJobRequest.discoveryJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDiscoveryJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDiscoveryJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/discoveryJobs/{discoveryJobId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDiscoveryJobResponse>{},
+        body: await response.json(),
+        bodyKey: "discoveryJob",
+        bodyModel: model.DiscoveryJob,
+        type: "model.DiscoveryJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified discovery result.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetDiscoveryJobResultRequest
+   * @return GetDiscoveryJobResultResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDiscoveryJobResult.ts.html |here} to see how to use GetDiscoveryJobResult API.
+   */
+  public async getDiscoveryJobResult(
+    getDiscoveryJobResultRequest: requests.GetDiscoveryJobResultRequest
+  ): Promise<responses.GetDiscoveryJobResultResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getDiscoveryJobResult.");
+    const pathParams = {
+      "{discoveryJobId}": getDiscoveryJobResultRequest.discoveryJobId,
+      "{resultKey}": getDiscoveryJobResultRequest.resultKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDiscoveryJobResultRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDiscoveryJobResultRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/discoveryJobs/{discoveryJobId}/results/{resultKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDiscoveryJobResultResponse>{},
+        body: await response.json(),
+        bodyKey: "discoveryJobResult",
+        bodyModel: model.DiscoveryJobResult,
+        type: "model.DiscoveryJobResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified library masking format.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetLibraryMaskingFormatRequest
+   * @return GetLibraryMaskingFormatResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetLibraryMaskingFormat.ts.html |here} to see how to use GetLibraryMaskingFormat API.
+   */
+  public async getLibraryMaskingFormat(
+    getLibraryMaskingFormatRequest: requests.GetLibraryMaskingFormatRequest
+  ): Promise<responses.GetLibraryMaskingFormatResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getLibraryMaskingFormat.");
+    const pathParams = {
+      "{libraryMaskingFormatId}": getLibraryMaskingFormatRequest.libraryMaskingFormatId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getLibraryMaskingFormatRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getLibraryMaskingFormatRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/libraryMaskingFormats/{libraryMaskingFormatId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetLibraryMaskingFormatResponse>{},
+        body: await response.json(),
+        bodyKey: "libraryMaskingFormat",
+        bodyModel: model.LibraryMaskingFormat,
+        type: "model.LibraryMaskingFormat",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified masking column.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetMaskingColumnRequest
+   * @return GetMaskingColumnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetMaskingColumn.ts.html |here} to see how to use GetMaskingColumn API.
+   */
+  public async getMaskingColumn(
+    getMaskingColumnRequest: requests.GetMaskingColumnRequest
+  ): Promise<responses.GetMaskingColumnResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getMaskingColumn.");
+    const pathParams = {
+      "{maskingPolicyId}": getMaskingColumnRequest.maskingPolicyId,
+      "{maskingColumnKey}": getMaskingColumnRequest.maskingColumnKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMaskingColumnRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMaskingColumnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/maskingColumns/{maskingColumnKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMaskingColumnResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingColumn",
+        bodyModel: model.MaskingColumn,
+        type: "model.MaskingColumn",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified masking policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetMaskingPolicyRequest
+   * @return GetMaskingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetMaskingPolicy.ts.html |here} to see how to use GetMaskingPolicy API.
+   */
+  public async getMaskingPolicy(
+    getMaskingPolicyRequest: requests.GetMaskingPolicyRequest
+  ): Promise<responses.GetMaskingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getMaskingPolicy.");
+    const pathParams = {
+      "{maskingPolicyId}": getMaskingPolicyRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMaskingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMaskingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMaskingPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingPolicy",
+        bodyModel: model.MaskingPolicy,
+        type: "model.MaskingPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified masking report.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetMaskingReportRequest
+   * @return GetMaskingReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetMaskingReport.ts.html |here} to see how to use GetMaskingReport API.
+   */
+  public async getMaskingReport(
+    getMaskingReportRequest: requests.GetMaskingReportRequest
+  ): Promise<responses.GetMaskingReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getMaskingReport.");
+    const pathParams = {
+      "{maskingReportId}": getMaskingReportRequest.maskingReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMaskingReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMaskingReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingReports/{maskingReportId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMaskingReportResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingReport",
+        bodyModel: model.MaskingReport,
+        type: "model.MaskingReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the details of the specified on-premises connector.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOnPremConnectorRequest
@@ -2238,6 +6880,217 @@ The existing saved security assessments created due to the schedule are not move
         bodyKey: "onPremConnector",
         bodyModel: model.OnPremConnector,
         type: "model.OnPremConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a report by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetReportRequest
+   * @return GetReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetReport.ts.html |here} to see how to use GetReport API.
+   */
+  public async getReport(
+    getReportRequest: requests.GetReportRequest
+  ): Promise<responses.GetReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getReport.");
+    const pathParams = {
+      "{reportId}": getReportRequest.reportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reports/{reportId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetReportResponse>{},
+        body: await response.json(),
+        bodyKey: "report",
+        bodyModel: model.Report,
+        type: "model.Report",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads the specified report in the form of PDF or XLXS.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetReportContentRequest
+   * @return GetReportContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetReportContent.ts.html |here} to see how to use GetReportContent API.
+   */
+  public async getReportContent(
+    getReportContentRequest: requests.GetReportContentRequest
+  ): Promise<responses.GetReportContentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getReportContent.");
+    const pathParams = {
+      "{reportId}": getReportContentRequest.reportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getReportContentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getReportContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reports/{reportId}/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetReportContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of report definition specified by the identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetReportDefinitionRequest
+   * @return GetReportDefinitionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetReportDefinition.ts.html |here} to see how to use GetReportDefinition API.
+   */
+  public async getReportDefinition(
+    getReportDefinitionRequest: requests.GetReportDefinitionRequest
+  ): Promise<responses.GetReportDefinitionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getReportDefinition.");
+    const pathParams = {
+      "{reportDefinitionId}": getReportDefinitionRequest.reportDefinitionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getReportDefinitionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getReportDefinitionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reportDefinitions/{reportDefinitionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetReportDefinitionResponse>{},
+        body: await response.json(),
+        bodyKey: "reportDefinition",
+        bodyModel: model.ReportDefinition,
+        type: "model.ReportDefinition",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2385,6 +7238,277 @@ The existing saved security assessments created due to the schedule are not move
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified sensitive column.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSensitiveColumnRequest
+   * @return GetSensitiveColumnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSensitiveColumn.ts.html |here} to see how to use GetSensitiveColumn API.
+   */
+  public async getSensitiveColumn(
+    getSensitiveColumnRequest: requests.GetSensitiveColumnRequest
+  ): Promise<responses.GetSensitiveColumnResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSensitiveColumn.");
+    const pathParams = {
+      "{sensitiveDataModelId}": getSensitiveColumnRequest.sensitiveDataModelId,
+      "{sensitiveColumnKey}": getSensitiveColumnRequest.sensitiveColumnKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSensitiveColumnRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSensitiveColumnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/sensitiveColumns/{sensitiveColumnKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSensitiveColumnResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveColumn",
+        bodyModel: model.SensitiveColumn,
+        type: "model.SensitiveColumn",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified sensitive data model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSensitiveDataModelRequest
+   * @return GetSensitiveDataModelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSensitiveDataModel.ts.html |here} to see how to use GetSensitiveDataModel API.
+   */
+  public async getSensitiveDataModel(
+    getSensitiveDataModelRequest: requests.GetSensitiveDataModelRequest
+  ): Promise<responses.GetSensitiveDataModelResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSensitiveDataModel.");
+    const pathParams = {
+      "{sensitiveDataModelId}": getSensitiveDataModelRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSensitiveDataModelRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSensitiveDataModelRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSensitiveDataModelResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveDataModel",
+        bodyModel: model.SensitiveDataModel,
+        type: "model.SensitiveDataModel",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified sensitive type.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSensitiveTypeRequest
+   * @return GetSensitiveTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSensitiveType.ts.html |here} to see how to use GetSensitiveType API.
+   */
+  public async getSensitiveType(
+    getSensitiveTypeRequest: requests.GetSensitiveTypeRequest
+  ): Promise<responses.GetSensitiveTypeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSensitiveType.");
+    const pathParams = {
+      "{sensitiveTypeId}": getSensitiveTypeRequest.sensitiveTypeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSensitiveTypeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSensitiveTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypes/{sensitiveTypeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSensitiveTypeResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveType",
+        bodyModel: model.SensitiveType,
+        type: "model.SensitiveType",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of target-alert policy association by its ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetTargetAlertPolicyAssociationRequest
+   * @return GetTargetAlertPolicyAssociationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetTargetAlertPolicyAssociation.ts.html |here} to see how to use GetTargetAlertPolicyAssociation API.
+   */
+  public async getTargetAlertPolicyAssociation(
+    getTargetAlertPolicyAssociationRequest: requests.GetTargetAlertPolicyAssociationRequest
+  ): Promise<responses.GetTargetAlertPolicyAssociationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getTargetAlertPolicyAssociation.");
+    const pathParams = {
+      "{targetAlertPolicyAssociationId}":
+        getTargetAlertPolicyAssociationRequest.targetAlertPolicyAssociationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getTargetAlertPolicyAssociationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTargetAlertPolicyAssociationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetAlertPolicyAssociations/{targetAlertPolicyAssociationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetTargetAlertPolicyAssociationResponse>{},
+        body: await response.json(),
+        bodyKey: "targetAlertPolicyAssociation",
+        bodyModel: model.TargetAlertPolicyAssociation,
+        type: "model.TargetAlertPolicyAssociation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -2668,6 +7792,1391 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * Returns aggregation details of alerts.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAlertAnalyticsRequest
+   * @return ListAlertAnalyticsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAlertAnalytics.ts.html |here} to see how to use ListAlertAnalytics API.
+   */
+  public async listAlertAnalytics(
+    listAlertAnalyticsRequest: requests.ListAlertAnalyticsRequest
+  ): Promise<responses.ListAlertAnalyticsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAlertAnalytics.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAlertAnalyticsRequest.compartmentId,
+      "compartmentIdInSubtree": listAlertAnalyticsRequest.compartmentIdInSubtree,
+      "limit": listAlertAnalyticsRequest.limit,
+      "page": listAlertAnalyticsRequest.page,
+      "timeStarted": listAlertAnalyticsRequest.timeStarted,
+      "timeEnded": listAlertAnalyticsRequest.timeEnded,
+      "queryTimeZone": listAlertAnalyticsRequest.queryTimeZone,
+      "sortOrder": listAlertAnalyticsRequest.sortOrder,
+      "sortBy": listAlertAnalyticsRequest.sortBy,
+      "accessLevel": listAlertAnalyticsRequest.accessLevel,
+      "scimQuery": listAlertAnalyticsRequest.scimQuery,
+      "summaryField": listAlertAnalyticsRequest.summaryField,
+      "groupBy": listAlertAnalyticsRequest.groupBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAlertAnalyticsRequest.opcRequestId,
+      "if-match": listAlertAnalyticsRequest.ifMatch,
+      "opc-retry-token": listAlertAnalyticsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAlertAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alertAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAlertAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "alertAnalyticsCollection",
+        bodyModel: model.AlertAnalyticsCollection,
+        type: "model.AlertAnalyticsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of all alert policies.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAlertPoliciesRequest
+   * @return ListAlertPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAlertPolicies.ts.html |here} to see how to use ListAlertPolicies API.
+   */
+  public async listAlertPolicies(
+    listAlertPoliciesRequest: requests.ListAlertPoliciesRequest
+  ): Promise<responses.ListAlertPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAlertPolicies.");
+    const pathParams = {};
+
+    const queryParams = {
+      "alertPolicyId": listAlertPoliciesRequest.alertPolicyId,
+      "type": listAlertPoliciesRequest.type,
+      "isUserDefined": listAlertPoliciesRequest.isUserDefined,
+      "displayName": listAlertPoliciesRequest.displayName,
+      "compartmentId": listAlertPoliciesRequest.compartmentId,
+      "lifecycleState": listAlertPoliciesRequest.lifecycleState,
+      "limit": listAlertPoliciesRequest.limit,
+      "page": listAlertPoliciesRequest.page,
+      "sortOrder": listAlertPoliciesRequest.sortOrder,
+      "sortBy": listAlertPoliciesRequest.sortBy,
+      "timeCreatedGreaterThanOrEqualTo": listAlertPoliciesRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listAlertPoliciesRequest.timeCreatedLessThan,
+      "compartmentIdInSubtree": listAlertPoliciesRequest.compartmentIdInSubtree,
+      "accessLevel": listAlertPoliciesRequest.accessLevel
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAlertPoliciesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAlertPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alertPolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAlertPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "alertPolicyCollection",
+        bodyModel: model.AlertPolicyCollection,
+        type: "model.AlertPolicyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the rules of the specified alert policy. The alert policy is said to be satisfied when all rules in the policy evaulate to true.
+   * If there are three rules: rule1,rule2 and rule3, the policy is satisfied if rule1 AND rule2 AND rule3 is True.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAlertPolicyRulesRequest
+   * @return ListAlertPolicyRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAlertPolicyRules.ts.html |here} to see how to use ListAlertPolicyRules API.
+   */
+  public async listAlertPolicyRules(
+    listAlertPolicyRulesRequest: requests.ListAlertPolicyRulesRequest
+  ): Promise<responses.ListAlertPolicyRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAlertPolicyRules.");
+    const pathParams = {
+      "{alertPolicyId}": listAlertPolicyRulesRequest.alertPolicyId
+    };
+
+    const queryParams = {
+      "limit": listAlertPolicyRulesRequest.limit,
+      "page": listAlertPolicyRulesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAlertPolicyRulesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAlertPolicyRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alertPolicies/{alertPolicyId}/rules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAlertPolicyRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "alertPolicyRuleCollection",
+        bodyModel: model.AlertPolicyRuleCollection,
+        type: "model.AlertPolicyRuleCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of all alerts.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAlertsRequest
+   * @return ListAlertsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAlerts.ts.html |here} to see how to use ListAlerts API.
+   */
+  public async listAlerts(
+    listAlertsRequest: requests.ListAlertsRequest
+  ): Promise<responses.ListAlertsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAlerts.");
+    const pathParams = {};
+
+    const queryParams = {
+      "id": listAlertsRequest.id,
+      "compartmentId": listAlertsRequest.compartmentId,
+      "compartmentIdInSubtree": listAlertsRequest.compartmentIdInSubtree,
+      "limit": listAlertsRequest.limit,
+      "page": listAlertsRequest.page,
+      "accessLevel": listAlertsRequest.accessLevel,
+      "sortOrder": listAlertsRequest.sortOrder,
+      "sortBy": listAlertsRequest.sortBy,
+      "scimQuery": listAlertsRequest.scimQuery,
+      "field": listAlertsRequest.field
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAlertsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAlertsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alerts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAlertsResponse>{},
+        body: await response.json(),
+        bodyKey: "alertCollection",
+        bodyModel: model.AlertCollection,
+        type: "model.AlertCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the list of audit archive retrieval.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAuditArchiveRetrievalsRequest
+   * @return ListAuditArchiveRetrievalsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditArchiveRetrievals.ts.html |here} to see how to use ListAuditArchiveRetrievals API.
+   */
+  public async listAuditArchiveRetrievals(
+    listAuditArchiveRetrievalsRequest: requests.ListAuditArchiveRetrievalsRequest
+  ): Promise<responses.ListAuditArchiveRetrievalsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listAuditArchiveRetrievals.");
+    const pathParams = {};
+
+    const queryParams = {
+      "displayName": listAuditArchiveRetrievalsRequest.displayName,
+      "compartmentId": listAuditArchiveRetrievalsRequest.compartmentId,
+      "compartmentIdInSubtree": listAuditArchiveRetrievalsRequest.compartmentIdInSubtree,
+      "accessLevel": listAuditArchiveRetrievalsRequest.accessLevel,
+      "auditArchiveRetrievalId": listAuditArchiveRetrievalsRequest.auditArchiveRetrievalId,
+      "targetId": listAuditArchiveRetrievalsRequest.targetId,
+      "limit": listAuditArchiveRetrievalsRequest.limit,
+      "page": listAuditArchiveRetrievalsRequest.page,
+      "lifecycleState": listAuditArchiveRetrievalsRequest.lifecycleState,
+      "timeOfExpiry": listAuditArchiveRetrievalsRequest.timeOfExpiry,
+      "sortOrder": listAuditArchiveRetrievalsRequest.sortOrder,
+      "sortBy": listAuditArchiveRetrievalsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAuditArchiveRetrievalsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAuditArchiveRetrievalsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditArchiveRetrievals",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAuditArchiveRetrievalsResponse>{},
+        body: await response.json(),
+        bodyKey: "auditArchiveRetrievalCollection",
+        bodyModel: model.AuditArchiveRetrievalCollection,
+        type: "model.AuditArchiveRetrievalCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * By default ListAuditEventAnalytics operation will return all of the summary columns. To filter desired summary columns, specify
+   * it in the `summaryOf` query parameter.
+   * <p>
+   **Example:** /ListAuditEventAnalytics?summaryField=targetName&summaryField=userName&summaryField=clientHostName&summaryField
+   *              &summaryField=dmls&summaryField=privilege_changes&summaryField=ddls&summaryField=login_failure&summaryField=login_success
+   *              &summaryField=eventcount&q=(operationTime ge '2021-06-13T23:49:14')&groupBy=targetName
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAuditEventAnalyticsRequest
+   * @return ListAuditEventAnalyticsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditEventAnalytics.ts.html |here} to see how to use ListAuditEventAnalytics API.
+   */
+  public async listAuditEventAnalytics(
+    listAuditEventAnalyticsRequest: requests.ListAuditEventAnalyticsRequest
+  ): Promise<responses.ListAuditEventAnalyticsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditEventAnalytics.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAuditEventAnalyticsRequest.compartmentId,
+      "limit": listAuditEventAnalyticsRequest.limit,
+      "page": listAuditEventAnalyticsRequest.page,
+      "compartmentIdInSubtree": listAuditEventAnalyticsRequest.compartmentIdInSubtree,
+      "accessLevel": listAuditEventAnalyticsRequest.accessLevel,
+      "scimQuery": listAuditEventAnalyticsRequest.scimQuery,
+      "summaryField": listAuditEventAnalyticsRequest.summaryField,
+      "timeStarted": listAuditEventAnalyticsRequest.timeStarted,
+      "timeEnded": listAuditEventAnalyticsRequest.timeEnded,
+      "queryTimeZone": listAuditEventAnalyticsRequest.queryTimeZone,
+      "groupBy": listAuditEventAnalyticsRequest.groupBy,
+      "sortOrder": listAuditEventAnalyticsRequest.sortOrder,
+      "sortBy": listAuditEventAnalyticsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAuditEventAnalyticsRequest.opcRequestId,
+      "if-match": listAuditEventAnalyticsRequest.ifMatch,
+      "opc-retry-token": listAuditEventAnalyticsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAuditEventAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditEventAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAuditEventAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "auditEventAnalyticsCollection",
+        bodyModel: model.AuditEventAnalyticsCollection,
+        type: "model.AuditEventAnalyticsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * The ListAuditEvents operation returns specified `compartmentId` audit Events only.
+* The list does not include any audit Events associated with the `subcompartments` of the specified `compartmentId`.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListAuditEvents on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListAuditEventsRequest
+     * @return ListAuditEventsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditEvents.ts.html |here} to see how to use ListAuditEvents API.
+     */
+  public async listAuditEvents(
+    listAuditEventsRequest: requests.ListAuditEventsRequest
+  ): Promise<responses.ListAuditEventsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditEvents.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAuditEventsRequest.compartmentId,
+      "compartmentIdInSubtree": listAuditEventsRequest.compartmentIdInSubtree,
+      "accessLevel": listAuditEventsRequest.accessLevel,
+      "limit": listAuditEventsRequest.limit,
+      "page": listAuditEventsRequest.page,
+      "scimQuery": listAuditEventsRequest.scimQuery,
+      "sortOrder": listAuditEventsRequest.sortOrder,
+      "sortBy": listAuditEventsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAuditEventsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAuditEventsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditEvents",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAuditEventsResponse>{},
+        body: await response.json(),
+        bodyKey: "auditEventCollection",
+        bodyModel: model.AuditEventCollection,
+        type: "model.AuditEventCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Retrieves a list of all audited targets with their corresponding provisioned audit policies, and their provisioning conditions.
+* <p>
+The ListAuditPolicies operation returns only the audit policies in the specified `compartmentId`.
+* The list does not include any subcompartments of the compartmentId passed.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListAuditPolicies on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListAuditPoliciesRequest
+     * @return ListAuditPoliciesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditPolicies.ts.html |here} to see how to use ListAuditPolicies API.
+     */
+  public async listAuditPolicies(
+    listAuditPoliciesRequest: requests.ListAuditPoliciesRequest
+  ): Promise<responses.ListAuditPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditPolicies.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAuditPoliciesRequest.compartmentId,
+      "compartmentIdInSubtree": listAuditPoliciesRequest.compartmentIdInSubtree,
+      "accessLevel": listAuditPoliciesRequest.accessLevel,
+      "displayName": listAuditPoliciesRequest.displayName,
+      "limit": listAuditPoliciesRequest.limit,
+      "page": listAuditPoliciesRequest.page,
+      "targetId": listAuditPoliciesRequest.targetId,
+      "lifecycleState": listAuditPoliciesRequest.lifecycleState,
+      "auditPolicyId": listAuditPoliciesRequest.auditPolicyId,
+      "sortOrder": listAuditPoliciesRequest.sortOrder,
+      "sortBy": listAuditPoliciesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAuditPoliciesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAuditPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditPolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAuditPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "auditPolicyCollection",
+        bodyModel: model.AuditPolicyCollection,
+        type: "model.AuditPolicyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Gets a list of audit profile aggregated details . A audit profile  aggregation helps understand the overall  state of audit profile profiles.
+* As an example, it helps understand how many audit profiles have paid usage. It is especially useful to create dashboards or to support analytics.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform AuditProfileAnalytics on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListAuditProfileAnalyticsRequest
+     * @return ListAuditProfileAnalyticsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditProfileAnalytics.ts.html |here} to see how to use ListAuditProfileAnalytics API.
+     */
+  public async listAuditProfileAnalytics(
+    listAuditProfileAnalyticsRequest: requests.ListAuditProfileAnalyticsRequest
+  ): Promise<responses.ListAuditProfileAnalyticsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listAuditProfileAnalytics.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAuditProfileAnalyticsRequest.compartmentId,
+      "compartmentIdInSubtree": listAuditProfileAnalyticsRequest.compartmentIdInSubtree,
+      "accessLevel": listAuditProfileAnalyticsRequest.accessLevel,
+      "limit": listAuditProfileAnalyticsRequest.limit,
+      "page": listAuditProfileAnalyticsRequest.page,
+      "groupBy": listAuditProfileAnalyticsRequest.groupBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAuditProfileAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAuditProfileAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditProfileAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAuditProfileAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "auditProfileAnalyticCollection",
+        bodyModel: model.AuditProfileAnalyticCollection,
+        type: "model.AuditProfileAnalyticCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Gets a list of all audit profiles.
+* <p>
+The ListAuditProfiles operation returns only the audit profiles in the specified `compartmentId`.
+* The list does not include any subcompartments of the compartmentId passed.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListAuditProfiles on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListAuditProfilesRequest
+     * @return ListAuditProfilesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditProfiles.ts.html |here} to see how to use ListAuditProfiles API.
+     */
+  public async listAuditProfiles(
+    listAuditProfilesRequest: requests.ListAuditProfilesRequest
+  ): Promise<responses.ListAuditProfilesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditProfiles.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAuditProfilesRequest.compartmentId,
+      "compartmentIdInSubtree": listAuditProfilesRequest.compartmentIdInSubtree,
+      "accessLevel": listAuditProfilesRequest.accessLevel,
+      "auditProfileId": listAuditProfilesRequest.auditProfileId,
+      "targetId": listAuditProfilesRequest.targetId,
+      "displayName": listAuditProfilesRequest.displayName,
+      "limit": listAuditProfilesRequest.limit,
+      "page": listAuditProfilesRequest.page,
+      "lifecycleState": listAuditProfilesRequest.lifecycleState,
+      "isOverrideGlobalRetentionSetting": listAuditProfilesRequest.isOverrideGlobalRetentionSetting,
+      "isPaidUsageEnabled": listAuditProfilesRequest.isPaidUsageEnabled,
+      "auditCollectedVolumeGreaterThanOrEqualTo":
+        listAuditProfilesRequest.auditCollectedVolumeGreaterThanOrEqualTo,
+      "sortOrder": listAuditProfilesRequest.sortOrder,
+      "sortBy": listAuditProfilesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAuditProfilesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAuditProfilesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditProfiles",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAuditProfilesResponse>{},
+        body: await response.json(),
+        bodyKey: "auditProfileCollection",
+        bodyModel: model.AuditProfileCollection,
+        type: "model.AuditProfileCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Gets a list of audit trail aggregated details . A audit trail aggregation helps understand the overall  state of trails.
+* As an example, it helps understand how many trails are running or stopped. It is especially useful to create dashboards or to support analytics.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform AuditTrailAnalytics on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListAuditTrailAnalyticsRequest
+     * @return ListAuditTrailAnalyticsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditTrailAnalytics.ts.html |here} to see how to use ListAuditTrailAnalytics API.
+     */
+  public async listAuditTrailAnalytics(
+    listAuditTrailAnalyticsRequest: requests.ListAuditTrailAnalyticsRequest
+  ): Promise<responses.ListAuditTrailAnalyticsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditTrailAnalytics.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAuditTrailAnalyticsRequest.compartmentId,
+      "compartmentIdInSubtree": listAuditTrailAnalyticsRequest.compartmentIdInSubtree,
+      "accessLevel": listAuditTrailAnalyticsRequest.accessLevel,
+      "limit": listAuditTrailAnalyticsRequest.limit,
+      "page": listAuditTrailAnalyticsRequest.page,
+      "groupBy": listAuditTrailAnalyticsRequest.groupBy,
+      "targetId": listAuditTrailAnalyticsRequest.targetId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAuditTrailAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAuditTrailAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditTrailAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAuditTrailAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "auditTrailAnalyticCollection",
+        bodyModel: model.AuditTrailAnalyticCollection,
+        type: "model.AuditTrailAnalyticCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Gets a list of all audit trails.
+* The ListAuditTrails operation returns only the audit trails in the specified `compartmentId`.
+* The list does not include any subcompartments of the compartmentId passed.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListAuditTrailsRequest
+     * @return ListAuditTrailsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditTrails.ts.html |here} to see how to use ListAuditTrails API.
+     */
+  public async listAuditTrails(
+    listAuditTrailsRequest: requests.ListAuditTrailsRequest
+  ): Promise<responses.ListAuditTrailsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditTrails.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAuditTrailsRequest.compartmentId,
+      "compartmentIdInSubtree": listAuditTrailsRequest.compartmentIdInSubtree,
+      "accessLevel": listAuditTrailsRequest.accessLevel,
+      "auditTrailId": listAuditTrailsRequest.auditTrailId,
+      "displayName": listAuditTrailsRequest.displayName,
+      "targetId": listAuditTrailsRequest.targetId,
+      "limit": listAuditTrailsRequest.limit,
+      "page": listAuditTrailsRequest.page,
+      "lifecycleState": listAuditTrailsRequest.lifecycleState,
+      "status": listAuditTrailsRequest.status,
+      "sortOrder": listAuditTrailsRequest.sortOrder,
+      "sortBy": listAuditTrailsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAuditTrailsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAuditTrailsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditTrails",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAuditTrailsResponse>{},
+        body: await response.json(),
+        bodyKey: "auditTrailCollection",
+        bodyModel: model.AuditTrailCollection,
+        type: "model.AuditTrailCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a list of audit trails, and associated audit event volume for each trail up to defined start date.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAvailableAuditVolumesRequest
+   * @return ListAvailableAuditVolumesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAvailableAuditVolumes.ts.html |here} to see how to use ListAvailableAuditVolumes API.
+   */
+  public async listAvailableAuditVolumes(
+    listAvailableAuditVolumesRequest: requests.ListAvailableAuditVolumesRequest
+  ): Promise<responses.ListAvailableAuditVolumesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listAvailableAuditVolumes.");
+    const pathParams = {
+      "{auditProfileId}": listAvailableAuditVolumesRequest.auditProfileId
+    };
+
+    const queryParams = {
+      "workRequestId": listAvailableAuditVolumesRequest.workRequestId,
+      "trailLocation": listAvailableAuditVolumesRequest.trailLocation,
+      "monthInConsiderationGreaterThan":
+        listAvailableAuditVolumesRequest.monthInConsiderationGreaterThan,
+      "monthInConsiderationLessThan": listAvailableAuditVolumesRequest.monthInConsiderationLessThan,
+      "limit": listAvailableAuditVolumesRequest.limit,
+      "page": listAvailableAuditVolumesRequest.page,
+      "sortOrder": listAvailableAuditVolumesRequest.sortOrder,
+      "sortBy": listAvailableAuditVolumesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAvailableAuditVolumesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAvailableAuditVolumesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditProfiles/{auditProfileId}/availableAuditVolumes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAvailableAuditVolumesResponse>{},
+        body: await response.json(),
+        bodyKey: "availableAuditVolumeCollection",
+        bodyModel: model.AvailableAuditVolumeCollection,
+        type: "model.AvailableAuditVolumeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of all collected audit volume data points.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListCollectedAuditVolumesRequest
+   * @return ListCollectedAuditVolumesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListCollectedAuditVolumes.ts.html |here} to see how to use ListCollectedAuditVolumes API.
+   */
+  public async listCollectedAuditVolumes(
+    listCollectedAuditVolumesRequest: requests.ListCollectedAuditVolumesRequest
+  ): Promise<responses.ListCollectedAuditVolumesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listCollectedAuditVolumes.");
+    const pathParams = {
+      "{auditProfileId}": listCollectedAuditVolumesRequest.auditProfileId
+    };
+
+    const queryParams = {
+      "workRequestId": listCollectedAuditVolumesRequest.workRequestId,
+      "monthInConsiderationGreaterThan":
+        listCollectedAuditVolumesRequest.monthInConsiderationGreaterThan,
+      "monthInConsiderationLessThan": listCollectedAuditVolumesRequest.monthInConsiderationLessThan,
+      "limit": listCollectedAuditVolumesRequest.limit,
+      "page": listCollectedAuditVolumesRequest.page,
+      "sortOrder": listCollectedAuditVolumesRequest.sortOrder,
+      "sortBy": listCollectedAuditVolumesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCollectedAuditVolumesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCollectedAuditVolumesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditProfiles/{auditProfileId}/collectedAuditVolumes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCollectedAuditVolumesResponse>{},
+        body: await response.json(),
+        bodyKey: "collectedAuditVolumeCollection",
+        bodyModel: model.CollectedAuditVolumeCollection,
+        type: "model.CollectedAuditVolumeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of column metadata objects.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListColumnsRequest
+   * @return ListColumnsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListColumns.ts.html |here} to see how to use ListColumns API.
+   */
+  public async listColumns(
+    listColumnsRequest: requests.ListColumnsRequest
+  ): Promise<responses.ListColumnsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listColumns.");
+    const pathParams = {
+      "{targetDatabaseId}": listColumnsRequest.targetDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listColumnsRequest.limit,
+      "page": listColumnsRequest.page,
+      "schemaName": listColumnsRequest.schemaName,
+      "tableName": listColumnsRequest.tableName,
+      "columnName": listColumnsRequest.columnName,
+      "datatype": listColumnsRequest.datatype,
+      "sortOrder": listColumnsRequest.sortOrder,
+      "sortBy": listColumnsRequest.sortBy,
+      "schemaNameContains": listColumnsRequest.schemaNameContains,
+      "tableNameContains": listColumnsRequest.tableNameContains,
+      "columnNameContains": listColumnsRequest.columnNameContains
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listColumnsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listColumnsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetDatabases/{targetDatabaseId}/columns",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListColumnsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ColumnSummary,
+        type: "Array<model.ColumnSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listColumnsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ColumnSummary objects
+   * contained in responses from the listColumns operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllColumns(
+    request: requests.ListColumnsRequest
+  ): AsyncIterableIterator<model.ColumnSummary> {
+    return paginateRecords(request, req => this.listColumns(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listColumnsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listColumns operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllColumnsResponses(
+    request: requests.ListColumnsRequest
+  ): AsyncIterableIterator<responses.ListColumnsResponse> {
+    return paginateResponses(request, req => this.listColumns(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ColumnSummary objects
+   * contained in responses from the listColumns operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listColumnsRecordIterator(
+    request: requests.ListColumnsRequest
+  ): AsyncIterableIterator<model.ColumnSummary> {
+    return paginateRecords(request, req => this.listColumns(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listColumns operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listColumnsResponseIterator(
+    request: requests.ListColumnsRequest
+  ): AsyncIterableIterator<responses.ListColumnsResponse> {
+    return paginateResponses(request, req => this.listColumns(req));
+  }
+
+  /**
    * Gets a list of Data Safe private endpoints.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2795,6 +9304,250 @@ The existing saved security assessments created due to the schedule are not move
     request: requests.ListDataSafePrivateEndpointsRequest
   ): AsyncIterableIterator<responses.ListDataSafePrivateEndpointsResponse> {
     return paginateResponses(request, req => this.listDataSafePrivateEndpoints(req));
+  }
+
+  /**
+   * Gets consolidated discovery analytics data based on the specified query parameters.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDiscoveryAnalyticsRequest
+   * @return ListDiscoveryAnalyticsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDiscoveryAnalytics.ts.html |here} to see how to use ListDiscoveryAnalytics API.
+   */
+  public async listDiscoveryAnalytics(
+    listDiscoveryAnalyticsRequest: requests.ListDiscoveryAnalyticsRequest
+  ): Promise<responses.ListDiscoveryAnalyticsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listDiscoveryAnalytics.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDiscoveryAnalyticsRequest.compartmentId,
+      "compartmentIdInSubtree": listDiscoveryAnalyticsRequest.compartmentIdInSubtree,
+      "groupBy": listDiscoveryAnalyticsRequest.groupBy,
+      "targetId": listDiscoveryAnalyticsRequest.targetId,
+      "sensitiveDataModelId": listDiscoveryAnalyticsRequest.sensitiveDataModelId,
+      "limit": listDiscoveryAnalyticsRequest.limit,
+      "page": listDiscoveryAnalyticsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDiscoveryAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDiscoveryAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/discoveryAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDiscoveryAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "discoveryAnalyticsCollection",
+        bodyModel: model.DiscoveryAnalyticsCollection,
+        type: "model.DiscoveryAnalyticsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of discovery results based on the specified query parameters.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDiscoveryJobResultsRequest
+   * @return ListDiscoveryJobResultsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDiscoveryJobResults.ts.html |here} to see how to use ListDiscoveryJobResults API.
+   */
+  public async listDiscoveryJobResults(
+    listDiscoveryJobResultsRequest: requests.ListDiscoveryJobResultsRequest
+  ): Promise<responses.ListDiscoveryJobResultsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listDiscoveryJobResults.");
+    const pathParams = {
+      "{discoveryJobId}": listDiscoveryJobResultsRequest.discoveryJobId
+    };
+
+    const queryParams = {
+      "discoveryType": listDiscoveryJobResultsRequest.discoveryType,
+      "plannedAction": listDiscoveryJobResultsRequest.plannedAction,
+      "isResultApplied": listDiscoveryJobResultsRequest.isResultApplied,
+      "schemaName": listDiscoveryJobResultsRequest.schemaName,
+      "objectName": listDiscoveryJobResultsRequest.objectName,
+      "columnName": listDiscoveryJobResultsRequest.columnName,
+      "sortOrder": listDiscoveryJobResultsRequest.sortOrder,
+      "sortBy": listDiscoveryJobResultsRequest.sortBy,
+      "limit": listDiscoveryJobResultsRequest.limit,
+      "page": listDiscoveryJobResultsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDiscoveryJobResultsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDiscoveryJobResultsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/discoveryJobs/{discoveryJobId}/results",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDiscoveryJobResultsResponse>{},
+        body: await response.json(),
+        bodyKey: "discoveryJobResultCollection",
+        bodyModel: model.DiscoveryJobResultCollection,
+        type: "model.DiscoveryJobResultCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of incremental discovery jobs based on the specified query parameters.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDiscoveryJobsRequest
+   * @return ListDiscoveryJobsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDiscoveryJobs.ts.html |here} to see how to use ListDiscoveryJobs API.
+   */
+  public async listDiscoveryJobs(
+    listDiscoveryJobsRequest: requests.ListDiscoveryJobsRequest
+  ): Promise<responses.ListDiscoveryJobsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listDiscoveryJobs.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDiscoveryJobsRequest.compartmentId,
+      "compartmentIdInSubtree": listDiscoveryJobsRequest.compartmentIdInSubtree,
+      "accessLevel": listDiscoveryJobsRequest.accessLevel,
+      "displayName": listDiscoveryJobsRequest.displayName,
+      "discoveryJobId": listDiscoveryJobsRequest.discoveryJobId,
+      "targetId": listDiscoveryJobsRequest.targetId,
+      "lifecycleState": listDiscoveryJobsRequest.lifecycleState,
+      "sensitiveDataModelId": listDiscoveryJobsRequest.sensitiveDataModelId,
+      "sortOrder": listDiscoveryJobsRequest.sortOrder,
+      "sortBy": listDiscoveryJobsRequest.sortBy,
+      "limit": listDiscoveryJobsRequest.limit,
+      "page": listDiscoveryJobsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDiscoveryJobsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDiscoveryJobsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/discoveryJobs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDiscoveryJobsResponse>{},
+        body: await response.json(),
+        bodyKey: "discoveryJobCollection",
+        bodyModel: model.DiscoveryJobCollection,
+        type: "model.DiscoveryJobCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -3071,6 +9824,512 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * Gets a list of library masking formats based on the specified query parameters.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListLibraryMaskingFormatsRequest
+   * @return ListLibraryMaskingFormatsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListLibraryMaskingFormats.ts.html |here} to see how to use ListLibraryMaskingFormats API.
+   */
+  public async listLibraryMaskingFormats(
+    listLibraryMaskingFormatsRequest: requests.ListLibraryMaskingFormatsRequest
+  ): Promise<responses.ListLibraryMaskingFormatsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listLibraryMaskingFormats.");
+    const pathParams = {};
+
+    const queryParams = {
+      "libraryMaskingFormatId": listLibraryMaskingFormatsRequest.libraryMaskingFormatId,
+      "compartmentId": listLibraryMaskingFormatsRequest.compartmentId,
+      "compartmentIdInSubtree": listLibraryMaskingFormatsRequest.compartmentIdInSubtree,
+      "accessLevel": listLibraryMaskingFormatsRequest.accessLevel,
+      "displayName": listLibraryMaskingFormatsRequest.displayName,
+      "limit": listLibraryMaskingFormatsRequest.limit,
+      "page": listLibraryMaskingFormatsRequest.page,
+      "lifecycleState": listLibraryMaskingFormatsRequest.lifecycleState,
+      "timeCreatedGreaterThanOrEqualTo":
+        listLibraryMaskingFormatsRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listLibraryMaskingFormatsRequest.timeCreatedLessThan,
+      "libraryMaskingFormatSource": listLibraryMaskingFormatsRequest.libraryMaskingFormatSource,
+      "sortOrder": listLibraryMaskingFormatsRequest.sortOrder,
+      "sortBy": listLibraryMaskingFormatsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listLibraryMaskingFormatsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listLibraryMaskingFormatsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/libraryMaskingFormats",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListLibraryMaskingFormatsResponse>{},
+        body: await response.json(),
+        bodyKey: "libraryMaskingFormatCollection",
+        bodyModel: model.LibraryMaskingFormatCollection,
+        type: "model.LibraryMaskingFormatCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of masked columns present in the specified masking report and based on the specified query parameters.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListMaskedColumnsRequest
+   * @return ListMaskedColumnsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskedColumns.ts.html |here} to see how to use ListMaskedColumns API.
+   */
+  public async listMaskedColumns(
+    listMaskedColumnsRequest: requests.ListMaskedColumnsRequest
+  ): Promise<responses.ListMaskedColumnsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskedColumns.");
+    const pathParams = {
+      "{maskingReportId}": listMaskedColumnsRequest.maskingReportId
+    };
+
+    const queryParams = {
+      "limit": listMaskedColumnsRequest.limit,
+      "page": listMaskedColumnsRequest.page,
+      "sortOrder": listMaskedColumnsRequest.sortOrder,
+      "sortBy": listMaskedColumnsRequest.sortBy,
+      "schemaName": listMaskedColumnsRequest.schemaName,
+      "objectName": listMaskedColumnsRequest.objectName,
+      "columnName": listMaskedColumnsRequest.columnName,
+      "objectType": listMaskedColumnsRequest.objectType,
+      "maskingColumnGroup": listMaskedColumnsRequest.maskingColumnGroup,
+      "sensitiveTypeId": listMaskedColumnsRequest.sensitiveTypeId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMaskedColumnsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaskedColumnsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingReports/{maskingReportId}/maskedColumns",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMaskedColumnsResponse>{},
+        body: await response.json(),
+        bodyKey: "maskedColumnCollection",
+        bodyModel: model.MaskedColumnCollection,
+        type: "model.MaskedColumnCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets consolidated masking analytics data based on the specified query parameters.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListMaskingAnalyticsRequest
+   * @return ListMaskingAnalyticsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingAnalytics.ts.html |here} to see how to use ListMaskingAnalytics API.
+   */
+  public async listMaskingAnalytics(
+    listMaskingAnalyticsRequest: requests.ListMaskingAnalyticsRequest
+  ): Promise<responses.ListMaskingAnalyticsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingAnalytics.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listMaskingAnalyticsRequest.compartmentId,
+      "compartmentIdInSubtree": listMaskingAnalyticsRequest.compartmentIdInSubtree,
+      "groupBy": listMaskingAnalyticsRequest.groupBy,
+      "targetId": listMaskingAnalyticsRequest.targetId,
+      "maskingPolicyId": listMaskingAnalyticsRequest.maskingPolicyId,
+      "limit": listMaskingAnalyticsRequest.limit,
+      "page": listMaskingAnalyticsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMaskingAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaskingAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMaskingAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingAnalyticsCollection",
+        bodyModel: model.MaskingAnalyticsCollection,
+        type: "model.MaskingAnalyticsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of masking columns present in the specified masking policy and based on the specified query parameters.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListMaskingColumnsRequest
+   * @return ListMaskingColumnsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingColumns.ts.html |here} to see how to use ListMaskingColumns API.
+   */
+  public async listMaskingColumns(
+    listMaskingColumnsRequest: requests.ListMaskingColumnsRequest
+  ): Promise<responses.ListMaskingColumnsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingColumns.");
+    const pathParams = {
+      "{maskingPolicyId}": listMaskingColumnsRequest.maskingPolicyId
+    };
+
+    const queryParams = {
+      "limit": listMaskingColumnsRequest.limit,
+      "page": listMaskingColumnsRequest.page,
+      "sortOrder": listMaskingColumnsRequest.sortOrder,
+      "sortBy": listMaskingColumnsRequest.sortBy,
+      "maskingColumnLifecycleState": listMaskingColumnsRequest.maskingColumnLifecycleState,
+      "dataType": listMaskingColumnsRequest.dataType,
+      "schemaName": listMaskingColumnsRequest.schemaName,
+      "objectName": listMaskingColumnsRequest.objectName,
+      "columnName": listMaskingColumnsRequest.columnName,
+      "objectType": listMaskingColumnsRequest.objectType,
+      "maskingColumnGroup": listMaskingColumnsRequest.maskingColumnGroup,
+      "sensitiveTypeId": listMaskingColumnsRequest.sensitiveTypeId,
+      "isMaskingEnabled": listMaskingColumnsRequest.isMaskingEnabled,
+      "isSeedRequired": listMaskingColumnsRequest.isSeedRequired,
+      "timeCreatedGreaterThanOrEqualTo": listMaskingColumnsRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listMaskingColumnsRequest.timeCreatedLessThan,
+      "timeUpdatedGreaterThanOrEqualTo": listMaskingColumnsRequest.timeUpdatedGreaterThanOrEqualTo,
+      "timeUpdatedLessThan": listMaskingColumnsRequest.timeUpdatedLessThan
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMaskingColumnsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaskingColumnsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/maskingColumns",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMaskingColumnsResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingColumnCollection",
+        bodyModel: model.MaskingColumnCollection,
+        type: "model.MaskingColumnCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of masking policies based on the specified query parameters.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListMaskingPoliciesRequest
+   * @return ListMaskingPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingPolicies.ts.html |here} to see how to use ListMaskingPolicies API.
+   */
+  public async listMaskingPolicies(
+    listMaskingPoliciesRequest: requests.ListMaskingPoliciesRequest
+  ): Promise<responses.ListMaskingPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingPolicies.");
+    const pathParams = {};
+
+    const queryParams = {
+      "maskingPolicyId": listMaskingPoliciesRequest.maskingPolicyId,
+      "compartmentId": listMaskingPoliciesRequest.compartmentId,
+      "displayName": listMaskingPoliciesRequest.displayName,
+      "limit": listMaskingPoliciesRequest.limit,
+      "page": listMaskingPoliciesRequest.page,
+      "lifecycleState": listMaskingPoliciesRequest.lifecycleState,
+      "sortOrder": listMaskingPoliciesRequest.sortOrder,
+      "sortBy": listMaskingPoliciesRequest.sortBy,
+      "sensitiveDataModelId": listMaskingPoliciesRequest.sensitiveDataModelId,
+      "targetId": listMaskingPoliciesRequest.targetId,
+      "timeCreatedGreaterThanOrEqualTo": listMaskingPoliciesRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listMaskingPoliciesRequest.timeCreatedLessThan,
+      "compartmentIdInSubtree": listMaskingPoliciesRequest.compartmentIdInSubtree,
+      "accessLevel": listMaskingPoliciesRequest.accessLevel
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMaskingPoliciesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaskingPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMaskingPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingPolicyCollection",
+        bodyModel: model.MaskingPolicyCollection,
+        type: "model.MaskingPolicyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of masking reports based on the specified query parameters.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListMaskingReportsRequest
+   * @return ListMaskingReportsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingReports.ts.html |here} to see how to use ListMaskingReports API.
+   */
+  public async listMaskingReports(
+    listMaskingReportsRequest: requests.ListMaskingReportsRequest
+  ): Promise<responses.ListMaskingReportsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingReports.");
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listMaskingReportsRequest.limit,
+      "page": listMaskingReportsRequest.page,
+      "maskingPolicyId": listMaskingReportsRequest.maskingPolicyId,
+      "targetId": listMaskingReportsRequest.targetId,
+      "sortOrder": listMaskingReportsRequest.sortOrder,
+      "sortBy": listMaskingReportsRequest.sortBy,
+      "compartmentId": listMaskingReportsRequest.compartmentId,
+      "compartmentIdInSubtree": listMaskingReportsRequest.compartmentIdInSubtree,
+      "accessLevel": listMaskingReportsRequest.accessLevel
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMaskingReportsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaskingReportsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingReports",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMaskingReportsResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingReportCollection",
+        bodyModel: model.MaskingReportCollection,
+        type: "model.MaskingReportCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of on-premises connectors.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -3197,6 +10456,430 @@ The existing saved security assessments created due to the schedule are not move
     request: requests.ListOnPremConnectorsRequest
   ): AsyncIterableIterator<responses.ListOnPremConnectorsResponse> {
     return paginateResponses(request, req => this.listOnPremConnectors(req));
+  }
+
+  /**
+   * Gets a list of report definitions.
+   * The ListReportDefinitions operation returns only the report definitions in the specified `compartmentId`.
+   * It also returns the seeded report definitions which are available to all the compartments.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListReportDefinitionsRequest
+   * @return ListReportDefinitionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListReportDefinitions.ts.html |here} to see how to use ListReportDefinitions API.
+   */
+  public async listReportDefinitions(
+    listReportDefinitionsRequest: requests.ListReportDefinitionsRequest
+  ): Promise<responses.ListReportDefinitionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listReportDefinitions.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listReportDefinitionsRequest.compartmentId,
+      "compartmentIdInSubtree": listReportDefinitionsRequest.compartmentIdInSubtree,
+      "accessLevel": listReportDefinitionsRequest.accessLevel,
+      "displayName": listReportDefinitionsRequest.displayName,
+      "limit": listReportDefinitionsRequest.limit,
+      "page": listReportDefinitionsRequest.page,
+      "sortOrder": listReportDefinitionsRequest.sortOrder,
+      "sortBy": listReportDefinitionsRequest.sortBy,
+      "isSeeded": listReportDefinitionsRequest.isSeeded,
+      "dataSource": listReportDefinitionsRequest.dataSource,
+      "lifecycleState": listReportDefinitionsRequest.lifecycleState,
+      "category": listReportDefinitionsRequest.category
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listReportDefinitionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listReportDefinitionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reportDefinitions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListReportDefinitionsResponse>{},
+        body: await response.json(),
+        bodyKey: "reportDefinitionCollection",
+        bodyModel: model.ReportDefinitionCollection,
+        type: "model.ReportDefinitionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of all the reports in the compartment. It contains information such as report generation time.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListReportsRequest
+   * @return ListReportsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListReports.ts.html |here} to see how to use ListReports API.
+   */
+  public async listReports(
+    listReportsRequest: requests.ListReportsRequest
+  ): Promise<responses.ListReportsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listReports.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listReportsRequest.compartmentId,
+      "compartmentIdInSubtree": listReportsRequest.compartmentIdInSubtree,
+      "accessLevel": listReportsRequest.accessLevel,
+      "displayName": listReportsRequest.displayName,
+      "limit": listReportsRequest.limit,
+      "page": listReportsRequest.page,
+      "sortOrder": listReportsRequest.sortOrder,
+      "sortBy": listReportsRequest.sortBy,
+      "reportDefinitionId": listReportsRequest.reportDefinitionId,
+      "lifecycleState": listReportsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listReportsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listReportsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reports",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListReportsResponse>{},
+        body: await response.json(),
+        bodyKey: "reportCollection",
+        bodyModel: model.ReportCollection,
+        type: "model.ReportCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of role metadata objects.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListRolesRequest
+   * @return ListRolesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListRoles.ts.html |here} to see how to use ListRoles API.
+   */
+  public async listRoles(
+    listRolesRequest: requests.ListRolesRequest
+  ): Promise<responses.ListRolesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listRoles.");
+    const pathParams = {
+      "{targetDatabaseId}": listRolesRequest.targetDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listRolesRequest.limit,
+      "page": listRolesRequest.page,
+      "roleName": listRolesRequest.roleName,
+      "isOracleMaintained": listRolesRequest.isOracleMaintained,
+      "authenticationType": listRolesRequest.authenticationType,
+      "sortOrder": listRolesRequest.sortOrder,
+      "sortBy": listRolesRequest.sortBy,
+      "roleNameContains": listRolesRequest.roleNameContains
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRolesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRolesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetDatabases/{targetDatabaseId}/roles",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRolesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.RoleSummary,
+        type: "Array<model.RoleSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listRolesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.RoleSummary objects
+   * contained in responses from the listRoles operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllRoles(
+    request: requests.ListRolesRequest
+  ): AsyncIterableIterator<model.RoleSummary> {
+    return paginateRecords(request, req => this.listRoles(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listRolesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listRoles operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllRolesResponses(
+    request: requests.ListRolesRequest
+  ): AsyncIterableIterator<responses.ListRolesResponse> {
+    return paginateResponses(request, req => this.listRoles(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.RoleSummary objects
+   * contained in responses from the listRoles operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRolesRecordIterator(
+    request: requests.ListRolesRequest
+  ): AsyncIterableIterator<model.RoleSummary> {
+    return paginateRecords(request, req => this.listRoles(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listRoles operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listRolesResponseIterator(
+    request: requests.ListRolesRequest
+  ): AsyncIterableIterator<responses.ListRolesResponse> {
+    return paginateResponses(request, req => this.listRoles(req));
+  }
+
+  /**
+   * Returns list of schema.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSchemasRequest
+   * @return ListSchemasResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSchemas.ts.html |here} to see how to use ListSchemas API.
+   */
+  public async listSchemas(
+    listSchemasRequest: requests.ListSchemasRequest
+  ): Promise<responses.ListSchemasResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSchemas.");
+    const pathParams = {
+      "{targetDatabaseId}": listSchemasRequest.targetDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listSchemasRequest.limit,
+      "page": listSchemasRequest.page,
+      "schemaName": listSchemasRequest.schemaName,
+      "sortOrder": listSchemasRequest.sortOrder,
+      "sortBy": listSchemasRequest.sortBy,
+      "isOracleMaintained": listSchemasRequest.isOracleMaintained,
+      "schemaNameContains": listSchemasRequest.schemaNameContains
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSchemasRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSchemasRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetDatabases/{targetDatabaseId}/schemas",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSchemasResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.SchemaSummary,
+        type: "Array<model.SchemaSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listSchemasRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.SchemaSummary objects
+   * contained in responses from the listSchemas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllSchemas(
+    request: requests.ListSchemasRequest
+  ): AsyncIterableIterator<model.SchemaSummary> {
+    return paginateRecords(request, req => this.listSchemas(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listSchemasResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listSchemas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllSchemasResponses(
+    request: requests.ListSchemasRequest
+  ): AsyncIterableIterator<responses.ListSchemasResponse> {
+    return paginateResponses(request, req => this.listSchemas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SchemaSummary objects
+   * contained in responses from the listSchemas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSchemasRecordIterator(
+    request: requests.ListSchemasRequest
+  ): AsyncIterableIterator<model.SchemaSummary> {
+    return paginateRecords(request, req => this.listSchemas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSchemas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSchemasResponseIterator(
+    request: requests.ListSchemasRequest
+  ): AsyncIterableIterator<responses.ListSchemasResponse> {
+    return paginateResponses(request, req => this.listSchemas(req));
   }
 
   /**
@@ -3356,6 +11039,502 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   }
 
   /**
+   * Gets a list of sensitive columns present in the specified sensitive data model based on the specified query parameters.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSensitiveColumnsRequest
+   * @return ListSensitiveColumnsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveColumns.ts.html |here} to see how to use ListSensitiveColumns API.
+   */
+  public async listSensitiveColumns(
+    listSensitiveColumnsRequest: requests.ListSensitiveColumnsRequest
+  ): Promise<responses.ListSensitiveColumnsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSensitiveColumns.");
+    const pathParams = {
+      "{sensitiveDataModelId}": listSensitiveColumnsRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {
+      "timeCreatedGreaterThanOrEqualTo":
+        listSensitiveColumnsRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listSensitiveColumnsRequest.timeCreatedLessThan,
+      "timeUpdatedGreaterThanOrEqualTo":
+        listSensitiveColumnsRequest.timeUpdatedGreaterThanOrEqualTo,
+      "timeUpdatedLessThan": listSensitiveColumnsRequest.timeUpdatedLessThan,
+      "sensitiveColumnLifecycleState": listSensitiveColumnsRequest.sensitiveColumnLifecycleState,
+      "schemaName": listSensitiveColumnsRequest.schemaName,
+      "objectName": listSensitiveColumnsRequest.objectName,
+      "columnName": listSensitiveColumnsRequest.columnName,
+      "objectType": listSensitiveColumnsRequest.objectType,
+      "dataType": listSensitiveColumnsRequest.dataType,
+      "status": listSensitiveColumnsRequest.status,
+      "sensitiveTypeId": listSensitiveColumnsRequest.sensitiveTypeId,
+      "parentColumnKey": listSensitiveColumnsRequest.parentColumnKey,
+      "relationType": listSensitiveColumnsRequest.relationType,
+      "columnGroup": listSensitiveColumnsRequest.columnGroup,
+      "limit": listSensitiveColumnsRequest.limit,
+      "page": listSensitiveColumnsRequest.page,
+      "sortOrder": listSensitiveColumnsRequest.sortOrder,
+      "sortBy": listSensitiveColumnsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSensitiveColumnsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSensitiveColumnsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/sensitiveColumns",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSensitiveColumnsResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveColumnCollection",
+        bodyModel: model.SensitiveColumnCollection,
+        type: "model.SensitiveColumnCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of sensitive data models based on the specified query parameters.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSensitiveDataModelsRequest
+   * @return ListSensitiveDataModelsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveDataModels.ts.html |here} to see how to use ListSensitiveDataModels API.
+   */
+  public async listSensitiveDataModels(
+    listSensitiveDataModelsRequest: requests.ListSensitiveDataModelsRequest
+  ): Promise<responses.ListSensitiveDataModelsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSensitiveDataModels.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSensitiveDataModelsRequest.compartmentId,
+      "compartmentIdInSubtree": listSensitiveDataModelsRequest.compartmentIdInSubtree,
+      "accessLevel": listSensitiveDataModelsRequest.accessLevel,
+      "displayName": listSensitiveDataModelsRequest.displayName,
+      "sensitiveDataModelId": listSensitiveDataModelsRequest.sensitiveDataModelId,
+      "timeCreatedGreaterThanOrEqualTo":
+        listSensitiveDataModelsRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listSensitiveDataModelsRequest.timeCreatedLessThan,
+      "targetId": listSensitiveDataModelsRequest.targetId,
+      "sortOrder": listSensitiveDataModelsRequest.sortOrder,
+      "sortBy": listSensitiveDataModelsRequest.sortBy,
+      "limit": listSensitiveDataModelsRequest.limit,
+      "page": listSensitiveDataModelsRequest.page,
+      "lifecycleState": listSensitiveDataModelsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSensitiveDataModelsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSensitiveDataModelsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSensitiveDataModelsResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveDataModelCollection",
+        bodyModel: model.SensitiveDataModelCollection,
+        type: "model.SensitiveDataModelCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of sensitive types based on the specified query parameters.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSensitiveTypesRequest
+   * @return ListSensitiveTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveTypes.ts.html |here} to see how to use ListSensitiveTypes API.
+   */
+  public async listSensitiveTypes(
+    listSensitiveTypesRequest: requests.ListSensitiveTypesRequest
+  ): Promise<responses.ListSensitiveTypesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSensitiveTypes.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSensitiveTypesRequest.compartmentId,
+      "compartmentIdInSubtree": listSensitiveTypesRequest.compartmentIdInSubtree,
+      "accessLevel": listSensitiveTypesRequest.accessLevel,
+      "displayName": listSensitiveTypesRequest.displayName,
+      "sensitiveTypeId": listSensitiveTypesRequest.sensitiveTypeId,
+      "sensitiveTypeSource": listSensitiveTypesRequest.sensitiveTypeSource,
+      "entityType": listSensitiveTypesRequest.entityType,
+      "parentCategoryId": listSensitiveTypesRequest.parentCategoryId,
+      "defaultMaskingFormatId": listSensitiveTypesRequest.defaultMaskingFormatId,
+      "timeCreatedGreaterThanOrEqualTo": listSensitiveTypesRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listSensitiveTypesRequest.timeCreatedLessThan,
+      "sortOrder": listSensitiveTypesRequest.sortOrder,
+      "sortBy": listSensitiveTypesRequest.sortBy,
+      "limit": listSensitiveTypesRequest.limit,
+      "page": listSensitiveTypesRequest.page,
+      "lifecycleState": listSensitiveTypesRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSensitiveTypesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSensitiveTypesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSensitiveTypesResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveTypeCollection",
+        bodyModel: model.SensitiveTypeCollection,
+        type: "model.SensitiveTypeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of table metadata objects.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListTablesRequest
+   * @return ListTablesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListTables.ts.html |here} to see how to use ListTables API.
+   */
+  public async listTables(
+    listTablesRequest: requests.ListTablesRequest
+  ): Promise<responses.ListTablesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listTables.");
+    const pathParams = {
+      "{targetDatabaseId}": listTablesRequest.targetDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listTablesRequest.limit,
+      "page": listTablesRequest.page,
+      "schemaName": listTablesRequest.schemaName,
+      "tableName": listTablesRequest.tableName,
+      "sortOrder": listTablesRequest.sortOrder,
+      "sortBy": listTablesRequest.sortBy,
+      "tableNameContains": listTablesRequest.tableNameContains,
+      "schemaNameContains": listTablesRequest.schemaNameContains
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTablesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTablesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetDatabases/{targetDatabaseId}/tables",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTablesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.TableSummary,
+        type: "Array<model.TableSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listTablesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.TableSummary objects
+   * contained in responses from the listTables operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllTables(
+    request: requests.ListTablesRequest
+  ): AsyncIterableIterator<model.TableSummary> {
+    return paginateRecords(request, req => this.listTables(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listTablesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listTables operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllTablesResponses(
+    request: requests.ListTablesRequest
+  ): AsyncIterableIterator<responses.ListTablesResponse> {
+    return paginateResponses(request, req => this.listTables(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.TableSummary objects
+   * contained in responses from the listTables operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTablesRecordIterator(
+    request: requests.ListTablesRequest
+  ): AsyncIterableIterator<model.TableSummary> {
+    return paginateRecords(request, req => this.listTables(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listTables operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listTablesResponseIterator(
+    request: requests.ListTablesRequest
+  ): AsyncIterableIterator<responses.ListTablesResponse> {
+    return paginateResponses(request, req => this.listTables(req));
+  }
+
+  /**
+   * Gets a list of all target-alert policy associations.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListTargetAlertPolicyAssociationsRequest
+   * @return ListTargetAlertPolicyAssociationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListTargetAlertPolicyAssociations.ts.html |here} to see how to use ListTargetAlertPolicyAssociations API.
+   */
+  public async listTargetAlertPolicyAssociations(
+    listTargetAlertPolicyAssociationsRequest: requests.ListTargetAlertPolicyAssociationsRequest
+  ): Promise<responses.ListTargetAlertPolicyAssociationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listTargetAlertPolicyAssociations.");
+    const pathParams = {};
+
+    const queryParams = {
+      "targetAlertPolicyAssociationId":
+        listTargetAlertPolicyAssociationsRequest.targetAlertPolicyAssociationId,
+      "alertPolicyId": listTargetAlertPolicyAssociationsRequest.alertPolicyId,
+      "targetId": listTargetAlertPolicyAssociationsRequest.targetId,
+      "compartmentId": listTargetAlertPolicyAssociationsRequest.compartmentId,
+      "lifecycleState": listTargetAlertPolicyAssociationsRequest.lifecycleState,
+      "limit": listTargetAlertPolicyAssociationsRequest.limit,
+      "page": listTargetAlertPolicyAssociationsRequest.page,
+      "sortOrder": listTargetAlertPolicyAssociationsRequest.sortOrder,
+      "sortBy": listTargetAlertPolicyAssociationsRequest.sortBy,
+      "timeCreatedGreaterThanOrEqualTo":
+        listTargetAlertPolicyAssociationsRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listTargetAlertPolicyAssociationsRequest.timeCreatedLessThan,
+      "compartmentIdInSubtree": listTargetAlertPolicyAssociationsRequest.compartmentIdInSubtree,
+      "accessLevel": listTargetAlertPolicyAssociationsRequest.accessLevel
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTargetAlertPolicyAssociationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTargetAlertPolicyAssociationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetAlertPolicyAssociations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTargetAlertPolicyAssociationsResponse>{},
+        body: await response.json(),
+        bodyKey: "targetAlertPolicyAssociationCollection",
+        bodyModel: model.TargetAlertPolicyAssociationCollection,
+        type: "model.TargetAlertPolicyAssociationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns the list of registered target databases in Data Safe.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -3372,6 +11551,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
 
     const queryParams = {
       "compartmentId": listTargetDatabasesRequest.compartmentId,
+      "associatedResourceId": listTargetDatabasesRequest.associatedResourceId,
       "targetDatabaseId": listTargetDatabasesRequest.targetDatabaseId,
       "displayName": listTargetDatabasesRequest.displayName,
       "lifecycleState": listTargetDatabasesRequest.lifecycleState,
@@ -4214,7 +12394,10 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     const queryParams = {
       "compartmentId": listWorkRequestsRequest.compartmentId,
       "operationType": listWorkRequestsRequest.operationType,
+      "sortBy": listWorkRequestsRequest.sortBy,
+      "sortOrder": listWorkRequestsRequest.sortOrder,
       "resourceId": listWorkRequestsRequest.resourceId,
+      "targetDatabaseId": listWorkRequestsRequest.targetDatabaseId,
       "page": listWorkRequestsRequest.page,
       "limit": listWorkRequestsRequest.limit
     };
@@ -4318,6 +12501,498 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Masks data using the specified masking policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param MaskDataRequest
+   * @return MaskDataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/MaskData.ts.html |here} to see how to use MaskData API.
+   */
+  public async maskData(
+    maskDataRequest: requests.MaskDataRequest
+  ): Promise<responses.MaskDataResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#maskData.");
+    const pathParams = {
+      "{maskingPolicyId}": maskDataRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": maskDataRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      maskDataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/actions/mask",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        maskDataRequest.maskDataDetails,
+        "MaskDataDetails",
+        model.MaskDataDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.MaskDataResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Modifies Global Settings in Data Safe in the tenancy and region.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ModifyGlobalSettingsRequest
+   * @return ModifyGlobalSettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ModifyGlobalSettings.ts.html |here} to see how to use ModifyGlobalSettings API.
+   */
+  public async modifyGlobalSettings(
+    modifyGlobalSettingsRequest: requests.ModifyGlobalSettingsRequest
+  ): Promise<responses.ModifyGlobalSettingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#modifyGlobalSettings.");
+    const pathParams = {
+      "{compartmentId}": modifyGlobalSettingsRequest.compartmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": modifyGlobalSettingsRequest.ifMatch,
+      "opc-request-id": modifyGlobalSettingsRequest.opcRequestId,
+      "opc-retry-token": modifyGlobalSettingsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      modifyGlobalSettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/configuration/{compartmentId}/actions/modifyGlobalSettings",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        modifyGlobalSettingsRequest.modifyGlobalSettingsDetails,
+        "ModifyGlobalSettingsDetails",
+        model.ModifyGlobalSettingsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ModifyGlobalSettingsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Patch alerts. Updates one or more alerts by specifying alert Ids.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchAlertsRequest
+   * @return PatchAlertsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchAlerts.ts.html |here} to see how to use PatchAlerts API.
+   */
+  public async patchAlerts(
+    patchAlertsRequest: requests.PatchAlertsRequest
+  ): Promise<responses.PatchAlertsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#patchAlerts.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": patchAlertsRequest.opcRequestId,
+      "if-match": patchAlertsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchAlertsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alerts",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchAlertsRequest.patchAlertsDetails,
+        "PatchAlertsDetails",
+        model.PatchAlertsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchAlertsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Patches one or more discovery results. You can use this operation to set the plannedAction attribute before using
+   * ApplyDiscoveryJobResults to process the results based on this attribute.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchDiscoveryJobResultsRequest
+   * @return PatchDiscoveryJobResultsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchDiscoveryJobResults.ts.html |here} to see how to use PatchDiscoveryJobResults API.
+   */
+  public async patchDiscoveryJobResults(
+    patchDiscoveryJobResultsRequest: requests.PatchDiscoveryJobResultsRequest
+  ): Promise<responses.PatchDiscoveryJobResultsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#patchDiscoveryJobResults.");
+    const pathParams = {
+      "{discoveryJobId}": patchDiscoveryJobResultsRequest.discoveryJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": patchDiscoveryJobResultsRequest.ifMatch,
+      "opc-request-id": patchDiscoveryJobResultsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchDiscoveryJobResultsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/discoveryJobs/{discoveryJobId}/results",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchDiscoveryJobResultsRequest.patchDiscoveryJobResultDetails,
+        "PatchDiscoveryJobResultDetails",
+        model.PatchDiscoveryJobResultDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchDiscoveryJobResultsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Patches one or more columns in the specified masking policy. Use it to create, or update
+   * masking columns. To create masking columns, use CreateMaskingColumnDetails as the patch
+   * value. And to update masking columns, use UpdateMaskingColumnDetails as the patch value.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchMaskingColumnsRequest
+   * @return PatchMaskingColumnsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchMaskingColumns.ts.html |here} to see how to use PatchMaskingColumns API.
+   */
+  public async patchMaskingColumns(
+    patchMaskingColumnsRequest: requests.PatchMaskingColumnsRequest
+  ): Promise<responses.PatchMaskingColumnsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#patchMaskingColumns.");
+    const pathParams = {
+      "{maskingPolicyId}": patchMaskingColumnsRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": patchMaskingColumnsRequest.opcRequestId,
+      "if-match": patchMaskingColumnsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchMaskingColumnsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/maskingColumns",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchMaskingColumnsRequest.patchMaskingColumnsDetails,
+        "PatchMaskingColumnsDetails",
+        model.PatchMaskingColumnsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchMaskingColumnsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Patches one or more columns in the specified sensitive data model. Use it to create, update, or delete sensitive columns.
+   * To create sensitive columns, use CreateSensitiveColumnDetails as the patch value. And to update sensitive columns,
+   * use UpdateSensitiveColumnDetails as the patch value.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchSensitiveColumnsRequest
+   * @return PatchSensitiveColumnsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchSensitiveColumns.ts.html |here} to see how to use PatchSensitiveColumns API.
+   */
+  public async patchSensitiveColumns(
+    patchSensitiveColumnsRequest: requests.PatchSensitiveColumnsRequest
+  ): Promise<responses.PatchSensitiveColumnsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#patchSensitiveColumns.");
+    const pathParams = {
+      "{sensitiveDataModelId}": patchSensitiveColumnsRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": patchSensitiveColumnsRequest.ifMatch,
+      "opc-request-id": patchSensitiveColumnsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchSensitiveColumnsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/sensitiveColumns",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchSensitiveColumnsRequest.patchSensitiveColumnDetails,
+        "PatchSensitiveColumnDetails",
+        model.PatchSensitiveColumnDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchSensitiveColumnsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Provision audit policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ProvisionAuditPolicyRequest
+   * @return ProvisionAuditPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ProvisionAuditPolicy.ts.html |here} to see how to use ProvisionAuditPolicy API.
+   */
+  public async provisionAuditPolicy(
+    provisionAuditPolicyRequest: requests.ProvisionAuditPolicyRequest
+  ): Promise<responses.ProvisionAuditPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#provisionAuditPolicy.");
+    const pathParams = {
+      "{auditPolicyId}": provisionAuditPolicyRequest.auditPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": provisionAuditPolicyRequest.ifMatch,
+      "opc-request-id": provisionAuditPolicyRequest.opcRequestId,
+      "opc-retry-token": provisionAuditPolicyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      provisionAuditPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditPolicies/{auditPolicyId}/actions/provision",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        provisionAuditPolicyRequest.provisionAuditPolicyDetails,
+        "ProvisionAuditPolicyDetails",
+        model.ProvisionAuditPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ProvisionAuditPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -4446,6 +13121,201 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.RefreshUserAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Resumes the specified audit trail once it got stopped.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ResumeAuditTrailRequest
+   * @return ResumeAuditTrailResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ResumeAuditTrail.ts.html |here} to see how to use ResumeAuditTrail API.
+   */
+  public async resumeAuditTrail(
+    resumeAuditTrailRequest: requests.ResumeAuditTrailRequest
+  ): Promise<responses.ResumeAuditTrailResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#resumeAuditTrail.");
+    const pathParams = {
+      "{auditTrailId}": resumeAuditTrailRequest.auditTrailId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": resumeAuditTrailRequest.ifMatch,
+      "opc-request-id": resumeAuditTrailRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      resumeAuditTrailRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditTrails/{auditTrailId}/actions/resume",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ResumeAuditTrailResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Resume the given work request. Issuing a resume does not guarantee of immediate resume of the work request.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ResumeWorkRequestRequest
+   * @return ResumeWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ResumeWorkRequest.ts.html |here} to see how to use ResumeWorkRequest API.
+   */
+  public async resumeWorkRequest(
+    resumeWorkRequestRequest: requests.ResumeWorkRequestRequest
+  ): Promise<responses.ResumeWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#resumeWorkRequest.");
+    const pathParams = {
+      "{workRequestId}": resumeWorkRequestRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": resumeWorkRequestRequest.opcRetryToken,
+      "opc-request-id": resumeWorkRequestRequest.opcRequestId,
+      "if-match": resumeWorkRequestRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      resumeWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/actions/resume",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ResumeWorkRequestResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the audit policy details from the source target database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RetrieveAuditPoliciesRequest
+   * @return RetrieveAuditPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RetrieveAuditPolicies.ts.html |here} to see how to use RetrieveAuditPolicies API.
+   */
+  public async retrieveAuditPolicies(
+    retrieveAuditPoliciesRequest: requests.RetrieveAuditPoliciesRequest
+  ): Promise<responses.RetrieveAuditPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#retrieveAuditPolicies.");
+    const pathParams = {
+      "{auditPolicyId}": retrieveAuditPoliciesRequest.auditPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": retrieveAuditPoliciesRequest.ifMatch,
+      "opc-request-id": retrieveAuditPoliciesRequest.opcRequestId,
+      "opc-retry-token": retrieveAuditPoliciesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      retrieveAuditPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditPolicies/{auditPolicyId}/actions/retrieveFromTarget",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RetrieveAuditPoliciesResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -4609,6 +13479,206 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Starts collection of audit records on the specified audit trail.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param StartAuditTrailRequest
+   * @return StartAuditTrailResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/StartAuditTrail.ts.html |here} to see how to use StartAuditTrail API.
+   */
+  public async startAuditTrail(
+    startAuditTrailRequest: requests.StartAuditTrailRequest
+  ): Promise<responses.StartAuditTrailResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#startAuditTrail.");
+    const pathParams = {
+      "{auditTrailId}": startAuditTrailRequest.auditTrailId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": startAuditTrailRequest.ifMatch,
+      "opc-request-id": startAuditTrailRequest.opcRequestId,
+      "opc-retry-token": startAuditTrailRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startAuditTrailRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditTrails/{auditTrailId}/actions/start",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        startAuditTrailRequest.startAuditTrailDetails,
+        "StartAuditTrailDetails",
+        model.StartAuditTrailDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartAuditTrailResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Stops the specified audit trail.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param StopAuditTrailRequest
+   * @return StopAuditTrailResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/StopAuditTrail.ts.html |here} to see how to use StopAuditTrail API.
+   */
+  public async stopAuditTrail(
+    stopAuditTrailRequest: requests.StopAuditTrailRequest
+  ): Promise<responses.StopAuditTrailResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#stopAuditTrail.");
+    const pathParams = {
+      "{auditTrailId}": stopAuditTrailRequest.auditTrailId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": stopAuditTrailRequest.ifMatch,
+      "opc-request-id": stopAuditTrailRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopAuditTrailRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditTrails/{auditTrailId}/actions/stop",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StopAuditTrailResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Suspend the given work request. Issuing a suspend does not guarantee of a immediate suspend of the work request.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SuspendWorkRequestRequest
+   * @return SuspendWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/SuspendWorkRequest.ts.html |here} to see how to use SuspendWorkRequest API.
+   */
+  public async suspendWorkRequest(
+    suspendWorkRequestRequest: requests.SuspendWorkRequestRequest
+  ): Promise<responses.SuspendWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#suspendWorkRequest.");
+    const pathParams = {
+      "{workRequestId}": suspendWorkRequestRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": suspendWorkRequestRequest.opcRetryToken,
+      "opc-request-id": suspendWorkRequestRequest.opcRequestId,
+      "if-match": suspendWorkRequestRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      suspendWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/actions/suspend",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SuspendWorkRequestResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes the baseline setting for the saved security assessment. The saved security assessment is no longer considered a baseline.
    * Sets the if-match parameter to the value of the etag from a previous GET or POST response for that resource.
    *
@@ -4745,6 +13815,356 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Updates alert status of the specified alert.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateAlertRequest
+   * @return UpdateAlertResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAlert.ts.html |here} to see how to use UpdateAlert API.
+   */
+  public async updateAlert(
+    updateAlertRequest: requests.UpdateAlertRequest
+  ): Promise<responses.UpdateAlertResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAlert.");
+    const pathParams = {
+      "{alertId}": updateAlertRequest.alertId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAlertRequest.ifMatch,
+      "opc-request-id": updateAlertRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAlertRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alerts/{alertId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAlertRequest.updateAlertDetails,
+        "UpdateAlertDetails",
+        model.UpdateAlertDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAlertResponse>{},
+        body: await response.json(),
+        bodyKey: "alert",
+        bodyModel: model.Alert,
+        type: "model.Alert",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the audit archive retrieval.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateAuditArchiveRetrievalRequest
+   * @return UpdateAuditArchiveRetrievalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAuditArchiveRetrieval.ts.html |here} to see how to use UpdateAuditArchiveRetrieval API.
+   */
+  public async updateAuditArchiveRetrieval(
+    updateAuditArchiveRetrievalRequest: requests.UpdateAuditArchiveRetrievalRequest
+  ): Promise<responses.UpdateAuditArchiveRetrievalResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateAuditArchiveRetrieval.");
+    const pathParams = {
+      "{auditArchiveRetrievalId}": updateAuditArchiveRetrievalRequest.auditArchiveRetrievalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAuditArchiveRetrievalRequest.ifMatch,
+      "opc-request-id": updateAuditArchiveRetrievalRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAuditArchiveRetrievalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditArchiveRetrievals/{auditArchiveRetrievalId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAuditArchiveRetrievalRequest.updateAuditArchiveRetrievalDetails,
+        "UpdateAuditArchiveRetrievalDetails",
+        model.UpdateAuditArchiveRetrievalDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAuditArchiveRetrievalResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the audit policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateAuditPolicyRequest
+   * @return UpdateAuditPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAuditPolicy.ts.html |here} to see how to use UpdateAuditPolicy API.
+   */
+  public async updateAuditPolicy(
+    updateAuditPolicyRequest: requests.UpdateAuditPolicyRequest
+  ): Promise<responses.UpdateAuditPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAuditPolicy.");
+    const pathParams = {
+      "{auditPolicyId}": updateAuditPolicyRequest.auditPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAuditPolicyRequest.ifMatch,
+      "opc-request-id": updateAuditPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAuditPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditPolicies/{auditPolicyId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAuditPolicyRequest.updateAuditPolicyDetails,
+        "UpdateAuditPolicyDetails",
+        model.UpdateAuditPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAuditPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified audit profile.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateAuditProfileRequest
+   * @return UpdateAuditProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAuditProfile.ts.html |here} to see how to use UpdateAuditProfile API.
+   */
+  public async updateAuditProfile(
+    updateAuditProfileRequest: requests.UpdateAuditProfileRequest
+  ): Promise<responses.UpdateAuditProfileResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAuditProfile.");
+    const pathParams = {
+      "{auditProfileId}": updateAuditProfileRequest.auditProfileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAuditProfileRequest.ifMatch,
+      "opc-request-id": updateAuditProfileRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAuditProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditProfiles/{auditProfileId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAuditProfileRequest.updateAuditProfileDetails,
+        "UpdateAuditProfileDetails",
+        model.UpdateAuditProfileDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAuditProfileResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified audit trail.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateAuditTrailRequest
+   * @return UpdateAuditTrailResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAuditTrail.ts.html |here} to see how to use UpdateAuditTrail API.
+   */
+  public async updateAuditTrail(
+    updateAuditTrailRequest: requests.UpdateAuditTrailRequest
+  ): Promise<responses.UpdateAuditTrailResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAuditTrail.");
+    const pathParams = {
+      "{auditTrailId}": updateAuditTrailRequest.auditTrailId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAuditTrailRequest.ifMatch,
+      "opc-request-id": updateAuditTrailRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAuditTrailRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditTrails/{auditTrailId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAuditTrailRequest.updateAuditTrailDetails,
+        "UpdateAuditTrailDetails",
+        model.UpdateAuditTrailDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAuditTrailResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates one or more attributes of the specified Data Safe private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDataSafePrivateEndpointRequest
@@ -4794,6 +14214,217 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDataSafePrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified library masking format. Note that updating the formatEntries attribute replaces all the existing masking format entries with the specified format entries.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateLibraryMaskingFormatRequest
+   * @return UpdateLibraryMaskingFormatResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateLibraryMaskingFormat.ts.html |here} to see how to use UpdateLibraryMaskingFormat API.
+   */
+  public async updateLibraryMaskingFormat(
+    updateLibraryMaskingFormatRequest: requests.UpdateLibraryMaskingFormatRequest
+  ): Promise<responses.UpdateLibraryMaskingFormatResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateLibraryMaskingFormat.");
+    const pathParams = {
+      "{libraryMaskingFormatId}": updateLibraryMaskingFormatRequest.libraryMaskingFormatId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateLibraryMaskingFormatRequest.ifMatch,
+      "opc-request-id": updateLibraryMaskingFormatRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateLibraryMaskingFormatRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/libraryMaskingFormats/{libraryMaskingFormatId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateLibraryMaskingFormatRequest.updateLibraryMaskingFormatDetails,
+        "UpdateLibraryMaskingFormatDetails",
+        model.UpdateLibraryMaskingFormatDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateLibraryMaskingFormatResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified masking column. Note that updating the maskingFormats
+   * attribute replaces the currently assigned masking formats with the specified masking formats.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateMaskingColumnRequest
+   * @return UpdateMaskingColumnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateMaskingColumn.ts.html |here} to see how to use UpdateMaskingColumn API.
+   */
+  public async updateMaskingColumn(
+    updateMaskingColumnRequest: requests.UpdateMaskingColumnRequest
+  ): Promise<responses.UpdateMaskingColumnResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateMaskingColumn.");
+    const pathParams = {
+      "{maskingColumnKey}": updateMaskingColumnRequest.maskingColumnKey,
+      "{maskingPolicyId}": updateMaskingColumnRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMaskingColumnRequest.ifMatch,
+      "opc-request-id": updateMaskingColumnRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMaskingColumnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/maskingColumns/{maskingColumnKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMaskingColumnRequest.updateMaskingColumnDetails,
+        "UpdateMaskingColumnDetails",
+        model.UpdateMaskingColumnDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMaskingColumnResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified masking policy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateMaskingPolicyRequest
+   * @return UpdateMaskingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateMaskingPolicy.ts.html |here} to see how to use UpdateMaskingPolicy API.
+   */
+  public async updateMaskingPolicy(
+    updateMaskingPolicyRequest: requests.UpdateMaskingPolicyRequest
+  ): Promise<responses.UpdateMaskingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateMaskingPolicy.");
+    const pathParams = {
+      "{maskingPolicyId}": updateMaskingPolicyRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMaskingPolicyRequest.ifMatch,
+      "opc-request-id": updateMaskingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMaskingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMaskingPolicyRequest.updateMaskingPolicyDetails,
+        "UpdateMaskingPolicyDetails",
+        model.UpdateMaskingPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMaskingPolicyResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -4956,6 +14587,76 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Updates the specified report definition. Only user created report definition can be updated. Seeded report definitions need to be saved as new report definition first.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateReportDefinitionRequest
+   * @return UpdateReportDefinitionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateReportDefinition.ts.html |here} to see how to use UpdateReportDefinition API.
+   */
+  public async updateReportDefinition(
+    updateReportDefinitionRequest: requests.UpdateReportDefinitionRequest
+  ): Promise<responses.UpdateReportDefinitionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateReportDefinition.");
+    const pathParams = {
+      "{reportDefinitionId}": updateReportDefinitionRequest.reportDefinitionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateReportDefinitionRequest.ifMatch,
+      "opc-request-id": updateReportDefinitionRequest.opcRequestId,
+      "opc-retry-token": updateReportDefinitionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateReportDefinitionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reportDefinitions/{reportDefinitionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateReportDefinitionRequest.updateReportDefinitionDetails,
+        "UpdateReportDefinitionDetails",
+        model.UpdateReportDefinitionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateReportDefinitionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates one or more attributes of the specified security assessment. This operation allows to update the security assessment displayName, description, or schedule.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -5006,6 +14707,288 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSecurityAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified sensitive column.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateSensitiveColumnRequest
+   * @return UpdateSensitiveColumnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveColumn.ts.html |here} to see how to use UpdateSensitiveColumn API.
+   */
+  public async updateSensitiveColumn(
+    updateSensitiveColumnRequest: requests.UpdateSensitiveColumnRequest
+  ): Promise<responses.UpdateSensitiveColumnResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSensitiveColumn.");
+    const pathParams = {
+      "{sensitiveDataModelId}": updateSensitiveColumnRequest.sensitiveDataModelId,
+      "{sensitiveColumnKey}": updateSensitiveColumnRequest.sensitiveColumnKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSensitiveColumnRequest.ifMatch,
+      "opc-request-id": updateSensitiveColumnRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSensitiveColumnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/sensitiveColumns/{sensitiveColumnKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSensitiveColumnRequest.updateSensitiveColumnDetails,
+        "UpdateSensitiveColumnDetails",
+        model.UpdateSensitiveColumnDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSensitiveColumnResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified sensitive data model. Note that updating any attribute of a sensitive
+   * data model does not perform data discovery.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateSensitiveDataModelRequest
+   * @return UpdateSensitiveDataModelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveDataModel.ts.html |here} to see how to use UpdateSensitiveDataModel API.
+   */
+  public async updateSensitiveDataModel(
+    updateSensitiveDataModelRequest: requests.UpdateSensitiveDataModelRequest
+  ): Promise<responses.UpdateSensitiveDataModelResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateSensitiveDataModel.");
+    const pathParams = {
+      "{sensitiveDataModelId}": updateSensitiveDataModelRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSensitiveDataModelRequest.ifMatch,
+      "opc-request-id": updateSensitiveDataModelRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSensitiveDataModelRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSensitiveDataModelRequest.updateSensitiveDataModelDetails,
+        "UpdateSensitiveDataModelDetails",
+        model.UpdateSensitiveDataModelDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSensitiveDataModelResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified sensitive type.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateSensitiveTypeRequest
+   * @return UpdateSensitiveTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveType.ts.html |here} to see how to use UpdateSensitiveType API.
+   */
+  public async updateSensitiveType(
+    updateSensitiveTypeRequest: requests.UpdateSensitiveTypeRequest
+  ): Promise<responses.UpdateSensitiveTypeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSensitiveType.");
+    const pathParams = {
+      "{sensitiveTypeId}": updateSensitiveTypeRequest.sensitiveTypeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSensitiveTypeRequest.ifMatch,
+      "opc-request-id": updateSensitiveTypeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSensitiveTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypes/{sensitiveTypeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSensitiveTypeRequest.updateSensitiveTypeDetails,
+        "UpdateSensitiveTypeDetails",
+        model.UpdateSensitiveTypeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSensitiveTypeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified target-alert policy association.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateTargetAlertPolicyAssociationRequest
+   * @return UpdateTargetAlertPolicyAssociationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateTargetAlertPolicyAssociation.ts.html |here} to see how to use UpdateTargetAlertPolicyAssociation API.
+   */
+  public async updateTargetAlertPolicyAssociation(
+    updateTargetAlertPolicyAssociationRequest: requests.UpdateTargetAlertPolicyAssociationRequest
+  ): Promise<responses.UpdateTargetAlertPolicyAssociationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateTargetAlertPolicyAssociation.");
+    const pathParams = {
+      "{targetAlertPolicyAssociationId}":
+        updateTargetAlertPolicyAssociationRequest.targetAlertPolicyAssociationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateTargetAlertPolicyAssociationRequest.ifMatch,
+      "opc-request-id": updateTargetAlertPolicyAssociationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTargetAlertPolicyAssociationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetAlertPolicyAssociations/{targetAlertPolicyAssociationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateTargetAlertPolicyAssociationRequest.updateTargetAlertPolicyAssociationDetails,
+        "UpdateTargetAlertPolicyAssociationDetails",
+        model.UpdateTargetAlertPolicyAssociationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateTargetAlertPolicyAssociationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -5146,6 +15129,146 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateUserAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Uploads a masking policy file (also called template) to update the specified masking policy.
+   * To create a new masking policy using a file, first use the CreateMaskingPolicy operation
+   * to create an empty masking policy and then use this endpoint to upload the masking policy file.
+   * Note that the upload operation replaces the content of the specified masking policy,
+   * including all the existing columns and masking formats, with the content of the file.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UploadMaskingPolicyRequest
+   * @return UploadMaskingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UploadMaskingPolicy.ts.html |here} to see how to use UploadMaskingPolicy API.
+   */
+  public async uploadMaskingPolicy(
+    uploadMaskingPolicyRequest: requests.UploadMaskingPolicyRequest
+  ): Promise<responses.UploadMaskingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#uploadMaskingPolicy.");
+    const pathParams = {
+      "{maskingPolicyId}": uploadMaskingPolicyRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": uploadMaskingPolicyRequest.ifMatch,
+      "opc-request-id": uploadMaskingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      uploadMaskingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/actions/upload",
+      method: "POST",
+      bodyContent: uploadMaskingPolicyRequest.uploadMaskingPolicyDetails,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UploadMaskingPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Uploads a sensitive data model file (also called template) to update the specified sensitive data model. To create
+   * a new sensitive data model using a file, first use the CreateSensitiveDataModel operation to create an empty data model
+   * and then use this endpoint to upload the data model file. Note that the upload operation replaces the content of the
+   * specified sensitive data model, including all the existing columns and their relationships, with the content of the file.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UploadSensitiveDataModelRequest
+   * @return UploadSensitiveDataModelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UploadSensitiveDataModel.ts.html |here} to see how to use UploadSensitiveDataModel API.
+   */
+  public async uploadSensitiveDataModel(
+    uploadSensitiveDataModelRequest: requests.UploadSensitiveDataModelRequest
+  ): Promise<responses.UploadSensitiveDataModelResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#uploadSensitiveDataModel.");
+    const pathParams = {
+      "{sensitiveDataModelId}": uploadSensitiveDataModelRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": uploadSensitiveDataModelRequest.ifMatch,
+      "opc-request-id": uploadSensitiveDataModelRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      uploadSensitiveDataModelRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/actions/upload",
+      method: "POST",
+      bodyContent: uploadSensitiveDataModelRequest.uploadSensitiveDataModelDetails,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UploadSensitiveDataModelResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

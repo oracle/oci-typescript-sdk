@@ -119,14 +119,16 @@ export class LogSearchClient {
   }
 
   /**
-   * Submit a query to search logs.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param SearchLogsRequest
-   * @return SearchLogsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loggingsearch/SearchLogs.ts.html |here} to see how to use SearchLogs API.
-   */
+     * Submit a query to search logs.
+* <p>
+See [Using the API](https://docs.cloud.oracle.com/Content/Logging/Concepts/using_the_api_searchlogs.htm) for SDK examples.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param SearchLogsRequest
+     * @return SearchLogsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loggingsearch/SearchLogs.ts.html |here} to see how to use SearchLogs API.
+     */
   public async searchLogs(
     searchLogsRequest: requests.SearchLogsRequest
   ): Promise<responses.SearchLogsResponse> {

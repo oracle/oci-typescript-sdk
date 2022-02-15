@@ -34,6 +34,14 @@ export interface TableCollection {
    * The current number of reclaimable tables in the tenancy. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "autoReclaimableTables"?: number;
+  /**
+   * The current number of on demand capacity tables in the tenancy. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "onDemandCapacityTables"?: number;
+  /**
+   * The maximum number of on demand capacity tables allowed in the tenancy. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxOnDemandCapacityTables"?: number;
 }
 
 export namespace TableCollection {

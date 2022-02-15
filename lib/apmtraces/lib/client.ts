@@ -1,6 +1,6 @@
 /**
- * Apm Traces API
- * API for APM Trace service. Use this API to query the Traces and associated Spans.
+ * Application Performance Monitoring Trace Explorer API
+ * Use the Application Performance Monitoring Trace Explorer API to query traces and associated spans in Trace Explorer. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -121,7 +121,7 @@ export class QueryClient {
   }
 
   /**
-   * Returns a list of predefined quick pick queries intended to assist the user
+   * Returns a list of predefined Quick Pick queries intended to assist the user
    * to choose a query to run.  There is no sorting applied on the results.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -249,8 +249,8 @@ export class QueryClient {
   }
 
   /**
-   * Given a query, constructed according to the APM Defined Query Syntax, retrieves the results - selected attributes,
-   * and aggregations of the queried entity.  Query Results are filtered by the filter criteria specified in the where clause.
+   * Retrieves the results (selected attributes and aggregations) of a query constructed according to the Application Performance Monitoring Defined Query Syntax.
+   * Query results are filtered by the filter criteria specified in the where clause.
    * Further query results are grouped by the attributes specified in the group by clause.  Finally,
    * ordering (asc/desc) is done by the specified attributes in the order by clause.
    *
@@ -302,93 +302,6 @@ export class QueryClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.QueryResponse>{},
-        body: await response.json(),
-        bodyKey: "queryResultResponse",
-        bodyModel: model.QueryResultResponse,
-        type: "model.QueryResultResponse",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-total-items"),
-            key: "opcTotalItems",
-            dataType: "number"
-          },
-          {
-            value: response.headers.get("opc-next-page"),
-            key: "opcNextPage",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * THIS API ENDPOINT WILL BE DEPRECATED AND INSTEAD /queries/actions/runQuery as defined below WILL BE USED GOING FORWARD.  THIS EXISTS JUST
-   * AS A TEMPORARY PLACEHOLDER SO AS TO BE BACKWARDS COMPATIBLE WITH THE UI BETWEEN RELEASE CYCLES.
-   * Given a query, constructed according to the APM Defined Query Syntax, retrieves the results - selected attributes,
-   * and aggregations of the queried entity.  Query Results are filtered by the filter criteria specified in the where clause.
-   * Further query results are grouped by the attributes specified in the group by clause.  Finally,
-   * ordering (asc/desc) is done by the specified attributes in the order by clause.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param QueryOldRequest
-   * @return QueryOldResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/QueryOld.ts.html |here} to see how to use QueryOld API.
-   */
-  public async queryOld(
-    queryOldRequest: requests.QueryOldRequest
-  ): Promise<responses.QueryOldResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueryClient#queryOld.");
-    const pathParams = {};
-
-    const queryParams = {
-      "apmDomainId": queryOldRequest.apmDomainId,
-      "limit": queryOldRequest.limit,
-      "page": queryOldRequest.page,
-      "timeSpanStartedGreaterThanOrEqualTo": queryOldRequest.timeSpanStartedGreaterThanOrEqualTo,
-      "timeSpanStartedLessThan": queryOldRequest.timeSpanStartedLessThan
-    };
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": queryOldRequest.opcRequestId
-    };
-
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      queryOldRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/queries/action/runQuery",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        queryOldRequest.queryDetails,
-        "QueryDetails",
-        model.QueryDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
-      const sdkResponse = composeResponse({
-        responseObject: <responses.QueryOldResponse>{},
         body: await response.json(),
         bodyKey: "queryResultResponse",
         bodyModel: model.QueryResultResponse,
@@ -516,7 +429,72 @@ export class TraceClient {
   }
 
   /**
-   * Get the span details identified by spanId
+   * Gets the aggregated snapshot identified by trace ID.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAggregatedSnapshotRequest
+   * @return GetAggregatedSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetAggregatedSnapshot.ts.html |here} to see how to use GetAggregatedSnapshot API.
+   */
+  public async getAggregatedSnapshot(
+    getAggregatedSnapshotRequest: requests.GetAggregatedSnapshotRequest
+  ): Promise<responses.GetAggregatedSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation TraceClient#getAggregatedSnapshot.");
+    const pathParams = {
+      "{traceKey}": getAggregatedSnapshotRequest.traceKey
+    };
+
+    const queryParams = {
+      "apmDomainId": getAggregatedSnapshotRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAggregatedSnapshotRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAggregatedSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/traces/{traceKey}/aggregatedSnapshotData",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAggregatedSnapshotResponse>{},
+        body: await response.json(),
+        bodyKey: "aggregatedSnapshot",
+        bodyModel: model.AggregatedSnapshot,
+        type: "model.AggregatedSnapshot",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the span details identified by spanId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSpanRequest
@@ -582,7 +560,7 @@ export class TraceClient {
   }
 
   /**
-   * Get the trace details identified by traceId
+   * Gets the trace details identified by traceId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTraceRequest
@@ -631,6 +609,74 @@ export class TraceClient {
         bodyKey: "trace",
         bodyModel: model.Trace,
         type: "model.Trace",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the trace snapshots data identified by trace ID.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetTraceSnapshotRequest
+   * @return GetTraceSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetTraceSnapshot.ts.html |here} to see how to use GetTraceSnapshot API.
+   */
+  public async getTraceSnapshot(
+    getTraceSnapshotRequest: requests.GetTraceSnapshotRequest
+  ): Promise<responses.GetTraceSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation TraceClient#getTraceSnapshot.");
+    const pathParams = {
+      "{traceKey}": getTraceSnapshotRequest.traceKey
+    };
+
+    const queryParams = {
+      "apmDomainId": getTraceSnapshotRequest.apmDomainId,
+      "isSummarized": getTraceSnapshotRequest.isSummarized,
+      "threadId": getTraceSnapshotRequest.threadId,
+      "snapshotTime": getTraceSnapshotRequest.snapshotTime
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getTraceSnapshotRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTraceSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/traces/{traceKey}/snapshotData",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetTraceSnapshotResponse>{},
+        body: await response.json(),
+        bodyKey: "traceSnapshot",
+        bodyModel: model.TraceSnapshot,
+        type: "model.TraceSnapshot",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

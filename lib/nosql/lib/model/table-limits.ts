@@ -34,9 +34,26 @@ export interface TableLimits {
    * Maximum size of storage used by the table. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxStorageInGBs": number;
+  /**
+   * The capacity mode of the table.  If capacityMode = ON_DEMAND,
+   * maxReadUnits and maxWriteUnits are not used, and both will have
+   * the value of zero.
+   *
+   */
+  "capacityMode"?: TableLimits.CapacityMode;
 }
 
 export namespace TableLimits {
+  export enum CapacityMode {
+    Provisioned = "PROVISIONED",
+    OnDemand = "ON_DEMAND",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: TableLimits): object {
     const jsonObj = { ...obj, ...{} };
 

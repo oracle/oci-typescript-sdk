@@ -19,17 +19,17 @@ import common = require("oci-common");
  */
 export interface GetSpanRequest extends common.BaseRequest {
   /**
-   * The APM Domain Id the request is intended for.
+   * The APM Domain ID the request is intended for.
    *
    */
   "apmDomainId": string;
   /**
-   * Unique APM span identifier(spanId).
+   * Unique Application Performance Monitoring span identifier (spanId).
    *
    */
   "spanKey": string;
   /**
-   * Unique APM trace identifier(traceId).
+   * Unique Application Performance Monitoring trace identifier (traceId).
    *
    */
   "traceKey": string;

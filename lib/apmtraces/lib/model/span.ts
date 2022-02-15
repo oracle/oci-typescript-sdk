@@ -1,6 +1,6 @@
 /**
- * Apm Traces API
- * API for APM Trace service. Use this API to query the Traces and associated Spans.
+ * Application Performance Monitoring Trace Explorer API
+ * Use the Application Performance Monitoring Trace Explorer API to query traces and associated spans in Trace Explorer. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -22,8 +22,8 @@ import common = require("oci-common");
 export interface Span {
   /**
    * Unique identifier (spanId) for the span.  Note that this field is
-   * defined as spanKey in the API to comply with OCI API fields naming conventions.
-   * The spanKey maps to the spanId in the APM repository.
+   * defined as spanKey in the API and it maps to the spanId in the trace data
+   * in Application Performance Monitoring.
    *
    */
   "key": string;
@@ -53,7 +53,7 @@ export interface Span {
    */
   "durationInMs": number;
   /**
-   * Span name associated with the trace.  This is usually the method or uri of the request.
+   * Span name associated with the trace.  This is usually the method or URI of the request.
    *
    */
   "operationName": string;
@@ -78,7 +78,7 @@ export interface Span {
    */
   "logs"?: Array<model.SpanLogCollection>;
   /**
-   * Indicates if the span has an error
+   * Indicates if the span has an error.
    *
    */
   "isError": boolean;

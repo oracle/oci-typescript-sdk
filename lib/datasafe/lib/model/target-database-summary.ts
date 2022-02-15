@@ -43,6 +43,10 @@ export interface TargetDatabaseSummary {
    */
   "databaseType": model.DatabaseType;
   /**
+   * The OCIDs of associated resources like Database, Data Safe private endpoint etc.
+   */
+  "associatedResourceIds"?: Array<string>;
+  /**
    * The current state of the target database in Data Safe.
    */
   "lifecycleState": model.LifecycleState;

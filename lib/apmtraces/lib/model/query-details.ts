@@ -1,6 +1,6 @@
 /**
- * Apm Traces API
- * API for APM Trace service. Use this API to query the Traces and associated Spans.
+ * Application Performance Monitoring Trace Explorer API
+ * Use the Application Performance Monitoring Trace Explorer API to query traces and associated spans in Trace Explorer. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Request object containing the query to be run against our repository.
+ * Request object containing the query to be run against the trace data.
  *
  */
 export interface QueryDetails {
   /**
-   * APM defined query string to run against our repository and return results for.
+   * Application Performance Monitoring defined query string that filters and retrieves trace data results.
    *
    */
   "queryText"?: string;

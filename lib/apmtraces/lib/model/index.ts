@@ -1,6 +1,6 @@
 /**
- * Apm Traces API
- * API for APM Trace service. Use this API to query the Traces and associated Spans.
+ * Application Performance Monitoring Trace Explorer API
+ * Use the Application Performance Monitoring Trace Explorer API to query traces and associated spans in Trace Explorer. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -12,6 +12,10 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AggregatedSnapshot from "./aggregated-snapshot";
+export import AggregatedSnapshot = AggregatedSnapshot.AggregatedSnapshot;
+import * as AggregatedStackTrace from "./aggregated-stack-trace";
+export import AggregatedStackTrace = AggregatedStackTrace.AggregatedStackTrace;
 import * as QueryDetails from "./query-details";
 export import QueryDetails = QueryDetails.QueryDetails;
 import * as QueryResultMetadataSummary from "./query-result-metadata-summary";
@@ -28,17 +32,27 @@ import * as QueryResultsOrderedBySummary from "./query-results-ordered-by-summar
 export import QueryResultsOrderedBySummary = QueryResultsOrderedBySummary.QueryResultsOrderedBySummary;
 import * as QuickPickSummary from "./quick-pick-summary";
 export import QuickPickSummary = QuickPickSummary.QuickPickSummary;
+import * as SnapshotDetail from "./snapshot-detail";
+export import SnapshotDetail = SnapshotDetail.SnapshotDetail;
 import * as Span from "./span";
 export import Span = Span.Span;
 import * as SpanLog from "./span-log";
 export import SpanLog = SpanLog.SpanLog;
 import * as SpanLogCollection from "./span-log-collection";
 export import SpanLogCollection = SpanLogCollection.SpanLogCollection;
+import * as SpanSnapshot from "./span-snapshot";
+export import SpanSnapshot = SpanSnapshot.SpanSnapshot;
+import * as StackTraceElement from "./stack-trace-element";
+export import StackTraceElement = StackTraceElement.StackTraceElement;
 import * as Tag from "./tag";
 export import Tag = Tag.Tag;
+import * as ThreadSnapshot from "./thread-snapshot";
+export import ThreadSnapshot = ThreadSnapshot.ThreadSnapshot;
 import * as Trace from "./trace";
 export import Trace = Trace.Trace;
 import * as TraceServiceSummary from "./trace-service-summary";
 export import TraceServiceSummary = TraceServiceSummary.TraceServiceSummary;
+import * as TraceSnapshot from "./trace-snapshot";
+export import TraceSnapshot = TraceSnapshot.TraceSnapshot;
 import * as TraceSpanSummary from "./trace-span-summary";
 export import TraceSpanSummary = TraceSpanSummary.TraceSpanSummary;

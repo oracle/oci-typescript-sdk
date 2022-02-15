@@ -39,6 +39,12 @@ export interface DataSafeConfiguration {
    */
   "lifecycleState"?: model.LifecycleState;
   /**
+   * The Oracle Data Safe's NAT Gateway IP Address.
+   *
+   */
+  "dataSafeNatGatewayIpAddress"?: string;
+  "globalSettings"?: model.GlobalSettings;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
 Example: `{\"Department\": \"Finance\"}`
@@ -56,12 +62,26 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 
 export namespace DataSafeConfiguration {
   export function getJsonObj(obj: DataSafeConfiguration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "globalSettings": obj.globalSettings
+          ? model.GlobalSettings.getJsonObj(obj.globalSettings)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DataSafeConfiguration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "globalSettings": obj.globalSettings
+          ? model.GlobalSettings.getDeserializedJsonObj(obj.globalSettings)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

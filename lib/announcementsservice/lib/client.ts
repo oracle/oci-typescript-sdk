@@ -16,6 +16,7 @@ import * as requests from "./request";
 import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
+import { AnnouncementSubscriptionWaiter } from "./announcementsubscription-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
 // ===============================================
@@ -27,7 +28,8 @@ export enum AnnouncementApiKeys {}
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class AnnouncementClient {
-  protected static serviceEndpointTemplate = "https://announcements.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate =
+    "https://announcements.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
@@ -120,14 +122,16 @@ export class AnnouncementClient {
   }
 
   /**
-   * Gets the details of a specific announcement.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetAnnouncementRequest
-   * @return GetAnnouncementResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncement.ts.html |here} to see how to use GetAnnouncement API.
-   */
+     * Gets the details of a specific announcement.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param GetAnnouncementRequest
+     * @return GetAnnouncementResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncement.ts.html |here} to see how to use GetAnnouncement API.
+     */
   public async getAnnouncement(
     getAnnouncementRequest: requests.GetAnnouncementRequest
   ): Promise<responses.GetAnnouncementResponse> {
@@ -172,6 +176,11 @@ export class AnnouncementClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
           }
         ]
       });
@@ -183,14 +192,16 @@ export class AnnouncementClient {
   }
 
   /**
-   * Gets information about whether a specific announcement was acknowledged by a user.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetAnnouncementUserStatusRequest
-   * @return GetAnnouncementUserStatusResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementUserStatus.ts.html |here} to see how to use GetAnnouncementUserStatus API.
-   */
+     * Gets information about whether a specific announcement was acknowledged by a user.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param GetAnnouncementUserStatusRequest
+     * @return GetAnnouncementUserStatusResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementUserStatus.ts.html |here} to see how to use GetAnnouncementUserStatus API.
+     */
   public async getAnnouncementUserStatus(
     getAnnouncementUserStatusRequest: requests.GetAnnouncementUserStatusRequest
   ): Promise<responses.GetAnnouncementUserStatusResponse> {
@@ -236,6 +247,11 @@ export class AnnouncementClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
           }
         ]
       });
@@ -247,14 +263,16 @@ export class AnnouncementClient {
   }
 
   /**
-   * Gets a list of announcements for the current tenancy.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param ListAnnouncementsRequest
-   * @return ListAnnouncementsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListAnnouncements.ts.html |here} to see how to use ListAnnouncements API.
-   */
+     * Gets a list of announcements for the current tenancy.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListAnnouncementsRequest
+     * @return ListAnnouncementsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListAnnouncements.ts.html |here} to see how to use ListAnnouncements API.
+     */
   public async listAnnouncements(
     listAnnouncementsRequest: requests.ListAnnouncementsRequest
   ): Promise<responses.ListAnnouncementsResponse> {
@@ -271,7 +289,11 @@ export class AnnouncementClient {
       "sortBy": listAnnouncementsRequest.sortBy,
       "sortOrder": listAnnouncementsRequest.sortOrder,
       "timeOneEarliestTime": listAnnouncementsRequest.timeOneEarliestTime,
-      "timeOneLatestTime": listAnnouncementsRequest.timeOneLatestTime
+      "timeOneLatestTime": listAnnouncementsRequest.timeOneLatestTime,
+      "environmentName": listAnnouncementsRequest.environmentName,
+      "service": listAnnouncementsRequest.service,
+      "platformType": listAnnouncementsRequest.platformType,
+      "excludeAnnouncementTypes": listAnnouncementsRequest.excludeAnnouncementTypes
     };
 
     let headerParams = {
@@ -310,6 +332,11 @@ export class AnnouncementClient {
             dataType: "string"
           },
           {
+            value: response.headers.get("opc-previous-page"),
+            key: "opcPreviousPage",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
@@ -324,14 +351,16 @@ export class AnnouncementClient {
   }
 
   /**
-   * Updates the status of the specified announcement with regard to whether it has been marked as read.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param UpdateAnnouncementUserStatusRequest
-   * @return UpdateAnnouncementUserStatusResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateAnnouncementUserStatus.ts.html |here} to see how to use UpdateAnnouncementUserStatus API.
-   */
+     * Updates the status of the specified announcement with regard to whether it has been marked as read.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param UpdateAnnouncementUserStatusRequest
+     * @return UpdateAnnouncementUserStatusResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateAnnouncementUserStatus.ts.html |here} to see how to use UpdateAnnouncementUserStatus API.
+     */
   public async updateAnnouncementUserStatus(
     updateAnnouncementUserStatusRequest: requests.UpdateAnnouncementUserStatusRequest
   ): Promise<responses.UpdateAnnouncementUserStatusResponse> {
@@ -374,6 +403,812 @@ export class AnnouncementClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAnnouncementUserStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "announcementUserStatusDetails",
+        bodyModel: model.AnnouncementUserStatusDetails,
+        type: "model.AnnouncementUserStatusDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum AnnouncementSubscriptionApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class AnnouncementSubscriptionClient {
+  protected static serviceEndpointTemplate =
+    "https://announcements.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_waiters": AnnouncementSubscriptionWaiter;
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
+
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20180904";
+    if (this.logger)
+      this.logger.info(`AnnouncementSubscriptionClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      AnnouncementSubscriptionClient.serviceEndpointTemplate,
+      region,
+      AnnouncementSubscriptionClient.endpointServiceName
+    );
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      AnnouncementSubscriptionClient.serviceEndpointTemplate,
+      regionId,
+      AnnouncementSubscriptionClient.endpointServiceName
+    );
+  }
+
+  /**
+   * Creates a new AnnouncementSubscriptionWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): AnnouncementSubscriptionWaiter {
+    this._waiters = new AnnouncementSubscriptionWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): AnnouncementSubscriptionWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+     * Moves the specified announcement subscription from one compartment to another compartment. When provided, If-Match is checked against ETag values of the resource.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ChangeAnnouncementSubscriptionCompartmentRequest
+     * @return ChangeAnnouncementSubscriptionCompartmentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ChangeAnnouncementSubscriptionCompartment.ts.html |here} to see how to use ChangeAnnouncementSubscriptionCompartment API.
+     */
+  public async changeAnnouncementSubscriptionCompartment(
+    changeAnnouncementSubscriptionCompartmentRequest: requests.ChangeAnnouncementSubscriptionCompartmentRequest
+  ): Promise<responses.ChangeAnnouncementSubscriptionCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementSubscriptionClient#changeAnnouncementSubscriptionCompartment."
+      );
+    const pathParams = {
+      "{announcementSubscriptionId}":
+        changeAnnouncementSubscriptionCompartmentRequest.announcementSubscriptionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeAnnouncementSubscriptionCompartmentRequest.ifMatch,
+      "opc-request-id": changeAnnouncementSubscriptionCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAnnouncementSubscriptionCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/announcementSubscriptions/{announcementSubscriptionId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAnnouncementSubscriptionCompartmentRequest.changeAnnouncementSubscriptionCompartmentDetails,
+        "ChangeAnnouncementSubscriptionCompartmentDetails",
+        model.ChangeAnnouncementSubscriptionCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAnnouncementSubscriptionCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Creates a new announcement subscription.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateAnnouncementSubscriptionRequest
+     * @return CreateAnnouncementSubscriptionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/CreateAnnouncementSubscription.ts.html |here} to see how to use CreateAnnouncementSubscription API.
+     */
+  public async createAnnouncementSubscription(
+    createAnnouncementSubscriptionRequest: requests.CreateAnnouncementSubscriptionRequest
+  ): Promise<responses.CreateAnnouncementSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementSubscriptionClient#createAnnouncementSubscription."
+      );
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createAnnouncementSubscriptionRequest.opcRetryToken,
+      "opc-request-id": createAnnouncementSubscriptionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAnnouncementSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/announcementSubscriptions",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAnnouncementSubscriptionRequest.createAnnouncementSubscriptionDetails,
+        "CreateAnnouncementSubscriptionDetails",
+        model.CreateAnnouncementSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAnnouncementSubscriptionResponse>{},
+        body: await response.json(),
+        bodyKey: "announcementSubscription",
+        bodyModel: model.AnnouncementSubscription,
+        type: "model.AnnouncementSubscription",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Creates a new filter group in the specified announcement subscription.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateFilterGroupRequest
+     * @return CreateFilterGroupResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/CreateFilterGroup.ts.html |here} to see how to use CreateFilterGroup API.
+     */
+  public async createFilterGroup(
+    createFilterGroupRequest: requests.CreateFilterGroupRequest
+  ): Promise<responses.CreateFilterGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnnouncementSubscriptionClient#createFilterGroup.");
+    const pathParams = {
+      "{announcementSubscriptionId}": createFilterGroupRequest.announcementSubscriptionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createFilterGroupRequest.opcRetryToken,
+      "opc-request-id": createFilterGroupRequest.opcRequestId,
+      "if-match": createFilterGroupRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createFilterGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/announcementSubscriptions/{announcementSubscriptionId}/filterGroups",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createFilterGroupRequest.createFilterGroupDetails,
+        "CreateFilterGroupDetails",
+        model.CreateFilterGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateFilterGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "filterGroup",
+        bodyModel: model.FilterGroup,
+        type: "model.FilterGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Deletes the specified announcement subscription.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DeleteAnnouncementSubscriptionRequest
+     * @return DeleteAnnouncementSubscriptionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/DeleteAnnouncementSubscription.ts.html |here} to see how to use DeleteAnnouncementSubscription API.
+     */
+  public async deleteAnnouncementSubscription(
+    deleteAnnouncementSubscriptionRequest: requests.DeleteAnnouncementSubscriptionRequest
+  ): Promise<responses.DeleteAnnouncementSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementSubscriptionClient#deleteAnnouncementSubscription."
+      );
+    const pathParams = {
+      "{announcementSubscriptionId}":
+        deleteAnnouncementSubscriptionRequest.announcementSubscriptionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAnnouncementSubscriptionRequest.ifMatch,
+      "opc-request-id": deleteAnnouncementSubscriptionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAnnouncementSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/announcementSubscriptions/{announcementSubscriptionId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAnnouncementSubscriptionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Deletes a filter group in the specified announcement subscription.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DeleteFilterGroupRequest
+     * @return DeleteFilterGroupResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/DeleteFilterGroup.ts.html |here} to see how to use DeleteFilterGroup API.
+     */
+  public async deleteFilterGroup(
+    deleteFilterGroupRequest: requests.DeleteFilterGroupRequest
+  ): Promise<responses.DeleteFilterGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnnouncementSubscriptionClient#deleteFilterGroup.");
+    const pathParams = {
+      "{announcementSubscriptionId}": deleteFilterGroupRequest.announcementSubscriptionId,
+      "{filterGroupName}": deleteFilterGroupRequest.filterGroupName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteFilterGroupRequest.opcRequestId,
+      "if-match": deleteFilterGroupRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteFilterGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/announcementSubscriptions/{announcementSubscriptionId}/filterGroups/{filterGroupName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteFilterGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Gets the specified announcement subscription.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param GetAnnouncementSubscriptionRequest
+     * @return GetAnnouncementSubscriptionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementSubscription.ts.html |here} to see how to use GetAnnouncementSubscription API.
+     */
+  public async getAnnouncementSubscription(
+    getAnnouncementSubscriptionRequest: requests.GetAnnouncementSubscriptionRequest
+  ): Promise<responses.GetAnnouncementSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementSubscriptionClient#getAnnouncementSubscription."
+      );
+    const pathParams = {
+      "{announcementSubscriptionId}": getAnnouncementSubscriptionRequest.announcementSubscriptionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAnnouncementSubscriptionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAnnouncementSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/announcementSubscriptions/{announcementSubscriptionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAnnouncementSubscriptionResponse>{},
+        body: await response.json(),
+        bodyKey: "announcementSubscription",
+        bodyModel: model.AnnouncementSubscription,
+        type: "model.AnnouncementSubscription",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Gets a list of all announcement subscriptions in the specified compartment.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListAnnouncementSubscriptionsRequest
+     * @return ListAnnouncementSubscriptionsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListAnnouncementSubscriptions.ts.html |here} to see how to use ListAnnouncementSubscriptions API.
+     */
+  public async listAnnouncementSubscriptions(
+    listAnnouncementSubscriptionsRequest: requests.ListAnnouncementSubscriptionsRequest
+  ): Promise<responses.ListAnnouncementSubscriptionsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementSubscriptionClient#listAnnouncementSubscriptions."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAnnouncementSubscriptionsRequest.compartmentId,
+      "lifecycleState": listAnnouncementSubscriptionsRequest.lifecycleState,
+      "displayName": listAnnouncementSubscriptionsRequest.displayName,
+      "id": listAnnouncementSubscriptionsRequest.id,
+      "limit": listAnnouncementSubscriptionsRequest.limit,
+      "page": listAnnouncementSubscriptionsRequest.page,
+      "sortOrder": listAnnouncementSubscriptionsRequest.sortOrder,
+      "sortBy": listAnnouncementSubscriptionsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAnnouncementSubscriptionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAnnouncementSubscriptionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/announcementSubscriptions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAnnouncementSubscriptionsResponse>{},
+        body: await response.json(),
+        bodyKey: "announcementSubscriptionCollection",
+        bodyModel: model.AnnouncementSubscriptionCollection,
+        type: "model.AnnouncementSubscriptionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Updates the specified announcement subscription.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param UpdateAnnouncementSubscriptionRequest
+     * @return UpdateAnnouncementSubscriptionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateAnnouncementSubscription.ts.html |here} to see how to use UpdateAnnouncementSubscription API.
+     */
+  public async updateAnnouncementSubscription(
+    updateAnnouncementSubscriptionRequest: requests.UpdateAnnouncementSubscriptionRequest
+  ): Promise<responses.UpdateAnnouncementSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementSubscriptionClient#updateAnnouncementSubscription."
+      );
+    const pathParams = {
+      "{announcementSubscriptionId}":
+        updateAnnouncementSubscriptionRequest.announcementSubscriptionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAnnouncementSubscriptionRequest.ifMatch,
+      "opc-request-id": updateAnnouncementSubscriptionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAnnouncementSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/announcementSubscriptions/{announcementSubscriptionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAnnouncementSubscriptionRequest.updateAnnouncementSubscriptionDetails,
+        "UpdateAnnouncementSubscriptionDetails",
+        model.UpdateAnnouncementSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAnnouncementSubscriptionResponse>{},
+        body: await response.json(),
+        bodyKey: "announcementSubscription",
+        bodyModel: model.AnnouncementSubscription,
+        type: "model.AnnouncementSubscription",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Updates a filter group in the specified announcement subscription.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param UpdateFilterGroupRequest
+     * @return UpdateFilterGroupResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateFilterGroup.ts.html |here} to see how to use UpdateFilterGroup API.
+     */
+  public async updateFilterGroup(
+    updateFilterGroupRequest: requests.UpdateFilterGroupRequest
+  ): Promise<responses.UpdateFilterGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnnouncementSubscriptionClient#updateFilterGroup.");
+    const pathParams = {
+      "{announcementSubscriptionId}": updateFilterGroupRequest.announcementSubscriptionId,
+      "{filterGroupName}": updateFilterGroupRequest.filterGroupName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateFilterGroupRequest.opcRequestId,
+      "if-match": updateFilterGroupRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateFilterGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/announcementSubscriptions/{announcementSubscriptionId}/filterGroups/{filterGroupName}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateFilterGroupRequest.updateFilterGroupDetails,
+        "UpdateFilterGroupDetails",
+        model.UpdateFilterGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateFilterGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "filterGroup",
+        bodyModel: model.FilterGroup,
+        type: "model.FilterGroup",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -399,7 +1234,8 @@ export enum AnnouncementsPreferencesApiKeys {}
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class AnnouncementsPreferencesClient {
-  protected static serviceEndpointTemplate = "https://announcements.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate =
+    "https://announcements.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
@@ -493,14 +1329,16 @@ export class AnnouncementsPreferencesClient {
   }
 
   /**
-   * Creates a request that specifies preferences for the tenancy regarding receiving announcements by email.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param CreateAnnouncementsPreferenceRequest
-   * @return CreateAnnouncementsPreferenceResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/CreateAnnouncementsPreference.ts.html |here} to see how to use CreateAnnouncementsPreference API.
-   */
+     * Creates a request that specifies preferences for the tenancy regarding receiving announcements by email.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateAnnouncementsPreferenceRequest
+     * @return CreateAnnouncementsPreferenceResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/CreateAnnouncementsPreference.ts.html |here} to see how to use CreateAnnouncementsPreference API.
+     */
   public async createAnnouncementsPreference(
     createAnnouncementsPreferenceRequest: requests.CreateAnnouncementsPreferenceRequest
   ): Promise<responses.CreateAnnouncementsPreferenceResponse> {
@@ -568,14 +1406,16 @@ export class AnnouncementsPreferencesClient {
   }
 
   /**
-   * Gets the current preferences of the tenancy regarding receiving announcements by email.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetAnnouncementsPreferenceRequest
-   * @return GetAnnouncementsPreferenceResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementsPreference.ts.html |here} to see how to use GetAnnouncementsPreference API.
-   */
+     * Gets the current preferences of the tenancy regarding receiving announcements by email.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param GetAnnouncementsPreferenceRequest
+     * @return GetAnnouncementsPreferenceResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementsPreference.ts.html |here} to see how to use GetAnnouncementsPreference API.
+     */
   public async getAnnouncementsPreference(
     getAnnouncementsPreferenceRequest: requests.GetAnnouncementsPreferenceRequest
   ): Promise<responses.GetAnnouncementsPreferenceResponse> {
@@ -623,6 +1463,11 @@ export class AnnouncementsPreferencesClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
           }
         ]
       });
@@ -634,14 +1479,16 @@ export class AnnouncementsPreferencesClient {
   }
 
   /**
-   * Gets the current preferences of the tenancy regarding receiving announcements by email.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param ListAnnouncementsPreferencesRequest
-   * @return ListAnnouncementsPreferencesResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListAnnouncementsPreferences.ts.html |here} to see how to use ListAnnouncementsPreferences API.
-   */
+     * Gets the current preferences of the tenancy regarding receiving announcements by email.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListAnnouncementsPreferencesRequest
+     * @return ListAnnouncementsPreferencesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListAnnouncementsPreferences.ts.html |here} to see how to use ListAnnouncementsPreferences API.
+     */
   public async listAnnouncementsPreferences(
     listAnnouncementsPreferencesRequest: requests.ListAnnouncementsPreferencesRequest
   ): Promise<responses.ListAnnouncementsPreferencesResponse> {
@@ -759,14 +1606,16 @@ export class AnnouncementsPreferencesClient {
   }
 
   /**
-   * Updates the preferences of the tenancy regarding receiving announcements by email.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param UpdateAnnouncementsPreferenceRequest
-   * @return UpdateAnnouncementsPreferenceResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateAnnouncementsPreference.ts.html |here} to see how to use UpdateAnnouncementsPreference API.
-   */
+     * Updates the preferences of the tenancy regarding receiving announcements by email.
+* <p>
+This call is subject to an Announcements limit that applies to the total number of requests across all read or write operations. Announcements might throttle this call to reject an otherwise valid request when the total rate of operations exceeds 20 requests per second for a given user. The service might also throttle this call to reject an otherwise valid request when the total rate of operations exceeds 100 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param UpdateAnnouncementsPreferenceRequest
+     * @return UpdateAnnouncementsPreferenceResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateAnnouncementsPreference.ts.html |here} to see how to use UpdateAnnouncementsPreference API.
+     */
   public async updateAnnouncementsPreference(
     updateAnnouncementsPreferenceRequest: requests.UpdateAnnouncementsPreferenceRequest
   ): Promise<responses.UpdateAnnouncementsPreferenceResponse> {
