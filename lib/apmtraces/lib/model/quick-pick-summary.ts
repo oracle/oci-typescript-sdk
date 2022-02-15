@@ -1,6 +1,6 @@
 /**
- * Apm Traces API
- * API for APM Trace service. Use this API to query the Traces and associated Spans.
+ * Application Performance Monitoring Trace Explorer API
+ * Use the Application Performance Monitoring Trace Explorer API to query traces and associated spans in Trace Explorer. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -16,17 +16,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of quick pick query objects that contains the quick pick queries.
+ * Summary of the Quick Pick query objects.
  *
  */
 export interface QuickPickSummary {
   /**
-   * Quick pick name for the query.
+   * Quick Pick name for the query.
    *
    */
   "quickPickName": string;
   /**
-   * Query for the quick pick.
+   * Query for the Quick Pick.
    *
    */
   "quickPickQuery": string;

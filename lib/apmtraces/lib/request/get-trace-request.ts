@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface GetTraceRequest extends common.BaseRequest {
   /**
-   * The APM Domain Id the request is intended for.
+   * The APM Domain ID the request is intended for.
    *
    */
   "apmDomainId": string;
   /**
-   * Unique APM trace identifier(traceId).
+   * Unique Application Performance Monitoring trace identifier (traceId).
    *
    */
   "traceKey": string;

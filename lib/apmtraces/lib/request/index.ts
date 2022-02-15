@@ -1,6 +1,6 @@
 /**
- * Apm Traces API
- * API for APM Trace service. Use this API to query the Traces and associated Spans.
+ * Application Performance Monitoring Trace Explorer API
+ * Use the Application Performance Monitoring Trace Explorer API to query traces and associated spans in Trace Explorer. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -16,9 +16,11 @@ import * as ListQuickPicksRequest from "./list-quick-picks-request";
 export import ListQuickPicksRequest = ListQuickPicksRequest.ListQuickPicksRequest;
 import * as QueryRequest from "./query-request";
 export import QueryRequest = QueryRequest.QueryRequest;
-import * as QueryOldRequest from "./query-old-request";
-export import QueryOldRequest = QueryOldRequest.QueryOldRequest;
+import * as GetAggregatedSnapshotRequest from "./get-aggregated-snapshot-request";
+export import GetAggregatedSnapshotRequest = GetAggregatedSnapshotRequest.GetAggregatedSnapshotRequest;
 import * as GetSpanRequest from "./get-span-request";
 export import GetSpanRequest = GetSpanRequest.GetSpanRequest;
 import * as GetTraceRequest from "./get-trace-request";
 export import GetTraceRequest = GetTraceRequest.GetTraceRequest;
+import * as GetTraceSnapshotRequest from "./get-trace-snapshot-request";
+export import GetTraceSnapshotRequest = GetTraceSnapshotRequest.GetTraceSnapshotRequest;

@@ -27,9 +27,23 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "operationType"?: string;
   /**
+   * The field used for sorting. Only one sorting order (sortOrder) can be specified.
+   * The default order for STARTTIME and FINISHTIME is descending.
+   *
+   */
+  "sortBy"?: ListWorkRequestsRequest.SortBy;
+  /**
+   * The sort order to use, either ascending (ASC) or descending (DESC).
+   */
+  "sortOrder"?: ListWorkRequestsRequest.SortOrder;
+  /**
    * A filter to return only work requests that match the specified resource OCID.
    */
   "resourceId"?: string;
+  /**
+   * A filter to return only work requests that are associated to the specified target database OCID.
+   */
+  "targetDatabaseId"?: string;
   /**
    * Unique identifier for the request.
    */
@@ -42,4 +56,16 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    * For list pagination. The maximum number of items to return per page in a paginated \"List\" call. For details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "limit"?: number;
+}
+
+export namespace ListWorkRequestsRequest {
+  export enum SortBy {
+    Starttime = "STARTTIME",
+    Finishtime = "FINISHTIME"
+  }
+
+  export enum SortOrder {
+    Asc = "ASC",
+    Desc = "DESC"
+  }
 }

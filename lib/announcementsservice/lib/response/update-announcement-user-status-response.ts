@@ -16,11 +16,18 @@ import common = require("oci-common");
 
 export interface UpdateAnnouncementUserStatusResponse {
   /**
-   * The unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the complete request ID.
+   * Unique Oracle-assigned identifier for the request. If you need to contact
+   * Oracle about a particular request, please provide the request ID.
+   *
    */
   "opcRequestId": string;
   /**
+   * For optimistic concurrency control. See `if-match`.
    *
    */
   "etag": string;
+  /**
+   * The returned model.AnnouncementUserStatusDetails instance.
+   */
+  "announcementUserStatusDetails": model.AnnouncementUserStatusDetails;
 }

@@ -1,6 +1,6 @@
 /**
- * Apm Traces API
- * API for APM Trace service. Use this API to query the Traces and associated Spans.
+ * Application Performance Monitoring Trace Explorer API
+ * Use the Application Performance Monitoring Trace Explorer API to query traces and associated spans in Trace Explorer. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -22,12 +22,12 @@ import common = require("oci-common");
 export interface QueryResultMetadataSummary {
   /**
    * A collection of QueryResultRowTypeSummary objects that describe the type and properties of the individual row elements of the query rows
-   * being returned.  The ith element in this list contains the QueryResultRowTypeSummary of the ith key value pair in the QueryResultRowData map.
+   * being returned.  The i-th element in this list contains the QueryResultRowTypeSummary of the i-th key-value pair in the QueryResultRowData map.
    *
    */
   "queryResultRowTypeSummaries"?: Array<model.QueryResultRowTypeSummary>;
   /**
-   * Source of the query result set (traces, spans, etc).
+   * Source of the query result set (traces, spans, and so on).
    *
    */
   "sourceName"?: string;

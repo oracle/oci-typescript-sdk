@@ -61,7 +61,7 @@ export interface ListUserAnalyticsRequest extends common.BaseRequest {
    */
   "userName"?: string;
   /**
-   * A filter to return only items that match the specified target.
+   * A filter to return only items related to a specific target OCID.
    */
   "targetId"?: string;
   /**

@@ -19,8 +19,7 @@ import common = require("oci-common");
  */
 export interface ListAnnouncementsRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment. Because announcements are specific to a tenancy, this is the
-   * OCID of the root compartment.
+   * The OCID of the compartment.
    *
    */
   "compartmentId": string;
@@ -63,6 +62,22 @@ export interface ListAnnouncementsRequest extends common.BaseRequest {
    */
   "timeOneLatestTime"?: Date;
   /**
+   * A filter to return only announcements that match a specific environment name.
+   */
+  "environmentName"?: string;
+  /**
+   * A filter to return only announcements affecting a specific service.
+   */
+  "service"?: string;
+  /**
+   * A filter to return only announcements affecting a specific platform.
+   */
+  "platformType"?: ListAnnouncementsRequest.PlatformType;
+  /**
+   * Exclude The type of announcement.
+   */
+  "excludeAnnouncementTypes"?: Array<string>;
+  /**
    * The unique Oracle-assigned identifier for the request. If you need to contact Oracle about
    * a particular request, please provide the complete request ID.
    *
@@ -88,5 +103,10 @@ export namespace ListAnnouncementsRequest {
   export enum SortOrder {
     Asc = "ASC",
     Desc = "DESC"
+  }
+
+  export enum PlatformType {
+    Iaas = "IAAS",
+    Saas = "SAAS"
   }
 }

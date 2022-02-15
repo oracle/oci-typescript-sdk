@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface QueryRequest extends common.BaseRequest {
   /**
-   * The APM Domain Id the request is intended for.
+   * The APM Domain ID the request is intended for.
    *
    */
   "apmDomainId": string;
   /**
-   * Include spans that have a `spanStartTime` equal to or greater this value.
+   * Include spans that have a `spanStartTime` equal to or greater than this value.
    *
    */
   "timeSpanStartedGreaterThanOrEqualTo": Date;
@@ -34,7 +34,8 @@ export interface QueryRequest extends common.BaseRequest {
    */
   "timeSpanStartedLessThan": Date;
   /**
-   * Request body containing the query to be run against our repository.
+   * Request body containing the query to be run against the trace data and to filter and
+   * retrieve trace data results.
    *
    */
   "queryDetails": model.QueryDetails;

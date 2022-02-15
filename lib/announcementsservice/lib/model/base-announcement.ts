@@ -100,6 +100,16 @@ export interface BaseAnnouncement {
    *
    */
   "timeUpdated"?: Date;
+  /**
+   * The name of the environment that this announcement pertains to.
+   *
+   */
+  "environmentName"?: string;
+  /**
+   * The platform type that this announcement pertains to.
+   *
+   */
+  "platformType"?: BaseAnnouncement.PlatformType;
 
   "type": string;
 }
@@ -139,6 +149,11 @@ export namespace BaseAnnouncement {
   export enum LifecycleState {
     Active = "ACTIVE",
     Inactive = "INACTIVE"
+  }
+
+  export enum PlatformType {
+    Iaas = "IAAS",
+    Saas = "SAAS"
   }
 
   export function getJsonObj(obj: BaseAnnouncement): object {

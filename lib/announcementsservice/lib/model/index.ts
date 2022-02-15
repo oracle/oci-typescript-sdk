@@ -13,6 +13,12 @@
 
 import * as AffectedResource from "./affected-resource";
 export import AffectedResource = AffectedResource.AffectedResource;
+import * as AnnouncementSubscription from "./announcement-subscription";
+export import AnnouncementSubscription = AnnouncementSubscription.AnnouncementSubscription;
+import * as AnnouncementSubscriptionCollection from "./announcement-subscription-collection";
+export import AnnouncementSubscriptionCollection = AnnouncementSubscriptionCollection.AnnouncementSubscriptionCollection;
+import * as AnnouncementSubscriptionSummary from "./announcement-subscription-summary";
+export import AnnouncementSubscriptionSummary = AnnouncementSubscriptionSummary.AnnouncementSubscriptionSummary;
 import * as AnnouncementUserStatusDetails from "./announcement-user-status-details";
 export import AnnouncementUserStatusDetails = AnnouncementUserStatusDetails.AnnouncementUserStatusDetails;
 import * as AnnouncementsCollection from "./announcements-collection";
@@ -23,8 +29,26 @@ import * as BaseAnnouncementsPreferences from "./base-announcements-preferences"
 export import BaseAnnouncementsPreferences = BaseAnnouncementsPreferences.BaseAnnouncementsPreferences;
 import * as BaseCreateAnnouncementsPreferencesDetails from "./base-create-announcements-preferences-details";
 export import BaseCreateAnnouncementsPreferencesDetails = BaseCreateAnnouncementsPreferencesDetails.BaseCreateAnnouncementsPreferencesDetails;
+import * as ChangeAnnouncementSubscriptionCompartmentDetails from "./change-announcement-subscription-compartment-details";
+export import ChangeAnnouncementSubscriptionCompartmentDetails = ChangeAnnouncementSubscriptionCompartmentDetails.ChangeAnnouncementSubscriptionCompartmentDetails;
+import * as CreateAnnouncementSubscriptionDetails from "./create-announcement-subscription-details";
+export import CreateAnnouncementSubscriptionDetails = CreateAnnouncementSubscriptionDetails.CreateAnnouncementSubscriptionDetails;
+import * as CreateFilterGroupDetails from "./create-filter-group-details";
+export import CreateFilterGroupDetails = CreateFilterGroupDetails.CreateFilterGroupDetails;
+import * as Filter from "./filter";
+export import Filter = Filter.Filter;
+import * as FilterGroup from "./filter-group";
+export import FilterGroup = FilterGroup.FilterGroup;
+import * as FilterGroupDetails from "./filter-group-details";
+export import FilterGroupDetails = FilterGroupDetails.FilterGroupDetails;
 import * as Property from "./property";
 export import Property = Property.Property;
+import * as SortOrder from "./sort-order";
+export import SortOrder = SortOrder.SortOrder;
+import * as UpdateAnnouncementSubscriptionDetails from "./update-announcement-subscription-details";
+export import UpdateAnnouncementSubscriptionDetails = UpdateAnnouncementSubscriptionDetails.UpdateAnnouncementSubscriptionDetails;
+import * as UpdateFilterGroupDetails from "./update-filter-group-details";
+export import UpdateFilterGroupDetails = UpdateFilterGroupDetails.UpdateFilterGroupDetails;
 
 import * as Announcement from "./announcement";
 export import Announcement = Announcement.Announcement;

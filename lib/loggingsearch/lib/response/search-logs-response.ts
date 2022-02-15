@@ -16,7 +16,10 @@ import common = require("oci-common");
 
 export interface SearchLogsResponse {
   /**
-   * Reserved for future use. Pagination is not supported in this API.
+   * For list pagination. When this header appears in the response,
+   * additional pages of results remain.
+   * For important details about how pagination works, see
+   * [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "opcNextPage": string;

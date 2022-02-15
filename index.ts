@@ -183,3 +183,5 @@ export import osuborganizationsubscription = require("oci-osuborganizationsubscr
 export import osubsubscription = require("oci-osubsubscription");
 export import osubusage = require("oci-osubusage");
 export import dashboardservice = require("oci-dashboardservice");
+export import aivision = require("oci-aivision");
+export import threatintelligence = require("oci-threatintelligence");

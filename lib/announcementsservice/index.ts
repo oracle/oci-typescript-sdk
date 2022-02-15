@@ -15,9 +15,12 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
+import * as announcementsubscription_waiter from "./lib/announcementsubscription-waiter";
 
 export { models };
 export { requests };
 export { responses };
 export import AnnouncementClient = client.AnnouncementClient;
+export import AnnouncementSubscriptionClient = client.AnnouncementSubscriptionClient;
+export import AnnouncementSubscriptionWaiter = announcementsubscription_waiter.AnnouncementSubscriptionWaiter;
 export import AnnouncementsPreferencesClient = client.AnnouncementsPreferencesClient;

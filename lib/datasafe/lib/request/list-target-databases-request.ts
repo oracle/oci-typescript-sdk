@@ -23,6 +23,10 @@ export interface ListTargetDatabasesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
+   * A filter to return the target databases that are associated to the resource id passed in as a parameter value.
+   */
+  "associatedResourceId"?: string;
+  /**
    * A filter to return the target database that matches the specified OCID.
    */
   "targetDatabaseId"?: string;
