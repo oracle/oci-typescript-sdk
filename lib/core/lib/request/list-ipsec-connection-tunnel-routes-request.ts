@@ -43,9 +43,9 @@ Example: `50`
    */
   "page"?: string;
   /**
-   * Specifies the advertiser of the routes. If set to ORACLE, then returns only the
-   * routes advertised by ORACLE, else if set to CUSTOMER, then returns only the
-   * routes advertised by the CUSTOMER.
+   * Specifies the advertiser of the routes. If set to `ORACLE`, this returns only the
+   * routes advertised by Oracle. When set to `CUSTOMER`, this returns only the
+   * routes advertised by the CPE.
    *
    */
   "advertiser"?: string;

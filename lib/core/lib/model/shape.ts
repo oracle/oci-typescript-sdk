@@ -109,6 +109,45 @@ If the shape does not have any local disks, this field is `null`.
   "networkingBandwidthOptions"?: model.ShapeNetworkingBandwidthOptions;
   "maxVnicAttachmentOptions"?: model.ShapeMaxVnicAttachmentOptions;
   "platformConfigOptions"?: model.ShapePlatformConfigOptions;
+  /**
+   * Whether billing continues when the instances that use this shape are in the stopped state.
+   *
+   */
+  "isBilledForStoppedInstance"?: boolean;
+  /**
+   * How instances that use this shape are charged.
+   *
+   */
+  "billingType"?: Shape.BillingType;
+  /**
+   * The list of of compartment quotas for the shape.
+   *
+   */
+  "quotaNames"?: Array<string>;
+  /**
+   * Whether the shape supports creating subcore or burstable instances. A [burstable instance](https://docs.cloud.oracle.com/iaas/Content/Compute/References/burstable-instances.htm)
+   * is a virtual machine (VM) instance that provides a baseline level of CPU performance with the ability to burst to a higher level to support occasional
+   * spikes in usage.
+   *
+   */
+  "isSubcore"?: boolean;
+  /**
+   * Whether the shape supports creating flexible instances. A [flexible shape](https://docs.cloud.oracle.com/iaas/Content/Compute/References/computeshapes.htm#flexible)
+   * is a shape that lets you customize the number of OCPUs and the amount of memory when launching or resizing your instance.
+   *
+   */
+  "isFlexible"?: boolean;
+  /**
+   * The list of compatible shapes that this shape can be changed to. For more information,
+   * see [Changing the Shape of an Instance](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/resizinginstances.htm).
+   *
+   */
+  "resizeCompatibleShapes"?: Array<string>;
+  /**
+   * The list of shapes and shape details (if applicable) that Oracle recommends that you use as an alternative to the current shape.
+   *
+   */
+  "recommendedAlternatives"?: Array<model.ShapeAlternativeObject>;
 }
 
 export namespace Shape {
@@ -116,6 +155,17 @@ export namespace Shape {
     Baseline18 = "BASELINE_1_8",
     Baseline12 = "BASELINE_1_2",
     Baseline11 = "BASELINE_1_1",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum BillingType {
+    AlwaysFree = "ALWAYS_FREE",
+    LimitedFree = "LIMITED_FREE",
+    Paid = "PAID",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -141,6 +191,12 @@ export namespace Shape {
           : undefined,
         "platformConfigOptions": obj.platformConfigOptions
           ? model.ShapePlatformConfigOptions.getJsonObj(obj.platformConfigOptions)
+          : undefined,
+
+        "recommendedAlternatives": obj.recommendedAlternatives
+          ? obj.recommendedAlternatives.map(item => {
+              return model.ShapeAlternativeObject.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -167,6 +223,12 @@ export namespace Shape {
           : undefined,
         "platformConfigOptions": obj.platformConfigOptions
           ? model.ShapePlatformConfigOptions.getDeserializedJsonObj(obj.platformConfigOptions)
+          : undefined,
+
+        "recommendedAlternatives": obj.recommendedAlternatives
+          ? obj.recommendedAlternatives.map(item => {
+              return model.ShapeAlternativeObject.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

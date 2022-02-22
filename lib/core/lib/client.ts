@@ -11602,6 +11602,9 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
 To preserve the boot volume associated with the instance, specify `true` for `PreserveBootVolumeQueryParam`.
 * To delete the boot volume when the instance is deleted, specify `false` or do not specify a value for `PreserveBootVolumeQueryParam`.
 * <p>
+To preserve data volumes created with the instance, specify `true` for `PreserveDataVolumesQueryParam`.
+* To delete the data volumes when the instance itself is deleted, specify `false` or do not specify a value for `PreserveDataVolumesQueryParam`.
+* <p>
 This is an asynchronous operation. The instance's `lifecycleState` will change to TERMINATING temporarily
 * until the instance is completely removed.
 * 
@@ -11620,7 +11623,8 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
     };
 
     const queryParams = {
-      "preserveBootVolume": terminateInstanceRequest.preserveBootVolume
+      "preserveBootVolume": terminateInstanceRequest.preserveBootVolume,
+      "preserveDataVolumes": terminateInstanceRequest.preserveDataVolumes
     };
 
     let headerParams = {
@@ -21411,7 +21415,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   }
 
   /**
-   * The allowed parameters for IKE IPSec
+   * The parameters allowed for IKE IPSec tunnels.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAllowedIkeIPSecParametersRequest
@@ -22820,7 +22824,7 @@ The operation returns configuration information for *all* of the
   }
 
   /**
-   * Get the identified error for the specified IPSec Tunnel ID.
+   * Gets the identified error for the specified IPSec tunnel ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIPSecConnectionTunnelErrorRequest
@@ -27108,7 +27112,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
-   * The routes advertised to the Customer and the routes received from the Customer.
+   * The routes advertised to the on-premises network and the routes received from the on-premises network.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIPSecConnectionTunnelRoutesRequest
@@ -27238,7 +27242,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   }
 
   /**
-   * Lists the tunnel Security Associations information for the specified IPSec Tunnel ID.
+   * Lists the tunnel security associations information for the specified IPSec tunnel ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIPSecConnectionTunnelSecurityAssociationsRequest

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeApmDomainCompartmentRequest extends common.BaseRequest {
   /**
-   * The OCID of the APM domain
+   * The OCID of the APM domain.
    */
   "apmDomainId": string;
   /**
@@ -39,7 +39,7 @@ export interface ChangeApmDomainCompartmentRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A token that uniquely identifies a request so it can be retried in case of a timeout or
+   * A token that uniquely identifies a request therefore it can be retried in case of a timeout or
    * server error without risk of executing that same action again. Retry tokens expire after 24
    * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
    * has been deleted and purged from the system, then a retry of the original creation request

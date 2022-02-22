@@ -20,15 +20,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * DPD Configuration Details
+ * These configuration details are used for dead peer detection (DPD). DPD periodically checks the stability of the connection to the customer premises (CPE), and may be used to detect that the link to the CPE has gone down.
+ *
  */
 export interface DpdConfig {
   /**
-   * dpd mode
+   * This option defines whether DPD can be initiated from the Oracle side of the connection.
+   *
    */
   "dpdMode"?: DpdConfig.DpdMode;
   /**
-   * DPD Timeout in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * DPD timeout in seconds. This sets the longest interval between CPE device health messages before the IPSec connection indicates it has lost contact with the CPE. The default is 20 seconds.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dpdTimeoutInSec"?: number;
 }

@@ -46,6 +46,8 @@ import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
 import * as ScaleAnalyticsInstanceRequest from "./scale-analytics-instance-request";
 export import ScaleAnalyticsInstanceRequest = ScaleAnalyticsInstanceRequest.ScaleAnalyticsInstanceRequest;
+import * as SetKmsKeyRequest from "./set-kms-key-request";
+export import SetKmsKeyRequest = SetKmsKeyRequest.SetKmsKeyRequest;
 import * as StartAnalyticsInstanceRequest from "./start-analytics-instance-request";
 export import StartAnalyticsInstanceRequest = StartAnalyticsInstanceRequest.StartAnalyticsInstanceRequest;
 import * as StopAnalyticsInstanceRequest from "./stop-analytics-instance-request";

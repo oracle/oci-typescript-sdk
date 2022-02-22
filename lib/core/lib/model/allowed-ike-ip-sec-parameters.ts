@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Allowed IKE IPSec Parameters
+ * Lists the current allowed and default IPSec tunnel parameters.
  */
 export interface AllowedIkeIPSecParameters {
   "allowedPhaseOneParameters": model.AllowedPhaseOneParameters;

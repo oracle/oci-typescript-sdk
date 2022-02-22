@@ -20,24 +20,25 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Tunnel detail information specific to IPSec phase 1.
+ * IPSec tunnel details specific to ISAKMP phase one.
  */
 export interface TunnelPhaseOneDetails {
   /**
    * Indicates whether custom phase one configuration is enabled.
+   * If this option is not enabled, default settings are proposed.
+   *
    */
   "isCustomPhaseOneConfig"?: boolean;
   /**
-   * The total configured lifetime of an IKE security association. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total configured lifetime of the IKE security association. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lifetime"?: number;
   /**
-   * The lifetime remaining before the key is refreshed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The remaining lifetime before the key is refreshed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "remainingLifetime"?: number;
   /**
-   * Custom authentication algorithm
-   *
+   * The proposed custom authentication algorithm.
    */
   "customAuthenticationAlgorithm"?: string;
   /**
@@ -45,8 +46,7 @@ export interface TunnelPhaseOneDetails {
    */
   "negotiatedAuthenticationAlgorithm"?: string;
   /**
-   * Custom encryption algorithm.
-   *
+   * The proposed custom encryption algorithm.
    */
   "customEncryptionAlgorithm"?: string;
   /**
@@ -54,8 +54,7 @@ export interface TunnelPhaseOneDetails {
    */
   "negotiatedEncryptionAlgorithm"?: string;
   /**
-   * Custom Diffie-Hellman group.
-   *
+   * The proposed custom Diffie-Hellman group.
    */
   "customDhGroup"?: string;
   /**
@@ -63,7 +62,7 @@ export interface TunnelPhaseOneDetails {
    */
   "negotiatedDhGroup"?: string;
   /**
-   * Indicates whether IKE Phase 1 is established.
+   * Indicates whether IKE phase one is established.
    */
   "isIkeEstablished"?: boolean;
   /**

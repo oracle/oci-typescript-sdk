@@ -46,6 +46,8 @@ import * as PrivateSourceDnsZone from "./private-source-dns-zone";
 export import PrivateSourceDnsZone = PrivateSourceDnsZone.PrivateSourceDnsZone;
 import * as ScaleAnalyticsInstanceDetails from "./scale-analytics-instance-details";
 export import ScaleAnalyticsInstanceDetails = ScaleAnalyticsInstanceDetails.ScaleAnalyticsInstanceDetails;
+import * as SetKmsKeyDetails from "./set-kms-key-details";
+export import SetKmsKeyDetails = SetKmsKeyDetails.SetKmsKeyDetails;
 import * as SortBy from "./sort-by";
 export import SortBy = SortBy.SortBy;
 import * as SortOrder from "./sort-order";

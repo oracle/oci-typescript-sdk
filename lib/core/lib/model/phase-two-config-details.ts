@@ -20,25 +20,26 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Phase 2 Configuration Details
+ * Configuration details for IPSec phase two configuration parameters.
  */
 export interface PhaseTwoConfigDetails {
   /**
-   * Indicates whether custom phase two configuration is enabled.
+   * Indicates whether custom configuration is enabled for phase two options.
    */
   "isCustomPhaseTwoConfig"?: boolean;
   /**
-   * Phase two authentication algorithm supported during tunnel negotiation.
+   * The authentication algorithm proposed during phase two tunnel negotiation.
    *
    */
   "authenticationAlgorithm"?: PhaseTwoConfigDetails.AuthenticationAlgorithm;
   /**
-   * Phase two encryption algorithm supported during tunnel negotiation.
+   * The encryption algorithm proposed during phase two tunnel negotiation.
    *
    */
   "encryptionAlgorithm"?: PhaseTwoConfigDetails.EncryptionAlgorithm;
   /**
-   * Lifetime in seconds for IPSec phase two. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Lifetime in seconds for the IPSec session key set in phase two. The default is 3600 which is equivalent to 1 hour.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lifetimeInSeconds"?: number;
   /**
@@ -46,7 +47,7 @@ export interface PhaseTwoConfigDetails {
    */
   "isPfsEnabled"?: boolean;
   /**
-   * Diffie-Hellman group used for PFS.
+   * The Diffie-Hellman group used for PFS, if PFS is enabled.
    */
   "pfsDhGroup"?: PhaseTwoConfigDetails.PfsDhGroup;
 }

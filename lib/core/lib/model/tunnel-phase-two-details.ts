@@ -20,32 +20,34 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Tunnel detail information specific to IPSec phase 2.
+ * IPsec tunnel detail information specific to phase two.
  */
 export interface TunnelPhaseTwoDetails {
   /**
    * Indicates whether custom phase two configuration is enabled.
+   * If this option is not enabled, default settings are proposed.
+   *
    */
   "isCustomPhaseTwoConfig"?: boolean;
   /**
-   * The total configured lifetime of an IKE security association. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total configured lifetime of the IKE security association. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lifetime"?: number;
   /**
-   * The lifetime remaining before the key is refreshed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The remaining lifetime before the key is refreshed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "remainingLifetime"?: number;
   /**
-   * Phase Two authentication algorithm supported during tunnel negotiation.
+   * Phase two authentication algorithm proposed during tunnel negotiation.
    *
    */
   "customAuthenticationAlgorithm"?: string;
   /**
-   * The negotiated authentication algorithm.
+   * The negotiated phase two authentication algorithm.
    */
   "negotiatedAuthenticationAlgorithm"?: string;
   /**
-   * Custom Encryption Algorithm
+   * The proposed custom phase two encryption algorithm.
    *
    */
   "customEncryptionAlgorithm"?: string;
@@ -54,7 +56,7 @@ export interface TunnelPhaseTwoDetails {
    */
   "negotiatedEncryptionAlgorithm"?: string;
   /**
-   * Proposed Diffie-Hellman group.
+   * The proposed Diffie-Hellman group.
    *
    */
   "dhGroup"?: string;
@@ -63,15 +65,15 @@ export interface TunnelPhaseTwoDetails {
    */
   "negotiatedDhGroup"?: string;
   /**
-   * ESP Phase 2 established
+   * Indicates that ESP phase two is established.
    */
   "isEspEstablished"?: boolean;
   /**
-   * Is PFS (perfect forward secrecy) enabled
+   * Indicates that PFS (perfect forward secrecy) is enabled.
    */
   "isPfsEnabled"?: boolean;
   /**
-    * The date and time we retrieved the remaining lifetime, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+    * The date and time the remaining lifetime was last retrieved, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 

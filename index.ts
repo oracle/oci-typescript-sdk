@@ -185,3 +185,5 @@ export import osubusage = require("oci-osubusage");
 export import dashboardservice = require("oci-dashboardservice");
 export import aivision = require("oci-aivision");
 export import threatintelligence = require("oci-threatintelligence");
+export import aispeech = require("oci-aispeech");
+export import dataconnectivity = require("oci-dataconnectivity");

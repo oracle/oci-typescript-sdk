@@ -53,6 +53,8 @@ import * as ConfigurationSummary from "./configuration-summary";
 export import ConfigurationSummary = ConfigurationSummary.ConfigurationSummary;
 import * as ConfigurationVariables from "./configuration-variables";
 export import ConfigurationVariables = ConfigurationVariables.ConfigurationVariables;
+import * as CrashRecoveryStatus from "./crash-recovery-status";
+export import CrashRecoveryStatus = CrashRecoveryStatus.CrashRecoveryStatus;
 import * as CreateBackupDetails from "./create-backup-details";
 export import CreateBackupDetails = CreateBackupDetails.CreateBackupDetails;
 import * as CreateBackupPolicyDetails from "./create-backup-policy-details";

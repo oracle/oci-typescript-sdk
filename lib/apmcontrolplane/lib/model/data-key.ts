@@ -1,7 +1,7 @@
 /**
  * Application Performance Monitoring Control Plane API
  * Use the Application Performance Monitoring Control Plane API to perform operations such as creating, updating,
-deleting and listing APM domains and monitoring the progress of these operations using the work request APIs.
+deleting and listing APM domains and monitoring the progress of these operations using the work request APIs. For more information, see [Application Performance Monitoring](/iaas/application-performance-monitoring/index.html).
 
  * OpenAPI spec version: 20200630
  * 

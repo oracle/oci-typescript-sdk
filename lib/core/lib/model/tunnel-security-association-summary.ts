@@ -20,27 +20,29 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Detailed Tunnel SA
+ * A summary of the IPSec tunnel security association details.
+ *
  */
 export interface TunnelSecurityAssociationSummary {
   /**
-   * IP and mask of the Partner Subnet for Policy Based VPNs or Static Routes
+   * The IP address and mask of the partner subnet used in policy based VPNs or static routes.
    */
   "cpeSubnet"?: string;
   /**
-   * IP and mask of the Local Subnet for Policy Based VPNs or Static Routes
+   * The IP address and mask of the local subnet used in policy based VPNs or static routes.
    */
   "oracleSubnet"?: string;
   /**
-   * Phase 1 Status of the Tunnel
+   * The IPSec tunnel's phase one status.
    */
   "tunnelSaStatus"?: TunnelSecurityAssociationSummary.TunnelSaStatus;
   /**
-   * Current state if status is not up, including phase1/phase2 and possible reason for tunnel not up
+   * Current state if the IPSec tunnel status is not `UP`, including phase one and phase two details and a possible reason the tunnel is not `UP`.
+   *
    */
   "tunnelSaErrorInfo"?: string;
   /**
-   * Seconds in current state
+   * Time in the current state, in seconds.
    */
   "time"?: string;
 }

@@ -1570,6 +1570,77 @@ export class AnalyticsClient {
   }
 
   /**
+   * Encrypts the customer data of this Analytics instance using either a customer OCI Vault Key or Oracle managed default key.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SetKmsKeyRequest
+   * @return SetKmsKeyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/SetKmsKey.ts.html |here} to see how to use SetKmsKey API.
+   */
+  public async setKmsKey(
+    setKmsKeyRequest: requests.SetKmsKeyRequest
+  ): Promise<responses.SetKmsKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#setKmsKey.");
+    const pathParams = {
+      "{analyticsInstanceId}": setKmsKeyRequest.analyticsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": setKmsKeyRequest.ifMatch,
+      "opc-request-id": setKmsKeyRequest.opcRequestId,
+      "opc-retry-token": setKmsKeyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      setKmsKeyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/analyticsInstances/{analyticsInstanceId}/actions/setKmsKey",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        setKmsKeyRequest.setKmsKeyDetails,
+        "SetKmsKeyDetails",
+        model.SetKmsKeyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SetKmsKeyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Starts the specified Analytics instance. The operation is long-running
    * and creates a new WorkRequest.
    *

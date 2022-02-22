@@ -150,6 +150,12 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Whether to run the DB System with InnoDB Redo Logs and the Double Write Buffer enabled or disabled,
+   * and whether to enable or disable syncing of the Binary Logs.
+   *
+   */
+  "crashRecovery"?: model.CrashRecoveryStatus;
 }
 
 export namespace CreateDbSystemDetails {

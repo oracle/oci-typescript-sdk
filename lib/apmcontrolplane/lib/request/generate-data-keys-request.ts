@@ -23,7 +23,7 @@ export interface GenerateDataKeysRequest extends common.BaseRequest {
    */
   "generateDataKeysListDetails": Array<model.GenerateDataKeyDetails>;
   /**
-   * The OCID of the APM domain
+   * The OCID of the APM domain.
    */
   "apmDomainId": string;
   /**

@@ -20,19 +20,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Phase One Parameters
+ * Allowed phase one parameters.
  */
 export interface AllowedPhaseOneParameters {
   /**
-   * Phase One Encryption Algorithms
+   * Allowed phase one encryption algorithms.
    */
   "encryptionAlgorithms"?: Array<string>;
   /**
-   * Phase One Authentication Algorithms
+   * Allowed phase one authentication algorithms.
    */
   "authenticationAlgorithms"?: Array<string>;
   /**
-   * DH Groups
+   * Allowed phase one Diffie-Hellman groups.
    */
   "dhGroups"?: Array<string>;
 }

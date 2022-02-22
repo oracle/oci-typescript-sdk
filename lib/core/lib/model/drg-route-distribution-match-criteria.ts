@@ -21,7 +21,7 @@ import common = require("oci-common");
 
 /**
  * The match criteria in a route distribution statement. The match criteria outlines which routes
- * should be imported or exported. Leaving the match criteria empty implies match ALL.
+ * should be imported or exported.
  *
  */
 export interface DrgRouteDistributionMatchCriteria {

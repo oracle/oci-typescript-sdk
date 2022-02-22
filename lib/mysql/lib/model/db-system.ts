@@ -172,6 +172,12 @@ For a standalone DB System, this defines the fault domain in which the DB System
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Whether to run the DB System with InnoDB Redo Logs and the Double Write Buffer enabled or disabled,
+   * and whether to enable or disable syncing of the Binary Logs.
+   *
+   */
+  "crashRecovery"?: model.CrashRecoveryStatus;
 }
 
 export namespace DbSystem {

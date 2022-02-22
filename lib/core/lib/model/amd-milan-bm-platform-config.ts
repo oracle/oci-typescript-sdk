@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The platform configuration of a bare metal instance that uses an E4 shape
+ * The platform configuration of a bare metal instance that uses an E4 shape.
  * (the AMD Milan platform).
  *
  */
