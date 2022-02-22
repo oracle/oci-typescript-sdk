@@ -1,6 +1,6 @@
 {
   "name": "oci-applicationmigration",
-  "version": "2.14.0",
+  "version": "2.15.0",
   "description": "OCI NodeJS client for Application Migration service",
   "repository": {
     "type": "git",

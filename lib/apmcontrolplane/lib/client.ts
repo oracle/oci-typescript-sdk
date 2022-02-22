@@ -1,7 +1,7 @@
 /**
  * Application Performance Monitoring Control Plane API
  * Use the Application Performance Monitoring Control Plane API to perform operations such as creating, updating,
-deleting and listing APM domains and monitoring the progress of these operations using the work request APIs.
+deleting and listing APM domains and monitoring the progress of these operations using the work request APIs. For more information, see [Application Performance Monitoring](/iaas/application-performance-monitoring/index.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -148,7 +148,7 @@ export class ApmDomainClient {
 
   /**
    * Moves an APM domain into a different compartment. When provided, If-Match is checked against ETag values of the APM domain.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeApmDomainCompartmentRequest
    * @return ChangeApmDomainCompartmentResponse
    * @throws OciError when an error occurs
@@ -172,7 +172,7 @@ export class ApmDomainClient {
       "opc-retry-token": changeApmDomainCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeApmDomainCompartmentRequest.retryConfiguration,
@@ -220,7 +220,7 @@ export class ApmDomainClient {
   /**
    * Creates a new APM domain.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateApmDomainRequest
    * @return CreateApmDomainResponse
    * @throws OciError when an error occurs
@@ -240,7 +240,7 @@ export class ApmDomainClient {
       "opc-request-id": createApmDomainRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createApmDomainRequest.retryConfiguration,
@@ -290,7 +290,7 @@ export class ApmDomainClient {
    * accepting any operation requests. All resources associated with the APM domain are eventually recovered. Use the
    * returned work request ID to track the progress of the background activity to complete deleting the APM domain.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteApmDomainRequest
    * @return DeleteApmDomainResponse
    * @throws OciError when an error occurs
@@ -312,7 +312,7 @@ export class ApmDomainClient {
       "opc-request-id": deleteApmDomainRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteApmDomainRequest.retryConfiguration,
@@ -356,7 +356,7 @@ export class ApmDomainClient {
    * Generates a set of new Data Keys for the specified APM domain with the specified names and
    * types. These will be added to the existing set of Data Keys for the specified APM domain.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateDataKeysRequest
    * @return GenerateDataKeysResponse
    * @throws OciError when an error occurs
@@ -378,7 +378,7 @@ export class ApmDomainClient {
       "opc-request-id": generateDataKeysRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       generateDataKeysRequest.retryConfiguration,
@@ -425,7 +425,7 @@ export class ApmDomainClient {
 
   /**
    * Gets the details of the APM domain specified by OCID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetApmDomainRequest
    * @return GetApmDomainResponse
    * @throws OciError when an error occurs
@@ -446,7 +446,7 @@ export class ApmDomainClient {
       "opc-request-id": getApmDomainRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getApmDomainRequest.retryConfiguration,
@@ -492,7 +492,7 @@ export class ApmDomainClient {
 
   /**
    * Gets the details of the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -513,7 +513,7 @@ export class ApmDomainClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -565,7 +565,7 @@ export class ApmDomainClient {
   /**
    * Returns a (paginated) list of work requests related to a specific APM domain.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListApmDomainWorkRequestsRequest
    * @return ListApmDomainWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -590,7 +590,7 @@ export class ApmDomainClient {
       "opc-request-id": listApmDomainWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listApmDomainWorkRequestsRequest.retryConfiguration,
@@ -689,7 +689,7 @@ export class ApmDomainClient {
   /**
    * Lists all APM domains for the specified tenant compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListApmDomainsRequest
    * @return ListApmDomainsResponse
    * @throws OciError when an error occurs
@@ -716,7 +716,7 @@ export class ApmDomainClient {
       "opc-request-id": listApmDomainsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listApmDomainsRequest.retryConfiguration,
@@ -816,7 +816,7 @@ export class ApmDomainClient {
    * Lists all Data Keys for the specified APM domain. The caller may filter the list by specifying the 'dataKeyType'
    * query parameter.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDataKeysRequest
    * @return ListDataKeysResponse
    * @throws OciError when an error occurs
@@ -839,7 +839,7 @@ export class ApmDomainClient {
       "opc-request-id": listDataKeysRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDataKeysRequest.retryConfiguration,
@@ -881,7 +881,7 @@ export class ApmDomainClient {
   /**
    * Returns a (paginated) list of errors for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -905,7 +905,7 @@ export class ApmDomainClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -1004,7 +1004,7 @@ export class ApmDomainClient {
   /**
    * Returns a (paginated) list of logs for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1028,7 +1028,7 @@ export class ApmDomainClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -1127,7 +1127,7 @@ export class ApmDomainClient {
   /**
    * Returns a (paginated) list of work requests in a given compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1150,7 +1150,7 @@ export class ApmDomainClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -1250,7 +1250,7 @@ export class ApmDomainClient {
    * Removes the set of specified Data Keys from the specified APM domain. Agents would no longer
    * be able to use these data keys to upload to the APM domain once this operation is completed.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemoveDataKeysRequest
    * @return RemoveDataKeysResponse
    * @throws OciError when an error occurs
@@ -1272,7 +1272,7 @@ export class ApmDomainClient {
       "opc-request-id": removeDataKeysRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       removeDataKeysRequest.retryConfiguration,
@@ -1319,7 +1319,7 @@ export class ApmDomainClient {
 
   /**
    * Updates the APM domain.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateApmDomainRequest
    * @return UpdateApmDomainResponse
    * @throws OciError when an error occurs
@@ -1341,7 +1341,7 @@ export class ApmDomainClient {
       "opc-request-id": updateApmDomainRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateApmDomainRequest.retryConfiguration,

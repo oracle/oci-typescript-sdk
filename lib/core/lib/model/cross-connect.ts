@@ -108,6 +108,17 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeCreated"?: Date;
   "macsecProperties"?: model.MacsecProperties;
+  /**
+   * The FastConnect device that terminates the physical connection.
+   *
+   */
+  "ociPhysicalDeviceName"?: string;
+  /**
+   * The FastConnect device that terminates the logical connection.
+   * This device might be different than the device that terminates the physical connection.
+   *
+   */
+  "ociLogicalDeviceName"?: string;
 }
 
 export namespace CrossConnect {

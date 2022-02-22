@@ -43,7 +43,7 @@ export interface ListApmDomainsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrders;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending. Default order for displayName is ascending. If no value is specified timeCreated is default.
+   * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending. Default order for displayName is ascending. If no value is specified, timeCreated is default.
    *
    */
   "sortBy"?: ListApmDomainsRequest.SortBy;

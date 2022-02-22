@@ -20,27 +20,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The routes advertised to the Customer and the routes received from the Customer
+ * A summary of the routes advertised to and received from the on-premises network.
+ *
  */
 export interface TunnelRouteSummary {
   /**
-   * BGP Network Layer Reachability Information
+   * The BGP network layer reachability information.
    */
   "prefix"?: string;
   /**
-   * The age of the route Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The age of the route. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "age"?: number;
   /**
-   * Is this the best route
+   * Indicates this is the best route.
    */
   "isBestPath"?: boolean;
   /**
-   * List of ASNs in AS Path
+   * A list of ASNs in AS_Path.
    */
   "asPath"?: Array<number>;
   /**
-   * Route advertiser
+   * The source of the route advertisement.
    */
   "advertiser"?: TunnelRouteSummary.Advertiser;
 }

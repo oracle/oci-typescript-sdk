@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for adding a CIDR block to a VCN.
+ * Details used to add a CIDR block to a VCN.
  */
 export interface AddVcnCidrDetails {
   /**

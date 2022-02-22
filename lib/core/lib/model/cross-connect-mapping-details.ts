@@ -114,6 +114,11 @@ Example: `200`
    * The state of the Ipv6 BGP session.
    */
   "ipv6BgpStatus"?: CrossConnectMappingDetails.Ipv6BgpStatus;
+  /**
+   * The FastConnect device that terminates the logical connection.
+   *
+   */
+  "ociLogicalDeviceName"?: string;
 }
 
 export namespace CrossConnectMappingDetails {

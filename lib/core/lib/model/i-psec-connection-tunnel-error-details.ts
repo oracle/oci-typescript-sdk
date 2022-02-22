@@ -20,31 +20,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Ipsec tunnels error details
+ * Details for an error on an IPSec tunnel.
  */
 export interface IPSecConnectionTunnelErrorDetails {
   /**
-   * unique id generated for each error report
+   * Unique ID generated for each error report.
    */
   "id": string;
   /**
-   * unique code describes error type
+   * Unique code describes the error type.
    */
   "errorCode": string;
   /**
-   * detailed description of the error
+   * A detailed description of the error.
    */
   "errorDescription": string;
   /**
-   * how to resolve the error
+   * Resolution for the error.
    */
   "solution": string;
   /**
-   * link to oracle resources
+   * Link to more Oracle resources or relevant documentation.
    */
   "ociResourcesLink": string;
   /**
-   * timestamp when error occurred.
+   * Timestamp when the error occurred.
    */
   "timestamp": Date;
 }

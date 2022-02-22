@@ -622,6 +622,8 @@ import * as ServiceIdResponseDetails from "./service-id-response-details";
 export import ServiceIdResponseDetails = ServiceIdResponseDetails.ServiceIdResponseDetails;
 import * as Shape from "./shape";
 export import Shape = Shape.Shape;
+import * as ShapeAlternativeObject from "./shape-alternative-object";
+export import ShapeAlternativeObject = ShapeAlternativeObject.ShapeAlternativeObject;
 import * as ShapeMaxVnicAttachmentOptions from "./shape-max-vnic-attachment-options";
 export import ShapeMaxVnicAttachmentOptions = ShapeMaxVnicAttachmentOptions.ShapeMaxVnicAttachmentOptions;
 import * as ShapeMeasuredBootOptions from "./shape-measured-boot-options";

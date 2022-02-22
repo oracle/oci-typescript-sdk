@@ -23,6 +23,10 @@ export interface ListResourceTypesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
+   * Detector type
+   */
+  "detectorId"?: model.DetectorEnum;
+  /**
    * The field life cycle state. Only one state can be provided. Default value for state is active. If no value is specified state is active.
    */
   "lifecycleState"?: model.LifecycleState;

@@ -20,30 +20,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Phase 1 Configuration Details
+ * Configuration details for IKE phase one (ISAKMP) configuration parameters.
  */
 export interface PhaseOneConfigDetails {
   /**
-   * Indicates whether custom phase one configuration is enabled.
+   * Indicates whether custom configuration is enabled for phase one options.
    */
   "isCustomPhaseOneConfig"?: boolean;
   /**
-   * Phase one authentication algorithm supported during tunnel negotiation.
+   * The custom authentication algorithm proposed during phase one tunnel negotiation.
    *
    */
   "authenticationAlgorithm"?: PhaseOneConfigDetails.AuthenticationAlgorithm;
   /**
-   * Phase one encryption algorithm supported during tunnel negotiation.
+   * The custom encryption algorithm proposed during phase one tunnel negotiation.
    *
    */
   "encryptionAlgorithm"?: PhaseOneConfigDetails.EncryptionAlgorithm;
   /**
-   * Phase One Diffie Hellman group supported during tunnel negotiation.
+   * The custom Diffie-Hellman group proposed during phase one tunnel negotiation.
    *
    */
   "diffieHelmanGroup"?: PhaseOneConfigDetails.DiffieHelmanGroup;
   /**
-   * IKE session key lifetime in seconds for IPSec phase one. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Internet key association (IKE) session key lifetime in seconds for IPSec phase one. The default is 28800 which is equivalent to 8 hours.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lifetimeInSeconds"?: number;
 }

@@ -27,7 +27,7 @@ export interface CreateIPSecConnectionTunnelDetails {
    */
   "displayName"?: string;
   /**
-   * The type of routing to use for this tunnel (either BGP dynamic routing or static routing).
+   * The type of routing to use for this tunnel (BGP dynamic routing, static routing, or policy-based routing).
    *
    */
   "routing"?: CreateIPSecConnectionTunnelDetails.Routing;
@@ -46,12 +46,21 @@ export interface CreateIPSecConnectionTunnelDetails {
   "sharedSecret"?: string;
   "bgpSessionConfig"?: model.CreateIPSecTunnelBgpSessionDetails;
   /**
-   * Whether Oracle side is the initiator for negotiation.
+   * Indicates whether the Oracle end of the IPSec connection is able to initiate starting up the IPSec tunnel.
+   *
    */
   "oracleInitiation"?: CreateIPSecConnectionTunnelDetails.OracleInitiation;
   /**
-   * Whether NAT-T Enabled on the tunnel
-   */
+    * By default (the `AUTO` setting), IKE sends packets with a source and destination port set to 500,
+* and when it detects that the port used to forward packets has changed (most likely because a NAT device
+* is between the CPE device and the Oracle VPN headend) it will try to negotiate the use of NAT-T.
+* <p>
+The `ENABLED` option sets the IKE protocol to use port 4500 instead of 500 and forces encapsulating traffic with the ESP protocol inside UDP packets.
+* <p>
+The `DISABLED` option directs IKE to completely refuse to negotiate NAT-T
+* even if it senses there may be a NAT device in use.
+* 
+    */
   "natTranslationEnabled"?: CreateIPSecConnectionTunnelDetails.NatTranslationEnabled;
   "phaseOneConfig"?: model.PhaseOneConfigDetails;
   "phaseTwoConfig"?: model.PhaseTwoConfigDetails;

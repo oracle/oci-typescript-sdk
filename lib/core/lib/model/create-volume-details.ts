@@ -82,6 +82,8 @@ Allowed values:
   * `10`: Represents Balanced option.
 * <p>
   * `20`: Represents Higher Performance option.
+* <p>
+For performance autotune enabled volumes, It would be the Default(Minimum) VPUs/GB.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vpusPerGB"?: number;
@@ -107,7 +109,8 @@ Allowed values:
    */
   "volumeBackupId"?: string;
   /**
-   * Specifies whether the auto-tune performance is enabled for this volume.
+   * Specifies whether the auto-tune performance is enabled for this volume. This field is deprecated.
+   * Use the `DetachedVolumeAutotunePolicy` instead to enable the volume for detached autotune.
    *
    */
   "isAutoTuneEnabled"?: boolean;

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface RemoveDataKeysRequest extends common.BaseRequest {
   /**
-   * The OCID of the APM domain
+   * The OCID of the APM domain.
    */
   "apmDomainId": string;
   /**

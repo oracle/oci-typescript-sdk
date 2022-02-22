@@ -20,14 +20,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The platform configuration used when launching a bare metal instance with an E4 shape
- * (the AMD Milan platform).
+ * The platform configuration used when launching a bare metal instance with an E4 shape.
  *
  */
 export interface InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig
   extends model.InstanceConfigurationLaunchInstancePlatformConfig {
   /**
-   * The number of NUMA nodes per socket.
+   * The number of NUMA nodes per socket (NPS).
    *
    */
   "numaNodesPerSocket"?: InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig.NumaNodesPerSocket;

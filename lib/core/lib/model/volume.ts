@@ -102,6 +102,8 @@ Allowed values:
   * `10`: Represents Balanced option.
 * <p>
   * `20`: Represents Higher Performance option.
+* <p>
+For performance autotune enabled volumes, It would be the Default(Minimum) VPUs/GB.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vpusPerGB"?: number;
@@ -128,12 +130,13 @@ Allowed values:
    */
   "volumeGroupId"?: string;
   /**
-   * Specifies whether the auto-tune performance is enabled for this volume.
+   * Specifies whether the auto-tune performance is enabled for this volume. This field is deprecated.
+   * Use the `DetachedVolumeAutotunePolicy` instead to enable the volume for detached autotune.
    *
    */
   "isAutoTuneEnabled"?: boolean;
   /**
-   * The number of Volume Performance Units per GB that this volume is effectively tuned to when it's idle.
+   * The number of Volume Performance Units per GB that this volume is effectively tuned to.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "autoTunedVpusPerGB"?: number;

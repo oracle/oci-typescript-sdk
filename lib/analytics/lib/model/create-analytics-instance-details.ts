@@ -73,6 +73,11 @@ Example: `{\"Department\": \"Finance\"}`
 * 
     */
   "freeformTags"?: { [key: string]: string };
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the OCI Vault Key encrypting the customer data stored in this Analytics instance. A null value indicates Oracle managed default encryption.
+   *
+   */
+  "kmsKeyId"?: string;
 }
 
 export namespace CreateAnalyticsInstanceDetails {

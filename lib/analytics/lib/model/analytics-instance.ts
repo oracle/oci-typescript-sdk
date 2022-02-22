@@ -94,6 +94,11 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the OCI Vault Key encrypting the customer data stored in this Analytics instance. A null value indicates Oracle managed default encryption.
+   *
+   */
+  "kmsKeyId"?: string;
+  /**
     * The date and time the instance was created, in the format defined by RFC3339.
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
