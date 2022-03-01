@@ -34,7 +34,8 @@ export interface CreateNotebookSessionDetails {
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want to create the notebook session.
    */
   "compartmentId": string;
-  "notebookSessionConfigurationDetails": model.NotebookSessionConfigurationDetails;
+  "notebookSessionConfigurationDetails"?: model.NotebookSessionConfigurationDetails;
+  "notebookSessionConfigDetails"?: model.NotebookSessionConfigDetails;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
    * Example: `{\"Department\": \"Finance\"}`
@@ -58,6 +59,9 @@ export namespace CreateNotebookSessionDetails {
           ? model.NotebookSessionConfigurationDetails.getJsonObj(
               obj.notebookSessionConfigurationDetails
             )
+          : undefined,
+        "notebookSessionConfigDetails": obj.notebookSessionConfigDetails
+          ? model.NotebookSessionConfigDetails.getJsonObj(obj.notebookSessionConfigDetails)
           : undefined
       }
     };
@@ -71,6 +75,11 @@ export namespace CreateNotebookSessionDetails {
         "notebookSessionConfigurationDetails": obj.notebookSessionConfigurationDetails
           ? model.NotebookSessionConfigurationDetails.getDeserializedJsonObj(
               obj.notebookSessionConfigurationDetails
+            )
+          : undefined,
+        "notebookSessionConfigDetails": obj.notebookSessionConfigDetails
+          ? model.NotebookSessionConfigDetails.getDeserializedJsonObj(
+              obj.notebookSessionConfigDetails
             )
           : undefined
       }

@@ -48,6 +48,7 @@ export interface NotebookSessionSummary {
    */
   "compartmentId": string;
   "notebookSessionConfigurationDetails"?: model.NotebookSessionConfigurationDetails;
+  "notebookSessionConfigDetails"?: model.NotebookSessionConfigDetails;
   /**
    * The URL to interact with the notebook session.
    */
@@ -79,6 +80,9 @@ export namespace NotebookSessionSummary {
           ? model.NotebookSessionConfigurationDetails.getJsonObj(
               obj.notebookSessionConfigurationDetails
             )
+          : undefined,
+        "notebookSessionConfigDetails": obj.notebookSessionConfigDetails
+          ? model.NotebookSessionConfigDetails.getJsonObj(obj.notebookSessionConfigDetails)
           : undefined
       }
     };
@@ -92,6 +96,11 @@ export namespace NotebookSessionSummary {
         "notebookSessionConfigurationDetails": obj.notebookSessionConfigurationDetails
           ? model.NotebookSessionConfigurationDetails.getDeserializedJsonObj(
               obj.notebookSessionConfigurationDetails
+            )
+          : undefined,
+        "notebookSessionConfigDetails": obj.notebookSessionConfigDetails
+          ? model.NotebookSessionConfigDetails.getDeserializedJsonObj(
+              obj.notebookSessionConfigDetails
             )
           : undefined
       }

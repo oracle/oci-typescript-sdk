@@ -94,6 +94,8 @@ import * as ModelSummary from "./model-summary";
 export import ModelSummary = ModelSummary.ModelSummary;
 import * as NotebookSession from "./notebook-session";
 export import NotebookSession = NotebookSession.NotebookSession;
+import * as NotebookSessionConfigDetails from "./notebook-session-config-details";
+export import NotebookSessionConfigDetails = NotebookSessionConfigDetails.NotebookSessionConfigDetails;
 import * as NotebookSessionConfigurationDetails from "./notebook-session-configuration-details";
 export import NotebookSessionConfigurationDetails = NotebookSessionConfigurationDetails.NotebookSessionConfigurationDetails;
 import * as NotebookSessionLifecycleState from "./notebook-session-lifecycle-state";
@@ -153,6 +155,8 @@ import * as DefaultJobConfigurationDetails from "./default-job-configuration-det
 export import DefaultJobConfigurationDetails = DefaultJobConfigurationDetails.DefaultJobConfigurationDetails;
 import * as FixedSizeScalingPolicy from "./fixed-size-scaling-policy";
 export import FixedSizeScalingPolicy = FixedSizeScalingPolicy.FixedSizeScalingPolicy;
+import * as ManagedEgressStandaloneJobInfrastructureConfigurationDetails from "./managed-egress-standalone-job-infrastructure-configuration-details";
+export import ManagedEgressStandaloneJobInfrastructureConfigurationDetails = ManagedEgressStandaloneJobInfrastructureConfigurationDetails.ManagedEgressStandaloneJobInfrastructureConfigurationDetails;
 import * as SingleModelDeploymentConfigurationDetails from "./single-model-deployment-configuration-details";
 export import SingleModelDeploymentConfigurationDetails = SingleModelDeploymentConfigurationDetails.SingleModelDeploymentConfigurationDetails;
 import * as StandaloneJobInfrastructureConfigurationDetails from "./standalone-job-infrastructure-configuration-details";

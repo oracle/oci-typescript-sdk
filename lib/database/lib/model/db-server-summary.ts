@@ -82,6 +82,7 @@ export interface DbServerSummary {
    * The date and time that the Db Server was created.
    */
   "timeCreated"?: Date;
+  "dbServerPatchingDetails"?: model.DbServerPatchingDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -114,12 +115,26 @@ export namespace DbServerSummary {
   }
 
   export function getJsonObj(obj: DbServerSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbServerPatchingDetails": obj.dbServerPatchingDetails
+          ? model.DbServerPatchingDetails.getJsonObj(obj.dbServerPatchingDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DbServerSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbServerPatchingDetails": obj.dbServerPatchingDetails
+          ? model.DbServerPatchingDetails.getDeserializedJsonObj(obj.dbServerPatchingDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

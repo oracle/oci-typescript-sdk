@@ -56,7 +56,9 @@ export interface JobRun {
    */
   "displayName"?: string;
   "jobConfigurationOverrideDetails": model.DefaultJobConfigurationDetails;
-  "jobInfrastructureConfigurationDetails": model.StandaloneJobInfrastructureConfigurationDetails;
+  "jobInfrastructureConfigurationDetails":
+    | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
+    | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobLogConfigurationOverrideDetails"?: model.JobLogConfigurationDetails;
   "logDetails"?: model.JobRunLogDetails;
   /**

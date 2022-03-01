@@ -446,6 +446,8 @@ import * as RotateVaultKeyResponse from "./rotate-vault-key-response";
 export import RotateVaultKeyResponse = RotateVaultKeyResponse.RotateVaultKeyResponse;
 import * as ScanExternalContainerDatabasePluggableDatabasesResponse from "./scan-external-container-database-pluggable-databases-response";
 export import ScanExternalContainerDatabasePluggableDatabasesResponse = ScanExternalContainerDatabasePluggableDatabasesResponse.ScanExternalContainerDatabasePluggableDatabasesResponse;
+import * as ShrinkAutonomousDatabaseResponse from "./shrink-autonomous-database-response";
+export import ShrinkAutonomousDatabaseResponse = ShrinkAutonomousDatabaseResponse.ShrinkAutonomousDatabaseResponse;
 import * as StartAutonomousDatabaseResponse from "./start-autonomous-database-response";
 export import StartAutonomousDatabaseResponse = StartAutonomousDatabaseResponse.StartAutonomousDatabaseResponse;
 import * as StartPluggableDatabaseResponse from "./start-pluggable-database-response";

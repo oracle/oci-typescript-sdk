@@ -147,7 +147,7 @@ export class AIServiceVisionClient {
   /**
    * Perform different types of image analysis.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AnalyzeDocumentRequest
    * @return AnalyzeDocumentResponse
    * @throws OciError when an error occurs
@@ -166,7 +166,7 @@ export class AIServiceVisionClient {
       "opc-request-id": analyzeDocumentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       analyzeDocumentRequest.retryConfiguration,
@@ -218,7 +218,7 @@ export class AIServiceVisionClient {
   /**
    * Perform different types of image analysis.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AnalyzeImageRequest
    * @return AnalyzeImageResponse
    * @throws OciError when an error occurs
@@ -237,7 +237,7 @@ export class AIServiceVisionClient {
       "opc-request-id": analyzeImageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       analyzeImageRequest.retryConfiguration,

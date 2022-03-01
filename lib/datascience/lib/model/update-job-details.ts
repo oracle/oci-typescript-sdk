@@ -27,7 +27,9 @@ export interface UpdateJobDetails {
    * A short description of the job.
    */
   "description"?: string;
-  "jobInfrastructureConfigurationDetails"?: model.StandaloneJobInfrastructureConfigurationDetails;
+  "jobInfrastructureConfigurationDetails"?:
+    | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
+    | model.StandaloneJobInfrastructureConfigurationDetails;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
    * Example: `{\"Department\": \"Finance\"}`

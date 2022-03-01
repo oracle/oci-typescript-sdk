@@ -3361,6 +3361,30 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forShrinkAutonomousDatabase
+   *
+   * @param request the request to send
+   * @return response returns ShrinkAutonomousDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forShrinkAutonomousDatabase(
+    request: serviceRequests.ShrinkAutonomousDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.ShrinkAutonomousDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const shrinkAutonomousDatabaseResponse = await this.client.shrinkAutonomousDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      shrinkAutonomousDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: shrinkAutonomousDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forStartAutonomousDatabase
    *
    * @param request the request to send

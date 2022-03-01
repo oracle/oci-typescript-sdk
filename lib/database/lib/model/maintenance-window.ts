@@ -25,6 +25,23 @@ export interface MaintenanceWindow {
    */
   "preference": MaintenanceWindow.Preference;
   /**
+   * Cloud Exadata infrastructure node patching method, either \"ROLLING\" or \"NONROLLING\". Default value is ROLLING.
+   * <p>
+   *IMPORTANT*: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information.
+   *
+   */
+  "patchingMode"?: MaintenanceWindow.PatchingMode;
+  /**
+   * If true, enables the configuration of a custom action timeout (waiting period) between database server patching operations.
+   */
+  "isCustomActionTimeoutEnabled"?: boolean;
+  /**
+   * Determines the amount of time the system will wait before the start of each database server patching operation.
+   * Custom action timeout is in minutes and valid value is between 15 to 120 (inclusive).
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "customActionTimeoutInMins"?: number;
+  /**
    * Months during the year when maintenance should be performed.
    */
   "months"?: Array<model.Month>;
@@ -55,6 +72,16 @@ export namespace MaintenanceWindow {
   export enum Preference {
     NoPreference = "NO_PREFERENCE",
     CustomPreference = "CUSTOM_PREFERENCE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum PatchingMode {
+    Rolling = "ROLLING",
+    Nonrolling = "NONROLLING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
