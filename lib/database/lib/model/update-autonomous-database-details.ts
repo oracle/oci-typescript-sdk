@@ -237,6 +237,11 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    * list of scheduled operations
    */
   "scheduledOperations"?: Array<model.ScheduledOperationDetails>;
+  /**
+   * Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `FALSE`.
+   *
+   */
+  "isAutoScalingForStorageEnabled"?: boolean;
 }
 
 export namespace UpdateAutonomousDatabaseDetails {

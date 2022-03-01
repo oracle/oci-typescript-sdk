@@ -24,6 +24,8 @@ export enum SavedSearchTypes {
   SearchDontShowInDashboard = "SEARCH_DONT_SHOW_IN_DASHBOARD",
   WidgetShowInDashboard = "WIDGET_SHOW_IN_DASHBOARD",
   WidgetDontShowInDashboard = "WIDGET_DONT_SHOW_IN_DASHBOARD",
+  FilterShowInDashboard = "FILTER_SHOW_IN_DASHBOARD",
+  FilterDontShowInDashboard = "FILTER_DONT_SHOW_IN_DASHBOARD",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

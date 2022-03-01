@@ -50,7 +50,9 @@ export interface Job {
    */
   "description"?: string;
   "jobConfigurationDetails": model.DefaultJobConfigurationDetails;
-  "jobInfrastructureConfigurationDetails": model.StandaloneJobInfrastructureConfigurationDetails;
+  "jobInfrastructureConfigurationDetails":
+    | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
+    | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobLogConfigurationDetails"?: model.JobLogConfigurationDetails;
   /**
    * The state of the job.

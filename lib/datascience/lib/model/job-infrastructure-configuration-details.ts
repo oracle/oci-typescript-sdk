@@ -29,6 +29,11 @@ export namespace JobInfrastructureConfigurationDetails {
 
     if ("jobInfrastructureType" in obj && obj.jobInfrastructureType) {
       switch (obj.jobInfrastructureType) {
+        case "ME_STANDALONE":
+          return model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails.getJsonObj(
+            <model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails>(<object>jsonObj),
+            true
+          );
         case "STANDALONE":
           return model.StandaloneJobInfrastructureConfigurationDetails.getJsonObj(
             <model.StandaloneJobInfrastructureConfigurationDetails>(<object>jsonObj),
@@ -45,6 +50,11 @@ export namespace JobInfrastructureConfigurationDetails {
 
     if ("jobInfrastructureType" in obj && obj.jobInfrastructureType) {
       switch (obj.jobInfrastructureType) {
+        case "ME_STANDALONE":
+          return model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails.getDeserializedJsonObj(
+            <model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails>(<object>jsonObj),
+            true
+          );
         case "STANDALONE":
           return model.StandaloneJobInfrastructureConfigurationDetails.getDeserializedJsonObj(
             <model.StandaloneJobInfrastructureConfigurationDetails>(<object>jsonObj),

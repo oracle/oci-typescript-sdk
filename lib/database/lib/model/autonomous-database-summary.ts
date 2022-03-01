@@ -414,6 +414,23 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    * list of scheduled operations
    */
   "scheduledOperations"?: Array<model.ScheduledOperationDetails>;
+  /**
+   * Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `FALSE`.
+   *
+   */
+  "isAutoScalingForStorageEnabled"?: boolean;
+  /**
+   * The amount of storage currently allocated for the database tables and billed for, rounded up. When auto-scaling is not enabled, this value is equal to the `dataStorageSizeInTBs` value. You can compare this value to the `actualUsedDataStorageSizeInTBs` value to determine if a manual shrink operation is appropriate for your allocated storage.
+   * <p>
+   **Note:** Auto-scaling does not automatically decrease allocated storage when data is deleted from the database.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "allocatedStorageSizeInTBs"?: number;
+  /**
+   * The current amount of storage in use for user and system data, in terabytes (TB).
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "actualUsedDataStorageSizeInTBs"?: number;
 }
 
 export namespace AutonomousDatabaseSummary {

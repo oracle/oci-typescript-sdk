@@ -893,6 +893,8 @@ import * as DhcpSearchDomainOption from "./dhcp-search-domain-option";
 export import DhcpSearchDomainOption = DhcpSearchDomainOption.DhcpSearchDomainOption;
 import * as DrgAttachmentIdDrgRouteDistributionMatchCriteria from "./drg-attachment-id-drg-route-distribution-match-criteria";
 export import DrgAttachmentIdDrgRouteDistributionMatchCriteria = DrgAttachmentIdDrgRouteDistributionMatchCriteria.DrgAttachmentIdDrgRouteDistributionMatchCriteria;
+import * as DrgAttachmentMatchAllDrgRouteDistributionMatchCriteria from "./drg-attachment-match-all-drg-route-distribution-match-criteria";
+export import DrgAttachmentMatchAllDrgRouteDistributionMatchCriteria = DrgAttachmentMatchAllDrgRouteDistributionMatchCriteria.DrgAttachmentMatchAllDrgRouteDistributionMatchCriteria;
 import * as DrgAttachmentTypeDrgRouteDistributionMatchCriteria from "./drg-attachment-type-drg-route-distribution-match-criteria";
 export import DrgAttachmentTypeDrgRouteDistributionMatchCriteria = DrgAttachmentTypeDrgRouteDistributionMatchCriteria.DrgAttachmentTypeDrgRouteDistributionMatchCriteria;
 import * as EmulatedVolumeAttachment from "./emulated-volume-attachment";

@@ -33,11 +33,27 @@ For information about why you would associate a route table with a DRG attachmen
 * 
     */
   "routeTableId"?: string;
+  /**
+   * Indicates whether the VCN CIDR(s) or the individual Subnet CIDR(s) are imported from the attachment.
+   * Routes from the VCN Ingress Route Table are always imported.
+   *
+   */
+  "vcnRouteType"?: VcnDrgAttachmentNetworkDetails.VcnRouteType;
 
   "type": string;
 }
 
 export namespace VcnDrgAttachmentNetworkDetails {
+  export enum VcnRouteType {
+    VcnCidrs = "VCN_CIDRS",
+    SubnetCidrs = "SUBNET_CIDRS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(
     obj: VcnDrgAttachmentNetworkDetails,
     isParentJsonObj?: boolean

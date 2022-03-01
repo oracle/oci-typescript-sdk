@@ -248,6 +248,8 @@ import * as DbServer from "./db-server";
 export import DbServer = DbServer.DbServer;
 import * as DbServerDetails from "./db-server-details";
 export import DbServerDetails = DbServerDetails.DbServerDetails;
+import * as DbServerPatchingDetails from "./db-server-patching-details";
+export import DbServerPatchingDetails = DbServerPatchingDetails.DbServerPatchingDetails;
 import * as DbServerSummary from "./db-server-summary";
 export import DbServerSummary = DbServerSummary.DbServerSummary;
 import * as DbSystem from "./db-system";
@@ -278,6 +280,8 @@ import * as EnableExternalPluggableDatabaseDatabaseManagementDetails from "./ena
 export import EnableExternalPluggableDatabaseDatabaseManagementDetails = EnableExternalPluggableDatabaseDatabaseManagementDetails.EnableExternalPluggableDatabaseDatabaseManagementDetails;
 import * as EnableExternalPluggableDatabaseOperationsInsightsDetails from "./enable-external-pluggable-database-operations-insights-details";
 export import EnableExternalPluggableDatabaseOperationsInsightsDetails = EnableExternalPluggableDatabaseOperationsInsightsDetails.EnableExternalPluggableDatabaseOperationsInsightsDetails;
+import * as EstimatedPatchingTime from "./estimated-patching-time";
+export import EstimatedPatchingTime = EstimatedPatchingTime.EstimatedPatchingTime;
 import * as ExadataDbSystemMigration from "./exadata-db-system-migration";
 export import ExadataDbSystemMigration = ExadataDbSystemMigration.ExadataDbSystemMigration;
 import * as ExadataDbSystemMigrationSummary from "./exadata-db-system-migration-summary";

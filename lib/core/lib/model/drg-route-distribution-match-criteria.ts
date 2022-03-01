@@ -44,6 +44,11 @@ export namespace DrgRouteDistributionMatchCriteria {
             <model.DrgAttachmentTypeDrgRouteDistributionMatchCriteria>(<object>jsonObj),
             true
           );
+        case "MATCH_ALL":
+          return model.DrgAttachmentMatchAllDrgRouteDistributionMatchCriteria.getJsonObj(
+            <model.DrgAttachmentMatchAllDrgRouteDistributionMatchCriteria>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.matchType);
       }
@@ -63,6 +68,11 @@ export namespace DrgRouteDistributionMatchCriteria {
         case "DRG_ATTACHMENT_TYPE":
           return model.DrgAttachmentTypeDrgRouteDistributionMatchCriteria.getDeserializedJsonObj(
             <model.DrgAttachmentTypeDrgRouteDistributionMatchCriteria>(<object>jsonObj),
+            true
+          );
+        case "MATCH_ALL":
+          return model.DrgAttachmentMatchAllDrgRouteDistributionMatchCriteria.getDeserializedJsonObj(
+            <model.DrgAttachmentMatchAllDrgRouteDistributionMatchCriteria>(<object>jsonObj),
             true
           );
         default:

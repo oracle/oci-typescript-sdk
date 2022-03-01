@@ -16,6 +16,16 @@ const wr = require("oci-workrequests");
 const common = require("oci-common");
 
 const provider = new common.ConfigFileAuthenticationDetailsProvider();
+
+const maxTimeInSeconds = 60 * 60; // The duration for waiter configuration before failing. Currently set to 1 hour.
+const maxDelayInSeconds = 30; // The max delay for the waiter configuration. Currently set to 30 seconds
+
+// The waiter configuration used when creating our waiters.
+const waiterConfiguration = {
+  terminationStrategy: new common.MaxTimeTerminationStrategy(maxTimeInSeconds),
+  delayStrategy: new common.ExponentialBackoffDelayStrategy(maxDelayInSeconds)
+};
+
 const args = process.argv.slice(2);
 console.log(args);
 if (args.length !== 2) {
@@ -40,13 +50,16 @@ const workRequestClient = new wr.WorkRequestClient({
   authenticationDetailsProvider: provider
 });
 
-const computeWaiter = computeClient.createWaiters(workRequestClient);
+const computeWaiter = computeClient.createWaiters(workRequestClient, waiterConfiguration);
 
 const virtualNetworkClient = new core.VirtualNetworkClient({
   authenticationDetailsProvider: provider
 });
 
-const virtualNetworkWaiter = virtualNetworkClient.createWaiters(workRequestClient);
+const virtualNetworkWaiter = virtualNetworkClient.createWaiters(
+  workRequestClient,
+  waiterConfiguration
+);
 
 const identityClient = new identity.IdentityClient({
   authenticationDetailsProvider: provider
@@ -70,7 +83,7 @@ async function getShape(availabilityDomain) {
   const response = await computeClient.listShapes(request);
 
   for (let shape of response.items) {
-    if (shape.shape.startsWith("VM")) {
+    if (shape.shape.startsWith("VM") && shape.shape.toLowerCase().indexOf("flex") == -1) {
       return shape;
     }
   }

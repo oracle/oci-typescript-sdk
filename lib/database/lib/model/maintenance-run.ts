@@ -92,6 +92,49 @@ export interface MaintenanceRun {
    * Contain the patch failure count. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "patchFailureCount"?: number;
+  /**
+   * The target software version for the database server patching operation.
+   */
+  "targetDbServerVersion"?: string;
+  /**
+   * The target Cell version that is to be patched to.
+   */
+  "targetStorageServerVersion"?: string;
+  /**
+   * If true, enables the configuration of a custom action timeout (waiting period) between database servers patching operations.
+   */
+  "isCustomActionTimeoutEnabled"?: boolean;
+  /**
+   * Determines the amount of time the system will wait before the start of each database server patching operation.
+   * Specify a number of minutes, from 15 to 120.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "customActionTimeoutInMins"?: number;
+  /**
+   * Extend current custom action timeout between the current database servers during waiting state, from 0 (zero) to 30 minutes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "currentCustomActionTimeoutInMins"?: number;
+  /**
+   * The status of the patching operation.
+   */
+  "patchingStatus"?: MaintenanceRun.PatchingStatus;
+  /**
+   * The time when the patching operation started.
+   */
+  "patchingStartTime"?: Date;
+  /**
+   * The time when the patching operation ended.
+   */
+  "patchingEndTime"?: Date;
+  "estimatedPatchingTime"?: model.EstimatedPatchingTime;
+  /**
+   * The name of the current infrastruture component that is getting patched.
+   */
+  "currentPatchingComponent"?: string;
+  /**
+   * The estimated start time of the next infrastruture component patching operation.
+   */
+  "estimatedComponentPatchingStartTime"?: Date;
 }
 
 export namespace MaintenanceRun {
@@ -160,13 +203,38 @@ export namespace MaintenanceRun {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum PatchingStatus {
+    Patching = "PATCHING",
+    Waiting = "WAITING",
+    Scheduled = "SCHEDULED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: MaintenanceRun): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "estimatedPatchingTime": obj.estimatedPatchingTime
+          ? model.EstimatedPatchingTime.getJsonObj(obj.estimatedPatchingTime)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: MaintenanceRun): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "estimatedPatchingTime": obj.estimatedPatchingTime
+          ? model.EstimatedPatchingTime.getDeserializedJsonObj(obj.estimatedPatchingTime)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

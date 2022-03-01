@@ -43,6 +43,24 @@ export interface UpdateMaintenanceRunDetails {
    *
    */
   "patchingMode"?: UpdateMaintenanceRunDetails.PatchingMode;
+  /**
+   * If true, enables the configuration of a custom action timeout (waiting period) between database servers patching operations.
+   */
+  "isCustomActionTimeoutEnabled"?: boolean;
+  /**
+   * Determines the amount of time the system will wait before the start of each database server patching operation.
+   * Specify a number of minutes from 15 to 120.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "customActionTimeoutInMins"?: number;
+  /**
+   * The current custom action timeout between the current database servers during waiting state in addition to custom action timeout, from 0 (zero) to 30 minutes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "currentCustomActionTimeoutInMins"?: number;
+  /**
+   * If true, then the patching is resumed and the next component will be patched immediately.
+   */
+  "isResumePatching"?: boolean;
 }
 
 export namespace UpdateMaintenanceRunDetails {

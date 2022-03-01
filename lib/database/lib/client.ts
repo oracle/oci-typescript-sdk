@@ -18649,6 +18649,80 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * This operation shrinks the current allocated storage down to the current actual used data storage (actualUsedDataStorageSizeInTBs). The if the base storage value for the database (dataStorageSizeInTBs) is larger than the actualUsedDataStorageSizeInTBs value, you are billed for the base storage value.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ShrinkAutonomousDatabaseRequest
+   * @return ShrinkAutonomousDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ShrinkAutonomousDatabase.ts.html |here} to see how to use ShrinkAutonomousDatabase API.
+   */
+  public async shrinkAutonomousDatabase(
+    shrinkAutonomousDatabaseRequest: requests.ShrinkAutonomousDatabaseRequest
+  ): Promise<responses.ShrinkAutonomousDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#shrinkAutonomousDatabase.");
+    const pathParams = {
+      "{autonomousDatabaseId}": shrinkAutonomousDatabaseRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": shrinkAutonomousDatabaseRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      shrinkAutonomousDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/shrink",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ShrinkAutonomousDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Starts the specified Autonomous Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

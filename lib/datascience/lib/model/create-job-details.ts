@@ -37,7 +37,9 @@ export interface CreateJobDetails {
    */
   "description"?: string;
   "jobConfigurationDetails": model.DefaultJobConfigurationDetails;
-  "jobInfrastructureConfigurationDetails": model.StandaloneJobInfrastructureConfigurationDetails;
+  "jobInfrastructureConfigurationDetails":
+    | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
+    | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobLogConfigurationDetails"?: model.JobLogConfigurationDetails;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
