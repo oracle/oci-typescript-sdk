@@ -1,6 +1,6 @@
 /**
- * Oracle Content and Experience API
- * Oracle Content and Experience is a cloud-based content hub to drive omni-channel content management and accelerate experience delivery
+ * Oracle Content Management API
+ * Oracle Content Management is a cloud-based content hub to drive omni-channel content management and accelerate experience delivery
  * OpenAPI spec version: 20190912
  *
  *
@@ -32,13 +32,13 @@ export class OceInstanceWaiter {
    */
   public async forOceInstance(
     request: serviceRequests.GetOceInstanceRequest,
-    ...targetStates: models.OceInstance.LifecycleState[]
+    ...targetStates: models.LifecycleState[]
   ): Promise<serviceResponses.GetOceInstanceResponse | null> {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getOceInstance(request),
       response => targetStates.includes(response.oceInstance.lifecycleState!),
-      targetStates.includes(models.OceInstance.LifecycleState.Deleted)
+      targetStates.includes(models.LifecycleState.Deleted)
     );
   }
 

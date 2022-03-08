@@ -33,6 +33,14 @@ export interface UpdateDataPumpSettings {
    *
    */
   "metadataRemaps"?: Array<model.MetadataRemap>;
+  "tablespaceDetails"?:
+    | model.UpdateTargetDefaultsRemapTablespaceDetails
+    | model.UpdateADBDedicatedRemapTargetTablespaceDetails
+    | model.UpdateNonADBRemapTablespaceDetails
+    | model.UpdateNonADBAutoCreateTablespaceDetails
+    | model.UpdateADBDedicatedAutoCreateTablespaceDetails
+    | model.UpdateADBServerlesTablespaceDetails
+    | model.UpdateTargetDefaultsAutoCreateTablespaceDetails;
   "exportDirectoryObject"?: model.UpdateDirectoryObject;
   "importDirectoryObject"?: model.UpdateDirectoryObject;
 }
@@ -49,6 +57,9 @@ export namespace UpdateDataPumpSettings {
           ? obj.metadataRemaps.map(item => {
               return model.MetadataRemap.getJsonObj(item);
             })
+          : undefined,
+        "tablespaceDetails": obj.tablespaceDetails
+          ? model.UpdateTargetTypeTablespaceDetails.getJsonObj(obj.tablespaceDetails)
           : undefined,
         "exportDirectoryObject": obj.exportDirectoryObject
           ? model.UpdateDirectoryObject.getJsonObj(obj.exportDirectoryObject)
@@ -72,6 +83,9 @@ export namespace UpdateDataPumpSettings {
           ? obj.metadataRemaps.map(item => {
               return model.MetadataRemap.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "tablespaceDetails": obj.tablespaceDetails
+          ? model.UpdateTargetTypeTablespaceDetails.getDeserializedJsonObj(obj.tablespaceDetails)
           : undefined,
         "exportDirectoryObject": obj.exportDirectoryObject
           ? model.UpdateDirectoryObject.getDeserializedJsonObj(obj.exportDirectoryObject)

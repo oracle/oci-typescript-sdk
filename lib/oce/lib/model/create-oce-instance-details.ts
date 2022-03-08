@@ -1,6 +1,6 @@
 /**
- * Oracle Content and Experience API
- * Oracle Content and Experience is a cloud-based content hub to drive omni-channel content management and accelerate experience delivery
+ * Oracle Content Management API
+ * Oracle Content Management is a cloud-based content hub to drive omni-channel content management and accelerate experience delivery
  * OpenAPI spec version: 20190912
  *
  *
@@ -47,6 +47,10 @@ export interface CreateOceInstanceDetails {
    * Instance type based on its usage
    */
   "instanceUsageType"?: CreateOceInstanceDetails.InstanceUsageType;
+  /**
+   * a list of add-on features for the ocm instance
+   */
+  "addOnFeatures"?: Array<string>;
   /**
    * Object Storage Namespace of Tenancy
    */

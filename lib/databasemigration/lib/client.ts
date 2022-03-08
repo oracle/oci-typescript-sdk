@@ -214,6 +214,72 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Add excluded/included object to the list.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddMigrationObjectsRequest
+   * @return AddMigrationObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/AddMigrationObjects.ts.html |here} to see how to use AddMigrationObjects API.
+   */
+  public async addMigrationObjects(
+    addMigrationObjectsRequest: requests.AddMigrationObjectsRequest
+  ): Promise<responses.AddMigrationObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#addMigrationObjects.");
+    const pathParams = {
+      "{migrationId}": addMigrationObjectsRequest.migrationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addMigrationObjectsRequest.opcRequestId,
+      "if-match": addMigrationObjectsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addMigrationObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/migrations/{migrationId}/actions/addMigrationObjects",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addMigrationObjectsRequest.addMigrationObjectsDetails,
+        "MigrationObjectCollection",
+        model.MigrationObjectCollection.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddMigrationObjectsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Used to configure an ODMS Agent Compartment ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1674,6 +1740,87 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * List the excluded database objects.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListExcludedObjectsRequest
+   * @return ListExcludedObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListExcludedObjects.ts.html |here} to see how to use ListExcludedObjects API.
+   */
+  public async listExcludedObjects(
+    listExcludedObjectsRequest: requests.ListExcludedObjectsRequest
+  ): Promise<responses.ListExcludedObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listExcludedObjects.");
+    const pathParams = {
+      "{jobId}": listExcludedObjectsRequest.jobId
+    };
+
+    const queryParams = {
+      "limit": listExcludedObjectsRequest.limit,
+      "page": listExcludedObjectsRequest.page,
+      "sortOrder": listExcludedObjectsRequest.sortOrder,
+      "sortBy": listExcludedObjectsRequest.sortBy,
+      "type": listExcludedObjectsRequest.type,
+      "owner": listExcludedObjectsRequest.owner,
+      "object": listExcludedObjectsRequest.object,
+      "ownerContains": listExcludedObjectsRequest.ownerContains,
+      "objectContains": listExcludedObjectsRequest.objectContains,
+      "reasonCategory": listExcludedObjectsRequest.reasonCategory,
+      "sourceRule": listExcludedObjectsRequest.sourceRule
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExcludedObjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExcludedObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/excludedObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExcludedObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "excludedObjectSummaryCollection",
+        bodyModel: model.ExcludedObjectSummaryCollection,
+        type: "model.ExcludedObjectSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List the Job Outputs
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1871,6 +2018,79 @@ export class DatabaseMigrationClient {
         bodyKey: "migrationObjectTypeSummaryCollection",
         bodyModel: model.MigrationObjectTypeSummaryCollection,
         type: "model.MigrationObjectTypeSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Display excluded/included objects.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListMigrationObjectsRequest
+   * @return ListMigrationObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListMigrationObjects.ts.html |here} to see how to use ListMigrationObjects API.
+   */
+  public async listMigrationObjects(
+    listMigrationObjectsRequest: requests.ListMigrationObjectsRequest
+  ): Promise<responses.ListMigrationObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listMigrationObjects.");
+    const pathParams = {
+      "{migrationId}": listMigrationObjectsRequest.migrationId
+    };
+
+    const queryParams = {
+      "limit": listMigrationObjectsRequest.limit,
+      "page": listMigrationObjectsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMigrationObjectsRequest.opcRequestId,
+      "if-match": listMigrationObjectsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMigrationObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/migrations/{migrationId}/migrationObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMigrationObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "migrationObjectCollection",
+        bodyModel: model.MigrationObjectCollection,
+        type: "model.MigrationObjectCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2175,6 +2395,72 @@ export class DatabaseMigrationClient {
             key: "opcNextPage",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove excluded/included objects.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveMigrationObjectsRequest
+   * @return RemoveMigrationObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/RemoveMigrationObjects.ts.html |here} to see how to use RemoveMigrationObjects API.
+   */
+  public async removeMigrationObjects(
+    removeMigrationObjectsRequest: requests.RemoveMigrationObjectsRequest
+  ): Promise<responses.RemoveMigrationObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#removeMigrationObjects.");
+    const pathParams = {
+      "{migrationId}": removeMigrationObjectsRequest.migrationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeMigrationObjectsRequest.opcRequestId,
+      "if-match": removeMigrationObjectsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeMigrationObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/migrations/{migrationId}/actions/removeMigrationObjects",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeMigrationObjectsRequest.removeMigrationObjectsDetails,
+        "MigrationObjectCollection",
+        model.MigrationObjectCollection.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveMigrationObjectsResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

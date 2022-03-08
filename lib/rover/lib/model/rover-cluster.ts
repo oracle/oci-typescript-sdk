@@ -72,6 +72,22 @@ export interface RoverCluster {
    */
   "clusterWorkloads"?: Array<model.RoverWorkload>;
   /**
+   * Type of cluster.
+   */
+  "clusterType"?: model.ClusterType;
+  /**
+   * ID provided to customer after successful subscription to Rover Stations.
+   */
+  "subscriptionId"?: string;
+  /**
+   * Service generated code for the exterior trailer door of the trailer.
+   */
+  "exteriorDoorCode"?: string;
+  /**
+   * Service generated code to disarm the interior alarm of the trailer.
+   */
+  "interiorAlarmDisarmCode"?: string;
+  /**
    * Root password for the rover cluster.
    */
   "superUserPassword"?: string;

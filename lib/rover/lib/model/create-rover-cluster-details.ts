@@ -36,6 +36,10 @@ export interface CreateRoverClusterDetails {
    */
   "clusterWorkloads"?: Array<model.RoverWorkload>;
   /**
+   * Type of cluster.
+   */
+  "clusterType"?: model.ClusterType;
+  /**
    * Root password for the rover cluster.
    */
   "superUserPassword"?: string;
@@ -71,6 +75,10 @@ export interface CreateRoverClusterDetails {
    * Tracking Url for the shipped Rover Cluster.
    */
   "oracleShippingTrackingUrl"?: string;
+  /**
+   * ID provided to customer after successful subscription to Rover Stations.
+   */
+  "subscriptionId"?: string;
   /**
    * The current state of the RoverCluster.
    */

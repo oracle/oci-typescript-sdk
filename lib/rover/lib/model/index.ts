@@ -17,6 +17,8 @@ import * as ChangeRoverEntitlementCompartmentDetails from "./change-rover-entitl
 export import ChangeRoverEntitlementCompartmentDetails = ChangeRoverEntitlementCompartmentDetails.ChangeRoverEntitlementCompartmentDetails;
 import * as ChangeRoverNodeCompartmentDetails from "./change-rover-node-compartment-details";
 export import ChangeRoverNodeCompartmentDetails = ChangeRoverNodeCompartmentDetails.ChangeRoverNodeCompartmentDetails;
+import * as ClusterType from "./cluster-type";
+export import ClusterType = ClusterType.ClusterType;
 import * as CreateRoverClusterDetails from "./create-rover-cluster-details";
 export import CreateRoverClusterDetails = CreateRoverClusterDetails.CreateRoverClusterDetails;
 import * as CreateRoverEntitlementDetails from "./create-rover-entitlement-details";

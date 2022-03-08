@@ -16,13 +16,15 @@ import common = require("oci-common");
 
 /**
  * Data Transfer Medium details for the Migration.
- * Only one type of data transfer medium can be specified and will replace the stored Data Transfer Medium details.
+ * Only one type of data transfer medium can be specified, except for the case of Amazon RDS Oracle as source,
+ * where Object Storage Details along with AwsS3Details are required.
  * If an empty object is specified, the stored Data Transfer Medium details will be removed.
  *
  */
 export interface UpdateDataTransferMediumDetails {
   "databaseLinkDetails"?: model.UpdateDatabaseLinkDetails;
   "objectStorageDetails"?: model.UpdateObjectStoreBucket;
+  "awsS3Details"?: model.UpdateAwsS3Details;
 }
 
 export namespace UpdateDataTransferMediumDetails {
@@ -35,6 +37,9 @@ export namespace UpdateDataTransferMediumDetails {
           : undefined,
         "objectStorageDetails": obj.objectStorageDetails
           ? model.UpdateObjectStoreBucket.getJsonObj(obj.objectStorageDetails)
+          : undefined,
+        "awsS3Details": obj.awsS3Details
+          ? model.UpdateAwsS3Details.getJsonObj(obj.awsS3Details)
           : undefined
       }
     };
@@ -50,6 +55,9 @@ export namespace UpdateDataTransferMediumDetails {
           : undefined,
         "objectStorageDetails": obj.objectStorageDetails
           ? model.UpdateObjectStoreBucket.getDeserializedJsonObj(obj.objectStorageDetails)
+          : undefined,
+        "awsS3Details": obj.awsS3Details
+          ? model.UpdateAwsS3Details.getDeserializedJsonObj(obj.awsS3Details)
           : undefined
       }
     };

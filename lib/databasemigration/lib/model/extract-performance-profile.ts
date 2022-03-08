@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * GoldenGate Extract perfoemance profile
+ * GoldenGate Extract performance profile
  *
  **/
 export enum ExtractPerformanceProfile {

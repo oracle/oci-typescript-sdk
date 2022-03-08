@@ -33,6 +33,12 @@ export interface ClusterEndpoints {
    * The private native networking Kubernetes API server endpoint.
    */
   "privateEndpoint"?: string;
+  /**
+   * The FQDN assigned to the Kubernetes API private endpoint.
+   * Example: 'https://yourVcnHostnameEndpoint'
+   *
+   */
+  "vcnHostnameEndpoint"?: string;
 }
 
 export namespace ClusterEndpoints {

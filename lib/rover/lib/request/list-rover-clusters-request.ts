@@ -27,6 +27,10 @@ export interface ListRoverClustersRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
+   * A filter to return only Clusters of type matched with the given cluster type.
+   */
+  "clusterType"?: model.ClusterType;
+  /**
    * The maximum number of items to return.
    */
   "limit"?: number;

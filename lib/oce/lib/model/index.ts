@@ -1,6 +1,6 @@
 /**
- * Oracle Content and Experience API
- * Oracle Content and Experience is a cloud-based content hub to drive omni-channel content management and accelerate experience delivery
+ * Oracle Content Management API
+ * Oracle Content Management is a cloud-based content hub to drive omni-channel content management and accelerate experience delivery
  * OpenAPI spec version: 20190912
  *
  *
@@ -19,6 +19,10 @@ import * as IdentityStripeDetails from "./identity-stripe-details";
 export import IdentityStripeDetails = IdentityStripeDetails.IdentityStripeDetails;
 import * as LicenseType from "./license-type";
 export import LicenseType = LicenseType.LicenseType;
+import * as LifecycleDetails from "./lifecycle-details";
+export import LifecycleDetails = LifecycleDetails.LifecycleDetails;
+import * as LifecycleState from "./lifecycle-state";
+export import LifecycleState = LifecycleState.LifecycleState;
 import * as OceInstance from "./oce-instance";
 export import OceInstance = OceInstance.OceInstance;
 import * as OceInstanceSummary from "./oce-instance-summary";

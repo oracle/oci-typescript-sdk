@@ -156,7 +156,7 @@ export class ResourceManagerClient {
    * A forced cancellation can result in an incorrect state file.
    * For example, the state file might not reflect the exact state of the provisioned resources.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelJobRequest
    * @return CancelJobResponse
    * @throws OciError when an error occurs
@@ -180,7 +180,7 @@ export class ResourceManagerClient {
       "if-match": cancelJobRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cancelJobRequest.retryConfiguration,
@@ -220,7 +220,7 @@ export class ResourceManagerClient {
    * For information about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeConfigurationSourceProviderCompartmentRequest
    * @return ChangeConfigurationSourceProviderCompartmentResponse
    * @throws OciError when an error occurs
@@ -247,7 +247,7 @@ export class ResourceManagerClient {
       "opc-retry-token": changeConfigurationSourceProviderCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeConfigurationSourceProviderCompartmentRequest.retryConfiguration,
@@ -290,7 +290,7 @@ export class ResourceManagerClient {
 
   /**
    * Moves a Stack and it's associated Jobs into a different compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeStackCompartmentRequest
    * @return ChangeStackCompartmentResponse
    * @throws OciError when an error occurs
@@ -314,7 +314,7 @@ export class ResourceManagerClient {
       "opc-retry-token": changeStackCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeStackCompartmentRequest.retryConfiguration,
@@ -364,7 +364,7 @@ export class ResourceManagerClient {
    * For information about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeTemplateCompartmentRequest
    * @return ChangeTemplateCompartmentResponse
    * @throws OciError when an error occurs
@@ -388,7 +388,7 @@ export class ResourceManagerClient {
       "opc-retry-token": changeTemplateCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeTemplateCompartmentRequest.retryConfiguration,
@@ -433,7 +433,7 @@ export class ResourceManagerClient {
    * For more information, see
    * [To create a configuration source provider](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingconfigurationsourceproviders.htm#CreateConfigurationSourceProvider).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateConfigurationSourceProviderRequest
    * @return CreateConfigurationSourceProviderResponse
    * @throws OciError when an error occurs
@@ -456,7 +456,7 @@ export class ResourceManagerClient {
       "opc-retry-token": createConfigurationSourceProviderRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createConfigurationSourceProviderRequest.retryConfiguration,
@@ -507,7 +507,7 @@ export class ResourceManagerClient {
 
   /**
    * Creates a job.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateJobRequest
    * @return CreateJobResponse
    * @throws OciError when an error occurs
@@ -527,7 +527,7 @@ export class ResourceManagerClient {
       "opc-retry-token": createJobRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createJobRequest.retryConfiguration,
@@ -585,7 +585,7 @@ export class ResourceManagerClient {
    * For more information, see
    * [To create a stack](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingstacksandjobs.htm#createstack-all).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateStackRequest
    * @return CreateStackResponse
    * @throws OciError when an error occurs
@@ -605,7 +605,7 @@ export class ResourceManagerClient {
       "opc-retry-token": createStackRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createStackRequest.retryConfiguration,
@@ -662,7 +662,7 @@ export class ResourceManagerClient {
   /**
    * Creates a private template in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateTemplateRequest
    * @return CreateTemplateResponse
    * @throws OciError when an error occurs
@@ -682,7 +682,7 @@ export class ResourceManagerClient {
       "opc-retry-token": createTemplateRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createTemplateRequest.retryConfiguration,
@@ -733,7 +733,7 @@ export class ResourceManagerClient {
 
   /**
    * Deletes the specified configuration source provider.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteConfigurationSourceProviderRequest
    * @return DeleteConfigurationSourceProviderResponse
    * @throws OciError when an error occurs
@@ -759,7 +759,7 @@ export class ResourceManagerClient {
       "if-match": deleteConfigurationSourceProviderRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteConfigurationSourceProviderRequest.retryConfiguration,
@@ -796,7 +796,7 @@ export class ResourceManagerClient {
 
   /**
    * Deletes the specified stack object.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteStackRequest
    * @return DeleteStackResponse
    * @throws OciError when an error occurs
@@ -818,7 +818,7 @@ export class ResourceManagerClient {
       "if-match": deleteStackRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteStackRequest.retryConfiguration,
@@ -855,7 +855,7 @@ export class ResourceManagerClient {
 
   /**
    * Deletes the specified template.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteTemplateRequest
    * @return DeleteTemplateResponse
    * @throws OciError when an error occurs
@@ -877,7 +877,7 @@ export class ResourceManagerClient {
       "if-match": deleteTemplateRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteTemplateRequest.retryConfiguration,
@@ -914,7 +914,7 @@ export class ResourceManagerClient {
 
   /**
    * Checks drift status for the specified stack.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DetectStackDriftRequest
    * @return DetectStackDriftResponse
    * @throws OciError when an error occurs
@@ -937,7 +937,7 @@ export class ResourceManagerClient {
       "opc-retry-token": detectStackDriftRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       detectStackDriftRequest.retryConfiguration,
@@ -984,7 +984,7 @@ export class ResourceManagerClient {
 
   /**
    * Gets the properties of the specified configuration source provider.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetConfigurationSourceProviderRequest
    * @return GetConfigurationSourceProviderResponse
    * @throws OciError when an error occurs
@@ -1007,7 +1007,7 @@ export class ResourceManagerClient {
       "opc-request-id": getConfigurationSourceProviderRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getConfigurationSourceProviderRequest.retryConfiguration,
@@ -1053,7 +1053,7 @@ export class ResourceManagerClient {
 
   /**
    * Returns the specified job along with the job details.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobRequest
    * @return GetJobResponse
    * @throws OciError when an error occurs
@@ -1072,7 +1072,7 @@ export class ResourceManagerClient {
       "opc-request-id": getJobRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getJobRequest.retryConfiguration,
@@ -1119,7 +1119,7 @@ export class ResourceManagerClient {
   /**
    * Returns the Terraform detailed log content for the specified job in plain text. [Learn about Terraform detailed log.](https://www.terraform.io/docs/internals/debugging.html)
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobDetailedLogContentRequest
    * @return GetJobDetailedLogContentResponse
    * @throws OciError when an error occurs
@@ -1141,7 +1141,7 @@ export class ResourceManagerClient {
       "opc-request-id": getJobDetailedLogContentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getJobDetailedLogContentRequest.retryConfiguration,
@@ -1183,7 +1183,7 @@ export class ResourceManagerClient {
   /**
    * Returns console log entries for the specified job in JSON format.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobLogsRequest
    * @return GetJobLogsResponse
    * @throws OciError when an error occurs
@@ -1212,7 +1212,7 @@ export class ResourceManagerClient {
       "opc-request-id": getJobLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getJobLogsRequest.retryConfiguration,
@@ -1309,7 +1309,7 @@ export class ResourceManagerClient {
   /**
    * Returns a raw log file for the specified job. The raw log file contains console log entries in text format. The maximum number of entries in a file is 100,000.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobLogsContentRequest
    * @return GetJobLogsContentResponse
    * @throws OciError when an error occurs
@@ -1331,7 +1331,7 @@ export class ResourceManagerClient {
       "opc-request-id": getJobLogsContentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getJobLogsContentRequest.retryConfiguration,
@@ -1374,7 +1374,7 @@ export class ResourceManagerClient {
    * Returns the Terraform configuration file for the specified job in .zip format.
    * Returns an error if no zip file is found.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobTfConfigRequest
    * @return GetJobTfConfigResponse
    * @throws OciError when an error occurs
@@ -1395,7 +1395,7 @@ export class ResourceManagerClient {
       "opc-request-id": getJobTfConfigRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getJobTfConfigRequest.retryConfiguration,
@@ -1436,7 +1436,7 @@ export class ResourceManagerClient {
 
   /**
    * Returns the Terraform state for the specified job.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobTfStateRequest
    * @return GetJobTfStateResponse
    * @throws OciError when an error occurs
@@ -1457,7 +1457,7 @@ export class ResourceManagerClient {
       "opc-request-id": getJobTfStateRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getJobTfStateRequest.retryConfiguration,
@@ -1498,7 +1498,7 @@ export class ResourceManagerClient {
 
   /**
    * Gets a stack using the stack ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetStackRequest
    * @return GetStackResponse
    * @throws OciError when an error occurs
@@ -1519,7 +1519,7 @@ export class ResourceManagerClient {
       "opc-request-id": getStackRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getStackRequest.retryConfiguration,
@@ -1567,7 +1567,7 @@ export class ResourceManagerClient {
    * Returns the Terraform configuration file in .zip format for the specified stack.
    * Returns an error if no zip file is found.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetStackTfConfigRequest
    * @return GetStackTfConfigResponse
    * @throws OciError when an error occurs
@@ -1588,7 +1588,7 @@ export class ResourceManagerClient {
       "opc-request-id": getStackTfConfigRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getStackTfConfigRequest.retryConfiguration,
@@ -1629,7 +1629,7 @@ export class ResourceManagerClient {
 
   /**
    * Returns the Terraform state for the specified stack.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetStackTfStateRequest
    * @return GetStackTfStateResponse
    * @throws OciError when an error occurs
@@ -1650,7 +1650,7 @@ export class ResourceManagerClient {
       "opc-request-id": getStackTfStateRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getStackTfStateRequest.retryConfiguration,
@@ -1691,7 +1691,7 @@ export class ResourceManagerClient {
 
   /**
    * Gets the specified template.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTemplateRequest
    * @return GetTemplateResponse
    * @throws OciError when an error occurs
@@ -1712,7 +1712,7 @@ export class ResourceManagerClient {
       "opc-request-id": getTemplateRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTemplateRequest.retryConfiguration,
@@ -1760,7 +1760,7 @@ export class ResourceManagerClient {
    * Returns the Terraform logo file in .logo format for the specified template.
    * Returns an error if no logo file is found.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTemplateLogoRequest
    * @return GetTemplateLogoResponse
    * @throws OciError when an error occurs
@@ -1781,7 +1781,7 @@ export class ResourceManagerClient {
       "opc-request-id": getTemplateLogoRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTemplateLogoRequest.retryConfiguration,
@@ -1824,7 +1824,7 @@ export class ResourceManagerClient {
    * Returns the Terraform configuration file in .zip format for the specified template.
    * Returns an error if no zip file is found.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTemplateTfConfigRequest
    * @return GetTemplateTfConfigResponse
    * @throws OciError when an error occurs
@@ -1846,7 +1846,7 @@ export class ResourceManagerClient {
       "opc-request-id": getTemplateTfConfigRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTemplateTfConfigRequest.retryConfiguration,
@@ -1887,7 +1887,7 @@ export class ResourceManagerClient {
 
   /**
    * Return the given work request.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1908,7 +1908,7 @@ export class ResourceManagerClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -1952,7 +1952,7 @@ export class ResourceManagerClient {
    * - For `compartmentId`, lists all configuration source providers in the matching compartment.
    * - For `configurationSourceProviderId`, lists the matching configuration source provider.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListConfigurationSourceProvidersRequest
    * @return ListConfigurationSourceProvidersResponse
    * @throws OciError when an error occurs
@@ -1984,7 +1984,7 @@ export class ResourceManagerClient {
       "opc-request-id": listConfigurationSourceProvidersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listConfigurationSourceProvidersRequest.retryConfiguration,
@@ -2035,7 +2035,7 @@ export class ResourceManagerClient {
 * - To list all jobs in a compartment, provide the compartment [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * - To return a specific job, provide the job [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListJobsRequest
      * @return ListJobsResponse
      * @throws OciError when an error occurs
@@ -2064,7 +2064,7 @@ export class ResourceManagerClient {
       "opc-request-id": listJobsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listJobsRequest.retryConfiguration,
@@ -2161,7 +2161,7 @@ export class ResourceManagerClient {
   /**
    * Returns a list of supported services for Resource Discovery. For reference on service names, see the [Terraform provider documentation](https://www.terraform.io/docs/providers/oci/guides/resource_discovery.html#services).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListResourceDiscoveryServicesRequest
    * @return ListResourceDiscoveryServicesResponse
    * @throws OciError when an error occurs
@@ -2183,7 +2183,7 @@ export class ResourceManagerClient {
       "opc-request-id": listResourceDiscoveryServicesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listResourceDiscoveryServicesRequest.retryConfiguration,
@@ -2229,7 +2229,7 @@ export class ResourceManagerClient {
    * The drift status details correspond to the specified work request (`workRequestId`).
    * If no work request is specified, then the drift status details correspond to the latest completed work request for the stack.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListStackResourceDriftDetailsRequest
    * @return ListStackResourceDriftDetailsResponse
    * @throws OciError when an error occurs
@@ -2256,7 +2256,7 @@ export class ResourceManagerClient {
       "opc-request-id": listStackResourceDriftDetailsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listStackResourceDriftDetailsRequest.retryConfiguration,
@@ -2305,7 +2305,7 @@ export class ResourceManagerClient {
    * - If called using the compartment ID, returns all stacks in the specified compartment.
    * - If called using the stack ID, returns the specified stack.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListStacksRequest
    * @return ListStacksResponse
    * @throws OciError when an error occurs
@@ -2333,7 +2333,7 @@ export class ResourceManagerClient {
       "opc-request-id": listStacksRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listStacksRequest.retryConfiguration,
@@ -2432,7 +2432,7 @@ export class ResourceManagerClient {
   /**
    * Lists template categories.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTemplateCategoriesRequest
    * @return ListTemplateCategoriesResponse
    * @throws OciError when an error occurs
@@ -2452,7 +2452,7 @@ export class ResourceManagerClient {
       "opc-request-id": listTemplateCategoriesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTemplateCategoriesRequest.retryConfiguration,
@@ -2495,7 +2495,7 @@ export class ResourceManagerClient {
    * Lists templates according to the specified filter.
    * The attributes `compartmentId` and `templateCategoryId` are required unless `templateId` is specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTemplatesRequest
    * @return ListTemplatesResponse
    * @throws OciError when an error occurs
@@ -2523,7 +2523,7 @@ export class ResourceManagerClient {
       "opc-request-id": listTemplatesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTemplatesRequest.retryConfiguration,
@@ -2570,7 +2570,7 @@ export class ResourceManagerClient {
   /**
    * Returns a list of supported Terraform versions for use with stacks.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTerraformVersionsRequest
    * @return ListTerraformVersionsResponse
    * @throws OciError when an error occurs
@@ -2592,7 +2592,7 @@ export class ResourceManagerClient {
       "opc-request-id": listTerraformVersionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTerraformVersionsRequest.retryConfiguration,
@@ -2634,7 +2634,7 @@ export class ResourceManagerClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -2661,7 +2661,7 @@ export class ResourceManagerClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -2760,7 +2760,7 @@ export class ResourceManagerClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -2787,7 +2787,7 @@ export class ResourceManagerClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -2886,7 +2886,7 @@ export class ResourceManagerClient {
   /**
    * Lists the work requests in a given compartment or for a given resource.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -2910,7 +2910,7 @@ export class ResourceManagerClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -3011,7 +3011,7 @@ export class ResourceManagerClient {
    * For more information, see
    * [To edit a configuration source provider](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingconfigurationsourceproviders.htm#EditConfigurationSourceProvider).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateConfigurationSourceProviderRequest
    * @return UpdateConfigurationSourceProviderResponse
    * @throws OciError when an error occurs
@@ -3037,7 +3037,7 @@ export class ResourceManagerClient {
       "if-match": updateConfigurationSourceProviderRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateConfigurationSourceProviderRequest.retryConfiguration,
@@ -3088,7 +3088,7 @@ export class ResourceManagerClient {
 
   /**
    * Updates the specified job.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateJobRequest
    * @return UpdateJobResponse
    * @throws OciError when an error occurs
@@ -3110,7 +3110,7 @@ export class ResourceManagerClient {
       "if-match": updateJobRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateJobRequest.retryConfiguration,
@@ -3167,7 +3167,7 @@ export class ResourceManagerClient {
    * [To update a stack](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingstacksandjobs.htm#UpdateStack) and
    * [To edit a stack](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingstacksandjobs.htm#EditStack).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateStackRequest
    * @return UpdateStackResponse
    * @throws OciError when an error occurs
@@ -3189,7 +3189,7 @@ export class ResourceManagerClient {
       "if-match": updateStackRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateStackRequest.retryConfiguration,
@@ -3241,7 +3241,7 @@ export class ResourceManagerClient {
   /**
    * Updates the specified template.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateTemplateRequest
    * @return UpdateTemplateResponse
    * @throws OciError when an error occurs
@@ -3263,7 +3263,7 @@ export class ResourceManagerClient {
       "if-match": updateTemplateRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateTemplateRequest.retryConfiguration,
