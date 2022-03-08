@@ -29,6 +29,18 @@ export interface MigrateVaultKeyDetails {
    *
    */
   "kmsKeyVersionId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Oracle Cloud Infrastructure [vault](https://docs.cloud.oracle.com/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
+   */
+  "vaultId"?: string;
+  /**
+   * The existing TDE wallet password of the database.
+   */
+  "tdeWalletPassword"?: string;
+  /**
+   * The existing admin password of the database.
+   */
+  "adminPassword"?: string;
 }
 
 export namespace MigrateVaultKeyDetails {

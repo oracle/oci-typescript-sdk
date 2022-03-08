@@ -1,6 +1,6 @@
 /**
- * Oracle Content and Experience API
- * Oracle Content and Experience is a cloud-based content hub to drive omni-channel content management and accelerate experience delivery
+ * Oracle Content Management API
+ * Oracle Content Management is a cloud-based content hub to drive omni-channel content management and accelerate experience delivery
  * OpenAPI spec version: 20190912
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * license types can be NEW for new oracle content and experience cloud license,
+ * license types can be NEW for new oracle content management cloud license,
  * or BYOL for bring your own license
  *
  **/

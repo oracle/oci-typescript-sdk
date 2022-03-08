@@ -496,6 +496,7 @@ export class RoverClusterClient {
     const queryParams = {
       "compartmentId": listRoverClustersRequest.compartmentId,
       "displayName": listRoverClustersRequest.displayName,
+      "clusterType": listRoverClustersRequest.clusterType,
       "limit": listRoverClustersRequest.limit,
       "page": listRoverClustersRequest.page,
       "lifecycleState": listRoverClustersRequest.lifecycleState,
@@ -1785,6 +1786,7 @@ export class RoverNodeClient {
     const queryParams = {
       "compartmentId": listRoverNodesRequest.compartmentId,
       "displayName": listRoverNodesRequest.displayName,
+      "nodeType": listRoverNodesRequest.nodeType,
       "limit": listRoverNodesRequest.limit,
       "page": listRoverNodesRequest.page,
       "lifecycleState": listRoverNodesRequest.lifecycleState,

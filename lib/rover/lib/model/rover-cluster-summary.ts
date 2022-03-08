@@ -39,6 +39,14 @@ export interface RoverClusterSummary {
    */
   "nodes"?: Array<string>;
   /**
+   * Size of the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "clusterSize"?: number;
+  /**
+   * Type of cluster.
+   */
+  "clusterType"?: model.ClusterType;
+  /**
    * The current state of the RoverCluster.
    */
   "lifecycleState": model.LifecycleState;

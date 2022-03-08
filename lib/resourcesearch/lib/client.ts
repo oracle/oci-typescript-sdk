@@ -122,7 +122,7 @@ export class ResourceSearchClient {
   /**
    * Gets detailed information about a resource type by using the resource type name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetResourceTypeRequest
    * @return GetResourceTypeResponse
    * @throws OciError when an error occurs
@@ -143,7 +143,7 @@ export class ResourceSearchClient {
       "opc-request-id": getResourceTypeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getResourceTypeRequest.retryConfiguration,
@@ -185,7 +185,7 @@ export class ResourceSearchClient {
   /**
    * Lists all resource types that you can search or query for.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListResourceTypesRequest
    * @return ListResourceTypesResponse
    * @throws OciError when an error occurs
@@ -207,7 +207,7 @@ export class ResourceSearchClient {
       "opc-request-id": listResourceTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listResourceTypesRequest.retryConfiguration,
@@ -308,7 +308,7 @@ export class ResourceSearchClient {
    * Results include resources that you have permission to view and can span different resource types.
    * You can also sort results based on a specified resource attribute.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SearchResourcesRequest
    * @return SearchResourcesResponse
    * @throws OciError when an error occurs
@@ -331,7 +331,7 @@ export class ResourceSearchClient {
       "opc-request-id": searchResourcesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       searchResourcesRequest.retryConfiguration,

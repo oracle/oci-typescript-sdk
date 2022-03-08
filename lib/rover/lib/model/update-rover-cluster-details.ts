@@ -68,6 +68,10 @@ export interface UpdateRoverClusterDetails {
    */
   "oracleShippingTrackingUrl"?: string;
   /**
+   * ID provided to customer after successful subscription to Rover Stations.
+   */
+  "subscriptionId"?: string;
+  /**
    * Shipping vendor of choice for orace to customer shipping.
    */
   "shippingVendor"?: string;

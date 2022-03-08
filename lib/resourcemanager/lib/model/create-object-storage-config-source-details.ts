@@ -25,7 +25,7 @@ import common = require("oci-common");
 export interface CreateObjectStorageConfigSourceDetails extends model.CreateConfigSourceDetails {
   /**
    * The name of the bucket's region.
-   * Example: `PHX`
+   * Example: `us-phoenix-1`
    *
    */
   "region": string;

@@ -150,7 +150,7 @@ export class ContainerEngineClient {
 
   /**
    * Initiates cluster migration to use native VCN.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ClusterMigrateToNativeVcnRequest
    * @return ClusterMigrateToNativeVcnResponse
    * @throws OciError when an error occurs
@@ -173,7 +173,7 @@ export class ContainerEngineClient {
       "opc-request-id": clusterMigrateToNativeVcnRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       clusterMigrateToNativeVcnRequest.retryConfiguration,
@@ -220,7 +220,7 @@ export class ContainerEngineClient {
 
   /**
    * Create a new cluster.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateClusterRequest
    * @return CreateClusterResponse
    * @throws OciError when an error occurs
@@ -240,7 +240,7 @@ export class ContainerEngineClient {
       "opc-request-id": createClusterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createClusterRequest.retryConfiguration,
@@ -287,7 +287,7 @@ export class ContainerEngineClient {
 
   /**
    * Create the Kubeconfig YAML for a cluster.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateKubeconfigRequest
    * @return CreateKubeconfigResponse
    * @throws OciError when an error occurs
@@ -308,7 +308,7 @@ export class ContainerEngineClient {
       "opc-request-id": createKubeconfigRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createKubeconfigRequest.retryConfiguration,
@@ -354,7 +354,7 @@ export class ContainerEngineClient {
 
   /**
    * Create a new node pool.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateNodePoolRequest
    * @return CreateNodePoolResponse
    * @throws OciError when an error occurs
@@ -374,7 +374,7 @@ export class ContainerEngineClient {
       "opc-request-id": createNodePoolRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createNodePoolRequest.retryConfiguration,
@@ -421,7 +421,7 @@ export class ContainerEngineClient {
 
   /**
    * Delete a cluster.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteClusterRequest
    * @return DeleteClusterResponse
    * @throws OciError when an error occurs
@@ -443,7 +443,7 @@ export class ContainerEngineClient {
       "opc-request-id": deleteClusterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteClusterRequest.retryConfiguration,
@@ -485,7 +485,7 @@ export class ContainerEngineClient {
 
   /**
    * Delete a node pool.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteNodePoolRequest
    * @return DeleteNodePoolResponse
    * @throws OciError when an error occurs
@@ -507,7 +507,7 @@ export class ContainerEngineClient {
       "opc-request-id": deleteNodePoolRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteNodePoolRequest.retryConfiguration,
@@ -549,7 +549,7 @@ export class ContainerEngineClient {
 
   /**
    * Cancel a work request that has not started.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteWorkRequestRequest
    * @return DeleteWorkRequestResponse
    * @throws OciError when an error occurs
@@ -572,7 +572,7 @@ export class ContainerEngineClient {
       "opc-request-id": deleteWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteWorkRequestRequest.retryConfiguration,
@@ -609,7 +609,7 @@ export class ContainerEngineClient {
 
   /**
    * Get the details of a cluster.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetClusterRequest
    * @return GetClusterResponse
    * @throws OciError when an error occurs
@@ -630,7 +630,7 @@ export class ContainerEngineClient {
       "opc-request-id": getClusterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getClusterRequest.retryConfiguration,
@@ -676,7 +676,7 @@ export class ContainerEngineClient {
 
   /**
    * Get details on a cluster's migration to native VCN.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetClusterMigrateToNativeVcnStatusRequest
    * @return GetClusterMigrateToNativeVcnStatusResponse
    * @throws OciError when an error occurs
@@ -700,7 +700,7 @@ export class ContainerEngineClient {
       "opc-request-id": getClusterMigrateToNativeVcnStatusRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getClusterMigrateToNativeVcnStatusRequest.retryConfiguration,
@@ -746,7 +746,7 @@ export class ContainerEngineClient {
 
   /**
    * Get options available for clusters.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetClusterOptionsRequest
    * @return GetClusterOptionsResponse
    * @throws OciError when an error occurs
@@ -770,7 +770,7 @@ export class ContainerEngineClient {
       "opc-request-id": getClusterOptionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getClusterOptionsRequest.retryConfiguration,
@@ -811,7 +811,7 @@ export class ContainerEngineClient {
 
   /**
    * Get the details of a node pool.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetNodePoolRequest
    * @return GetNodePoolResponse
    * @throws OciError when an error occurs
@@ -832,7 +832,7 @@ export class ContainerEngineClient {
       "opc-request-id": getNodePoolRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getNodePoolRequest.retryConfiguration,
@@ -878,7 +878,7 @@ export class ContainerEngineClient {
 
   /**
    * Get options available for node pools.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetNodePoolOptionsRequest
    * @return GetNodePoolOptionsResponse
    * @throws OciError when an error occurs
@@ -902,7 +902,7 @@ export class ContainerEngineClient {
       "opc-request-id": getNodePoolOptionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getNodePoolOptionsRequest.retryConfiguration,
@@ -943,7 +943,7 @@ export class ContainerEngineClient {
 
   /**
    * Get the details of a work request.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -964,7 +964,7 @@ export class ContainerEngineClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -1015,7 +1015,7 @@ export class ContainerEngineClient {
 
   /**
    * List all the cluster objects in a compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListClustersRequest
    * @return ListClustersResponse
    * @throws OciError when an error occurs
@@ -1042,7 +1042,7 @@ export class ContainerEngineClient {
       "opc-request-id": listClustersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listClustersRequest.retryConfiguration,
@@ -1140,7 +1140,7 @@ export class ContainerEngineClient {
 
   /**
    * List all the node pools in a compartment, and optionally filter by cluster.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListNodePoolsRequest
    * @return ListNodePoolsResponse
    * @throws OciError when an error occurs
@@ -1167,7 +1167,7 @@ export class ContainerEngineClient {
       "opc-request-id": listNodePoolsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listNodePoolsRequest.retryConfiguration,
@@ -1265,7 +1265,7 @@ export class ContainerEngineClient {
 
   /**
    * Get the errors of a work request.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1289,7 +1289,7 @@ export class ContainerEngineClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -1330,7 +1330,7 @@ export class ContainerEngineClient {
 
   /**
    * Get the logs of a work request.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1354,7 +1354,7 @@ export class ContainerEngineClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -1395,7 +1395,7 @@ export class ContainerEngineClient {
 
   /**
    * List all work requests in a compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1424,7 +1424,7 @@ export class ContainerEngineClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -1522,7 +1522,7 @@ export class ContainerEngineClient {
 
   /**
    * Update the details of a cluster.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateClusterRequest
    * @return UpdateClusterResponse
    * @throws OciError when an error occurs
@@ -1544,7 +1544,7 @@ export class ContainerEngineClient {
       "opc-request-id": updateClusterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateClusterRequest.retryConfiguration,
@@ -1591,7 +1591,7 @@ export class ContainerEngineClient {
 
   /**
    * Update the details of the cluster endpoint configuration.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateClusterEndpointConfigRequest
    * @return UpdateClusterEndpointConfigResponse
    * @throws OciError when an error occurs
@@ -1614,7 +1614,7 @@ export class ContainerEngineClient {
       "opc-request-id": updateClusterEndpointConfigRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateClusterEndpointConfigRequest.retryConfiguration,
@@ -1661,7 +1661,7 @@ export class ContainerEngineClient {
 
   /**
    * Update the details of a node pool.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateNodePoolRequest
    * @return UpdateNodePoolResponse
    * @throws OciError when an error occurs
@@ -1683,7 +1683,7 @@ export class ContainerEngineClient {
       "opc-request-id": updateNodePoolRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateNodePoolRequest.retryConfiguration,

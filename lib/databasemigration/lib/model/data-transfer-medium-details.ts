@@ -21,6 +21,7 @@ import common = require("oci-common");
 export interface DataTransferMediumDetails {
   "databaseLinkDetails"?: model.DatabaseLinkDetails;
   "objectStorageDetails"?: model.ObjectStoreBucket;
+  "awsS3Details"?: model.AwsS3Details;
 }
 
 export namespace DataTransferMediumDetails {
@@ -33,6 +34,9 @@ export namespace DataTransferMediumDetails {
           : undefined,
         "objectStorageDetails": obj.objectStorageDetails
           ? model.ObjectStoreBucket.getJsonObj(obj.objectStorageDetails)
+          : undefined,
+        "awsS3Details": obj.awsS3Details
+          ? model.AwsS3Details.getJsonObj(obj.awsS3Details)
           : undefined
       }
     };
@@ -48,6 +52,9 @@ export namespace DataTransferMediumDetails {
           : undefined,
         "objectStorageDetails": obj.objectStorageDetails
           ? model.ObjectStoreBucket.getDeserializedJsonObj(obj.objectStorageDetails)
+          : undefined,
+        "awsS3Details": obj.awsS3Details
+          ? model.AwsS3Details.getDeserializedJsonObj(obj.awsS3Details)
           : undefined
       }
     };

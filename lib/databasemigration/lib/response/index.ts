@@ -13,6 +13,8 @@
 
 import * as AbortJobResponse from "./abort-job-response";
 export import AbortJobResponse = AbortJobResponse.AbortJobResponse;
+import * as AddMigrationObjectsResponse from "./add-migration-objects-response";
+export import AddMigrationObjectsResponse = AddMigrationObjectsResponse.AddMigrationObjectsResponse;
 import * as ChangeAgentCompartmentResponse from "./change-agent-compartment-response";
 export import ChangeAgentCompartmentResponse = ChangeAgentCompartmentResponse.ChangeAgentCompartmentResponse;
 import * as ChangeConnectionCompartmentResponse from "./change-connection-compartment-response";
@@ -55,12 +57,16 @@ import * as ListAgentsResponse from "./list-agents-response";
 export import ListAgentsResponse = ListAgentsResponse.ListAgentsResponse;
 import * as ListConnectionsResponse from "./list-connections-response";
 export import ListConnectionsResponse = ListConnectionsResponse.ListConnectionsResponse;
+import * as ListExcludedObjectsResponse from "./list-excluded-objects-response";
+export import ListExcludedObjectsResponse = ListExcludedObjectsResponse.ListExcludedObjectsResponse;
 import * as ListJobOutputsResponse from "./list-job-outputs-response";
 export import ListJobOutputsResponse = ListJobOutputsResponse.ListJobOutputsResponse;
 import * as ListJobsResponse from "./list-jobs-response";
 export import ListJobsResponse = ListJobsResponse.ListJobsResponse;
 import * as ListMigrationObjectTypesResponse from "./list-migration-object-types-response";
 export import ListMigrationObjectTypesResponse = ListMigrationObjectTypesResponse.ListMigrationObjectTypesResponse;
+import * as ListMigrationObjectsResponse from "./list-migration-objects-response";
+export import ListMigrationObjectsResponse = ListMigrationObjectsResponse.ListMigrationObjectsResponse;
 import * as ListMigrationsResponse from "./list-migrations-response";
 export import ListMigrationsResponse = ListMigrationsResponse.ListMigrationsResponse;
 import * as ListWorkRequestErrorsResponse from "./list-work-request-errors-response";
@@ -69,6 +75,8 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as RemoveMigrationObjectsResponse from "./remove-migration-objects-response";
+export import RemoveMigrationObjectsResponse = RemoveMigrationObjectsResponse.RemoveMigrationObjectsResponse;
 import * as ResumeJobResponse from "./resume-job-response";
 export import ResumeJobResponse = ResumeJobResponse.ResumeJobResponse;
 import * as RetrieveSupportedPhasesResponse from "./retrieve-supported-phases-response";

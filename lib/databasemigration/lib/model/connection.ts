@@ -35,6 +35,16 @@ export interface Connection {
    */
   "databaseType": model.DatabaseConnectionTypes;
   /**
+   * Database manual connection subtype. This value can only be specified for manual connections.
+   *
+   */
+  "manualDatabaseSubType"?: model.DatabaseManualConnectionSubTypes;
+  /**
+   * True if the Autonomous Connection is dedicated. Not provided for Non-Autonomous Connections.
+   *
+   */
+  "isDedicated"?: boolean;
+  /**
    * Database Connection display name identifier.
    *
    */

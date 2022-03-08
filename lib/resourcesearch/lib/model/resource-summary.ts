@@ -74,6 +74,16 @@ export interface ResourceSummary {
    *
    */
   "identityContext"?: { [key: string]: any };
+  /**
+   * Additional resource attribute fields of this resource that match queries with a return clause, if any.
+   * For example, if you ran a query to find the private IP addresses, public IP addresses, and isPrimary field of
+   * the VNIC attachment on instance resources, that field would be included in the ResourceSummary object as:
+   * {\"additionalDetails\": {\"attachedVnic\": [{\"publicIP\" : \"172.110.110.110\",\"privateIP\" : \"10.10.10.10\",\"isPrimary\" : true},
+   * {\"publicIP\" : \"172.110.110.111\",\"privateIP\" : \"10.10.10.11\",\"isPrimary\" : false}]}.
+   * The structure of the additional details attribute fields depends on the matching resource.
+   *
+   */
+  "additionalDetails"?: { [key: string]: any };
 }
 
 export namespace ResourceSummary {

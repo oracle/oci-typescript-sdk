@@ -41,7 +41,8 @@ export namespace CreateClusterKubeconfigContentDetails {
   export enum Endpoint {
     LegacyKubernetes = "LEGACY_KUBERNETES",
     PublicEndpoint = "PUBLIC_ENDPOINT",
-    PrivateEndpoint = "PRIVATE_ENDPOINT"
+    PrivateEndpoint = "PRIVATE_ENDPOINT",
+    VcnHostname = "VCN_HOSTNAME"
   }
 
   export function getJsonObj(obj: CreateClusterKubeconfigContentDetails): object {

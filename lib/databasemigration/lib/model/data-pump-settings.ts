@@ -32,6 +32,12 @@ export interface DataPumpSettings {
    *
    */
   "metadataRemaps"?: Array<model.MetadataRemap>;
+  "tablespaceDetails"?:
+    | model.ADBDedicatedAutoCreateTablespaceDetails
+    | model.ADBServerlesTablespaceDetails
+    | model.ADBDedicatedRemapTargetTablespaceDetails
+    | model.NonADBRemapTablespaceDetails
+    | model.NonADBAutoCreateTablespaceDetails;
   "exportDirectoryObject"?: model.DirectoryObject;
   "importDirectoryObject"?: model.DirectoryObject;
 }
@@ -48,6 +54,9 @@ export namespace DataPumpSettings {
           ? obj.metadataRemaps.map(item => {
               return model.MetadataRemap.getJsonObj(item);
             })
+          : undefined,
+        "tablespaceDetails": obj.tablespaceDetails
+          ? model.TargetTypeTablespaceDetails.getJsonObj(obj.tablespaceDetails)
           : undefined,
         "exportDirectoryObject": obj.exportDirectoryObject
           ? model.DirectoryObject.getJsonObj(obj.exportDirectoryObject)
@@ -71,6 +80,9 @@ export namespace DataPumpSettings {
           ? obj.metadataRemaps.map(item => {
               return model.MetadataRemap.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "tablespaceDetails": obj.tablespaceDetails
+          ? model.TargetTypeTablespaceDetails.getDeserializedJsonObj(obj.tablespaceDetails)
           : undefined,
         "exportDirectoryObject": obj.exportDirectoryObject
           ? model.DirectoryObject.getDeserializedJsonObj(obj.exportDirectoryObject)

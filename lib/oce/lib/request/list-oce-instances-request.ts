@@ -53,7 +53,7 @@ Example: `My new resource`
   /**
    * Filter results on lifecycleState.
    */
-  "lifecycleState"?: ListOceInstancesRequest.LifecycleState;
+  "lifecycleState"?: model.LifecycleState;
   /**
    * The client request ID for tracing.
    */
@@ -69,14 +69,5 @@ export namespace ListOceInstancesRequest {
   export enum SortBy {
     TimeCreated = "timeCreated",
     DisplayName = "displayName"
-  }
-
-  export enum LifecycleState {
-    Creating = "CREATING",
-    Updating = "UPDATING",
-    Active = "ACTIVE",
-    Deleting = "DELETING",
-    Deleted = "DELETED",
-    Failed = "FAILED"
   }
 }

@@ -35,6 +35,11 @@ export interface CreateConnectionDetails {
    */
   "databaseType": model.DatabaseConnectionTypes;
   /**
+   * Database manual connection subtype. This value can only be specified for manual connections.
+   *
+   */
+  "manualDatabaseSubType"?: model.DatabaseManualConnectionSubTypes;
+  /**
    * The OCID of the cloud database. Required if the database connection type is Autonomous.
    *
    */

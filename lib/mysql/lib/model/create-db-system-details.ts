@@ -88,7 +88,7 @@ For a standalone DB System, this defines the fault domain in which the DB System
   /**
    * The username for the administrative user.
    */
-  "adminUsername": string;
+  "adminUsername"?: string;
   /**
    * The password for the administrative user. The password must be
    * between 8 and 32 characters long, and must contain at least 1
@@ -96,7 +96,7 @@ For a standalone DB System, this defines the fault domain in which the DB System
    * 1 special (nonalphanumeric) character.
    *
    */
-  "adminPassword": string;
+  "adminPassword"?: string;
   /**
    * Initial size of the data volume in GBs that will be created and attached.
    * Keep in mind that this only specifies the size of the database data volume,

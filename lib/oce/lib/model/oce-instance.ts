@@ -1,6 +1,6 @@
 /**
- * Oracle Content and Experience API
- * Oracle Content and Experience is a cloud-based content hub to drive omni-channel content management and accelerate experience delivery
+ * Oracle Content Management API
+ * Oracle Content Management is a cloud-based content hub to drive omni-channel content management and accelerate experience delivery
  * OpenAPI spec version: 20190912
  *
  *
@@ -62,6 +62,10 @@ export interface OceInstance {
    */
   "instanceUsageType"?: OceInstance.InstanceUsageType;
   /**
+   * a list of add-on features for the ocm instance
+   */
+  "addOnFeatures"?: Array<string>;
+  /**
    * Object Storage Namespace of tenancy
    */
   "objectStorageNamespace": string;
@@ -90,9 +94,13 @@ export interface OceInstance {
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the file system.
+   * The current state of the instance lifecycle.
    */
-  "lifecycleState"?: OceInstance.LifecycleState;
+  "lifecycleState"?: model.LifecycleState;
+  /**
+   * Details of the current state of the instance lifecycle
+   */
+  "lifecycleDetails"?: model.LifecycleDetails;
   /**
    * An message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
@@ -147,20 +155,6 @@ export namespace OceInstance {
   export enum InstanceAccessType {
     Public = "PUBLIC",
     Private = "PRIVATE",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
-  export enum LifecycleState {
-    Creating = "CREATING",
-    Updating = "UPDATING",
-    Active = "ACTIVE",
-    Deleting = "DELETING",
-    Deleted = "DELETED",
-    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
