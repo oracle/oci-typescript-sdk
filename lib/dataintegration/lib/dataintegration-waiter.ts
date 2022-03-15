@@ -24,6 +24,63 @@ export class DataIntegrationWaiter {
   ) {}
 
   /**
+   * Waits forApplication till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetApplicationResponse | null (null in case of 404 response)
+   */
+  public async forApplication(
+    request: serviceRequests.GetApplicationRequest,
+    ...targetStates: models.Application.LifecycleState[]
+  ): Promise<serviceResponses.GetApplicationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getApplication(request),
+      response => targetStates.includes(response.application.lifecycleState!),
+      targetStates.includes(models.Application.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forDependentObject till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDependentObjectResponse | null (null in case of 404 response)
+   */
+  public async forDependentObject(
+    request: serviceRequests.GetDependentObjectRequest,
+    ...targetStates: models.DependentObject.LifecycleState[]
+  ): Promise<serviceResponses.GetDependentObjectResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDependentObject(request),
+      response => targetStates.includes(response.dependentObject.lifecycleState!),
+      targetStates.includes(models.DependentObject.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forDisApplication till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDisApplicationResponse | null (null in case of 404 response)
+   */
+  public async forDisApplication(
+    request: serviceRequests.GetDisApplicationRequest,
+    ...targetStates: models.DisApplication.LifecycleState[]
+  ): Promise<serviceResponses.GetDisApplicationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDisApplication(request),
+      response => targetStates.includes(response.disApplication.lifecycleState!),
+      targetStates.includes(models.DisApplication.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

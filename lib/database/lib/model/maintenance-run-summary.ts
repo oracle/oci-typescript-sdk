@@ -161,6 +161,7 @@ export namespace MaintenanceRunSummary {
     ExadataDbSystem = "EXADATA_DB_SYSTEM",
     CloudExadataInfrastructure = "CLOUD_EXADATA_INFRASTRUCTURE",
     ExaccInfrastructure = "EXACC_INFRASTRUCTURE",
+    AutonomousVmCluster = "AUTONOMOUS_VM_CLUSTER",
     AutonomousDatabase = "AUTONOMOUS_DATABASE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

@@ -74,6 +74,31 @@ export interface AutonomousVmClusterSummary {
    */
   "availableCpus"?: number;
   /**
+   * The total number of Autonomous Container Databases that can be created. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalContainerDatabases"?: number;
+  /**
+   * The amount of memory (in GBs) enabled per each OCPU core. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memoryPerOracleComputeUnitInGBs"?: number;
+  /**
+   * The number of OCPU cores enabled per VM cluster node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cpuCoreCountPerNode"?: number;
+  /**
+   * The data disk group size allocated for Autonomous Databases, in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "autonomousDataStorageSizeInTBs"?: number;
+  "maintenanceWindow"?: model.MaintenanceWindow;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the last maintenance run.
+   */
+  "lastMaintenanceRunId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the next maintenance run.
+   */
+  "nextMaintenanceRunId"?: string;
+  /**
    * The memory allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs"?: number;
@@ -141,12 +166,26 @@ export namespace AutonomousVmClusterSummary {
   }
 
   export function getJsonObj(obj: AutonomousVmClusterSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: AutonomousVmClusterSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -19,9 +19,10 @@ import common = require("oci-common");
  */
 export interface ProxyField extends model.TypedObject {
   /**
-   * Reference to a typed object. This can be either a key value to an object within the document, a shall referenced to a `TypedObject`, or a full `TypedObject` definition.
+   * Deprecated - Reference to a typed object. This can be either a key value to an object within the document, a shall referenced to a `TypedObject`, or a full `TypedObject` definition.
    */
   "scope"?: any;
+  "scopeReference"?: model.ScopeReference;
   "type"?:
     | model.ConfiguredType
     | model.JavaType
@@ -42,6 +43,9 @@ export namespace ProxyField {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.TypedObject.getJsonObj(obj) as ProxyField)),
       ...{
+        "scopeReference": obj.scopeReference
+          ? model.ScopeReference.getJsonObj(obj.scopeReference)
+          : undefined,
         "type": obj.type ? model.BaseType.getJsonObj(obj.type) : undefined
       }
     };
@@ -53,6 +57,9 @@ export namespace ProxyField {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.TypedObject.getDeserializedJsonObj(obj) as ProxyField)),
       ...{
+        "scopeReference": obj.scopeReference
+          ? model.ScopeReference.getDeserializedJsonObj(obj.scopeReference)
+          : undefined,
         "type": obj.type ? model.BaseType.getDeserializedJsonObj(obj.type) : undefined
       }
     };

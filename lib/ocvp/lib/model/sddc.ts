@@ -412,6 +412,11 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "lifecycleState"?: model.LifecycleStates;
   /**
+   * Indicates whether shielded instance is enabled at the SDDC level.
+   *
+   */
+  "isShieldedInstanceEnabled"?: boolean;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

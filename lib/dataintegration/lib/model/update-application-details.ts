@@ -56,9 +56,38 @@ export interface UpdateApplicationDetails {
    */
   "objectVersion": number;
   "metadata"?: model.ObjectMetadata;
+  /**
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
+   */
+  "displayName"?: string;
+  /**
+   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Example: `{\"bar-key\": \"value\"}`
+   *
+   */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * Usage of predefined tag keys. These predefined keys are scoped to namespaces.
+   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The current state of the workspace.
+   */
+  "lifecycleState"?: UpdateApplicationDetails.LifecycleState;
 }
 
 export namespace UpdateApplicationDetails {
+  export enum LifecycleState {
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Updating = "UPDATING",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED"
+  }
+
   export function getJsonObj(obj: UpdateApplicationDetails): object {
     const jsonObj = {
       ...obj,

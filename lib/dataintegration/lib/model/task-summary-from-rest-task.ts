@@ -19,6 +19,7 @@ import common = require("oci-common");
  */
 export interface TaskSummaryFromRestTask extends model.TaskSummary {
   "authDetails"?: model.AuthDetails;
+  "authConfig"?: model.ResourcePrincipalAuthConfig;
   "endpoint"?: model.Expression;
   /**
    * The REST method to use. This property is deprecated, use ExecuteRestCallConfig's methodType property instead.
@@ -40,6 +41,7 @@ export interface TaskSummaryFromRestTask extends model.TaskSummary {
   "cancelMethodType"?: TaskSummaryFromRestTask.CancelMethodType;
   "executeRestCallConfig"?: model.ExecuteRestCallConfig;
   "cancelRestCallConfig"?: model.CancelRestCallConfig;
+  "pollRestCallConfig"?: model.PollRestCallConfig;
 
   "modelType": string;
 }
@@ -87,6 +89,7 @@ export namespace TaskSummaryFromRestTask {
       ...(isParentJsonObj ? obj : (model.TaskSummary.getJsonObj(obj) as TaskSummaryFromRestTask)),
       ...{
         "authDetails": obj.authDetails ? model.AuthDetails.getJsonObj(obj.authDetails) : undefined,
+        "authConfig": obj.authConfig ? model.AuthConfig.getJsonObj(obj.authConfig) : undefined,
         "endpoint": obj.endpoint ? model.Expression.getJsonObj(obj.endpoint) : undefined,
 
         "cancelEndpoint": obj.cancelEndpoint
@@ -98,6 +101,9 @@ export namespace TaskSummaryFromRestTask {
           : undefined,
         "cancelRestCallConfig": obj.cancelRestCallConfig
           ? model.CancelRestCallConfig.getJsonObj(obj.cancelRestCallConfig)
+          : undefined,
+        "pollRestCallConfig": obj.pollRestCallConfig
+          ? model.PollRestCallConfig.getJsonObj(obj.pollRestCallConfig)
           : undefined
       }
     };
@@ -117,6 +123,9 @@ export namespace TaskSummaryFromRestTask {
         "authDetails": obj.authDetails
           ? model.AuthDetails.getDeserializedJsonObj(obj.authDetails)
           : undefined,
+        "authConfig": obj.authConfig
+          ? model.AuthConfig.getDeserializedJsonObj(obj.authConfig)
+          : undefined,
         "endpoint": obj.endpoint
           ? model.Expression.getDeserializedJsonObj(obj.endpoint)
           : undefined,
@@ -130,6 +139,9 @@ export namespace TaskSummaryFromRestTask {
           : undefined,
         "cancelRestCallConfig": obj.cancelRestCallConfig
           ? model.CancelRestCallConfig.getDeserializedJsonObj(obj.cancelRestCallConfig)
+          : undefined,
+        "pollRestCallConfig": obj.pollRestCallConfig
+          ? model.PollRestCallConfig.getDeserializedJsonObj(obj.pollRestCallConfig)
           : undefined
       }
     };

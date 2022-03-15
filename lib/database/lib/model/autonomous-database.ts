@@ -108,6 +108,10 @@ For Autonomous Databases on dedicated Exadata infrastructure, the maximum number
    */
   "dataStorageSizeInTBs": number;
   /**
+   * The amount of memory (in GBs) enabled per each OCPU core in Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memoryPerOracleComputeUnitInGBs"?: number;
+  /**
    * The quantity of data in the database, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs"?: number;

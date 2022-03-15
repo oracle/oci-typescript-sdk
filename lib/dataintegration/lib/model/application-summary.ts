@@ -69,6 +69,45 @@ export interface ApplicationSummary {
    *
    */
   "timePatched"?: Date;
+  /**
+   * OCID of the resource that is used to uniquely identify the application
+   */
+  "id"?: string;
+  /**
+   * OCID of the compartment that this resource belongs to. Defaults to compartment of the Workspace.
+   */
+  "compartmentId"?: string;
+  /**
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
+   */
+  "displayName"?: string;
+  /**
+   * The date and time the application was created, in the timestamp format defined by RFC3339.
+   *
+   */
+  "timeCreated"?: Date;
+  /**
+   * The date and time the application was updated, in the timestamp format defined by RFC3339.
+   * example: 2019-08-25T21:10:29.41Z
+   *
+   */
+  "timeUpdated"?: Date;
+  /**
+   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Example: `{\"bar-key\": \"value\"}`
+   *
+   */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * Usage of predefined tag keys. These predefined keys are scoped to namespaces.
+   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The current state of the workspace.
+   */
+  "lifecycleState"?: ApplicationSummary.LifecycleState;
   "metadata"?: model.ObjectMetadata;
   /**
    * A key map. If provided, key is replaced with generated key. This structure provides mapping between user provided key and generated key.
@@ -77,6 +116,20 @@ export interface ApplicationSummary {
 }
 
 export namespace ApplicationSummary {
+  export enum LifecycleState {
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Updating = "UPDATING",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ApplicationSummary): object {
     const jsonObj = {
       ...obj,

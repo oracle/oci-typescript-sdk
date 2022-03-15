@@ -23,7 +23,7 @@ export interface ListManagementAgentInstallKeysRequest extends common.BaseReques
    */
   "compartmentId": string;
   /**
-   * if set to true then it fetches install key for all compartments where user has access to else only on the compartment specified.
+   * if set to true then it fetches resources for all compartments where user has access to else only on the compartment specified.
    */
   "compartmentIdInSubtree"?: boolean;
   /**

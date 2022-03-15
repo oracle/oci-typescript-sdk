@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Authentication type to be used for Generic REST invocation.
+ * Authentication type to be used for Generic REST invocation. This is deprecated.
  */
 export interface AuthDetails {
   /**
