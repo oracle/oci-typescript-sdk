@@ -97,14 +97,13 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "billingContractEndDate": Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the esxi host that
-   * is failed.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the ESXi host that failed.
    *
    */
   "failedEsxiHostId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the esxi host that
-   * is newly created to replace the failed node.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the ESXi host that
+   * is created to replace the failed host.
    *
    */
   "replacementEsxiHostId"?: string;

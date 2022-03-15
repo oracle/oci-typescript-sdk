@@ -1137,6 +1137,78 @@ Use the {@link WorkRequest} operations to track the
   }
 
   /**
+   * Lists supported compute shapes for ESXi hosts.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSupportedHostShapesRequest
+   * @return ListSupportedHostShapesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListSupportedHostShapes.ts.html |here} to see how to use ListSupportedHostShapes API.
+   */
+  public async listSupportedHostShapes(
+    listSupportedHostShapesRequest: requests.ListSupportedHostShapesRequest
+  ): Promise<responses.ListSupportedHostShapesResponse> {
+    if (this.logger) this.logger.debug("Calling operation SddcClient#listSupportedHostShapes.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSupportedHostShapesRequest.compartmentId,
+      "limit": listSupportedHostShapesRequest.limit,
+      "page": listSupportedHostShapesRequest.page,
+      "name": listSupportedHostShapesRequest.name,
+      "sddcType": listSupportedHostShapesRequest.sddcType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSupportedHostShapesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSupportedHostShapesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/supportedHostShapes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSupportedHostShapesResponse>{},
+        body: await response.json(),
+        bodyKey: "supportedHostShapeCollection",
+        bodyModel: model.SupportedHostShapeCollection,
+        type: "model.SupportedHostShapeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists supported SKUs.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

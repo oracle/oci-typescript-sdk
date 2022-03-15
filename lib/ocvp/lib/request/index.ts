@@ -37,6 +37,8 @@ import * as GetSddcRequest from "./get-sddc-request";
 export import GetSddcRequest = GetSddcRequest.GetSddcRequest;
 import * as ListSddcsRequest from "./list-sddcs-request";
 export import ListSddcsRequest = ListSddcsRequest.ListSddcsRequest;
+import * as ListSupportedHostShapesRequest from "./list-supported-host-shapes-request";
+export import ListSupportedHostShapesRequest = ListSupportedHostShapesRequest.ListSupportedHostShapesRequest;
 import * as ListSupportedSkusRequest from "./list-supported-skus-request";
 export import ListSupportedSkusRequest = ListSupportedSkusRequest.ListSupportedSkusRequest;
 import * as ListSupportedVmwareSoftwareVersionsRequest from "./list-supported-vmware-software-versions-request";

@@ -51,6 +51,23 @@ export interface CreateAutonomousVmClusterDetails {
    */
   "licenseModel"?: CreateAutonomousVmClusterDetails.LicenseModel;
   /**
+   * The total number of Autonomous Container Databases that can be created. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalContainerDatabases"?: number;
+  /**
+   * The number of OCPU cores to enable per VM cluster node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cpuCoreCountPerNode"?: number;
+  /**
+   * The amount of memory (in GBs) to be enabled per each OCPU core. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memoryPerOracleComputeUnitInGBs"?: number;
+  /**
+   * The data disk group size to be allocated for Autonomous Databases, in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "autonomousDataStorageSizeInTBs"?: number;
+  "maintenanceWindowDetails"?: model.MaintenanceWindow;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -73,12 +90,26 @@ export namespace CreateAutonomousVmClusterDetails {
   }
 
   export function getJsonObj(obj: CreateAutonomousVmClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindowDetails": obj.maintenanceWindowDetails
+          ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindowDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateAutonomousVmClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindowDetails": obj.maintenanceWindowDetails
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindowDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

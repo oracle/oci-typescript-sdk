@@ -19,6 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateTaskFromRestTask extends model.UpdateTaskDetails {
   "authDetails"?: model.AuthDetails;
+  "authConfig"?: model.ResourcePrincipalAuthConfig;
   "endpoint"?: model.Expression;
   /**
    * The REST method to use. This property is deprecated, use ExecuteRestCallConfig's methodType property instead.
@@ -44,6 +45,11 @@ export interface UpdateTaskFromRestTask extends model.UpdateTaskDetails {
   "cancelMethodType"?: UpdateTaskFromRestTask.CancelMethodType;
   "executeRestCallConfig"?: model.ExecuteRestCallConfig;
   "cancelRestCallConfig"?: model.CancelRestCallConfig;
+  "pollRestCallConfig"?: model.PollRestCallConfig;
+  /**
+   * List of typed expressions.
+   */
+  "typedExpressions"?: Array<model.TypedExpression>;
 
   "modelType": string;
 }
@@ -78,6 +84,7 @@ export namespace UpdateTaskFromRestTask {
         : (model.UpdateTaskDetails.getJsonObj(obj) as UpdateTaskFromRestTask)),
       ...{
         "authDetails": obj.authDetails ? model.AuthDetails.getJsonObj(obj.authDetails) : undefined,
+        "authConfig": obj.authConfig ? model.AuthConfig.getJsonObj(obj.authConfig) : undefined,
         "endpoint": obj.endpoint ? model.Expression.getJsonObj(obj.endpoint) : undefined,
 
         "cancelEndpoint": obj.cancelEndpoint
@@ -89,6 +96,14 @@ export namespace UpdateTaskFromRestTask {
           : undefined,
         "cancelRestCallConfig": obj.cancelRestCallConfig
           ? model.CancelRestCallConfig.getJsonObj(obj.cancelRestCallConfig)
+          : undefined,
+        "pollRestCallConfig": obj.pollRestCallConfig
+          ? model.PollRestCallConfig.getJsonObj(obj.pollRestCallConfig)
+          : undefined,
+        "typedExpressions": obj.typedExpressions
+          ? obj.typedExpressions.map(item => {
+              return model.TypedExpression.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -108,6 +123,9 @@ export namespace UpdateTaskFromRestTask {
         "authDetails": obj.authDetails
           ? model.AuthDetails.getDeserializedJsonObj(obj.authDetails)
           : undefined,
+        "authConfig": obj.authConfig
+          ? model.AuthConfig.getDeserializedJsonObj(obj.authConfig)
+          : undefined,
         "endpoint": obj.endpoint
           ? model.Expression.getDeserializedJsonObj(obj.endpoint)
           : undefined,
@@ -121,6 +139,14 @@ export namespace UpdateTaskFromRestTask {
           : undefined,
         "cancelRestCallConfig": obj.cancelRestCallConfig
           ? model.CancelRestCallConfig.getDeserializedJsonObj(obj.cancelRestCallConfig)
+          : undefined,
+        "pollRestCallConfig": obj.pollRestCallConfig
+          ? model.PollRestCallConfig.getDeserializedJsonObj(obj.pollRestCallConfig)
+          : undefined,
+        "typedExpressions": obj.typedExpressions
+          ? obj.typedExpressions.map(item => {
+              return model.TypedExpression.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

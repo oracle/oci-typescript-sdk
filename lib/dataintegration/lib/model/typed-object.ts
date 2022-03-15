@@ -90,6 +90,8 @@ export namespace TypedObject {
           return model.MacroField.getJsonObj(<model.MacroField>(<object>jsonObj), true);
         case "DERIVED_FIELD":
           return model.DerivedField.getJsonObj(<model.DerivedField>(<object>jsonObj), true);
+        case "TYPED_EXPRESSION":
+          return model.TypedExpression.getJsonObj(<model.TypedExpression>(<object>jsonObj), true);
         case "FLOW_PORT":
           return model.FlowPort.getJsonObj(<model.FlowPort>(<object>jsonObj), true);
         default:
@@ -152,6 +154,11 @@ export namespace TypedObject {
         case "DERIVED_FIELD":
           return model.DerivedField.getDeserializedJsonObj(
             <model.DerivedField>(<object>jsonObj),
+            true
+          );
+        case "TYPED_EXPRESSION":
+          return model.TypedExpression.getDeserializedJsonObj(
+            <model.TypedExpression>(<object>jsonObj),
             true
           );
         case "FLOW_PORT":

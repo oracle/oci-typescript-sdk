@@ -28,9 +28,10 @@ export interface RuleTypeConfig extends model.DynamicTypeHandler {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Reference to a typed object, this can be either a key value to an object within the document, a shall referenced to a `TypedObject` or a full `TypedObject` definition.
+   * Deprecated - Reference to a typed object, this can be either a key value to an object within the document, a shall referenced to a `TypedObject` or a full `TypedObject` definition.
    */
   "scope"?: any;
+  "scopeReference"?: model.ScopeReference;
   /**
    * Specifies whether it is ordered by rule.
    */
@@ -55,6 +56,10 @@ export namespace RuleTypeConfig {
       ...{
         "parentRef": obj.parentRef ? model.ParentReference.getJsonObj(obj.parentRef) : undefined,
 
+        "scopeReference": obj.scopeReference
+          ? model.ScopeReference.getJsonObj(obj.scopeReference)
+          : undefined,
+
         "projectionRules": obj.projectionRules
           ? obj.projectionRules.map(item => {
               return model.ProjectionRule.getJsonObj(item);
@@ -77,6 +82,10 @@ export namespace RuleTypeConfig {
       ...{
         "parentRef": obj.parentRef
           ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "scopeReference": obj.scopeReference
+          ? model.ScopeReference.getDeserializedJsonObj(obj.scopeReference)
           : undefined,
 
         "projectionRules": obj.projectionRules

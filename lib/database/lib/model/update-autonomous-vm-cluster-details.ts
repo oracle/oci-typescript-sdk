@@ -19,6 +19,7 @@ import common = require("oci-common");
  * Details for updating the Autonomous VM cluster.
  */
 export interface UpdateAutonomousVmClusterDetails {
+  "maintenanceWindowDetails"?: model.MaintenanceWindow;
   /**
    * The Oracle license model that applies to the Autonomous VM cluster. The default is BRING_YOUR_OWN_LICENSE.
    *
@@ -47,12 +48,26 @@ export namespace UpdateAutonomousVmClusterDetails {
   }
 
   export function getJsonObj(obj: UpdateAutonomousVmClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindowDetails": obj.maintenanceWindowDetails
+          ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindowDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateAutonomousVmClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindowDetails": obj.maintenanceWindowDetails
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindowDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

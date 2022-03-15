@@ -46,6 +46,26 @@ export interface CreateApplicationDetails {
    * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier": string;
+  /**
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
+   */
+  "displayName"?: string;
+  /**
+   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * Example: `{\"Department\": \"Finance\"}`
+   *
+   */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace. See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The current state of the workspace.
+   */
+  "lifecycleState"?: CreateApplicationDetails.LifecycleState;
   "sourceApplicationInfo"?: model.CreateSourceApplicationInfo;
   "registryMetadata"?: model.RegistryMetadata;
 }
@@ -53,6 +73,15 @@ export interface CreateApplicationDetails {
 export namespace CreateApplicationDetails {
   export enum ModelType {
     IntegrationApplication = "INTEGRATION_APPLICATION"
+  }
+
+  export enum LifecycleState {
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Updating = "UPDATING",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED"
   }
 
   export function getJsonObj(obj: CreateApplicationDetails): object {

@@ -218,6 +218,80 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Moves a DIS Application to a specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeDisApplicationCompartmentRequest
+   * @return ChangeDisApplicationCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ChangeDisApplicationCompartment.ts.html |here} to see how to use ChangeDisApplicationCompartment API.
+   */
+  public async changeDisApplicationCompartment(
+    changeDisApplicationCompartmentRequest: requests.ChangeDisApplicationCompartmentRequest
+  ): Promise<responses.ChangeDisApplicationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#changeDisApplicationCompartment.");
+    const pathParams = {
+      "{workspaceId}": changeDisApplicationCompartmentRequest.workspaceId,
+      "{disApplicationId}": changeDisApplicationCompartmentRequest.disApplicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDisApplicationCompartmentRequest.ifMatch,
+      "opc-request-id": changeDisApplicationCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeDisApplicationCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDisApplicationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/disApplications/{disApplicationId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDisApplicationCompartmentRequest.changeDisApplicationCompartmentDetails,
+        "ChangeDisApplicationCompartmentDetails",
+        model.ChangeDisApplicationCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDisApplicationCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates an application.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -641,6 +715,81 @@ export class DataIntegrationClient {
         bodyKey: "dataFlowValidation",
         bodyModel: model.DataFlowValidation,
         type: "model.DataFlowValidation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a DIS Application.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateDisApplicationRequest
+   * @return CreateDisApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateDisApplication.ts.html |here} to see how to use CreateDisApplication API.
+   */
+  public async createDisApplication(
+    createDisApplicationRequest: requests.CreateDisApplicationRequest
+  ): Promise<responses.CreateDisApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#createDisApplication.");
+    const pathParams = {
+      "{workspaceId}": createDisApplicationRequest.workspaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createDisApplicationRequest.opcRequestId,
+      "opc-retry-token": createDisApplicationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDisApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/disApplications",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDisApplicationRequest.createDisApplicationDetails,
+        "CreateDisApplicationDetails",
+        model.CreateDisApplicationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDisApplicationResponse>{},
+        body: await response.json(),
+        bodyKey: "disApplication",
+        bodyModel: model.DisApplication,
+        type: "model.DisApplication",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2289,6 +2438,67 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Removes a DIS application using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDisApplicationRequest
+   * @return DeleteDisApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteDisApplication.ts.html |here} to see how to use DeleteDisApplication API.
+   */
+  public async deleteDisApplication(
+    deleteDisApplicationRequest: requests.DeleteDisApplicationRequest
+  ): Promise<responses.DeleteDisApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#deleteDisApplication.");
+    const pathParams = {
+      "{workspaceId}": deleteDisApplicationRequest.workspaceId,
+      "{disApplicationId}": deleteDisApplicationRequest.disApplicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDisApplicationRequest.ifMatch,
+      "opc-request-id": deleteDisApplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDisApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/disApplications/{disApplicationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDisApplicationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a published object using the specified identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExternalPublicationRequest
@@ -3881,6 +4091,75 @@ export class DataIntegrationClient {
         bodyKey: "dependentObject",
         bodyModel: model.DependentObject,
         type: "model.DependentObject",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves an application using the specified OCID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetDisApplicationRequest
+   * @return GetDisApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDisApplication.ts.html |here} to see how to use GetDisApplication API.
+   */
+  public async getDisApplication(
+    getDisApplicationRequest: requests.GetDisApplicationRequest
+  ): Promise<responses.GetDisApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#getDisApplication.");
+    const pathParams = {
+      "{workspaceId}": getDisApplicationRequest.workspaceId,
+      "{disApplicationId}": getDisApplicationRequest.disApplicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDisApplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDisApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/disApplications/{disApplicationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDisApplicationResponse>{},
+        body: await response.json(),
+        bodyKey: "disApplication",
+        bodyModel: model.DisApplication,
+        type: "model.DisApplication",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5970,6 +6249,94 @@ export class DataIntegrationClient {
         bodyKey: "dependentObjectSummaryCollection",
         bodyModel: model.DependentObjectSummaryCollection,
         type: "model.DependentObjectSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a list of DIS Applications in a compartment and provides options to filter the list.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDisApplicationsRequest
+   * @return ListDisApplicationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDisApplications.ts.html |here} to see how to use ListDisApplications API.
+   */
+  public async listDisApplications(
+    listDisApplicationsRequest: requests.ListDisApplicationsRequest
+  ): Promise<responses.ListDisApplicationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#listDisApplications.");
+    const pathParams = {
+      "{workspaceId}": listDisApplicationsRequest.workspaceId
+    };
+
+    const queryParams = {
+      "name": listDisApplicationsRequest.name,
+      "nameContains": listDisApplicationsRequest.nameContains,
+      "identifier": listDisApplicationsRequest.identifier,
+      "fields": listDisApplicationsRequest.fields,
+      "limit": listDisApplicationsRequest.limit,
+      "page": listDisApplicationsRequest.page,
+      "sortOrder": listDisApplicationsRequest.sortOrder,
+      "sortBy": listDisApplicationsRequest.sortBy,
+      "compartmentId": listDisApplicationsRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDisApplicationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDisApplicationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/disApplications",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDisApplicationsResponse>{},
+        body: await response.json(),
+        bodyKey: "disApplicationSummaryCollection",
+        bodyModel: model.DisApplicationSummaryCollection,
+        type: "model.DisApplicationSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8726,6 +9093,81 @@ export class DataIntegrationClient {
         bodyKey: "dataFlow",
         bodyModel: model.DataFlow,
         type: "model.DataFlow",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a DIS Application.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateDisApplicationRequest
+   * @return UpdateDisApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateDisApplication.ts.html |here} to see how to use UpdateDisApplication API.
+   */
+  public async updateDisApplication(
+    updateDisApplicationRequest: requests.UpdateDisApplicationRequest
+  ): Promise<responses.UpdateDisApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#updateDisApplication.");
+    const pathParams = {
+      "{workspaceId}": updateDisApplicationRequest.workspaceId,
+      "{disApplicationId}": updateDisApplicationRequest.disApplicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDisApplicationRequest.ifMatch,
+      "opc-request-id": updateDisApplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDisApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/disApplications/{disApplicationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDisApplicationRequest.updateDisApplicationDetails,
+        "UpdateDisApplicationDetails",
+        model.UpdateDisApplicationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDisApplicationResponse>{},
+        body: await response.json(),
+        bodyKey: "disApplication",
+        bodyModel: model.DisApplication,
+        type: "model.DisApplication",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

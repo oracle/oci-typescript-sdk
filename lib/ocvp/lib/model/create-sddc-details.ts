@@ -162,6 +162,11 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
    */
   "provisioningVlanId"?: string;
   /**
+   * Indicates whether shielded instance is enabled for this SDDC.
+   *
+   */
+  "isShieldedInstanceEnabled"?: boolean;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

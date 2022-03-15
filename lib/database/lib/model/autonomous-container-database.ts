@@ -140,6 +140,10 @@ Example: `{\"Department\": \"Finance\"}`
    * The wallet name for Oracle Key Vault.
    */
   "keyStoreWalletName"?: string;
+  /**
+   * The amount of memory (in GBs) enabled per each OCPU core in Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memoryPerOracleComputeUnitInGBs"?: number;
 }
 
 export namespace AutonomousContainerDatabase {

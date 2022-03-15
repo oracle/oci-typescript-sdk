@@ -29,13 +29,15 @@ export interface DirectNamedFieldMap extends model.FieldMap {
   "parentRef"?: model.ParentReference;
   "configValues"?: model.ConfigValues;
   /**
-   * Reference to a typed object.
+   * Deprecated - Reference to a typed object.
    */
   "sourceTypedObject"?: string;
   /**
-   * Reference to a typed object
+   * Deprecated - Reference to a typed object
    */
   "targetTypedObject"?: string;
+  "sourceScopeReference"?: model.ScopeReference;
+  "targetScopeReference"?: model.ScopeReference;
   /**
    * The source field name.
    */
@@ -60,6 +62,13 @@ export namespace DirectNamedFieldMap {
         "parentRef": obj.parentRef ? model.ParentReference.getJsonObj(obj.parentRef) : undefined,
         "configValues": obj.configValues
           ? model.ConfigValues.getJsonObj(obj.configValues)
+          : undefined,
+
+        "sourceScopeReference": obj.sourceScopeReference
+          ? model.ScopeReference.getJsonObj(obj.sourceScopeReference)
+          : undefined,
+        "targetScopeReference": obj.targetScopeReference
+          ? model.ScopeReference.getJsonObj(obj.targetScopeReference)
           : undefined
       }
     };
@@ -81,6 +90,13 @@ export namespace DirectNamedFieldMap {
           : undefined,
         "configValues": obj.configValues
           ? model.ConfigValues.getDeserializedJsonObj(obj.configValues)
+          : undefined,
+
+        "sourceScopeReference": obj.sourceScopeReference
+          ? model.ScopeReference.getDeserializedJsonObj(obj.sourceScopeReference)
+          : undefined,
+        "targetScopeReference": obj.targetScopeReference
+          ? model.ScopeReference.getDeserializedJsonObj(obj.targetScopeReference)
           : undefined
       }
     };
