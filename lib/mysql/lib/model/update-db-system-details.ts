@@ -141,6 +141,7 @@ Decreases in data storage size are not supported.
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "deletionPolicy"?: model.UpdateDeletionPolicyDetails;
   /**
    * Whether to run the DB System with InnoDB Redo Logs and the Double Write Buffer enabled or disabled,
    * and whether to enable or disable syncing of the Binary Logs.
@@ -159,6 +160,10 @@ export namespace UpdateDbSystemDetails {
           : undefined,
         "maintenance": obj.maintenance
           ? model.UpdateMaintenanceDetails.getJsonObj(obj.maintenance)
+          : undefined,
+
+        "deletionPolicy": obj.deletionPolicy
+          ? model.UpdateDeletionPolicyDetails.getJsonObj(obj.deletionPolicy)
           : undefined
       }
     };
@@ -174,6 +179,10 @@ export namespace UpdateDbSystemDetails {
           : undefined,
         "maintenance": obj.maintenance
           ? model.UpdateMaintenanceDetails.getDeserializedJsonObj(obj.maintenance)
+          : undefined,
+
+        "deletionPolicy": obj.deletionPolicy
+          ? model.UpdateDeletionPolicyDetails.getDeserializedJsonObj(obj.deletionPolicy)
           : undefined
       }
     };

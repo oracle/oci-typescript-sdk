@@ -41,6 +41,11 @@ export namespace CredentialDetails {
             <model.CredentialsBySource>(<object>jsonObj),
             true
           );
+        case "CREDENTIALS_BY_VAULT":
+          return model.CredentialByVault.getJsonObj(
+            <model.CredentialByVault>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.credentialType);
       }
@@ -55,6 +60,11 @@ export namespace CredentialDetails {
         case "CREDENTIALS_BY_SOURCE":
           return model.CredentialsBySource.getDeserializedJsonObj(
             <model.CredentialsBySource>(<object>jsonObj),
+            true
+          );
+        case "CREDENTIALS_BY_VAULT":
+          return model.CredentialByVault.getDeserializedJsonObj(
+            <model.CredentialByVault>(<object>jsonObj),
             true
           );
         default:

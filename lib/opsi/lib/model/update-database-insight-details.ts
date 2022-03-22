@@ -53,6 +53,11 @@ export namespace UpdateDatabaseInsightDetails {
             <model.UpdateEmManagedExternalDatabaseInsightDetails>(<object>jsonObj),
             true
           );
+        case "PE_COMANAGED_DATABASE":
+          return model.UpdatePeComanagedDatabaseInsightDetails.getJsonObj(
+            <model.UpdatePeComanagedDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
         case "AUTONOMOUS_DATABASE":
           return model.UpdateAutonomousDatabaseInsightDetails.getJsonObj(
             <model.UpdateAutonomousDatabaseInsightDetails>(<object>jsonObj),
@@ -77,6 +82,11 @@ export namespace UpdateDatabaseInsightDetails {
         case "EM_MANAGED_EXTERNAL_DATABASE":
           return model.UpdateEmManagedExternalDatabaseInsightDetails.getDeserializedJsonObj(
             <model.UpdateEmManagedExternalDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
+        case "PE_COMANAGED_DATABASE":
+          return model.UpdatePeComanagedDatabaseInsightDetails.getDeserializedJsonObj(
+            <model.UpdatePeComanagedDatabaseInsightDetails>(<object>jsonObj),
             true
           );
         case "AUTONOMOUS_DATABASE":

@@ -174,7 +174,16 @@ export namespace SummarizeSqlStatisticsRequest {
     AdwD = "ADW-D",
     AtpD = "ATP-D",
     ExternalPdb = "EXTERNAL-PDB",
-    ExternalNoncdb = "EXTERNAL-NONCDB"
+    ExternalNoncdb = "EXTERNAL-NONCDB",
+    ComanagedVmCdb = "COMANAGED-VM-CDB",
+    ComanagedVmPdb = "COMANAGED-VM-PDB",
+    ComanagedVmNoncdb = "COMANAGED-VM-NONCDB",
+    ComanagedBmCdb = "COMANAGED-BM-CDB",
+    ComanagedBmPdb = "COMANAGED-BM-PDB",
+    ComanagedBmNoncdb = "COMANAGED-BM-NONCDB",
+    ComanagedExacsCdb = "COMANAGED-EXACS-CDB",
+    ComanagedExacsPdb = "COMANAGED-EXACS-PDB",
+    ComanagedExacsNoncdb = "COMANAGED-EXACS-NONCDB"
   }
 
   export enum SortBy {

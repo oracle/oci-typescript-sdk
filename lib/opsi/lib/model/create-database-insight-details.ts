@@ -52,6 +52,11 @@ export namespace CreateDatabaseInsightDetails {
             <model.CreateEmManagedExternalDatabaseInsightDetails>(<object>jsonObj),
             true
           );
+        case "PE_COMANAGED_DATABASE":
+          return model.CreatePeComanagedDatabaseInsightDetails.getJsonObj(
+            <model.CreatePeComanagedDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.entitySource);
       }
@@ -66,6 +71,11 @@ export namespace CreateDatabaseInsightDetails {
         case "EM_MANAGED_EXTERNAL_DATABASE":
           return model.CreateEmManagedExternalDatabaseInsightDetails.getDeserializedJsonObj(
             <model.CreateEmManagedExternalDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
+        case "PE_COMANAGED_DATABASE":
+          return model.CreatePeComanagedDatabaseInsightDetails.getDeserializedJsonObj(
+            <model.CreatePeComanagedDatabaseInsightDetails>(<object>jsonObj),
             true
           );
         default:

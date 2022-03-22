@@ -21,7 +21,8 @@ import common = require("oci-common");
  * Source of the database entity. CRUD operations for Autonomous and MACS managed databases all route through DBaaS.
  **/
 export enum DatabaseEntitySource {
-  EmManagedExternalDatabase = "EM_MANAGED_EXTERNAL_DATABASE"
+  EmManagedExternalDatabase = "EM_MANAGED_EXTERNAL_DATABASE",
+  PeComanagedDatabase = "PE_COMANAGED_DATABASE"
 }
 
 export namespace DatabaseEntitySource {

@@ -509,6 +509,154 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Moves a private endpoint from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeOperationsInsightsPrivateEndpointCompartmentRequest
+   * @return ChangeOperationsInsightsPrivateEndpointCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeOperationsInsightsPrivateEndpointCompartment.ts.html |here} to see how to use ChangeOperationsInsightsPrivateEndpointCompartment API.
+   */
+  public async changeOperationsInsightsPrivateEndpointCompartment(
+    changeOperationsInsightsPrivateEndpointCompartmentRequest: requests.ChangeOperationsInsightsPrivateEndpointCompartmentRequest
+  ): Promise<responses.ChangeOperationsInsightsPrivateEndpointCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#changeOperationsInsightsPrivateEndpointCompartment."
+      );
+    const pathParams = {
+      "{operationsInsightsPrivateEndpointId}":
+        changeOperationsInsightsPrivateEndpointCompartmentRequest.operationsInsightsPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeOperationsInsightsPrivateEndpointCompartmentRequest.ifMatch,
+      "opc-request-id": changeOperationsInsightsPrivateEndpointCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeOperationsInsightsPrivateEndpointCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeOperationsInsightsPrivateEndpointCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/operationsInsightsPrivateEndpoints/{operationsInsightsPrivateEndpointId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeOperationsInsightsPrivateEndpointCompartmentRequest.changeOperationsInsightsPrivateEndpointCompartmentDetails,
+        "ChangeOperationsInsightsPrivateEndpointCompartmentDetails",
+        model.ChangeOperationsInsightsPrivateEndpointCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeOperationsInsightsPrivateEndpointCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Change the connection details of a co-managed  database insight. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangePeComanagedDatabaseInsightRequest
+   * @return ChangePeComanagedDatabaseInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangePeComanagedDatabaseInsight.ts.html |here} to see how to use ChangePeComanagedDatabaseInsight API.
+   */
+  public async changePeComanagedDatabaseInsight(
+    changePeComanagedDatabaseInsightRequest: requests.ChangePeComanagedDatabaseInsightRequest
+  ): Promise<responses.ChangePeComanagedDatabaseInsightResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#changePeComanagedDatabaseInsight."
+      );
+    const pathParams = {
+      "{databaseInsightId}": changePeComanagedDatabaseInsightRequest.databaseInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changePeComanagedDatabaseInsightRequest.ifMatch,
+      "opc-request-id": changePeComanagedDatabaseInsightRequest.opcRequestId,
+      "opc-retry-token": changePeComanagedDatabaseInsightRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changePeComanagedDatabaseInsightRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/{databaseInsightId}/actions/changePeComanagedDatabaseInsightDetails",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changePeComanagedDatabaseInsightRequest.changePeComanagedDatabaseInsightDetails,
+        "ChangePeComanagedDatabaseInsightDetails",
+        model.ChangePeComanagedDatabaseInsightDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangePeComanagedDatabaseInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a AWR hub resource for the tenant in Operations Insights.
    * This resource will be created in root compartment.
    *
@@ -951,8 +1099,100 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Create a private endpoint resource for the tenant in Operations Insights.
+   * This resource will be created in customer compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateOperationsInsightsPrivateEndpointRequest
+   * @return CreateOperationsInsightsPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use CreateOperationsInsightsPrivateEndpoint API.
+   */
+  public async createOperationsInsightsPrivateEndpoint(
+    createOperationsInsightsPrivateEndpointRequest: requests.CreateOperationsInsightsPrivateEndpointRequest
+  ): Promise<responses.CreateOperationsInsightsPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#createOperationsInsightsPrivateEndpoint."
+      );
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOperationsInsightsPrivateEndpointRequest.opcRetryToken,
+      "opc-request-id": createOperationsInsightsPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOperationsInsightsPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsPrivateEndpoints",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOperationsInsightsPrivateEndpointRequest.createOperationsInsightsPrivateEndpointDetails,
+        "CreateOperationsInsightsPrivateEndpointDetails",
+        model.CreateOperationsInsightsPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOperationsInsightsPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "operationsInsightsPrivateEndpoint",
+        bodyModel: model.OperationsInsightsPrivateEndpoint,
+        type: "model.OperationsInsightsPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a Operations Insights Warehouse resource for the tenant in Operations Insights. New ADW will be provisioned for this tenant.
-   * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
+   * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment. If the 'opsi-warehouse-type'
+   * header is passed to the API, a warehouse resource without ADW or Schema provisioning is created.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateOperationsInsightsWarehouseRequest
@@ -1438,6 +1678,74 @@ export class OperationsInsightsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteHostInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a private endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteOperationsInsightsPrivateEndpointRequest
+   * @return DeleteOperationsInsightsPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use DeleteOperationsInsightsPrivateEndpoint API.
+   */
+  public async deleteOperationsInsightsPrivateEndpoint(
+    deleteOperationsInsightsPrivateEndpointRequest: requests.DeleteOperationsInsightsPrivateEndpointRequest
+  ): Promise<responses.DeleteOperationsInsightsPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#deleteOperationsInsightsPrivateEndpoint."
+      );
+    const pathParams = {
+      "{operationsInsightsPrivateEndpointId}":
+        deleteOperationsInsightsPrivateEndpointRequest.operationsInsightsPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOperationsInsightsPrivateEndpointRequest.ifMatch,
+      "opc-request-id": deleteOperationsInsightsPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOperationsInsightsPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsPrivateEndpoints/{operationsInsightsPrivateEndpointId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOperationsInsightsPrivateEndpointResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2511,6 +2819,77 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Gets the details of the specified private endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOperationsInsightsPrivateEndpointRequest
+   * @return GetOperationsInsightsPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use GetOperationsInsightsPrivateEndpoint API.
+   */
+  public async getOperationsInsightsPrivateEndpoint(
+    getOperationsInsightsPrivateEndpointRequest: requests.GetOperationsInsightsPrivateEndpointRequest
+  ): Promise<responses.GetOperationsInsightsPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#getOperationsInsightsPrivateEndpoint."
+      );
+    const pathParams = {
+      "{operationsInsightsPrivateEndpointId}":
+        getOperationsInsightsPrivateEndpointRequest.operationsInsightsPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOperationsInsightsPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOperationsInsightsPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsPrivateEndpoints/{operationsInsightsPrivateEndpointId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOperationsInsightsPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "operationsInsightsPrivateEndpoint",
+        bodyModel: model.OperationsInsightsPrivateEndpoint,
+        type: "model.OperationsInsightsPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets details of an Operations Insights Warehouse.
    * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
    *
@@ -3544,7 +3923,8 @@ export class OperationsInsightsClient {
       "sortOrder": listDatabaseInsightsRequest.sortOrder,
       "sortBy": listDatabaseInsightsRequest.sortBy,
       "exadataInsightId": listDatabaseInsightsRequest.exadataInsightId,
-      "compartmentIdInSubtree": listDatabaseInsightsRequest.compartmentIdInSubtree
+      "compartmentIdInSubtree": listDatabaseInsightsRequest.compartmentIdInSubtree,
+      "opsiPrivateEndpointId": listDatabaseInsightsRequest.opsiPrivateEndpointId
     };
 
     let headerParams = {
@@ -4240,6 +4620,86 @@ export class OperationsInsightsClient {
         bodyKey: "importableEnterpriseManagerEntityCollection",
         bodyModel: model.ImportableEnterpriseManagerEntityCollection,
         type: "model.ImportableEnterpriseManagerEntityCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of Operation Insights private endpoints.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOperationsInsightsPrivateEndpointsRequest
+   * @return ListOperationsInsightsPrivateEndpointsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOperationsInsightsPrivateEndpoints.ts.html |here} to see how to use ListOperationsInsightsPrivateEndpoints API.
+   */
+  public async listOperationsInsightsPrivateEndpoints(
+    listOperationsInsightsPrivateEndpointsRequest: requests.ListOperationsInsightsPrivateEndpointsRequest
+  ): Promise<responses.ListOperationsInsightsPrivateEndpointsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#listOperationsInsightsPrivateEndpoints."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOperationsInsightsPrivateEndpointsRequest.compartmentId,
+      "displayName": listOperationsInsightsPrivateEndpointsRequest.displayName,
+      "opsiPrivateEndpointId": listOperationsInsightsPrivateEndpointsRequest.opsiPrivateEndpointId,
+      "isUsedForRacDbs": listOperationsInsightsPrivateEndpointsRequest.isUsedForRacDbs,
+      "vcnId": listOperationsInsightsPrivateEndpointsRequest.vcnId,
+      "lifecycleState": listOperationsInsightsPrivateEndpointsRequest.lifecycleState,
+      "limit": listOperationsInsightsPrivateEndpointsRequest.limit,
+      "page": listOperationsInsightsPrivateEndpointsRequest.page,
+      "sortOrder": listOperationsInsightsPrivateEndpointsRequest.sortOrder,
+      "sortBy": listOperationsInsightsPrivateEndpointsRequest.sortBy,
+      "compartmentIdInSubtree": listOperationsInsightsPrivateEndpointsRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOperationsInsightsPrivateEndpointsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOperationsInsightsPrivateEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsPrivateEndpoints",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOperationsInsightsPrivateEndpointsResponse>{},
+        body: await response.json(),
+        bodyKey: "operationsInsightsPrivateEndpointCollection",
+        bodyModel: model.OperationsInsightsPrivateEndpointCollection,
+        type: "model.OperationsInsightsPrivateEndpointCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7956,6 +8416,79 @@ export class OperationsInsightsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateHostInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified private endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateOperationsInsightsPrivateEndpointRequest
+   * @return UpdateOperationsInsightsPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use UpdateOperationsInsightsPrivateEndpoint API.
+   */
+  public async updateOperationsInsightsPrivateEndpoint(
+    updateOperationsInsightsPrivateEndpointRequest: requests.UpdateOperationsInsightsPrivateEndpointRequest
+  ): Promise<responses.UpdateOperationsInsightsPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#updateOperationsInsightsPrivateEndpoint."
+      );
+    const pathParams = {
+      "{operationsInsightsPrivateEndpointId}":
+        updateOperationsInsightsPrivateEndpointRequest.operationsInsightsPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOperationsInsightsPrivateEndpointRequest.ifMatch,
+      "opc-request-id": updateOperationsInsightsPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOperationsInsightsPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operationsInsightsPrivateEndpoints/{operationsInsightsPrivateEndpointId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOperationsInsightsPrivateEndpointRequest.updateOperationsInsightsPrivateEndpointDetails,
+        "UpdateOperationsInsightsPrivateEndpointDetails",
+        model.UpdateOperationsInsightsPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOperationsInsightsPrivateEndpointResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

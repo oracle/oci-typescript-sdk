@@ -150,6 +150,7 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "deletionPolicy"?: model.CreateDeletionPolicyDetails;
   /**
    * Whether to run the DB System with InnoDB Redo Logs and the Double Write Buffer enabled or disabled,
    * and whether to enable or disable syncing of the Binary Logs.
@@ -169,6 +170,10 @@ export namespace CreateDbSystemDetails {
         "source": obj.source ? model.CreateDbSystemSourceDetails.getJsonObj(obj.source) : undefined,
         "maintenance": obj.maintenance
           ? model.CreateMaintenanceDetails.getJsonObj(obj.maintenance)
+          : undefined,
+
+        "deletionPolicy": obj.deletionPolicy
+          ? model.CreateDeletionPolicyDetails.getJsonObj(obj.deletionPolicy)
           : undefined
       }
     };
@@ -187,6 +192,10 @@ export namespace CreateDbSystemDetails {
           : undefined,
         "maintenance": obj.maintenance
           ? model.CreateMaintenanceDetails.getDeserializedJsonObj(obj.maintenance)
+          : undefined,
+
+        "deletionPolicy": obj.deletionPolicy
+          ? model.CreateDeletionPolicyDetails.getDeserializedJsonObj(obj.deletionPolicy)
           : undefined
       }
     };

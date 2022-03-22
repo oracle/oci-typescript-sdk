@@ -79,6 +79,10 @@ export interface DatabaseInsight {
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * A message describing the status of the database connection of this resource. For example, it can be used to provide actionable information about the permission and content validity of the database connection.
+   */
+  "databaseConnectionStatusDetails"?: string;
 
   "entitySource": string;
 }
@@ -97,6 +101,11 @@ export namespace DatabaseInsight {
         case "MACS_MANAGED_EXTERNAL_DATABASE":
           return model.MacsManagedExternalDatabaseInsight.getJsonObj(
             <model.MacsManagedExternalDatabaseInsight>(<object>jsonObj),
+            true
+          );
+        case "PE_COMANAGED_DATABASE":
+          return model.PeComanagedDatabaseInsight.getJsonObj(
+            <model.PeComanagedDatabaseInsight>(<object>jsonObj),
             true
           );
         case "AUTONOMOUS_DATABASE":
@@ -123,6 +132,11 @@ export namespace DatabaseInsight {
         case "MACS_MANAGED_EXTERNAL_DATABASE":
           return model.MacsManagedExternalDatabaseInsight.getDeserializedJsonObj(
             <model.MacsManagedExternalDatabaseInsight>(<object>jsonObj),
+            true
+          );
+        case "PE_COMANAGED_DATABASE":
+          return model.PeComanagedDatabaseInsight.getDeserializedJsonObj(
+            <model.PeComanagedDatabaseInsight>(<object>jsonObj),
             true
           );
         case "AUTONOMOUS_DATABASE":

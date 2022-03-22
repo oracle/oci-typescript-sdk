@@ -21,7 +21,9 @@ export interface EnableDatabaseInsightRequest extends common.BaseRequest {
   /**
    * Details for the database to be enabled in Operations Insights.
    */
-  "enableDatabaseInsightDetails": model.EnableEmManagedExternalDatabaseInsightDetails;
+  "enableDatabaseInsightDetails":
+    | model.EnableEmManagedExternalDatabaseInsightDetails
+    | model.EnablePeComanagedDatabaseInsightDetails;
   /**
    * Unique database insight identifier
    */

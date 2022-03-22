@@ -34,7 +34,7 @@ export interface ConnectionDetails {
    */
   "port": number;
   /**
-   * Service name used for connection requests.
+   * Database service name used for connection requests.
    */
   "serviceName": string;
 }

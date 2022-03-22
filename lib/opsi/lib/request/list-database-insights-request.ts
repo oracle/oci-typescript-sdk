@@ -92,6 +92,10 @@ export interface ListDatabaseInsightsRequest extends common.BaseRequest {
    */
   "compartmentIdInSubtree"?: boolean;
   /**
+   * Unique Operations Insights PrivateEndpoint identifier
+   */
+  "opsiPrivateEndpointId"?: string;
+  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
    *
@@ -106,7 +110,16 @@ export namespace ListDatabaseInsightsRequest {
     AdwD = "ADW-D",
     AtpD = "ATP-D",
     ExternalPdb = "EXTERNAL-PDB",
-    ExternalNoncdb = "EXTERNAL-NONCDB"
+    ExternalNoncdb = "EXTERNAL-NONCDB",
+    ComanagedVmCdb = "COMANAGED-VM-CDB",
+    ComanagedVmPdb = "COMANAGED-VM-PDB",
+    ComanagedVmNoncdb = "COMANAGED-VM-NONCDB",
+    ComanagedBmCdb = "COMANAGED-BM-CDB",
+    ComanagedBmPdb = "COMANAGED-BM-PDB",
+    ComanagedBmNoncdb = "COMANAGED-BM-NONCDB",
+    ComanagedExacsCdb = "COMANAGED-EXACS-CDB",
+    ComanagedExacsPdb = "COMANAGED-EXACS-PDB",
+    ComanagedExacsNoncdb = "COMANAGED-EXACS-NONCDB"
   }
 
   export enum Fields {
