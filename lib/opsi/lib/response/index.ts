@@ -24,6 +24,10 @@ import * as ChangeExadataInsightCompartmentResponse from "./change-exadata-insig
 export import ChangeExadataInsightCompartmentResponse = ChangeExadataInsightCompartmentResponse.ChangeExadataInsightCompartmentResponse;
 import * as ChangeHostInsightCompartmentResponse from "./change-host-insight-compartment-response";
 export import ChangeHostInsightCompartmentResponse = ChangeHostInsightCompartmentResponse.ChangeHostInsightCompartmentResponse;
+import * as ChangeOperationsInsightsPrivateEndpointCompartmentResponse from "./change-operations-insights-private-endpoint-compartment-response";
+export import ChangeOperationsInsightsPrivateEndpointCompartmentResponse = ChangeOperationsInsightsPrivateEndpointCompartmentResponse.ChangeOperationsInsightsPrivateEndpointCompartmentResponse;
+import * as ChangePeComanagedDatabaseInsightResponse from "./change-pe-comanaged-database-insight-response";
+export import ChangePeComanagedDatabaseInsightResponse = ChangePeComanagedDatabaseInsightResponse.ChangePeComanagedDatabaseInsightResponse;
 import * as CreateAwrHubResponse from "./create-awr-hub-response";
 export import CreateAwrHubResponse = CreateAwrHubResponse.CreateAwrHubResponse;
 import * as CreateDatabaseInsightResponse from "./create-database-insight-response";
@@ -34,6 +38,8 @@ import * as CreateExadataInsightResponse from "./create-exadata-insight-response
 export import CreateExadataInsightResponse = CreateExadataInsightResponse.CreateExadataInsightResponse;
 import * as CreateHostInsightResponse from "./create-host-insight-response";
 export import CreateHostInsightResponse = CreateHostInsightResponse.CreateHostInsightResponse;
+import * as CreateOperationsInsightsPrivateEndpointResponse from "./create-operations-insights-private-endpoint-response";
+export import CreateOperationsInsightsPrivateEndpointResponse = CreateOperationsInsightsPrivateEndpointResponse.CreateOperationsInsightsPrivateEndpointResponse;
 import * as CreateOperationsInsightsWarehouseResponse from "./create-operations-insights-warehouse-response";
 export import CreateOperationsInsightsWarehouseResponse = CreateOperationsInsightsWarehouseResponse.CreateOperationsInsightsWarehouseResponse;
 import * as CreateOperationsInsightsWarehouseUserResponse from "./create-operations-insights-warehouse-user-response";
@@ -48,6 +54,8 @@ import * as DeleteExadataInsightResponse from "./delete-exadata-insight-response
 export import DeleteExadataInsightResponse = DeleteExadataInsightResponse.DeleteExadataInsightResponse;
 import * as DeleteHostInsightResponse from "./delete-host-insight-response";
 export import DeleteHostInsightResponse = DeleteHostInsightResponse.DeleteHostInsightResponse;
+import * as DeleteOperationsInsightsPrivateEndpointResponse from "./delete-operations-insights-private-endpoint-response";
+export import DeleteOperationsInsightsPrivateEndpointResponse = DeleteOperationsInsightsPrivateEndpointResponse.DeleteOperationsInsightsPrivateEndpointResponse;
 import * as DeleteOperationsInsightsWarehouseResponse from "./delete-operations-insights-warehouse-response";
 export import DeleteOperationsInsightsWarehouseResponse = DeleteOperationsInsightsWarehouseResponse.DeleteOperationsInsightsWarehouseResponse;
 import * as DeleteOperationsInsightsWarehouseUserResponse from "./delete-operations-insights-warehouse-user-response";
@@ -78,6 +86,8 @@ import * as GetExadataInsightResponse from "./get-exadata-insight-response";
 export import GetExadataInsightResponse = GetExadataInsightResponse.GetExadataInsightResponse;
 import * as GetHostInsightResponse from "./get-host-insight-response";
 export import GetHostInsightResponse = GetHostInsightResponse.GetHostInsightResponse;
+import * as GetOperationsInsightsPrivateEndpointResponse from "./get-operations-insights-private-endpoint-response";
+export import GetOperationsInsightsPrivateEndpointResponse = GetOperationsInsightsPrivateEndpointResponse.GetOperationsInsightsPrivateEndpointResponse;
 import * as GetOperationsInsightsWarehouseResponse from "./get-operations-insights-warehouse-response";
 export import GetOperationsInsightsWarehouseResponse = GetOperationsInsightsWarehouseResponse.GetOperationsInsightsWarehouseResponse;
 import * as GetOperationsInsightsWarehouseUserResponse from "./get-operations-insights-warehouse-user-response";
@@ -122,6 +132,8 @@ import * as ListImportableAgentEntitiesResponse from "./list-importable-agent-en
 export import ListImportableAgentEntitiesResponse = ListImportableAgentEntitiesResponse.ListImportableAgentEntitiesResponse;
 import * as ListImportableEnterpriseManagerEntitiesResponse from "./list-importable-enterprise-manager-entities-response";
 export import ListImportableEnterpriseManagerEntitiesResponse = ListImportableEnterpriseManagerEntitiesResponse.ListImportableEnterpriseManagerEntitiesResponse;
+import * as ListOperationsInsightsPrivateEndpointsResponse from "./list-operations-insights-private-endpoints-response";
+export import ListOperationsInsightsPrivateEndpointsResponse = ListOperationsInsightsPrivateEndpointsResponse.ListOperationsInsightsPrivateEndpointsResponse;
 import * as ListOperationsInsightsWarehouseUsersResponse from "./list-operations-insights-warehouse-users-response";
 export import ListOperationsInsightsWarehouseUsersResponse = ListOperationsInsightsWarehouseUsersResponse.ListOperationsInsightsWarehouseUsersResponse;
 import * as ListOperationsInsightsWarehousesResponse from "./list-operations-insights-warehouses-response";
@@ -210,6 +222,8 @@ import * as UpdateExadataInsightResponse from "./update-exadata-insight-response
 export import UpdateExadataInsightResponse = UpdateExadataInsightResponse.UpdateExadataInsightResponse;
 import * as UpdateHostInsightResponse from "./update-host-insight-response";
 export import UpdateHostInsightResponse = UpdateHostInsightResponse.UpdateHostInsightResponse;
+import * as UpdateOperationsInsightsPrivateEndpointResponse from "./update-operations-insights-private-endpoint-response";
+export import UpdateOperationsInsightsPrivateEndpointResponse = UpdateOperationsInsightsPrivateEndpointResponse.UpdateOperationsInsightsPrivateEndpointResponse;
 import * as UpdateOperationsInsightsWarehouseResponse from "./update-operations-insights-warehouse-response";
 export import UpdateOperationsInsightsWarehouseResponse = UpdateOperationsInsightsWarehouseResponse.UpdateOperationsInsightsWarehouseResponse;
 import * as UpdateOperationsInsightsWarehouseUserResponse from "./update-operations-insights-warehouse-user-response";

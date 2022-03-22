@@ -21,7 +21,9 @@ export interface CreateDatabaseInsightRequest extends common.BaseRequest {
   /**
    * Details for the database for which a Database Insight resource will be created in Operations Insights.
    */
-  "createDatabaseInsightDetails": model.CreateEmManagedExternalDatabaseInsightDetails;
+  "createDatabaseInsightDetails":
+    | model.CreateEmManagedExternalDatabaseInsightDetails
+    | model.CreatePeComanagedDatabaseInsightDetails;
   /**
    * A token that uniquely identifies a request that can be retried in case of a timeout or
    * server error without risk of executing the same action again. Retry tokens expire after 24

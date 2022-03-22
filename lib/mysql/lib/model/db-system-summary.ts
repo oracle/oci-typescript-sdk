@@ -98,6 +98,7 @@ For a standalone DB System, this defines the fault domain in which the DB System
    * The time the DB System was last updated.
    */
   "timeUpdated": Date;
+  "deletionPolicy"?: model.DeletionPolicyDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
@@ -139,6 +140,10 @@ export namespace DbSystemSummary {
           ? obj.endpoints.map(item => {
               return model.DbSystemEndpoint.getJsonObj(item);
             })
+          : undefined,
+
+        "deletionPolicy": obj.deletionPolicy
+          ? model.DeletionPolicyDetails.getJsonObj(obj.deletionPolicy)
           : undefined
       }
     };
@@ -165,6 +170,10 @@ export namespace DbSystemSummary {
           ? obj.endpoints.map(item => {
               return model.DbSystemEndpoint.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "deletionPolicy": obj.deletionPolicy
+          ? model.DeletionPolicyDetails.getDeserializedJsonObj(obj.deletionPolicy)
           : undefined
       }
     };

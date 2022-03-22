@@ -90,6 +90,11 @@ export namespace DatabaseConfigurationSummary {
             <model.MacsManagedExternalDatabaseConfigurationSummary>(<object>jsonObj),
             true
           );
+        case "PE_COMANAGED_DATABASE":
+          return model.PeComanagedManagedExternalDatabaseConfigurationSummary.getJsonObj(
+            <model.PeComanagedManagedExternalDatabaseConfigurationSummary>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.entitySource);
       }
@@ -114,6 +119,11 @@ export namespace DatabaseConfigurationSummary {
         case "MACS_MANAGED_EXTERNAL_DATABASE":
           return model.MacsManagedExternalDatabaseConfigurationSummary.getDeserializedJsonObj(
             <model.MacsManagedExternalDatabaseConfigurationSummary>(<object>jsonObj),
+            true
+          );
+        case "PE_COMANAGED_DATABASE":
+          return model.PeComanagedManagedExternalDatabaseConfigurationSummary.getDeserializedJsonObj(
+            <model.PeComanagedManagedExternalDatabaseConfigurationSummary>(<object>jsonObj),
             true
           );
         default:

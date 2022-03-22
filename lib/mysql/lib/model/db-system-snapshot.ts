@@ -114,6 +114,7 @@ export interface DbSystemSnapshot {
    */
   "endpoints"?: Array<model.DbSystemEndpoint>;
   "maintenance": model.MaintenanceDetails;
+  "deletionPolicy": model.DeletionPolicyDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
@@ -150,6 +151,9 @@ export namespace DbSystemSnapshot {
           : undefined,
         "maintenance": obj.maintenance
           ? model.MaintenanceDetails.getJsonObj(obj.maintenance)
+          : undefined,
+        "deletionPolicy": obj.deletionPolicy
+          ? model.DeletionPolicyDetails.getJsonObj(obj.deletionPolicy)
           : undefined
       }
     };
@@ -171,6 +175,9 @@ export namespace DbSystemSnapshot {
           : undefined,
         "maintenance": obj.maintenance
           ? model.MaintenanceDetails.getDeserializedJsonObj(obj.maintenance)
+          : undefined,
+        "deletionPolicy": obj.deletionPolicy
+          ? model.DeletionPolicyDetails.getDeserializedJsonObj(obj.deletionPolicy)
           : undefined
       }
     };

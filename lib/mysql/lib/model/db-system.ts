@@ -152,6 +152,7 @@ For a standalone DB System, this defines the fault domain in which the DB System
    */
   "lifecycleDetails"?: string;
   "maintenance": model.MaintenanceDetails;
+  "deletionPolicy": model.DeletionPolicyDetails;
   /**
    * The date and time the DB System was created.
    */
@@ -230,6 +231,9 @@ export namespace DbSystem {
 
         "maintenance": obj.maintenance
           ? model.MaintenanceDetails.getJsonObj(obj.maintenance)
+          : undefined,
+        "deletionPolicy": obj.deletionPolicy
+          ? model.DeletionPolicyDetails.getJsonObj(obj.deletionPolicy)
           : undefined
       }
     };
@@ -270,6 +274,9 @@ export namespace DbSystem {
 
         "maintenance": obj.maintenance
           ? model.MaintenanceDetails.getDeserializedJsonObj(obj.maintenance)
+          : undefined,
+        "deletionPolicy": obj.deletionPolicy
+          ? model.DeletionPolicyDetails.getDeserializedJsonObj(obj.deletionPolicy)
           : undefined
       }
     };

@@ -95,6 +95,10 @@ export interface DatabaseInsightSummary {
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * A message describing the status of the database connection of this resource. For example, it can be used to provide actionable information about the permission and content validity of the database connection.
+   */
+  "databaseConnectionStatusDetails"?: string;
 
   "entitySource": string;
 }
@@ -113,6 +117,11 @@ export namespace DatabaseInsightSummary {
         case "AUTONOMOUS_DATABASE":
           return model.AutonomousDatabaseInsightSummary.getJsonObj(
             <model.AutonomousDatabaseInsightSummary>(<object>jsonObj),
+            true
+          );
+        case "PE_COMANAGED_DATABASE":
+          return model.PeComanagedDatabaseInsightSummary.getJsonObj(
+            <model.PeComanagedDatabaseInsightSummary>(<object>jsonObj),
             true
           );
         case "EM_MANAGED_EXTERNAL_DATABASE":
@@ -139,6 +148,11 @@ export namespace DatabaseInsightSummary {
         case "AUTONOMOUS_DATABASE":
           return model.AutonomousDatabaseInsightSummary.getDeserializedJsonObj(
             <model.AutonomousDatabaseInsightSummary>(<object>jsonObj),
+            true
+          );
+        case "PE_COMANAGED_DATABASE":
+          return model.PeComanagedDatabaseInsightSummary.getDeserializedJsonObj(
+            <model.PeComanagedDatabaseInsightSummary>(<object>jsonObj),
             true
           );
         case "EM_MANAGED_EXTERNAL_DATABASE":

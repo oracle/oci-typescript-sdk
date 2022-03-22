@@ -28,6 +28,7 @@ export interface UpdateDatabaseInsightRequest extends common.BaseRequest {
   "updateDatabaseInsightDetails":
     | model.UpdateMacsManagedExternalDatabaseInsightDetails
     | model.UpdateEmManagedExternalDatabaseInsightDetails
+    | model.UpdatePeComanagedDatabaseInsightDetails
     | model.UpdateAutonomousDatabaseInsightDetails;
   /**
    * Used for optimistic concurrency control. In the update or delete call for a resource, set the `if-match`
