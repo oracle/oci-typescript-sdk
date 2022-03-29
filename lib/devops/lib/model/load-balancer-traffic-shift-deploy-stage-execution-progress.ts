@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies the load balancer traffic shift stage execution details.
+ * Specifies the load balancer Traffic Shift stage execution details.
  */
 export interface LoadBalancerTrafficShiftDeployStageExecutionProgress
   extends model.DeployStageExecutionProgress {

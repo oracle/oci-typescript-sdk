@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface OcirDeployArtifactSource extends model.DeployArtifactSource {
   /**
-   * Specifies OCIR Image Path - optionally include tag.
+   * Specifies OCIR image path - optionally include tag.
    */
   "imageUri": string;
   /**

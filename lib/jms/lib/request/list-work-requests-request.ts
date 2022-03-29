@@ -28,6 +28,10 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "id"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the fleet.
+   */
+  "fleetId"?: string;
+  /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;

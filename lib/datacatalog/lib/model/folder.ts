@@ -123,6 +123,10 @@ export interface Folder {
    * URI to the folder instance in the API.
    */
   "uri"?: string;
+  /**
+   * URL of the folder in the object store.
+   */
+  "objectStorageUrl"?: string;
 }
 
 export namespace Folder {

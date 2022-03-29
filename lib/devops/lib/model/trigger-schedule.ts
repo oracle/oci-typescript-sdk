@@ -20,9 +20,9 @@ import common = require("oci-common");
 export interface TriggerSchedule {
   /**
    * Different types of trigger schedule:
-   * None - No automated synchronization schedule.
-   * Default - Trigger schedule is every 30 minutes.
-   * Custom - Custom triggering schedule.
+   * NONE - No automated synchronization schedule.
+   * DEFAULT - Trigger schedule is every 30 minutes.
+   * CUSTOM - Custom triggering schedule.
    *
    */
   "scheduleType": TriggerSchedule.ScheduleType;

@@ -27,7 +27,7 @@ export interface ListListingsRequest extends common.BaseRequest {
    */
   "listingId"?: string;
   /**
-   * Image ID of the listing
+   * The image identifier of the listing.
    */
   "imageId"?: string;
   /**

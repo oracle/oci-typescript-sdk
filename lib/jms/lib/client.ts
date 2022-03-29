@@ -146,6 +146,66 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Deletes the work request specified by an identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelWorkRequestRequest
+   * @return CancelWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   */
+  public async cancelWorkRequest(
+    cancelWorkRequestRequest: requests.CancelWorkRequestRequest
+  ): Promise<responses.CancelWorkRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#cancelWorkRequest.");
+    const pathParams = {
+      "{workRequestId}": cancelWorkRequestRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": cancelWorkRequestRequest.opcRequestId,
+      "if-match": cancelWorkRequestRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelWorkRequestResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Move a specified Fleet into the compartment identified in the POST form. When provided, If-Match is checked against ETag values of the resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -218,6 +278,81 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Add a new record to the fleet blocklist.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateBlocklistRequest
+   * @return CreateBlocklistResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateBlocklist.ts.html |here} to see how to use CreateBlocklist API.
+   */
+  public async createBlocklist(
+    createBlocklistRequest: requests.CreateBlocklistRequest
+  ): Promise<responses.CreateBlocklistResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#createBlocklist.");
+    const pathParams = {
+      "{fleetId}": createBlocklistRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createBlocklistRequest.opcRetryToken,
+      "opc-request-id": createBlocklistRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBlocklistRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/blocklists",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createBlocklistRequest.createBlocklistDetails,
+        "CreateBlocklistDetails",
+        model.CreateBlocklistDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateBlocklistResponse>{},
+        body: await response.json(),
+        bodyKey: "blocklist",
+        bodyModel: model.Blocklist,
+        type: "model.Blocklist",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a new Fleet using the information provided.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -272,6 +407,67 @@ export class JavaManagementServiceClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the blocklist record specified by an identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteBlocklistRequest
+   * @return DeleteBlocklistResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteBlocklist.ts.html |here} to see how to use DeleteBlocklist API.
+   */
+  public async deleteBlocklist(
+    deleteBlocklistRequest: requests.DeleteBlocklistRequest
+  ): Promise<responses.DeleteBlocklistResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#deleteBlocklist.");
+    const pathParams = {
+      "{fleetId}": deleteBlocklistRequest.fleetId,
+      "{blocklistKey}": deleteBlocklistRequest.blocklistKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteBlocklistRequest.ifMatch,
+      "opc-request-id": deleteBlocklistRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBlocklistRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/blocklists/{blocklistKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteBlocklistResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -546,6 +742,87 @@ export class JavaManagementServiceClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of blocklist entities contained by a fleet.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListBlocklistsRequest
+   * @return ListBlocklistsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListBlocklists.ts.html |here} to see how to use ListBlocklists API.
+   */
+  public async listBlocklists(
+    listBlocklistsRequest: requests.ListBlocklistsRequest
+  ): Promise<responses.ListBlocklistsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listBlocklists.");
+    const pathParams = {
+      "{fleetId}": listBlocklistsRequest.fleetId
+    };
+
+    const queryParams = {
+      "operation": listBlocklistsRequest.operation,
+      "managedInstanceId": listBlocklistsRequest.managedInstanceId,
+      "limit": listBlocklistsRequest.limit,
+      "page": listBlocklistsRequest.page,
+      "sortOrder": listBlocklistsRequest.sortOrder,
+      "sortBy": listBlocklistsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBlocklistsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBlocklistsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/blocklists",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBlocklistsResponse>{},
+        body: await response.json(),
+        bodyKey: "blocklistCollection",
+        bodyModel: model.BlocklistCollection,
+        type: "model.BlocklistCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
           }
         ]
       });
@@ -633,6 +910,87 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * List Java installation sites in a Fleet filtered by query parameters.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListInstallationSitesRequest
+   * @return ListInstallationSitesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListInstallationSites.ts.html |here} to see how to use ListInstallationSites API.
+   */
+  public async listInstallationSites(
+    listInstallationSitesRequest: requests.ListInstallationSitesRequest
+  ): Promise<responses.ListInstallationSitesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listInstallationSites.");
+    const pathParams = {
+      "{fleetId}": listInstallationSitesRequest.fleetId
+    };
+
+    const queryParams = {
+      "jreVendor": listInstallationSitesRequest.jreVendor,
+      "jreDistribution": listInstallationSitesRequest.jreDistribution,
+      "jreVersion": listInstallationSitesRequest.jreVersion,
+      "installationPath": listInstallationSitesRequest.installationPath,
+      "applicationId": listInstallationSitesRequest.applicationId,
+      "managedInstanceId": listInstallationSitesRequest.managedInstanceId,
+      "limit": listInstallationSitesRequest.limit,
+      "page": listInstallationSitesRequest.page,
+      "sortOrder": listInstallationSitesRequest.sortOrder,
+      "sortBy": listInstallationSitesRequest.sortBy,
+      "osFamily": listInstallationSitesRequest.osFamily,
+      "jreSecurityStatus": listInstallationSitesRequest.jreSecurityStatus
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInstallationSitesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstallationSitesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/installationSites",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInstallationSitesResponse>{},
+        body: await response.json(),
+        bodyKey: "installationSiteCollection",
+        bodyModel: model.InstallationSiteCollection,
+        type: "model.InstallationSiteCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List Java Runtime usage in a specified host filtered by query parameters.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListJreUsageRequest
@@ -698,6 +1056,78 @@ export class JavaManagementServiceClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve a (paginated) list of work items for a specified work request.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListWorkItemsRequest
+   * @return ListWorkItemsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListWorkItems.ts.html |here} to see how to use ListWorkItems API.
+   */
+  public async listWorkItems(
+    listWorkItemsRequest: requests.ListWorkItemsRequest
+  ): Promise<responses.ListWorkItemsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listWorkItems.");
+    const pathParams = {
+      "{workRequestId}": listWorkItemsRequest.workRequestId
+    };
+
+    const queryParams = {
+      "page": listWorkItemsRequest.page,
+      "limit": listWorkItemsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkItemsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkItemsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/workItems",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkItemsResponse>{},
+        body: await response.json(),
+        bodyKey: "workItemCollection",
+        bodyModel: model.WorkItemCollection,
+        type: "model.WorkItemCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -854,7 +1284,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * List the work requests in a compartment. The query parameter `compartmentId` is required unless the query parameter `id` is specified.
+   * List the work requests in a compartment. The query parameter `compartmentId` is required unless the query parameter `id` or `fleetId` is specified.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
@@ -872,6 +1302,7 @@ export class JavaManagementServiceClient {
     const queryParams = {
       "compartmentId": listWorkRequestsRequest.compartmentId,
       "id": listWorkRequestsRequest.id,
+      "fleetId": listWorkRequestsRequest.fleetId,
       "page": listWorkRequestsRequest.page,
       "limit": listWorkRequestsRequest.limit
     };
@@ -914,6 +1345,79 @@ export class JavaManagementServiceClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove Java installation sites in a Fleet.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveFleetInstallationSitesRequest
+   * @return RemoveFleetInstallationSitesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RemoveFleetInstallationSites.ts.html |here} to see how to use RemoveFleetInstallationSites API.
+   */
+  public async removeFleetInstallationSites(
+    removeFleetInstallationSitesRequest: requests.RemoveFleetInstallationSitesRequest
+  ): Promise<responses.RemoveFleetInstallationSitesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#removeFleetInstallationSites."
+      );
+    const pathParams = {
+      "{fleetId}": removeFleetInstallationSitesRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeFleetInstallationSitesRequest.ifMatch,
+      "opc-retry-token": removeFleetInstallationSitesRequest.opcRetryToken,
+      "opc-request-id": removeFleetInstallationSitesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeFleetInstallationSitesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/removeInstallationSites",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeFleetInstallationSitesRequest.removeFleetInstallationSitesDetails,
+        "RemoveFleetInstallationSitesDetails",
+        model.RemoveFleetInstallationSitesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveFleetInstallationSitesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

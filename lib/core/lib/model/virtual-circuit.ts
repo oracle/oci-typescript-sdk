@@ -85,6 +85,16 @@ Example: `10 Gbps`
    */
   "routingPolicy"?: Array<VirtualCircuit.RoutingPolicy>;
   /**
+   * Set to ENABLED to activate the  bgp session of virtual circuit, DISABLED to deactivate.
+   *
+   */
+  "bgpAdminState"?: VirtualCircuit.BgpAdminState;
+  /**
+   * Set to true to enable BFD for ipv4 Bgp Peering, false to disable. If not set, default is false
+   *
+   */
+  "isBfdEnabled"?: boolean;
+  /**
    * Deprecated. Instead use `customerAsn`.
    * If you specify values for both, the request will be rejected.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -252,6 +262,16 @@ export namespace VirtualCircuit {
     Regional = "REGIONAL",
     MarketLevel = "MARKET_LEVEL",
     Global = "GLOBAL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum BgpAdminState {
+    Enabled = "ENABLED",
+    Disabled = "DISABLED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

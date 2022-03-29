@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies the Compute instance group environment filtered by DSL expression of the compute instances.
+ * Specifies the Compute instance group environment filtered by the RQS query expression.
  */
 export interface ComputeInstanceGroupByQuerySelector extends model.ComputeInstanceGroupSelector {
   /**

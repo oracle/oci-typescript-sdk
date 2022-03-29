@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ComputeInstanceGroupSelectorCollection {
   /**
-   * A list of selectors for the instance group. UNION operator is used for combining the instances selected by each selector.
+   * A list of selectors for the instance group. Union operator is used for combining the instances selected by each selector.
    */
   "items": Array<model.ComputeInstanceGroupSelector>;
 }

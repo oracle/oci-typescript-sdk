@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies the execution details for the instance group rolling deployment stage.
+ * Specifies the execution details for the Instance Group Rolling deployment stage.
  */
 export interface ComputeInstanceGroupDeployStageExecutionProgress
   extends model.DeployStageExecutionProgress {

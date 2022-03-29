@@ -98,6 +98,10 @@ export interface Listing {
   "icon"?: model.UploadData;
   "banner"?: model.UploadData;
   /**
+   * The list of compatible architectures supported by the listing
+   */
+  "compatibleArchitectures"?: Array<Listing.CompatibleArchitectures>;
+  /**
    * The regions where you can deploy the listing. (Some listings have restrictions that limit their deployment to United States regions only.)
    *
    */
@@ -129,6 +133,16 @@ export interface Listing {
 }
 
 export namespace Listing {
+  export enum CompatibleArchitectures {
+    X86 = "X86",
+    Arm = "ARM",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Listing): object {
     const jsonObj = {
       ...obj,
@@ -166,6 +180,7 @@ export namespace Listing {
           : undefined,
         "icon": obj.icon ? model.UploadData.getJsonObj(obj.icon) : undefined,
         "banner": obj.banner ? model.UploadData.getJsonObj(obj.banner) : undefined,
+
         "regions": obj.regions
           ? obj.regions.map(item => {
               return model.Region.getJsonObj(item);
@@ -227,6 +242,7 @@ export namespace Listing {
           : undefined,
         "icon": obj.icon ? model.UploadData.getDeserializedJsonObj(obj.icon) : undefined,
         "banner": obj.banner ? model.UploadData.getDeserializedJsonObj(obj.banner) : undefined,
+
         "regions": obj.regions
           ? obj.regions.map(item => {
               return model.Region.getDeserializedJsonObj(item);

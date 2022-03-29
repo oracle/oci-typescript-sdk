@@ -15,7 +15,10 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies config for load balancer traffic shift stages.
+ * Specifies configuration for load balancer traffic shift stages.
+ * The load balancer specified here should be an Application load balancer type.
+ * Network load balancers are not supported.
+ *
  */
 export interface LoadBalancerConfig {
   /**

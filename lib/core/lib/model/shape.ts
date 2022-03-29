@@ -59,6 +59,11 @@ export interface Shape {
    */
   "memoryInGBs"?: number;
   /**
+   * The number of physical network interface card (NIC) ports available for this shape.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "networkPorts"?: number;
+  /**
    * The networking bandwidth available for this shape, in gigabits per second.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -99,6 +104,19 @@ If the shape does not have any local disks, this field is `null`.
 * 
     */
   "localDiskDescription"?: string;
+  /**
+   * The number of networking ports available for the remote direct memory access (RDMA) network between nodes in
+   * a high performance computing (HPC) cluster network. If the shape does not support cluster networks, this
+   * value is `0`.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "rdmaPorts"?: number;
+  /**
+   * The networking bandwidth available for the remote direct memory access (RDMA) network for this shape, in
+   * gigabits per second.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "rdmaBandwidthInGbps"?: number;
   /**
    * Whether live migration is supported for this shape.
    *

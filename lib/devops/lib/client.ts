@@ -2850,7 +2850,7 @@ export class DevopsClient {
   }
 
   /**
-   * Gets the line-by-line difference between files on different commits.
+   * Gets the line-by-line difference between file on different commits. This API will be deprecated on Wed, 29 Mar 2023 01:00:00 GMT as it does not get recognized when filePath has '/'. This will be replaced by \"/repositories/{repositoryId}/file/diffs\"
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFileDiffRequest
@@ -2911,6 +2911,11 @@ export class DevopsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Sunset"),
+            key: "sunset",
             dataType: "string"
           }
         ]
@@ -3272,6 +3277,152 @@ export class DevopsClient {
   }
 
   /**
+   * Gets the line-by-line difference between file on different commits.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetRepoFileDiffRequest
+   * @return GetRepoFileDiffResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepoFileDiff.ts.html |here} to see how to use GetRepoFileDiff API.
+   */
+  public async getRepoFileDiff(
+    getRepoFileDiffRequest: requests.GetRepoFileDiffRequest
+  ): Promise<responses.GetRepoFileDiffResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getRepoFileDiff.");
+    const pathParams = {
+      "{repositoryId}": getRepoFileDiffRequest.repositoryId
+    };
+
+    const queryParams = {
+      "filePath": getRepoFileDiffRequest.filePath,
+      "baseVersion": getRepoFileDiffRequest.baseVersion,
+      "targetVersion": getRepoFileDiffRequest.targetVersion,
+      "isComparisonFromMergeBase": getRepoFileDiffRequest.isComparisonFromMergeBase
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRepoFileDiffRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRepoFileDiffRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/file/diffs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRepoFileDiffResponse>{},
+        body: await response.json(),
+        bodyKey: "fileDiffResponse",
+        bodyModel: model.FileDiffResponse,
+        type: "model.FileDiffResponse",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve lines of a specified file. Supports starting line number and limit.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetRepoFileLinesRequest
+   * @return GetRepoFileLinesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepoFileLines.ts.html |here} to see how to use GetRepoFileLines API.
+   */
+  public async getRepoFileLines(
+    getRepoFileLinesRequest: requests.GetRepoFileLinesRequest
+  ): Promise<responses.GetRepoFileLinesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getRepoFileLines.");
+    const pathParams = {
+      "{repositoryId}": getRepoFileLinesRequest.repositoryId
+    };
+
+    const queryParams = {
+      "filePath": getRepoFileLinesRequest.filePath,
+      "revision": getRepoFileLinesRequest.revision,
+      "startLineNumber": getRepoFileLinesRequest.startLineNumber,
+      "limit": getRepoFileLinesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRepoFileLinesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRepoFileLinesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/file/lines",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRepoFileLinesResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryFileLines",
+        bodyModel: model.RepositoryFileLines,
+        type: "model.RepositoryFileLines",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a repository by identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRepositoryRequest
@@ -3418,7 +3569,7 @@ export class DevopsClient {
   }
 
   /**
-   * Retrieve lines of a specified file. Supports starting line number and limit.
+   * Retrieve lines of a specified file. Supports starting line number and limit. This API will be deprecated on Wed, 29 Mar 2023 01:00:00 GMT as it does not get recognized when filePath has '/'. This will be replaced by \"/repositories/{repositoryId}/file/lines\"
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRepositoryFileLinesRequest
@@ -3479,6 +3630,11 @@ export class DevopsClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Sunset"),
+            key: "sunset",
             dataType: "string"
           }
         ]

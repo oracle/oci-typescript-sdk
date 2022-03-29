@@ -24,7 +24,8 @@ export interface CreateDeploymentRequest extends common.BaseRequest {
   "createDeploymentDetails":
     | model.CreateDeployPipelineRedeploymentDetails
     | model.CreateDeployPipelineDeploymentDetails
-    | model.CreateSingleDeployStageDeploymentDetails;
+    | model.CreateSingleDeployStageDeploymentDetails
+    | model.CreateSingleDeployStageRedeploymentDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again. Retry tokens expire after 24 hours, but can be invalidated earlier due to conflicting operations. For example, if a resource has been deleted and purged from the system, then a retry of the original creation request might be rejected.
    */

@@ -26,6 +26,11 @@ export interface GetWorkRequestResponse {
    */
   "retryAfter": number;
   /**
+   * For optimistic concurrency control. See `if-match`.
+   *
+   */
+  "etag": string;
+  /**
    * The returned model.WorkRequest instance.
    */
   "workRequest": model.WorkRequest;

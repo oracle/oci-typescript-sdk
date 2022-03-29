@@ -30,6 +30,14 @@ export interface RepositoryRef {
    * The OCID of the repository containing the reference.
    */
   "repositoryId": string;
+  /**
+   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.  See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"bar-key\": \"value\"}`
+   */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace. See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
 
   "refType": string;
 }

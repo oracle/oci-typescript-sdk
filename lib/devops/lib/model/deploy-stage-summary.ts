@@ -88,14 +88,24 @@ export namespace DeployStageSummary {
 
     if ("deployStageType" in obj && obj.deployStageType) {
       switch (obj.deployStageType) {
+        case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_DEPLOYMENT":
+          return model.ComputeInstanceGroupBlueGreenDeployStageSummary.getJsonObj(
+            <model.ComputeInstanceGroupBlueGreenDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_TRAFFIC_SHIFT":
+          return model.ComputeInstanceGroupBlueGreenTrafficShiftDeployStageSummary.getJsonObj(
+            <model.ComputeInstanceGroupBlueGreenTrafficShiftDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "OKE_BLUE_GREEN_DEPLOYMENT":
+          return model.OkeBlueGreenDeployStageSummary.getJsonObj(
+            <model.OkeBlueGreenDeployStageSummary>(<object>jsonObj),
+            true
+          );
         case "WAIT":
           return model.WaitDeployStageSummary.getJsonObj(
             <model.WaitDeployStageSummary>(<object>jsonObj),
-            true
-          );
-        case "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT":
-          return model.ComputeInstanceGroupDeployStageSummary.getJsonObj(
-            <model.ComputeInstanceGroupDeployStageSummary>(<object>jsonObj),
             true
           );
         case "OKE_DEPLOYMENT":
@@ -103,9 +113,39 @@ export namespace DeployStageSummary {
             <model.OkeDeployStageSummary>(<object>jsonObj),
             true
           );
+        case "COMPUTE_INSTANCE_GROUP_CANARY_APPROVAL":
+          return model.ComputeInstanceGroupCanaryApprovalDeployStageSummary.getJsonObj(
+            <model.ComputeInstanceGroupCanaryApprovalDeployStageSummary>(<object>jsonObj),
+            true
+          );
         case "INVOKE_FUNCTION":
           return model.InvokeFunctionDeployStageSummary.getJsonObj(
             <model.InvokeFunctionDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "OKE_CANARY_TRAFFIC_SHIFT":
+          return model.OkeCanaryTrafficShiftDeployStageSummary.getJsonObj(
+            <model.OkeCanaryTrafficShiftDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT":
+          return model.ComputeInstanceGroupDeployStageSummary.getJsonObj(
+            <model.ComputeInstanceGroupDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_CANARY_DEPLOYMENT":
+          return model.ComputeInstanceGroupCanaryDeployStageSummary.getJsonObj(
+            <model.ComputeInstanceGroupCanaryDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "OKE_CANARY_APPROVAL":
+          return model.OkeCanaryApprovalDeployStageSummary.getJsonObj(
+            <model.OkeCanaryApprovalDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "OKE_CANARY_DEPLOYMENT":
+          return model.OkeCanaryDeployStageSummary.getJsonObj(
+            <model.OkeCanaryDeployStageSummary>(<object>jsonObj),
             true
           );
         case "LOAD_BALANCER_TRAFFIC_SHIFT":
@@ -118,9 +158,19 @@ export namespace DeployStageSummary {
             <model.ManualApprovalDeployStageSummary>(<object>jsonObj),
             true
           );
+        case "OKE_BLUE_GREEN_TRAFFIC_SHIFT":
+          return model.OkeBlueGreenTrafficShiftDeployStageSummary.getJsonObj(
+            <model.OkeBlueGreenTrafficShiftDeployStageSummary>(<object>jsonObj),
+            true
+          );
         case "DEPLOY_FUNCTION":
           return model.FunctionDeployStageSummary.getJsonObj(
             <model.FunctionDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_CANARY_TRAFFIC_SHIFT":
+          return model.ComputeInstanceGroupCanaryTrafficShiftDeployStageSummary.getJsonObj(
+            <model.ComputeInstanceGroupCanaryTrafficShiftDeployStageSummary>(<object>jsonObj),
             true
           );
         default:
@@ -143,14 +193,24 @@ export namespace DeployStageSummary {
 
     if ("deployStageType" in obj && obj.deployStageType) {
       switch (obj.deployStageType) {
+        case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_DEPLOYMENT":
+          return model.ComputeInstanceGroupBlueGreenDeployStageSummary.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupBlueGreenDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_TRAFFIC_SHIFT":
+          return model.ComputeInstanceGroupBlueGreenTrafficShiftDeployStageSummary.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupBlueGreenTrafficShiftDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "OKE_BLUE_GREEN_DEPLOYMENT":
+          return model.OkeBlueGreenDeployStageSummary.getDeserializedJsonObj(
+            <model.OkeBlueGreenDeployStageSummary>(<object>jsonObj),
+            true
+          );
         case "WAIT":
           return model.WaitDeployStageSummary.getDeserializedJsonObj(
             <model.WaitDeployStageSummary>(<object>jsonObj),
-            true
-          );
-        case "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT":
-          return model.ComputeInstanceGroupDeployStageSummary.getDeserializedJsonObj(
-            <model.ComputeInstanceGroupDeployStageSummary>(<object>jsonObj),
             true
           );
         case "OKE_DEPLOYMENT":
@@ -158,9 +218,39 @@ export namespace DeployStageSummary {
             <model.OkeDeployStageSummary>(<object>jsonObj),
             true
           );
+        case "COMPUTE_INSTANCE_GROUP_CANARY_APPROVAL":
+          return model.ComputeInstanceGroupCanaryApprovalDeployStageSummary.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupCanaryApprovalDeployStageSummary>(<object>jsonObj),
+            true
+          );
         case "INVOKE_FUNCTION":
           return model.InvokeFunctionDeployStageSummary.getDeserializedJsonObj(
             <model.InvokeFunctionDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "OKE_CANARY_TRAFFIC_SHIFT":
+          return model.OkeCanaryTrafficShiftDeployStageSummary.getDeserializedJsonObj(
+            <model.OkeCanaryTrafficShiftDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT":
+          return model.ComputeInstanceGroupDeployStageSummary.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_CANARY_DEPLOYMENT":
+          return model.ComputeInstanceGroupCanaryDeployStageSummary.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupCanaryDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "OKE_CANARY_APPROVAL":
+          return model.OkeCanaryApprovalDeployStageSummary.getDeserializedJsonObj(
+            <model.OkeCanaryApprovalDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "OKE_CANARY_DEPLOYMENT":
+          return model.OkeCanaryDeployStageSummary.getDeserializedJsonObj(
+            <model.OkeCanaryDeployStageSummary>(<object>jsonObj),
             true
           );
         case "LOAD_BALANCER_TRAFFIC_SHIFT":
@@ -173,9 +263,19 @@ export namespace DeployStageSummary {
             <model.ManualApprovalDeployStageSummary>(<object>jsonObj),
             true
           );
+        case "OKE_BLUE_GREEN_TRAFFIC_SHIFT":
+          return model.OkeBlueGreenTrafficShiftDeployStageSummary.getDeserializedJsonObj(
+            <model.OkeBlueGreenTrafficShiftDeployStageSummary>(<object>jsonObj),
+            true
+          );
         case "DEPLOY_FUNCTION":
           return model.FunctionDeployStageSummary.getDeserializedJsonObj(
             <model.FunctionDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_GROUP_CANARY_TRAFFIC_SHIFT":
+          return model.ComputeInstanceGroupCanaryTrafficShiftDeployStageSummary.getDeserializedJsonObj(
+            <model.ComputeInstanceGroupCanaryTrafficShiftDeployStageSummary>(<object>jsonObj),
             true
           );
         default:

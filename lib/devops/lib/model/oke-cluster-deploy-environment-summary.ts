@@ -22,6 +22,7 @@ export interface OkeClusterDeployEnvironmentSummary extends model.DeployEnvironm
    * The OCID of the Kubernetes cluster.
    */
   "clusterId": string;
+  "networkChannel"?: model.PrivateEndpointChannel;
 
   "deployEnvironmentType": string;
 }
@@ -35,7 +36,11 @@ export namespace OkeClusterDeployEnvironmentSummary {
       ...(isParentJsonObj
         ? obj
         : (model.DeployEnvironmentSummary.getJsonObj(obj) as OkeClusterDeployEnvironmentSummary)),
-      ...{}
+      ...{
+        "networkChannel": obj.networkChannel
+          ? model.NetworkChannel.getJsonObj(obj.networkChannel)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -51,7 +56,11 @@ export namespace OkeClusterDeployEnvironmentSummary {
         : (model.DeployEnvironmentSummary.getDeserializedJsonObj(
             obj
           ) as OkeClusterDeployEnvironmentSummary)),
-      ...{}
+      ...{
+        "networkChannel": obj.networkChannel
+          ? model.NetworkChannel.getDeserializedJsonObj(obj.networkChannel)
+          : undefined
+      }
     };
 
     return jsonObj;

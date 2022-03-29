@@ -66,6 +66,10 @@ export interface CreateFolderDetails {
    * Folder harvesting status.
    */
   "harvestStatus"?: model.HarvestStatus;
+  /**
+   * Type key of the object. Type keys can be found via the '/types' endpoint.
+   */
+  "typeKey"?: string;
 }
 
 export namespace CreateFolderDetails {

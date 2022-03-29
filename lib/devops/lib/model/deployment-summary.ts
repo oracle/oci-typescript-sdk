@@ -105,6 +105,11 @@ export namespace DeploymentSummary {
             <model.DeployPipelineDeploymentSummary>(<object>jsonObj),
             true
           );
+        case "SINGLE_STAGE_REDEPLOYMENT":
+          return model.SingleDeployStageRedeploymentSummary.getJsonObj(
+            <model.SingleDeployStageRedeploymentSummary>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.deploymentType);
       }
@@ -141,6 +146,11 @@ export namespace DeploymentSummary {
         case "PIPELINE_DEPLOYMENT":
           return model.DeployPipelineDeploymentSummary.getDeserializedJsonObj(
             <model.DeployPipelineDeploymentSummary>(<object>jsonObj),
+            true
+          );
+        case "SINGLE_STAGE_REDEPLOYMENT":
+          return model.SingleDeployStageRedeploymentSummary.getDeserializedJsonObj(
+            <model.SingleDeployStageRedeploymentSummary>(<object>jsonObj),
             true
           );
         default:

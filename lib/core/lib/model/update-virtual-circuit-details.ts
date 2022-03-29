@@ -47,6 +47,16 @@ The customer and provider can update different properties in the mapping
    */
   "routingPolicy"?: Array<UpdateVirtualCircuitDetails.RoutingPolicy>;
   /**
+   * Set to ENABLED to activate the bgp session of virtual circuit, DISABLED to deactivate.
+   *
+   */
+  "bgpAdminState"?: UpdateVirtualCircuitDetails.BgpAdminState;
+  /**
+   * Set to true to enable BFD for ipv4 Bgp Peering, false to disable. If not set, default is false
+   *
+   */
+  "isBfdEnabled"?: boolean;
+  /**
    * Deprecated. Instead use `customerAsn`.
    * If you specify values for both, the request will be rejected.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -134,6 +144,11 @@ export namespace UpdateVirtualCircuitDetails {
     Regional = "REGIONAL",
     MarketLevel = "MARKET_LEVEL",
     Global = "GLOBAL"
+  }
+
+  export enum BgpAdminState {
+    Enabled = "ENABLED",
+    Disabled = "DISABLED"
   }
 
   export enum ProviderState {

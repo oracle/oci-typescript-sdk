@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details about each step in a Build stage.
+ * The details about each step in a build stage.
  */
 export interface BuildStageRunStep {
   /**

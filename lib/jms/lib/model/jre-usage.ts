@@ -71,6 +71,10 @@ export interface JreUsage {
    */
   "approximateManagedInstanceCount"?: number;
   /**
+   * The approximate count of work requests working on this Java Runtime. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "approximatePendingWorkRequestCount"?: number;
+  /**
    * Lower bound of the specified time period filter. JMS provides a view of the data that is _per day_. The query uses only the date element of the parameter.
    */
   "timeStart"?: Date;

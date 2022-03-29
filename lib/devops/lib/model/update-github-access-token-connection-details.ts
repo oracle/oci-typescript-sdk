@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface UpdateGithubAccessTokenConnectionDetails extends model.UpdateConnectionDetails {
   /**
-   * The OCID of personal access token saved in secret store.
+   * OCID of personal access token saved in secret store
    */
   "accessToken"?: string;
 

@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface ComputeInstanceGroupFailurePolicyByPercentage
   extends model.ComputeInstanceGroupFailurePolicy {
   /**
-   * The failure percentage threshold, which when reached or exceeded sets the stage as FAILED. Percentage is computed as the ceiling value of the number of failed instances over the total count of the instances in the group. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The failure percentage threshold, which when reached or exceeded sets the stage as Failed. Percentage is computed as the ceiling value of the number of failed instances over the total count of the instances in the group. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "failurePercentage": number;
 

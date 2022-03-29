@@ -30,6 +30,8 @@ export interface CreateFleetDetails {
    * The Fleet's description. If nothing is provided, the Fleet description will be null.
    */
   "description"?: string;
+  "inventoryLog"?: model.CustomLog;
+  "operationLog"?: model.CustomLog;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`. (See [Understanding Free-form Tags](https://docs.cloud.oracle.com/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm)).
@@ -46,12 +48,28 @@ export interface CreateFleetDetails {
 
 export namespace CreateFleetDetails {
   export function getJsonObj(obj: CreateFleetDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "inventoryLog": obj.inventoryLog ? model.CustomLog.getJsonObj(obj.inventoryLog) : undefined,
+        "operationLog": obj.operationLog ? model.CustomLog.getJsonObj(obj.operationLog) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateFleetDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "inventoryLog": obj.inventoryLog
+          ? model.CustomLog.getDeserializedJsonObj(obj.inventoryLog)
+          : undefined,
+        "operationLog": obj.operationLog
+          ? model.CustomLog.getDeserializedJsonObj(obj.operationLog)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

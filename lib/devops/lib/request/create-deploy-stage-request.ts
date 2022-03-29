@@ -19,16 +19,26 @@ import common = require("oci-common");
  */
 export interface CreateDeployStageRequest extends common.BaseRequest {
   /**
-   * Details for the new DeployStage.
+   * Details for the new deployment stage.
    */
   "createDeployStageDetails":
-    | model.CreateManualApprovalDeployStageDetails
+    | model.CreateOkeCanaryTrafficShiftDeployStageDetails
+    | model.CreateOkeBlueGreenTrafficShiftDeployStageDetails
+    | model.CreateComputeInstanceGroupCanaryDeployStageDetails
     | model.CreateWaitDeployStageDetails
-    | model.CreateOkeDeployStageDetails
     | model.CreateLoadBalancerTrafficShiftDeployStageDetails
+    | model.CreateComputeInstanceGroupBlueGreenTrafficShiftDeployStageDetails
+    | model.CreateOkeBlueGreenDeployStageDetails
     | model.CreateComputeInstanceGroupDeployStageDetails
     | model.CreateInvokeFunctionDeployStageDetails
-    | model.CreateFunctionDeployStageDetails;
+    | model.CreateFunctionDeployStageDetails
+    | model.CreateOkeCanaryDeployStageDetails
+    | model.CreateComputeInstanceGroupCanaryTrafficShiftDeployStageDetails
+    | model.CreateComputeInstanceGroupCanaryApprovalDeployStageDetails
+    | model.CreateManualApprovalDeployStageDetails
+    | model.CreateOkeDeployStageDetails
+    | model.CreateComputeInstanceGroupBlueGreenDeployStageDetails
+    | model.CreateOkeCanaryApprovalDeployStageDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again. Retry tokens expire after 24 hours, but can be invalidated earlier due to conflicting operations. For example, if a resource has been deleted and purged from the system, then a retry of the original creation request might be rejected.
    */

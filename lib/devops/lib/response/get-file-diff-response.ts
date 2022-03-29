@@ -24,6 +24,10 @@ export interface GetFileDiffResponse {
    */
   "opcRequestId": string;
   /**
+   * This API will be deprecated on Wed, 29 Mar 2023 01:00:00 GMT. Please use \"/repositories/{repositoryId}/file/diffs\"
+   */
+  "sunset": string;
+  /**
    * The returned model.FileDiffResponse instance.
    */
   "fileDiffResponse": model.FileDiffResponse;

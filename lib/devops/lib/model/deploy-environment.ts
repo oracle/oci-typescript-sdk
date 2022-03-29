@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The target OCI resources, such as Compute instances, Container Engine for Kubernetes(OKE) clusters, or Function, where artifacts will be deployed.
+ * The target OCI resources, such as Compute instances, Container Engine for Kubernetes(OKE) clusters, or Function, where artifacts are deployed.
  */
 export interface DeployEnvironment {
   /**
@@ -78,6 +78,7 @@ export namespace DeployEnvironment {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    NeedsAttention = "NEEDS_ATTENTION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

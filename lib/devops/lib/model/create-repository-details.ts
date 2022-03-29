@@ -33,7 +33,7 @@ export interface CreateRepositoryDetails {
   /**
    * Type of repository.
    */
-  "repositoryType"?: string;
+  "repositoryType": string;
   "mirrorRepositoryConfig"?: model.MirrorRepositoryConfig;
   /**
    * Details of the repository. Avoid entering confidential information.
