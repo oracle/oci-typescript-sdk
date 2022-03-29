@@ -74,9 +74,18 @@ export interface FolderSummary {
    */
   "timeCreated"?: Date;
   /**
+   * The date and time the folder was last updated, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339). Example: 2019-03-25T21:10:29.600Z
+   *
+   */
+  "timeUpdated"?: Date;
+  /**
    * URI of the folder resource within the data catalog API.
    */
   "uri"?: string;
+  /**
+   * URL of the folder in the object store.
+   */
+  "objectStorageUrl"?: string;
   /**
    * State of the folder.
    */

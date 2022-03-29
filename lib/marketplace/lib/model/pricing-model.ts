@@ -34,16 +34,31 @@ export interface PricingModel {
    * The pricing rate. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rate"?: number;
+  "internationalMarketPrice"?: model.InternationalMarketPrice;
 }
 
 export namespace PricingModel {
   export function getJsonObj(obj: PricingModel): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "internationalMarketPrice": obj.internationalMarketPrice
+          ? model.InternationalMarketPrice.getJsonObj(obj.internationalMarketPrice)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: PricingModel): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "internationalMarketPrice": obj.internationalMarketPrice
+          ? model.InternationalMarketPrice.getDeserializedJsonObj(obj.internationalMarketPrice)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

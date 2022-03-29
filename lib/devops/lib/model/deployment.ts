@@ -117,6 +117,11 @@ export namespace Deployment {
 
     if ("deploymentType" in obj && obj.deploymentType) {
       switch (obj.deploymentType) {
+        case "SINGLE_STAGE_REDEPLOYMENT":
+          return model.SingleDeployStageRedeployment.getJsonObj(
+            <model.SingleDeployStageRedeployment>(<object>jsonObj),
+            true
+          );
         case "PIPELINE_DEPLOYMENT":
           return model.DeployPipelineDeployment.getJsonObj(
             <model.DeployPipelineDeployment>(<object>jsonObj),
@@ -171,6 +176,11 @@ export namespace Deployment {
 
     if ("deploymentType" in obj && obj.deploymentType) {
       switch (obj.deploymentType) {
+        case "SINGLE_STAGE_REDEPLOYMENT":
+          return model.SingleDeployStageRedeployment.getDeserializedJsonObj(
+            <model.SingleDeployStageRedeployment>(<object>jsonObj),
+            true
+          );
         case "PIPELINE_DEPLOYMENT":
           return model.DeployPipelineDeployment.getDeserializedJsonObj(
             <model.DeployPipelineDeployment>(<object>jsonObj),

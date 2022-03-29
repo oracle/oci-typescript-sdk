@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies the invoke function stage specific execution details.
+ * Specifies the Invoke Function stage specific execution details.
  */
 export interface InvokeFunctionDeployStageExecutionProgress
   extends model.DeployStageExecutionProgress {

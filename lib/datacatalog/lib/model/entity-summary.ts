@@ -103,6 +103,10 @@ export interface EntitySummary {
    */
   "uri"?: string;
   /**
+   * URL of the data entity in the object store.
+   */
+  "objectStorageUrl"?: string;
+  /**
    * State of the data entity.
    */
   "lifecycleState"?: model.LifecycleState;

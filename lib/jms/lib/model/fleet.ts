@@ -60,6 +60,8 @@ export interface Fleet {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateManagedInstanceCount": number;
+  "inventoryLog"?: model.CustomLog;
+  "operationLog"?: model.CustomLog;
   /**
    * The creation date and time of the Fleet (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    *
@@ -94,12 +96,28 @@ Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
 
 export namespace Fleet {
   export function getJsonObj(obj: Fleet): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "inventoryLog": obj.inventoryLog ? model.CustomLog.getJsonObj(obj.inventoryLog) : undefined,
+        "operationLog": obj.operationLog ? model.CustomLog.getJsonObj(obj.operationLog) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: Fleet): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "inventoryLog": obj.inventoryLog
+          ? model.CustomLog.getDeserializedJsonObj(obj.inventoryLog)
+          : undefined,
+        "operationLog": obj.operationLog
+          ? model.CustomLog.getDeserializedJsonObj(obj.operationLog)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

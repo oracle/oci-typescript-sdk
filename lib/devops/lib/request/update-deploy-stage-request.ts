@@ -26,12 +26,22 @@ export interface UpdateDeployStageRequest extends common.BaseRequest {
    * The information to be updated.
    */
   "updateDeployStageDetails":
-    | model.UpdateOkeDeployStageDetails
-    | model.UpdateLoadBalancerTrafficShiftDeployStageDetails
+    | model.UpdateOkeCanaryTrafficShiftDeployStageDetails
+    | model.UpdateOkeCanaryDeployStageDetails
     | model.UpdateComputeInstanceGroupDeployStageDetails
+    | model.UpdateOkeCanaryApprovalDeployStageDetails
+    | model.UpdateOkeDeployStageDetails
+    | model.UpdateComputeInstanceGroupCanaryApprovalDeployStageDetails
+    | model.UpdateLoadBalancerTrafficShiftDeployStageDetails
+    | model.UpdateOkeBlueGreenDeployStageDetails
     | model.UpdateWaitDeployStageDetails
+    | model.UpdateOkeBlueGreenTrafficShiftDeployStageDetails
     | model.UpdateManualApprovalDeployStageDetails
+    | model.UpdateComputeInstanceGroupBlueGreenDeployStageDetails
+    | model.UpdateComputeInstanceGroupCanaryDeployStageDetails
     | model.UpdateFunctionDeployStageDetails
+    | model.UpdateComputeInstanceGroupBlueGreenTrafficShiftDeployStageDetails
+    | model.UpdateComputeInstanceGroupCanaryTrafficShiftDeployStageDetails
     | model.UpdateInvokeFunctionDeployStageDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.

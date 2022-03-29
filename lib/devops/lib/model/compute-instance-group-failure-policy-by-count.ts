@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface ComputeInstanceGroupFailurePolicyByCount
   extends model.ComputeInstanceGroupFailurePolicy {
   /**
-   * The threshold count of failed instances in the group, which when reached or exceeded sets the stage as FAILED. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The threshold count of failed instances in the group, which when reached or exceeded sets the stage as Failed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "failureCount": number;
 

@@ -24,6 +24,10 @@ export interface GetRepositoryFileLinesResponse {
    */
   "etag": string;
   /**
+   * This API will be deprecated on Wed, 29 Mar 2023 01:00:00 GMT. Please use \"/repositories/{repositoryId}/file/lines\"
+   */
+  "sunset": string;
+  /**
    * The returned model.RepositoryFileLines instance.
    */
   "repositoryFileLines": model.RepositoryFileLines;

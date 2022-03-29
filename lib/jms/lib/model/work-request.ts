@@ -61,6 +61,20 @@ export interface WorkRequest {
    *
    */
   "timeFinished"?: Date;
+  "createdBy"?: model.Principal;
+  /**
+   * The date and time the work request percentage was last updated. (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+   *
+   */
+  "timeLastUpdated"?: Date;
+  /**
+   * The total number of tasks to be executed for this work request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalTaskCount"?: number;
+  /**
+   * The number of tasks had been executed to a terminal state. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "completedTaskCount"?: number;
 }
 
 export namespace WorkRequest {
@@ -72,7 +86,9 @@ export namespace WorkRequest {
           ? obj.resources.map(item => {
               return model.WorkRequestResource.getJsonObj(item);
             })
-          : undefined
+          : undefined,
+
+        "createdBy": obj.createdBy ? model.Principal.getJsonObj(obj.createdBy) : undefined
       }
     };
 
@@ -86,6 +102,10 @@ export namespace WorkRequest {
           ? obj.resources.map(item => {
               return model.WorkRequestResource.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "createdBy": obj.createdBy
+          ? model.Principal.getDeserializedJsonObj(obj.createdBy)
           : undefined
       }
     };

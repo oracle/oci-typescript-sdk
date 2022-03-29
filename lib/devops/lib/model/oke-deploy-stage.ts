@@ -23,11 +23,11 @@ export interface OkeDeployStage extends model.DeployStage {
    */
   "okeClusterDeployEnvironmentId": string;
   /**
-   * List of Kubernetes manifest artifact OCIDs, the manifests should not include any job resource.
+   * List of Kubernetes manifest artifact OCIDs.
    */
   "kubernetesManifestDeployArtifactIds": Array<string>;
   /**
-   * Default Namespace to be used for Kubernetes deployment when not specified in the manifest.
+   * Default namespace to be used for Kubernetes deployment when not specified in the manifest.
    */
   "namespace": string;
   "rollbackPolicy"?: model.NoDeployStageRollbackPolicy | model.AutomatedDeployStageRollbackPolicy;

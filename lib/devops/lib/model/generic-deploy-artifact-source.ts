@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GenericDeployArtifactSource extends model.DeployArtifactSource {
   /**
-   * The OCID of a repository
+   * The OCID of a repository.
    */
   "repositoryId": string;
   /**

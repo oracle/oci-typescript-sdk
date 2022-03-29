@@ -30,6 +30,10 @@ export interface LaunchEligibility {
    * related meters for the PIC image
    */
   "meters"?: string;
+  /**
+   * Reason the account is ineligible to launch paid listings
+   */
+  "ineligibilityReason"?: model.IneligibilityReasonEnum;
 }
 
 export namespace LaunchEligibility {

@@ -23,6 +23,7 @@ export enum ActionType {
   InProgress = "IN_PROGRESS",
   Related = "RELATED",
   Updated = "UPDATED",
+  Failed = "FAILED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

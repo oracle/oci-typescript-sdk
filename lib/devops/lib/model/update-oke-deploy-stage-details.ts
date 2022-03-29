@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies the Kubernetes cluster deployment stage.
+ * Specifies the Container Engine for Kubernetes (OKE) cluster deployment stage.
  */
 export interface UpdateOkeDeployStageDetails extends model.UpdateDeployStageDetails {
   /**
@@ -23,7 +23,7 @@ export interface UpdateOkeDeployStageDetails extends model.UpdateDeployStageDeta
    */
   "okeClusterDeployEnvironmentId"?: string;
   /**
-   * List of Kubernetes manifest artifact OCIDs, the manifests should not include any job resource.
+   * List of Kubernetes manifest artifact OCIDs.
    */
   "kubernetesManifestDeployArtifactIds"?: Array<string>;
   /**

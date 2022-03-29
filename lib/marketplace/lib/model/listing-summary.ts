@@ -48,6 +48,10 @@ export interface ListingSummary {
    */
   "pricingTypes"?: Array<ListingSummary.PricingTypes>;
   /**
+   * The list of compatible architectures supported by the listing
+   */
+  "compatibleArchitectures"?: Array<ListingSummary.CompatibleArchitectures>;
+  /**
    * The regions where you can deploy the listing. (Some listings have restrictions that limit their deployment to United States regions only.)
    *
    */
@@ -76,6 +80,16 @@ export namespace ListingSummary {
     Free = "FREE",
     Byol = "BYOL",
     Paygo = "PAYGO",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum CompatibleArchitectures {
+    X86 = "X86",
+    Arm = "ARM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -136,6 +136,10 @@ export interface Entity {
    */
   "uri"?: string;
   /**
+   * URL of the data entity in the object store.
+   */
+  "objectStorageUrl"?: string;
+  /**
    * The list of customized properties along with the values for this object
    */
   "customPropertyMembers"?: Array<model.CustomPropertyGetUsage>;

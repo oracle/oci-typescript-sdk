@@ -59,6 +59,11 @@ export namespace CreateDeploymentDetails {
             <model.CreateSingleDeployStageDeploymentDetails>(<object>jsonObj),
             true
           );
+        case "SINGLE_STAGE_REDEPLOYMENT":
+          return model.CreateSingleDeployStageRedeploymentDetails.getJsonObj(
+            <model.CreateSingleDeployStageRedeploymentDetails>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.deploymentType);
       }
@@ -83,6 +88,11 @@ export namespace CreateDeploymentDetails {
         case "SINGLE_STAGE_DEPLOYMENT":
           return model.CreateSingleDeployStageDeploymentDetails.getDeserializedJsonObj(
             <model.CreateSingleDeployStageDeploymentDetails>(<object>jsonObj),
+            true
+          );
+        case "SINGLE_STAGE_REDEPLOYMENT":
+          return model.CreateSingleDeployStageRedeploymentDetails.getDeserializedJsonObj(
+            <model.CreateSingleDeployStageRedeploymentDetails>(<object>jsonObj),
             true
           );
         default:

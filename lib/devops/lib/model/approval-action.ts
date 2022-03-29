@@ -26,6 +26,10 @@ export interface ApprovalAction {
    * The action of the user on the DevOps deployment stage.
    */
   "action": ApprovalAction.Action;
+  /**
+   * The reason for approving or rejecting the deployment.
+   */
+  "reason"?: string;
 }
 
 export namespace ApprovalAction {
