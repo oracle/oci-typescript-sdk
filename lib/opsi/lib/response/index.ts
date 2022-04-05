@@ -198,6 +198,8 @@ import * as SummarizeHostInsightResourceUsageTrendResponse from "./summarize-hos
 export import SummarizeHostInsightResourceUsageTrendResponse = SummarizeHostInsightResourceUsageTrendResponse.SummarizeHostInsightResourceUsageTrendResponse;
 import * as SummarizeHostInsightResourceUtilizationInsightResponse from "./summarize-host-insight-resource-utilization-insight-response";
 export import SummarizeHostInsightResourceUtilizationInsightResponse = SummarizeHostInsightResourceUtilizationInsightResponse.SummarizeHostInsightResourceUtilizationInsightResponse;
+import * as SummarizeHostInsightTopProcessesUsageTrendResponse from "./summarize-host-insight-top-processes-usage-trend-response";
+export import SummarizeHostInsightTopProcessesUsageTrendResponse = SummarizeHostInsightTopProcessesUsageTrendResponse.SummarizeHostInsightTopProcessesUsageTrendResponse;
 import * as SummarizeOperationsInsightsWarehouseResourceUsageResponse from "./summarize-operations-insights-warehouse-resource-usage-response";
 export import SummarizeOperationsInsightsWarehouseResourceUsageResponse = SummarizeOperationsInsightsWarehouseResourceUsageResponse.SummarizeOperationsInsightsWarehouseResourceUsageResponse;
 import * as SummarizeSqlInsightsResponse from "./summarize-sql-insights-response";

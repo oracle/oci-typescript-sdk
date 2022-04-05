@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 /**
  * A managed container for defined tags. A tag namespace is unique in a tenancy. For more information,
- * see [Managing Tags and Tag Namespaces](https://docs.cloud.oracle.com/Content/Identity/Concepts/taggingoverview.htm).
+ * see [Managing Tags and Tag Namespaces](https://docs.cloud.oracle.com/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm).
  * <p>
  **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values
  * using the API.
@@ -56,7 +56,7 @@ export interface TagNamespace {
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Whether the tag namespace is retired.
-   * See [Retiring Key Definitions and Namespace Definitions](https://docs.cloud.oracle.com/Content/Identity/Concepts/taggingoverview.htm#Retiring).
+   * See [Retiring Key Definitions and Namespace Definitions](https://docs.cloud.oracle.com/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm#retiringkeys).
    *
    */
   "isRetired": boolean;

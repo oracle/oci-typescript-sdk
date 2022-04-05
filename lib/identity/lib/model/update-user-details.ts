@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -16,8 +16,11 @@ import common = require("oci-common");
 
 export interface UpdateUserDetails {
   /**
-   * The description you assign to the user. Does not have to be unique, and it's changeable.
-   */
+    * The description you assign to the user. Does not have to be unique, and it's changeable.
+* <p>
+(For tenancies that support identity domains) You can have an empty description.
+* 
+    */
   "description"?: string;
   /**
    * The email address you assign to the user. Has to be unique across the tenancy.

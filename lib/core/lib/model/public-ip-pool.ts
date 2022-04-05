@@ -20,11 +20,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A public IP pool is a set of public IP addresses represented as one or more IPv4 CIDR blocks. Resources like load balancers and compute instances can be allocated public IP addresses from a public IP pool.
+ * A public IP pool is a set of public IP addresses represented as one or more IPv4 CIDR blocks.      Resources like load balancers and compute instances can be allocated public IP addresses from a public IP pool.
+ *
  */
 export interface PublicIpPool {
   /**
    * The CIDR blocks added to this pool. This could be all or a portion of a BYOIP CIDR block.
+   *
    */
   "cidrBlocks"?: Array<string>;
   /**

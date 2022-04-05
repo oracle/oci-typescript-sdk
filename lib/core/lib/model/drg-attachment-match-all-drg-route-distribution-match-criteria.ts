@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * No match criteria is applied.
+ * All routes are imported or exported.
  *
  */
 export interface DrgAttachmentMatchAllDrgRouteDistributionMatchCriteria

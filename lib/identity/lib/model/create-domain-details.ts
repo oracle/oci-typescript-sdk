@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Create a domain details
+ * (For tenancies that support identity domains) Details for creating an identity domain.
  */
 export interface CreateDomainDetails {
   /**
-   * The OCID of the Compartment where domain is created
+   * The OCID of the compartment where the identity domain is created.
    */
   "compartmentId": string;
   /**
-   * The mutable display name of the domain.
+   * The mutable display name of the identity domain.
    */
   "displayName": string;
   /**
-   * Domain entity description
+   * The identity domain description. You can have an empty description.
    */
   "description": string;
   /**
@@ -39,40 +39,38 @@ Example: `us-phoenix-1`
     */
   "homeRegion": string;
   /**
-   * The License type of Domain
+   * The license type of the identity domain.
    */
   "licenseType": string;
   /**
-   * Indicates whether domain is hidden on login screen or not.
+   * Indicates whether the identity domain is hidden on the sign-in screen or not.
    *
    */
   "isHiddenOnLogin"?: boolean;
   /**
-   * The admin first name
+   * The administrator's first name.
    */
   "adminFirstName"?: string;
   /**
-   * The admin last name
+   * The administrator's last name.
    */
   "adminLastName"?: string;
   /**
-   * The admin user name
+   * The administrator's user name.
    */
   "adminUserName"?: string;
   /**
-   * The admin email address
+   * The administrator's email address.
    */
   "adminEmail"?: string;
   /**
-   * Indicates if admin user created in IDCS stripe would like to receive notification like welcome email
-   * or not.
-   * Required field only if admin information is provided, otherwise optional.
+   * Indicates whether or not the administrator user created in the IDCS stripe would like to receive notifications like a welcome email.
+   * This field is required only if admin information is provided. This field is otherwise optional.
    *
    */
   "isNotificationBypassed"?: boolean;
   /**
-   * Optional field to indicate whether users in the domain are required to have a primary email address or not
-   * Defaults to true
+   * Optional field to indicate whether users in the identity domain are required to have a primary email address or not. The default is true.
    *
    */
   "isPrimaryEmailRequired"?: boolean;

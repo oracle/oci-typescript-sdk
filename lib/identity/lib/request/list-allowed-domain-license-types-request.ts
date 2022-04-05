@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListAllowedDomainLicenseTypesRequest extends common.BaseRequest {
   /**
-   * The domain license type
+   * The license type of the identity domain.
    */
   "currentLicenseTypeName"?: string;
   /**

@@ -309,16 +309,17 @@ export class DataSafeWaiter {
    *
    * @param request the request to send
    * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetSecurityAssessmentResponse
+   * @return response returns GetSecurityAssessmentResponse | null (null in case of 404 response)
    */
   public async forSecurityAssessment(
     request: serviceRequests.GetSecurityAssessmentRequest,
     ...targetStates: models.SecurityAssessmentLifecycleState[]
-  ): Promise<serviceResponses.GetSecurityAssessmentResponse> {
-    return genericWaiter(
+  ): Promise<serviceResponses.GetSecurityAssessmentResponse | null> {
+    return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getSecurityAssessment(request),
-      response => targetStates.includes(response.securityAssessment.lifecycleState!)
+      response => targetStates.includes(response.securityAssessment.lifecycleState!),
+      targetStates.includes(models.SecurityAssessmentLifecycleState.Deleted)
     );
   }
 
@@ -424,13 +425,13 @@ export class DataSafeWaiter {
    */
   public async forTargetDatabase(
     request: serviceRequests.GetTargetDatabaseRequest,
-    ...targetStates: models.LifecycleState[]
+    ...targetStates: models.TargetDatabaseLifecycleState[]
   ): Promise<serviceResponses.GetTargetDatabaseResponse | null> {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getTargetDatabase(request),
       response => targetStates.includes(response.targetDatabase.lifecycleState!),
-      targetStates.includes(models.LifecycleState.Deleted)
+      targetStates.includes(models.TargetDatabaseLifecycleState.Deleted)
     );
   }
 
@@ -439,16 +440,17 @@ export class DataSafeWaiter {
    *
    * @param request the request to send
    * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetUserAssessmentResponse
+   * @return response returns GetUserAssessmentResponse | null (null in case of 404 response)
    */
   public async forUserAssessment(
     request: serviceRequests.GetUserAssessmentRequest,
     ...targetStates: models.UserAssessmentLifecycleState[]
-  ): Promise<serviceResponses.GetUserAssessmentResponse> {
-    return genericWaiter(
+  ): Promise<serviceResponses.GetUserAssessmentResponse | null> {
+    return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getUserAssessment(request),
-      response => targetStates.includes(response.userAssessment.lifecycleState!)
+      response => targetStates.includes(response.userAssessment.lifecycleState!),
+      targetStates.includes(models.UserAssessmentLifecycleState.Deleted)
     );
   }
 

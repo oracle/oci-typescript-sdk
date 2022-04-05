@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -30,13 +30,16 @@ export interface CreateDynamicGroupDetails {
   "name": string;
   /**
    * The matching rule to dynamically match an instance certificate to this dynamic group.
-   * For rule syntax, see [Managing Dynamic Groups](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingdynamicgroups.htm).
+   * For rule syntax, see [Managing Dynamic Groups](https://docs.cloud.oracle.com/Content/Identity/dynamicgroups/managingdynamicgroups.htm).
    *
    */
   "matchingRule": string;
   /**
-   * The description you assign to the group during creation. Does not have to be unique, and it's changeable.
-   */
+    * The description you assign to the group during creation. Does not have to be unique, and it's changeable.
+* <p>
+(For tenancies that support identity domains) You can have an empty description.
+* 
+    */
   "description": string;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.

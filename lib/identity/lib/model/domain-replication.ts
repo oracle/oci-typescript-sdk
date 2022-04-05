@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Domain replication states.
+ * (For tenancies that support identity domains) Identity domain replication states.
  */
 export interface DomainReplication {
   /**
-   * Version number indicating the value of kievTxnId, starting from which, the domain replication events need to be returned. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The version number indicating the value of kievTxnId, starting from which the identity domain replication events need to be returned. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "opcWaterMark": number;
   /**
-   * Custom value defining the order of records with same kievTxnId Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * A custom value defining the order of records with the same kievTxnId. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "txnSeqNumber": number;
   /**
-   * The domain's replication state
+   * The identity domain's replication state.
    */
   "domainReplicationStates": Array<model.DomainReplicationStates>;
 }

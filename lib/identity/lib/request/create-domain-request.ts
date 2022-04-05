@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateDomainRequest extends common.BaseRequest {
   /**
-   * The request object for creating a new domain
+   * The request object for creating a new identity domain.
    */
   "createDomainDetails": model.CreateDomainDetails;
   /**

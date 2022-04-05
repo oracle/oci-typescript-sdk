@@ -56,16 +56,13 @@ Allowed values:
   * `10`: Represents Balanced option.
 * <p>
   * `20`: Represents Higher Performance option.
-*   
-*   * `30`-`120`: Represents the Ultra High Performance option.
 * <p>
-For performance autotune enabled volumes, It would be the Default(Minimum) VPUs/GB.
+  * `30`-`120`: Represents the Ultra High Performance option.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vpusPerGB"?: number;
   /**
-   * Specifies whether the auto-tune performance is enabled for this boot volume. This field is deprecated.
-   * Use the `DetachedVolumeAutotunePolicy` instead to enable the volume for detached autotune.
+   * Specifies whether the auto-tune performance is enabled for this boot volume.
    *
    */
   "isAutoTuneEnabled"?: boolean;

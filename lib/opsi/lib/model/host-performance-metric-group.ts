@@ -40,6 +40,8 @@ export namespace HostPerformanceMetricGroup {
       switch (obj.metricName) {
         case "HOST_MEMORY_USAGE":
           return model.HostMemoryUsage.getJsonObj(<model.HostMemoryUsage>(<object>jsonObj), true);
+        case "HOST_TOP_PROCESSES":
+          return model.HostTopProcesses.getJsonObj(<model.HostTopProcesses>(<object>jsonObj), true);
         case "HOST_CPU_USAGE":
           return model.HostCpuUsage.getJsonObj(<model.HostCpuUsage>(<object>jsonObj), true);
         case "HOST_NETWORK_ACTIVITY_SUMMARY":
@@ -61,6 +63,11 @@ export namespace HostPerformanceMetricGroup {
         case "HOST_MEMORY_USAGE":
           return model.HostMemoryUsage.getDeserializedJsonObj(
             <model.HostMemoryUsage>(<object>jsonObj),
+            true
+          );
+        case "HOST_TOP_PROCESSES":
+          return model.HostTopProcesses.getDeserializedJsonObj(
+            <model.HostTopProcesses>(<object>jsonObj),
             true
           );
         case "HOST_CPU_USAGE":

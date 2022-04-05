@@ -18,6 +18,23 @@ import common = require("oci-common");
  * Credit card Payment related details
  */
 export interface CreditCardPaymentOption extends model.PaymentOption {
+  /**
+   * Credit card type.
+   */
+  "creditCardType"?: model.CreditCardType;
+  /**
+   * Last four digits of the card.
+   */
+  "lastDigits"?: string;
+  /**
+   * Name on the credit card.
+   */
+  "nameOnCard"?: string;
+  /**
+   * Expired date of the credit card.
+   */
+  "timeExpiration"?: Date;
+
   "paymentMethod": string;
 }
 

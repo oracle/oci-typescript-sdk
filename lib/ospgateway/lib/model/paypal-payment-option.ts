@@ -18,6 +18,23 @@ import common = require("oci-common");
  * PayPal Payment related details
  */
 export interface PaypalPaymentOption extends model.PaymentOption {
+  /**
+   * The email address of the paypal user.
+   */
+  "emailAddress"?: string;
+  /**
+   * First name of the paypal user.
+   */
+  "firstName"?: string;
+  /**
+   * Last name of the paypal user.
+   */
+  "lastName"?: string;
+  /**
+   * Agreement id for the paypal account.
+   */
+  "extBillingAgreementId"?: string;
+
   "paymentMethod": string;
 }
 

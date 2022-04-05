@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Properties for a region where a domain is replicated too.
+ * (For tenancies that support identity domains) Properties for a region where a replica for the identity domain exists.
  */
 export interface ReplicatedRegionDetails {
   /**
@@ -26,11 +26,11 @@ export interface ReplicatedRegionDetails {
    */
   "region"?: string;
   /**
-   * Region agnostic domain URL.
+   * Region-agnostic identity domain URL.
    */
   "url"?: string;
   /**
-   * The IDCS replicated region state
+   * The IDCS-replicated region state.
    *
    */
   "state"?: ReplicatedRegionDetails.State;

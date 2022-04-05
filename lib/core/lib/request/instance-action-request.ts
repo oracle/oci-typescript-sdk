@@ -51,6 +51,7 @@ export namespace InstanceActionRequest {
     Softreset = "SOFTRESET",
     Reset = "RESET",
     Softstop = "SOFTSTOP",
-    Senddiagnosticinterrupt = "SENDDIAGNOSTICINTERRUPT"
+    Senddiagnosticinterrupt = "SENDDIAGNOSTICINTERRUPT",
+    Diagnosticreboot = "DIAGNOSTICREBOOT"
   }
 }

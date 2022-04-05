@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -145,23 +145,13 @@ export class IdentityClient {
   }
 
   /**
-     * If the domain's {@code lifecycleState} is INACTIVE,
-* 1. Set the {@code lifecycleDetails} to ACTIVATING and asynchronously starts enabling
-*    the domain and return 202 ACCEPTED.
-*     1.1 Sets the domain status to ENABLED and set specified domain's
-*         {@code lifecycleState} to ACTIVE and set the {@code lifecycleDetails} to null.
+     * (For tenancies that support identity domains) Activates a deactivated identity domain. You can only activate identity domains that your user account is not a part of.
 * <p>
-To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
-* the async operation's status. Deactivate a domain can be done using HTTP POST
-* /domains/{domainId}/actions/deactivate.
+After you send the request, the `lifecycleDetails` of the identity domain is set to ACTIVATING. When the operation completes, the 
+* `lifecycleDetails` is set to null and the `lifecycleState` of the identity domain is set to ACTIVE.
 * <p>
-- If the domain's {@code lifecycleState} is ACTIVE, returns 202 ACCEPTED with no action
-*   taken on service side.
-* - If domain is of {@code type} DEFAULT or DEFAULT_LIGHTWEIGHT or domain's {@code lifecycleState} is not INACTIVE,
-*   returns 400 BAD REQUEST.
-* - If the domain doesn't exists, returns 404 NOT FOUND.
-* - If the authenticated user is part of the domain to be activated, returns 400 BAD REQUEST
-* - If error occurs while activating domain, returns 500 INTERNAL SERVER ERROR.
+To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
+* the operation's status.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ActivateDomainRequest
@@ -449,7 +439,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   /**
    * Deletes multiple resources in the compartment. All resources must be in the same compartment. You must have the appropriate
    * permissions to delete the resources in the request. This API can only be invoked from the tenancy's
-   * [home region](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingregions.htm#Home). This operation creates a
+   * [home region](https://docs.cloud.oracle.com/Content/Identity/regions/managingregions.htm#Home). This operation creates a
    * {@link WorkRequest}. Use the {@link #getWorkRequest(GetWorkRequestRequest) getWorkRequest}
    * API to monitor the status of the bulk action.
    *
@@ -691,7 +681,7 @@ The edits can include a combination of operations and tag sets.
 
   /**
    * Moves multiple resources from one compartment to another. All resources must be in the same compartment.
-   * This API can only be invoked from the tenancy's [home region](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingregions.htm#Home).
+   * This API can only be invoked from the tenancy's [home region](https://docs.cloud.oracle.com/Content/Identity/regions/managingregions.htm#Home).
    * To move resources, you must have the appropriate permissions to move the resource in both the source and target
    * compartments. This operation creates a {@link WorkRequest}.
    * Use the {@link #getWorkRequest(GetWorkRequestRequest) getWorkRequest} API to monitor the status of the bulk action.
@@ -849,18 +839,10 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
   }
 
   /**
-     * Change the containing compartment for a domain.
+     * (For tenancies that support identity domains) Moves the identity domain to a different compartment in the tenancy.
 * <p>
-This is an asynchronous call where the Domain's compartment is changed and is updated with the new compartment information.
-* To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
-* the async operation's status.
-* <p>
-The compartment change is complete when accessed via domain URL and
-* also returns new compartment OCID.
-* - If the domain doesn't exists, returns 404 NOT FOUND.
-* - If Domain {@code type} is DEFAULT or DEFAULT_LIGHTWEIGHT, return 400 BAD Request
-* - If Domain is not active or being updated, returns 400 BAD REQUEST.
-* - If error occurs while changing compartment for domain, return 500 INTERNAL SERVER ERROR.
+To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
+* the operation's status.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeDomainCompartmentRequest
@@ -931,21 +913,15 @@ The compartment change is complete when accessed via domain URL and
   }
 
   /**
-     * If the domain's {@code lifecycleState} is ACTIVE, validates the requested {@code licenseType} update
-* is allowed and
-* 1. Set the {@code lifecycleDetails} to UPDATING
-* 2. Asynchronously starts updating the domain and return 202 ACCEPTED.
-*     2.1 Successfully updates specified domain's {@code licenseType}.
-* 3. On completion set the {@code lifecycleDetails} to null.
-* To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
-* the async operation's status.
+     * (For tenancies that support identity domains) Changes the license type of the given identity domain. The identity domain's 
+* `lifecycleState` must be set to ACTIVE and the requested `licenseType` must be allowed. To retrieve the allowed `licenseType` for 
+* the identity domain, use {@link #listAllowedDomainLicenseTypes(ListAllowedDomainLicenseTypesRequest) listAllowedDomainLicenseTypes}.
 * <p>
-- If license type update is successful, return 202 ACCEPTED
-* - If requested {@code licenseType} validation fails, returns 400 Bad request.
-* - If Domain is not active or being updated, returns 400 BAD REQUEST.
-* - If Domain {@code type} is DEFAULT or DEFAULT_LIGHTWEIGHT, return 400 BAD Request
-* - If the domain doesn't exists, returns 404 NOT FOUND
-* - If any internal error occurs, returns 500 INTERNAL SERVER ERROR.
+After you send your request, the `lifecycleDetails` of this identity domain is set to UPDATING. When the update of the identity 
+* domain completes, then the `lifecycleDetails` is set to null.
+* <p>
+To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
+* the operation's status.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeDomainLicenseTypeRequest
@@ -1019,7 +995,7 @@ The compartment change is complete when accessed via domain URL and
      * Moves the specified tag namespace to the specified compartment within the same tenancy.
 * <p>
 To move the tag namespace, you must have the manage tag-namespaces permission on both compartments.
-* For more information about IAM policies, see [Details for IAM](https://docs.cloud.oracle.com/Content/Identity/Reference/iampolicyreference.htm).
+* For more information about IAM policies, see [Details for IAM](https://docs.cloud.oracle.com/Content/Identity/policyreference/iampolicyreference.htm).
 * <p>
 Moving a tag namespace moves all the tag key definitions contained in the tag namespace.
 * 
@@ -1087,7 +1063,7 @@ Moving a tag namespace moves all the tag key definitions contained in the tag na
 
   /**
      * Creates a new auth token for the specified user. For information about what auth tokens are for, see
-* [Managing User Credentials](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingcredentials.htm).
+* [Managing User Credentials](https://docs.cloud.oracle.com/Content/Identity/access/managing-user-credentials.htm).
 * <p>
 You must specify a *description* for the auth token (although it can be an empty string). It does not
 * have to be unique, and you can change it anytime with
@@ -1179,7 +1155,7 @@ Specify the parent compartment's OCID as the compartment ID in the request objec
 You must also specify a *name* for the compartment, which must be unique across all compartments in
 * your tenancy. You can use this name or the OCID when writing policies that apply
 * to the compartment. For more information about policies, see
-* [How Policies Work](https://docs.cloud.oracle.com/Content/Identity/Concepts/policies.htm).
+* [How Policies Work](https://docs.cloud.oracle.com/Content/Identity/policieshow/how-policies-work.htm).
 * <p>
 You must also specify a *description* for the compartment (although it can be an empty string). It does
 * not have to be unique, and you can change it anytime with
@@ -1259,7 +1235,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   /**
      * Creates a new secret key for the specified user. Secret keys are used for authentication with the Object Storage Service's Amazon S3
 * compatible API. The secret key consists of an Access Key/Secret Key pair. For information, see
-* [Managing User Credentials](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingcredentials.htm).
+* [Managing User Credentials](https://docs.cloud.oracle.com/Content/Identity/access/managing-user-credentials.htm).
 * <p>
 You must specify a *description* for the secret key (although it can be an empty string). It does not
 * have to be unique, and you can change it anytime with
@@ -1414,22 +1390,14 @@ Every user has permission to create a secret key for *their own user ID*. An adm
   }
 
   /**
-     * Creates a new domain in the tenancy with domain home in {@code homeRegion}. This is an asynchronous call - where, at start,
-* {@code lifecycleState} of this domain is set to CREATING and {@code lifecycleDetails} to UPDATING. On domain creation completion
-* this Domain's {@code lifecycleState} will be set to ACTIVE and {@code lifecycleDetails} to null.
+     * (For tenancies that support identity domains) Creates a new identity domain in the tenancy with the identity domain home in `homeRegion`. 
+* After you send your request, the temporary `lifecycleState` of this identity domain is set to CREATING and `lifecycleDetails` to UPDATING. 
+* When creation of the identity domain completes, this identity domain's `lifecycleState` is set to ACTIVE and `lifecycleDetails` to null.
 * <p>
-To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
-* the async operation's status.
+To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
+* the operation's status.
 * <p>
-After creating a `Domain`, make sure its `lifecycleState` changes from CREATING to ACTIVE
-* before using it.
-* If the domain's {@code displayName} already exists, returns 400 BAD REQUEST.
-* If any one of admin related fields are provided and one of the following 3 fields
-* - {@code adminEmail}, {@code adminLastName} and {@code adminUserName} - is not provided,
-* returns 400 BAD REQUEST.
-* - If {@code isNotificationBypassed} is NOT provided when admin information is provided,
-* returns 400 BAD REQUEST.
-* - If any internal error occurs, return 500 INTERNAL SERVER ERROR.
+After creating an `identity domain`, first make sure its `lifecycleState` changes from CREATING to ACTIVE before you use it.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateDomainRequest
@@ -1508,7 +1476,7 @@ You must specify your tenancy's OCID as the compartment ID in the request object
 You must also specify a *name* for the dynamic group, which must be unique across all dynamic groups in your
 * tenancy, and cannot be changed. Note that this name has to be also unique across all groups in your tenancy.
 * You can use this name or the OCID when writing policies that apply to the dynamic group. For more information
-* about policies, see [How Policies Work](https://docs.cloud.oracle.com/Content/Identity/Concepts/policies.htm).
+* about policies, see [How Policies Work](https://docs.cloud.oracle.com/Content/Identity/policieshow/how-policies-work.htm).
 * <p>
 You must also specify a *description* for the dynamic group (although it can be an empty string). It does not
 * have to be unique, and you can change it anytime with {@link #updateDynamicGroup(UpdateDynamicGroupRequest) updateDynamicGroup}.
@@ -1595,7 +1563,7 @@ You must specify your tenancy's OCID as the compartment ID in the request object
 * <p>
 You must also specify a *name* for the group, which must be unique across all groups in your tenancy and
 * cannot be changed. You can use this name or the OCID when writing policies that apply to the group. For more
-* information about policies, see [How Policies Work](https://docs.cloud.oracle.com/Content/Identity/Concepts/policies.htm).
+* information about policies, see [How Policies Work](https://docs.cloud.oracle.com/Content/Identity/policieshow/how-policies-work.htm).
 * <p>
 You must also specify a *description* for the group (although it can be an empty string). It does not
 * have to be unique, and you can change it anytime with {@link #updateGroup(UpdateGroupRequest) updateGroup}.
@@ -1921,7 +1889,7 @@ You must specify your tenancy's OCID as the compartment ID in the request object
 You must also specify a *name* for the network source, which must be unique across all network sources in your
 * tenancy, and cannot be changed.
 * You can use this name or the OCID when writing policies that apply to the network source. For more information
-* about policies, see [How Policies Work](https://docs.cloud.oracle.com/Content/Identity/Concepts/policies.htm).
+* about policies, see [How Policies Work](https://docs.cloud.oracle.com/Content/Identity/policieshow/how-policies-work.htm).
 * <p>
 You must also specify a *description* for the network source (although it can be an empty string). It does not
 * have to be unique, and you can change it anytime with {@link #updateNetworkSource(UpdateNetworkSourceRequest) updateNetworkSource}.
@@ -2076,13 +2044,17 @@ After your network resource is created, you can use it in policy to restrict acc
 
   /**
      * Creates a new Console one-time password for the specified user. For more information about user
-* credentials, see [User Credentials](https://docs.cloud.oracle.com/Content/Identity/Concepts/usercredentials.htm).
+* credentials, see [User Credentials](https://docs.cloud.oracle.com/Content/Identity/usercred/usercredentials.htm).
 * <p>
 Use this operation after creating a new user, or if a user forgets their password. The new one-time
 * password is returned to you in the response, and you must securely deliver it to the user. They'll
 * be prompted to change this password the next time they sign in to the Console. If they don't change
 * it within 7 days, the password will expire and you'll need to create a new one-time password for the
 * user.
+* <p>
+(For tenancies that support identity domains) Resetting a user's password generates a reset password email 
+* with a link that the user must follow to reset their password. If the user does not reset their password before the 
+* link expires, you'll need to reset the user's password again.
 * <p>
 **Note:** The user's Console login is the unique name you specified when you created the user
 * (see {@link #createUser(CreateUserRequest) createUser}).
@@ -2154,7 +2126,7 @@ Use this operation after creating a new user, or if a user forgets their passwor
 
   /**
      * Creates a new policy in the specified compartment (either the tenancy or another of your compartments).
-* If you're new to policies, see [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
+* If you're new to policies, see [Get Started with Policies](https://docs.cloud.oracle.com/Content/Identity/policiesgs/get-started-with-policies.htm).
 * <p>
 You must specify a *name* for the policy, which must be unique across all policies in your tenancy
 * and cannot be changed.
@@ -2163,8 +2135,8 @@ You must also specify a *description* for the policy (although it can be an empt
 * have to be unique, and you can change it anytime with {@link #updatePolicy(UpdatePolicyRequest) updatePolicy}.
 * <p>
 You must specify one or more policy statements in the statements array. For information about writing
-* policies, see [How Policies Work](https://docs.cloud.oracle.com/Content/Identity/Concepts/policies.htm) and
-* [Common Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/commonpolicies.htm).
+* policies, see [How Policies Work](https://docs.cloud.oracle.com/Content/Identity/policieshow/how-policies-work.htm) and
+* [Common Policies](https://docs.cloud.oracle.com/Content/Identity/policiescommon/commonpolicies.htm).
 * <p>
 After you send your request, the new object's `lifecycleState` will temporarily be CREATING. Before using the
 * object, first make sure its `lifecycleState` has changed to ACTIVE.
@@ -2722,7 +2694,7 @@ You must also specify a *description* for the namespace.
 
   /**
      * Creates a new user in your tenancy. For conceptual information about users, your tenancy, and other
-* IAM Service components, see [Overview of the IAM Service](https://docs.cloud.oracle.com/Content/Identity/Concepts/overview.htm).
+* IAM Service components, see [Overview of IAM](https://docs.cloud.oracle.com/Content/Identity/getstarted/identity-domains.htm).
 * <p>
 You must specify your tenancy's OCID as the compartment ID in the request object (remember that the
 * tenancy is simply the root compartment). Notice that IAM resources (users, groups, compartments, and
@@ -2826,24 +2798,15 @@ A new user has no permissions until you place the user in one or more groups (se
   }
 
   /**
-     * If the domain's {@code lifecycleState} is ACTIVE and no active Apps are present in domain,
-* 1. Set the {@code lifecycleDetails} to DEACTIVATING and asynchronously starts disabling
-*    the domain and return 202 ACCEPTED.
-*     1.1 Sets the domain status to DISABLED and set specified domain's
-*         {@code lifecycleState} to INACTIVE and set the {@code lifecycleDetails} to null.
+     * (For tenancies that support identity domains) Deactivates the specified identity domain. Identity domains must be in an ACTIVE 
+* `lifecycleState` and have no active apps present in the domain or underlying Identity Cloud Service stripe. You cannot deactivate 
+* the default identity domain.
 * <p>
-To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
-* the async operation's status. Activate a domain can be done using HTTP POST
-* /domains/{domainId}/actions/activate.
+After you send your request, the `lifecycleDetails` of this identity domain is set to DEACTIVATING. When the operation completes, 
+* then the `lifecycleDetails` is set to null and the `lifecycleState` is set to INACTIVE.
 * <p>
-- If the domain's {@code lifecycleState} is INACTIVE, returns 202 ACCEPTED with no action
-*   taken on service side.
-* - If domain is of {@code type} DEFAULT or DEFAULT_LIGHTWEIGHT or domain's {@code lifecycleState}
-*   is not ACTIVE, returns 400 BAD REQUEST.
-* - If the domain doesn't exists, returns 404 NOT FOUND.
-* - If any active Apps in domain, returns 400 BAD REQUEST.
-* - If the authenticated user is part of the domain to be activated, returns 400 BAD REQUEST
-* - If error occurs while deactivating domain, returns 500 INTERNAL SERVER ERROR.
+To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
+* the operation's status.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeactivateDomainRequest
@@ -3219,30 +3182,20 @@ Every user has permission to use this operation to delete a key for *their own u
   }
 
   /**
-     * Soft Deletes a domain.
-* <p>
-This is an asynchronous API, where, if the domain's {@code lifecycleState} is INACTIVE and
-* no active Apps are present in underlying stripe,
-*   1. Sets the specified domain's {@code lifecycleState} to DELETING.
-*   2. Domains marked as DELETING will be cleaned up by a periodic task unless customer request it to be undo via ticket.
-*   3. Work request is created and returned as opc-work-request-id along with 202 ACCEPTED.
-* To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
-* the async operation's status.
-* <p>
-- If the domain's {@code lifecycleState} is DELETING, returns 202 Accepted as a deletion
-*   is already in progress for this domain.
-* - If the domain doesn't exists, returns 404 NOT FOUND.
-* - If domain is of {@code type} DEFAULT or DEFAULT_LIGHTWEIGHT, returns 400 BAD REQUEST.
-* - If any active Apps in domain, returns 400 BAD REQUEST.
-* - If the authenticated user is part of the domain to be deleted, returns 400 BAD REQUEST.
-* - If any internal error occurs, return 500 INTERNAL SERVER ERROR.
-* 
-     * This operation does not retry by default if the user has not defined a retry configuration.
-     * @param DeleteDomainRequest
-     * @return DeleteDomainResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteDomain.ts.html |here} to see how to use DeleteDomain API.
-     */
+   * (For tenancies that support identity domains) Deletes an identity domain. The identity domain must have no active apps present in
+   * the underlying IDCS stripe. You must also deactivate the identity domain, rendering the `lifecycleState` of the identity domain INACTIVE.
+   * Furthermore, as the authenticated user performing the operation, you cannot be a member of the identity domain you are deleting.
+   * Lastly, you cannot delete the default identity domain. A tenancy must always have at least the default identity domain.
+   *
+   * To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
+   * the operation's status.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDomainRequest
+   * @return DeleteDomainResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/DeleteDomain.ts.html |here} to see how to use DeleteDomain API.
+   */
   public async deleteDomain(
     deleteDomainRequest: requests.DeleteDomainRequest
   ): Promise<responses.DeleteDomainResponse> {
@@ -3602,7 +3555,7 @@ Deletes the specified group mapping.
   }
 
   /**
-   * Deletes the specified network source
+   * Deletes the specified network source.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteNetworkSourceRequest
@@ -4171,19 +4124,16 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
   }
 
   /**
-     * Replicate domain to a new region. This is an asynchronous call - where, at start,
-* {@code state} of this domain in replica region is set to ENABLING_REPLICATION.
-* On domain replication completion the {@code state} will be set to REPLICATION_ENABLED.
+     * (For tenancies that support identity domains) Replicates the identity domain to a new region (provided that the region is the 
+* tenancy home region or other region that the tenancy subscribes to). You can only replicate identity domains that are in an ACTIVE 
+* `lifecycleState` and not currently updating or already replicating. You also can only trigger the replication of secondary identity domains. 
+* The default identity domain is automatically replicated to all regions that the tenancy subscribes to.
 * <p>
-To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
-* the async operation's status.
+After you send the request, the `state` of the identity domain in the replica region is set to ENABLING_REPLICATION. When the operation 
+* completes, the `state` is set to REPLICATION_ENABLED.
 * <p>
-If the replica region's {@code state} is already ENABLING_REPLICATION or REPLICATION_ENABLED,
-* returns 409 CONFLICT.
-* - If the domain doesn't exists, returns 404 NOT FOUND.
-* - If home region is same as replication region, return 400 BAD REQUEST.
-* - If Domain is not active or being updated, returns 400 BAD REQUEST.
-* - If any internal error occurs, return 500 INTERNAL SERVER ERROR.
+To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
+* the operation's status.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param EnableReplicationToRegionRequest
@@ -4466,17 +4416,14 @@ This operation does not return a list of all the resources inside the compartmen
   }
 
   /**
-     * Get the specified domain's information.
-* <p>
-- If the domain doesn't exists, returns 404 NOT FOUND.
-* - If any internal error occurs, returns 500 INTERNAL SERVER ERROR.
-* 
-     * This operation does not retry by default if the user has not defined a retry configuration.
-     * @param GetDomainRequest
-     * @return GetDomainResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetDomain.ts.html |here} to see how to use GetDomain API.
-     */
+   * (For tenancies that support identity domains) Gets the specified identity domain's information.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetDomainRequest
+   * @return GetDomainResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetDomain.ts.html |here} to see how to use GetDomain API.
+   */
   public async getDomain(
     getDomainRequest: requests.GetDomainRequest
   ): Promise<responses.GetDomainResponse> {
@@ -4675,18 +4622,14 @@ This operation does not return a list of all the users in the group. To do that,
   }
 
   /**
-     * Gets details on a specified IAM work request. For asynchronous operations in Identity and Access Management service, opc-work-request-id header values contains
-* iam work request id that can be provided in this API to track the current status of the operation.
-* <p>
-- If workrequest exists, returns 202 ACCEPTED
-* - If workrequest does not exist, returns 404 NOT FOUND
-* 
-     * This operation does not retry by default if the user has not defined a retry configuration.
-     * @param GetIamWorkRequestRequest
-     * @return GetIamWorkRequestResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetIamWorkRequest.ts.html |here} to see how to use GetIamWorkRequest API.
-     */
+   * Gets the details of a specified IAM work request. The workRequestID is returned in the opc-workrequest-id header for any asynchronous operation in the Identity and Access Management service.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetIamWorkRequestRequest
+   * @return GetIamWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetIamWorkRequest.ts.html |here} to see how to use GetIamWorkRequest API.
+   */
   public async getIamWorkRequest(
     getIamWorkRequestRequest: requests.GetIamWorkRequestRequest
   ): Promise<responses.GetIamWorkRequestResponse> {
@@ -5807,13 +5750,11 @@ Gets the specified group mapping.
   }
 
   /**
-     * List the allowed domain license types supported by OCI
-* If {@code currentLicenseTypeName} provided, returns allowed license types a domain with the specified license type name can migrate to.
-* If {@code name} is provided, it filters and returns resources that match the given license type name.
-* Otherwise, returns all valid license types that are currently supported.
+     * (For tenancies that support identity domains) Lists the license types for identity domains supported by Oracle Cloud Infrastructure. 
+* (License types are also referred to as domain types.)
 * <p>
-- If license type details are retrieved sucessfully, return 202 ACCEPTED.
-* - If any internal error occurs, return 500 INTERNAL SERVER ERROR.
+If `currentLicenseTypeName` is provided, then the request returns license types that the identity domain with the specified license 
+* type name can change to. Otherwise, the request returns all valid license types currently supported.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListAllowedDomainLicenseTypesRequest
@@ -6381,7 +6322,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
 
   /**
    * Lists all the tags enabled for cost-tracking in the specified tenancy. For information about
-   * cost-tracking tags, see [Using Cost-tracking Tags](https://docs.cloud.oracle.com/Content/Identity/Concepts/taggingoverview.htm#costs).
+   * cost-tracking tags, see [Using Cost-tracking Tags](https://docs.cloud.oracle.com/Content/Tagging/Tasks/usingcosttrackingtags.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCostTrackingTagsRequest
@@ -6697,8 +6638,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
-   * List all domains that are homed or have a replica region in current region.
-   * - If any internal error occurs, return 500 INTERNAL SERVER ERROR.
+   * (For tenancies that support identity domains) Lists all identity domains within a tenancy.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDomainsRequest
@@ -7147,18 +7087,14 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
-     * Gets error details for a specified IAM work request. For asynchronous operations in Identity and Access Management service, opc-work-request-id header values contains
-* iam work request id that can be provided in this API to track the current status of the operation.
-* <p>
-- If workrequest exists, returns 202 ACCEPTED
-* - If workrequest does not exist, returns 404 NOT FOUND
-* 
-     * This operation does not retry by default if the user has not defined a retry configuration.
-     * @param ListIamWorkRequestErrorsRequest
-     * @return ListIamWorkRequestErrorsResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIamWorkRequestErrors.ts.html |here} to see how to use ListIamWorkRequestErrors API.
-     */
+   * Gets error details for a specified IAM work request. The workRequestID is returned in the opc-workrequest-id header for any asynchronous operation in the Identity and Access Management service.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListIamWorkRequestErrorsRequest
+   * @return ListIamWorkRequestErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIamWorkRequestErrors.ts.html |here} to see how to use ListIamWorkRequestErrors API.
+   */
   public async listIamWorkRequestErrors(
     listIamWorkRequestErrorsRequest: requests.ListIamWorkRequestErrorsRequest
   ): Promise<responses.ListIamWorkRequestErrorsResponse> {
@@ -7276,18 +7212,14 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
-     * Gets logs for a specified IAM work request. For asynchronous operations in Identity and Access Management service, opc-work-request-id header values contains
-* iam work request id that can be provided in this API to track the current status of the operation.
-* <p>
-- If workrequest exists, returns 202 ACCEPTED
-* - If workrequest does not exist, returns 404 NOT FOUND
-* 
-     * This operation does not retry by default if the user has not defined a retry configuration.
-     * @param ListIamWorkRequestLogsRequest
-     * @return ListIamWorkRequestLogsResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIamWorkRequestLogs.ts.html |here} to see how to use ListIamWorkRequestLogs API.
-     */
+   * Gets logs for a specified IAM work request. The workRequestID is returned in the opc-workrequest-id header for any asynchronous operation in the Identity and Access Management service.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListIamWorkRequestLogsRequest
+   * @return ListIamWorkRequestLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIamWorkRequestLogs.ts.html |here} to see how to use ListIamWorkRequestLogs API.
+   */
   public async listIamWorkRequestLogs(
     listIamWorkRequestLogsRequest: requests.ListIamWorkRequestLogsRequest
   ): Promise<responses.ListIamWorkRequestLogsResponse> {
@@ -7409,17 +7341,14 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   }
 
   /**
-     * List the IAM work requests in compartment
-* <p>
-- If IAM workrequest  details are retrieved sucessfully, return 202 ACCEPTED.
-* - If any internal error occurs, return 500 INTERNAL SERVER ERROR.
-* 
-     * This operation does not retry by default if the user has not defined a retry configuration.
-     * @param ListIamWorkRequestsRequest
-     * @return ListIamWorkRequestsResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIamWorkRequests.ts.html |here} to see how to use ListIamWorkRequests API.
-     */
+   * Lists the IAM work requests in compartment. The workRequestID is returned in the opc-workrequest-id header for any asynchronous operation in the Identity and Access Management service.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListIamWorkRequestsRequest
+   * @return ListIamWorkRequestsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIamWorkRequests.ts.html |here} to see how to use ListIamWorkRequests API.
+   */
   public async listIamWorkRequests(
     listIamWorkRequestsRequest: requests.ListIamWorkRequestsRequest
   ): Promise<responses.ListIamWorkRequestsResponse> {
@@ -9937,7 +9866,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    **IMPORTANT**: After you move a compartment to a new parent compartment, the access policies of
    * the new parent take effect and the policies of the previous parent no longer apply. Ensure that you
    * are aware of the implications for the compartment contents before you move it. For more
-   * information, see [Moving a Compartment](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingcompartments.htm#MoveCompartment).
+   * information, see [Moving a Compartment](https://docs.cloud.oracle.com/Content/Identity/compartments/managingcompartments.htm#MoveCompartment).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param MoveCompartmentRequest
@@ -10271,7 +10200,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
-   * Updates authentication policy for the specified tenancy
+   * Updates authentication policy for the specified tenancy.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAuthenticationPolicyRequest
@@ -10491,18 +10420,10 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
-     * Updates domain information and associated stripe. This is an asynchronous call where
-* the associated stripe and domain are updated.
+     * (For tenancies that support identity domains) Updates identity domain information and the associated Identity Cloud Service (IDCS) stripe.
 * <p>
-To track progress, HTTP GET on /iamWorkRequests/{iamWorkRequestsId} endpoint will provide
-* the async operation's status.
-* <p>
-- If the {@code displayName} is not unique within the tenancy, returns 400 BAD REQUEST.
-* - If any field other than {@code description} is requested to be updated for DEFAULT domain,
-* returns 400 BAD REQUEST.
-* - If Domain is not active or being updated, returns 400 BAD REQUEST.
-* - If Domain {@code type} is DEFAULT or DEFAULT_LIGHTWEIGHT, return 400 BAD Request
-* - If the domain doesn't exists, returns 404 NOT FOUND.
+To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
+* the operation's status.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateDomainRequest
@@ -10868,6 +10789,7 @@ Updates the specified group mapping.
 
   /**
    * Updates the specified network source.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateNetworkSourceRequest
    * @return UpdateNetworkSourceResponse
@@ -11407,7 +11329,7 @@ Updating `isRetired` to 'true' retires the namespace and all the tag definitions
 * namespace (changing `isRetired` from 'true' to 'false') does not reactivate tag definitions.
 * To reactivate the tag definitions, you must reactivate each one individually *after* you reactivate the namespace,
 * using {@link #updateTag(UpdateTagRequest) updateTag}. For more information about retiring tag namespaces, see
-* [Retiring Key Definitions and Namespace Definitions](https://docs.cloud.oracle.com/Content/Identity/Concepts/taggingoverview.htm#Retiring).
+* [Retiring Key Definitions and Namespace Definitions](https://docs.cloud.oracle.com/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm#retiringkeys).
 * <p>
 You can't add a namespace with the same name as a retired namespace in the same tenancy.
 * 

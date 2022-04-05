@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Update domain license type
+ * (For tenancies that support identity domains) Details for updating the license type of the identity domain.
  */
 export interface ChangeDomainLicenseTypeDetails {
   /**
-   * The License type of Domain
+   * The license type of the identity domain.
    */
   "licenseType"?: string;
 }

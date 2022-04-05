@@ -18,10 +18,42 @@ import common = require("oci-common");
  * Credit card Payment related details
  */
 export interface CreditCardPaymentDetail extends model.PaymentDetail {
+  /**
+   * Name on the credit card
+   */
+  "nameOnCard"?: string;
+  /**
+   * Credit card type
+   */
+  "creditCardType"?: CreditCardPaymentDetail.CreditCardType;
+  /**
+   * Last four digits of the card
+   */
+  "lastDigits"?: string;
+  /**
+   * Expired date of the credit card
+   */
+  "timeExpiration"?: Date;
+
   "paymentMethod": string;
 }
 
 export namespace CreditCardPaymentDetail {
+  export enum CreditCardType {
+    Visa = "VISA",
+    Amex = "AMEX",
+    Mastercard = "MASTERCARD",
+    Discover = "DISCOVER",
+    Jcb = "JCB",
+    Diner = "DINER",
+    Elo = "ELO",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: CreditCardPaymentDetail, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.PaymentDetail.getJsonObj(obj) as CreditCardPaymentDetail)),

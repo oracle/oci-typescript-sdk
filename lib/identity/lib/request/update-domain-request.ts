@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateDomainRequest extends common.BaseRequest {
   /**
-   * The OCID of the domain
+   * The OCID of the identity domain.
    */
   "domainId": string;
   /**
-   * Request object for updating the Domain.
+   * Request object for updating the identity domain.
    */
   "updateDomainDetails": model.UpdateDomainDetails;
   /**

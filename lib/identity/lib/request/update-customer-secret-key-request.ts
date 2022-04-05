@@ -23,7 +23,7 @@ export interface UpdateCustomerSecretKeyRequest extends common.BaseRequest {
    */
   "userId": string;
   /**
-   * The OCID of the secret key.
+   * The access token of the secret key.
    */
   "customerSecretKeyId": string;
   /**

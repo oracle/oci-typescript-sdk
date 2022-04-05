@@ -22,6 +22,7 @@ export enum SecurityAssessmentLifecycleState {
   Succeeded = "SUCCEEDED",
   Updating = "UPDATING",
   Deleting = "DELETING",
+  Deleted = "DELETED",
   Failed = "FAILED",
 
   /**

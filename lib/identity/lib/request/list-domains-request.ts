@@ -24,27 +24,27 @@ export interface ListDomainsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The mutable display name of the domain
+   * The mutable display name of the identity domain.
    */
   "displayName"?: string;
   /**
-   * The region agnostic domain URL
+   * The region-agnostic identity domain URL.
    */
   "url"?: string;
   /**
-   * The region specific domain URL
+   * The region-specific identity domain URL.
    */
   "homeRegionUrl"?: string;
   /**
-   * The domain type
+   * The identity domain type.
    */
   "type"?: string;
   /**
-   * The domain license type
+   * The license type of the identity domain.
    */
   "licenseType"?: string;
   /**
-   * Indicate if the domain is visible at login screen or not
+   * Indicates whether or not the identity domain is visible at the sign-in screen.
    */
   "isHiddenOnLogin"?: boolean;
   /**
@@ -87,7 +87,7 @@ export interface ListDomainsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A filter to only return resources that match the given lifecycle state.  The state value is case-insensitive.
+   * A filter to only return resources that match the given lifecycle state. The state value is case-insensitive.
    *
    */
   "lifecycleState"?: string;

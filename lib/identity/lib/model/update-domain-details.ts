@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Update domain details
+ * (For tenancies that support identity domains) Update identity domain details.
  */
 export interface UpdateDomainDetails {
   /**
-   * The domain description
+   * The identity domain description. You can have an empty description.
    */
   "description"?: string;
   /**
-   * The mutable display name of the domain
+   * The mutable display name of the identity domain.
    */
   "displayName"?: string;
   /**
-   * Indicates whether domain is hidden on login screen or not.
+   * Indicates whether the identity domain is hidden on the sign-in screen or not.
    *
    */
   "isHiddenOnLogin"?: boolean;

@@ -38,7 +38,7 @@ export interface ListTargetDatabasesRequest extends common.BaseRequest {
   /**
    * A filter to return the target databases that matches the current state of the target database.
    */
-  "lifecycleState"?: model.LifecycleState;
+  "lifecycleState"?: model.TargetDatabaseLifecycleState;
   /**
    * A filter to return target databases that match the database type of the target database.
    */

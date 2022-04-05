@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeactivateDomainRequest extends common.BaseRequest {
   /**
-   * The OCID of the domain
+   * The OCID of the identity domain.
    */
   "domainId": string;
   /**

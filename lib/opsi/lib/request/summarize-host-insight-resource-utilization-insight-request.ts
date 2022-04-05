@@ -56,7 +56,7 @@ export interface SummarizeHostInsightResourceUtilizationInsightRequest extends c
   /**
    * Filter by one or more platform types.
    * Supported platformType(s) for MACS-managed external host insight: [LINUX].
-   * Supported platformType(s) for EM-managed external host insight: [LINUX, SOLARIS, SUNOS].
+   * Supported platformType(s) for EM-managed external host insight: [LINUX, SOLARIS, SUNOS, ZLINUX].
    *
    */
   "platformType"?: Array<SummarizeHostInsightResourceUtilizationInsightRequest.PlatformType>;
@@ -132,6 +132,7 @@ export namespace SummarizeHostInsightResourceUtilizationInsightRequest {
   export enum PlatformType {
     Linux = "LINUX",
     Solaris = "SOLARIS",
-    Sunos = "SUNOS"
+    Sunos = "SUNOS",
+    Zlinux = "ZLINUX"
   }
 }

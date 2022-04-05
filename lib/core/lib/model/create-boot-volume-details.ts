@@ -76,13 +76,11 @@ Example: `{\"Department\": \"Finance\"}`
 * <p>
 Allowed values:
 * <p>
-  * `10`: Represents the Balanced option.
+  * `10`: Represents Balanced option.
 * <p>
-  * `20`: Represents the Higher Performance option.
-*   
-*   * `30`-`120`: Represents the Ultra High Performance option.
-*   
-* For volumes with the auto-tuned performance feature enabled, this is set to the default (minimum) VPUs/GB.
+  * `20`: Represents Higher Performance option.
+* <p>
+  * `30`-`120`: Represents the Ultra High Performance option.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vpusPerGB"?: number;
@@ -91,8 +89,7 @@ Allowed values:
     | model.BootVolumeSourceFromBootVolumeDetails
     | model.BootVolumeSourceFromBootVolumeReplicaDetails;
   /**
-   * Specifies whether the auto-tune performance is enabled for this boot volume. This field is deprecated.
-   * Use the `DetachedVolumeAutotunePolicy` instead to enable the volume for detached autotune.
+   * Specifies whether the auto-tune performance is enabled for this boot volume.
    *
    */
   "isAutoTuneEnabled"?: boolean;

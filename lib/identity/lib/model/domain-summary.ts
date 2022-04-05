@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -15,58 +15,58 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * As the name suggests, a `DomainSummary` object contains information about a `Domain`.
+ * (For tenancies that support identity domains) As the name suggests, a `DomainSummary` object contains information about a `Domain`.
  *
  */
 export interface DomainSummary {
   /**
-   * The OCID of the domain
+   * The OCID of the identity domain.
    */
   "id": string;
   /**
-   * The OCID of the comparment containing the domain.
+   * The OCID of the compartment containing the identity domain.
    */
   "compartmentId": string;
   /**
-   * The mutable display name of the domain
+   * The mutable display name of the identity domain.
    */
   "displayName": string;
   /**
-   * The domain descripition
+   * The identity domain description. You can have an empty description.
    */
   "description": string;
   /**
-   * Region agnostic domain URL.
+   * Region-agnostic identity domain URL.
    */
   "url": string;
   /**
-   * Region specific domain URL.
+   * Region-specific identity domain URL.
    */
   "homeRegionUrl": string;
   /**
-   * The home region for the domain.
+   * The home region for the identity domain.
    */
   "homeRegion": string;
   /**
-   * The regions domain is replicated to.
+   * The regions where replicas of the identity domain exist.
    */
   "replicaRegions": Array<model.ReplicatedRegionDetails>;
   /**
-   * The type of the domain.
+   * The type of the identity domain.
    *
    */
   "type": DomainSummary.Type;
   /**
-   * The License type of Domain
+   * The license type of the identity domain.
    */
   "licenseType": string;
   /**
-   * Indicates whether domain is hidden on login screen or not.
+   * Indicates whether the identity domain is hidden on the sign-in screen or not.
    *
    */
   "isHiddenOnLogin": boolean;
   /**
-    * Date and time the domain was created, in the format defined by RFC3339.
+    * Date and time the identity domain was created, in the format defined by RFC3339.
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 
@@ -78,7 +78,7 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "lifecycleState": DomainSummary.LifecycleState;
   /**
-   * Any additional details about the current state of the Domain.
+   * Any additional details about the current state of the identity domain.
    *
    */
   "lifecycleDetails"?: DomainSummary.LifecycleDetails;

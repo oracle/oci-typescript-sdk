@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -24,7 +24,7 @@ The auth token is associated with the user's Console login. Auth tokens never ex
 * <p>
 **Note:** The token is always an Oracle-generated string; you can't change it to a string of your choice.
 * <p>
-For more information, see [Managing User Credentials](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingcredentials.htm).
+For more information, see [Managing User Credentials](https://docs.cloud.oracle.com/Content/Identity/access/managing-user-credentials.htm).
 * 
 */
 export interface AuthToken {
@@ -43,8 +43,11 @@ export interface AuthToken {
    */
   "userId"?: string;
   /**
-   * The description you assign to the auth token. Does not have to be unique, and it's changeable.
-   */
+    * The description you assign to the auth token. Does not have to be unique, and it's changeable.
+* <p>
+(For tenancies that support identity domains) You can have an empty description.
+* 
+    */
   "description"?: string;
   /**
     * Date and time the `AuthToken` object was created, in the format defined by RFC3339.
