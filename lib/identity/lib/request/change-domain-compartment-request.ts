@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ChangeDomainCompartmentRequest extends common.BaseRequest {
   /**
-   * The OCID of the domain
+   * The OCID of the identity domain.
    */
   "domainId": string;
   /**
-   * the request object for moving compartment of a domain
+   * The request object for moving the identity domain to a different compartment.
    */
   "changeDomainCompartmentDetails": model.ChangeDomainCompartmentDetails;
   /**

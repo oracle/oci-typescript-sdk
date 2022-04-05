@@ -7514,6 +7514,87 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Returns response with aggregated time series data (timeIntervalstart, timeIntervalEnd, commandArgs, usageData) for top processes.
+   * Data is aggregated for the time period specified and proceses are sorted descendent by the proces metric specified (CPU, MEMORY, VIRTUAL_MEMORY).
+   * HostInsight Id and Process metric must be specified
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeHostInsightTopProcessesUsageTrendRequest
+   * @return SummarizeHostInsightTopProcessesUsageTrendResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightTopProcessesUsageTrend.ts.html |here} to see how to use SummarizeHostInsightTopProcessesUsageTrend API.
+   */
+  public async summarizeHostInsightTopProcessesUsageTrend(
+    summarizeHostInsightTopProcessesUsageTrendRequest: requests.SummarizeHostInsightTopProcessesUsageTrendRequest
+  ): Promise<responses.SummarizeHostInsightTopProcessesUsageTrendResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeHostInsightTopProcessesUsageTrend."
+      );
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeHostInsightTopProcessesUsageTrendRequest.compartmentId,
+      "id": summarizeHostInsightTopProcessesUsageTrendRequest.id,
+      "resourceMetric": summarizeHostInsightTopProcessesUsageTrendRequest.resourceMetric,
+      "analysisTimeInterval":
+        summarizeHostInsightTopProcessesUsageTrendRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeHostInsightTopProcessesUsageTrendRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeHostInsightTopProcessesUsageTrendRequest.timeIntervalEnd,
+      "page": summarizeHostInsightTopProcessesUsageTrendRequest.page,
+      "limit": summarizeHostInsightTopProcessesUsageTrendRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeHostInsightTopProcessesUsageTrendRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeHostInsightTopProcessesUsageTrendRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/topProcessesUsageTrend",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeHostInsightTopProcessesUsageTrendResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeHostInsightsTopProcessesUsageTrendCollection",
+        bodyModel: model.SummarizeHostInsightsTopProcessesUsageTrendCollection,
+        type: "model.SummarizeHostInsightsTopProcessesUsageTrendCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the details of resources used by an Operations Insights Warehouse.
    * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
    *

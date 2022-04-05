@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -17,7 +17,7 @@ import common = require("oci-common");
 /**
 * Validates a definedTag value. Each validator performs validation steps in addition to the standard
 * validation for definedTag values. For more information, see
-* [Limits on Tags](https://docs.cloud.oracle.com/Content/Identity/Concepts/taggingoverview.htm#Limits).
+* [Limits on Tags](https://docs.cloud.oracle.com/Content/Tagging/Concepts/taggingoverview.htm#limits).
 * <p>
 If you define a validator after a value has been set for a defined tag, then any updates that
 * attempt to change the value must pass the additional validation defined by the current rule.

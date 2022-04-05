@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -30,8 +30,11 @@ export interface DbCredentialSummary {
    */
   "userId"?: string;
   /**
-   * The description you assign to the DB credential. Does not have to be unique, and it's changeable.
-   */
+    * The description you assign to the DB credential. Does not have to be unique, and it's changeable.
+* <p>
+(For tenancies that support identity domains) You can have an empty description.
+* 
+    */
   "description"?: string;
   /**
     * Date and time the `DbCredential` object was created, in the format defined by RFC3339.

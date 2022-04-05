@@ -28,7 +28,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
   "operationType"?: string;
   /**
    * The field used for sorting. Only one sorting order (sortOrder) can be specified.
-   * The default order for STARTTIME and FINISHTIME is descending.
+   * The default order is descending.
    *
    */
   "sortBy"?: ListWorkRequestsRequest.SortBy;
@@ -61,7 +61,8 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
 export namespace ListWorkRequestsRequest {
   export enum SortBy {
     Starttime = "STARTTIME",
-    Finishtime = "FINISHTIME"
+    Finishtime = "FINISHTIME",
+    Acceptedtime = "ACCEPTEDTIME"
   }
 
   export enum SortOrder {

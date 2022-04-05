@@ -72,17 +72,15 @@ Example: `{\"Department\": \"Finance\"}`
   /**
     * The number of volume performance units (VPUs) that will be applied to this volume per GB,
 * representing the Block Volume service's elastic performance options.
-* See [Block Volume Elastic Performance](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/blockvolumeelasticperformance.htm) for more information.
+* See [Block Volume Performance Levels](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/blockvolumeperformance.htm#perf_levels) for more information.
 * <p>
 Allowed values:
-* <p>
-  * `0`: Represents Lower Cost option.
 * <p>
   * `10`: Represents Balanced option.
 * <p>
   * `20`: Represents Higher Performance option.
 * <p>
-For performance autotune enabled volumes, It would be the Default(Minimum) VPUs/GB.
+  * `30`-`120`: Represents the Ultra High Performance option.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vpusPerGB"?: number;

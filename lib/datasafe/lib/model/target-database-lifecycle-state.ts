@@ -34,7 +34,13 @@ export enum TargetDatabaseLifecycleState {
   Deleting = "DELETING",
   Deleted = "DELETED",
   NeedsAttention = "NEEDS_ATTENTION",
-  Failed = "FAILED"
+  Failed = "FAILED",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace TargetDatabaseLifecycleState {

@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface EnableReplicationToRegionRequest extends common.BaseRequest {
   /**
-   * The OCID of the domain
+   * The OCID of the identity domain.
    */
   "domainId": string;
   /**
-   * the request object for region we are replicating domain region
+   * The request object for replicating the identity domain to another region.
    */
   "enableReplicationToRegionDetails": model.EnableReplicationToRegionDetails;
   /**

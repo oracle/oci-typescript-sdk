@@ -18,6 +18,15 @@ import common = require("oci-common");
  * PayPal Payment related details
  */
 export interface PaypalPaymentDetail extends model.PaymentDetail {
+  /**
+   * The id (email address) of the paypal payment
+   */
+  "paypalId"?: string;
+  /**
+   * paypal payment reference
+   */
+  "paypalReference"?: string;
+
   "paymentMethod": string;
 }
 

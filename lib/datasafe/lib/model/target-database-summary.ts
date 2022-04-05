@@ -49,7 +49,7 @@ export interface TargetDatabaseSummary {
   /**
    * The current state of the target database in Data Safe.
    */
-  "lifecycleState": model.LifecycleState;
+  "lifecycleState": model.TargetDatabaseLifecycleState;
   /**
    * Details about the current state of the target database in Data Safe.
    */

@@ -24,6 +24,7 @@ export enum AuditArchiveRetrievalLifecycleState {
   Failed = "FAILED",
   Deleting = "DELETING",
   Deleted = "DELETED",
+  Updating = "UPDATING",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

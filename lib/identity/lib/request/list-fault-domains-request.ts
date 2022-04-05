@@ -24,7 +24,7 @@ export interface ListFaultDomainsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The name of the availibilityDomain.
+   * The name of the availabilityDomain.
    *
    */
   "availabilityDomain": string;

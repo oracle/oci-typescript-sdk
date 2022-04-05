@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -52,7 +52,7 @@ export interface TagNamespaceSummary {
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Whether the tag namespace is retired.
-   * For more information, see [Retiring Key Definitions and Namespace Definitions](https://docs.cloud.oracle.com/Content/Identity/Concepts/taggingoverview.htm#Retiring).
+   * For more information, see [Retiring Key Definitions and Namespace Definitions](https://docs.cloud.oracle.com/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm#retiringkeys).
    *
    */
   "isRetired"?: boolean;

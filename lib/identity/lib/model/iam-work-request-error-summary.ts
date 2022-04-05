@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -15,7 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An error encountered while executing an operation that is tracked by a IAM work request.
+ * (For tenancies that support identity domains) An error encountered while executing an operation that is tracked by a IAM work request.
+ *
  */
 export interface IamWorkRequestErrorSummary {
   /**

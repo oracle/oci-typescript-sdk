@@ -22,6 +22,7 @@ export enum UserAssessmentLifecycleState {
   Succeeded = "SUCCEEDED",
   Updating = "UPDATING",
   Deleting = "DELETING",
+  Deleted = "DELETED",
   Failed = "FAILED",
 
   /**

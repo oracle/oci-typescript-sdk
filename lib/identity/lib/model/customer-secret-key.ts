@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -21,7 +21,7 @@ import common = require("oci-common");
 * <p>
 **Note:** The secret key is always an Oracle-generated string; you can't change it to a string of your choice.
 * <p>
-For more information, see [Managing User Credentials](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingcredentials.htm).
+For more information, see [Managing User Credentials](https://docs.cloud.oracle.com/Content/Identity/access/managing-user-credentials.htm).
 * 
 */
 export interface CustomerSecretKey {

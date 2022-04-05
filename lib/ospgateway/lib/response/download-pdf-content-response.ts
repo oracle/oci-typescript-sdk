@@ -27,6 +27,14 @@ export interface DownloadPdfContentResponse {
    */
   "contentDisposition": string;
   /**
+   * Set the content type to download
+   */
+  "contentType": string;
+  /**
+   * Set the content length to download
+   */
+  "contentLength": number;
+  /**
    * The returned stream.Readable | ReadableStream instance.
    */
   "value": stream.Readable | ReadableStream;

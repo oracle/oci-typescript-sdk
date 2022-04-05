@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -21,8 +21,8 @@ export interface UpdatePolicyDetails {
   "description"?: string;
   /**
    * An array of policy statements written in the policy language. See
-   * [How Policies Work](https://docs.cloud.oracle.com/Content/Identity/Concepts/policies.htm) and
-   * [Common Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/commonpolicies.htm).
+   * [How Policies Work](https://docs.cloud.oracle.com/Content/Identity/policieshow/how-policies-work.htm) and
+   * [Common Policies](https://docs.cloud.oracle.com/Content/Identity/policiescommon/commonpolicies.htm).
    *
    */
   "statements"?: Array<string>;

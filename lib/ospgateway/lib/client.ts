@@ -179,6 +179,16 @@ export class InvoiceServiceClient {
             value: response.headers.get("Content-Disposition"),
             key: "contentDisposition",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("Content-Type"),
+            key: "contentType",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Content-Length"),
+            key: "contentLength",
+            dataType: "number"
           }
         ]
       });

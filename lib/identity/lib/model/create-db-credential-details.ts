@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -21,9 +21,11 @@ export interface CreateDbCredentialDetails {
    */
   "password": string;
   /**
-   * The description you assign to the DB credentials during creation.
-   *
-   */
+    * The description you assign to the DB credentials during creation.
+* <p>
+(For tenancies that support identity domains) You can have an empty description.
+* 
+    */
   "description": string;
 }
 

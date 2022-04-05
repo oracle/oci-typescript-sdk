@@ -48,7 +48,7 @@ export interface EmManagedExternalHostInsight extends model.HostInsight {
   /**
    * Platform type.
    * Supported platformType(s) for MACS-managed external host insight: [LINUX].
-   * Supported platformType(s) for EM-managed external host insight: [LINUX, SOLARIS, SUNOS].
+   * Supported platformType(s) for EM-managed external host insight: [LINUX, SOLARIS, SUNOS, ZLINUX].
    *
    */
   "platformType"?: EmManagedExternalHostInsight.PlatformType;
@@ -73,6 +73,7 @@ export namespace EmManagedExternalHostInsight {
     Linux = "LINUX",
     Solaris = "SOLARIS",
     Sunos = "SUNOS",
+    Zlinux = "ZLINUX",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -15,7 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A IAM work request object that allows users to track Asynchronous API status.
+ * (For tenancies that support identity domains) An IAM work request object that allows users to track the status of asynchronous API requests.
+ *
  */
 export interface IamWorkRequest {
   /**
@@ -27,7 +28,7 @@ export interface IamWorkRequest {
    */
   "operationType": IamWorkRequest.OperationType;
   /**
-   * Status of the work request
+   * The status of the work request.
    */
   "status": IamWorkRequest.Status;
   /**

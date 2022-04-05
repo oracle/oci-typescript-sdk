@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ChangeDomainLicenseTypeRequest extends common.BaseRequest {
   /**
-   * The OCID of the domain
+   * The OCID of the identity domain.
    */
   "domainId": string;
   /**
-   * the request object for domain license type update
+   * The request object for an update to the license type of the identity domain.
    */
   "changeDomainLicenseTypeDetails": model.ChangeDomainLicenseTypeDetails;
   /**

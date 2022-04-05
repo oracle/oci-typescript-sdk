@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, and policies.
+ * APIs for managing users, groups, compartments, policies, and identity domains.
  * OpenAPI spec version: 20160918
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Domain replication request packet
+ * (For tenancies that support identity domains) Identity domain replication request packet.
  */
 export interface EnableReplicationToRegionDetails {
   /**
-    * A region for which domain replication is requested for.
+    * A region to which you want identity domain replication to occur.
 * See [Regions and Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm)
 * for the full list of supported region names.
 * <p>
