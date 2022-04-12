@@ -86,7 +86,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "isHydrated"?: boolean;
   /**
-    * The number of volume performance units (VPUs) that will be applied to this volume per GB,
+    * The number of volume performance units (VPUs) that will be applied to this boot volume per GB,
 * representing the Block Volume service's elastic performance options.
 * See [Block Volume Performance Levels](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/blockvolumeperformance.htm#perf_levels) for more information.
 * <p>
@@ -138,7 +138,7 @@ Allowed values:
    */
   "isAutoTuneEnabled"?: boolean;
   /**
-   * The number of Volume Performance Units per GB that this volume is effectively tuned to when it's idle.
+   * The number of Volume Performance Units per GB that this boot volume is effectively tuned to when it's idle.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "autoTunedVpusPerGB"?: number;

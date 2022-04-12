@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface CreateModelRequest extends common.BaseRequest {
   /**
-   * Metadata about the new model.
+   * The metadata about the new model.
    */
   "createModelDetails": model.CreateModelDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
-   * server error without risk of executing that same action again. Retry tokens expire after 24
+   * server error without the risk of executing that same action again. Retry tokens expire after 24
    * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
    * has been deleted and purged from the system, then a retry of the original creation request
    * might be rejected.

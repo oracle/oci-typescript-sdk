@@ -1,6 +1,6 @@
 /**
- * VisionService API
- * A description of the VisionService API.
+ * Vision API
+ * Using Vision, you can upload images to detect and classify objects in them. If you have lots of images, you can process them in batch using asynchronous API endpoints. Vision's features are thematically split between Document AI for document-centric images, and Image Analysis for object and scene-based images. Pretrained models and custom models are supported.
  * OpenAPI spec version: 20220125
  *
  *
@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface OntologyClass {
   /**
-   * Name of the label.
+   * The label name.
    */
   "name": string;
   /**
-   * Parents of the label.
+   * The label parents.
    */
   "parentNames"?: Array<string>;
   /**
-   * Synonyms of the label.
+   * The label synonyms.
    */
   "synonymNames"?: Array<string>;
 }

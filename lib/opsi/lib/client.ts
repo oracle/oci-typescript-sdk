@@ -149,7 +149,7 @@ export class OperationsInsightsClient {
 
   /**
    * Add new members (e.g. databases and hosts) to an Exadata system in Operations Insights. Exadata-related metric collection and analysis will be started.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AddExadataInsightMembersRequest
    * @return AddExadataInsightMembersResponse
    * @throws OciError when an error occurs
@@ -173,7 +173,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": addExadataInsightMembersRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       addExadataInsightMembersRequest.retryConfiguration,
@@ -220,7 +220,7 @@ export class OperationsInsightsClient {
 
   /**
    * Moves a DatabaseInsight resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDatabaseInsightCompartmentRequest
    * @return ChangeDatabaseInsightCompartmentResponse
    * @throws OciError when an error occurs
@@ -246,7 +246,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": changeDatabaseInsightCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeDatabaseInsightCompartmentRequest.retryConfiguration,
@@ -293,7 +293,7 @@ export class OperationsInsightsClient {
 
   /**
    * Moves a EnterpriseManagerBridge resource from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeEnterpriseManagerBridgeCompartmentRequest
    * @return ChangeEnterpriseManagerBridgeCompartmentResponse
    * @throws OciError when an error occurs
@@ -319,7 +319,7 @@ export class OperationsInsightsClient {
       "opc-request-id": changeEnterpriseManagerBridgeCompartmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeEnterpriseManagerBridgeCompartmentRequest.retryConfiguration,
@@ -366,7 +366,7 @@ export class OperationsInsightsClient {
 
   /**
    * Moves an Exadata insight resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeExadataInsightCompartmentRequest
    * @return ChangeExadataInsightCompartmentResponse
    * @throws OciError when an error occurs
@@ -392,7 +392,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": changeExadataInsightCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeExadataInsightCompartmentRequest.retryConfiguration,
@@ -439,7 +439,7 @@ export class OperationsInsightsClient {
 
   /**
    * Moves a HostInsight resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeHostInsightCompartmentRequest
    * @return ChangeHostInsightCompartmentResponse
    * @throws OciError when an error occurs
@@ -463,7 +463,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": changeHostInsightCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeHostInsightCompartmentRequest.retryConfiguration,
@@ -510,7 +510,7 @@ export class OperationsInsightsClient {
 
   /**
    * Moves a private endpoint from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeOperationsInsightsPrivateEndpointCompartmentRequest
    * @return ChangeOperationsInsightsPrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
@@ -537,7 +537,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": changeOperationsInsightsPrivateEndpointCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeOperationsInsightsPrivateEndpointCompartmentRequest.retryConfiguration,
@@ -585,7 +585,7 @@ export class OperationsInsightsClient {
 
   /**
    * Change the connection details of a co-managed  database insight. When provided, If-Match is checked against ETag values of the resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangePeComanagedDatabaseInsightRequest
    * @return ChangePeComanagedDatabaseInsightResponse
    * @throws OciError when an error occurs
@@ -611,7 +611,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": changePeComanagedDatabaseInsightRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changePeComanagedDatabaseInsightRequest.retryConfiguration,
@@ -660,7 +660,7 @@ export class OperationsInsightsClient {
    * Create a AWR hub resource for the tenant in Operations Insights.
    * This resource will be created in root compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateAwrHubRequest
    * @return CreateAwrHubResponse
    * @throws OciError when an error occurs
@@ -680,7 +680,7 @@ export class OperationsInsightsClient {
       "opc-request-id": createAwrHubRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createAwrHubRequest.retryConfiguration,
@@ -747,7 +747,7 @@ export class OperationsInsightsClient {
   /**
    * Create a Database Insight resource for a database in Operations Insights. The database will be enabled in Operations Insights. Database metric collection and analysis will be started.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDatabaseInsightRequest
    * @return CreateDatabaseInsightResponse
    * @throws OciError when an error occurs
@@ -768,7 +768,7 @@ export class OperationsInsightsClient {
       "opc-request-id": createDatabaseInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDatabaseInsightRequest.retryConfiguration,
@@ -835,7 +835,7 @@ export class OperationsInsightsClient {
   /**
    * Create a Enterprise Manager bridge in Operations Insights.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateEnterpriseManagerBridgeRequest
    * @return CreateEnterpriseManagerBridgeResponse
    * @throws OciError when an error occurs
@@ -858,7 +858,7 @@ export class OperationsInsightsClient {
       "opc-request-id": createEnterpriseManagerBridgeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createEnterpriseManagerBridgeRequest.retryConfiguration,
@@ -925,7 +925,7 @@ export class OperationsInsightsClient {
   /**
    * Create an Exadata insight resource for an Exadata system in Operations Insights. The Exadata system will be enabled in Operations Insights. Exadata-related metric collection and analysis will be started.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateExadataInsightRequest
    * @return CreateExadataInsightResponse
    * @throws OciError when an error occurs
@@ -946,7 +946,7 @@ export class OperationsInsightsClient {
       "opc-request-id": createExadataInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createExadataInsightRequest.retryConfiguration,
@@ -1013,7 +1013,7 @@ export class OperationsInsightsClient {
   /**
    * Create a Host Insight resource for a host in Operations Insights. The host will be enabled in Operations Insights. Host metric collection and analysis will be started.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateHostInsightRequest
    * @return CreateHostInsightResponse
    * @throws OciError when an error occurs
@@ -1034,7 +1034,7 @@ export class OperationsInsightsClient {
       "opc-request-id": createHostInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createHostInsightRequest.retryConfiguration,
@@ -1102,7 +1102,7 @@ export class OperationsInsightsClient {
    * Create a private endpoint resource for the tenant in Operations Insights.
    * This resource will be created in customer compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateOperationsInsightsPrivateEndpointRequest
    * @return CreateOperationsInsightsPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -1125,7 +1125,7 @@ export class OperationsInsightsClient {
       "opc-request-id": createOperationsInsightsPrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createOperationsInsightsPrivateEndpointRequest.retryConfiguration,
@@ -1194,7 +1194,7 @@ export class OperationsInsightsClient {
    * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment. If the 'opsi-warehouse-type'
    * header is passed to the API, a warehouse resource without ADW or Schema provisioning is created.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateOperationsInsightsWarehouseRequest
    * @return CreateOperationsInsightsWarehouseResponse
    * @throws OciError when an error occurs
@@ -1217,7 +1217,7 @@ export class OperationsInsightsClient {
       "opc-request-id": createOperationsInsightsWarehouseRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createOperationsInsightsWarehouseRequest.retryConfiguration,
@@ -1285,7 +1285,7 @@ export class OperationsInsightsClient {
    * Create a Operations Insights Warehouse user resource for the tenant in Operations Insights.
    * This resource will be created in root compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateOperationsInsightsWarehouseUserRequest
    * @return CreateOperationsInsightsWarehouseUserResponse
    * @throws OciError when an error occurs
@@ -1308,7 +1308,7 @@ export class OperationsInsightsClient {
       "opc-request-id": createOperationsInsightsWarehouseUserRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createOperationsInsightsWarehouseUserRequest.retryConfiguration,
@@ -1374,7 +1374,7 @@ export class OperationsInsightsClient {
 
   /**
    * Deletes an AWR hub.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAwrHubRequest
    * @return DeleteAwrHubResponse
    * @throws OciError when an error occurs
@@ -1396,7 +1396,7 @@ export class OperationsInsightsClient {
       "opc-request-id": deleteAwrHubRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteAwrHubRequest.retryConfiguration,
@@ -1438,7 +1438,7 @@ export class OperationsInsightsClient {
 
   /**
    * Deletes a database insight. The database insight will be deleted and cannot be enabled again.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDatabaseInsightRequest
    * @return DeleteDatabaseInsightResponse
    * @throws OciError when an error occurs
@@ -1461,7 +1461,7 @@ export class OperationsInsightsClient {
       "opc-request-id": deleteDatabaseInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDatabaseInsightRequest.retryConfiguration,
@@ -1503,7 +1503,7 @@ export class OperationsInsightsClient {
 
   /**
    * Deletes an Operations Insights Enterprise Manager bridge. If any database insight is still referencing this bridge, the operation will fail.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteEnterpriseManagerBridgeRequest
    * @return DeleteEnterpriseManagerBridgeResponse
    * @throws OciError when an error occurs
@@ -1528,7 +1528,7 @@ export class OperationsInsightsClient {
       "opc-request-id": deleteEnterpriseManagerBridgeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteEnterpriseManagerBridgeRequest.retryConfiguration,
@@ -1570,7 +1570,7 @@ export class OperationsInsightsClient {
 
   /**
    * Deletes an Exadata insight. The Exadata insight will be deleted and cannot be enabled again.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteExadataInsightRequest
    * @return DeleteExadataInsightResponse
    * @throws OciError when an error occurs
@@ -1593,7 +1593,7 @@ export class OperationsInsightsClient {
       "opc-request-id": deleteExadataInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteExadataInsightRequest.retryConfiguration,
@@ -1635,7 +1635,7 @@ export class OperationsInsightsClient {
 
   /**
    * Deletes a host insight. The host insight will be deleted and cannot be enabled again.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteHostInsightRequest
    * @return DeleteHostInsightResponse
    * @throws OciError when an error occurs
@@ -1658,7 +1658,7 @@ export class OperationsInsightsClient {
       "opc-request-id": deleteHostInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteHostInsightRequest.retryConfiguration,
@@ -1700,7 +1700,7 @@ export class OperationsInsightsClient {
 
   /**
    * Deletes a private endpoint.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteOperationsInsightsPrivateEndpointRequest
    * @return DeleteOperationsInsightsPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -1726,7 +1726,7 @@ export class OperationsInsightsClient {
       "opc-request-id": deleteOperationsInsightsPrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteOperationsInsightsPrivateEndpointRequest.retryConfiguration,
@@ -1772,7 +1772,7 @@ export class OperationsInsightsClient {
    * User must delete AWR Hub resource for this warehouse before calling this operation.
    * User must delete the warehouse users before calling this operation.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteOperationsInsightsWarehouseRequest
    * @return DeleteOperationsInsightsWarehouseResponse
    * @throws OciError when an error occurs
@@ -1798,7 +1798,7 @@ export class OperationsInsightsClient {
       "opc-request-id": deleteOperationsInsightsWarehouseRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteOperationsInsightsWarehouseRequest.retryConfiguration,
@@ -1840,7 +1840,7 @@ export class OperationsInsightsClient {
 
   /**
    * Deletes an Operations Insights Warehouse User.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteOperationsInsightsWarehouseUserRequest
    * @return DeleteOperationsInsightsWarehouseUserResponse
    * @throws OciError when an error occurs
@@ -1866,7 +1866,7 @@ export class OperationsInsightsClient {
       "opc-request-id": deleteOperationsInsightsWarehouseUserRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteOperationsInsightsWarehouseUserRequest.retryConfiguration,
@@ -1908,7 +1908,7 @@ export class OperationsInsightsClient {
 
   /**
    * Disables a database in Operations Insights. Database metric collection and analysis will be stopped.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DisableDatabaseInsightRequest
    * @return DisableDatabaseInsightResponse
    * @throws OciError when an error occurs
@@ -1932,7 +1932,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": disableDatabaseInsightRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       disableDatabaseInsightRequest.retryConfiguration,
@@ -1974,7 +1974,7 @@ export class OperationsInsightsClient {
 
   /**
    * Disables an Exadata system in Operations Insights. Exadata-related metric collection and analysis will be stopped.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DisableExadataInsightRequest
    * @return DisableExadataInsightResponse
    * @throws OciError when an error occurs
@@ -1998,7 +1998,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": disableExadataInsightRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       disableExadataInsightRequest.retryConfiguration,
@@ -2040,7 +2040,7 @@ export class OperationsInsightsClient {
 
   /**
    * Disables a host in Operations Insights. Host metric collection and analysis will be stopped.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DisableHostInsightRequest
    * @return DisableHostInsightResponse
    * @throws OciError when an error occurs
@@ -2064,7 +2064,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": disableHostInsightRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       disableHostInsightRequest.retryConfiguration,
@@ -2106,7 +2106,7 @@ export class OperationsInsightsClient {
 
   /**
    * Download the ADW wallet for Operations Insights Warehouse using which the Hub data is exposed.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DownloadOperationsInsightsWarehouseWalletRequest
    * @return DownloadOperationsInsightsWarehouseWalletResponse
    * @throws OciError when an error occurs
@@ -2132,7 +2132,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": downloadOperationsInsightsWarehouseWalletRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       downloadOperationsInsightsWarehouseWalletRequest.retryConfiguration,
@@ -2194,7 +2194,7 @@ export class OperationsInsightsClient {
 
   /**
    * Enables a database in Operations Insights. Database metric collection and analysis will be started.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param EnableDatabaseInsightRequest
    * @return EnableDatabaseInsightResponse
    * @throws OciError when an error occurs
@@ -2218,7 +2218,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": enableDatabaseInsightRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       enableDatabaseInsightRequest.retryConfiguration,
@@ -2265,7 +2265,7 @@ export class OperationsInsightsClient {
 
   /**
    * Enables an Exadata system in Operations Insights. Exadata-related metric collection and analysis will be started.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param EnableExadataInsightRequest
    * @return EnableExadataInsightResponse
    * @throws OciError when an error occurs
@@ -2289,7 +2289,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": enableExadataInsightRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       enableExadataInsightRequest.retryConfiguration,
@@ -2336,7 +2336,7 @@ export class OperationsInsightsClient {
 
   /**
    * Enables a host in Operations Insights. Host metric collection and analysis will be started.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param EnableHostInsightRequest
    * @return EnableHostInsightResponse
    * @throws OciError when an error occurs
@@ -2360,7 +2360,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": enableHostInsightRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       enableHostInsightRequest.retryConfiguration,
@@ -2407,7 +2407,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets details of an AWR hub.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAwrHubRequest
    * @return GetAwrHubResponse
    * @throws OciError when an error occurs
@@ -2428,7 +2428,7 @@ export class OperationsInsightsClient {
       "opc-request-id": getAwrHubRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAwrHubRequest.retryConfiguration,
@@ -2476,7 +2476,7 @@ export class OperationsInsightsClient {
    * Gets the AWR report for the specified source database in the AWR hub. The difference between the timeGreaterThanOrEqualTo and timeLessThanOrEqualTo should not be greater than 7 days.
    * Either beginSnapshotIdentifierGreaterThanOrEqualTo & endSnapshotIdentifierLessThanOrEqualTo params Or timeGreaterThanOrEqualTo & timeLessThanOrEqualTo params are required.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAwrReportRequest
    * @return GetAwrReportResponse
    * @throws OciError when an error occurs
@@ -2507,7 +2507,7 @@ export class OperationsInsightsClient {
       "opc-request-id": getAwrReportRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAwrReportRequest.retryConfiguration,
@@ -2548,7 +2548,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets details of a database insight.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDatabaseInsightRequest
    * @return GetDatabaseInsightResponse
    * @throws OciError when an error occurs
@@ -2570,7 +2570,7 @@ export class OperationsInsightsClient {
       "opc-request-id": getDatabaseInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDatabaseInsightRequest.retryConfiguration,
@@ -2616,7 +2616,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets details of an Operations Insights Enterprise Manager bridge.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetEnterpriseManagerBridgeRequest
    * @return GetEnterpriseManagerBridgeResponse
    * @throws OciError when an error occurs
@@ -2638,7 +2638,7 @@ export class OperationsInsightsClient {
       "opc-request-id": getEnterpriseManagerBridgeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getEnterpriseManagerBridgeRequest.retryConfiguration,
@@ -2684,7 +2684,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets details of an Exadata insight.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetExadataInsightRequest
    * @return GetExadataInsightResponse
    * @throws OciError when an error occurs
@@ -2706,7 +2706,7 @@ export class OperationsInsightsClient {
       "opc-request-id": getExadataInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getExadataInsightRequest.retryConfiguration,
@@ -2752,7 +2752,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets details of a host insight.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetHostInsightRequest
    * @return GetHostInsightResponse
    * @throws OciError when an error occurs
@@ -2774,7 +2774,7 @@ export class OperationsInsightsClient {
       "opc-request-id": getHostInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getHostInsightRequest.retryConfiguration,
@@ -2820,7 +2820,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets the details of the specified private endpoint.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetOperationsInsightsPrivateEndpointRequest
    * @return GetOperationsInsightsPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -2845,7 +2845,7 @@ export class OperationsInsightsClient {
       "opc-request-id": getOperationsInsightsPrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getOperationsInsightsPrivateEndpointRequest.retryConfiguration,
@@ -2893,7 +2893,7 @@ export class OperationsInsightsClient {
    * Gets details of an Operations Insights Warehouse.
    * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetOperationsInsightsWarehouseRequest
    * @return GetOperationsInsightsWarehouseResponse
    * @throws OciError when an error occurs
@@ -2918,7 +2918,7 @@ export class OperationsInsightsClient {
       "opc-request-id": getOperationsInsightsWarehouseRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getOperationsInsightsWarehouseRequest.retryConfiguration,
@@ -2964,7 +2964,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets details of an Operations Insights Warehouse User.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetOperationsInsightsWarehouseUserRequest
    * @return GetOperationsInsightsWarehouseUserResponse
    * @throws OciError when an error occurs
@@ -2989,7 +2989,7 @@ export class OperationsInsightsClient {
       "opc-request-id": getOperationsInsightsWarehouseUserRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getOperationsInsightsWarehouseUserRequest.retryConfiguration,
@@ -3035,7 +3035,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets the status of the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -3057,7 +3057,7 @@ export class OperationsInsightsClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -3108,7 +3108,7 @@ export class OperationsInsightsClient {
 
   /**
    * This is a generic ingest endpoint for all database configuration metrics.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param IngestDatabaseConfigurationRequest
    * @return IngestDatabaseConfigurationResponse
    * @throws OciError when an error occurs
@@ -3133,7 +3133,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": ingestDatabaseConfigurationRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       ingestDatabaseConfigurationRequest.retryConfiguration,
@@ -3184,7 +3184,7 @@ export class OperationsInsightsClient {
 
   /**
    * This is a generic ingest endpoint for all the host configuration metrics
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param IngestHostConfigurationRequest
    * @return IngestHostConfigurationResponse
    * @throws OciError when an error occurs
@@ -3208,7 +3208,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": ingestHostConfigurationRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       ingestHostConfigurationRequest.retryConfiguration,
@@ -3259,7 +3259,7 @@ export class OperationsInsightsClient {
 
   /**
    * This is a generic ingest endpoint for all the host performance metrics
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param IngestHostMetricsRequest
    * @return IngestHostMetricsResponse
    * @throws OciError when an error occurs
@@ -3283,7 +3283,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": ingestHostMetricsRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       ingestHostMetricsRequest.retryConfiguration,
@@ -3336,7 +3336,7 @@ export class OperationsInsightsClient {
    * The sqlbucket endpoint takes in a JSON payload, persists it in Operations Insights ingest pipeline.
    * Either databaseId or id must be specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param IngestSqlBucketRequest
    * @return IngestSqlBucketResponse
    * @throws OciError when an error occurs
@@ -3362,7 +3362,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": ingestSqlBucketRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       ingestSqlBucketRequest.retryConfiguration,
@@ -3415,7 +3415,7 @@ export class OperationsInsightsClient {
    * The SqlPlanLines endpoint takes in a JSON payload, persists it in Operation Insights ingest pipeline.
    * Either databaseId or id must be specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param IngestSqlPlanLinesRequest
    * @return IngestSqlPlanLinesResponse
    * @throws OciError when an error occurs
@@ -3441,7 +3441,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": ingestSqlPlanLinesRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       ingestSqlPlanLinesRequest.retryConfiguration,
@@ -3494,7 +3494,7 @@ export class OperationsInsightsClient {
    * The SQL Stats endpoint takes in a JSON payload, persists it in Operations Insights ingest pipeline.
    * Either databaseId or id must be specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param IngestSqlStatsRequest
    * @return IngestSqlStatsResponse
    * @throws OciError when an error occurs
@@ -3519,7 +3519,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": ingestSqlStatsRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       ingestSqlStatsRequest.retryConfiguration,
@@ -3573,7 +3573,7 @@ export class OperationsInsightsClient {
    * Either databaseId or id must be specified.
    * Disclaimer: SQL text being uploaded explicitly via APIs is not masked. Any sensitive literals contained in the sqlFullText column should be masked prior to ingestion.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param IngestSqlTextRequest
    * @return IngestSqlTextResponse
    * @throws OciError when an error occurs
@@ -3598,7 +3598,7 @@ export class OperationsInsightsClient {
       "opc-retry-token": ingestSqlTextRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       ingestSqlTextRequest.retryConfiguration,
@@ -3650,7 +3650,7 @@ export class OperationsInsightsClient {
   /**
    * Gets a list of AWR hubs. Either compartmentId or id must be specified. All these resources are expected to be in root compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAwrHubsRequest
    * @return ListAwrHubsResponse
    * @throws OciError when an error occurs
@@ -3679,7 +3679,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listAwrHubsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAwrHubsRequest.retryConfiguration,
@@ -3727,7 +3727,7 @@ export class OperationsInsightsClient {
    * Lists AWR snapshots for the specified source database in the AWR hub. The difference between the timeGreaterThanOrEqualTo and timeLessThanOrEqualTo should not exceed an elapsed range of 1 day.
    * The timeGreaterThanOrEqualTo & timeLessThanOrEqualTo params are optional. If these params are not provided, by default last 1 day snapshots will be returned.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAwrSnapshotsRequest
    * @return ListAwrSnapshotsResponse
    * @throws OciError when an error occurs
@@ -3757,7 +3757,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listAwrSnapshotsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAwrSnapshotsRequest.retryConfiguration,
@@ -3805,7 +3805,7 @@ export class OperationsInsightsClient {
    * Gets a list of database insight configurations based on the query parameters specified. Either compartmentId or databaseInsightId query parameter must be specified.
    * When both compartmentId and compartmentIdInSubtree are specified, a list of database insight configurations in that compartment and in all sub-compartments will be returned.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDatabaseConfigurationsRequest
    * @return ListDatabaseConfigurationsResponse
    * @throws OciError when an error occurs
@@ -3843,7 +3843,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listDatabaseConfigurationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDatabaseConfigurationsRequest.retryConfiguration,
@@ -3896,7 +3896,7 @@ export class OperationsInsightsClient {
    * Gets a list of database insights based on the query parameters specified. Either compartmentId or id query parameter must be specified.
    * When both compartmentId and compartmentIdInSubtree are specified, a list of database insights in that compartment and in all sub-compartments will be returned.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDatabaseInsightsRequest
    * @return ListDatabaseInsightsResponse
    * @throws OciError when an error occurs
@@ -3932,7 +3932,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listDatabaseInsightsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDatabaseInsightsRequest.retryConfiguration,
@@ -3985,7 +3985,7 @@ export class OperationsInsightsClient {
    * Gets a list of Operations Insights Enterprise Manager bridges. Either compartmentId or id must be specified.
    * When both compartmentId and compartmentIdInSubtree are specified, a list of bridges in that compartment and in all sub-compartments will be returned.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListEnterpriseManagerBridgesRequest
    * @return ListEnterpriseManagerBridgesResponse
    * @throws OciError when an error occurs
@@ -4015,7 +4015,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listEnterpriseManagerBridgesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listEnterpriseManagerBridgesRequest.retryConfiguration,
@@ -4061,7 +4061,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets a list of exadata insight configurations. Either compartmentId or exadataInsightsId query parameter must be specified.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListExadataConfigurationsRequest
    * @return ListExadataConfigurationsResponse
    * @throws OciError when an error occurs
@@ -4093,7 +4093,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listExadataConfigurationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listExadataConfigurationsRequest.retryConfiguration,
@@ -4146,7 +4146,7 @@ export class OperationsInsightsClient {
    * Gets a list of Exadata insights based on the query parameters specified. Either compartmentId or id query parameter must be specified.
    * When both compartmentId and compartmentIdInSubtree are specified, a list of Exadata insights in that compartment and in all sub-compartments will be returned.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListExadataInsightsRequest
    * @return ListExadataInsightsResponse
    * @throws OciError when an error occurs
@@ -4178,7 +4178,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listExadataInsightsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listExadataInsightsRequest.retryConfiguration,
@@ -4231,7 +4231,7 @@ export class OperationsInsightsClient {
    * Gets a list of host insight configurations based on the query parameters specified. Either compartmentId or hostInsightId query parameter must be specified.
    * When both compartmentId and compartmentIdInSubtree are specified, a list of host insight configurations in that compartment and in all sub-compartments will be returned.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListHostConfigurationsRequest
    * @return ListHostConfigurationsResponse
    * @throws OciError when an error occurs
@@ -4266,7 +4266,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listHostConfigurationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listHostConfigurationsRequest.retryConfiguration,
@@ -4319,7 +4319,7 @@ export class OperationsInsightsClient {
    * Gets a list of host insights based on the query parameters specified. Either compartmentId or id query parameter must be specified.
    * When both compartmentId and compartmentIdInSubtree are specified, a list of host insights in that compartment and in all sub-compartments will be returned.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListHostInsightsRequest
    * @return ListHostInsightsResponse
    * @throws OciError when an error occurs
@@ -4353,7 +4353,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listHostInsightsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listHostInsightsRequest.retryConfiguration,
@@ -4405,7 +4405,7 @@ export class OperationsInsightsClient {
   /**
    * Get a list of hosted entities details.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListHostedEntitiesRequest
    * @return ListHostedEntitiesResponse
    * @throws OciError when an error occurs
@@ -4437,7 +4437,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listHostedEntitiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listHostedEntitiesRequest.retryConfiguration,
@@ -4488,7 +4488,7 @@ export class OperationsInsightsClient {
    *    2.  The agent availabilityStatus = 'ACTIVE'
    *    3.  The agent lifecycleState = 'ACTIVE'
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListImportableAgentEntitiesRequest
    * @return ListImportableAgentEntitiesResponse
    * @throws OciError when an error occurs
@@ -4514,7 +4514,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listImportableAgentEntitiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listImportableAgentEntitiesRequest.retryConfiguration,
@@ -4561,7 +4561,7 @@ export class OperationsInsightsClient {
   /**
    * Gets a list of importable entities for an Operations Insights Enterprise Manager bridge that have not been imported before.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListImportableEnterpriseManagerEntitiesRequest
    * @return ListImportableEnterpriseManagerEntitiesResponse
    * @throws OciError when an error occurs
@@ -4595,7 +4595,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listImportableEnterpriseManagerEntitiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listImportableEnterpriseManagerEntitiesRequest.retryConfiguration,
@@ -4642,7 +4642,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets a list of Operation Insights private endpoints.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListOperationsInsightsPrivateEndpointsRequest
    * @return ListOperationsInsightsPrivateEndpointsResponse
    * @throws OciError when an error occurs
@@ -4676,7 +4676,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listOperationsInsightsPrivateEndpointsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listOperationsInsightsPrivateEndpointsRequest.retryConfiguration,
@@ -4723,7 +4723,7 @@ export class OperationsInsightsClient {
   /**
    * Gets a list of Operations Insights Warehouse users. Either compartmentId or id must be specified. All these resources are expected to be in root compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListOperationsInsightsWarehouseUsersRequest
    * @return ListOperationsInsightsWarehouseUsersResponse
    * @throws OciError when an error occurs
@@ -4756,7 +4756,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listOperationsInsightsWarehouseUsersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listOperationsInsightsWarehouseUsersRequest.retryConfiguration,
@@ -4804,7 +4804,7 @@ export class OperationsInsightsClient {
    * Gets a list of Operations Insights warehouses. Either compartmentId or id must be specified.
    * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListOperationsInsightsWarehousesRequest
    * @return ListOperationsInsightsWarehousesResponse
    * @throws OciError when an error occurs
@@ -4835,7 +4835,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listOperationsInsightsWarehousesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listOperationsInsightsWarehousesRequest.retryConfiguration,
@@ -4883,7 +4883,7 @@ export class OperationsInsightsClient {
    * Query SQL Warehouse to list the plan xml for a given SQL execution plan. This returns a SqlPlanCollection object, but is currently limited to a single plan.
    * Either databaseId or id must be specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSqlPlansRequest
    * @return ListSqlPlansResponse
    * @throws OciError when an error occurs
@@ -4909,7 +4909,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listSqlPlansRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSqlPlansRequest.retryConfiguration,
@@ -4957,7 +4957,7 @@ export class OperationsInsightsClient {
    * Search SQL by SQL Identifier across databases in a compartment and in all sub-compartments if specified.
    * And get the SQL Text and the details of the databases executing the SQL for a given time period.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSqlSearchesRequest
    * @return ListSqlSearchesResponse
    * @throws OciError when an error occurs
@@ -4989,7 +4989,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listSqlSearchesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSqlSearchesRequest.retryConfiguration,
@@ -5036,7 +5036,7 @@ export class OperationsInsightsClient {
   /**
    * Query SQL Warehouse to get the full SQL Text for a SQL in a compartment and in all sub-compartments if specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSqlTextsRequest
    * @return ListSqlTextsResponse
    * @throws OciError when an error occurs
@@ -5066,7 +5066,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listSqlTextsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSqlTextsRequest.retryConfiguration,
@@ -5113,7 +5113,7 @@ export class OperationsInsightsClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -5140,7 +5140,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -5187,7 +5187,7 @@ export class OperationsInsightsClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -5214,7 +5214,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -5261,7 +5261,7 @@ export class OperationsInsightsClient {
   /**
    * Lists the work requests in a compartment. Either compartmentId or id must be specified. Only one of id, resourceId or relatedResourceId can be specified optionally.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -5291,7 +5291,7 @@ export class OperationsInsightsClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -5337,7 +5337,7 @@ export class OperationsInsightsClient {
 
   /**
    * Rotate the ADW wallet for Operations Insights Warehouse using which the Hub data is exposed.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RotateOperationsInsightsWarehouseWalletRequest
    * @return RotateOperationsInsightsWarehouseWalletResponse
    * @throws OciError when an error occurs
@@ -5363,7 +5363,7 @@ export class OperationsInsightsClient {
       "if-match": rotateOperationsInsightsWarehouseWalletRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       rotateOperationsInsightsWarehouseWalletRequest.retryConfiguration,
@@ -5407,7 +5407,7 @@ export class OperationsInsightsClient {
   /**
    * Gets a list of summary of AWR Sources.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeAwrSourcesSummariesRequest
    * @return SummarizeAwrSourcesSummariesResponse
    * @throws OciError when an error occurs
@@ -5436,7 +5436,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeAwrSourcesSummariesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeAwrSourcesSummariesRequest.retryConfiguration,
@@ -5485,7 +5485,7 @@ export class OperationsInsightsClient {
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
    * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeDatabaseInsightResourceCapacityTrendRequest
    * @return SummarizeDatabaseInsightResourceCapacityTrendResponse
    * @throws OciError when an error occurs
@@ -5533,7 +5533,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightResourceCapacityTrendRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeDatabaseInsightResourceCapacityTrendRequest.retryConfiguration,
@@ -5581,7 +5581,7 @@ export class OperationsInsightsClient {
    * Get Forecast predictions for CPU and Storage resources since a time in the past.
    * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeDatabaseInsightResourceForecastTrendRequest
    * @return SummarizeDatabaseInsightResourceForecastTrendResponse
    * @throws OciError when an error occurs
@@ -5631,7 +5631,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightResourceForecastTrendRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeDatabaseInsightResourceForecastTrendRequest.retryConfiguration,
@@ -5679,7 +5679,7 @@ export class OperationsInsightsClient {
    * Lists the Resource statistics (usage,capacity, usage change percent, utilization percent, base capacity, isAutoScalingEnabled)
    * for each database filtered by utilization level in a compartment and in all sub-compartments if specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeDatabaseInsightResourceStatisticsRequest
    * @return SummarizeDatabaseInsightResourceStatisticsResponse
    * @throws OciError when an error occurs
@@ -5729,7 +5729,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightResourceStatisticsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeDatabaseInsightResourceStatisticsRequest.retryConfiguration,
@@ -5779,7 +5779,7 @@ export class OperationsInsightsClient {
    * Linear regression functions are used to calculate the usage change percentage.
    * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeDatabaseInsightResourceUsageRequest
    * @return SummarizeDatabaseInsightResourceUsageResponse
    * @throws OciError when an error occurs
@@ -5821,7 +5821,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightResourceUsageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeDatabaseInsightResourceUsageRequest.retryConfiguration,
@@ -5870,7 +5870,7 @@ export class OperationsInsightsClient {
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
    * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeDatabaseInsightResourceUsageTrendRequest
    * @return SummarizeDatabaseInsightResourceUsageTrendResponse
    * @throws OciError when an error occurs
@@ -5915,7 +5915,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightResourceUsageTrendRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeDatabaseInsightResourceUsageTrendRequest.retryConfiguration,
@@ -5963,7 +5963,7 @@ export class OperationsInsightsClient {
    * Gets resources with current utilization (high and low) and projected utilization (high and low) for a resource type over specified time period.
    * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeDatabaseInsightResourceUtilizationInsightRequest
    * @return SummarizeDatabaseInsightResourceUtilizationInsightResponse
    * @throws OciError when an error occurs
@@ -6013,7 +6013,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightResourceUtilizationInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeDatabaseInsightResourceUtilizationInsightRequest.retryConfiguration,
@@ -6062,7 +6062,7 @@ export class OperationsInsightsClient {
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
    * Either databaseId or id must be specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeDatabaseInsightTablespaceUsageTrendRequest
    * @return SummarizeDatabaseInsightTablespaceUsageTrendResponse
    * @throws OciError when an error occurs
@@ -6094,7 +6094,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeDatabaseInsightTablespaceUsageTrendRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeDatabaseInsightTablespaceUsageTrendRequest.retryConfiguration,
@@ -6148,7 +6148,7 @@ export class OperationsInsightsClient {
    * and asmName is returned in name field for resourceMetric STORAGE. StorageServerName query parameter applies to ResourceType STORAGE_SERVER.
    * Valid values for ResourceType DISKGROUP is STORAGE. Comma delimited (asmName,diskgroupName) is returned in name field.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeExadataInsightResourceCapacityTrendRequest
    * @return SummarizeExadataInsightResourceCapacityTrendResponse
    * @throws OciError when an error occurs
@@ -6189,7 +6189,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeExadataInsightResourceCapacityTrendRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeExadataInsightResourceCapacityTrendRequest.retryConfiguration,
@@ -6240,7 +6240,7 @@ export class OperationsInsightsClient {
    * Valid values for ResourceType HOST are CPU and MEMORY.
    * Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS and THROUGHPUT.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeExadataInsightResourceCapacityTrendAggregatedRequest
    * @return SummarizeExadataInsightResourceCapacityTrendAggregatedResponse
    * @throws OciError when an error occurs
@@ -6289,7 +6289,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeExadataInsightResourceCapacityTrendAggregatedRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeExadataInsightResourceCapacityTrendAggregatedRequest.retryConfiguration,
@@ -6345,7 +6345,7 @@ export class OperationsInsightsClient {
    * and asmName is returned in name field for resourceMetric STORAGE. StorageServerName query parameter applies to ResourceType STORAGE_SERVER.
    * Valid value for ResourceType DISKGROUP is STORAGE. Comma delimited (asmName,diskgroupName) is returned in name field.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeExadataInsightResourceForecastTrendRequest
    * @return SummarizeExadataInsightResourceForecastTrendResponse
    * @throws OciError when an error occurs
@@ -6390,7 +6390,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeExadataInsightResourceForecastTrendRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeExadataInsightResourceForecastTrendRequest.retryConfiguration,
@@ -6440,7 +6440,7 @@ export class OperationsInsightsClient {
    * Valid values for ResourceType HOST are CPU and MEMORY.
    * Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS and THROUGHPUT.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeExadataInsightResourceForecastTrendAggregatedRequest
    * @return SummarizeExadataInsightResourceForecastTrendAggregatedResponse
    * @throws OciError when an error occurs
@@ -6493,7 +6493,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeExadataInsightResourceForecastTrendAggregatedRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeExadataInsightResourceForecastTrendAggregatedRequest.retryConfiguration,
@@ -6546,7 +6546,7 @@ export class OperationsInsightsClient {
    * Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS, THROUGHPUT.
    * Valid value for ResourceType DISKGROUP is STORAGE.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeExadataInsightResourceStatisticsRequest
    * @return SummarizeExadataInsightResourceStatisticsResponse
    * @throws OciError when an error occurs
@@ -6583,7 +6583,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeExadataInsightResourceStatisticsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeExadataInsightResourceStatisticsRequest.retryConfiguration,
@@ -6640,7 +6640,7 @@ export class OperationsInsightsClient {
    * Valid values for ResourceType HOST are CPU and MEMORY.
    * Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS and THROUGHPUT.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeExadataInsightResourceUsageRequest
    * @return SummarizeExadataInsightResourceUsageResponse
    * @throws OciError when an error occurs
@@ -6682,7 +6682,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeExadataInsightResourceUsageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeExadataInsightResourceUsageRequest.retryConfiguration,
@@ -6734,7 +6734,7 @@ export class OperationsInsightsClient {
    * Valid values for ResourceType HOST are CPU and MEMORY.
    * Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS and THROUGHPUT.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeExadataInsightResourceUsageAggregatedRequest
    * @return SummarizeExadataInsightResourceUsageAggregatedResponse
    * @throws OciError when an error occurs
@@ -6774,7 +6774,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeExadataInsightResourceUsageAggregatedRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeExadataInsightResourceUsageAggregatedRequest.retryConfiguration,
@@ -6820,7 +6820,7 @@ export class OperationsInsightsClient {
 
   /**
    * Gets current utilization, projected utilization and days to reach projectedUtilization for an exadata system over specified time period. Valid values for ResourceType DATABASE are CPU,MEMORY,IO and STORAGE. Valid values for ResourceType HOST are CPU and MEMORY. Valid values for ResourceType STORAGE_SERVER are STORAGE, IOPS and THROUGHPUT.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeExadataInsightResourceUtilizationInsightRequest
    * @return SummarizeExadataInsightResourceUtilizationInsightResponse
    * @throws OciError when an error occurs
@@ -6865,7 +6865,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeExadataInsightResourceUtilizationInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeExadataInsightResourceUtilizationInsightRequest.retryConfiguration,
@@ -6916,7 +6916,7 @@ export class OperationsInsightsClient {
 
   /**
    * Lists the software and hardware inventory of the Exadata System.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeExadataMembersRequest
    * @return SummarizeExadataMembersResponse
    * @throws OciError when an error occurs
@@ -6943,7 +6943,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeExadataMembersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeExadataMembersRequest.retryConfiguration,
@@ -6997,7 +6997,7 @@ export class OperationsInsightsClient {
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
    * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeHostInsightResourceCapacityTrendRequest
    * @return SummarizeHostInsightResourceCapacityTrendResponse
    * @throws OciError when an error occurs
@@ -7038,7 +7038,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeHostInsightResourceCapacityTrendRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeHostInsightResourceCapacityTrendRequest.retryConfiguration,
@@ -7086,7 +7086,7 @@ export class OperationsInsightsClient {
    * Get Forecast predictions for CPU or memory resources since a time in the past.
    * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeHostInsightResourceForecastTrendRequest
    * @return SummarizeHostInsightResourceForecastTrendResponse
    * @throws OciError when an error occurs
@@ -7129,7 +7129,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeHostInsightResourceForecastTrendRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeHostInsightResourceForecastTrendRequest.retryConfiguration,
@@ -7172,7 +7172,7 @@ export class OperationsInsightsClient {
    * Lists the resource statistics (usage, capacity, usage change percent, utilization percent, load) for each host filtered
    * by utilization level in a compartment and in all sub-compartments if specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeHostInsightResourceStatisticsRequest
    * @return SummarizeHostInsightResourceStatisticsResponse
    * @throws OciError when an error occurs
@@ -7215,7 +7215,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeHostInsightResourceStatisticsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeHostInsightResourceStatisticsRequest.retryConfiguration,
@@ -7265,7 +7265,7 @@ export class OperationsInsightsClient {
    * Linear regression functions are used to calculate the usage change percentage.
    * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeHostInsightResourceUsageRequest
    * @return SummarizeHostInsightResourceUsageResponse
    * @throws OciError when an error occurs
@@ -7303,7 +7303,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeHostInsightResourceUsageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeHostInsightResourceUsageRequest.retryConfiguration,
@@ -7347,7 +7347,7 @@ export class OperationsInsightsClient {
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
    * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeHostInsightResourceUsageTrendRequest
    * @return SummarizeHostInsightResourceUsageTrendResponse
    * @throws OciError when an error occurs
@@ -7386,7 +7386,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeHostInsightResourceUsageTrendRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeHostInsightResourceUsageTrendRequest.retryConfiguration,
@@ -7434,7 +7434,7 @@ export class OperationsInsightsClient {
    * Gets resources with current utilization (high and low) and projected utilization (high and low) for a resource type over specified time period.
    * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeHostInsightResourceUtilizationInsightRequest
    * @return SummarizeHostInsightResourceUtilizationInsightResponse
    * @throws OciError when an error occurs
@@ -7474,7 +7474,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeHostInsightResourceUtilizationInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeHostInsightResourceUtilizationInsightRequest.retryConfiguration,
@@ -7518,7 +7518,7 @@ export class OperationsInsightsClient {
    * Data is aggregated for the time period specified and proceses are sorted descendent by the proces metric specified (CPU, MEMORY, VIRTUAL_MEMORY).
    * HostInsight Id and Process metric must be specified
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeHostInsightTopProcessesUsageTrendRequest
    * @return SummarizeHostInsightTopProcessesUsageTrendResponse
    * @throws OciError when an error occurs
@@ -7550,7 +7550,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeHostInsightTopProcessesUsageTrendRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeHostInsightTopProcessesUsageTrendRequest.retryConfiguration,
@@ -7598,7 +7598,7 @@ export class OperationsInsightsClient {
    * Gets the details of resources used by an Operations Insights Warehouse.
    * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeOperationsInsightsWarehouseResourceUsageRequest
    * @return SummarizeOperationsInsightsWarehouseResourceUsageResponse
    * @throws OciError when an error occurs
@@ -7623,7 +7623,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeOperationsInsightsWarehouseResourceUsageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeOperationsInsightsWarehouseResourceUsageRequest.retryConfiguration,
@@ -7671,7 +7671,7 @@ export class OperationsInsightsClient {
    * Query SQL Warehouse to get the performance insights for SQLs taking greater than X% database time for a given
    * time period across the given databases or database types in a compartment and in all sub-compartments if specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeSqlInsightsRequest
    * @return SummarizeSqlInsightsResponse
    * @throws OciError when an error occurs
@@ -7709,7 +7709,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeSqlInsightsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeSqlInsightsRequest.retryConfiguration,
@@ -7757,7 +7757,7 @@ export class OperationsInsightsClient {
    * Query SQL Warehouse to get the performance insights on the execution plans for a given SQL for a given time period.
    * Either databaseId or id must be specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeSqlPlanInsightsRequest
    * @return SummarizeSqlPlanInsightsResponse
    * @throws OciError when an error occurs
@@ -7786,7 +7786,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeSqlPlanInsightsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeSqlPlanInsightsRequest.retryConfiguration,
@@ -7834,7 +7834,7 @@ export class OperationsInsightsClient {
    * Query SQL Warehouse to summarize the response time distribution of query executions for a given SQL for a given time period.
    * Either databaseId or id must be specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeSqlResponseTimeDistributionsRequest
    * @return SummarizeSqlResponseTimeDistributionsResponse
    * @throws OciError when an error occurs
@@ -7865,7 +7865,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeSqlResponseTimeDistributionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeSqlResponseTimeDistributionsRequest.retryConfiguration,
@@ -7913,7 +7913,7 @@ export class OperationsInsightsClient {
    * Query SQL Warehouse to get the performance statistics for SQLs taking greater than X% database time for a given
    * time period across the given databases or database types in a compartment and in all sub-compartments if specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeSqlStatisticsRequest
    * @return SummarizeSqlStatisticsResponse
    * @throws OciError when an error occurs
@@ -7956,7 +7956,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeSqlStatisticsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeSqlStatisticsRequest.retryConfiguration,
@@ -8004,7 +8004,7 @@ export class OperationsInsightsClient {
    * Query SQL Warehouse to get the performance statistics time series for a given SQL across given databases for a
    * given time period in a compartment and in all sub-compartments if specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeSqlStatisticsTimeSeriesRequest
    * @return SummarizeSqlStatisticsTimeSeriesResponse
    * @throws OciError when an error occurs
@@ -8043,7 +8043,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeSqlStatisticsTimeSeriesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeSqlStatisticsTimeSeriesRequest.retryConfiguration,
@@ -8091,7 +8091,7 @@ export class OperationsInsightsClient {
    * Query SQL Warehouse to get the performance statistics time series for a given SQL by execution plans for a given time period.
    * Either databaseId or id must be specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeSqlStatisticsTimeSeriesByPlanRequest
    * @return SummarizeSqlStatisticsTimeSeriesByPlanResponse
    * @throws OciError when an error occurs
@@ -8122,7 +8122,7 @@ export class OperationsInsightsClient {
       "opc-request-id": summarizeSqlStatisticsTimeSeriesByPlanRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       summarizeSqlStatisticsTimeSeriesByPlanRequest.retryConfiguration,
@@ -8168,7 +8168,7 @@ export class OperationsInsightsClient {
 
   /**
    * Updates the configuration of a hub .
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAwrHubRequest
    * @return UpdateAwrHubResponse
    * @throws OciError when an error occurs
@@ -8190,7 +8190,7 @@ export class OperationsInsightsClient {
       "opc-request-id": updateAwrHubRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAwrHubRequest.retryConfiguration,
@@ -8237,7 +8237,7 @@ export class OperationsInsightsClient {
 
   /**
    * Updates configuration of a database insight.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDatabaseInsightRequest
    * @return UpdateDatabaseInsightResponse
    * @throws OciError when an error occurs
@@ -8260,7 +8260,7 @@ export class OperationsInsightsClient {
       "opc-request-id": updateDatabaseInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDatabaseInsightRequest.retryConfiguration,
@@ -8307,7 +8307,7 @@ export class OperationsInsightsClient {
 
   /**
    * Updates configuration of an Operations Insights Enterprise Manager bridge.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateEnterpriseManagerBridgeRequest
    * @return UpdateEnterpriseManagerBridgeResponse
    * @throws OciError when an error occurs
@@ -8332,7 +8332,7 @@ export class OperationsInsightsClient {
       "opc-request-id": updateEnterpriseManagerBridgeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateEnterpriseManagerBridgeRequest.retryConfiguration,
@@ -8379,7 +8379,7 @@ export class OperationsInsightsClient {
 
   /**
    * Updates configuration of an Exadata insight.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateExadataInsightRequest
    * @return UpdateExadataInsightResponse
    * @throws OciError when an error occurs
@@ -8402,7 +8402,7 @@ export class OperationsInsightsClient {
       "opc-request-id": updateExadataInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateExadataInsightRequest.retryConfiguration,
@@ -8449,7 +8449,7 @@ export class OperationsInsightsClient {
 
   /**
    * Updates configuration of a host insight.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateHostInsightRequest
    * @return UpdateHostInsightResponse
    * @throws OciError when an error occurs
@@ -8472,7 +8472,7 @@ export class OperationsInsightsClient {
       "opc-request-id": updateHostInsightRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateHostInsightRequest.retryConfiguration,
@@ -8519,7 +8519,7 @@ export class OperationsInsightsClient {
 
   /**
    * Updates one or more attributes of the specified private endpoint.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateOperationsInsightsPrivateEndpointRequest
    * @return UpdateOperationsInsightsPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -8545,7 +8545,7 @@ export class OperationsInsightsClient {
       "opc-request-id": updateOperationsInsightsPrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateOperationsInsightsPrivateEndpointRequest.retryConfiguration,
@@ -8594,7 +8594,7 @@ export class OperationsInsightsClient {
    * Updates the configuration of an Operations Insights Warehouse.
    * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateOperationsInsightsWarehouseRequest
    * @return UpdateOperationsInsightsWarehouseResponse
    * @throws OciError when an error occurs
@@ -8620,7 +8620,7 @@ export class OperationsInsightsClient {
       "opc-request-id": updateOperationsInsightsWarehouseRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateOperationsInsightsWarehouseRequest.retryConfiguration,
@@ -8667,7 +8667,7 @@ export class OperationsInsightsClient {
 
   /**
    * Updates the configuration of an Operations Insights Warehouse User.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateOperationsInsightsWarehouseUserRequest
    * @return UpdateOperationsInsightsWarehouseUserResponse
    * @throws OciError when an error occurs
@@ -8693,7 +8693,7 @@ export class OperationsInsightsClient {
       "opc-request-id": updateOperationsInsightsWarehouseUserRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateOperationsInsightsWarehouseUserRequest.retryConfiguration,

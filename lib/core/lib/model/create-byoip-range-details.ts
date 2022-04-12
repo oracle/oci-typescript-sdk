@@ -28,12 +28,17 @@ export interface CreateByoipRangeDetails {
    * Example: `10.0.1.0/24`
    *
    */
-  "cidrBlock": string;
+  "cidrBlock"?: string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the BYOIP CIDR block.
    *
    */
   "compartmentId": string;
+  /**
+   * The BYOIPv6 CIDR block. You can assign some or all of it to a VCN after it is validated.
+   *
+   */
+  "ipv6CidrBlock"?: string;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).

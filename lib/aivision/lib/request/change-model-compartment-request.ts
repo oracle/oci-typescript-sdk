@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ChangeModelCompartmentRequest extends common.BaseRequest {
   /**
-   * unique model identifier.
+   * A unique model identifier.
    */
   "modelId": string;
   /**
-   * The deatils of the move.
+   * The details of the move.
    */
   "changeModelCompartmentDetails": model.ChangeModelCompartmentDetails;
   /**

@@ -30,6 +30,16 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface Vcn {
   /**
+   * The list of BYOIPv6 CIDR blocks required to create a VCN that uses BYOIPv6 ranges.
+   *
+   */
+  "byoipv6CidrBlocks"?: Array<string>;
+  /**
+   * For an IPv6-enabled VCN, this is the list of Private IPv6 CIDR blocks for the VCN's IP address space.
+   *
+   */
+  "ipv6PrivateCidrBlocks"?: Array<string>;
+  /**
     * Deprecated. The first CIDR IP address from cidrBlocks.
 * <p>
 Example: `172.16.0.0/16`

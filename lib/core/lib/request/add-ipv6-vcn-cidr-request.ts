@@ -44,4 +44,9 @@ export interface AddIpv6VcnCidrRequest extends common.BaseRequest {
    *
    */
   "ifMatch"?: string;
+  /**
+   * Details object for adding an IPv6 VCN CIDR.
+   *
+   */
+  "addVcnIpv6CidrDetails"?: model.AddVcnIpv6CidrDetails;
 }

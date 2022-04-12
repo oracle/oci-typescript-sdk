@@ -31,6 +31,27 @@ export class VirtualNetworkWaiter {
   ) {}
 
   /**
+   * Waits forAddIpv6SubnetCidr
+   *
+   * @param request the request to send
+   * @return response returns AddIpv6SubnetCidrResponse, GetWorkRequestResponse tuple
+   */
+  public async forAddIpv6SubnetCidr(
+    request: serviceRequests.AddIpv6SubnetCidrRequest
+  ): Promise<{
+    response: serviceResponses.AddIpv6SubnetCidrResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const addIpv6SubnetCidrResponse = await this.client.addIpv6SubnetCidr(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      addIpv6SubnetCidrResponse.opcWorkRequestId
+    );
+    return { response: addIpv6SubnetCidrResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forAddIpv6VcnCidr
    *
    * @param request the request to send
@@ -749,6 +770,48 @@ export class VirtualNetworkWaiter {
       modifyVcnCidrResponse.opcWorkRequestId
     );
     return { response: modifyVcnCidrResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forRemoveIpv6SubnetCidr
+   *
+   * @param request the request to send
+   * @return response returns RemoveIpv6SubnetCidrResponse, GetWorkRequestResponse tuple
+   */
+  public async forRemoveIpv6SubnetCidr(
+    request: serviceRequests.RemoveIpv6SubnetCidrRequest
+  ): Promise<{
+    response: serviceResponses.RemoveIpv6SubnetCidrResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const removeIpv6SubnetCidrResponse = await this.client.removeIpv6SubnetCidr(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      removeIpv6SubnetCidrResponse.opcWorkRequestId
+    );
+    return { response: removeIpv6SubnetCidrResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forRemoveIpv6VcnCidr
+   *
+   * @param request the request to send
+   * @return response returns RemoveIpv6VcnCidrResponse, GetWorkRequestResponse tuple
+   */
+  public async forRemoveIpv6VcnCidr(
+    request: serviceRequests.RemoveIpv6VcnCidrRequest
+  ): Promise<{
+    response: serviceResponses.RemoveIpv6VcnCidrResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const removeIpv6VcnCidrResponse = await this.client.removeIpv6VcnCidr(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      removeIpv6VcnCidrResponse.opcWorkRequestId
+    );
+    return { response: removeIpv6VcnCidrResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

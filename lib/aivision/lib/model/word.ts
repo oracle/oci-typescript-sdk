@@ -1,6 +1,6 @@
 /**
- * VisionService API
- * A description of the VisionService API.
+ * Vision API
+ * Using Vision, you can upload images to detect and classify objects in them. If you have lots of images, you can process them in batch using asynchronous API endpoints. Vision's features are thematically split between Document AI for document-centric images, and Image Analysis for object and scene-based images. Pretrained models and custom models are supported.
  * OpenAPI spec version: 20220125
  *
  *
@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface Word {
   /**
-   * String of text characters in the word.
+   * The string of text characters in the word.
    */
   "text": string;
   /**
-   * Confidence score between 0 to 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * the confidence score between 0 and 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "confidence": number;
   "boundingPolygon": model.BoundingPolygon;

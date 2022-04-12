@@ -1,6 +1,6 @@
 /**
- * VisionService API
- * A description of the VisionService API.
+ * Vision API
+ * Using Vision, you can upload images to detect and classify objects in them. If you have lots of images, you can process them in batch using asynchronous API endpoints. Vision's features are thematically split between Document AI for document-centric images, and Image Analysis for object and scene-based images. Pretrained models and custom models are supported.
  * OpenAPI spec version: 20220125
  *
  *
@@ -15,26 +15,26 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the status of a work request.
+ * A summary of the status of a work request.
  */
 export interface WorkRequestSummary {
   /**
-   * Type of the work request.
+   * The type of the work request.
    */
   "operationType": model.OperationType;
   /**
-   * Status of current work request.
+   * The status of the current work request.
    */
   "status": model.OperationStatus;
   /**
-   * The id of the work request.
+   * The ID of the work request.
    */
   "id": string;
   /**
-   * The ocid of the compartment that contains the work request. Work requests should be scoped to
+   * The OCID of the compartment that contains the work request. Work requests should be scoped to
    * the same compartment as the resource the work request affects. If the work request affects multiple resources,
    * and those resources are not in the same compartment, it is up to the service team to pick the primary
-   * resource whose compartment should be used.
+   * resource whose compartment is used.
    *
    */
   "compartmentId": string;
@@ -43,7 +43,7 @@ export interface WorkRequestSummary {
    */
   "resources": Array<model.WorkRequestResource>;
   /**
-   * Percentage of the request completed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The percentage of the request completed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete": number;
   /**

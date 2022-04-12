@@ -108,6 +108,11 @@ Example: `2001:0db8:0123:1111::/64`
     */
   "ipv6CidrBlock"?: string;
   /**
+   * The list of all IPv6 CIDR blocks (Oracle allocated IPv6 GUA, ULA or private IPv6 CIDR blocks, BYOIPv6 CIDR blocks) for the subnet.
+   *
+   */
+  "ipv6CidrBlocks"?: Array<string>;
+  /**
     * For an IPv6-enabled subnet, this is the IPv6 address of the virtual router.
 * <p>
 Example: `2001:0db8:0123:1111:89ab:cdef:1234:5678`

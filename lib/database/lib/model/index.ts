@@ -196,6 +196,8 @@ import * as CreateVmClusterDetails from "./create-vm-cluster-details";
 export import CreateVmClusterDetails = CreateVmClusterDetails.CreateVmClusterDetails;
 import * as CustomerContact from "./customer-contact";
 export import CustomerContact = CustomerContact.CustomerContact;
+import * as DataCollectionOptions from "./data-collection-options";
+export import DataCollectionOptions = DataCollectionOptions.DataCollectionOptions;
 import * as DataGuardAssociation from "./data-guard-association";
 export import DataGuardAssociation = DataGuardAssociation.DataGuardAssociation;
 import * as DataGuardAssociationSummary from "./data-guard-association-summary";

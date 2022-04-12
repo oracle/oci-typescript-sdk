@@ -366,6 +366,8 @@ import * as AddDrgRouteDistributionStatementsResponse from "./add-drg-route-dist
 export import AddDrgRouteDistributionStatementsResponse = AddDrgRouteDistributionStatementsResponse.AddDrgRouteDistributionStatementsResponse;
 import * as AddDrgRouteRulesResponse from "./add-drg-route-rules-response";
 export import AddDrgRouteRulesResponse = AddDrgRouteRulesResponse.AddDrgRouteRulesResponse;
+import * as AddIpv6SubnetCidrResponse from "./add-ipv6-subnet-cidr-response";
+export import AddIpv6SubnetCidrResponse = AddIpv6SubnetCidrResponse.AddIpv6SubnetCidrResponse;
 import * as AddIpv6VcnCidrResponse from "./add-ipv6-vcn-cidr-response";
 export import AddIpv6VcnCidrResponse = AddIpv6VcnCidrResponse.AddIpv6VcnCidrResponse;
 import * as AddNetworkSecurityGroupSecurityRulesResponse from "./add-network-security-group-security-rules-response";
@@ -736,6 +738,10 @@ import * as RemoveExportDrgRouteDistributionResponse from "./remove-export-drg-r
 export import RemoveExportDrgRouteDistributionResponse = RemoveExportDrgRouteDistributionResponse.RemoveExportDrgRouteDistributionResponse;
 import * as RemoveImportDrgRouteDistributionResponse from "./remove-import-drg-route-distribution-response";
 export import RemoveImportDrgRouteDistributionResponse = RemoveImportDrgRouteDistributionResponse.RemoveImportDrgRouteDistributionResponse;
+import * as RemoveIpv6SubnetCidrResponse from "./remove-ipv6-subnet-cidr-response";
+export import RemoveIpv6SubnetCidrResponse = RemoveIpv6SubnetCidrResponse.RemoveIpv6SubnetCidrResponse;
+import * as RemoveIpv6VcnCidrResponse from "./remove-ipv6-vcn-cidr-response";
+export import RemoveIpv6VcnCidrResponse = RemoveIpv6VcnCidrResponse.RemoveIpv6VcnCidrResponse;
 import * as RemoveNetworkSecurityGroupSecurityRulesResponse from "./remove-network-security-group-security-rules-response";
 export import RemoveNetworkSecurityGroupSecurityRulesResponse = RemoveNetworkSecurityGroupSecurityRulesResponse.RemoveNetworkSecurityGroupSecurityRulesResponse;
 import * as RemovePublicIpPoolCapacityResponse from "./remove-public-ip-pool-capacity-response";

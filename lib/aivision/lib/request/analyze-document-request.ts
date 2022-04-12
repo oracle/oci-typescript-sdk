@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface AnalyzeDocumentRequest extends common.BaseRequest {
   /**
-   * Details about how to analyze a document.
+   * The details of how to analyze a document.
    */
   "analyzeDocumentDetails": model.AnalyzeDocumentDetails;
   /**

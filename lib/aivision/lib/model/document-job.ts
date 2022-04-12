@@ -1,6 +1,6 @@
 /**
- * VisionService API
- * A description of the VisionService API.
+ * Vision API
+ * Using Vision, you can upload images to detect and classify objects in them. If you have lots of images, you can process them in batch using asynchronous API endpoints. Vision's features are thematically split between Document AI for document-centric images, and Image Analysis for object and scene-based images. Pretrained models and custom models are supported.
  * OpenAPI spec version: 20220125
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Job details for a batch document analysis.
+ * The job details for a batch document analysis.
  */
 export interface DocumentJob {
   /**
-   * Job id.
+   * The job id.
    */
   "id": string;
   /**
@@ -27,36 +27,36 @@ export interface DocumentJob {
    */
   "compartmentId": string;
   /**
-   * Document job display name.
+   * The document job display name.
    */
   "displayName"?: string;
   /**
-   * List of document analysis types requested.
+   * The list of requested document analysis types.
    */
   "features": Array<model.DocumentFeature>;
   /**
-   * Language of the document, abbreviated according to ISO 639-2.
+   * The document language, abbreviated according to ISO 639-2.
    */
   "language"?: model.DocumentLanguage;
   /**
-   * The type of documents.
+   * The type of document.
    */
   "documentType"?: model.DocumentType;
   "inputLocation"?: model.ObjectListInlineInputLocation;
   /**
-   * Job accepted time.
+   * The job acceptance time.
    */
   "timeAccepted": Date;
   /**
-   * Job started time.
+   * The job start time.
    */
   "timeStarted"?: Date;
   /**
-   * Job finished time.
+   * The job finish time.
    */
   "timeFinished"?: Date;
   /**
-   * How much progress the operation has made, vs the total amount of work that must be performed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * How much progress the operation has made, compared to the total amount of work to be performed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete"?: number;
   "outputLocation": model.OutputLocation;
@@ -65,11 +65,11 @@ export interface DocumentJob {
    */
   "lifecycleState": DocumentJob.LifecycleState;
   /**
-   * Whether to generate a Zip file containing the results.
+   * Whether or not to generate a ZIP file containing the results.
    */
   "isZipOutputEnabled"?: boolean;
   /**
-   * Detailed status of FAILED state.
+   * The detailed status of FAILED state.
    */
   "lifecycleDetails"?: DocumentJob.LifecycleDetails;
 }

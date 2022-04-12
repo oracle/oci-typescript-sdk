@@ -1,6 +1,6 @@
 /**
- * VisionService API
- * A description of the VisionService API.
+ * Vision API
+ * Using Vision, you can upload images to detect and classify objects in them. If you have lots of images, you can process them in batch using asynchronous API endpoints. Vision's features are thematically split between Document AI for document-centric images, and Image Analysis for object and scene-based images. Pretrained models and custom models are supported.
  * OpenAPI spec version: 20220125
  *
  *
@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Document analysis results.
+ * The document analysis results.
  */
 export interface AnalyzeDocumentResult {
   "documentMetadata": model.DocumentMetadata;
   /**
-   * Array of Page.
+   * The array of a Page.
    */
   "pages": Array<model.Page>;
   /**
@@ -32,31 +32,31 @@ export interface AnalyzeDocumentResult {
    */
   "detectedLanguages"?: Array<model.DetectedLanguage>;
   /**
-   * Document classification model version.
+   * The document classification model version.
    */
   "documentClassificationModelVersion"?: string;
   /**
-   * Document language classification model version.
+   * The document language classification model version.
    */
   "languageClassificationModelVersion"?: string;
   /**
-   * Document text detection model version.
+   * The document text detection model version.
    */
   "textDetectionModelVersion"?: string;
   /**
-   * Document keyValue detection model version.
+   * The document keyValue detection model version.
    */
   "keyValueDetectionModelVersion"?: string;
   /**
-   * Document table detection model version.
+   * The document table detection model version.
    */
   "tableDetectionModelVersion"?: string;
   /**
-   * Errors encountered during document analysis.
+   * The errors encountered during document analysis.
    */
   "errors"?: Array<model.ProcessingError>;
   /**
-   * Generated searchable PDF file.
+   * The searchable PDF file that was generated.
    */
   "searchablePdf"?: string;
 }

@@ -23,7 +23,7 @@ import common = require("oci-common");
  */
 export interface UpdateDbSystemDetails {
   /**
-   * The new number of CPU cores to set for the DB system. Not applicable for virtual machine DB systems. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The new number of CPU cores to set for the DB system. Not applicable for INTEL based virtual machine DB systems. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount"?: number;
   "version"?: model.PatchDetails;

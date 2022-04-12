@@ -27,7 +27,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "workRequestId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given OperationStatus.
+   * A filter to return only resources whose lifecycleState matches the given OperationStatus.
    */
   "status"?: model.OperationStatus;
   /**
@@ -51,7 +51,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for timeAccepted is descending.
+   * The field to sort by. Only one sort order may be provided. The default order for timeAccepted is descending.
    *
    */
   "sortBy"?: ListWorkRequestsRequest.SortBy;

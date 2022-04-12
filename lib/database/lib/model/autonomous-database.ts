@@ -342,9 +342,7 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "timeOfLastFailover"?: Date;
   /**
-   * Indicates whether the Autonomous Database has local (in-region) Data Guard enabled. Not applicable to cross-region Autonomous Data Guard associations, or to
-   * Autonomous Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
-   *
+   * Indicates whether the Autonomous Database has local (in-region) Data Guard enabled. Not applicable to cross-region Autonomous Data Guard associations, or to Autonomous Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
    */
   "isDataGuardEnabled"?: boolean;
   /**
@@ -433,6 +431,16 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "actualUsedDataStorageSizeInTBs"?: number;
+  /**
+   * The number of Max OCPU cores to be made available to the autonomous database with auto scaling of cpu enabled.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxCpuCoreCount"?: number;
+  /**
+   * The Oracle Database Edition that applies to the Autonomous databases.
+   *
+   */
+  "databaseEdition"?: AutonomousDatabase.DatabaseEdition;
 }
 
 export namespace AutonomousDatabase {
@@ -601,6 +609,16 @@ export namespace AutonomousDatabase {
   export enum AutonomousMaintenanceScheduleType {
     Early = "EARLY",
     Regular = "REGULAR",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DatabaseEdition {
+    StandardEdition = "STANDARD_EDITION",
+    EnterpriseEdition = "ENTERPRISE_EDITION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -42,7 +42,8 @@ export interface AutonomousContainerDatabaseSummary {
    */
   "serviceLevelAgreementType": AutonomousContainerDatabaseSummary.ServiceLevelAgreementType;
   /**
-   * The OCID of the Autonomous Exadata Infrastructure.
+   * **No longer used.** For Autonomous Database on dedicated Exadata infrastructure, the container database is created within a specified `cloudAutonomousVmCluster`.
+   *
    */
   "autonomousExadataInfrastructureId"?: string;
   /**
