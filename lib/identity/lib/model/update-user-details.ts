@@ -23,8 +23,11 @@ export interface UpdateUserDetails {
     */
   "description"?: string;
   /**
-   * The email address you assign to the user. Has to be unique across the tenancy.
-   */
+    * The email you assign to the user during creation. The email must be unique across all users in the tenancy.
+* <p>
+(For tenancies that support identity domains) You must provide an email for each user.
+* 
+    */
   "email"?: string;
   /**
    * DB username of the DB credential. Has to be unique across the tenancy.

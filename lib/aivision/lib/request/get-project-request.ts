@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetProjectRequest extends common.BaseRequest {
   /**
-   * unique project identifier.
+   * A unique project identifier.
    */
   "projectId": string;
   /**

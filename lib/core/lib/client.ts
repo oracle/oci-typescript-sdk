@@ -8418,7 +8418,11 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 * <p>
 
 * <p>
-- **DIAGNOSTICREBOOT** - **This feature currently only supports virtual machines** Powers off the VM instance then rebuilds and powers it back on.
+- **DIAGNOSTICREBOOT** - Powers off the instance, rebuilds it on the physical host, and then powers it back on.
+* Before you send a diagnostic reboot, restart the instance's OS, confirm that the instance and networking settings are configured
+* correctly, and try other [troubleshooting steps](https://docs.cloud.oracle.com/iaas/Content/Compute/References/troubleshooting-compute-instances.htm).
+* Use diagnostic reboot as a final attempt to troubleshoot an unreachable instance. For virtual machine (VM) instances only.
+* For more information, see [Performing a Diagnostic Reboot](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/diagnostic-reboot.htm).
 * <p>
 
 * For more information about managing instance lifecycle states, see
@@ -10649,14 +10653,14 @@ You can limit the list by specifying a dedicated virtual machine host display na
   /**
      * Lists a subset of images available in the specified compartment, including
 * [platform images](https://docs.cloud.oracle.com/iaas/Content/Compute/References/images.htm) and
-* [custom images](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingcustomimages.htm). 
-* The list of platform images includes the three most recently published versions 
+* [custom images](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingcustomimages.htm).
+* The list of platform images includes the three most recently published versions
 * of each major distribution.
 * <p>
 The list of images returned is ordered to first show the recent platform images,
 * then all of the custom images.
 * <p>
-**Caution:** Platform images are refreshed regularly. When new images are released, older versions are replaced. 
+**Caution:** Platform images are refreshed regularly. When new images are released, older versions are replaced.
 * The image OCIDs remain available, but when the platform image is replaced, the image OCIDs are no longer returned as part of the platform image list.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
@@ -15188,6 +15192,82 @@ export class VirtualNetworkClient {
   }
 
   /**
+   * Add an IPv6 CIDR to a subnet.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddIpv6SubnetCidrRequest
+   * @return AddIpv6SubnetCidrResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddIpv6SubnetCidr.ts.html |here} to see how to use AddIpv6SubnetCidr API.
+   */
+  public async addIpv6SubnetCidr(
+    addIpv6SubnetCidrRequest: requests.AddIpv6SubnetCidrRequest
+  ): Promise<responses.AddIpv6SubnetCidrResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addIpv6SubnetCidr.");
+    const pathParams = {
+      "{subnetId}": addIpv6SubnetCidrRequest.subnetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addIpv6SubnetCidrRequest.opcRetryToken,
+      "if-match": addIpv6SubnetCidrRequest.ifMatch,
+      "opc-request-id": addIpv6SubnetCidrRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addIpv6SubnetCidrRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subnets/{subnetId}/actions/addIpv6Cidr",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addIpv6SubnetCidrRequest.addSubnetIpv6CidrDetails,
+        "AddSubnetIpv6CidrDetails",
+        model.AddSubnetIpv6CidrDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddIpv6SubnetCidrResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Add an IPv6 CIDR to a VCN. The VCN size is always /56 and assigned by Oracle.
    * Once added the IPv6 CIDR block cannot be removed or modified.
    *
@@ -15226,6 +15306,11 @@ export class VirtualNetworkClient {
       defaultHeaders: this._defaultHeaders,
       path: "/vcns/{vcnId}/actions/addIpv6Cidr",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addIpv6VcnCidrRequest.addVcnIpv6CidrDetails,
+        "AddVcnIpv6CidrDetails",
+        model.AddVcnIpv6CidrDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams
@@ -30532,6 +30617,159 @@ To list the ephemeral public IPs assigned to private IPs:
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove an IPv6 CIDR from a subnet. At least one IPv6 CIDR should remain.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveIpv6SubnetCidrRequest
+   * @return RemoveIpv6SubnetCidrResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveIpv6SubnetCidr.ts.html |here} to see how to use RemoveIpv6SubnetCidr API.
+   */
+  public async removeIpv6SubnetCidr(
+    removeIpv6SubnetCidrRequest: requests.RemoveIpv6SubnetCidrRequest
+  ): Promise<responses.RemoveIpv6SubnetCidrResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#removeIpv6SubnetCidr.");
+    const pathParams = {
+      "{subnetId}": removeIpv6SubnetCidrRequest.subnetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": removeIpv6SubnetCidrRequest.opcRetryToken,
+      "if-match": removeIpv6SubnetCidrRequest.ifMatch,
+      "opc-request-id": removeIpv6SubnetCidrRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeIpv6SubnetCidrRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subnets/{subnetId}/actions/removeIpv6Cidr",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeIpv6SubnetCidrRequest.removeSubnetIpv6CidrDetails,
+        "RemoveSubnetIpv6CidrDetails",
+        model.RemoveSubnetIpv6CidrDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveIpv6SubnetCidrResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removing an existing IPv6 CIDR from a VCN.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveIpv6VcnCidrRequest
+   * @return RemoveIpv6VcnCidrResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveIpv6VcnCidr.ts.html |here} to see how to use RemoveIpv6VcnCidr API.
+   */
+  public async removeIpv6VcnCidr(
+    removeIpv6VcnCidrRequest: requests.RemoveIpv6VcnCidrRequest
+  ): Promise<responses.RemoveIpv6VcnCidrResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#removeIpv6VcnCidr.");
+    const pathParams = {
+      "{vcnId}": removeIpv6VcnCidrRequest.vcnId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeIpv6VcnCidrRequest.opcRequestId,
+      "opc-retry-token": removeIpv6VcnCidrRequest.opcRetryToken,
+      "if-match": removeIpv6VcnCidrRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeIpv6VcnCidrRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vcns/{vcnId}/actions/removeIpv6Cidr",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeIpv6VcnCidrRequest.removeVcnIpv6CidrDetails,
+        "RemoveVcnIpv6CidrDetails",
+        model.RemoveVcnIpv6CidrDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveIpv6VcnCidrResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

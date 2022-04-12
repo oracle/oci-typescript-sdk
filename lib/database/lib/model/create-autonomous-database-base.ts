@@ -95,7 +95,8 @@ For Autonomous Databases on dedicated Exadata infrastructure, the maximum number
    */
   "vaultId"?: string;
   /**
-   * The password must be between 12 and 30 characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (\") or the username \"admin\", regardless of casing.
+   * **Important** The `adminPassword` must be specified for all Autonomous Databases except for refreshable clones. The password must be between 12 and 30 characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (\") or the username \"admin\", regardless of casing.
+   *
    */
   "adminPassword"?: string;
   /**
@@ -176,9 +177,7 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
     */
   "standbyWhitelistedIps"?: Array<string>;
   /**
-   * Indicates whether the Autonomous Database has local (in-region) Data Guard enabled. Not applicable to cross-region Autonomous Data Guard associations, or to
-   * Autonomous Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
-   *
+   * Indicates whether the Autonomous Database has local (in-region) Data Guard enabled. Not applicable to cross-region Autonomous Data Guard associations, or to Autonomous Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
    */
   "isDataGuardEnabled"?: boolean;
   /**
@@ -247,6 +246,16 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "isAutoScalingForStorageEnabled"?: boolean;
+  /**
+   * The number of Max OCPU cores to be made available to the autonomous database with auto scaling of cpu enabled.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxCpuCoreCount"?: number;
+  /**
+   * The Oracle Database Edition that applies to the Autonomous databases.
+   *
+   */
+  "databaseEdition"?: string;
 
   "source": string;
 }

@@ -18576,7 +18576,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Scans for pluggable databases in the specified external container database.
-   * This operation will return un-registered pluggable databases in the `GetWorkRequest` operation.
+   * This operation will return un-registered pluggable databases in the {@link #getWorkRequest(GetWorkRequestRequest) getWorkRequest} operation.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ScanExternalContainerDatabasePluggableDatabasesRequest

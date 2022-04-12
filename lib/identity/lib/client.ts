@@ -153,7 +153,7 @@ After you send the request, the `lifecycleDetails` of the identity domain is set
 To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
 * the operation's status.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ActivateDomainRequest
      * @return ActivateDomainResponse
      * @throws OciError when an error occurs
@@ -176,7 +176,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       "if-match": activateDomainRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       activateDomainRequest.retryConfiguration,
@@ -219,7 +219,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   /**
    * Activates the specified MFA TOTP device for the user. Activation requires manual interaction with the Console.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ActivateMfaTotpDeviceRequest
    * @return ActivateMfaTotpDeviceResponse
    * @throws OciError when an error occurs
@@ -242,7 +242,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       "opc-retry-token": activateMfaTotpDeviceRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       activateMfaTotpDeviceRequest.retryConfiguration,
@@ -297,7 +297,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
 After you send your request, the new object's `lifecycleState` will temporarily be CREATING. Before using the
 * object, first make sure its `lifecycleState` has changed to ACTIVE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param AddUserToGroupRequest
      * @return AddUserToGroupResponse
      * @throws OciError when an error occurs
@@ -316,7 +316,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       "opc-retry-token": addUserToGroupRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       addUserToGroupRequest.retryConfiguration,
@@ -371,7 +371,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
    * referencing the same tag in a compartment lower down the hierarchy. This set of tag defaults
    * includes all tag defaults from the current compartment back to the root compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AssembleEffectiveTagSetRequest
    * @return AssembleEffectiveTagSetResponse
    * @throws OciError when an error occurs
@@ -392,7 +392,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       assembleEffectiveTagSetRequest.retryConfiguration,
@@ -443,7 +443,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
    * {@link WorkRequest}. Use the {@link #getWorkRequest(GetWorkRequestRequest) getWorkRequest}
    * API to monitor the status of the bulk action.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkDeleteResourcesRequest
    * @return BulkDeleteResourcesResponse
    * @throws OciError when an error occurs
@@ -465,7 +465,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       "opc-retry-token": bulkDeleteResourcesRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       bulkDeleteResourcesRequest.retryConfiguration,
@@ -533,7 +533,7 @@ After you start this operation, you cannot start either the {@link #deleteTag(De
 In order to delete tags, you must first retire the tags. Use {@link #updateTag(UpdateTagRequest) updateTag}
 * to retire a tag.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param BulkDeleteTagsRequest
      * @return BulkDeleteTagsResponse
      * @throws OciError when an error occurs
@@ -553,7 +553,7 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
       "opc-retry-token": bulkDeleteTagsRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       bulkDeleteTagsRequest.retryConfiguration,
@@ -614,7 +614,7 @@ The edits can include a combination of operations and tag sets.
 * For example, if one request adds `tag set-1` to a resource and sets a tag value to `tag set-2`,
 * `tag set-1` and `tag set-2` cannot have any common tag definitions.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param BulkEditTagsRequest
      * @return BulkEditTagsResponse
      * @throws OciError when an error occurs
@@ -634,7 +634,7 @@ The edits can include a combination of operations and tag sets.
       "opc-retry-token": bulkEditTagsRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       bulkEditTagsRequest.retryConfiguration,
@@ -686,7 +686,7 @@ The edits can include a combination of operations and tag sets.
    * compartments. This operation creates a {@link WorkRequest}.
    * Use the {@link #getWorkRequest(GetWorkRequestRequest) getWorkRequest} API to monitor the status of the bulk action.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkMoveResourcesRequest
    * @return BulkMoveResourcesResponse
    * @throws OciError when an error occurs
@@ -708,7 +708,7 @@ The edits can include a combination of operations and tag sets.
       "opc-retry-token": bulkMoveResourcesRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       bulkMoveResourcesRequest.retryConfiguration,
@@ -774,7 +774,7 @@ After you start this operation, you cannot start either the {@link #deleteTag(De
 To delete a tag namespace, you must first retire it. Use {@link #updateTagNamespace(UpdateTagNamespaceRequest) updateTagNamespace}
 * to retire a tag namespace.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CascadeDeleteTagNamespaceRequest
      * @return CascadeDeleteTagNamespaceResponse
      * @throws OciError when an error occurs
@@ -798,7 +798,7 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
       "opc-retry-token": cascadeDeleteTagNamespaceRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cascadeDeleteTagNamespaceRequest.retryConfiguration,
@@ -844,7 +844,7 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
 To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
 * the operation's status.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ChangeDomainCompartmentRequest
      * @return ChangeDomainCompartmentResponse
      * @throws OciError when an error occurs
@@ -867,7 +867,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       "if-match": changeDomainCompartmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeDomainCompartmentRequest.retryConfiguration,
@@ -923,7 +923,7 @@ After you send your request, the `lifecycleDetails` of this identity domain is s
 To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
 * the operation's status.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ChangeDomainLicenseTypeRequest
      * @return ChangeDomainLicenseTypeResponse
      * @throws OciError when an error occurs
@@ -946,7 +946,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       "if-match": changeDomainLicenseTypeRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeDomainLicenseTypeRequest.retryConfiguration,
@@ -999,7 +999,7 @@ To move the tag namespace, you must have the manage tag-namespaces permission on
 * <p>
 Moving a tag namespace moves all the tag key definitions contained in the tag namespace.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ChangeTagNamespaceCompartmentRequest
      * @return ChangeTagNamespaceCompartmentResponse
      * @throws OciError when an error occurs
@@ -1021,7 +1021,7 @@ Moving a tag namespace moves all the tag key definitions contained in the tag na
       "opc-retry-token": changeTagNamespaceCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeTagNamespaceCompartmentRequest.retryConfiguration,
@@ -1073,7 +1073,7 @@ Every user has permission to create an auth token for *their own user ID*. An ad
 * does not need to write a policy to give users this ability. To compare, administrators who have permission to the
 * tenancy can use this operation to create an auth token for any user, including themselves.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateAuthTokenRequest
      * @return CreateAuthTokenResponse
      * @throws OciError when an error occurs
@@ -1094,7 +1094,7 @@ Every user has permission to create an auth token for *their own user ID*. An ad
       "opc-retry-token": createAuthTokenRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createAuthTokenRequest.retryConfiguration,
@@ -1146,8 +1146,6 @@ Every user has permission to create an auth token for *their own user ID*. An ad
   /**
      * Creates a new compartment in the specified compartment.
 * <p>
-**Important:** Compartments cannot be deleted.
-* <p>
 Specify the parent compartment's OCID as the compartment ID in the request object. Remember that the tenancy
 * is simply the root compartment. For information about OCIDs, see
 * [Resource Identifiers](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
@@ -1164,7 +1162,7 @@ You must also specify a *description* for the compartment (although it can be an
 After you send your request, the new object's `lifecycleState` will temporarily be CREATING. Before using the
 * object, first make sure its `lifecycleState` has changed to ACTIVE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateCompartmentRequest
      * @return CreateCompartmentResponse
      * @throws OciError when an error occurs
@@ -1183,7 +1181,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       "opc-retry-token": createCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createCompartmentRequest.retryConfiguration,
@@ -1245,7 +1243,7 @@ Every user has permission to create a secret key for *their own user ID*. An adm
 * does not need to write a policy to give users this ability. To compare, administrators who have permission to the
 * tenancy can use this operation to create a secret key for any user, including themselves.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateCustomerSecretKeyRequest
      * @return CreateCustomerSecretKeyResponse
      * @throws OciError when an error occurs
@@ -1266,7 +1264,7 @@ Every user has permission to create a secret key for *their own user ID*. An adm
       "opc-retry-token": createCustomerSecretKeyRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createCustomerSecretKeyRequest.retryConfiguration,
@@ -1318,7 +1316,7 @@ Every user has permission to create a secret key for *their own user ID*. An adm
   /**
    * Creates a new DB credential for the specified user.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDbCredentialRequest
    * @return CreateDbCredentialResponse
    * @throws OciError when an error occurs
@@ -1340,7 +1338,7 @@ Every user has permission to create a secret key for *their own user ID*. An adm
       "opc-retry-token": createDbCredentialRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDbCredentialRequest.retryConfiguration,
@@ -1399,7 +1397,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
 * <p>
 After creating an `identity domain`, first make sure its `lifecycleState` changes from CREATING to ACTIVE before you use it.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateDomainRequest
      * @return CreateDomainResponse
      * @throws OciError when an error occurs
@@ -1419,7 +1417,7 @@ After creating an `identity domain`, first make sure its `lifecycleState` change
       "opc-request-id": createDomainRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDomainRequest.retryConfiguration,
@@ -1484,7 +1482,7 @@ You must also specify a *description* for the dynamic group (although it can be 
 After you send your request, the new object's `lifecycleState` will temporarily be CREATING. Before using the
 * object, first make sure its `lifecycleState` has changed to ACTIVE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateDynamicGroupRequest
      * @return CreateDynamicGroupResponse
      * @throws OciError when an error occurs
@@ -1503,7 +1501,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       "opc-retry-token": createDynamicGroupRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDynamicGroupRequest.retryConfiguration,
@@ -1575,7 +1573,7 @@ After creating the group, you need to put users in it and write policies for it.
 * See {@link #addUserToGroup(AddUserToGroupRequest) addUserToGroup} and
 * {@link #createPolicy(CreatePolicyRequest) createPolicy}.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateGroupRequest
      * @return CreateGroupResponse
      * @throws OciError when an error occurs
@@ -1594,7 +1592,7 @@ After creating the group, you need to put users in it and write policies for it.
       "opc-retry-token": createGroupRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createGroupRequest.retryConfiguration,
@@ -1665,7 +1663,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
 * be CREATING. Before using the object, first make sure its `lifecycleState` has
 * changed to ACTIVE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateIdentityProviderRequest
      * @return CreateIdentityProviderResponse
      * @throws OciError when an error occurs
@@ -1684,7 +1682,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
       "opc-retry-token": createIdentityProviderRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createIdentityProviderRequest.retryConfiguration,
@@ -1739,7 +1737,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
 Creates a single mapping between an IdP group and an IAM Service
 * {@link Group}.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateIdpGroupMappingRequest
      * @return CreateIdpGroupMappingResponse
      * @throws OciError when an error occurs
@@ -1760,7 +1758,7 @@ Creates a single mapping between an IdP group and an IAM Service
       "opc-retry-token": createIdpGroupMappingRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createIdpGroupMappingRequest.retryConfiguration,
@@ -1812,7 +1810,7 @@ Creates a single mapping between an IdP group and an IAM Service
   /**
    * Creates a new MFA TOTP device for the user. A user can have one MFA TOTP device.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateMfaTotpDeviceRequest
    * @return CreateMfaTotpDeviceResponse
    * @throws OciError when an error occurs
@@ -1833,7 +1831,7 @@ Creates a single mapping between an IdP group and an IAM Service
       "opc-retry-token": createMfaTotpDeviceRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createMfaTotpDeviceRequest.retryConfiguration,
@@ -1900,7 +1898,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
 After your network resource is created, you can use it in policy to restrict access to only requests made from an allowed
 * IP address specified in your network source. For more information, see [Managing Network Sources](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingnetworksources.htm).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateNetworkSourceRequest
      * @return CreateNetworkSourceResponse
      * @throws OciError when an error occurs
@@ -1919,7 +1917,7 @@ After your network resource is created, you can use it in policy to restrict acc
       "opc-retry-token": createNetworkSourceRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createNetworkSourceRequest.retryConfiguration,
@@ -1971,7 +1969,7 @@ After your network resource is created, you can use it in policy to restrict acc
   /**
    * Creates Oauth token for the user
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateOAuthClientCredentialRequest
    * @return CreateOAuthClientCredentialResponse
    * @throws OciError when an error occurs
@@ -1993,7 +1991,7 @@ After your network resource is created, you can use it in policy to restrict acc
       "opc-retry-token": createOAuthClientCredentialRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createOAuthClientCredentialRequest.retryConfiguration,
@@ -2059,7 +2057,7 @@ Use this operation after creating a new user, or if a user forgets their passwor
 **Note:** The user's Console login is the unique name you specified when you created the user
 * (see {@link #createUser(CreateUserRequest) createUser}).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateOrResetUIPasswordRequest
      * @return CreateOrResetUIPasswordResponse
      * @throws OciError when an error occurs
@@ -2080,7 +2078,7 @@ Use this operation after creating a new user, or if a user forgets their passwor
       "opc-retry-token": createOrResetUIPasswordRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createOrResetUIPasswordRequest.retryConfiguration,
@@ -2143,7 +2141,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
 * <p>
 New policies take effect typically within 10 seconds.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreatePolicyRequest
      * @return CreatePolicyResponse
      * @throws OciError when an error occurs
@@ -2162,7 +2160,7 @@ New policies take effect typically within 10 seconds.
       "opc-retry-token": createPolicyRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createPolicyRequest.retryConfiguration,
@@ -2214,7 +2212,7 @@ New policies take effect typically within 10 seconds.
   /**
    * Creates a subscription to a region for a tenancy.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateRegionSubscriptionRequest
    * @return CreateRegionSubscriptionResponse
    * @throws OciError when an error occurs
@@ -2236,7 +2234,7 @@ New policies take effect typically within 10 seconds.
       "opc-retry-token": createRegionSubscriptionRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createRegionSubscriptionRequest.retryConfiguration,
@@ -2286,7 +2284,7 @@ New policies take effect typically within 10 seconds.
    * have to be unique, and you can change it anytime with
    * {@link #updateSmtpCredential(UpdateSmtpCredentialRequest) updateSmtpCredential}.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateSmtpCredentialRequest
    * @return CreateSmtpCredentialResponse
    * @throws OciError when an error occurs
@@ -2307,7 +2305,7 @@ New policies take effect typically within 10 seconds.
       "opc-retry-token": createSmtpCredentialRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createSmtpCredentialRequest.retryConfiguration,
@@ -2370,7 +2368,7 @@ Every user has permission to create a Swift password for *their own user ID*. An
 * does not need to write a policy to give users this ability. To compare, administrators who have permission to the
 * tenancy can use this operation to create a Swift password for any user, including themselves.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateSwiftPasswordRequest
      * @return CreateSwiftPasswordResponse
      * @throws OciError when an error occurs
@@ -2391,7 +2389,7 @@ Every user has permission to create a Swift password for *their own user ID*. An
       "opc-retry-token": createSwiftPasswordRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createSwiftPasswordRequest.retryConfiguration,
@@ -2464,7 +2462,7 @@ The tag must have a value type, which is specified with a validator. Tags can us
 * * If a `validator` is set, the user applying the tag to a resource must select from a list
 * of values that you supply with {@link #enumTagDefinitionValidator(EnumTagDefinitionValidatorRequest) enumTagDefinitionValidator}.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateTagRequest
      * @return CreateTagResponse
      * @throws OciError when an error occurs
@@ -2485,7 +2483,7 @@ The tag must have a value type, which is specified with a validator. Tags can us
       "opc-retry-token": createTagRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createTagRequest.retryConfiguration,
@@ -2544,7 +2542,7 @@ If you specify that a value is required, a value is set during resource creation
 * If the `isRequired` flag is set to \"true\", the value is set during resource creation.
 * * If the `isRequired` flag is set to \"false\", the value you enter is set during resource creation.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateTagDefaultRequest
      * @return CreateTagDefaultResponse
      * @throws OciError when an error occurs
@@ -2564,7 +2562,7 @@ If you specify that a value is required, a value is set during resource creation
       "opc-request-id": createTagDefaultRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createTagDefaultRequest.retryConfiguration,
@@ -2629,7 +2627,7 @@ You must also specify a *description* for the namespace.
 * It does not have to be unique, and you can change it with
 * {@link #updateTagNamespace(UpdateTagNamespaceRequest) updateTagNamespace}.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateTagNamespaceRequest
      * @return CreateTagNamespaceResponse
      * @throws OciError when an error occurs
@@ -2648,7 +2646,7 @@ You must also specify a *description* for the namespace.
       "opc-retry-token": createTagNamespaceRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createTagNamespaceRequest.retryConfiguration,
@@ -2729,7 +2727,7 @@ A new user has no permissions until you place the user in one or more groups (se
 * <p>
 **Important:** Make sure to inform the new user which compartment(s) they have access to.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateUserRequest
      * @return CreateUserResponse
      * @throws OciError when an error occurs
@@ -2748,7 +2746,7 @@ A new user has no permissions until you place the user in one or more groups (se
       "opc-retry-token": createUserRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createUserRequest.retryConfiguration,
@@ -2808,7 +2806,7 @@ After you send your request, the `lifecycleDetails` of this identity domain is s
 To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
 * the operation's status.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeactivateDomainRequest
      * @return DeactivateDomainResponse
      * @throws OciError when an error occurs
@@ -2831,7 +2829,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       "if-match": deactivateDomainRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deactivateDomainRequest.retryConfiguration,
@@ -2879,7 +2877,7 @@ Every user has permission to use this operation to delete a key for *their own u
 * To compare, administrators who have permission to the tenancy can use this operation to delete
 * a key for any user, including themselves.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeleteApiKeyRequest
      * @return DeleteApiKeyResponse
      * @throws OciError when an error occurs
@@ -2901,7 +2899,7 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteApiKeyRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteApiKeyRequest.retryConfiguration,
@@ -2939,7 +2937,7 @@ Every user has permission to use this operation to delete a key for *their own u
   /**
    * Deletes the specified auth token for the specified user.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAuthTokenRequest
    * @return DeleteAuthTokenResponse
    * @throws OciError when an error occurs
@@ -2961,7 +2959,7 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteAuthTokenRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteAuthTokenRequest.retryConfiguration,
@@ -2999,7 +2997,7 @@ Every user has permission to use this operation to delete a key for *their own u
   /**
    * Deletes the specified compartment. The compartment must be empty.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteCompartmentRequest
    * @return DeleteCompartmentResponse
    * @throws OciError when an error occurs
@@ -3020,7 +3018,7 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteCompartmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteCompartmentRequest.retryConfiguration,
@@ -3063,7 +3061,7 @@ Every user has permission to use this operation to delete a key for *their own u
   /**
    * Deletes the specified secret key for the specified user.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteCustomerSecretKeyRequest
    * @return DeleteCustomerSecretKeyResponse
    * @throws OciError when an error occurs
@@ -3085,7 +3083,7 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteCustomerSecretKeyRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteCustomerSecretKeyRequest.retryConfiguration,
@@ -3123,7 +3121,7 @@ Every user has permission to use this operation to delete a key for *their own u
   /**
    * Deletes the specified DB credential for the specified user.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDbCredentialRequest
    * @return DeleteDbCredentialResponse
    * @throws OciError when an error occurs
@@ -3146,7 +3144,7 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteDbCredentialRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDbCredentialRequest.retryConfiguration,
@@ -3190,7 +3188,7 @@ Every user has permission to use this operation to delete a key for *their own u
    * To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
    * the operation's status.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDomainRequest
    * @return DeleteDomainResponse
    * @throws OciError when an error occurs
@@ -3212,7 +3210,7 @@ Every user has permission to use this operation to delete a key for *their own u
       "opc-request-id": deleteDomainRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDomainRequest.retryConfiguration,
@@ -3255,7 +3253,7 @@ Every user has permission to use this operation to delete a key for *their own u
   /**
    * Deletes the specified dynamic group.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDynamicGroupRequest
    * @return DeleteDynamicGroupResponse
    * @throws OciError when an error occurs
@@ -3276,7 +3274,7 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteDynamicGroupRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDynamicGroupRequest.retryConfiguration,
@@ -3314,7 +3312,7 @@ Every user has permission to use this operation to delete a key for *their own u
   /**
    * Deletes the specified group. The group must be empty.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteGroupRequest
    * @return DeleteGroupResponse
    * @throws OciError when an error occurs
@@ -3335,7 +3333,7 @@ Every user has permission to use this operation to delete a key for *their own u
       "if-match": deleteGroupRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteGroupRequest.retryConfiguration,
@@ -3376,7 +3374,7 @@ Every user has permission to use this operation to delete a key for *their own u
 Deletes the specified identity provider. The identity provider must not have
 * any group mappings (see {@link IdpGroupMapping}).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeleteIdentityProviderRequest
      * @return DeleteIdentityProviderResponse
      * @throws OciError when an error occurs
@@ -3397,7 +3395,7 @@ Deletes the specified identity provider. The identity provider must not have
       "if-match": deleteIdentityProviderRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteIdentityProviderRequest.retryConfiguration,
@@ -3437,7 +3435,7 @@ Deletes the specified identity provider. The identity provider must not have
 * <p>
 Deletes the specified group mapping.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeleteIdpGroupMappingRequest
      * @return DeleteIdpGroupMappingResponse
      * @throws OciError when an error occurs
@@ -3459,7 +3457,7 @@ Deletes the specified group mapping.
       "if-match": deleteIdpGroupMappingRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteIdpGroupMappingRequest.retryConfiguration,
@@ -3497,7 +3495,7 @@ Deletes the specified group mapping.
   /**
    * Deletes the specified MFA TOTP device for the specified user.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteMfaTotpDeviceRequest
    * @return DeleteMfaTotpDeviceResponse
    * @throws OciError when an error occurs
@@ -3519,7 +3517,7 @@ Deletes the specified group mapping.
       "if-match": deleteMfaTotpDeviceRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteMfaTotpDeviceRequest.retryConfiguration,
@@ -3557,7 +3555,7 @@ Deletes the specified group mapping.
   /**
    * Deletes the specified network source.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteNetworkSourceRequest
    * @return DeleteNetworkSourceResponse
    * @throws OciError when an error occurs
@@ -3578,7 +3576,7 @@ Deletes the specified group mapping.
       "if-match": deleteNetworkSourceRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteNetworkSourceRequest.retryConfiguration,
@@ -3616,7 +3614,7 @@ Deletes the specified group mapping.
   /**
    * Delete Oauth token for the user
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteOAuthClientCredentialRequest
    * @return DeleteOAuthClientCredentialResponse
    * @throws OciError when an error occurs
@@ -3639,7 +3637,7 @@ Deletes the specified group mapping.
       "if-match": deleteOAuthClientCredentialRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteOAuthClientCredentialRequest.retryConfiguration,
@@ -3676,7 +3674,7 @@ Deletes the specified group mapping.
 
   /**
    * Deletes the specified policy. The deletion takes effect typically within 10 seconds.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeletePolicyRequest
    * @return DeletePolicyResponse
    * @throws OciError when an error occurs
@@ -3697,7 +3695,7 @@ Deletes the specified group mapping.
       "if-match": deletePolicyRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deletePolicyRequest.retryConfiguration,
@@ -3735,7 +3733,7 @@ Deletes the specified group mapping.
   /**
    * Deletes the specified SMTP credential for the specified user.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteSmtpCredentialRequest
    * @return DeleteSmtpCredentialResponse
    * @throws OciError when an error occurs
@@ -3757,7 +3755,7 @@ Deletes the specified group mapping.
       "if-match": deleteSmtpCredentialRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteSmtpCredentialRequest.retryConfiguration,
@@ -3797,7 +3795,7 @@ Deletes the specified group mapping.
 * <p>
 Deletes the specified Swift password for the specified user.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeleteSwiftPasswordRequest
      * @return DeleteSwiftPasswordResponse
      * @throws OciError when an error occurs
@@ -3819,7 +3817,7 @@ Deletes the specified Swift password for the specified user.
       "if-match": deleteSwiftPasswordRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteSwiftPasswordRequest.retryConfiguration,
@@ -3877,7 +3875,7 @@ After you start this operation, you cannot start either the {@link #bulkDeleteTa
 To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagRequest) updateTag}
 * to retire a tag.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeleteTagRequest
      * @return DeleteTagResponse
      * @throws OciError when an error occurs
@@ -3899,7 +3897,7 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
       "if-match": deleteTagRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteTagRequest.retryConfiguration,
@@ -3942,7 +3940,7 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
   /**
    * Deletes the the specified tag default.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteTagDefaultRequest
    * @return DeleteTagDefaultResponse
    * @throws OciError when an error occurs
@@ -3964,7 +3962,7 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
       "if-match": deleteTagDefaultRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteTagDefaultRequest.retryConfiguration,
@@ -4008,7 +4006,7 @@ Use {@link #cascadeDeleteTagNamespace(CascadeDeleteTagNamespaceRequest) cascadeD
 * <p>
 Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeleteTagNamespaceRequest
      * @return DeleteTagNamespaceResponse
      * @throws OciError when an error occurs
@@ -4030,7 +4028,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       "opc-request-id": deleteTagNamespaceRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteTagNamespaceRequest.retryConfiguration,
@@ -4067,7 +4065,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
 
   /**
    * Deletes the specified user. The user must not be in any groups.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteUserRequest
    * @return DeleteUserResponse
    * @throws OciError when an error occurs
@@ -4088,7 +4086,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       "if-match": deleteUserRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteUserRequest.retryConfiguration,
@@ -4135,7 +4133,7 @@ After you send the request, the `state` of the identity domain in the replica re
 To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
 * the operation's status.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param EnableReplicationToRegionRequest
      * @return EnableReplicationToRegionResponse
      * @throws OciError when an error occurs
@@ -4159,7 +4157,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       "if-match": enableReplicationToRegionRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       enableReplicationToRegionRequest.retryConfiguration,
@@ -4207,7 +4205,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   /**
    * Generate seed for the MFA TOTP device.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateTotpSeedRequest
    * @return GenerateTotpSeedResponse
    * @throws OciError when an error occurs
@@ -4229,7 +4227,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       "if-match": generateTotpSeedRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       generateTotpSeedRequest.retryConfiguration,
@@ -4277,7 +4275,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
    * Gets the authentication policy for the given tenancy. You must specify your tenant\u2019s OCID as the value for
    * the compartment ID (remember that the tenancy is simply the root compartment).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAuthenticationPolicyRequest
    * @return GetAuthenticationPolicyResponse
    * @throws OciError when an error occurs
@@ -4297,7 +4295,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAuthenticationPolicyRequest.retryConfiguration,
@@ -4351,7 +4349,7 @@ This operation does not return a list of all the resources inside the compartmen
 * call the {@link #listInstances(ListInstancesRequest) listInstances} operation in the Cloud Compute
 * Service or the {@link #listVolumes(ListVolumesRequest) listVolumes} operation in Cloud Block Storage.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetCompartmentRequest
      * @return GetCompartmentResponse
      * @throws OciError when an error occurs
@@ -4371,7 +4369,7 @@ This operation does not return a list of all the resources inside the compartmen
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCompartmentRequest.retryConfiguration,
@@ -4418,7 +4416,7 @@ This operation does not return a list of all the resources inside the compartmen
   /**
    * (For tenancies that support identity domains) Gets the specified identity domain's information.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDomainRequest
    * @return GetDomainResponse
    * @throws OciError when an error occurs
@@ -4439,7 +4437,7 @@ This operation does not return a list of all the resources inside the compartmen
       "opc-request-id": getDomainRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDomainRequest.retryConfiguration,
@@ -4486,7 +4484,7 @@ This operation does not return a list of all the resources inside the compartmen
   /**
    * Gets the specified dynamic group's information.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDynamicGroupRequest
    * @return GetDynamicGroupResponse
    * @throws OciError when an error occurs
@@ -4506,7 +4504,7 @@ This operation does not return a list of all the resources inside the compartmen
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDynamicGroupRequest.retryConfiguration,
@@ -4557,7 +4555,7 @@ This operation does not return a list of all the users in the group. To do that,
 * {@link #listUserGroupMemberships(ListUserGroupMembershipsRequest) listUserGroupMemberships} and
 * provide the group's OCID as a query parameter in the request.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetGroupRequest
      * @return GetGroupResponse
      * @throws OciError when an error occurs
@@ -4577,7 +4575,7 @@ This operation does not return a list of all the users in the group. To do that,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getGroupRequest.retryConfiguration,
@@ -4624,7 +4622,7 @@ This operation does not return a list of all the users in the group. To do that,
   /**
    * Gets the details of a specified IAM work request. The workRequestID is returned in the opc-workrequest-id header for any asynchronous operation in the Identity and Access Management service.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetIamWorkRequestRequest
    * @return GetIamWorkRequestResponse
    * @throws OciError when an error occurs
@@ -4645,7 +4643,7 @@ This operation does not return a list of all the users in the group. To do that,
       "opc-request-id": getIamWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getIamWorkRequestRequest.retryConfiguration,
@@ -4689,7 +4687,7 @@ This operation does not return a list of all the users in the group. To do that,
 * <p>
 Gets the specified identity provider's information.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetIdentityProviderRequest
      * @return GetIdentityProviderResponse
      * @throws OciError when an error occurs
@@ -4709,7 +4707,7 @@ Gets the specified identity provider's information.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getIdentityProviderRequest.retryConfiguration,
@@ -4758,7 +4756,7 @@ Gets the specified identity provider's information.
 * <p>
 Gets the specified group mapping.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetIdpGroupMappingRequest
      * @return GetIdpGroupMappingResponse
      * @throws OciError when an error occurs
@@ -4779,7 +4777,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getIdpGroupMappingRequest.retryConfiguration,
@@ -4826,7 +4824,7 @@ Gets the specified group mapping.
   /**
    * Get the specified MFA TOTP device for the specified user.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMfaTotpDeviceRequest
    * @return GetMfaTotpDeviceResponse
    * @throws OciError when an error occurs
@@ -4847,7 +4845,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getMfaTotpDeviceRequest.retryConfiguration,
@@ -4894,7 +4892,7 @@ Gets the specified group mapping.
   /**
    * Gets the specified network source's information.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetNetworkSourceRequest
    * @return GetNetworkSourceResponse
    * @throws OciError when an error occurs
@@ -4914,7 +4912,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getNetworkSourceRequest.retryConfiguration,
@@ -4960,7 +4958,7 @@ Gets the specified group mapping.
 
   /**
    * Gets the specified policy's information.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetPolicyRequest
    * @return GetPolicyResponse
    * @throws OciError when an error occurs
@@ -4980,7 +4978,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getPolicyRequest.retryConfiguration,
@@ -5027,7 +5025,7 @@ Gets the specified group mapping.
   /**
    * Retrieve the standard tag namespace template given the standard tag namespace name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetStandardTagTemplateRequest
    * @return GetStandardTagTemplateResponse
    * @throws OciError when an error occurs
@@ -5049,7 +5047,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getStandardTagTemplateRequest.retryConfiguration,
@@ -5090,7 +5088,7 @@ Gets the specified group mapping.
 
   /**
    * Gets the specified tag's information.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTagRequest
    * @return GetTagResponse
    * @throws OciError when an error occurs
@@ -5109,7 +5107,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTagRequest.retryConfiguration,
@@ -5156,7 +5154,7 @@ Gets the specified group mapping.
   /**
    * Retrieves the specified tag default.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTagDefaultRequest
    * @return GetTagDefaultResponse
    * @throws OciError when an error occurs
@@ -5176,7 +5174,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTagDefaultRequest.retryConfiguration,
@@ -5223,7 +5221,7 @@ Gets the specified group mapping.
   /**
    * Gets the specified tag namespace's information.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTagNamespaceRequest
    * @return GetTagNamespaceResponse
    * @throws OciError when an error occurs
@@ -5243,7 +5241,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTagNamespaceRequest.retryConfiguration,
@@ -5286,7 +5284,7 @@ Gets the specified group mapping.
    * Gets details on a specified work request. The workRequestID is returned in the opc-workrequest-id header
    * for any asynchronous operation in tagging service.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTaggingWorkRequestRequest
    * @return GetTaggingWorkRequestResponse
    * @throws OciError when an error occurs
@@ -5306,7 +5304,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTaggingWorkRequestRequest.retryConfiguration,
@@ -5352,7 +5350,7 @@ Gets the specified group mapping.
 
   /**
    * Get the specified tenancy's information.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTenancyRequest
    * @return GetTenancyResponse
    * @throws OciError when an error occurs
@@ -5372,7 +5370,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTenancyRequest.retryConfiguration,
@@ -5413,7 +5411,7 @@ Gets the specified group mapping.
 
   /**
    * Gets the specified user's information.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetUserRequest
    * @return GetUserResponse
    * @throws OciError when an error occurs
@@ -5433,7 +5431,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getUserRequest.retryConfiguration,
@@ -5479,7 +5477,7 @@ Gets the specified group mapping.
 
   /**
    * Gets the specified UserGroupMembership's information.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetUserGroupMembershipRequest
    * @return GetUserGroupMembershipResponse
    * @throws OciError when an error occurs
@@ -5499,7 +5497,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getUserGroupMembershipRequest.retryConfiguration,
@@ -5547,7 +5545,7 @@ Gets the specified group mapping.
    * Gets the specified user's console password information. The returned object contains the user's OCID,
    * but not the password itself. The actual password is returned only when created or reset.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetUserUIPasswordInformationRequest
    * @return GetUserUIPasswordInformationResponse
    * @throws OciError when an error occurs
@@ -5568,7 +5566,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getUserUIPasswordInformationRequest.retryConfiguration,
@@ -5616,7 +5614,7 @@ Gets the specified group mapping.
    * Gets details on a specified work request. The workRequestID is returned in the opc-workrequest-id header
    * for any asynchronous operation in the compartment service.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -5636,7 +5634,7 @@ Gets the specified group mapping.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -5684,7 +5682,7 @@ Gets the specified group mapping.
    * OCI will release Tag Namespaces that our customers can import.
    * These Tag Namespaces will provide Tags for our customers and Partners to provide consistency and enable data reporting.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ImportStandardTagsRequest
    * @return ImportStandardTagsResponse
    * @throws OciError when an error occurs
@@ -5704,7 +5702,7 @@ Gets the specified group mapping.
       "opc-retry-token": importStandardTagsRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       importStandardTagsRequest.retryConfiguration,
@@ -5756,7 +5754,7 @@ Gets the specified group mapping.
 If `currentLicenseTypeName` is provided, then the request returns license types that the identity domain with the specified license 
 * type name can change to. Otherwise, the request returns all valid license types currently supported.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAllowedDomainLicenseTypesRequest
      * @return ListAllowedDomainLicenseTypesResponse
      * @throws OciError when an error occurs
@@ -5778,7 +5776,7 @@ If `currentLicenseTypeName` is provided, then the request returns license types 
       "opc-request-id": listAllowedDomainLicenseTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAllowedDomainLicenseTypesRequest.retryConfiguration,
@@ -5828,7 +5826,7 @@ If `currentLicenseTypeName` is provided, then the request returns license types 
 Every user has permission to use this API call for *their own user ID*.  An administrator in your
 * organization does not need to write a policy to give users this ability.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListApiKeysRequest
      * @return ListApiKeysResponse
      * @throws OciError when an error occurs
@@ -5848,7 +5846,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listApiKeysRequest.retryConfiguration,
@@ -5896,7 +5894,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
    * Lists the auth tokens for the specified user. The returned object contains the token's OCID, but not
    * the token itself. The actual token is returned only upon creation.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAuthTokensRequest
    * @return ListAuthTokensResponse
    * @throws OciError when an error occurs
@@ -5916,7 +5914,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAuthTokensRequest.retryConfiguration,
@@ -5967,7 +5965,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
    * Note that the order of the results returned can change if availability domains are added or removed; therefore, do not
    * create a dependency on the list order.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAvailabilityDomainsRequest
    * @return ListAvailabilityDomainsResponse
    * @throws OciError when an error occurs
@@ -5987,7 +5985,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAvailabilityDomainsRequest.retryConfiguration,
@@ -6040,7 +6038,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
    * require an [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) to identify a specific resource, but some resource-types,
    * such as buckets, require you to provide other identifying information.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListBulkActionResourceTypesRequest
    * @return ListBulkActionResourceTypesResponse
    * @throws OciError when an error occurs
@@ -6063,7 +6061,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listBulkActionResourceTypesRequest.retryConfiguration,
@@ -6110,7 +6108,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
   /**
    * Lists the resource types that support bulk tag editing.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListBulkEditTagsResourceTypesRequest
    * @return ListBulkEditTagsResourceTypesResponse
    * @throws OciError when an error occurs
@@ -6132,7 +6130,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listBulkEditTagsResourceTypesRequest.retryConfiguration,
@@ -6196,7 +6194,7 @@ The parameter `compartmentIdInSubtree` applies only when you perform ListCompart
 * <p>
 See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.com/Content/API/Concepts/apisigningkey.htm#five).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListCompartmentsRequest
      * @return ListCompartmentsResponse
      * @throws OciError when an error occurs
@@ -6224,7 +6222,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCompartmentsRequest.retryConfiguration,
@@ -6324,7 +6322,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * Lists all the tags enabled for cost-tracking in the specified tenancy. For information about
    * cost-tracking tags, see [Using Cost-tracking Tags](https://docs.cloud.oracle.com/Content/Tagging/Tasks/usingcosttrackingtags.htm).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCostTrackingTagsRequest
    * @return ListCostTrackingTagsResponse
    * @throws OciError when an error occurs
@@ -6346,7 +6344,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCostTrackingTagsRequest.retryConfiguration,
@@ -6446,7 +6444,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * Lists the secret keys for the specified user. The returned object contains the secret key's OCID, but not
    * the secret key itself. The actual secret key is returned only upon creation.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCustomerSecretKeysRequest
    * @return ListCustomerSecretKeysResponse
    * @throws OciError when an error occurs
@@ -6466,7 +6464,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCustomerSecretKeysRequest.retryConfiguration,
@@ -6513,7 +6511,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   /**
    * Lists the DB credentials for the specified user. The returned object contains the credential's OCID
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDbCredentialsRequest
    * @return ListDbCredentialsResponse
    * @throws OciError when an error occurs
@@ -6541,7 +6539,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "opc-request-id": listDbCredentialsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDbCredentialsRequest.retryConfiguration,
@@ -6640,7 +6638,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   /**
    * (For tenancies that support identity domains) Lists all identity domains within a tenancy.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDomainsRequest
    * @return ListDomainsResponse
    * @throws OciError when an error occurs
@@ -6673,7 +6671,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "opc-request-id": listDomainsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDomainsRequest.retryConfiguration,
@@ -6774,7 +6772,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * the compartment ID (remember that the tenancy is simply the root compartment).
    * See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.com/Content/API/Concepts/apisigningkey.htm#five).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDynamicGroupsRequest
    * @return ListDynamicGroupsResponse
    * @throws OciError when an error occurs
@@ -6800,7 +6798,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDynamicGroupsRequest.retryConfiguration,
@@ -6901,7 +6899,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * of your compartments as the value for the compartment ID (remember that the tenancy is simply the root compartment).
    * See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.com/Content/API/Concepts/apisigningkey.htm#five).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFaultDomainsRequest
    * @return ListFaultDomainsResponse
    * @throws OciError when an error occurs
@@ -6922,7 +6920,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listFaultDomainsRequest.retryConfiguration,
@@ -6966,7 +6964,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
    * the compartment ID (remember that the tenancy is simply the root compartment).
    * See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.com/Content/API/Concepts/apisigningkey.htm#five).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListGroupsRequest
    * @return ListGroupsResponse
    * @throws OciError when an error occurs
@@ -6992,7 +6990,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listGroupsRequest.retryConfiguration,
@@ -7089,7 +7087,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   /**
    * Gets error details for a specified IAM work request. The workRequestID is returned in the opc-workrequest-id header for any asynchronous operation in the Identity and Access Management service.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListIamWorkRequestErrorsRequest
    * @return ListIamWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -7115,7 +7113,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "opc-request-id": listIamWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listIamWorkRequestErrorsRequest.retryConfiguration,
@@ -7214,7 +7212,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   /**
    * Gets logs for a specified IAM work request. The workRequestID is returned in the opc-workrequest-id header for any asynchronous operation in the Identity and Access Management service.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListIamWorkRequestLogsRequest
    * @return ListIamWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -7239,7 +7237,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "opc-request-id": listIamWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listIamWorkRequestLogsRequest.retryConfiguration,
@@ -7343,7 +7341,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   /**
    * Lists the IAM work requests in compartment. The workRequestID is returned in the opc-workrequest-id header for any asynchronous operation in the Identity and Access Management service.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListIamWorkRequestsRequest
    * @return ListIamWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -7367,7 +7365,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       "opc-request-id": listIamWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listIamWorkRequestsRequest.retryConfiguration,
@@ -7468,7 +7466,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
 * <p>
 Lists the identity provider groups.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListIdentityProviderGroupsRequest
      * @return ListIdentityProviderGroupsResponse
      * @throws OciError when an error occurs
@@ -7494,7 +7492,7 @@ Lists the identity provider groups.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listIdentityProviderGroupsRequest.retryConfiguration,
@@ -7598,7 +7596,7 @@ Lists all the identity providers in your tenancy. You must specify the identity 
 * compartment ID (remember that the tenancy is simply the root compartment).
 * See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.com/Content/API/Concepts/apisigningkey.htm#five).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListIdentityProvidersRequest
      * @return ListIdentityProvidersResponse
      * @throws OciError when an error occurs
@@ -7625,7 +7623,7 @@ Lists all the identity providers in your tenancy. You must specify the identity 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listIdentityProvidersRequest.retryConfiguration,
@@ -7726,7 +7724,7 @@ Lists all the identity providers in your tenancy. You must specify the identity 
 * <p>
 Lists the group mappings for the specified identity provider.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListIdpGroupMappingsRequest
      * @return ListIdpGroupMappingsResponse
      * @throws OciError when an error occurs
@@ -7749,7 +7747,7 @@ Lists the group mappings for the specified identity provider.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listIdpGroupMappingsRequest.retryConfiguration,
@@ -7849,7 +7847,7 @@ Lists the group mappings for the specified identity provider.
    * Lists the MFA TOTP devices for the specified user. The returned object contains the device's OCID, but not
    * the seed. The seed is returned only upon creation or when the IAM service regenerates the MFA seed for the device.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMfaTotpDevicesRequest
    * @return ListMfaTotpDevicesResponse
    * @throws OciError when an error occurs
@@ -7874,7 +7872,7 @@ Lists the group mappings for the specified identity provider.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMfaTotpDevicesRequest.retryConfiguration,
@@ -7975,7 +7973,7 @@ Lists the group mappings for the specified identity provider.
    * the compartment ID (remember that the tenancy is simply the root compartment).
    * See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.com/Content/API/Concepts/apisigningkey.htm#five).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListNetworkSourcesRequest
    * @return ListNetworkSourcesResponse
    * @throws OciError when an error occurs
@@ -8001,7 +7999,7 @@ Lists the group mappings for the specified identity provider.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listNetworkSourcesRequest.retryConfiguration,
@@ -8100,7 +8098,7 @@ Lists the group mappings for the specified identity provider.
   /**
    * List of Oauth tokens for the user
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListOAuthClientCredentialsRequest
    * @return ListOAuthClientCredentialsResponse
    * @throws OciError when an error occurs
@@ -8125,7 +8123,7 @@ Lists the group mappings for the specified identity provider.
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listOAuthClientCredentialsRequest.retryConfiguration,
@@ -8228,7 +8226,7 @@ Lists the group mappings for the specified identity provider.
 To determine which policies apply to a particular group or compartment, you must view the individual
 * statements inside all your policies. There isn't a way to automatically obtain that information via the API.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListPoliciesRequest
      * @return ListPoliciesResponse
      * @throws OciError when an error occurs
@@ -8254,7 +8252,7 @@ To determine which policies apply to a particular group or compartment, you must
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listPoliciesRequest.retryConfiguration,
@@ -8352,7 +8350,7 @@ To determine which policies apply to a particular group or compartment, you must
 
   /**
    * Lists the region subscriptions for the specified tenancy.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRegionSubscriptionsRequest
    * @return ListRegionSubscriptionsResponse
    * @throws OciError when an error occurs
@@ -8372,7 +8370,7 @@ To determine which policies apply to a particular group or compartment, you must
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listRegionSubscriptionsRequest.retryConfiguration,
@@ -8413,7 +8411,7 @@ To determine which policies apply to a particular group or compartment, you must
 
   /**
    * Lists all the regions offered by Oracle Cloud Infrastructure.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRegionsRequest
    * @return ListRegionsResponse
    * @throws OciError when an error occurs
@@ -8431,7 +8429,7 @@ To determine which policies apply to a particular group or compartment, you must
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listRegionsRequest.retryConfiguration,
@@ -8474,7 +8472,7 @@ To determine which policies apply to a particular group or compartment, you must
    * Lists the SMTP credentials for the specified user. The returned object contains the credential's OCID,
    * the SMTP user name but not the SMTP password. The SMTP password is returned only upon creation.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSmtpCredentialsRequest
    * @return ListSmtpCredentialsResponse
    * @throws OciError when an error occurs
@@ -8494,7 +8492,7 @@ To determine which policies apply to a particular group or compartment, you must
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSmtpCredentialsRequest.retryConfiguration,
@@ -8541,7 +8539,7 @@ To determine which policies apply to a particular group or compartment, you must
   /**
    * Lists available standard tag namespaces that users can create.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListStandardTagNamespacesRequest
    * @return ListStandardTagNamespacesResponse
    * @throws OciError when an error occurs
@@ -8564,7 +8562,7 @@ To determine which policies apply to a particular group or compartment, you must
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listStandardTagNamespacesRequest.retryConfiguration,
@@ -8666,7 +8664,7 @@ To determine which policies apply to a particular group or compartment, you must
 Lists the Swift passwords for the specified user. The returned object contains the password's OCID, but not
 * the password itself. The actual password is returned only upon creation.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListSwiftPasswordsRequest
      * @return ListSwiftPasswordsResponse
      * @throws OciError when an error occurs
@@ -8686,7 +8684,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSwiftPasswordsRequest.retryConfiguration,
@@ -8733,7 +8731,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   /**
    * Lists the tag defaults for tag definitions in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTagDefaultsRequest
    * @return ListTagDefaultsResponse
    * @throws OciError when an error occurs
@@ -8758,7 +8756,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTagDefaultsRequest.retryConfiguration,
@@ -8857,7 +8855,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   /**
    * Lists the tag namespaces in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTagNamespacesRequest
    * @return ListTagNamespacesResponse
    * @throws OciError when an error occurs
@@ -8881,7 +8879,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTagNamespacesRequest.retryConfiguration,
@@ -8980,7 +8978,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   /**
    * Gets the errors for a work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTaggingWorkRequestErrorsRequest
    * @return ListTaggingWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -9004,7 +9002,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTaggingWorkRequestErrorsRequest.retryConfiguration,
@@ -9108,7 +9106,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   /**
    * Gets the logs for a work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTaggingWorkRequestLogsRequest
    * @return ListTaggingWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -9132,7 +9130,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTaggingWorkRequestLogsRequest.retryConfiguration,
@@ -9236,7 +9234,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   /**
    * Lists the tagging work requests in compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTaggingWorkRequestsRequest
    * @return ListTaggingWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -9259,7 +9257,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTaggingWorkRequestsRequest.retryConfiguration,
@@ -9358,7 +9356,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   /**
    * Lists the tag definitions in the specified tag namespace.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTagsRequest
    * @return ListTagsResponse
    * @throws OciError when an error occurs
@@ -9382,7 +9380,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTagsRequest.retryConfiguration,
@@ -9488,7 +9486,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
 * If the answer is no, the response is an empty list.
 * - Although`userId` and `groupId` are not individually required, you must set one of them.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListUserGroupMembershipsRequest
      * @return ListUserGroupMembershipsResponse
      * @throws OciError when an error occurs
@@ -9513,7 +9511,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listUserGroupMembershipsRequest.retryConfiguration,
@@ -9614,7 +9612,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * compartment ID (remember that the tenancy is simply the root compartment).
    * See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.com/Content/API/Concepts/apisigningkey.htm#five).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListUsersRequest
    * @return ListUsersResponse
    * @throws OciError when an error occurs
@@ -9642,7 +9640,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listUsersRequest.retryConfiguration,
@@ -9739,7 +9737,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   /**
    * Lists the work requests in compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -9762,7 +9760,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -9868,7 +9866,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
    * are aware of the implications for the compartment contents before you move it. For more
    * information, see [Moving a Compartment](https://docs.cloud.oracle.com/Content/Identity/compartments/managingcompartments.htm#MoveCompartment).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param MoveCompartmentRequest
    * @return MoveCompartmentResponse
    * @throws OciError when an error occurs
@@ -9891,7 +9889,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "opc-retry-token": moveCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       moveCompartmentRequest.retryConfiguration,
@@ -9939,7 +9937,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   /**
    * Recover the compartment from DELETED state to ACTIVE state.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RecoverCompartmentRequest
    * @return RecoverCompartmentResponse
    * @throws OciError when an error occurs
@@ -9961,7 +9959,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "opc-request-id": recoverCompartmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       recoverCompartmentRequest.retryConfiguration,
@@ -10007,7 +10005,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
 
   /**
    * Removes a user from a group by deleting the corresponding `UserGroupMembership`.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemoveUserFromGroupRequest
    * @return RemoveUserFromGroupResponse
    * @throws OciError when an error occurs
@@ -10028,7 +10026,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": removeUserFromGroupRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       removeUserFromGroupRequest.retryConfiguration,
@@ -10066,7 +10064,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   /**
    * Resets the OAuth2 client credentials for the SCIM client associated with this identity provider.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResetIdpScimClientRequest
    * @return ResetIdpScimClientResponse
    * @throws OciError when an error occurs
@@ -10086,7 +10084,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       resetIdpScimClientRequest.retryConfiguration,
@@ -10128,7 +10126,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   /**
    * Updates the specified auth token's description.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAuthTokenRequest
    * @return UpdateAuthTokenResponse
    * @throws OciError when an error occurs
@@ -10150,7 +10148,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateAuthTokenRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAuthTokenRequest.retryConfiguration,
@@ -10202,7 +10200,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   /**
    * Updates authentication policy for the specified tenancy.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAuthenticationPolicyRequest
    * @return UpdateAuthenticationPolicyResponse
    * @throws OciError when an error occurs
@@ -10224,7 +10222,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateAuthenticationPolicyRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAuthenticationPolicyRequest.retryConfiguration,
@@ -10275,7 +10273,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
 
   /**
    * Updates the specified compartment's description or name. You can't update the root compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateCompartmentRequest
    * @return UpdateCompartmentResponse
    * @throws OciError when an error occurs
@@ -10296,7 +10294,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateCompartmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateCompartmentRequest.retryConfiguration,
@@ -10348,7 +10346,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   /**
    * Updates the specified secret key's description.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateCustomerSecretKeyRequest
    * @return UpdateCustomerSecretKeyResponse
    * @throws OciError when an error occurs
@@ -10370,7 +10368,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
       "if-match": updateCustomerSecretKeyRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateCustomerSecretKeyRequest.retryConfiguration,
@@ -10425,7 +10423,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
 To track the progress of the request, submitting an HTTP GET on the /iamWorkRequests/{iamWorkRequestsId} endpoint retrieves
 * the operation's status.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateDomainRequest
      * @return UpdateDomainResponse
      * @throws OciError when an error occurs
@@ -10447,7 +10445,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       "opc-request-id": updateDomainRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDomainRequest.retryConfiguration,
@@ -10494,7 +10492,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
 
   /**
    * Updates the specified dynamic group.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDynamicGroupRequest
    * @return UpdateDynamicGroupResponse
    * @throws OciError when an error occurs
@@ -10515,7 +10513,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       "if-match": updateDynamicGroupRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDynamicGroupRequest.retryConfiguration,
@@ -10566,7 +10564,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
 
   /**
    * Updates the specified group.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateGroupRequest
    * @return UpdateGroupResponse
    * @throws OciError when an error occurs
@@ -10587,7 +10585,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       "if-match": updateGroupRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateGroupRequest.retryConfiguration,
@@ -10641,7 +10639,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
 * <p>
 Updates the specified identity provider.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateIdentityProviderRequest
      * @return UpdateIdentityProviderResponse
      * @throws OciError when an error occurs
@@ -10662,7 +10660,7 @@ Updates the specified identity provider.
       "if-match": updateIdentityProviderRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateIdentityProviderRequest.retryConfiguration,
@@ -10716,7 +10714,7 @@ Updates the specified identity provider.
 * <p>
 Updates the specified group mapping.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateIdpGroupMappingRequest
      * @return UpdateIdpGroupMappingResponse
      * @throws OciError when an error occurs
@@ -10738,7 +10736,7 @@ Updates the specified group mapping.
       "if-match": updateIdpGroupMappingRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateIdpGroupMappingRequest.retryConfiguration,
@@ -10790,7 +10788,7 @@ Updates the specified group mapping.
   /**
    * Updates the specified network source.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateNetworkSourceRequest
    * @return UpdateNetworkSourceResponse
    * @throws OciError when an error occurs
@@ -10811,7 +10809,7 @@ Updates the specified group mapping.
       "if-match": updateNetworkSourceRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateNetworkSourceRequest.retryConfiguration,
@@ -10863,7 +10861,7 @@ Updates the specified group mapping.
   /**
    * Updates Oauth token for the user
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateOAuthClientCredentialRequest
    * @return UpdateOAuthClientCredentialResponse
    * @throws OciError when an error occurs
@@ -10886,7 +10884,7 @@ Updates the specified group mapping.
       "if-match": updateOAuthClientCredentialRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateOAuthClientCredentialRequest.retryConfiguration,
@@ -10940,7 +10938,7 @@ Updates the specified group mapping.
 * <p>
 Policy changes take effect typically within 10 seconds.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdatePolicyRequest
      * @return UpdatePolicyResponse
      * @throws OciError when an error occurs
@@ -10961,7 +10959,7 @@ Policy changes take effect typically within 10 seconds.
       "if-match": updatePolicyRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updatePolicyRequest.retryConfiguration,
@@ -11013,7 +11011,7 @@ Policy changes take effect typically within 10 seconds.
   /**
    * Updates the specified SMTP credential's description.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSmtpCredentialRequest
    * @return UpdateSmtpCredentialResponse
    * @throws OciError when an error occurs
@@ -11035,7 +11033,7 @@ Policy changes take effect typically within 10 seconds.
       "if-match": updateSmtpCredentialRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateSmtpCredentialRequest.retryConfiguration,
@@ -11089,7 +11087,7 @@ Policy changes take effect typically within 10 seconds.
 * <p>
 Updates the specified Swift password's description.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateSwiftPasswordRequest
      * @return UpdateSwiftPasswordResponse
      * @throws OciError when an error occurs
@@ -11111,7 +11109,7 @@ Updates the specified Swift password's description.
       "if-match": updateSwiftPasswordRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateSwiftPasswordRequest.retryConfiguration,
@@ -11172,7 +11170,7 @@ Setting `validator` determines the value type. Tags can use either a static valu
 You cannot remove list values that appear in a TagDefault. To remove a list value that
 * appears in a TagDefault, first update the TagDefault to use a different value.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateTagRequest
      * @return UpdateTagResponse
      * @throws OciError when an error occurs
@@ -11194,7 +11192,7 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       "if-match": updateTagRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateTagRequest.retryConfiguration,
@@ -11251,7 +11249,7 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
    * If the `isRequired` flag is set to \"true\", the value is set during resource creation.
    * * If the `isRequired` flag is set to \"false\", the value you enter is set during resource creation.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateTagDefaultRequest
    * @return UpdateTagDefaultResponse
    * @throws OciError when an error occurs
@@ -11273,7 +11271,7 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       "opc-request-id": updateTagDefaultRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateTagDefaultRequest.retryConfiguration,
@@ -11333,7 +11331,7 @@ Updating `isRetired` to 'true' retires the namespace and all the tag definitions
 * <p>
 You can't add a namespace with the same name as a retired namespace in the same tenancy.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateTagNamespaceRequest
      * @return UpdateTagNamespaceResponse
      * @throws OciError when an error occurs
@@ -11353,7 +11351,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateTagNamespaceRequest.retryConfiguration,
@@ -11399,7 +11397,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
 
   /**
    * Updates the description of the specified user.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateUserRequest
    * @return UpdateUserResponse
    * @throws OciError when an error occurs
@@ -11420,7 +11418,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
       "if-match": updateUserRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateUserRequest.retryConfiguration,
@@ -11472,7 +11470,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
   /**
    * Updates the capabilities of the specified user.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateUserCapabilitiesRequest
    * @return UpdateUserCapabilitiesResponse
    * @throws OciError when an error occurs
@@ -11493,7 +11491,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
       "if-match": updateUserCapabilitiesRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateUserCapabilitiesRequest.retryConfiguration,
@@ -11545,7 +11543,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
   /**
    * Updates the state of the specified user.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateUserStateRequest
    * @return UpdateUserStateResponse
    * @throws OciError when an error occurs
@@ -11566,7 +11564,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
       "if-match": updateUserStateRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateUserStateRequest.retryConfiguration,
@@ -11632,7 +11630,7 @@ Every user has permission to use this operation to upload a key for *their own u
 After you send your request, the new object's `lifecycleState` will temporarily be CREATING. Before using
 * the object, first make sure its `lifecycleState` has changed to ACTIVE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UploadApiKeyRequest
      * @return UploadApiKeyResponse
      * @throws OciError when an error occurs
@@ -11653,7 +11651,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       "opc-retry-token": uploadApiKeyRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       uploadApiKeyRequest.retryConfiguration,

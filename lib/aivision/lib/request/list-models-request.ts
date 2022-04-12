@@ -27,7 +27,7 @@ export interface ListModelsRequest extends common.BaseRequest {
    */
   "projectId"?: string;
   /**
-   * Filter to match models with the given lifecycleState.
+   * The filter to match models with the given lifecycleState.
    */
   "lifecycleState"?: string;
   /**
@@ -35,7 +35,7 @@ export interface ListModelsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * Filter to find the model with the given identifier.
+   * The filter to find the model with the given identifier.
    */
   "id"?: string;
   /**
@@ -51,7 +51,7 @@ export interface ListModelsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending. Default order for displayName is ascending.
+   * The field to sort by. Only one sort order may be provided. The default order for timeCreated is descending. The default order for displayName is ascending.
    *
    */
   "sortBy"?: ListModelsRequest.SortBy;

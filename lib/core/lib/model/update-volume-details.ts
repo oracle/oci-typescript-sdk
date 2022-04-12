@@ -49,6 +49,8 @@ Example: `{\"Department\": \"Finance\"}`
 * <p>
 Allowed values:
 * <p>
+  * `0`: Represents Lower Cost option.
+* <p>
   * `10`: Represents Balanced option.
 * <p>
   * `20`: Represents Higher Performance option.
@@ -62,7 +64,7 @@ Allowed values:
    */
   "sizeInGBs"?: number;
   /**
-   * Specifies whether the auto-tune performance is enabled for this boot volume.
+   * Specifies whether the auto-tune performance is enabled for this volume.
    *
    */
   "isAutoTuneEnabled"?: boolean;

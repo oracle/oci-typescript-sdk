@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateProjectRequest extends common.BaseRequest {
   /**
-   * unique project identifier.
+   * A unique project identifier.
    */
   "projectId": string;
   /**
-   * Project metadata to be updated.
+   * The project metadata to be updated.
    */
   "updateProjectDetails": model.UpdateProjectDetails;
   /**

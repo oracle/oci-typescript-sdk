@@ -35,7 +35,7 @@ export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for timeAccepted is descending.
+   * The field to sort by. Only one sort order may be provided. The default order for timeAccepted is descending.
    *
    */
   "sortBy"?: ListWorkRequestErrorsRequest.SortBy;

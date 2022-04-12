@@ -1,6 +1,6 @@
 /**
- * VisionService API
- * A description of the VisionService API.
+ * Vision API
+ * Using Vision, you can upload images to detect and classify objects in them. If you have lots of images, you can process them in batch using asynchronous API endpoints. Vision's features are thematically split between Document AI for document-centric images, and Image Analysis for object and scene-based images. Pretrained models and custom models are supported.
  * OpenAPI spec version: 20220125
  *
  *
@@ -19,19 +19,19 @@ import common = require("oci-common");
  */
 export interface Model {
   /**
-   * Unique identifier that is immutable after creation.
+   * A unique identifier that is immutable after creation.
    */
   "id": string;
   /**
-   * Human-friendly name for the model, which can be changed.
+   * A human-friendly name for the model, which can be changed.
    */
   "displayName"?: string;
   /**
-   * Optional description of the model.
+   * An optional description of the model.
    */
   "description"?: string;
   /**
-   * Compartment identifier.
+   * The compartment identifier.
    */
   "compartmentId": string;
   /**
@@ -39,15 +39,15 @@ export interface Model {
    */
   "modelType": Model.ModelType;
   /**
-   * Set to true when experimenting with a new model type or dataset so model training is quick, with a predefined low number of passes through the training data.
+   * Set to true when experimenting with a new model type or dataset, so model training is quick, with a predefined low number of passes through the training data.
    */
   "isQuickMode"?: boolean;
   /**
-   * Maximum model training duration in hours, expressed as a decimal fraction. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum model training duration in hours, expressed as a decimal fraction. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxTrainingDurationInHours"?: number;
   /**
-   * Total hours actually used for model training. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total hours actually used for model training. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "trainedDurationInHours"?: number;
   "trainingDataset": model.DataScienceLabelingDataset | model.ObjectStorageDataset;
@@ -58,7 +58,7 @@ export interface Model {
    */
   "modelVersion": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project which contains the model.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project that contains the model.
    */
   "projectId": string;
   /**
@@ -70,15 +70,15 @@ export interface Model {
    */
   "timeUpdated"?: Date;
   /**
-   * Current state of the model.
+   * The current state of the model.
    */
   "lifecycleState": Model.LifecycleState;
   /**
-   * A message describing the current state in more detail which can provide actionable information if training failed.
+   * A message describing the current state in more detail, that can provide actionable information if training failed.
    */
   "lifecycleDetails"?: string;
   /**
-   * Precision of the trained model. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The precision of the trained model. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "precision"?: number;
   /**
@@ -86,40 +86,40 @@ export interface Model {
    */
   "recall"?: number;
   /**
-   * Mean average precision of the trained model. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The mean average precision of the trained model. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "averagePrecision"?: number;
   /**
-   * Intersection over union threshold used for calculating precision and recall. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The intersection over the union threshold used for calculating precision and recall. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "confidenceThreshold"?: number;
   /**
-   * Number of images in the dataset used to train, validate, and test the model. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of images in the dataset used to train, validate, and test the model. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalImageCount"?: number;
   /**
-   * Number of images set aside for evaluating model performance metrics after training. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of images set aside for evaluating model performance metrics after training. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "testImageCount"?: number;
   /**
-   * Complete set of per-label metrics for successfully trained model.
+   * The complete set of per-label metrics for successfully trained models.
    */
   "metrics"?: string;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
+   * For example: `{\"bar-key\": \"value\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * For example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * For example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };

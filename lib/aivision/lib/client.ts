@@ -1,6 +1,6 @@
 /**
- * VisionService API
- * A description of the VisionService API.
+ * Vision API
+ * Using Vision, you can upload images to detect and classify objects in them. If you have lots of images, you can process them in batch using asynchronous API endpoints. Vision's features are thematically split between Document AI for document-centric images, and Image Analysis for object and scene-based images. Pretrained models and custom models are supported.
  * OpenAPI spec version: 20220125
  *
  *
@@ -287,7 +287,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Cancel a batch document job.
+   * Cancel a document batch job.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelDocumentJobRequest
@@ -348,7 +348,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Cancel a batch image job.
+   * Cancel an image batch job.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelImageJobRequest
@@ -408,7 +408,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Cancel work request with the given ID.
+   * Cancel the work request with the given ID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
@@ -468,7 +468,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Moves a model from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
+   * Moves a model from one compartment to another. When provided, If-Match is checked against the ETag values of the resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeModelCompartmentRequest
    * @return ChangeModelCompartmentResponse
@@ -533,7 +533,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Moves a project from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
+   * Move a project from one compartment to another. When provided, If-Match is checked against the ETag values of the resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeProjectCompartmentRequest
    * @return ChangeProjectCompartmentResponse
@@ -598,7 +598,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Create a batch document analysis job
+   * Create a document analysis batch job.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDocumentJobRequest
@@ -671,7 +671,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Create a batch image analysis job.
+   * Create an image analysis batch job.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateImageJobRequest
@@ -743,7 +743,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Creates a new model.
+   * Create a new model.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateModelRequest
@@ -820,7 +820,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Creates a new project.
+   * Create a new project.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateProjectRequest
@@ -897,7 +897,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Deletes a model by identifier.
+   * Delete a model by identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteModelRequest
    * @return DeleteModelResponse
@@ -961,7 +961,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Deletes a project by identifier.
+   * Delete a project by identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
@@ -1025,7 +1025,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Get details of a batch document job.
+   * Get details of a document batch job.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDocumentJobRequest
@@ -1093,7 +1093,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Get details of a batch image job.
+   * Get details of an image batch job.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetImageJobRequest
@@ -1161,7 +1161,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Gets a model by identifier.
+   * Get a model by identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetModelRequest
    * @return GetModelResponse
@@ -1228,7 +1228,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Gets a project by identifier.
+   * Get a project by identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetProjectRequest
    * @return GetProjectResponse
@@ -1518,7 +1518,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Return a (paginated) list of errors for a given work request.
+   * Returns a (paginated) list of errors for a given work request.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
@@ -1741,7 +1741,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Updates model metadata.
+   * Updates the model metadata.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateModelRequest
    * @return UpdateModelResponse
@@ -1810,7 +1810,7 @@ export class AIServiceVisionClient {
   }
 
   /**
-   * Updates project metadata.
+   * Update the project metadata.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateProjectRequest
    * @return UpdateProjectResponse

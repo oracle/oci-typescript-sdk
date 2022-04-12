@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteModelRequest extends common.BaseRequest {
   /**
-   * unique model identifier.
+   * A unique model identifier.
    */
   "modelId": string;
   /**

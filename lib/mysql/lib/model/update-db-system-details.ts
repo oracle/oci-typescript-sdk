@@ -94,11 +94,13 @@ Changes in Shape will result in a downtime as the MySQL DB System is
    */
   "adminPassword"?: string;
   /**
-    * New size of the data volume in GBs that will be created and attached.
+    * Expands the DB System's storage to the specified value. Only supports values larger than the current DB System's
+* storage size.
 * <p>
-Increases in data storage size will happen asynchronously and will require DB System downtime.
+DB Systems with initial storage of 400 GB or less can be expanded up to 32 TB. DB Systems with initial storage
+* larger than 400 GB can be expanded up to 64 TB.
 * <p>
-Decreases in data storage size are not supported.
+It is not possible to decrease data storage size.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "dataStorageSizeInGBs"?: number;

@@ -24,6 +24,11 @@ import common = require("oci-common");
  */
 export interface ByoipRangeSummary {
   /**
+   * A list of `ByoipRangeVcnIpv6AllocationSummary` objects.
+   *
+   */
+  "byoipRangeVcnIpv6Allocations"?: Array<model.ByoipRangeVcnIpv6AllocationSummary>;
+  /**
    * The public IPv4 address range you are importing to the Oracle cloud.
    */
   "cidrBlock"?: string;
@@ -59,6 +64,13 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "id"?: string;
   /**
+   * The IPv6 CIDR block being imported to the Oracle cloud. This CIDR block must be /48 or larger, and can  be subdivided into sub-ranges used
+   * across multiple VCNs. A BYOIPv6 prefix can be assigned across multiple VCNs, and each VCN must be /64 or larger. You may specify
+   * a ULA or private IPv6 prefix of /64 or larger to use in the VCN. IPv6-enabled subnets will remain a fixed /64 in size.
+   *
+   */
+  "ipv6CidrBlock"?: string;
+  /**
    * The `ByoipRange` resource's current state.
    */
   "lifecycleState"?: string;
@@ -77,12 +89,30 @@ Example: `2016-08-25T21:10:29.600Z`
 
 export namespace ByoipRangeSummary {
   export function getJsonObj(obj: ByoipRangeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "byoipRangeVcnIpv6Allocations": obj.byoipRangeVcnIpv6Allocations
+          ? obj.byoipRangeVcnIpv6Allocations.map(item => {
+              return model.ByoipRangeVcnIpv6AllocationSummary.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ByoipRangeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "byoipRangeVcnIpv6Allocations": obj.byoipRangeVcnIpv6Allocations
+          ? obj.byoipRangeVcnIpv6Allocations.map(item => {
+              return model.ByoipRangeVcnIpv6AllocationSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

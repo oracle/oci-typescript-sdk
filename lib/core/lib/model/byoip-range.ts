@@ -20,14 +20,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Oracle offers the ability to Bring Your Own IP (BYOIP), importing public IP addresses  that you currently own to Oracle Cloud Infrastructure. A `ByoipRange` resource is a record of the imported address block (a BYOIP CIDR block) and also some associated metadata.
+ * Oracle offers the ability to Bring Your Own IP (BYOIP), importing public IP addresses or IPv6 addresses that you currently own to Oracle Cloud Infrastructure. A `ByoipRange` resource is a record of the imported address block (a BYOIP CIDR block) and also some associated metadata.
  * The process used to [Bring Your Own IP](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/BYOIP.htm) is explained in the documentation.
  */
 export interface ByoipRange {
   /**
+   * A list of `ByoipRangeVcnIpv6AllocationSummary` objects.
+   *
+   */
+  "byoipRangeVcnIpv6Allocations"?: Array<model.ByoipRangeVcnIpv6AllocationSummary>;
+  /**
    * The public IPv4 CIDR block being imported from on-premises to the Oracle cloud.
    */
-  "cidrBlock": string;
+  "cidrBlock"?: string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the BYOIP CIDR block.
    *
@@ -59,6 +64,13 @@ Example: `{\"Department\": \"Finance\"}`
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the `ByoipRange` resource.
    */
   "id": string;
+  /**
+   * The IPv6 CIDR block being imported to the Oracle cloud. This CIDR block must be /48 or larger, and can be subdivided into sub-ranges used
+   * across multiple VCNs. A BYOIPv6 prefix can be also assigned across multiple VCNs, and each VCN must be /64 or larger. You may specify
+   * a ULA or private IPv6 prefix of /64 or larger to use in the VCN. IPv6-enabled subnets will remain a fixed /64 in size.
+   *
+   */
+  "ipv6CidrBlock"?: string;
   /**
    * The `ByoipRange` resource's current status.
    */
@@ -133,12 +145,30 @@ export namespace ByoipRange {
   }
 
   export function getJsonObj(obj: ByoipRange): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "byoipRangeVcnIpv6Allocations": obj.byoipRangeVcnIpv6Allocations
+          ? obj.byoipRangeVcnIpv6Allocations.map(item => {
+              return model.ByoipRangeVcnIpv6AllocationSummary.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ByoipRange): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "byoipRangeVcnIpv6Allocations": obj.byoipRangeVcnIpv6Allocations
+          ? obj.byoipRangeVcnIpv6Allocations.map(item => {
+              return model.ByoipRangeVcnIpv6AllocationSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

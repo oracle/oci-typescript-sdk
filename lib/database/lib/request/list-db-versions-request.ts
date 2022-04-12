@@ -39,9 +39,9 @@ export interface ListDbVersionsRequest extends common.BaseRequest {
    */
   "dbSystemId"?: string;
   /**
-   * The DB system storage management option. Used to list database versions available for that storage manager. Valid values are:
-   * * ASM - Automatic storage management
-   * * LVM - Logical volume management
+   * The DB system storage management option. Used to list database versions available for that storage manager. Valid values are `ASM` and `LVM`.
+   * * ASM specifies Oracle Automatic Storage Management
+   * * LVM specifies logical volume manager, sometimes called logical disk manager.
    *
    */
   "storageManagement"?: string;

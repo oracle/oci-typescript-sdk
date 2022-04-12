@@ -70,6 +70,7 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "dataCollectionOptions"?: model.DataCollectionOptions;
 }
 
 export namespace UpdateVmClusterDetails {
@@ -85,6 +86,10 @@ export namespace UpdateVmClusterDetails {
         "version": obj.version ? model.PatchDetails.getJsonObj(obj.version) : undefined,
         "updateDetails": obj.updateDetails
           ? model.VmClusterUpdateDetails.getJsonObj(obj.updateDetails)
+          : undefined,
+
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getJsonObj(obj.dataCollectionOptions)
           : undefined
       }
     };
@@ -98,6 +103,10 @@ export namespace UpdateVmClusterDetails {
         "version": obj.version ? model.PatchDetails.getDeserializedJsonObj(obj.version) : undefined,
         "updateDetails": obj.updateDetails
           ? model.VmClusterUpdateDetails.getDeserializedJsonObj(obj.updateDetails)
+          : undefined,
+
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getDeserializedJsonObj(obj.dataCollectionOptions)
           : undefined
       }
     };

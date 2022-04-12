@@ -242,6 +242,16 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    *
    */
   "isAutoScalingForStorageEnabled"?: boolean;
+  /**
+   * The number of Max OCPU cores to be made available to the autonomous database with auto scaling of cpu enabled.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxCpuCoreCount"?: number;
+  /**
+   * The Oracle Database Edition that applies to the Autonomous databases.
+   *
+   */
+  "databaseEdition"?: string;
 }
 
 export namespace UpdateAutonomousDatabaseDetails {

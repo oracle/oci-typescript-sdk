@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateModelRequest extends common.BaseRequest {
   /**
-   * unique model identifier.
+   * A unique model identifier.
    */
   "modelId": string;
   /**
-   * Model metadata to be updated.
+   * The model metadata to be updated.
    */
   "updateModelDetails": model.UpdateModelDetails;
   /**

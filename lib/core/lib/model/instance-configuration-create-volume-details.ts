@@ -76,6 +76,8 @@ Example: `{\"Department\": \"Finance\"}`
 * <p>
 Allowed values:
 * <p>
+  * `0`: Represents Lower Cost option.
+* <p>
   * `10`: Represents Balanced option.
 * <p>
   * `20`: Represents Higher Performance option.

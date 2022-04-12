@@ -366,6 +366,8 @@ import * as AddDrgRouteDistributionStatementsRequest from "./add-drg-route-distr
 export import AddDrgRouteDistributionStatementsRequest = AddDrgRouteDistributionStatementsRequest.AddDrgRouteDistributionStatementsRequest;
 import * as AddDrgRouteRulesRequest from "./add-drg-route-rules-request";
 export import AddDrgRouteRulesRequest = AddDrgRouteRulesRequest.AddDrgRouteRulesRequest;
+import * as AddIpv6SubnetCidrRequest from "./add-ipv6-subnet-cidr-request";
+export import AddIpv6SubnetCidrRequest = AddIpv6SubnetCidrRequest.AddIpv6SubnetCidrRequest;
 import * as AddIpv6VcnCidrRequest from "./add-ipv6-vcn-cidr-request";
 export import AddIpv6VcnCidrRequest = AddIpv6VcnCidrRequest.AddIpv6VcnCidrRequest;
 import * as AddNetworkSecurityGroupSecurityRulesRequest from "./add-network-security-group-security-rules-request";
@@ -736,6 +738,10 @@ import * as RemoveExportDrgRouteDistributionRequest from "./remove-export-drg-ro
 export import RemoveExportDrgRouteDistributionRequest = RemoveExportDrgRouteDistributionRequest.RemoveExportDrgRouteDistributionRequest;
 import * as RemoveImportDrgRouteDistributionRequest from "./remove-import-drg-route-distribution-request";
 export import RemoveImportDrgRouteDistributionRequest = RemoveImportDrgRouteDistributionRequest.RemoveImportDrgRouteDistributionRequest;
+import * as RemoveIpv6SubnetCidrRequest from "./remove-ipv6-subnet-cidr-request";
+export import RemoveIpv6SubnetCidrRequest = RemoveIpv6SubnetCidrRequest.RemoveIpv6SubnetCidrRequest;
+import * as RemoveIpv6VcnCidrRequest from "./remove-ipv6-vcn-cidr-request";
+export import RemoveIpv6VcnCidrRequest = RemoveIpv6VcnCidrRequest.RemoveIpv6VcnCidrRequest;
 import * as RemoveNetworkSecurityGroupSecurityRulesRequest from "./remove-network-security-group-security-rules-request";
 export import RemoveNetworkSecurityGroupSecurityRulesRequest = RemoveNetworkSecurityGroupSecurityRulesRequest.RemoveNetworkSecurityGroupSecurityRulesRequest;
 import * as RemovePublicIpPoolCapacityRequest from "./remove-public-ip-pool-capacity-request";

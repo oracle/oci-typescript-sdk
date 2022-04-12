@@ -1,6 +1,6 @@
 /**
- * VisionService API
- * A description of the VisionService API.
+ * Vision API
+ * Using Vision, you can upload images to detect and classify objects in them. If you have lots of images, you can process them in batch using asynchronous API endpoints. Vision's features are thematically split between Document AI for document-centric images, and Image Analysis for object and scene-based images. Pretrained models and custom models are supported.
  * OpenAPI spec version: 20220125
  *
  *
@@ -15,23 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A Vision Project which contains models.
+ * A Vision Project containing models.
  */
 export interface Project {
   /**
-   * Unique identifier that is immutable after creation.
+   * A unique identifier that is immutable after creation.
    */
   "id": string;
   /**
-   * Human-friendly name for the project, which can be changed.
+   * A human-friendly name for the project, which can be changed.
    */
   "displayName"?: string;
   /**
-   * Optional description of the project.
+   * An optional description of the project.
    */
   "description"?: string;
   /**
-   * Compartment identifier.
+   * A compartment identifier.
    */
   "compartmentId": string;
   /**
@@ -47,24 +47,24 @@ export interface Project {
    */
   "lifecycleState": Project.LifecycleState;
   /**
-   * A message describing the current state in more detail which can provide actionable information if creation failed.
+   * A message describing the current state in more detail, that can provide actionable information if creation failed.
    */
   "lifecycleDetails"?: string;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
+   * For example: `{\"bar-key\": \"value\"}`
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * For example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * For example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };

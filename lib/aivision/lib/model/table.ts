@@ -1,6 +1,6 @@
 /**
- * VisionService API
- * A description of the VisionService API.
+ * Vision API
+ * Using Vision, you can upload images to detect and classify objects in them. If you have lots of images, you can process them in batch using asynchronous API endpoints. Vision's features are thematically split between Document AI for document-centric images, and Image Analysis for object and scene-based images. Pretrained models and custom models are supported.
  * OpenAPI spec version: 20220125
  *
  *
@@ -15,31 +15,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Table extracted from a document.
+ * The table extracted from a document.
  */
 export interface Table {
   /**
-   * Number of rows. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of rows. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rowCount": number;
   /**
-   * Number of columns. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of columns. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "columnCount": number;
   /**
-   * Header rows.
+   * The header rows.
    */
   "headerRows": Array<model.TableRow>;
   /**
-   * Body rows.
+   * The body rows.
    */
   "bodyRows": Array<model.TableRow>;
   /**
-   * Footer rows.
+   * the footer rows.
    */
   "footerRows": Array<model.TableRow>;
   /**
-   * Confidence score between 0 to 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The confidence score between 0 and 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "confidence": number;
   "boundingPolygon": model.BoundingPolygon;
