@@ -103,6 +103,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "databaseConfiguration"?: ExternalNonContainerDatabaseSummary.DatabaseConfiguration;
   "databaseManagementConfig"?: model.DatabaseManagementConfig;
+  "stackMonitoringConfig"?: model.StackMonitoringConfig;
 }
 
 export namespace ExternalNonContainerDatabaseSummary {
@@ -153,6 +154,9 @@ export namespace ExternalNonContainerDatabaseSummary {
 
         "databaseManagementConfig": obj.databaseManagementConfig
           ? model.DatabaseManagementConfig.getJsonObj(obj.databaseManagementConfig)
+          : undefined,
+        "stackMonitoringConfig": obj.stackMonitoringConfig
+          ? model.StackMonitoringConfig.getJsonObj(obj.stackMonitoringConfig)
           : undefined
       }
     };
@@ -169,6 +173,9 @@ export namespace ExternalNonContainerDatabaseSummary {
 
         "databaseManagementConfig": obj.databaseManagementConfig
           ? model.DatabaseManagementConfig.getDeserializedJsonObj(obj.databaseManagementConfig)
+          : undefined,
+        "stackMonitoringConfig": obj.stackMonitoringConfig
+          ? model.StackMonitoringConfig.getDeserializedJsonObj(obj.stackMonitoringConfig)
           : undefined
       }
     };

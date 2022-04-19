@@ -1709,6 +1709,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDisableExternalContainerDatabaseStackMonitoring
+   *
+   * @param request the request to send
+   * @return response returns DisableExternalContainerDatabaseStackMonitoringResponse, GetWorkRequestResponse tuple
+   */
+  public async forDisableExternalContainerDatabaseStackMonitoring(
+    request: serviceRequests.DisableExternalContainerDatabaseStackMonitoringRequest
+  ): Promise<{
+    response: serviceResponses.DisableExternalContainerDatabaseStackMonitoringResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const disableExternalContainerDatabaseStackMonitoringResponse = await this.client.disableExternalContainerDatabaseStackMonitoring(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      disableExternalContainerDatabaseStackMonitoringResponse.opcWorkRequestId
+    );
+    return {
+      response: disableExternalContainerDatabaseStackMonitoringResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forDisableExternalNonContainerDatabaseDatabaseManagement
    *
    * @param request the request to send
@@ -1761,6 +1787,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDisableExternalNonContainerDatabaseStackMonitoring
+   *
+   * @param request the request to send
+   * @return response returns DisableExternalNonContainerDatabaseStackMonitoringResponse, GetWorkRequestResponse tuple
+   */
+  public async forDisableExternalNonContainerDatabaseStackMonitoring(
+    request: serviceRequests.DisableExternalNonContainerDatabaseStackMonitoringRequest
+  ): Promise<{
+    response: serviceResponses.DisableExternalNonContainerDatabaseStackMonitoringResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const disableExternalNonContainerDatabaseStackMonitoringResponse = await this.client.disableExternalNonContainerDatabaseStackMonitoring(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      disableExternalNonContainerDatabaseStackMonitoringResponse.opcWorkRequestId
+    );
+    return {
+      response: disableExternalNonContainerDatabaseStackMonitoringResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forDisableExternalPluggableDatabaseDatabaseManagement
    *
    * @param request the request to send
@@ -1808,6 +1860,32 @@ export class DatabaseWaiter {
     );
     return {
       response: disableExternalPluggableDatabaseOperationsInsightsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDisableExternalPluggableDatabaseStackMonitoring
+   *
+   * @param request the request to send
+   * @return response returns DisableExternalPluggableDatabaseStackMonitoringResponse, GetWorkRequestResponse tuple
+   */
+  public async forDisableExternalPluggableDatabaseStackMonitoring(
+    request: serviceRequests.DisableExternalPluggableDatabaseStackMonitoringRequest
+  ): Promise<{
+    response: serviceResponses.DisableExternalPluggableDatabaseStackMonitoringResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const disableExternalPluggableDatabaseStackMonitoringResponse = await this.client.disableExternalPluggableDatabaseStackMonitoring(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      disableExternalPluggableDatabaseStackMonitoringResponse.opcWorkRequestId
+    );
+    return {
+      response: disableExternalPluggableDatabaseStackMonitoringResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -1915,6 +1993,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forEnableExternalContainerDatabaseStackMonitoring
+   *
+   * @param request the request to send
+   * @return response returns EnableExternalContainerDatabaseStackMonitoringResponse, GetWorkRequestResponse tuple
+   */
+  public async forEnableExternalContainerDatabaseStackMonitoring(
+    request: serviceRequests.EnableExternalContainerDatabaseStackMonitoringRequest
+  ): Promise<{
+    response: serviceResponses.EnableExternalContainerDatabaseStackMonitoringResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const enableExternalContainerDatabaseStackMonitoringResponse = await this.client.enableExternalContainerDatabaseStackMonitoring(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      enableExternalContainerDatabaseStackMonitoringResponse.opcWorkRequestId
+    );
+    return {
+      response: enableExternalContainerDatabaseStackMonitoringResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forEnableExternalNonContainerDatabaseDatabaseManagement
    *
    * @param request the request to send
@@ -1967,6 +2071,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forEnableExternalNonContainerDatabaseStackMonitoring
+   *
+   * @param request the request to send
+   * @return response returns EnableExternalNonContainerDatabaseStackMonitoringResponse, GetWorkRequestResponse tuple
+   */
+  public async forEnableExternalNonContainerDatabaseStackMonitoring(
+    request: serviceRequests.EnableExternalNonContainerDatabaseStackMonitoringRequest
+  ): Promise<{
+    response: serviceResponses.EnableExternalNonContainerDatabaseStackMonitoringResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const enableExternalNonContainerDatabaseStackMonitoringResponse = await this.client.enableExternalNonContainerDatabaseStackMonitoring(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      enableExternalNonContainerDatabaseStackMonitoringResponse.opcWorkRequestId
+    );
+    return {
+      response: enableExternalNonContainerDatabaseStackMonitoringResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forEnableExternalPluggableDatabaseDatabaseManagement
    *
    * @param request the request to send
@@ -2014,6 +2144,32 @@ export class DatabaseWaiter {
     );
     return {
       response: enableExternalPluggableDatabaseOperationsInsightsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forEnableExternalPluggableDatabaseStackMonitoring
+   *
+   * @param request the request to send
+   * @return response returns EnableExternalPluggableDatabaseStackMonitoringResponse, GetWorkRequestResponse tuple
+   */
+  public async forEnableExternalPluggableDatabaseStackMonitoring(
+    request: serviceRequests.EnableExternalPluggableDatabaseStackMonitoringRequest
+  ): Promise<{
+    response: serviceResponses.EnableExternalPluggableDatabaseStackMonitoringResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const enableExternalPluggableDatabaseStackMonitoringResponse = await this.client.enableExternalPluggableDatabaseStackMonitoring(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      enableExternalPluggableDatabaseStackMonitoringResponse.opcWorkRequestId
+    );
+    return {
+      response: enableExternalPluggableDatabaseStackMonitoringResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -2533,6 +2689,24 @@ export class DatabaseWaiter {
       () => this.client.getDbSystem(request),
       response => targetStates.includes(response.dbSystem.lifecycleState!),
       targetStates.includes(models.DbSystem.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forDbSystemUpgradeHistoryEntry till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDbSystemUpgradeHistoryEntryResponse
+   */
+  public async forDbSystemUpgradeHistoryEntry(
+    request: serviceRequests.GetDbSystemUpgradeHistoryEntryRequest,
+    ...targetStates: models.DbSystemUpgradeHistoryEntry.LifecycleState[]
+  ): Promise<serviceResponses.GetDbSystemUpgradeHistoryEntryResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getDbSystemUpgradeHistoryEntry(request),
+      response => targetStates.includes(response.dbSystemUpgradeHistoryEntry.lifecycleState!)
     );
   }
 
@@ -4236,6 +4410,27 @@ export class DatabaseWaiter {
       upgradeDatabaseResponse.opcWorkRequestId
     );
     return { response: upgradeDatabaseResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpgradeDbSystem
+   *
+   * @param request the request to send
+   * @return response returns UpgradeDbSystemResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpgradeDbSystem(
+    request: serviceRequests.UpgradeDbSystemRequest
+  ): Promise<{
+    response: serviceResponses.UpgradeDbSystemResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const upgradeDbSystemResponse = await this.client.upgradeDbSystem(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      upgradeDbSystemResponse.opcWorkRequestId
+    );
+    return { response: upgradeDbSystemResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

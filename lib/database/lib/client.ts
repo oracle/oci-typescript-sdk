@@ -5643,6 +5643,77 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Disable Stack Monitoring for the external container database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DisableExternalContainerDatabaseStackMonitoringRequest
+   * @return DisableExternalContainerDatabaseStackMonitoringResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalContainerDatabaseStackMonitoring.ts.html |here} to see how to use DisableExternalContainerDatabaseStackMonitoring API.
+   */
+  public async disableExternalContainerDatabaseStackMonitoring(
+    disableExternalContainerDatabaseStackMonitoringRequest: requests.DisableExternalContainerDatabaseStackMonitoringRequest
+  ): Promise<responses.DisableExternalContainerDatabaseStackMonitoringResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalContainerDatabaseStackMonitoring."
+      );
+    const pathParams = {
+      "{externalContainerDatabaseId}":
+        disableExternalContainerDatabaseStackMonitoringRequest.externalContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disableExternalContainerDatabaseStackMonitoringRequest.opcRetryToken,
+      "opc-request-id": disableExternalContainerDatabaseStackMonitoringRequest.opcRequestId,
+      "if-match": disableExternalContainerDatabaseStackMonitoringRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalContainerDatabaseStackMonitoringRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalcontainerdatabases/{externalContainerDatabaseId}/actions/disableStackMonitoring",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalContainerDatabaseStackMonitoringResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disable Database Management Service for the external non-container database.
    * For more information about the Database Management Service, see
    * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
@@ -5797,6 +5868,77 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Disable Stack Monitoring for the external non-container database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DisableExternalNonContainerDatabaseStackMonitoringRequest
+   * @return DisableExternalNonContainerDatabaseStackMonitoringResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalNonContainerDatabaseStackMonitoring.ts.html |here} to see how to use DisableExternalNonContainerDatabaseStackMonitoring API.
+   */
+  public async disableExternalNonContainerDatabaseStackMonitoring(
+    disableExternalNonContainerDatabaseStackMonitoringRequest: requests.DisableExternalNonContainerDatabaseStackMonitoringRequest
+  ): Promise<responses.DisableExternalNonContainerDatabaseStackMonitoringResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalNonContainerDatabaseStackMonitoring."
+      );
+    const pathParams = {
+      "{externalNonContainerDatabaseId}":
+        disableExternalNonContainerDatabaseStackMonitoringRequest.externalNonContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disableExternalNonContainerDatabaseStackMonitoringRequest.opcRetryToken,
+      "opc-request-id": disableExternalNonContainerDatabaseStackMonitoringRequest.opcRequestId,
+      "if-match": disableExternalNonContainerDatabaseStackMonitoringRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalNonContainerDatabaseStackMonitoringRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalnoncontainerdatabases/{externalNonContainerDatabaseId}/actions/disableStackMonitoring",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalNonContainerDatabaseStackMonitoringResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disable Database Management Service for the external pluggable database.
    * For more information about the Database Management Service, see
    * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
@@ -5931,6 +6073,77 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disable Stack Monitoring for the external pluggable database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DisableExternalPluggableDatabaseStackMonitoringRequest
+   * @return DisableExternalPluggableDatabaseStackMonitoringResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalPluggableDatabaseStackMonitoring.ts.html |here} to see how to use DisableExternalPluggableDatabaseStackMonitoring API.
+   */
+  public async disableExternalPluggableDatabaseStackMonitoring(
+    disableExternalPluggableDatabaseStackMonitoringRequest: requests.DisableExternalPluggableDatabaseStackMonitoringRequest
+  ): Promise<responses.DisableExternalPluggableDatabaseStackMonitoringResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalPluggableDatabaseStackMonitoring."
+      );
+    const pathParams = {
+      "{externalPluggableDatabaseId}":
+        disableExternalPluggableDatabaseStackMonitoringRequest.externalPluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disableExternalPluggableDatabaseStackMonitoringRequest.opcRetryToken,
+      "opc-request-id": disableExternalPluggableDatabaseStackMonitoringRequest.opcRequestId,
+      "if-match": disableExternalPluggableDatabaseStackMonitoringRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalPluggableDatabaseStackMonitoringRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalpluggabledatabases/{externalPluggableDatabaseId}/actions/disableStackMonitoring",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalPluggableDatabaseStackMonitoringResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
@@ -6495,6 +6708,82 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Enable Stack Monitoring for the external container database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param EnableExternalContainerDatabaseStackMonitoringRequest
+   * @return EnableExternalContainerDatabaseStackMonitoringResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalContainerDatabaseStackMonitoring.ts.html |here} to see how to use EnableExternalContainerDatabaseStackMonitoring API.
+   */
+  public async enableExternalContainerDatabaseStackMonitoring(
+    enableExternalContainerDatabaseStackMonitoringRequest: requests.EnableExternalContainerDatabaseStackMonitoringRequest
+  ): Promise<responses.EnableExternalContainerDatabaseStackMonitoringResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalContainerDatabaseStackMonitoring."
+      );
+    const pathParams = {
+      "{externalContainerDatabaseId}":
+        enableExternalContainerDatabaseStackMonitoringRequest.externalContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enableExternalContainerDatabaseStackMonitoringRequest.opcRetryToken,
+      "opc-request-id": enableExternalContainerDatabaseStackMonitoringRequest.opcRequestId,
+      "if-match": enableExternalContainerDatabaseStackMonitoringRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalContainerDatabaseStackMonitoringRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalcontainerdatabases/{externalContainerDatabaseId}/actions/enableStackMonitoring",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalContainerDatabaseStackMonitoringRequest.enableExternalContainerDatabaseStackMonitoringDetails,
+        "EnableExternalContainerDatabaseStackMonitoringDetails",
+        model.EnableExternalContainerDatabaseStackMonitoringDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalContainerDatabaseStackMonitoringResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Enable Database Management Service for the external non-container database.
    * For more information about the Database Management Service, see
    * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
@@ -6659,6 +6948,82 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Enable Stack Monitoring for the external non-container database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param EnableExternalNonContainerDatabaseStackMonitoringRequest
+   * @return EnableExternalNonContainerDatabaseStackMonitoringResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalNonContainerDatabaseStackMonitoring.ts.html |here} to see how to use EnableExternalNonContainerDatabaseStackMonitoring API.
+   */
+  public async enableExternalNonContainerDatabaseStackMonitoring(
+    enableExternalNonContainerDatabaseStackMonitoringRequest: requests.EnableExternalNonContainerDatabaseStackMonitoringRequest
+  ): Promise<responses.EnableExternalNonContainerDatabaseStackMonitoringResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalNonContainerDatabaseStackMonitoring."
+      );
+    const pathParams = {
+      "{externalNonContainerDatabaseId}":
+        enableExternalNonContainerDatabaseStackMonitoringRequest.externalNonContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enableExternalNonContainerDatabaseStackMonitoringRequest.opcRetryToken,
+      "opc-request-id": enableExternalNonContainerDatabaseStackMonitoringRequest.opcRequestId,
+      "if-match": enableExternalNonContainerDatabaseStackMonitoringRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalNonContainerDatabaseStackMonitoringRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalnoncontainerdatabases/{externalNonContainerDatabaseId}/actions/enableStackMonitoring",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalNonContainerDatabaseStackMonitoringRequest.enableExternalNonContainerDatabaseStackMonitoringDetails,
+        "EnableExternalNonContainerDatabaseStackMonitoringDetails",
+        model.EnableExternalNonContainerDatabaseStackMonitoringDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalNonContainerDatabaseStackMonitoringResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Enable Database Management Service for the external pluggable database.
    * For more information about the Database Management Service, see
    * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
@@ -6803,6 +7168,82 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enable Stack Monitoring for the external pluggable database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param EnableExternalPluggableDatabaseStackMonitoringRequest
+   * @return EnableExternalPluggableDatabaseStackMonitoringResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalPluggableDatabaseStackMonitoring.ts.html |here} to see how to use EnableExternalPluggableDatabaseStackMonitoring API.
+   */
+  public async enableExternalPluggableDatabaseStackMonitoring(
+    enableExternalPluggableDatabaseStackMonitoringRequest: requests.EnableExternalPluggableDatabaseStackMonitoringRequest
+  ): Promise<responses.EnableExternalPluggableDatabaseStackMonitoringResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalPluggableDatabaseStackMonitoring."
+      );
+    const pathParams = {
+      "{externalPluggableDatabaseId}":
+        enableExternalPluggableDatabaseStackMonitoringRequest.externalPluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enableExternalPluggableDatabaseStackMonitoringRequest.opcRetryToken,
+      "opc-request-id": enableExternalPluggableDatabaseStackMonitoringRequest.opcRequestId,
+      "if-match": enableExternalPluggableDatabaseStackMonitoringRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalPluggableDatabaseStackMonitoringRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalpluggabledatabases/{externalPluggableDatabaseId}/actions/enableStackMonitoring",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalPluggableDatabaseStackMonitoringRequest.enableExternalPluggableDatabaseStackMonitoringDetails,
+        "EnableExternalPluggableDatabaseStackMonitoringDetails",
+        model.EnableExternalPluggableDatabaseStackMonitoringDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalPluggableDatabaseStackMonitoringResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
@@ -9314,6 +9755,71 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified operating system upgrade operation for the specified DB system.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetDbSystemUpgradeHistoryEntryRequest
+   * @return GetDbSystemUpgradeHistoryEntryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemUpgradeHistoryEntry.ts.html |here} to see how to use GetDbSystemUpgradeHistoryEntry API.
+   */
+  public async getDbSystemUpgradeHistoryEntry(
+    getDbSystemUpgradeHistoryEntryRequest: requests.GetDbSystemUpgradeHistoryEntryRequest
+  ): Promise<responses.GetDbSystemUpgradeHistoryEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getDbSystemUpgradeHistoryEntry.");
+    const pathParams = {
+      "{dbSystemId}": getDbSystemUpgradeHistoryEntryRequest.dbSystemId,
+      "{upgradeHistoryEntryId}": getDbSystemUpgradeHistoryEntryRequest.upgradeHistoryEntryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDbSystemUpgradeHistoryEntryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbSystemUpgradeHistoryEntryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/upgradeHistoryEntries/{upgradeHistoryEntryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDbSystemUpgradeHistoryEntryResponse>{},
+        body: await response.json(),
+        bodyKey: "dbSystemUpgradeHistoryEntry",
+        bodyModel: model.DbSystemUpgradeHistoryEntry,
+        type: "model.DbSystemUpgradeHistoryEntry",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -14708,6 +15214,134 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     request: requests.ListDbSystemShapesRequest
   ): AsyncIterableIterator<responses.ListDbSystemShapesResponse> {
     return paginateResponses(request, req => this.listDbSystemShapes(req));
+  }
+
+  /**
+   * Gets the history of the upgrade actions performed on the specified DB system.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDbSystemUpgradeHistoryEntriesRequest
+   * @return ListDbSystemUpgradeHistoryEntriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemUpgradeHistoryEntries.ts.html |here} to see how to use ListDbSystemUpgradeHistoryEntries API.
+   */
+  public async listDbSystemUpgradeHistoryEntries(
+    listDbSystemUpgradeHistoryEntriesRequest: requests.ListDbSystemUpgradeHistoryEntriesRequest
+  ): Promise<responses.ListDbSystemUpgradeHistoryEntriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDbSystemUpgradeHistoryEntries.");
+    const pathParams = {
+      "{dbSystemId}": listDbSystemUpgradeHistoryEntriesRequest.dbSystemId
+    };
+
+    const queryParams = {
+      "limit": listDbSystemUpgradeHistoryEntriesRequest.limit,
+      "page": listDbSystemUpgradeHistoryEntriesRequest.page,
+      "sortOrder": listDbSystemUpgradeHistoryEntriesRequest.sortOrder,
+      "sortBy": listDbSystemUpgradeHistoryEntriesRequest.sortBy,
+      "upgradeAction": listDbSystemUpgradeHistoryEntriesRequest.upgradeAction,
+      "lifecycleState": listDbSystemUpgradeHistoryEntriesRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDbSystemUpgradeHistoryEntriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbSystemUpgradeHistoryEntriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/upgradeHistoryEntries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDbSystemUpgradeHistoryEntriesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.DbSystemUpgradeHistoryEntrySummary,
+        type: "Array<model.DbSystemUpgradeHistoryEntrySummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDbSystemUpgradeHistoryEntriesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.DbSystemUpgradeHistoryEntrySummary objects
+   * contained in responses from the listDbSystemUpgradeHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDbSystemUpgradeHistoryEntries(
+    request: requests.ListDbSystemUpgradeHistoryEntriesRequest
+  ): AsyncIterableIterator<model.DbSystemUpgradeHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listDbSystemUpgradeHistoryEntries(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDbSystemUpgradeHistoryEntriesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listDbSystemUpgradeHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDbSystemUpgradeHistoryEntriesResponses(
+    request: requests.ListDbSystemUpgradeHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListDbSystemUpgradeHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listDbSystemUpgradeHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DbSystemUpgradeHistoryEntrySummary objects
+   * contained in responses from the listDbSystemUpgradeHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbSystemUpgradeHistoryEntriesRecordIterator(
+    request: requests.ListDbSystemUpgradeHistoryEntriesRequest
+  ): AsyncIterableIterator<model.DbSystemUpgradeHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listDbSystemUpgradeHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbSystemUpgradeHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbSystemUpgradeHistoryEntriesResponseIterator(
+    request: requests.ListDbSystemUpgradeHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListDbSystemUpgradeHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listDbSystemUpgradeHistoryEntries(req));
   }
 
   /**
@@ -21726,6 +22360,86 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         bodyKey: "database",
         bodyModel: model.Database,
         type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Upgrades the operating system and grid infrastructure of the DB system.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpgradeDbSystemRequest
+   * @return UpgradeDbSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpgradeDbSystem.ts.html |here} to see how to use UpgradeDbSystem API.
+   */
+  public async upgradeDbSystem(
+    upgradeDbSystemRequest: requests.UpgradeDbSystemRequest
+  ): Promise<responses.UpgradeDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#upgradeDbSystem.");
+    const pathParams = {
+      "{dbSystemId}": upgradeDbSystemRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": upgradeDbSystemRequest.ifMatch,
+      "opc-request-id": upgradeDbSystemRequest.opcRequestId,
+      "opc-retry-token": upgradeDbSystemRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      upgradeDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/actions/upgrade",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        upgradeDbSystemRequest.upgradeDbSystemDetails,
+        "UpgradeDbSystemDetails",
+        model.UpgradeDbSystemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpgradeDbSystemResponse>{},
+        body: await response.json(),
+        bodyKey: "dbSystem",
+        bodyModel: model.DbSystem,
+        type: "model.DbSystem",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

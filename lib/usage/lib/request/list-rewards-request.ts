@@ -23,7 +23,7 @@ export interface ListRewardsRequest extends common.BaseRequest {
    */
   "tenancyId": string;
   /**
-   * The subscriptionId for which rewards information is requested for.
+   * The subscription ID for which rewards information is requested for.
    */
   "subscriptionId": string;
   /**

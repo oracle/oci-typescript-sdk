@@ -23,7 +23,7 @@ export interface ListProductsRequest extends common.BaseRequest {
    */
   "tenancyId": string;
   /**
-   * The subscriptionId for which rewards information is requested for.
+   * The subscription ID for which rewards information is requested for.
    */
   "subscriptionId": string;
   /**
@@ -43,11 +43,11 @@ export interface ListProductsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The sort order to use, can be ascending (ASC) or descending (DESC).
+   * The sort order to use, which can be ascending (ASC) or descending (DESC).
    */
   "sortOrder"?: ListProductsRequest.SortOrder;
   /**
-   * The field to sort by, supports one sort Order.
+   * The field to sort by. Supports one sort order.
    */
   "sortBy"?: ListProductsRequest.SortBy;
   /**

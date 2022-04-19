@@ -1,6 +1,6 @@
 /**
- * UsageApi API
- * A description of the UsageApi API.
+ * Usage Proxy API
+ * Use the Usage Proxy API to list Oracle Support Rewards, view related detailed usage information, and manage users who redeem rewards. For more information, see [Oracle Support Rewards Overview](/iaas/Content/Billing/Concepts/supportrewardsoverview.htm).
  * OpenAPI spec version: 20190111
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * It provides email Id information.
+ * Email ID information.
  */
 export interface RedeemableUserSummary {
   /**
-   * The email Id of Redeemable User.
+   * The email ID of a user that can redeem rewards.
    */
   "emailId"?: string;
 }

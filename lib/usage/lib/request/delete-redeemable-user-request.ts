@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteRedeemableUserRequest extends common.BaseRequest {
   /**
-   * The EmailId that needs to be deleted
+   * The email ID that needs to be deleted.
    */
   "emailId": string;
   /**
@@ -27,7 +27,7 @@ export interface DeleteRedeemableUserRequest extends common.BaseRequest {
    */
   "tenancyId": string;
   /**
-   * The subscriptionId for which rewards information is requested for.
+   * The subscription ID for which rewards information is requested for.
    */
   "subscriptionId": string;
   /**

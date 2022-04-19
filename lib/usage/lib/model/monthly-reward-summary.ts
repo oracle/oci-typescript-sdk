@@ -1,6 +1,6 @@
 /**
- * UsageApi API
- * A description of the UsageApi API.
+ * Usage Proxy API
+ * Use the Usage Proxy API to list Oracle Support Rewards, view related detailed usage information, and manage users who redeem rewards. For more information, see [Oracle Support Rewards Overview](/iaas/Content/Billing/Concepts/supportrewardsoverview.htm).
  * OpenAPI spec version: 20190111
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Object describing the rewards summary for a month for the requested subscriptionId.
+ * Object describing the monthly rewards summary for the requested subscription ID.
  */
 export interface MonthlyRewardSummary {
   /**
@@ -31,15 +31,15 @@ export interface MonthlyRewardSummary {
    */
   "earnedRewards"?: number;
   /**
-   * The boolean flag to tell if the available rewards are posted manually or not.
+   * The boolean parameter to indicate whether or not the available rewards are manually posted.
    */
   "isManual"?: boolean;
   /**
-   * The date and time on which rewards are expired.
+   * The date and time when rewards expire.
    */
   "timeRewardsExpired"?: Date;
   /**
-   * The date and time on which rewards are accrued.
+   * The date and time when rewards accrue.
    *
    */
   "timeRewardsEarned"?: Date;
@@ -64,12 +64,12 @@ export interface MonthlyRewardSummary {
    */
   "eligibleUsageAmount"?: number;
   /**
-   * The in eligible usage amount for the usage period.
+   * The ineligible usage amount for the usage period.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ineligibleUsageAmount"?: number;
   /**
-   * The id for the usage period.
+   * The usage period ID.
    *
    */
   "usagePeriodKey"?: string;
