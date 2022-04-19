@@ -112,6 +112,17 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "computeAvailabilityDomain": string;
   /**
+   * The compute shape name of the ESXi host.
+   * {@link #listSupportedHostShapes(ListSupportedHostShapesRequest) listSupportedHostShapes}.
+   *
+   */
+  "hostShapeName": string;
+  /**
+   * The OCPU count of the ESXi host.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "hostOcpuCount"?: number;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

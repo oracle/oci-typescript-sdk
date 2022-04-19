@@ -112,6 +112,17 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "isShieldedInstanceEnabled"?: boolean;
   /**
+   * The initial compute shape of the SDDC's ESXi hosts.
+   * {@link #listSupportedHostShapes(ListSupportedHostShapesRequest) listSupportedHostShapes}.
+   *
+   */
+  "initialHostShapeName": string;
+  /**
+   * The initial OCPU count of the SDDC's ESXi hosts.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "initialHostOcpuCount"?: number;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

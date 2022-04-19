@@ -1,6 +1,6 @@
 /**
- * UsageApi API
- * A description of the UsageApi API.
+ * Usage Proxy API
+ * Use the Usage Proxy API to list Oracle Support Rewards, view related detailed usage information, and manage users who redeem rewards. For more information, see [Oracle Support Rewards Overview](/iaas/Content/Billing/Concepts/supportrewardsoverview.htm).
  * OpenAPI spec version: 20190111
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The overrall reward summary of the monthly summary rewards.
+ * The overall monthly reward summary.
  */
 export interface RewardDetails {
   /**
@@ -23,7 +23,7 @@ export interface RewardDetails {
    */
   "tenancyId"?: string;
   /**
-   * The entitlement id from MQS and it is same as subcription id.
+   * The entitlement ID from MQS, which is the same as the subcription ID.
    */
   "subscriptionId"?: string;
   /**
@@ -35,9 +35,13 @@ export interface RewardDetails {
    */
   "rewardsRate"?: number;
   /**
-   * The total number of available rewards for a given subscription Id. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total number of available rewards for a given subscription ID. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalRewardsAvailable"?: number;
+  /**
+   * The redemption code used in the billing center during the reward redemption process
+   */
+  "redemptionCode"?: string;
 }
 
 export namespace RewardDetails {

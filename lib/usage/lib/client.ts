@@ -1,6 +1,6 @@
 /**
- * UsageApi API
- * A description of the UsageApi API.
+ * Usage Proxy API
+ * Use the Usage Proxy API to list Oracle Support Rewards, view related detailed usage information, and manage users who redeem rewards. For more information, see [Oracle Support Rewards Overview](/iaas/Content/Billing/Concepts/supportrewardsoverview.htm).
  * OpenAPI spec version: 20190111
  *
  *
@@ -119,7 +119,7 @@ export class RewardsClient {
   }
 
   /**
-   * Add list of redeemable user email ids for a subscription Id
+   * Adds the list of redeemable user email IDs for a subscription ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRedeemableUserRequest
@@ -197,7 +197,7 @@ export class RewardsClient {
   }
 
   /**
-   * Delete list of redeemable user email ids for a subscription Id
+   * Deletes the list of redeemable user email IDs for a subscription ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRedeemableUserRequest
@@ -260,7 +260,7 @@ export class RewardsClient {
   }
 
   /**
-   * This API provides usage period specific product and its usage details.
+   * Provides product information that is specific to a reward usage period and its usage details.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProductsRequest
@@ -336,7 +336,7 @@ export class RewardsClient {
   }
 
   /**
-   * Provides emailids of redeemable users for the given subscriptionId
+   * Provides the email IDs of users that can redeem rewards for the given subscription ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRedeemableUsersRequest
@@ -396,11 +396,6 @@ export class RewardsClient {
             dataType: "string"
           },
           {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
             dataType: "string"
@@ -415,7 +410,7 @@ export class RewardsClient {
   }
 
   /**
-   * This API returns list of rewards for a subscription Id
+   * Returns the list of rewards for a subscription ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRewardsRequest

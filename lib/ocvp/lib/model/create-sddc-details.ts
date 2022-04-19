@@ -162,6 +162,17 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
    */
   "provisioningVlanId"?: string;
   /**
+   * The initial compute shape of the SDDC's ESXi hosts.
+   * {@link #listSupportedHostShapes(ListSupportedHostShapesRequest) listSupportedHostShapes}.
+   *
+   */
+  "initialHostShapeName"?: string;
+  /**
+   * The initial OCPU count of the SDDC's ESXi hosts.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "initialHostOcpuCount"?: number;
+  /**
    * Indicates whether shielded instance is enabled for this SDDC.
    *
    */

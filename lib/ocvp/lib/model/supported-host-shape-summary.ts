@@ -52,6 +52,11 @@ export interface SupportedHostShapeSummary {
    */
   "supportedSddcTypes"?: Array<SupportedHostShapeSummary.SupportedSddcTypes>;
   /**
+   * The VMware software versions supported by the shape.
+   *
+   */
+  "supportedVmwareSoftwareVersions"?: Array<string>;
+  /**
    * Description of the shape.
    *
    */

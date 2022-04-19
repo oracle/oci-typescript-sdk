@@ -412,6 +412,17 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "lifecycleState"?: model.LifecycleStates;
   /**
+   * The initial compute shape of the SDDC's ESXi hosts.
+   * {@link #listSupportedHostShapes(ListSupportedHostShapesRequest) listSupportedHostShapes}.
+   *
+   */
+  "initialHostShapeName": string;
+  /**
+   * The initial OCPU count of the SDDC's ESXi hosts.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "initialHostOcpuCount"?: number;
+  /**
    * Indicates whether shielded instance is enabled at the SDDC level.
    *
    */

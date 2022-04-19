@@ -1,6 +1,6 @@
 /**
- * UsageApi API
- * A description of the UsageApi API.
+ * Usage Proxy API
+ * Use the Usage Proxy API to list Oracle Support Rewards, view related detailed usage information, and manage users who redeem rewards. For more information, see [Oracle Support Rewards Overview](/iaas/Content/Billing/Concepts/supportrewardsoverview.htm).
  * OpenAPI spec version: 20190111
  *
  *
@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * It provides details about a product rewards and usage amount.
+ * Provides details about product rewards and the usage amount.
  */
 export interface ProductSummary {
   /**
-   * The ratecard product number.
+   * The rate card product number.
    */
   "productNumber"?: string;
   /**
-   * The ratecard product Name.
+   * The rate card product name.
    */
   "productName"?: string;
   /**
-   * The ratecard product usage amount. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The rate card product usage amount. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usageAmount"?: number;
   /**
@@ -35,7 +35,7 @@ export interface ProductSummary {
    */
   "earnedRewards"?: number;
   /**
-   * The boolean flag to tell if the product is eligible for earning rewards.
+   * The boolean parameter to indicate if the product is eligible to earn rewards.
    */
   "isEligibleToEarnRewards"?: boolean;
 }
