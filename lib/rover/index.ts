@@ -28,3 +28,4 @@ export import RoverEntitlementClient = client.RoverEntitlementClient;
 export import RoverEntitlementWaiter = roverentitlement_waiter.RoverEntitlementWaiter;
 export import RoverNodeClient = client.RoverNodeClient;
 export import RoverNodeWaiter = rovernode_waiter.RoverNodeWaiter;
+export import ShapeClient = client.ShapeClient;

@@ -29,9 +29,18 @@ export interface AddBlockStorageDetails {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockVolumeSizeInGBs": number;
+  /**
+   * Worker node types, can either be Worker Data node or Compute only worker node.
+   */
+  "nodeType": AddBlockStorageDetails.NodeType;
 }
 
 export namespace AddBlockStorageDetails {
+  export enum NodeType {
+    Worker = "WORKER",
+    ComputeOnlyWorker = "COMPUTE_ONLY_WORKER"
+  }
+
   export function getJsonObj(obj: AddBlockStorageDetails): object {
     const jsonObj = { ...obj, ...{} };
 

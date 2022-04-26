@@ -16,7 +16,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Policy definitions for the autoscale configuration.
+ * This model for autoscaling policy is deprecated and not supported for ODH clusters. Use the `AutoScalePolicyDetails` model to manage autoscale policy details for ODH clusters.
+ *
  */
 export interface AutoScalePolicy {
   /**
@@ -33,6 +34,7 @@ export namespace AutoScalePolicy {
   export enum PolicyType {
     ThresholdBased = "THRESHOLD_BASED",
     ScheduleBased = "SCHEDULE_BASED",
+    None = "NONE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

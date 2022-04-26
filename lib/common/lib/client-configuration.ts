@@ -16,10 +16,15 @@ export interface ClientConfiguration {
    * this also affects UploadManager operations
    * For all requests with binary/stream bodies, retry attempts will not be made
    */
-  "retryConfiguration"?: RetryConfiguration;
+  retryConfiguration?: RetryConfiguration;
 
   /*
    * Optional CircuitBreaker used for the client.
    */
   circuitBreaker?: CircuitBreaker;
+
+  /*
+   * Optional httpOptions used for the client making the request.
+   */
+  httpOptions?: { [key: string]: any };
 }

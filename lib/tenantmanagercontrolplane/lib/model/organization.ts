@@ -35,7 +35,7 @@ export interface Organization {
    */
   "parentName"?: string;
   /**
-   * OCID of the default Annual Universal Credits subscription. Any tenancy joining the organization will automatically get assigned this subscription if a subscription is not explictly assigned.
+   * OCID of the default Universal Credits Model subscription. Any tenancy joining the organization will automatically get assigned this subscription if a subscription is not explictly assigned.
    */
   "defaultUcmSubscriptionId": string;
   /**

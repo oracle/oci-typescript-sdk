@@ -40,6 +40,7 @@ export class ApiGatewayClient {
   protected "_waiters": ApiGatewayWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -52,6 +53,9 @@ export class ApiGatewayClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -63,7 +67,8 @@ export class ApiGatewayClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -1658,6 +1663,7 @@ export class DeploymentClient {
   protected "_waiters": DeploymentWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -1670,6 +1676,9 @@ export class DeploymentClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -1681,7 +1690,8 @@ export class DeploymentClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -2212,6 +2222,7 @@ export class GatewayClient {
   protected "_waiters": GatewayWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -2224,6 +2235,9 @@ export class GatewayClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -2235,7 +2249,8 @@ export class GatewayClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -2765,6 +2780,7 @@ export class WorkRequestsClient {
   protected "_waiters": WorkRequestsWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -2777,6 +2793,9 @@ export class WorkRequestsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -2788,7 +2807,8 @@ export class WorkRequestsClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&

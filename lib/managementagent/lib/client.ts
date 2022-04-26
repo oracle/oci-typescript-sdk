@@ -38,6 +38,7 @@ export class ManagementAgentClient {
   protected "_waiters": ManagementAgentWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -50,6 +51,9 @@ export class ManagementAgentClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -61,7 +65,8 @@ export class ManagementAgentClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&

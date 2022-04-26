@@ -19,19 +19,19 @@ import common = require("oci-common");
  */
 export interface TranscriptionJobSummary {
   /**
-   * Unique identifier that is immutable on creation.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the job.
    */
   "id": string;
   /**
-   * Transcription Job name, can be renamed.
+   * A user-friendly display name for the job.
    */
   "displayName": string;
   /**
-   * The OCID of the compartment that contains the transcriptionJob.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want to create the job.
    */
   "compartmentId": string;
   /**
-   * OCID of the user who created the transcriptionJob.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the user who created the job.
    */
   "createdBy"?: string;
   /**

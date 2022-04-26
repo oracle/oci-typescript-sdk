@@ -24,13 +24,18 @@ export interface ListMonitorsRequest extends common.BaseRequest {
    */
   "apmDomainId": string;
   /**
-   * A filter to return only resources that match the entire display name given.
+   * A filter to return only the resources that match the entire display name.
    */
   "displayName"?: string;
   /**
    * A filter to return only monitors using scriptId.
    */
   "scriptId"?: string;
+  /**
+   * The name of the public or dedicated vantage point.
+   *
+   */
+  "vantagePoint"?: string;
   /**
    * A filter to return only monitors that match the given monitor type.
    * Supported values are SCRIPTED_BROWSER, BROWSER, SCRIPTED_REST and REST.

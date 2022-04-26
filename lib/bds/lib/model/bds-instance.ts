@@ -75,6 +75,10 @@ export interface BdsInstance {
    */
   "numberOfNodes": number;
   /**
+   * pre-authenticated URL of the bootstrap script in Object Store that can be downloaded and executed.
+   */
+  "bootstrapScriptUrl"?: string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type, or scope.
    * Exists for cross-compatibility only. For example, `{\"bar-key\": \"value\"}`
    *
@@ -110,6 +114,7 @@ export namespace BdsInstance {
     Cdh5 = "CDH5",
     Cdh6 = "CDH6",
     Odh1 = "ODH1",
+    Odh09 = "ODH0_9",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

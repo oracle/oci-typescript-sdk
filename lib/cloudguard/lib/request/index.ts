@@ -1,8 +1,8 @@
 /**
- * Cloud Guard API
- * Use the Cloud Guard API to automate processes that you would otherwise perform through the Cloud Guard Console.
+ * Cloud Guard and Security Zones API
+ * Use the Cloud Guard and Security Zones API to automate processes that you would otherwise perform through the Cloud Guard Console or the Security Zones Console. For more information on these services, see the [Cloud Guard](/iaas/cloud-guard/home.htm) and [Security Zones](/iaas/security-zone/home.htm) documentation.
 
-**Note:** You can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations from any region.
+**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations in Cloud Guard from any region.
 
  * OpenAPI spec version: 20200131
  * 
@@ -14,12 +14,18 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddCompartmentRequest from "./add-compartment-request";
+export import AddCompartmentRequest = AddCompartmentRequest.AddCompartmentRequest;
 import * as ChangeDetectorRecipeCompartmentRequest from "./change-detector-recipe-compartment-request";
 export import ChangeDetectorRecipeCompartmentRequest = ChangeDetectorRecipeCompartmentRequest.ChangeDetectorRecipeCompartmentRequest;
 import * as ChangeManagedListCompartmentRequest from "./change-managed-list-compartment-request";
 export import ChangeManagedListCompartmentRequest = ChangeManagedListCompartmentRequest.ChangeManagedListCompartmentRequest;
 import * as ChangeResponderRecipeCompartmentRequest from "./change-responder-recipe-compartment-request";
 export import ChangeResponderRecipeCompartmentRequest = ChangeResponderRecipeCompartmentRequest.ChangeResponderRecipeCompartmentRequest;
+import * as ChangeSecurityRecipeCompartmentRequest from "./change-security-recipe-compartment-request";
+export import ChangeSecurityRecipeCompartmentRequest = ChangeSecurityRecipeCompartmentRequest.ChangeSecurityRecipeCompartmentRequest;
+import * as ChangeSecurityZoneCompartmentRequest from "./change-security-zone-compartment-request";
+export import ChangeSecurityZoneCompartmentRequest = ChangeSecurityZoneCompartmentRequest.ChangeSecurityZoneCompartmentRequest;
 import * as CreateDataMaskRuleRequest from "./create-data-mask-rule-request";
 export import CreateDataMaskRuleRequest = CreateDataMaskRuleRequest.CreateDataMaskRuleRequest;
 import * as CreateDetectorRecipeRequest from "./create-detector-recipe-request";
@@ -28,6 +34,10 @@ import * as CreateManagedListRequest from "./create-managed-list-request";
 export import CreateManagedListRequest = CreateManagedListRequest.CreateManagedListRequest;
 import * as CreateResponderRecipeRequest from "./create-responder-recipe-request";
 export import CreateResponderRecipeRequest = CreateResponderRecipeRequest.CreateResponderRecipeRequest;
+import * as CreateSecurityRecipeRequest from "./create-security-recipe-request";
+export import CreateSecurityRecipeRequest = CreateSecurityRecipeRequest.CreateSecurityRecipeRequest;
+import * as CreateSecurityZoneRequest from "./create-security-zone-request";
+export import CreateSecurityZoneRequest = CreateSecurityZoneRequest.CreateSecurityZoneRequest;
 import * as CreateTargetRequest from "./create-target-request";
 export import CreateTargetRequest = CreateTargetRequest.CreateTargetRequest;
 import * as CreateTargetDetectorRecipeRequest from "./create-target-detector-recipe-request";
@@ -42,6 +52,10 @@ import * as DeleteManagedListRequest from "./delete-managed-list-request";
 export import DeleteManagedListRequest = DeleteManagedListRequest.DeleteManagedListRequest;
 import * as DeleteResponderRecipeRequest from "./delete-responder-recipe-request";
 export import DeleteResponderRecipeRequest = DeleteResponderRecipeRequest.DeleteResponderRecipeRequest;
+import * as DeleteSecurityRecipeRequest from "./delete-security-recipe-request";
+export import DeleteSecurityRecipeRequest = DeleteSecurityRecipeRequest.DeleteSecurityRecipeRequest;
+import * as DeleteSecurityZoneRequest from "./delete-security-zone-request";
+export import DeleteSecurityZoneRequest = DeleteSecurityZoneRequest.DeleteSecurityZoneRequest;
 import * as DeleteTargetRequest from "./delete-target-request";
 export import DeleteTargetRequest = DeleteTargetRequest.DeleteTargetRequest;
 import * as DeleteTargetDetectorRecipeRequest from "./delete-target-detector-recipe-request";
@@ -78,6 +92,12 @@ import * as GetResponderRecipeResponderRuleRequest from "./get-responder-recipe-
 export import GetResponderRecipeResponderRuleRequest = GetResponderRecipeResponderRuleRequest.GetResponderRecipeResponderRuleRequest;
 import * as GetResponderRuleRequest from "./get-responder-rule-request";
 export import GetResponderRuleRequest = GetResponderRuleRequest.GetResponderRuleRequest;
+import * as GetSecurityPolicyRequest from "./get-security-policy-request";
+export import GetSecurityPolicyRequest = GetSecurityPolicyRequest.GetSecurityPolicyRequest;
+import * as GetSecurityRecipeRequest from "./get-security-recipe-request";
+export import GetSecurityRecipeRequest = GetSecurityRecipeRequest.GetSecurityRecipeRequest;
+import * as GetSecurityZoneRequest from "./get-security-zone-request";
+export import GetSecurityZoneRequest = GetSecurityZoneRequest.GetSecurityZoneRequest;
 import * as GetSightingRequest from "./get-sighting-request";
 export import GetSightingRequest = GetSightingRequest.GetSightingRequest;
 import * as GetTargetRequest from "./get-target-request";
@@ -136,6 +156,12 @@ import * as ListResponderRecipesRequest from "./list-responder-recipes-request";
 export import ListResponderRecipesRequest = ListResponderRecipesRequest.ListResponderRecipesRequest;
 import * as ListResponderRulesRequest from "./list-responder-rules-request";
 export import ListResponderRulesRequest = ListResponderRulesRequest.ListResponderRulesRequest;
+import * as ListSecurityPoliciesRequest from "./list-security-policies-request";
+export import ListSecurityPoliciesRequest = ListSecurityPoliciesRequest.ListSecurityPoliciesRequest;
+import * as ListSecurityRecipesRequest from "./list-security-recipes-request";
+export import ListSecurityRecipesRequest = ListSecurityRecipesRequest.ListSecurityRecipesRequest;
+import * as ListSecurityZonesRequest from "./list-security-zones-request";
+export import ListSecurityZonesRequest = ListSecurityZonesRequest.ListSecurityZonesRequest;
 import * as ListSightingEndpointsRequest from "./list-sighting-endpoints-request";
 export import ListSightingEndpointsRequest = ListSightingEndpointsRequest.ListSightingEndpointsRequest;
 import * as ListSightingImpactedResourcesRequest from "./list-sighting-impacted-resources-request";
@@ -156,6 +182,8 @@ import * as ListTargetsRequest from "./list-targets-request";
 export import ListTargetsRequest = ListTargetsRequest.ListTargetsRequest;
 import * as ListTechniquesRequest from "./list-techniques-request";
 export import ListTechniquesRequest = ListTechniquesRequest.ListTechniquesRequest;
+import * as RemoveCompartmentRequest from "./remove-compartment-request";
+export import RemoveCompartmentRequest = RemoveCompartmentRequest.RemoveCompartmentRequest;
 import * as RequestRiskScoresRequest from "./request-risk-scores-request";
 export import RequestRiskScoresRequest = RequestRiskScoresRequest.RequestRiskScoresRequest;
 import * as RequestSecurityScoreSummarizedTrendRequest from "./request-security-score-summarized-trend-request";
@@ -206,6 +234,10 @@ import * as UpdateResponderRecipeRequest from "./update-responder-recipe-request
 export import UpdateResponderRecipeRequest = UpdateResponderRecipeRequest.UpdateResponderRecipeRequest;
 import * as UpdateResponderRecipeResponderRuleRequest from "./update-responder-recipe-responder-rule-request";
 export import UpdateResponderRecipeResponderRuleRequest = UpdateResponderRecipeResponderRuleRequest.UpdateResponderRecipeResponderRuleRequest;
+import * as UpdateSecurityRecipeRequest from "./update-security-recipe-request";
+export import UpdateSecurityRecipeRequest = UpdateSecurityRecipeRequest.UpdateSecurityRecipeRequest;
+import * as UpdateSecurityZoneRequest from "./update-security-zone-request";
+export import UpdateSecurityZoneRequest = UpdateSecurityZoneRequest.UpdateSecurityZoneRequest;
 import * as UpdateTargetRequest from "./update-target-request";
 export import UpdateTargetRequest = UpdateTargetRequest.UpdateTargetRequest;
 import * as UpdateTargetDetectorRecipeRequest from "./update-target-detector-recipe-request";

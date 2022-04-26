@@ -42,6 +42,7 @@ export class DomainClient {
   protected "_waiters": DomainWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -54,6 +55,9 @@ export class DomainClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -65,7 +69,8 @@ export class DomainClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -515,6 +520,7 @@ export class DomainGovernanceClient {
   protected "_waiters": DomainGovernanceWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -527,6 +533,9 @@ export class DomainGovernanceClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -538,7 +547,8 @@ export class DomainGovernanceClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -988,6 +998,7 @@ export class LinkClient {
   protected "_waiters": LinkWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -1000,6 +1011,9 @@ export class LinkClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -1011,7 +1025,8 @@ export class LinkClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -1312,6 +1327,7 @@ export class OrdersClient {
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -1324,6 +1340,9 @@ export class OrdersClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -1335,7 +1354,8 @@ export class OrdersClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -1468,7 +1488,7 @@ export class OrdersClient {
   }
 
   /**
-   * Returns the Order Details given by the order id in the JWT
+   * Returns the Order Details given by the order ID in the JWT.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOrderRequest
@@ -1543,6 +1563,7 @@ export class OrganizationClient {
   protected "_waiters": OrganizationWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -1555,6 +1576,9 @@ export class OrganizationClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -1566,7 +1590,8 @@ export class OrganizationClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -2136,6 +2161,71 @@ export class OrganizationClient {
   }
 
   /**
+   * An asynchronous API to restore tenancy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RestoreOrganizationTenancyRequest
+   * @return RestoreOrganizationTenancyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/RestoreOrganizationTenancy.ts.html |here} to see how to use RestoreOrganizationTenancy API.
+   */
+  public async restoreOrganizationTenancy(
+    restoreOrganizationTenancyRequest: requests.RestoreOrganizationTenancyRequest
+  ): Promise<responses.RestoreOrganizationTenancyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OrganizationClient#restoreOrganizationTenancy.");
+    const pathParams = {
+      "{organizationTenancyId}": restoreOrganizationTenancyRequest.organizationTenancyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": restoreOrganizationTenancyRequest.ifMatch,
+      "opc-request-id": restoreOrganizationTenancyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restoreOrganizationTenancyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/organizationTenancies/{organizationTenancyId}/actions/restore",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RestoreOrganizationTenancyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancel an organization's child tenancy for transfer.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UnapproveOrganizationTenancyForTransferRequest
@@ -2293,6 +2383,7 @@ export class RecipientInvitationClient {
   protected "_waiters": RecipientInvitationWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -2305,6 +2396,9 @@ export class RecipientInvitationClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -2316,7 +2410,8 @@ export class RecipientInvitationClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -2767,6 +2862,7 @@ export class SenderInvitationClient {
   protected "_waiters": SenderInvitationWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -2779,6 +2875,9 @@ export class SenderInvitationClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -2790,7 +2889,8 @@ export class SenderInvitationClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -3251,6 +3351,7 @@ export class SubscriptionClient {
   protected "_waiters": SubscriptionWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -3263,6 +3364,9 @@ export class SubscriptionClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -3274,7 +3378,8 @@ export class SubscriptionClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -4004,6 +4109,7 @@ export class WorkRequestClient {
   protected "_waiters": WorkRequestWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -4016,6 +4122,9 @@ export class WorkRequestClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -4027,7 +4136,8 @@ export class WorkRequestClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&

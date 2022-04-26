@@ -39,6 +39,7 @@ export class ChannelsClient {
   protected "_waiters": ChannelsWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -51,6 +52,9 @@ export class ChannelsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -62,7 +66,8 @@ export class ChannelsClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -709,6 +714,7 @@ export class DbBackupsClient {
   protected "_waiters": DbBackupsWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -721,6 +727,9 @@ export class DbBackupsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -732,7 +741,8 @@ export class DbBackupsClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -1306,6 +1316,7 @@ export class DbSystemClient {
   protected "_waiters": DbSystemWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -1318,6 +1329,9 @@ export class DbSystemClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -1329,7 +1343,8 @@ export class DbSystemClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -3301,6 +3316,7 @@ export class MysqlaasClient {
   protected "_waiters": MysqlaasWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -3313,6 +3329,9 @@ export class MysqlaasClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -3324,7 +3343,8 @@ export class MysqlaasClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -3976,6 +3996,7 @@ export class WorkRequestsClient {
   protected "_waiters": WorkRequestsWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -3988,6 +4009,9 @@ export class WorkRequestsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -3999,7 +4023,8 @@ export class WorkRequestsClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&

@@ -1,8 +1,8 @@
 /**
- * Cloud Guard API
- * Use the Cloud Guard API to automate processes that you would otherwise perform through the Cloud Guard Console.
+ * Cloud Guard and Security Zones API
+ * Use the Cloud Guard and Security Zones API to automate processes that you would otherwise perform through the Cloud Guard Console or the Security Zones Console. For more information on these services, see the [Cloud Guard](/iaas/cloud-guard/home.htm) and [Security Zones](/iaas/security-zone/home.htm) documentation.
 
-**Note:** You can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations from any region.
+**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations in Cloud Guard from any region.
 
  * OpenAPI spec version: 20200131
  * 
@@ -57,6 +57,7 @@ export interface Target {
    * List of responder recipes associated with target
    */
   "targetResponderRecipes"?: Array<model.TargetResponderRecipe>;
+  "targetDetails"?: model.SecurityZoneTargetDetails;
   /**
    * List of inherited compartments
    */
@@ -116,6 +117,9 @@ export namespace Target {
           ? obj.targetResponderRecipes.map(item => {
               return model.TargetResponderRecipe.getJsonObj(item);
             })
+          : undefined,
+        "targetDetails": obj.targetDetails
+          ? model.TargetDetails.getJsonObj(obj.targetDetails)
           : undefined
       }
     };
@@ -135,6 +139,9 @@ export namespace Target {
           ? obj.targetResponderRecipes.map(item => {
               return model.TargetResponderRecipe.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "targetDetails": obj.targetDetails
+          ? model.TargetDetails.getDeserializedJsonObj(obj.targetDetails)
           : undefined
       }
     };

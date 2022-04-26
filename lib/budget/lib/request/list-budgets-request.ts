@@ -46,14 +46,14 @@ export interface ListBudgetsRequest extends common.BaseRequest {
    */
   "lifecycleState"?: model.LifecycleState;
   /**
- * A user-friendly name. Does not have to be unique, and it's changeable.
+ * A user-friendly name. This does not have to be unique, and it's changeable.
 * <p>
 Example: `My new resource`
 * 
  */
   "displayName"?: string;
   /**
-   * The type of target to filter by.
+   * The type of target to filter by:
    *   * ALL - List all budgets
    *   * COMPARTMENT - List all budgets with targetType == \"COMPARTMENT\"
    *   * TAG - List all budgets with targetType == \"TAG\"

@@ -27,6 +27,8 @@ import * as CreateBudgetDetails from "./create-budget-details";
 export import CreateBudgetDetails = CreateBudgetDetails.CreateBudgetDetails;
 import * as LifecycleState from "./lifecycle-state";
 export import LifecycleState = LifecycleState.LifecycleState;
+import * as ProcessingPeriodType from "./processing-period-type";
+export import ProcessingPeriodType = ProcessingPeriodType.ProcessingPeriodType;
 import * as ResetPeriod from "./reset-period";
 export import ResetPeriod = ResetPeriod.ResetPeriod;
 import * as SortBy from "./sort-by";

@@ -37,16 +37,31 @@ export interface CreateNodeDetails {
    * The OCID of the subnet in which the node will be created.
    */
   "subnetId": string;
+  "shapeConfig"?: model.ShapeConfigDetails;
 }
 
 export namespace CreateNodeDetails {
   export function getJsonObj(obj: CreateNodeDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "shapeConfig": obj.shapeConfig
+          ? model.ShapeConfigDetails.getJsonObj(obj.shapeConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateNodeDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "shapeConfig": obj.shapeConfig
+          ? model.ShapeConfigDetails.getDeserializedJsonObj(obj.shapeConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

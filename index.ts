@@ -188,3 +188,4 @@ export import threatintelligence = require("oci-threatintelligence");
 export import aispeech = require("oci-aispeech");
 export import dataconnectivity = require("oci-dataconnectivity");
 export import stackmonitoring = require("oci-stackmonitoring");
+export import servicemesh = require("oci-servicemesh");

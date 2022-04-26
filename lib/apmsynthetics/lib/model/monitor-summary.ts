@@ -1,6 +1,6 @@
 /**
  * Application Performance Monitoring Synthetic Monitoring API
- * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors.
+ * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
  * OpenAPI spec version: 20200630
  *
  *
@@ -31,7 +31,7 @@ export interface MonitorSummary {
    */
   "monitorType": model.MonitorTypes;
   /**
-   * List of vantage points where the monitor is running.
+   * List of public and dedicated vantage points where the monitor is running.
    */
   "vantagePoints": Array<model.VantagePointInfo>;
   /**
@@ -54,7 +54,7 @@ export interface MonitorSummary {
   "status": model.MonitorStatus;
   /**
    * Interval in seconds after the start time when the job should be repeated.
-   * Minimum repeatIntervalInSeconds should be 300 seconds.
+   * Minimum repeatIntervalInSeconds should be 300 seconds for Scripted REST, Scripted Browser and Browser monitors, and 60 seconds for REST monitor.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "repeatIntervalInSeconds": number;
@@ -64,7 +64,7 @@ export interface MonitorSummary {
   "isRunOnce": boolean;
   /**
    * Timeout in seconds. Timeout cannot be more than 30% of repeatIntervalInSeconds time for monitors.
-   * Also, timeoutInSeconds should be a multiple of 60.
+   * Also, timeoutInSeconds should be a multiple of 60 for Scripted REST, Scripted Browser and Browser monitors.
    * Monitor will be allowed to run only for timeoutInSeconds time. It would be terminated after that.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

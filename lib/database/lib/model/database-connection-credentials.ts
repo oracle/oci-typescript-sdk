@@ -34,6 +34,11 @@ export namespace DatabaseConnectionCredentials {
             <model.DatabaseConnectionCredentailsByName>(<object>jsonObj),
             true
           );
+        case "SSL_DETAILS":
+          return model.DatabaseSslConnectionCredentials.getJsonObj(
+            <model.DatabaseSslConnectionCredentials>(<object>jsonObj),
+            true
+          );
         case "DETAILS":
           return model.DatabaseConnectionCredentialsByDetails.getJsonObj(
             <model.DatabaseConnectionCredentialsByDetails>(<object>jsonObj),
@@ -53,6 +58,11 @@ export namespace DatabaseConnectionCredentials {
         case "NAME_REFERENCE":
           return model.DatabaseConnectionCredentailsByName.getDeserializedJsonObj(
             <model.DatabaseConnectionCredentailsByName>(<object>jsonObj),
+            true
+          );
+        case "SSL_DETAILS":
+          return model.DatabaseSslConnectionCredentials.getDeserializedJsonObj(
+            <model.DatabaseSslConnectionCredentials>(<object>jsonObj),
             true
           );
         case "DETAILS":

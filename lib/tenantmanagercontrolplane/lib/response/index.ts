@@ -55,6 +55,8 @@ import * as ListOrganizationTenanciesResponse from "./list-organization-tenancie
 export import ListOrganizationTenanciesResponse = ListOrganizationTenanciesResponse.ListOrganizationTenanciesResponse;
 import * as ListOrganizationsResponse from "./list-organizations-response";
 export import ListOrganizationsResponse = ListOrganizationsResponse.ListOrganizationsResponse;
+import * as RestoreOrganizationTenancyResponse from "./restore-organization-tenancy-response";
+export import RestoreOrganizationTenancyResponse = RestoreOrganizationTenancyResponse.RestoreOrganizationTenancyResponse;
 import * as UnapproveOrganizationTenancyForTransferResponse from "./unapprove-organization-tenancy-for-transfer-response";
 export import UnapproveOrganizationTenancyForTransferResponse = UnapproveOrganizationTenancyForTransferResponse.UnapproveOrganizationTenancyForTransferResponse;
 import * as UpdateOrganizationResponse from "./update-organization-response";

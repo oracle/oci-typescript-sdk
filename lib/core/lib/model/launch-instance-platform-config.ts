@@ -28,6 +28,9 @@ If you provide the parameter, the instance is created with the platform configur
 * <p>
 Each shape only supports certain configurable values. If the values that you provide are not valid for the
 * specified `shape`, an error is returned.
+* <p>
+For more information about shielded instances, see
+* [Shielded Instances](https://docs.cloud.oracle.com/iaas/Content/Compute/References/shielded-instances.htm).
 * 
 */
 export interface LaunchInstancePlatformConfig {

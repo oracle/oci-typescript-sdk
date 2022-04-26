@@ -20,17 +20,25 @@ import common = require("oci-common");
  */
 export interface ChangeShapeNodes {
   /**
-   * Change shape of worker nodes to the desired target shape. Only VM_STANDARD shapes are allowed here.
+   * Change shape of worker nodes to the desired target shape. Both VM_STANDARD and E4 Flex shapes are allowed here.
    */
   "worker"?: string;
+  "workerShapeConfig"?: model.ShapeConfigDetails;
   /**
-   * Change shape of master nodes to the desired target shape. Only VM_STANDARD shapes are allowed here.
+   * Change shape of compute only worker nodes to the desired target shape. Both VM_STANDARD and E4 Flex shapes are allowed here.
+   */
+  "computeOnlyWorker"?: string;
+  "computeOnlyWorkerShapeConfig"?: model.ShapeConfigDetails;
+  /**
+   * Change shape of master nodes to the desired target shape. Both VM_STANDARD and E4 Flex shapes are allowed here.
    */
   "master"?: string;
+  "masterShapeConfig"?: model.ShapeConfigDetails;
   /**
-   * Change shape of utility nodes to the desired target shape. Only VM_STANDARD shapes are allowed here.
+   * Change shape of utility nodes to the desired target shape. Both VM_STANDARD and E4 Flex shapes are allowed here.
    */
   "utility"?: string;
+  "utilityShapeConfig"?: model.ShapeConfigDetails;
   /**
    * Change shape of the Cloud SQL node to the desired target shape. Only VM_STANDARD shapes are allowed here.
    */
@@ -39,12 +47,50 @@ export interface ChangeShapeNodes {
 
 export namespace ChangeShapeNodes {
   export function getJsonObj(obj: ChangeShapeNodes): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "workerShapeConfig": obj.workerShapeConfig
+          ? model.ShapeConfigDetails.getJsonObj(obj.workerShapeConfig)
+          : undefined,
+
+        "computeOnlyWorkerShapeConfig": obj.computeOnlyWorkerShapeConfig
+          ? model.ShapeConfigDetails.getJsonObj(obj.computeOnlyWorkerShapeConfig)
+          : undefined,
+
+        "masterShapeConfig": obj.masterShapeConfig
+          ? model.ShapeConfigDetails.getJsonObj(obj.masterShapeConfig)
+          : undefined,
+
+        "utilityShapeConfig": obj.utilityShapeConfig
+          ? model.ShapeConfigDetails.getJsonObj(obj.utilityShapeConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ChangeShapeNodes): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "workerShapeConfig": obj.workerShapeConfig
+          ? model.ShapeConfigDetails.getDeserializedJsonObj(obj.workerShapeConfig)
+          : undefined,
+
+        "computeOnlyWorkerShapeConfig": obj.computeOnlyWorkerShapeConfig
+          ? model.ShapeConfigDetails.getDeserializedJsonObj(obj.computeOnlyWorkerShapeConfig)
+          : undefined,
+
+        "masterShapeConfig": obj.masterShapeConfig
+          ? model.ShapeConfigDetails.getDeserializedJsonObj(obj.masterShapeConfig)
+          : undefined,
+
+        "utilityShapeConfig": obj.utilityShapeConfig
+          ? model.ShapeConfigDetails.getDeserializedJsonObj(obj.utilityShapeConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

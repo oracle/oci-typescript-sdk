@@ -44,6 +44,7 @@ export class BlockstorageClient {
   protected "_waiters": BlockstorageWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -56,6 +57,9 @@ export class BlockstorageClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -67,7 +71,8 @@ export class BlockstorageClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -4991,6 +4996,7 @@ export class ComputeClient {
   protected "_waiters": ComputeWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -5003,6 +5009,9 @@ export class ComputeClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = false;
@@ -5014,7 +5023,8 @@ export class ComputeClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -8409,7 +8419,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 * After waiting 15 minutes for the OS to shut down, the instance is powered off and
 * then powered back on.
 * <p>
-- **SENDDIAGNOSTICINTERRUPT** - For advanced users. **Warning: Sending a diagnostic interrupt to a live system can
+
+* - **SENDDIAGNOSTICINTERRUPT** - For advanced users. **Warning: Sending a diagnostic interrupt to a live system can
 * cause data corruption or system failure.** Sends a diagnostic interrupt that causes the instance's
 * OS to crash and then reboot. Before you send a diagnostic interrupt, you must configure the instance to generate a
 * crash dump file when it crashes. The crash dump captures information about the state of the OS at the time of
@@ -8424,8 +8435,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 * Use diagnostic reboot as a final attempt to troubleshoot an unreachable instance. For virtual machine (VM) instances only.
 * For more information, see [Performing a Diagnostic Reboot](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/diagnostic-reboot.htm).
 * <p>
-
-* For more information about managing instance lifecycle states, see
+For more information about managing instance lifecycle states, see
 * [Stopping and Starting an Instance](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/restartinginstance.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
@@ -12288,6 +12298,7 @@ export class ComputeManagementClient {
   protected "_waiters": ComputeManagementWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -12300,6 +12311,9 @@ export class ComputeManagementClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -12311,7 +12325,8 @@ export class ComputeManagementClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -14939,6 +14954,7 @@ export class VirtualNetworkClient {
   protected "_waiters": VirtualNetworkWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -14951,6 +14967,9 @@ export class VirtualNetworkClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -14962,7 +14981,8 @@ export class VirtualNetworkClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -15707,7 +15727,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * to add prefixes to the virtual circuit. Oracle must verify the customer's ownership
    * of each prefix before traffic for that prefix will flow across the virtual circuit.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkAddVirtualCircuitPublicPrefixesRequest
    * @return BulkAddVirtualCircuitPublicPrefixesResponse
    * @throws OciError when an error occurs
@@ -15730,7 +15750,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       bulkAddVirtualCircuitPublicPrefixesRequest.retryConfiguration,
@@ -15770,7 +15790,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * to remove prefixes from the virtual circuit. When the virtual circuit's state switches
    * back to PROVISIONED, Oracle stops advertising the specified prefixes across the connection.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkDeleteVirtualCircuitPublicPrefixesRequest
    * @return BulkDeleteVirtualCircuitPublicPrefixesResponse
    * @throws OciError when an error occurs
@@ -15793,7 +15813,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       bulkDeleteVirtualCircuitPublicPrefixesRequest.retryConfiguration,
@@ -15896,11 +15916,90 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   }
 
   /**
-   * Moves a CPE object into a different compartment within the same tenancy. For information
+   * Moves a capture filter to a new compartment in the same tenancy. For information
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeCaptureFilterCompartmentRequest
+   * @return ChangeCaptureFilterCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeCaptureFilterCompartment.ts.html |here} to see how to use ChangeCaptureFilterCompartment API.
+   */
+  public async changeCaptureFilterCompartment(
+    changeCaptureFilterCompartmentRequest: requests.ChangeCaptureFilterCompartmentRequest
+  ): Promise<responses.ChangeCaptureFilterCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeCaptureFilterCompartment.");
+    const pathParams = {
+      "{captureFilterId}": changeCaptureFilterCompartmentRequest.captureFilterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeCaptureFilterCompartmentRequest.ifMatch,
+      "opc-request-id": changeCaptureFilterCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeCaptureFilterCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCaptureFilterCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/captureFilters/{captureFilterId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeCaptureFilterCompartmentRequest.changeCaptureFilterCompartmentDetails,
+        "ChangeCaptureFilterCompartmentDetails",
+        model.ChangeCaptureFilterCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeCaptureFilterCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a CPE object into a different compartment within the same tenancy. For information
+   * about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeCpeCompartmentRequest
    * @return ChangeCpeCompartmentResponse
    * @throws OciError when an error occurs
@@ -15923,7 +16022,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeCpeCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeCpeCompartmentRequest.retryConfiguration,
@@ -15973,7 +16072,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeCrossConnectCompartmentRequest
    * @return ChangeCrossConnectCompartmentResponse
    * @throws OciError when an error occurs
@@ -15996,7 +16095,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeCrossConnectCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeCrossConnectCompartmentRequest.retryConfiguration,
@@ -16046,7 +16145,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeCrossConnectGroupCompartmentRequest
    * @return ChangeCrossConnectGroupCompartmentResponse
    * @throws OciError when an error occurs
@@ -16071,7 +16170,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeCrossConnectGroupCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeCrossConnectGroupCompartmentRequest.retryConfiguration,
@@ -16272,7 +16371,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeIPSecConnectionCompartmentRequest
    * @return ChangeIPSecConnectionCompartmentResponse
    * @throws OciError when an error occurs
@@ -16295,7 +16394,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       "opc-retry-token": changeIPSecConnectionCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeIPSecConnectionCompartmentRequest.retryConfiguration,
@@ -16785,7 +16884,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeRemotePeeringConnectionCompartmentRequest
    * @return ChangeRemotePeeringConnectionCompartmentResponse
    * @throws OciError when an error occurs
@@ -16811,7 +16910,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       "opc-retry-token": changeRemotePeeringConnectionCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeRemotePeeringConnectionCompartmentRequest.retryConfiguration,
@@ -17236,7 +17335,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeVirtualCircuitCompartmentRequest
    * @return ChangeVirtualCircuitCompartmentResponse
    * @throws OciError when an error occurs
@@ -17259,7 +17358,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       "opc-retry-token": changeVirtualCircuitCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeVirtualCircuitCompartmentRequest.retryConfiguration,
@@ -17379,6 +17478,85 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   }
 
   /**
+   * Moves a VTAP to a new compartment within the same tenancy. For information
+   * about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeVtapCompartmentRequest
+   * @return ChangeVtapCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVtapCompartment.ts.html |here} to see how to use ChangeVtapCompartment API.
+   */
+  public async changeVtapCompartment(
+    changeVtapCompartmentRequest: requests.ChangeVtapCompartmentRequest
+  ): Promise<responses.ChangeVtapCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeVtapCompartment.");
+    const pathParams = {
+      "{vtapId}": changeVtapCompartmentRequest.vtapId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeVtapCompartmentRequest.ifMatch,
+      "opc-request-id": changeVtapCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeVtapCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeVtapCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vtaps/{vtapId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeVtapCompartmentRequest.changeVtapCompartmentDetails,
+        "ChangeVtapCompartmentDetails",
+        model.ChangeVtapCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeVtapCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Connects this local peering gateway (LPG) to another one in the same region.
 * <p>
 This operation must be called by the VCN administrator who is designated as
@@ -17459,7 +17637,7 @@ This operation must be called by the VCN administrator who is designated as
 * operation will fail. For more information, see
 * [VCN Peering](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/VCNpeering.htm).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ConnectRemotePeeringConnectionsRequest
      * @return ConnectRemotePeeringConnectionsResponse
      * @throws OciError when an error occurs
@@ -17481,7 +17659,7 @@ This operation must be called by the VCN administrator who is designated as
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       connectRemotePeeringConnectionsRequest.retryConfiguration,
@@ -17594,6 +17772,87 @@ This operation must be called by the VCN administrator who is designated as
   }
 
   /**
+     * Creates a virtual test access point (VTAP) capture filter in the specified compartment.
+* <p>
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains
+* the VTAP. For more information about compartments and access control, see
+* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* For information about OCIDs, see [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* <p>
+You may optionally specify a *display name* for the VTAP, otherwise a default is provided.
+* It does not have to be unique, and you can change it.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateCaptureFilterRequest
+     * @return CreateCaptureFilterResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateCaptureFilter.ts.html |here} to see how to use CreateCaptureFilter API.
+     */
+  public async createCaptureFilter(
+    createCaptureFilterRequest: requests.CreateCaptureFilterRequest
+  ): Promise<responses.CreateCaptureFilterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createCaptureFilter.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createCaptureFilterRequest.opcRetryToken,
+      "opc-request-id": createCaptureFilterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCaptureFilterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/captureFilters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCaptureFilterRequest.createCaptureFilterDetails,
+        "CreateCaptureFilterDetails",
+        model.CreateCaptureFilterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCaptureFilterResponse>{},
+        body: await response.json(),
+        bodyKey: "captureFilter",
+        bodyModel: model.CaptureFilter,
+        type: "model.CaptureFilter",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Creates a new virtual customer-premises equipment (CPE) object in the specified compartment. For
 * more information, see [Site-to-Site VPN Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/overviewIPsec.htm).
 * <p>
@@ -17610,7 +17869,7 @@ You must provide the public IP address of your on-premises router. See
 You may optionally specify a *display name* for the CPE, otherwise a default is provided. It does not have to
 * be unique, and you can change it. Avoid entering confidential information.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateCpeRequest
      * @return CreateCpeResponse
      * @throws OciError when an error occurs
@@ -17629,7 +17888,7 @@ You may optionally specify a *display name* for the CPE, otherwise a default is 
       "opc-retry-token": createCpeRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createCpeRequest.retryConfiguration,
@@ -17699,7 +17958,7 @@ For the purposes of access control, you must provide the [OCID](https://docs.clo
 You may optionally specify a *display name* for the cross-connect.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateCrossConnectRequest
      * @return CreateCrossConnectResponse
      * @throws OciError when an error occurs
@@ -17719,7 +17978,7 @@ You may optionally specify a *display name* for the cross-connect.
       "opc-retry-token": createCrossConnectRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createCrossConnectRequest.retryConfiguration,
@@ -17785,7 +18044,7 @@ For the purposes of access control, you must provide the [OCID](https://docs.clo
 You may optionally specify a *display name* for the cross-connect group.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateCrossConnectGroupRequest
      * @return CreateCrossConnectGroupResponse
      * @throws OciError when an error occurs
@@ -17805,7 +18064,7 @@ You may optionally specify a *display name* for the cross-connect group.
       "opc-retry-token": createCrossConnectGroupRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createCrossConnectGroupRequest.retryConfiguration,
@@ -18278,7 +18537,7 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
 * (that is, the pre-shared key). For more information, see
 * [CPE Configuration](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/configuringCPE.htm).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateIPSecConnectionRequest
      * @return CreateIPSecConnectionResponse
      * @throws OciError when an error occurs
@@ -18298,7 +18557,7 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
       "opc-retry-token": createIPSecConnectionRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createIPSecConnectionRequest.retryConfiguration,
@@ -18966,7 +19225,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
   /**
    * Creates a new remote peering connection (RPC) for the specified DRG.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateRemotePeeringConnectionRequest
    * @return CreateRemotePeeringConnectionResponse
    * @throws OciError when an error occurs
@@ -18986,7 +19245,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
       "opc-retry-token": createRemotePeeringConnectionRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createRemotePeeringConnectionRequest.retryConfiguration,
@@ -19507,7 +19766,7 @@ You may optionally specify a *display name* for the virtual circuit.
 * traffic will not flow. For more information, see
 * [Route Tables](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateVirtualCircuitRequest
      * @return CreateVirtualCircuitResponse
      * @throws OciError when an error occurs
@@ -19527,7 +19786,7 @@ You may optionally specify a *display name* for the virtual circuit.
       "opc-retry-token": createVirtualCircuitRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createVirtualCircuitRequest.retryConfiguration,
@@ -19649,6 +19908,86 @@ You may optionally specify a *display name* for the virtual circuit.
   }
 
   /**
+     * Creates a virtual test access point (VTAP) in the specified compartment.
+* <p>
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that contains the VTAP.
+* For more information about compartments and access control, see
+* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* For information about OCIDs, see [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* <p>
+You may optionally specify a *display name* for the VTAP, otherwise a default is provided.
+* It does not have to be unique, and you can change it.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateVtapRequest
+     * @return CreateVtapResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVtap.ts.html |here} to see how to use CreateVtap API.
+     */
+  public async createVtap(
+    createVtapRequest: requests.CreateVtapRequest
+  ): Promise<responses.CreateVtapResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createVtap.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createVtapRequest.opcRetryToken,
+      "opc-request-id": createVtapRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVtapRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vtaps",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createVtapRequest.createVtapDetails,
+        "CreateVtapDetails",
+        model.CreateVtapDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateVtapResponse>{},
+        body: await response.json(),
+        bodyKey: "vtap",
+        bodyModel: model.Vtap,
+        type: "model.Vtap",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified `ByoipRange` resource.
    * The resource must be in one of the following states: CREATING, PROVISIONED, ACTIVE, or FAILED.
    * It must not have any subranges currently allocated to a PublicIpPool object or the deletion will fail.
@@ -19718,11 +20057,73 @@ You may optionally specify a *display name* for the virtual circuit.
   }
 
   /**
+   * Deletes the specified VTAP capture filter. This is an asynchronous operation. The VTAP capture filter's `lifecycleState` will
+   * change to TERMINATING temporarily until the VTAP capture filter is completely removed.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteCaptureFilterRequest
+   * @return DeleteCaptureFilterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteCaptureFilter.ts.html |here} to see how to use DeleteCaptureFilter API.
+   */
+  public async deleteCaptureFilter(
+    deleteCaptureFilterRequest: requests.DeleteCaptureFilterRequest
+  ): Promise<responses.DeleteCaptureFilterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteCaptureFilter.");
+    const pathParams = {
+      "{captureFilterId}": deleteCaptureFilterRequest.captureFilterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteCaptureFilterRequest.ifMatch,
+      "opc-request-id": deleteCaptureFilterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCaptureFilterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/captureFilters/{captureFilterId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCaptureFilterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified CPE object. The CPE must not be connected to a DRG. This is an asynchronous
    * operation. The CPE's `lifecycleState` will change to TERMINATING temporarily until the CPE is completely
    * removed.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteCpeRequest
    * @return DeleteCpeResponse
    * @throws OciError when an error occurs
@@ -19743,7 +20144,7 @@ You may optionally specify a *display name* for the virtual circuit.
       "if-match": deleteCpeRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteCpeRequest.retryConfiguration,
@@ -19782,7 +20183,7 @@ You may optionally specify a *display name* for the virtual circuit.
    * Deletes the specified cross-connect. It must not be mapped to a
    * {@link VirtualCircuit}.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteCrossConnectRequest
    * @return DeleteCrossConnectResponse
    * @throws OciError when an error occurs
@@ -19804,7 +20205,7 @@ You may optionally specify a *display name* for the virtual circuit.
       "if-match": deleteCrossConnectRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteCrossConnectRequest.retryConfiguration,
@@ -19844,7 +20245,7 @@ You may optionally specify a *display name* for the virtual circuit.
    * cross-connects, and it cannot be mapped to a
    * {@link VirtualCircuit}.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteCrossConnectGroupRequest
    * @return DeleteCrossConnectGroupResponse
    * @throws OciError when an error occurs
@@ -19866,7 +20267,7 @@ You may optionally specify a *display name* for the virtual circuit.
       "if-match": deleteCrossConnectGroupRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteCrossConnectGroupRequest.retryConfiguration,
@@ -20220,7 +20621,7 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
 This is an asynchronous operation. The connection's `lifecycleState` will change to TERMINATING temporarily
 * until the connection is completely removed.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeleteIPSecConnectionRequest
      * @return DeleteIPSecConnectionResponse
      * @throws OciError when an error occurs
@@ -20242,7 +20643,7 @@ This is an asynchronous operation. The connection's `lifecycleState` will change
       "if-match": deleteIPSecConnectionRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteIPSecConnectionRequest.retryConfiguration,
@@ -20805,7 +21206,7 @@ If you want to simply unassign a reserved public IP and return it to your pool
 This is an asynchronous operation; the RPC's `lifecycleState` changes to TERMINATING temporarily
 * until the RPC is completely removed.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeleteRemotePeeringConnectionRequest
      * @return DeleteRemotePeeringConnectionResponse
      * @throws OciError when an error occurs
@@ -20827,7 +21228,7 @@ This is an asynchronous operation; the RPC's `lifecycleState` changes to TERMINA
       "if-match": deleteRemotePeeringConnectionRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteRemotePeeringConnectionRequest.retryConfiguration,
@@ -21179,7 +21580,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
    * make sure to also terminate the connection with
    * the provider, or else the provider may continue to bill you.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteVirtualCircuitRequest
    * @return DeleteVirtualCircuitResponse
    * @throws OciError when an error occurs
@@ -21201,7 +21602,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       "if-match": deleteVirtualCircuitRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteVirtualCircuitRequest.retryConfiguration,
@@ -21285,6 +21686,72 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified VTAP. This is an asynchronous operation. The VTAP's `lifecycleState` will change to
+   * TERMINATING temporarily until the VTAP is completely removed.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteVtapRequest
+   * @return DeleteVtapResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVtap.ts.html |here} to see how to use DeleteVtap API.
+   */
+  public async deleteVtap(
+    deleteVtapRequest: requests.DeleteVtapRequest
+  ): Promise<responses.DeleteVtapResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteVtap.");
+    const pathParams = {
+      "{vtapId}": deleteVtapRequest.vtapId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteVtapRequest.ifMatch,
+      "opc-request-id": deleteVtapRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVtapRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vtaps/{vtapId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteVtapResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -21504,7 +21971,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   /**
    * The parameters allowed for IKE IPSec tunnels.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAllowedIkeIPSecParametersRequest
    * @return GetAllowedIkeIPSecParametersResponse
    * @throws OciError when an error occurs
@@ -21524,7 +21991,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       "opc-request-id": getAllowedIkeIPSecParametersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAllowedIkeIPSecParametersRequest.retryConfiguration,
@@ -21632,8 +22099,75 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   }
 
   /**
-   * Gets the specified CPE's information.
+   * Gets information about the specified VTAP capture filter.
    * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCaptureFilterRequest
+   * @return GetCaptureFilterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCaptureFilter.ts.html |here} to see how to use GetCaptureFilter API.
+   */
+  public async getCaptureFilter(
+    getCaptureFilterRequest: requests.GetCaptureFilterRequest
+  ): Promise<responses.GetCaptureFilterResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getCaptureFilter.");
+    const pathParams = {
+      "{captureFilterId}": getCaptureFilterRequest.captureFilterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCaptureFilterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCaptureFilterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/captureFilters/{captureFilterId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCaptureFilterResponse>{},
+        body: await response.json(),
+        bodyKey: "captureFilter",
+        bodyModel: model.CaptureFilter,
+        type: "model.CaptureFilter",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified CPE's information.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCpeRequest
    * @return GetCpeResponse
    * @throws OciError when an error occurs
@@ -21651,7 +22185,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCpeRequest.retryConfiguration,
@@ -21715,7 +22249,7 @@ The operation returns configuration information for *all* of the
 *   * {@link #getTunnelCpeDeviceConfigContent(GetTunnelCpeDeviceConfigContentRequest) getTunnelCpeDeviceConfigContent}
 *   returns CPE configuration content for a specific IPSec tunnel in an IPSec connection.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetCpeDeviceConfigContentRequest
      * @return GetCpeDeviceConfigContentResponse
      * @throws OciError when an error occurs
@@ -21737,7 +22271,7 @@ The operation returns configuration information for *all* of the
       "opc-request-id": getCpeDeviceConfigContentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCpeDeviceConfigContentRequest.retryConfiguration,
@@ -21787,7 +22321,7 @@ The operation returns configuration information for *all* of the
    *   * {@link #getIpsecCpeDeviceConfigContent(GetIpsecCpeDeviceConfigContentRequest) getIpsecCpeDeviceConfigContent}
    *   * {@link #getTunnelCpeDeviceConfigContent(GetTunnelCpeDeviceConfigContentRequest) getTunnelCpeDeviceConfigContent}
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCpeDeviceShapeRequest
    * @return GetCpeDeviceShapeResponse
    * @throws OciError when an error occurs
@@ -21808,7 +22342,7 @@ The operation returns configuration information for *all* of the
       "opc-request-id": getCpeDeviceShapeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCpeDeviceShapeRequest.retryConfiguration,
@@ -21849,7 +22383,7 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the specified cross-connect's information.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCrossConnectRequest
    * @return GetCrossConnectResponse
    * @throws OciError when an error occurs
@@ -21869,7 +22403,7 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCrossConnectRequest.retryConfiguration,
@@ -21915,7 +22449,7 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the specified cross-connect group's information.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCrossConnectGroupRequest
    * @return GetCrossConnectGroupResponse
    * @throws OciError when an error occurs
@@ -21936,7 +22470,7 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCrossConnectGroupRequest.retryConfiguration,
@@ -21982,7 +22516,7 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the Letter of Authority for the specified cross-connect.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCrossConnectLetterOfAuthorityRequest
    * @return GetCrossConnectLetterOfAuthorityResponse
    * @throws OciError when an error occurs
@@ -22003,7 +22537,7 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCrossConnectLetterOfAuthorityRequest.retryConfiguration,
@@ -22045,7 +22579,7 @@ The operation returns configuration information for *all* of the
   /**
    * Gets the status of the specified cross-connect.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCrossConnectStatusRequest
    * @return GetCrossConnectStatusResponse
    * @throws OciError when an error occurs
@@ -22066,7 +22600,7 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCrossConnectStatusRequest.retryConfiguration,
@@ -22305,7 +22839,7 @@ The operation returns configuration information for *all* of the
    * Gets the redundancy status for the specified DRG. For more information, see
    * [Redundancy Remedies](https://docs.cloud.oracle.com/iaas/Content/Network/Troubleshoot/drgredundancy.htm).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDrgRedundancyStatusRequest
    * @return GetDrgRedundancyStatusResponse
    * @throws OciError when an error occurs
@@ -22327,7 +22861,7 @@ The operation returns configuration information for *all* of the
       "opc-request-id": getDrgRedundancyStatusRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDrgRedundancyStatusRequest.retryConfiguration,
@@ -22503,7 +23037,7 @@ The operation returns configuration information for *all* of the
    * Gets the specified provider service.
    * For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFastConnectProviderServiceRequest
    * @return GetFastConnectProviderServiceResponse
    * @throws OciError when an error occurs
@@ -22524,7 +23058,7 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFastConnectProviderServiceRequest.retryConfiguration,
@@ -22567,7 +23101,7 @@ The operation returns configuration information for *all* of the
    * Gets the specified provider service key's information. Use this operation to validate a
    * provider service key. An invalid key returns a 404 error.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFastConnectProviderServiceKeyRequest
    * @return GetFastConnectProviderServiceKeyResponse
    * @throws OciError when an error occurs
@@ -22589,7 +23123,7 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFastConnectProviderServiceKeyRequest.retryConfiguration,
@@ -22634,7 +23168,7 @@ The operation returns configuration information for *all* of the
    * on-premises router. If you want the status of the connection (whether it's up or down), use
    * {@link #getIPSecConnectionTunnel(GetIPSecConnectionTunnelRequest) getIPSecConnectionTunnel}.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetIPSecConnectionRequest
    * @return GetIPSecConnectionResponse
    * @throws OciError when an error occurs
@@ -22655,7 +23189,7 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getIPSecConnectionRequest.retryConfiguration,
@@ -22705,7 +23239,7 @@ The operation returns configuration information for *all* of the
    * {@link #getIPSecConnectionTunnel(GetIPSecConnectionTunnelRequest) getIPSecConnectionTunnel}
    * * {@link #getIPSecConnectionTunnelSharedSecret(GetIPSecConnectionTunnelSharedSecretRequest) getIPSecConnectionTunnelSharedSecret}
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetIPSecConnectionDeviceConfigRequest
    * @return GetIPSecConnectionDeviceConfigResponse
    * @throws OciError when an error occurs
@@ -22726,7 +23260,7 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getIPSecConnectionDeviceConfigRequest.retryConfiguration,
@@ -22774,7 +23308,7 @@ The operation returns configuration information for *all* of the
    * Deprecated. To get the tunnel status, instead use
    * {@link #getIPSecConnectionTunnel(GetIPSecConnectionTunnelRequest) getIPSecConnectionTunnel}.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetIPSecConnectionDeviceStatusRequest
    * @return GetIPSecConnectionDeviceStatusResponse
    * @throws OciError when an error occurs
@@ -22795,7 +23329,7 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getIPSecConnectionDeviceStatusRequest.retryConfiguration,
@@ -22844,7 +23378,7 @@ The operation returns configuration information for *all* of the
    * shared secret (pre-shared key). To retrieve that, use
    * {@link #getIPSecConnectionTunnelSharedSecret(GetIPSecConnectionTunnelSharedSecretRequest) getIPSecConnectionTunnelSharedSecret}.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetIPSecConnectionTunnelRequest
    * @return GetIPSecConnectionTunnelResponse
    * @throws OciError when an error occurs
@@ -22866,7 +23400,7 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getIPSecConnectionTunnelRequest.retryConfiguration,
@@ -22913,7 +23447,7 @@ The operation returns configuration information for *all* of the
   /**
    * Gets the identified error for the specified IPSec tunnel ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetIPSecConnectionTunnelErrorRequest
    * @return GetIPSecConnectionTunnelErrorResponse
    * @throws OciError when an error occurs
@@ -22935,7 +23469,7 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getIPSecConnectionTunnelErrorRequest.retryConfiguration,
@@ -22978,7 +23512,7 @@ The operation returns configuration information for *all* of the
    * Gets the specified tunnel's shared secret (pre-shared key). To get other information
    * about the tunnel, use {@link #getIPSecConnectionTunnel(GetIPSecConnectionTunnelRequest) getIPSecConnectionTunnel}.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetIPSecConnectionTunnelSharedSecretRequest
    * @return GetIPSecConnectionTunnelSharedSecretResponse
    * @throws OciError when an error occurs
@@ -23002,7 +23536,7 @@ The operation returns configuration information for *all* of the
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getIPSecConnectionTunnelSharedSecretRequest.retryConfiguration,
@@ -23134,7 +23668,7 @@ The operation returns configuration information for all tunnels in the single sp
 *   * {@link #getCpeDeviceConfigContent(GetCpeDeviceConfigContentRequest) getCpeDeviceConfigContent}
 *   returns CPE configuration content for *all* IPSec connections that use a specific CPE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetIpsecCpeDeviceConfigContentRequest
      * @return GetIpsecCpeDeviceConfigContentResponse
      * @throws OciError when an error occurs
@@ -23156,7 +23690,7 @@ The operation returns configuration information for all tunnels in the single sp
       "opc-request-id": getIpsecCpeDeviceConfigContentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getIpsecCpeDeviceConfigContentRequest.retryConfiguration,
@@ -23919,7 +24453,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   /**
    * Get the specified remote peering connection's information.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRemotePeeringConnectionRequest
    * @return GetRemotePeeringConnectionResponse
    * @throws OciError when an error occurs
@@ -23940,7 +24474,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getRemotePeeringConnectionRequest.retryConfiguration,
@@ -24394,7 +24928,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * information specific to the CPE device type), use
    * {@link #getTunnelCpeDeviceConfigContent(GetTunnelCpeDeviceConfigContentRequest) getTunnelCpeDeviceConfigContent}.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTunnelCpeDeviceConfigRequest
    * @return GetTunnelCpeDeviceConfigResponse
    * @throws OciError when an error occurs
@@ -24417,7 +24951,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       "opc-request-id": getTunnelCpeDeviceConfigRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTunnelCpeDeviceConfigRequest.retryConfiguration,
@@ -24481,7 +25015,7 @@ The operation returns configuration information for only the specified IPSec tun
 *   * {@link #getCpeDeviceConfigContent(GetCpeDeviceConfigContentRequest) getCpeDeviceConfigContent}
 *   returns CPE configuration content for *all* IPSec connections that use a specific CPE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetTunnelCpeDeviceConfigContentRequest
      * @return GetTunnelCpeDeviceConfigContentResponse
      * @throws OciError when an error occurs
@@ -24504,7 +25038,7 @@ The operation returns configuration information for only the specified IPSec tun
       "opc-request-id": getTunnelCpeDeviceConfigContentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTunnelCpeDeviceConfigContentRequest.retryConfiguration,
@@ -24812,7 +25346,7 @@ The operation returns configuration information for only the specified IPSec tun
 
   /**
    * Gets the specified virtual circuit's information.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetVirtualCircuitRequest
    * @return GetVirtualCircuitResponse
    * @throws OciError when an error occurs
@@ -24832,7 +25366,7 @@ The operation returns configuration information for only the specified IPSec tun
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getVirtualCircuitRequest.retryConfiguration,
@@ -25014,10 +25548,77 @@ The operation returns configuration information for only the specified IPSec tun
   }
 
   /**
+   * Gets the specified `Vtap` resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetVtapRequest
+   * @return GetVtapResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVtap.ts.html |here} to see how to use GetVtap API.
+   */
+  public async getVtap(
+    getVtapRequest: requests.GetVtapRequest
+  ): Promise<responses.GetVtapResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVtap.");
+    const pathParams = {
+      "{vtapId}": getVtapRequest.vtapId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVtapRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVtapRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vtaps/{vtapId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVtapResponse>{},
+        body: await response.json(),
+        bodyKey: "vtap",
+        bodyModel: model.Vtap,
+        type: "model.Vtap",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the regions that support remote VCN peering (which is peering across regions).
    * For more information, see [VCN Peering](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/VCNpeering.htm).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAllowedPeerRegionsForRemotePeeringRequest
    * @return ListAllowedPeerRegionsForRemotePeeringResponse
    * @throws OciError when an error occurs
@@ -25038,7 +25639,7 @@ The operation returns configuration information for only the specified IPSec tun
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAllowedPeerRegionsForRemotePeeringRequest.retryConfiguration,
@@ -25226,6 +25827,133 @@ The operation returns configuration information for only the specified IPSec tun
   }
 
   /**
+   * Lists the capture filters in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListCaptureFiltersRequest
+   * @return ListCaptureFiltersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCaptureFilters.ts.html |here} to see how to use ListCaptureFilters API.
+   */
+  public async listCaptureFilters(
+    listCaptureFiltersRequest: requests.ListCaptureFiltersRequest
+  ): Promise<responses.ListCaptureFiltersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listCaptureFilters.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCaptureFiltersRequest.compartmentId,
+      "limit": listCaptureFiltersRequest.limit,
+      "page": listCaptureFiltersRequest.page,
+      "sortBy": listCaptureFiltersRequest.sortBy,
+      "sortOrder": listCaptureFiltersRequest.sortOrder,
+      "displayName": listCaptureFiltersRequest.displayName,
+      "lifecycleState": listCaptureFiltersRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCaptureFiltersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCaptureFiltersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/captureFilters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCaptureFiltersResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.CaptureFilter,
+        type: "Array<model.CaptureFilter>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listCaptureFiltersRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.CaptureFilter objects
+   * contained in responses from the listCaptureFilters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCaptureFilters(
+    request: requests.ListCaptureFiltersRequest
+  ): AsyncIterableIterator<model.CaptureFilter> {
+    return paginateRecords(request, req => this.listCaptureFilters(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listCaptureFiltersResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listCaptureFilters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCaptureFiltersResponses(
+    request: requests.ListCaptureFiltersRequest
+  ): AsyncIterableIterator<responses.ListCaptureFiltersResponse> {
+    return paginateResponses(request, req => this.listCaptureFilters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.CaptureFilter objects
+   * contained in responses from the listCaptureFilters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCaptureFiltersRecordIterator(
+    request: requests.ListCaptureFiltersRequest
+  ): AsyncIterableIterator<model.CaptureFilter> {
+    return paginateRecords(request, req => this.listCaptureFilters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCaptureFilters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCaptureFiltersResponseIterator(
+    request: requests.ListCaptureFiltersRequest
+  ): AsyncIterableIterator<responses.ListCaptureFiltersResponse> {
+    return paginateResponses(request, req => this.listCaptureFilters(req));
+  }
+
+  /**
      * Lists the CPE device types that the Networking service provides CPE configuration
 * content for (example: Cisco ASA). The content helps a network engineer configure
 * the actual CPE device represented by a {@link Cpe} object.
@@ -25240,7 +25968,7 @@ For information about generating CPE configuration content, see these operations
 *   * {@link #getIpsecCpeDeviceConfigContent(GetIpsecCpeDeviceConfigContentRequest) getIpsecCpeDeviceConfigContent}
 *   * {@link #getTunnelCpeDeviceConfigContent(GetTunnelCpeDeviceConfigContentRequest) getTunnelCpeDeviceConfigContent}
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListCpeDeviceShapesRequest
      * @return ListCpeDeviceShapesResponse
      * @throws OciError when an error occurs
@@ -25263,7 +25991,7 @@ For information about generating CPE configuration content, see these operations
       "opc-request-id": listCpeDeviceShapesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCpeDeviceShapesRequest.retryConfiguration,
@@ -25362,7 +26090,7 @@ For information about generating CPE configuration content, see these operations
   /**
    * Lists the customer-premises equipment objects (CPEs) in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCpesRequest
    * @return ListCpesResponse
    * @throws OciError when an error occurs
@@ -25384,7 +26112,7 @@ For information about generating CPE configuration content, see these operations
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCpesRequest.retryConfiguration,
@@ -25481,7 +26209,7 @@ For information about generating CPE configuration content, see these operations
   /**
    * Lists the cross-connect groups in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCrossConnectGroupsRequest
    * @return ListCrossConnectGroupsResponse
    * @throws OciError when an error occurs
@@ -25508,7 +26236,7 @@ For information about generating CPE configuration content, see these operations
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCrossConnectGroupsRequest.retryConfiguration,
@@ -25608,7 +26336,7 @@ For information about generating CPE configuration content, see these operations
    * Lists the available FastConnect locations for cross-connect installation. You need
    * this information so you can specify your desired location when you create a cross-connect.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCrossConnectLocationsRequest
    * @return ListCrossConnectLocationsResponse
    * @throws OciError when an error occurs
@@ -25631,7 +26359,7 @@ For information about generating CPE configuration content, see these operations
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCrossConnectLocationsRequest.retryConfiguration,
@@ -25731,7 +26459,7 @@ For information about generating CPE configuration content, see these operations
    * Lists the Cross Connect mapping Details for the specified
    * virtual circuit.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCrossConnectMappingsRequest
    * @return ListCrossConnectMappingsResponse
    * @throws OciError when an error occurs
@@ -25753,7 +26481,7 @@ For information about generating CPE configuration content, see these operations
       "opc-request-id": listCrossConnectMappingsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCrossConnectMappingsRequest.retryConfiguration,
@@ -25796,7 +26524,7 @@ For information about generating CPE configuration content, see these operations
    * Lists the cross-connects in the specified compartment. You can filter the list
    * by specifying the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a cross-connect group.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCrossConnectsRequest
    * @return ListCrossConnectsResponse
    * @throws OciError when an error occurs
@@ -25823,7 +26551,7 @@ For information about generating CPE configuration content, see these operations
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCrossConnectsRequest.retryConfiguration,
@@ -25924,7 +26652,7 @@ For information about generating CPE configuration content, see these operations
    * so you can specify your desired port speed (that is, shape) when you create a
    * cross-connect.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCrossconnectPortSpeedShapesRequest
    * @return ListCrossconnectPortSpeedShapesResponse
    * @throws OciError when an error occurs
@@ -25947,7 +26675,7 @@ For information about generating CPE configuration content, see these operations
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCrossconnectPortSpeedShapesRequest.retryConfiguration,
@@ -26942,7 +27670,7 @@ For the compartment ID, provide the [OCID](https://docs.cloud.oracle.com/Content
 * <p>
 For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListFastConnectProviderServicesRequest
      * @return ListFastConnectProviderServicesResponse
      * @throws OciError when an error occurs
@@ -26965,7 +27693,7 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/i
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listFastConnectProviderServicesRequest.retryConfiguration,
@@ -27067,7 +27795,7 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/i
 * <p>
 For more information about virtual circuits, see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListFastConnectProviderVirtualCircuitBandwidthShapesRequest
      * @return ListFastConnectProviderVirtualCircuitBandwidthShapesResponse
      * @throws OciError when an error occurs
@@ -27094,7 +27822,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listFastConnectProviderVirtualCircuitBandwidthShapesRequest.retryConfiguration,
@@ -27201,7 +27929,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   /**
    * The routes advertised to the on-premises network and the routes received from the on-premises network.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListIPSecConnectionTunnelRoutesRequest
    * @return ListIPSecConnectionTunnelRoutesResponse
    * @throws OciError when an error occurs
@@ -27227,7 +27955,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listIPSecConnectionTunnelRoutesRequest.retryConfiguration,
@@ -27331,7 +28059,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   /**
    * Lists the tunnel security associations information for the specified IPSec tunnel ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListIPSecConnectionTunnelSecurityAssociationsRequest
    * @return ListIPSecConnectionTunnelSecurityAssociationsResponse
    * @throws OciError when an error occurs
@@ -27358,7 +28086,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listIPSecConnectionTunnelSecurityAssociationsRequest.retryConfiguration,
@@ -27466,7 +28194,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   /**
    * Lists the tunnel information for the specified IPSec connection.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListIPSecConnectionTunnelsRequest
    * @return ListIPSecConnectionTunnelsResponse
    * @throws OciError when an error occurs
@@ -27490,7 +28218,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listIPSecConnectionTunnelsRequest.retryConfiguration,
@@ -27590,7 +28318,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * Lists the IPSec connections for the specified compartment. You can filter the
    * results by DRG or CPE.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListIPSecConnectionsRequest
    * @return ListIPSecConnectionsResponse
    * @throws OciError when an error occurs
@@ -27615,7 +28343,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listIPSecConnectionsRequest.retryConfiguration,
@@ -28964,7 +29692,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * Lists the remote peering connections (RPCs) for the specified DRG and compartment
    * (the RPC's compartment).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRemotePeeringConnectionsRequest
    * @return ListRemotePeeringConnectionsResponse
    * @throws OciError when an error occurs
@@ -28988,7 +29716,7 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listRemotePeeringConnectionsRequest.retryConfiguration,
@@ -29839,7 +30567,7 @@ To list the ephemeral public IPs assigned to private IPs:
   /**
    * The deprecated operation lists available bandwidth levels for virtual circuits. For the compartment ID, provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of your tenancy (the root compartment).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListVirtualCircuitBandwidthShapesRequest
    * @return ListVirtualCircuitBandwidthShapesResponse
    * @throws OciError when an error occurs
@@ -29864,7 +30592,7 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listVirtualCircuitBandwidthShapesRequest.retryConfiguration,
@@ -29964,7 +30692,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * Lists the public IP prefixes and their details for the specified
    * public virtual circuit.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListVirtualCircuitPublicPrefixesRequest
    * @return ListVirtualCircuitPublicPrefixesResponse
    * @throws OciError when an error occurs
@@ -29987,7 +30715,7 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listVirtualCircuitPublicPrefixesRequest.retryConfiguration,
@@ -30029,7 +30757,7 @@ To list the ephemeral public IPs assigned to private IPs:
   /**
    * Lists the virtual circuits in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListVirtualCircuitsRequest
    * @return ListVirtualCircuitsResponse
    * @throws OciError when an error occurs
@@ -30056,7 +30784,7 @@ To list the ephemeral public IPs assigned to private IPs:
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listVirtualCircuitsRequest.retryConfiguration,
@@ -30275,6 +31003,135 @@ To list the ephemeral public IPs assigned to private IPs:
     request: requests.ListVlansRequest
   ): AsyncIterableIterator<responses.ListVlansResponse> {
     return paginateResponses(request, req => this.listVlans(req));
+  }
+
+  /**
+   * Lists the virtual test access points (VTAPs) in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListVtapsRequest
+   * @return ListVtapsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVtaps.ts.html |here} to see how to use ListVtaps API.
+   */
+  public async listVtaps(
+    listVtapsRequest: requests.ListVtapsRequest
+  ): Promise<responses.ListVtapsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listVtaps.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listVtapsRequest.compartmentId,
+      "vcnId": listVtapsRequest.vcnId,
+      "source": listVtapsRequest.source,
+      "targetId": listVtapsRequest.targetId,
+      "targetIp": listVtapsRequest.targetIp,
+      "isVtapEnabled": listVtapsRequest.isVtapEnabled,
+      "limit": listVtapsRequest.limit,
+      "page": listVtapsRequest.page,
+      "sortBy": listVtapsRequest.sortBy,
+      "sortOrder": listVtapsRequest.sortOrder,
+      "displayName": listVtapsRequest.displayName,
+      "lifecycleState": listVtapsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listVtapsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVtapsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vtaps",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVtapsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.Vtap,
+        type: "Array<model.Vtap>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listVtapsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.Vtap objects
+   * contained in responses from the listVtaps operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVtaps(request: requests.ListVtapsRequest): AsyncIterableIterator<model.Vtap> {
+    return paginateRecords(request, req => this.listVtaps(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listVtapsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listVtaps operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVtapsResponses(
+    request: requests.ListVtapsRequest
+  ): AsyncIterableIterator<responses.ListVtapsResponse> {
+    return paginateResponses(request, req => this.listVtaps(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.Vtap objects
+   * contained in responses from the listVtaps operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVtapsRecordIterator(
+    request: requests.ListVtapsRequest
+  ): AsyncIterableIterator<model.Vtap> {
+    return paginateRecords(request, req => this.listVtaps(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVtaps operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVtapsResponseIterator(
+    request: requests.ListVtapsRequest
+  ): AsyncIterableIterator<responses.ListVtapsResponse> {
+    return paginateResponses(request, req => this.listVtaps(req));
   }
 
   /**
@@ -31073,10 +31930,85 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * Updates the specified VTAP capture filter's display name or tags.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCaptureFilterRequest
+   * @return UpdateCaptureFilterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateCaptureFilter.ts.html |here} to see how to use UpdateCaptureFilter API.
+   */
+  public async updateCaptureFilter(
+    updateCaptureFilterRequest: requests.UpdateCaptureFilterRequest
+  ): Promise<responses.UpdateCaptureFilterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateCaptureFilter.");
+    const pathParams = {
+      "{captureFilterId}": updateCaptureFilterRequest.captureFilterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateCaptureFilterRequest.ifMatch,
+      "opc-request-id": updateCaptureFilterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCaptureFilterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/captureFilters/{captureFilterId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCaptureFilterRequest.updateCaptureFilterDetails,
+        "UpdateCaptureFilterDetails",
+        model.UpdateCaptureFilterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCaptureFilterResponse>{},
+        body: await response.json(),
+        bodyKey: "captureFilter",
+        bodyModel: model.CaptureFilter,
+        type: "model.CaptureFilter",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified CPE's display name or tags.
    * Avoid entering confidential information.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateCpeRequest
    * @return UpdateCpeResponse
    * @throws OciError when an error occurs
@@ -31097,7 +32029,7 @@ To list the ephemeral public IPs assigned to private IPs:
       "if-match": updateCpeRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateCpeRequest.retryConfiguration,
@@ -31148,7 +32080,7 @@ To list the ephemeral public IPs assigned to private IPs:
 
   /**
    * Updates the specified cross-connect.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateCrossConnectRequest
    * @return UpdateCrossConnectResponse
    * @throws OciError when an error occurs
@@ -31170,7 +32102,7 @@ To list the ephemeral public IPs assigned to private IPs:
       "if-match": updateCrossConnectRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateCrossConnectRequest.retryConfiguration,
@@ -31223,7 +32155,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * Updates the specified cross-connect group's display name.
    * Avoid entering confidential information.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateCrossConnectGroupRequest
    * @return UpdateCrossConnectGroupResponse
    * @throws OciError when an error occurs
@@ -31245,7 +32177,7 @@ To list the ephemeral public IPs assigned to private IPs:
       "if-match": updateCrossConnectGroupRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateCrossConnectGroupRequest.retryConfiguration,
@@ -31811,7 +32743,7 @@ Note that the `options` object you provide replaces the entire existing set of o
 To update an individual IPSec tunnel's attributes, use
 * {@link #updateIPSecConnectionTunnel(UpdateIPSecConnectionTunnelRequest) updateIPSecConnectionTunnel}.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateIPSecConnectionRequest
      * @return UpdateIPSecConnectionResponse
      * @throws OciError when an error occurs
@@ -31833,7 +32765,7 @@ To update an individual IPSec tunnel's attributes, use
       "if-match": updateIPSecConnectionRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateIPSecConnectionRequest.retryConfiguration,
@@ -31896,7 +32828,7 @@ To update an individual IPSec tunnel's attributes, use
    *     {@link IPSecConnection} already has at least one valid CIDR
    *     static route.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateIPSecConnectionTunnelRequest
    * @return UpdateIPSecConnectionTunnelResponse
    * @throws OciError when an error occurs
@@ -31920,7 +32852,7 @@ To update an individual IPSec tunnel's attributes, use
       "opc-request-id": updateIPSecConnectionTunnelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateIPSecConnectionTunnelRequest.retryConfiguration,
@@ -31974,7 +32906,7 @@ To update an individual IPSec tunnel's attributes, use
    * <p>
    **Important:** If you change the shared secret, the tunnel will go down while it's reprovisioned.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateIPSecConnectionTunnelSharedSecretRequest
    * @return UpdateIPSecConnectionTunnelSharedSecretResponse
    * @throws OciError when an error occurs
@@ -31999,7 +32931,7 @@ To update an individual IPSec tunnel's attributes, use
       "if-match": updateIPSecConnectionTunnelSharedSecretRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateIPSecConnectionTunnelSharedSecretRequest.retryConfiguration,
@@ -32783,7 +33715,7 @@ Regarding ephemeral public IPs:
   /**
    * Updates the specified remote peering connection (RPC).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateRemotePeeringConnectionRequest
    * @return UpdateRemotePeeringConnectionResponse
    * @throws OciError when an error occurs
@@ -32805,7 +33737,7 @@ Regarding ephemeral public IPs:
       "if-match": updateRemotePeeringConnectionRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateRemotePeeringConnectionRequest.retryConfiguration,
@@ -33161,7 +34093,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
    * The answers correlate to the questions that are specific to the CPE device type (see the
    * `parameters` attribute of {@link CpeDeviceShapeDetail}).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateTunnelCpeDeviceConfigRequest
    * @return UpdateTunnelCpeDeviceConfigResponse
    * @throws OciError when an error occurs
@@ -33186,7 +34118,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       "opc-request-id": updateTunnelCpeDeviceConfigRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateTunnelCpeDeviceConfigRequest.retryConfiguration,
@@ -33334,7 +34266,7 @@ To change the list of public IP prefixes for a public virtual circuit,
 * Oracle must verify the customer's ownership of each added prefix before
 * traffic for that prefix will flow across the virtual circuit.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateVirtualCircuitRequest
      * @return UpdateVirtualCircuitResponse
      * @throws OciError when an error occurs
@@ -33356,7 +34288,7 @@ To change the list of public IP prefixes for a public virtual circuit,
       "if-match": updateVirtualCircuitRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateVirtualCircuitRequest.retryConfiguration,
@@ -33542,6 +34474,85 @@ To change the list of public IP prefixes for a public virtual circuit,
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified VTAP's display name or tags.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateVtapRequest
+   * @return UpdateVtapResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVtap.ts.html |here} to see how to use UpdateVtap API.
+   */
+  public async updateVtap(
+    updateVtapRequest: requests.UpdateVtapRequest
+  ): Promise<responses.UpdateVtapResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateVtap.");
+    const pathParams = {
+      "{vtapId}": updateVtapRequest.vtapId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateVtapRequest.ifMatch,
+      "opc-request-id": updateVtapRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVtapRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vtaps/{vtapId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateVtapRequest.updateVtapDetails,
+        "UpdateVtapDetails",
+        model.UpdateVtapDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateVtapResponse>{},
+        body: await response.json(),
+        bodyKey: "vtap",
+        bodyModel: model.Vtap,
+        type: "model.Vtap",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

@@ -1,6 +1,6 @@
 /**
  * Application Performance Monitoring Synthetic Monitoring API
- * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors.
+ * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
  * OpenAPI spec version: 20200630
  *
  *
@@ -33,6 +33,7 @@ export class ApmSyntheticClient {
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -45,6 +46,9 @@ export class ApmSyntheticClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -56,7 +60,8 @@ export class ApmSyntheticClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -120,9 +125,84 @@ export class ApmSyntheticClient {
   }
 
   /**
+   * Registers a new dedicated vantage point.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateDedicatedVantagePointRequest
+   * @return CreateDedicatedVantagePointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/CreateDedicatedVantagePoint.ts.html |here} to see how to use CreateDedicatedVantagePoint API.
+   */
+  public async createDedicatedVantagePoint(
+    createDedicatedVantagePointRequest: requests.CreateDedicatedVantagePointRequest
+  ): Promise<responses.CreateDedicatedVantagePointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#createDedicatedVantagePoint.");
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": createDedicatedVantagePointRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDedicatedVantagePointRequest.opcRetryToken,
+      "opc-request-id": createDedicatedVantagePointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDedicatedVantagePointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dedicatedVantagePoints",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDedicatedVantagePointRequest.createDedicatedVantagePointDetails,
+        "CreateDedicatedVantagePointDetails",
+        model.CreateDedicatedVantagePointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDedicatedVantagePointResponse>{},
+        body: await response.json(),
+        bodyKey: "dedicatedVantagePoint",
+        bodyModel: model.DedicatedVantagePoint,
+        type: "model.DedicatedVantagePoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new monitor.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateMonitorRequest
    * @return CreateMonitorResponse
    * @throws OciError when an error occurs
@@ -144,7 +224,7 @@ export class ApmSyntheticClient {
       "opc-request-id": createMonitorRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createMonitorRequest.retryConfiguration,
@@ -196,7 +276,7 @@ export class ApmSyntheticClient {
   /**
    * Creates a new script.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateScriptRequest
    * @return CreateScriptResponse
    * @throws OciError when an error occurs
@@ -218,7 +298,7 @@ export class ApmSyntheticClient {
       "opc-request-id": createScriptRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createScriptRequest.retryConfiguration,
@@ -268,8 +348,70 @@ export class ApmSyntheticClient {
   }
 
   /**
+   * Deregisters the specified dedicated vantage point.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteDedicatedVantagePointRequest
+   * @return DeleteDedicatedVantagePointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/DeleteDedicatedVantagePoint.ts.html |here} to see how to use DeleteDedicatedVantagePoint API.
+   */
+  public async deleteDedicatedVantagePoint(
+    deleteDedicatedVantagePointRequest: requests.DeleteDedicatedVantagePointRequest
+  ): Promise<responses.DeleteDedicatedVantagePointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#deleteDedicatedVantagePoint.");
+    const pathParams = {
+      "{dedicatedVantagePointId}": deleteDedicatedVantagePointRequest.dedicatedVantagePointId
+    };
+
+    const queryParams = {
+      "apmDomainId": deleteDedicatedVantagePointRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDedicatedVantagePointRequest.ifMatch,
+      "opc-request-id": deleteDedicatedVantagePointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDedicatedVantagePointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dedicatedVantagePoints/{dedicatedVantagePointId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDedicatedVantagePointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified monitor.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteMonitorRequest
    * @return DeleteMonitorResponse
    * @throws OciError when an error occurs
@@ -293,7 +435,7 @@ export class ApmSyntheticClient {
       "opc-request-id": deleteMonitorRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteMonitorRequest.retryConfiguration,
@@ -330,7 +472,7 @@ export class ApmSyntheticClient {
 
   /**
    * Deletes the specified script.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteScriptRequest
    * @return DeleteScriptResponse
    * @throws OciError when an error occurs
@@ -354,7 +496,7 @@ export class ApmSyntheticClient {
       "opc-request-id": deleteScriptRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteScriptRequest.retryConfiguration,
@@ -390,8 +532,78 @@ export class ApmSyntheticClient {
   }
 
   /**
+   * Gets the details of the dedicated vantage point identified by the OCID.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDedicatedVantagePointRequest
+   * @return GetDedicatedVantagePointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/GetDedicatedVantagePoint.ts.html |here} to see how to use GetDedicatedVantagePoint API.
+   */
+  public async getDedicatedVantagePoint(
+    getDedicatedVantagePointRequest: requests.GetDedicatedVantagePointRequest
+  ): Promise<responses.GetDedicatedVantagePointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#getDedicatedVantagePoint.");
+    const pathParams = {
+      "{dedicatedVantagePointId}": getDedicatedVantagePointRequest.dedicatedVantagePointId
+    };
+
+    const queryParams = {
+      "apmDomainId": getDedicatedVantagePointRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDedicatedVantagePointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDedicatedVantagePointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dedicatedVantagePoints/{dedicatedVantagePointId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDedicatedVantagePointResponse>{},
+        body: await response.json(),
+        bodyKey: "dedicatedVantagePoint",
+        bodyModel: model.DedicatedVantagePoint,
+        type: "model.DedicatedVantagePoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the configuration of the monitor identified by the OCID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMonitorRequest
    * @return GetMonitorResponse
    * @throws OciError when an error occurs
@@ -414,7 +626,7 @@ export class ApmSyntheticClient {
       "opc-request-id": getMonitorRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getMonitorRequest.retryConfiguration,
@@ -461,7 +673,7 @@ export class ApmSyntheticClient {
   /**
    * Gets the results for a specific execution of a monitor identified by OCID. The results are in a HAR file, Screenshot, Console Log or Network details.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMonitorResultRequest
    * @return GetMonitorResultResponse
    * @throws OciError when an error occurs
@@ -488,7 +700,7 @@ export class ApmSyntheticClient {
       "opc-request-id": getMonitorResultRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getMonitorResultRequest.retryConfiguration,
@@ -529,7 +741,7 @@ export class ApmSyntheticClient {
 
   /**
    * Gets the configuration of the script identified by the OCID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetScriptRequest
    * @return GetScriptResponse
    * @throws OciError when an error occurs
@@ -552,7 +764,7 @@ export class ApmSyntheticClient {
       "opc-request-id": getScriptRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getScriptRequest.retryConfiguration,
@@ -597,9 +809,85 @@ export class ApmSyntheticClient {
   }
 
   /**
+   * Returns a list of dedicated vantage points.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDedicatedVantagePointsRequest
+   * @return ListDedicatedVantagePointsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListDedicatedVantagePoints.ts.html |here} to see how to use ListDedicatedVantagePoints API.
+   */
+  public async listDedicatedVantagePoints(
+    listDedicatedVantagePointsRequest: requests.ListDedicatedVantagePointsRequest
+  ): Promise<responses.ListDedicatedVantagePointsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#listDedicatedVantagePoints.");
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": listDedicatedVantagePointsRequest.apmDomainId,
+      "limit": listDedicatedVantagePointsRequest.limit,
+      "page": listDedicatedVantagePointsRequest.page,
+      "sortOrder": listDedicatedVantagePointsRequest.sortOrder,
+      "sortBy": listDedicatedVantagePointsRequest.sortBy,
+      "displayName": listDedicatedVantagePointsRequest.displayName,
+      "name": listDedicatedVantagePointsRequest.name,
+      "status": listDedicatedVantagePointsRequest.status
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDedicatedVantagePointsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDedicatedVantagePointsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dedicatedVantagePoints",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDedicatedVantagePointsResponse>{},
+        body: await response.json(),
+        bodyKey: "dedicatedVantagePointCollection",
+        bodyModel: model.DedicatedVantagePointCollection,
+        type: "model.DedicatedVantagePointCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of monitors.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMonitorsRequest
    * @return ListMonitorsResponse
    * @throws OciError when an error occurs
@@ -615,6 +903,7 @@ export class ApmSyntheticClient {
       "apmDomainId": listMonitorsRequest.apmDomainId,
       "displayName": listMonitorsRequest.displayName,
       "scriptId": listMonitorsRequest.scriptId,
+      "vantagePoint": listMonitorsRequest.vantagePoint,
       "monitorType": listMonitorsRequest.monitorType,
       "status": listMonitorsRequest.status,
       "limit": listMonitorsRequest.limit,
@@ -628,7 +917,7 @@ export class ApmSyntheticClient {
       "opc-request-id": listMonitorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMonitorsRequest.retryConfiguration,
@@ -675,7 +964,7 @@ export class ApmSyntheticClient {
   /**
    * Returns a list of public vantage points.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListPublicVantagePointsRequest
    * @return ListPublicVantagePointsResponse
    * @throws OciError when an error occurs
@@ -703,7 +992,7 @@ export class ApmSyntheticClient {
       "opc-request-id": listPublicVantagePointsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listPublicVantagePointsRequest.retryConfiguration,
@@ -750,7 +1039,7 @@ export class ApmSyntheticClient {
   /**
    * Returns a list of scripts.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListScriptsRequest
    * @return ListScriptsResponse
    * @throws OciError when an error occurs
@@ -777,7 +1066,7 @@ export class ApmSyntheticClient {
       "opc-request-id": listScriptsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listScriptsRequest.retryConfiguration,
@@ -822,8 +1111,84 @@ export class ApmSyntheticClient {
   }
 
   /**
+   * Updates the dedicated vantage point.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateDedicatedVantagePointRequest
+   * @return UpdateDedicatedVantagePointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/UpdateDedicatedVantagePoint.ts.html |here} to see how to use UpdateDedicatedVantagePoint API.
+   */
+  public async updateDedicatedVantagePoint(
+    updateDedicatedVantagePointRequest: requests.UpdateDedicatedVantagePointRequest
+  ): Promise<responses.UpdateDedicatedVantagePointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#updateDedicatedVantagePoint.");
+    const pathParams = {
+      "{dedicatedVantagePointId}": updateDedicatedVantagePointRequest.dedicatedVantagePointId
+    };
+
+    const queryParams = {
+      "apmDomainId": updateDedicatedVantagePointRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDedicatedVantagePointRequest.ifMatch,
+      "opc-request-id": updateDedicatedVantagePointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDedicatedVantagePointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dedicatedVantagePoints/{dedicatedVantagePointId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDedicatedVantagePointRequest.updateDedicatedVantagePointDetails,
+        "UpdateDedicatedVantagePointDetails",
+        model.UpdateDedicatedVantagePointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDedicatedVantagePointResponse>{},
+        body: await response.json(),
+        bodyKey: "dedicatedVantagePoint",
+        bodyModel: model.DedicatedVantagePoint,
+        type: "model.DedicatedVantagePoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the monitor.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateMonitorRequest
    * @return UpdateMonitorResponse
    * @throws OciError when an error occurs
@@ -847,7 +1212,7 @@ export class ApmSyntheticClient {
       "opc-request-id": updateMonitorRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateMonitorRequest.retryConfiguration,
@@ -898,7 +1263,7 @@ export class ApmSyntheticClient {
 
   /**
    * Updates the script.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateScriptRequest
    * @return UpdateScriptResponse
    * @throws OciError when an error occurs
@@ -922,7 +1287,7 @@ export class ApmSyntheticClient {
       "opc-request-id": updateScriptRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateScriptRequest.retryConfiguration,

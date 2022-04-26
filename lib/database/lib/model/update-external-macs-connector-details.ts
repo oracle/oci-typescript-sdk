@@ -25,6 +25,7 @@ export interface UpdateExternalMacsConnectorDetails
   "connectionString"?: model.DatabaseConnectionString;
   "connectionCredentials"?:
     | model.DatabaseConnectionCredentailsByName
+    | model.DatabaseSslConnectionCredentials
     | model.DatabaseConnectionCredentialsByDetails;
 
   "connectorType": string;

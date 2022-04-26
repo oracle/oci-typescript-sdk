@@ -19,17 +19,23 @@ import common = require("oci-common");
  */
 export interface CreateTranscriptionJobDetails {
   /**
-   * Transcription job name.
+   * A user-friendly display name for the job.
    */
   "displayName"?: string;
   /**
-   * The OCID of the compartment that contains the transcriptionJob.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want to create the job.
    */
   "compartmentId": string;
   /**
-   * Transcription job description.
+   * A short description of the job.
    */
   "description"?: string;
+  /**
+   * Transcription Format. By default JSON format will be considered.
+   */
+  "additionalTranscriptionFormats"?: Array<
+    CreateTranscriptionJobDetails.AdditionalTranscriptionFormats
+  >;
   "modelDetails"?: model.TranscriptionModelDetails;
   "normalization"?: model.TranscriptionNormalization;
   "inputLocation": model.ObjectListFileInputLocation | model.ObjectListInlineInputLocation;
@@ -49,6 +55,10 @@ export interface CreateTranscriptionJobDetails {
 }
 
 export namespace CreateTranscriptionJobDetails {
+  export enum AdditionalTranscriptionFormats {
+    Srt = "SRT"
+  }
+
   export function getJsonObj(obj: CreateTranscriptionJobDetails): object {
     const jsonObj = {
       ...obj,

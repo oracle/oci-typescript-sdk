@@ -57,3 +57,5 @@ import * as RoverNodeActionSetKeyResponse from "./rover-node-action-set-key-resp
 export import RoverNodeActionSetKeyResponse = RoverNodeActionSetKeyResponse.RoverNodeActionSetKeyResponse;
 import * as UpdateRoverNodeResponse from "./update-rover-node-response";
 export import UpdateRoverNodeResponse = UpdateRoverNodeResponse.UpdateRoverNodeResponse;
+import * as ListShapesResponse from "./list-shapes-response";
+export import ListShapesResponse = ListShapesResponse.ListShapesResponse;

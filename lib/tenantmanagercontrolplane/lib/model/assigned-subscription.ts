@@ -27,7 +27,7 @@ export interface AssignedSubscription {
    */
   "compartmentId": string;
   /**
-   * Subscription id.
+   * Subscription ID.
    */
   "classicSubscriptionId": string;
   /**
@@ -47,7 +47,7 @@ export interface AssignedSubscription {
    */
   "lifecycleState"?: model.SubscriptionLifecycleState;
   /**
-   * List of sku linked to the subscription.
+   * List of SKUs linked to the subscription.
    */
   "skus"?: Array<model.SubscriptionSku>;
   /**

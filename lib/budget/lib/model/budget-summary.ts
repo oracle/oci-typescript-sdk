@@ -19,22 +19,22 @@ import common = require("oci-common");
  */
 export interface BudgetSummary {
   /**
-   * The OCID of the budget
+   * The OCID of the budget.
    */
   "id": string;
   /**
-   * The OCID of the compartment
+   * The OCID of the compartment.
    */
   "compartmentId": string;
   /**
-   * This is DEPRECATED. For backwards compatability, the property will be populated when
-   * targetType is \"COMPARTMENT\" AND targets contains EXACT ONE target compartment ocid.
-   * For all other scenarios, this property will be left empty.
+   * This is DEPRECATED. For backwards compatability, the property is populated when
+   * the targetType is \"COMPARTMENT\", and the targets contain the specific target compartment OCID.
+   * For all other scenarios, this property is left empty.
    *
    */
   "targetCompartmentId"?: string;
   /**
-   * The display name of the budget.
+   * The display name of the budget. Avoid entering confidential information.
    */
   "displayName": string;
   /**
@@ -42,7 +42,7 @@ export interface BudgetSummary {
    */
   "description"?: string;
   /**
-   * The amount of the budget expressed in the currency of the customer's rate card.
+   * The amount of the budget, expressed in the currency of the customer's rate card.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "amount": number;
@@ -56,14 +56,19 @@ export interface BudgetSummary {
    */
   "budgetProcessingPeriodStartOffset"?: number;
   /**
+   * The type of the budget processing period. Valid values are INVOICE and MONTH.
+   *
+   */
+  "processingPeriodType"?: model.ProcessingPeriodType;
+  /**
    * The type of target on which the budget is applied.
    *
    */
   "targetType"?: model.TargetType;
   /**
    * The list of targets on which the budget is applied.
-   *   If targetType is \"COMPARTMENT\", targets contains list of compartment OCIDs.
-   *   If targetType is \"TAG\", targets contains list of cost tracking tag identifiers in the form of \"{tagNamespace}.{tagKey}.{tagValue}\".
+   *   If the targetType is \"COMPARTMENT\", the targets contain the list of compartment OCIDs.
+   *   If the targetType is \"TAG\", the targets contain the list of cost tracking tag identifiers in the form of \"{tagNamespace}.{tagKey}.{tagValue}\".
    *
    */
   "targets"?: Array<string>;
@@ -72,31 +77,31 @@ export interface BudgetSummary {
    */
   "lifecycleState": model.LifecycleState;
   /**
-   * Total number of alert rules in the budget Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total number of alert rules in the budget. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "alertRuleCount": number;
   /**
-   * Version of the budget. Starts from 1 and increments by 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The version of the budget. Starts from 1 and increments by 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
   /**
-   * The actual spend in currency for the current budget cycle Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The actual spend in currency for the current budget cycle. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "actualSpend"?: number;
   /**
-   * The forecasted spend in currency by the end of the current budget cycle Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The forecasted spend in currency by the end of the current budget cycle. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "forecastedSpend"?: number;
   /**
-   * Time budget spend was last computed
+   * The time the budget spend was last computed.
    */
   "timeSpendComputed"?: Date;
   /**
-   * Time budget was created
+   * The time the budget was created.
    */
   "timeCreated": Date;
   /**
-   * Time budget was updated
+   * The time the budget was updated.
    */
   "timeUpdated": Date;
   /**

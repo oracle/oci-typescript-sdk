@@ -20,7 +20,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The platform configuration used when launching a bare metal instance with an E4 shape.
+ * The platform configuration used when launching a bare metal instance with the BM.Standard.E4.128 shape
+ * (the AMD Milan platform).
  *
  */
 export interface AmdMilanBmLaunchInstancePlatformConfig extends model.LaunchInstancePlatformConfig {

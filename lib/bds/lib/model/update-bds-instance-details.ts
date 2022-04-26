@@ -24,6 +24,10 @@ export interface UpdateBdsInstanceDetails {
    */
   "displayName"?: string;
   /**
+   * Pre-authenticated URL of the bootstrap script in Object Store that can be downloaded and executed..
+   */
+  "bootstrapScriptUrl"?: string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type, or scope.
    * Exists for cross-compatibility only. For example, `{\"bar-key\": \"value\"}`
    *

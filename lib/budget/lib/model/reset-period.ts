@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The reset period for the budget. Valid value is MONTHLY.
+ * The reset period for the budget. The valid value is MONTHLY.
  *
  **/
 export enum ResetPeriod {

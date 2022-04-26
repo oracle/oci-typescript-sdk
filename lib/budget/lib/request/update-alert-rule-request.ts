@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateAlertRuleRequest extends common.BaseRequest {
   /**
-   * The unique Budget OCID
+   * The unique budget OCID.
    */
   "budgetId": string;
   /**
-   * The unique Alert Rule OCID
+   * The unique Alert Rule OCID.
    */
   "alertRuleId": string;
   /**

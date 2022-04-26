@@ -27,16 +27,49 @@ export interface AddWorkerNodesDetails {
    * Number of additional worker nodes for the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "numberOfWorkerNodes": number;
+  /**
+   * Worker node types, can either be Worker Data node or Compute only worker node.
+   */
+  "nodeType": AddWorkerNodesDetails.NodeType;
+  /**
+   * Shape of the node. This has to be specified when adding compute only worker node at the first time. Otherwise, it's a read-only property.
+   */
+  "shape"?: string;
+  /**
+   * The size of block volume in GB to be attached to the given node. This has to be specified when adding compute only worker node at the first time. Otherwise, it's a read-only property.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "blockVolumeSizeInGBs"?: number;
+  "shapeConfig"?: model.ShapeConfigDetails;
 }
 
 export namespace AddWorkerNodesDetails {
+  export enum NodeType {
+    Worker = "WORKER",
+    ComputeOnlyWorker = "COMPUTE_ONLY_WORKER"
+  }
+
   export function getJsonObj(obj: AddWorkerNodesDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "shapeConfig": obj.shapeConfig
+          ? model.ShapeConfigDetails.getJsonObj(obj.shapeConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: AddWorkerNodesDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "shapeConfig": obj.shapeConfig
+          ? model.ShapeConfigDetails.getDeserializedJsonObj(obj.shapeConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

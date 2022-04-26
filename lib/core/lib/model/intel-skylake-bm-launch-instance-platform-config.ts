@@ -20,7 +20,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The platform configuration used when launching a bare metal instance with the Intel Skylake platform.
+ * The platform configuration used when launching a bare metal instance with an Intel X7-based processor
+ * (the Intel Skylake platform).
  *
  */
 export interface IntelSkylakeBmLaunchInstancePlatformConfig

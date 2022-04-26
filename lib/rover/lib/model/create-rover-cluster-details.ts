@@ -104,6 +104,10 @@ export interface CreateRoverClusterDetails {
    */
   "dataValidationCode"?: string;
   /**
+   * Customer provided master key ID to encrypt secret information. If not provided, Rover's master key will be used for encryption.
+   */
+  "masterKeyId"?: string;
+  /**
    * The freeform tags associated with this resource, if any. Each tag is a simple key-value pair with no
    * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: `{\"Department\": \"Finance\"}`

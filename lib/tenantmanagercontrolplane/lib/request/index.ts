@@ -55,6 +55,8 @@ import * as ListOrganizationTenanciesRequest from "./list-organization-tenancies
 export import ListOrganizationTenanciesRequest = ListOrganizationTenanciesRequest.ListOrganizationTenanciesRequest;
 import * as ListOrganizationsRequest from "./list-organizations-request";
 export import ListOrganizationsRequest = ListOrganizationsRequest.ListOrganizationsRequest;
+import * as RestoreOrganizationTenancyRequest from "./restore-organization-tenancy-request";
+export import RestoreOrganizationTenancyRequest = RestoreOrganizationTenancyRequest.RestoreOrganizationTenancyRequest;
 import * as UnapproveOrganizationTenancyForTransferRequest from "./unapprove-organization-tenancy-for-transfer-request";
 export import UnapproveOrganizationTenancyForTransferRequest = UnapproveOrganizationTenancyForTransferRequest.UnapproveOrganizationTenancyForTransferRequest;
 import * as UpdateOrganizationRequest from "./update-organization-request";

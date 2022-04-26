@@ -15,8 +15,10 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
+import * as usageapi_waiter from "./lib/usageapi-waiter";
 
 export { models };
 export { requests };
 export { responses };
 export import UsageapiClient = client.UsageapiClient;
+export import UsageapiWaiter = usageapi_waiter.UsageapiWaiter;

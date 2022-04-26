@@ -41,6 +41,11 @@ export namespace SourceDetails {
             <model.LoggingSourceDetails>(<object>jsonObj),
             true
           );
+        case "monitoring":
+          return model.MonitoringSourceDetails.getJsonObj(
+            <model.MonitoringSourceDetails>(<object>jsonObj),
+            true
+          );
         case "streaming":
           return model.StreamingSourceDetails.getJsonObj(
             <model.StreamingSourceDetails>(<object>jsonObj),
@@ -60,6 +65,11 @@ export namespace SourceDetails {
         case "logging":
           return model.LoggingSourceDetails.getDeserializedJsonObj(
             <model.LoggingSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "monitoring":
+          return model.MonitoringSourceDetails.getDeserializedJsonObj(
+            <model.MonitoringSourceDetails>(<object>jsonObj),
             true
           );
         case "streaming":

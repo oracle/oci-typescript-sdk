@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListAlertRulesRequest extends common.BaseRequest {
   /**
-   * The unique Budget OCID
+   * The unique budget OCID.
    */
   "budgetId": string;
   /**
@@ -46,7 +46,7 @@ export interface ListAlertRulesRequest extends common.BaseRequest {
    */
   "lifecycleState"?: model.LifecycleState;
   /**
- * A user-friendly name. Does not have to be unique, and it's changeable.
+ * A user-friendly name. This does not have to be unique, and it's changeable.
 * <p>
 Example: `My new resource`
 * 

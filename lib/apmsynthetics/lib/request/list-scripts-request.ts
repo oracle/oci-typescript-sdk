@@ -30,7 +30,7 @@ export interface ListScriptsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A filter to return only resources that match the entire display name given.
+   * A filter to return only the resources that match the entire display name.
    */
   "displayName"?: string;
   /**

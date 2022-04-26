@@ -1,6 +1,6 @@
 /**
  * Application Performance Monitoring Synthetic Monitoring API
- * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors.
+ * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
  * OpenAPI spec version: 20200630
  *
  *
@@ -23,8 +23,8 @@ export interface UpdateMonitorDetails {
    */
   "displayName"?: string;
   /**
-   * A list of vantage points from which to execute the monitor.
-   * Use /publicVantagePoints to fetch public vantage points.
+   * A list of public and dedicated vantage points from which to execute the monitor.
+   * Use /publicVantagePoints to fetch public vantage points, and /dedicatedVantagePoints to fetch dedicated vantage points.
    *
    */
   "vantagePoints"?: Array<string>;
@@ -40,7 +40,7 @@ export interface UpdateMonitorDetails {
   "status"?: model.MonitorStatus;
   /**
    * Interval in seconds after the start time when the job should be repeated.
-   * Minimum repeatIntervalInSeconds should be 300 seconds.
+   * Minimum repeatIntervalInSeconds should be 300 seconds for Scripted REST, Scripted Browser and Browser monitors, and 60 seconds for REST monitor.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "repeatIntervalInSeconds"?: number;
@@ -50,7 +50,8 @@ export interface UpdateMonitorDetails {
   "isRunOnce"?: boolean;
   /**
    * Timeout in seconds. Timeout cannot be more than 30% of repeatIntervalInSeconds time for monitors.
-   * Also, timeoutInSeconds should be a multiple of 60. Monitor will be allowed to run only for timeoutInSeconds time. It would be terminated after that.
+   * Also, timeoutInSeconds should be a multiple of 60 for Scripted REST, Scripted Browser and Browser monitors.
+   * Monitor will be allowed to run only for timeoutInSeconds time. It would be terminated after that.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeoutInSeconds"?: number;

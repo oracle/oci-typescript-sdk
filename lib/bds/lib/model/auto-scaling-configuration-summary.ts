@@ -32,7 +32,7 @@ export interface AutoScalingConfigurationSummary {
    */
   "lifecycleState": string;
   /**
-   * A node type that is managed by an autoscale configuration. The only supported type is WORKER.
+   * A node type that is managed by an autoscale configuration. The only supported types are WORKER and COMPUTE_ONLY_WORKER.
    */
   "nodeType": string;
   /**
@@ -45,6 +45,11 @@ export interface AutoScalingConfigurationSummary {
    */
   "timeUpdated": Date;
   "policy": model.AutoScalePolicy;
+  "policyDetails"?:
+    | model.MetricBasedVerticalScalingPolicyDetails
+    | model.ScheduleBasedVerticalScalingPolicyDetails
+    | model.ScheduleBasedHorizontalScalingPolicyDetails
+    | model.MetricBasedHorizontalScalingPolicyDetails;
 }
 
 export namespace AutoScalingConfigurationSummary {
@@ -52,7 +57,10 @@ export namespace AutoScalingConfigurationSummary {
     const jsonObj = {
       ...obj,
       ...{
-        "policy": obj.policy ? model.AutoScalePolicy.getJsonObj(obj.policy) : undefined
+        "policy": obj.policy ? model.AutoScalePolicy.getJsonObj(obj.policy) : undefined,
+        "policyDetails": obj.policyDetails
+          ? model.AutoScalePolicyDetails.getJsonObj(obj.policyDetails)
+          : undefined
       }
     };
 
@@ -62,7 +70,10 @@ export namespace AutoScalingConfigurationSummary {
     const jsonObj = {
       ...obj,
       ...{
-        "policy": obj.policy ? model.AutoScalePolicy.getDeserializedJsonObj(obj.policy) : undefined
+        "policy": obj.policy ? model.AutoScalePolicy.getDeserializedJsonObj(obj.policy) : undefined,
+        "policyDetails": obj.policyDetails
+          ? model.AutoScalePolicyDetails.getDeserializedJsonObj(obj.policyDetails)
+          : undefined
       }
     };
 

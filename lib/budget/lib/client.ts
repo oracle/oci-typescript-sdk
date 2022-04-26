@@ -35,6 +35,7 @@ export class BudgetClient {
   protected "_waiters": BudgetWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -47,6 +48,9 @@ export class BudgetClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -58,7 +62,8 @@ export class BudgetClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -219,7 +224,7 @@ export class BudgetClient {
   }
 
   /**
-   * Creates a new Budget.
+   * Creates a new budget.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateBudgetRequest
@@ -351,7 +356,7 @@ export class BudgetClient {
   }
 
   /**
-   * Deletes a specified Budget resource
+   * Deletes a specified budget resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBudgetRequest
    * @return DeleteBudgetResponse
@@ -410,7 +415,7 @@ export class BudgetClient {
   }
 
   /**
-   * Gets an Alert Rule for a specified Budget.
+   * Gets an Alert Rule for a specified budget.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAlertRuleRequest
    * @return GetAlertRuleResponse
@@ -478,7 +483,7 @@ export class BudgetClient {
   }
 
   /**
-   * Gets a Budget by identifier
+   * Gets a budget by the identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBudgetRequest
    * @return GetBudgetResponse
@@ -545,7 +550,7 @@ export class BudgetClient {
   }
 
   /**
-   * Returns a list of Alert Rules for a specified Budget.
+   * Returns a list of Alert Rules for a specified budget.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAlertRulesRequest
@@ -672,16 +677,14 @@ export class BudgetClient {
   }
 
   /**
-     * Gets a list of Budgets in a compartment.
+     * Gets a list of budgets in a compartment.
 * <p>
-By default, ListBudgets returns budgets of 'COMPARTMENT' target type and the budget records with only ONE target compartment OCID.
+By default, ListBudgets returns budgets of the 'COMPARTMENT' target type, and the budget records with only one target compartment OCID.
 * <p>
-To list ALL budgets, set the targetType query parameter to ALL.
-* Example:
-*   'targetType=ALL'
+To list all budgets, set the targetType query parameter to ALL (for example: 'targetType=ALL').
 * <p>
-Additional targetTypes would be available in future releases. Clients should ignore new targetType 
-* or upgrade to latest version of client SDK to handle new targetType.
+Additional targetTypes would be available in future releases. Clients should ignore new targetTypes, 
+* or upgrade to the latest version of the client SDK to handle new targetTypes.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListBudgetsRequest
@@ -882,7 +885,7 @@ Additional targetTypes would be available in future releases. Clients should ign
   }
 
   /**
-   * Update a Budget identified by the OCID
+   * Update a budget identified by the OCID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBudgetRequest
    * @return UpdateBudgetResponse

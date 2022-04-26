@@ -1,8 +1,8 @@
 /**
- * Cloud Guard API
- * Use the Cloud Guard API to automate processes that you would otherwise perform through the Cloud Guard Console.
+ * Cloud Guard and Security Zones API
+ * Use the Cloud Guard and Security Zones API to automate processes that you would otherwise perform through the Cloud Guard Console or the Security Zones Console. For more information on these services, see the [Cloud Guard](/iaas/cloud-guard/home.htm) and [Security Zones](/iaas/security-zone/home.htm) documentation.
 
-**Note:** You can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations from any region.
+**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations in Cloud Guard from any region.
 
  * OpenAPI spec version: 20200131
  * 
@@ -38,6 +38,7 @@ export class CloudGuardClient {
   protected "_waiters": CloudGuardWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -50,6 +51,9 @@ export class CloudGuardClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -61,7 +65,8 @@ export class CloudGuardClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -145,6 +150,80 @@ export class CloudGuardClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Add an existing compartment to a security zone. If you previously removed a subcompartment from a security zone, you can add it back to the same security zone. The security zone ensures that resources in the subcompartment comply with the security zone's policies.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddCompartmentRequest
+   * @return AddCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/AddCompartment.ts.html |here} to see how to use AddCompartment API.
+   */
+  public async addCompartment(
+    addCompartmentRequest: requests.AddCompartmentRequest
+  ): Promise<responses.AddCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#addCompartment.");
+    const pathParams = {
+      "{securityZoneId}": addCompartmentRequest.securityZoneId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addCompartmentRequest.opcRetryToken,
+      "if-match": addCompartmentRequest.ifMatch,
+      "opc-request-id": addCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityZones/{securityZoneId}/actions/addCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addCompartmentRequest.addCompartmentDetails,
+        "AddCompartmentDetails",
+        model.AddCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddCompartmentResponse>{},
+        body: await response.json(),
+        bodyKey: "securityZone",
+        bodyModel: model.SecurityZone,
+        type: "model.SecurityZone",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -330,6 +409,138 @@ export class CloudGuardClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeResponderRecipeCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a security zone recipe to a different compartment. When provided, `If-Match` is checked against `ETag` values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeSecurityRecipeCompartmentRequest
+   * @return ChangeSecurityRecipeCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeSecurityRecipeCompartment.ts.html |here} to see how to use ChangeSecurityRecipeCompartment API.
+   */
+  public async changeSecurityRecipeCompartment(
+    changeSecurityRecipeCompartmentRequest: requests.ChangeSecurityRecipeCompartmentRequest
+  ): Promise<responses.ChangeSecurityRecipeCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#changeSecurityRecipeCompartment.");
+    const pathParams = {
+      "{securityRecipeId}": changeSecurityRecipeCompartmentRequest.securityRecipeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSecurityRecipeCompartmentRequest.ifMatch,
+      "opc-request-id": changeSecurityRecipeCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSecurityRecipeCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSecurityRecipeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityRecipes/{securityRecipeId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSecurityRecipeCompartmentRequest.changeSecurityRecipeCompartmentDetails,
+        "ChangeSecurityRecipeCompartmentDetails",
+        model.ChangeSecurityRecipeCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSecurityRecipeCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a security zone to a different compartment. When provided, `If-Match` is checked against `ETag` values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeSecurityZoneCompartmentRequest
+   * @return ChangeSecurityZoneCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeSecurityZoneCompartment.ts.html |here} to see how to use ChangeSecurityZoneCompartment API.
+   */
+  public async changeSecurityZoneCompartment(
+    changeSecurityZoneCompartmentRequest: requests.ChangeSecurityZoneCompartmentRequest
+  ): Promise<responses.ChangeSecurityZoneCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#changeSecurityZoneCompartment.");
+    const pathParams = {
+      "{securityZoneId}": changeSecurityZoneCompartmentRequest.securityZoneId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSecurityZoneCompartmentRequest.ifMatch,
+      "opc-request-id": changeSecurityZoneCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSecurityZoneCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSecurityZoneCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityZones/{securityZoneId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSecurityZoneCompartmentRequest.changeSecurityZoneCompartmentDetails,
+        "ChangeSecurityZoneCompartmentDetails",
+        model.ChangeSecurityZoneCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSecurityZoneCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -613,6 +824,150 @@ export class CloudGuardClient {
         bodyKey: "responderRecipe",
         bodyModel: model.ResponderRecipe,
         type: "model.ResponderRecipe",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a security zone recipe. A security zone recipe is a collection of security zone policies.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateSecurityRecipeRequest
+   * @return CreateSecurityRecipeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateSecurityRecipe.ts.html |here} to see how to use CreateSecurityRecipe API.
+   */
+  public async createSecurityRecipe(
+    createSecurityRecipeRequest: requests.CreateSecurityRecipeRequest
+  ): Promise<responses.CreateSecurityRecipeResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createSecurityRecipe.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSecurityRecipeRequest.opcRetryToken,
+      "opc-request-id": createSecurityRecipeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSecurityRecipeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityRecipes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSecurityRecipeRequest.createSecurityRecipeDetails,
+        "CreateSecurityRecipeDetails",
+        model.CreateSecurityRecipeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSecurityRecipeResponse>{},
+        body: await response.json(),
+        bodyKey: "securityRecipe",
+        bodyModel: model.SecurityRecipe,
+        type: "model.SecurityRecipe",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a security zone for a compartment. A security zone enforces all security zone policies in a given security zone recipe. Any actions that violate a policy are denied. By default, any subcompartments are also in the same security zone.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateSecurityZoneRequest
+   * @return CreateSecurityZoneResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateSecurityZone.ts.html |here} to see how to use CreateSecurityZone API.
+   */
+  public async createSecurityZone(
+    createSecurityZoneRequest: requests.CreateSecurityZoneRequest
+  ): Promise<responses.CreateSecurityZoneResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createSecurityZone.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSecurityZoneRequest.opcRetryToken,
+      "opc-request-id": createSecurityZoneRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSecurityZoneRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityZones",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSecurityZoneRequest.createSecurityZoneDetails,
+        "CreateSecurityZoneDetails",
+        model.CreateSecurityZoneDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSecurityZoneResponse>{},
+        body: await response.json(),
+        bodyKey: "securityZone",
+        bodyModel: model.SecurityZone,
+        type: "model.SecurityZone",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1078,6 +1433,124 @@ export class CloudGuardClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteResponderRecipeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a security zone recipe. The recipe can't be associated with an existing security zone.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteSecurityRecipeRequest
+   * @return DeleteSecurityRecipeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteSecurityRecipe.ts.html |here} to see how to use DeleteSecurityRecipe API.
+   */
+  public async deleteSecurityRecipe(
+    deleteSecurityRecipeRequest: requests.DeleteSecurityRecipeRequest
+  ): Promise<responses.DeleteSecurityRecipeResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteSecurityRecipe.");
+    const pathParams = {
+      "{securityRecipeId}": deleteSecurityRecipeRequest.securityRecipeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSecurityRecipeRequest.ifMatch,
+      "opc-request-id": deleteSecurityRecipeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSecurityRecipeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityRecipes/{securityRecipeId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSecurityRecipeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes an existing security zone with a given identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteSecurityZoneRequest
+   * @return DeleteSecurityZoneResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteSecurityZone.ts.html |here} to see how to use DeleteSecurityZone API.
+   */
+  public async deleteSecurityZone(
+    deleteSecurityZoneRequest: requests.DeleteSecurityZoneRequest
+  ): Promise<responses.DeleteSecurityZoneResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteSecurityZone.");
+    const pathParams = {
+      "{securityZoneId}": deleteSecurityZoneRequest.securityZoneId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSecurityZoneRequest.ifMatch,
+      "opc-request-id": deleteSecurityZoneRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSecurityZoneRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityZones/{securityZoneId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSecurityZoneResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2283,6 +2756,207 @@ export class CloudGuardClient {
         bodyKey: "responderRule",
         bodyModel: model.ResponderRule,
         type: "model.ResponderRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a security zone policy using its identifier. When a policy is enabled in a security zone, then any action in the zone that attempts to violate that policy is denied.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSecurityPolicyRequest
+   * @return GetSecurityPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSecurityPolicy.ts.html |here} to see how to use GetSecurityPolicy API.
+   */
+  public async getSecurityPolicy(
+    getSecurityPolicyRequest: requests.GetSecurityPolicyRequest
+  ): Promise<responses.GetSecurityPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getSecurityPolicy.");
+    const pathParams = {
+      "{securityPolicyId}": getSecurityPolicyRequest.securityPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSecurityPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSecurityPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityPolicies/{securityPolicyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSecurityPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "securityPolicy",
+        bodyModel: model.SecurityPolicy,
+        type: "model.SecurityPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a security zone recipe by identifier. A security zone recipe is a collection of security zone policies.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSecurityRecipeRequest
+   * @return GetSecurityRecipeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSecurityRecipe.ts.html |here} to see how to use GetSecurityRecipe API.
+   */
+  public async getSecurityRecipe(
+    getSecurityRecipeRequest: requests.GetSecurityRecipeRequest
+  ): Promise<responses.GetSecurityRecipeResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getSecurityRecipe.");
+    const pathParams = {
+      "{securityRecipeId}": getSecurityRecipeRequest.securityRecipeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSecurityRecipeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSecurityRecipeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityRecipes/{securityRecipeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSecurityRecipeResponse>{},
+        body: await response.json(),
+        bodyKey: "securityRecipe",
+        bodyModel: model.SecurityRecipe,
+        type: "model.SecurityRecipe",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a security zone by its identifier. A security zone is associated with a security zone recipe and enforces all security zone policies in the recipe. Any actions in the zone's compartments that violate a policy are denied.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSecurityZoneRequest
+   * @return GetSecurityZoneResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSecurityZone.ts.html |here} to see how to use GetSecurityZone API.
+   */
+  public async getSecurityZone(
+    getSecurityZoneRequest: requests.GetSecurityZoneRequest
+  ): Promise<responses.GetSecurityZoneResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getSecurityZone.");
+    const pathParams = {
+      "{securityZoneId}": getSecurityZoneRequest.securityZoneId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSecurityZoneRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSecurityZoneRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityZones/{securityZoneId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSecurityZoneResponse>{},
+        body: await response.json(),
+        bodyKey: "securityZone",
+        bodyModel: model.SecurityZone,
+        type: "model.SecurityZone",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3694,6 +4368,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       "detectorRuleIdList": listProblemsRequest.detectorRuleIdList,
       "detectorType": listProblemsRequest.detectorType,
       "targetId": listProblemsRequest.targetId,
+      "problemCategory": listProblemsRequest.problemCategory,
       "compartmentIdInSubtree": listProblemsRequest.compartmentIdInSubtree,
       "accessLevel": listProblemsRequest.accessLevel,
       "resourceId": listProblemsRequest.resourceId,
@@ -4553,6 +5228,233 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   }
 
   /**
+   * Returns a list of security zone policies. Specify any compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSecurityPoliciesRequest
+   * @return ListSecurityPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSecurityPolicies.ts.html |here} to see how to use ListSecurityPolicies API.
+   */
+  public async listSecurityPolicies(
+    listSecurityPoliciesRequest: requests.ListSecurityPoliciesRequest
+  ): Promise<responses.ListSecurityPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSecurityPolicies.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSecurityPoliciesRequest.compartmentId,
+      "lifecycleState": listSecurityPoliciesRequest.lifecycleState,
+      "displayName": listSecurityPoliciesRequest.displayName,
+      "id": listSecurityPoliciesRequest.id,
+      "limit": listSecurityPoliciesRequest.limit,
+      "page": listSecurityPoliciesRequest.page,
+      "sortOrder": listSecurityPoliciesRequest.sortOrder,
+      "sortBy": listSecurityPoliciesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSecurityPoliciesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSecurityPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityPolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSecurityPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "securityPolicyCollection",
+        bodyModel: model.SecurityPolicyCollection,
+        type: "model.SecurityPolicyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of all security zone recipes in a compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSecurityRecipesRequest
+   * @return ListSecurityRecipesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSecurityRecipes.ts.html |here} to see how to use ListSecurityRecipes API.
+   */
+  public async listSecurityRecipes(
+    listSecurityRecipesRequest: requests.ListSecurityRecipesRequest
+  ): Promise<responses.ListSecurityRecipesResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSecurityRecipes.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSecurityRecipesRequest.compartmentId,
+      "lifecycleState": listSecurityRecipesRequest.lifecycleState,
+      "displayName": listSecurityRecipesRequest.displayName,
+      "id": listSecurityRecipesRequest.id,
+      "limit": listSecurityRecipesRequest.limit,
+      "page": listSecurityRecipesRequest.page,
+      "sortOrder": listSecurityRecipesRequest.sortOrder,
+      "sortBy": listSecurityRecipesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSecurityRecipesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSecurityRecipesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityRecipes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSecurityRecipesResponse>{},
+        body: await response.json(),
+        bodyKey: "securityRecipeCollection",
+        bodyModel: model.SecurityRecipeCollection,
+        type: "model.SecurityRecipeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of all security zones in a compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSecurityZonesRequest
+   * @return ListSecurityZonesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSecurityZones.ts.html |here} to see how to use ListSecurityZones API.
+   */
+  public async listSecurityZones(
+    listSecurityZonesRequest: requests.ListSecurityZonesRequest
+  ): Promise<responses.ListSecurityZonesResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSecurityZones.");
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSecurityZonesRequest.compartmentId,
+      "lifecycleState": listSecurityZonesRequest.lifecycleState,
+      "displayName": listSecurityZonesRequest.displayName,
+      "id": listSecurityZonesRequest.id,
+      "securityRecipeId": listSecurityZonesRequest.securityRecipeId,
+      "isRequiredSecurityZonesInSubtree": listSecurityZonesRequest.isRequiredSecurityZonesInSubtree,
+      "limit": listSecurityZonesRequest.limit,
+      "page": listSecurityZonesRequest.page,
+      "sortOrder": listSecurityZonesRequest.sortOrder,
+      "sortBy": listSecurityZonesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSecurityZonesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSecurityZonesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityZones",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSecurityZonesResponse>{},
+        body: await response.json(),
+        bodyKey: "securityZoneCollection",
+        bodyModel: model.SecurityZoneCollection,
+        type: "model.SecurityZoneCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns Sighting endpoints details
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSightingEndpointsRequest
@@ -5206,6 +6108,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
     const queryParams = {
       "displayName": listTargetsRequest.displayName,
       "compartmentId": listTargetsRequest.compartmentId,
+      "isNonSecurityZoneTargetsOnlyQuery": listTargetsRequest.isNonSecurityZoneTargetsOnlyQuery,
       "lifecycleState": listTargetsRequest.lifecycleState,
       "compartmentIdInSubtree": listTargetsRequest.compartmentIdInSubtree,
       "accessLevel": listTargetsRequest.accessLevel,
@@ -5327,6 +6230,80 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes an existing compartment from a security zone. When you remove a subcompartment from a security zone, it no longer enforces security zone policies on the resources in the subcompartment. You can't remove the primary compartment that was used to create the security zone.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveCompartmentRequest
+   * @return RemoveCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RemoveCompartment.ts.html |here} to see how to use RemoveCompartment API.
+   */
+  public async removeCompartment(
+    removeCompartmentRequest: requests.RemoveCompartmentRequest
+  ): Promise<responses.RemoveCompartmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#removeCompartment.");
+    const pathParams = {
+      "{securityZoneId}": removeCompartmentRequest.securityZoneId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": removeCompartmentRequest.opcRetryToken,
+      "if-match": removeCompartmentRequest.ifMatch,
+      "opc-request-id": removeCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityZones/{securityZoneId}/actions/removeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeCompartmentRequest.removeCompartmentDetails,
+        "RemoveCompartmentDetails",
+        model.RemoveCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveCompartmentResponse>{},
+        body: await response.json(),
+        bodyKey: "securityZone",
+        bodyModel: model.SecurityZone,
+        type: "model.SecurityZone",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -7208,6 +8185,152 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         bodyKey: "responderRecipeResponderRule",
         bodyModel: model.ResponderRecipeResponderRule,
         type: "model.ResponderRecipeResponderRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a security zone recipe. A security zone recipe is a collection of security zone policies.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateSecurityRecipeRequest
+   * @return UpdateSecurityRecipeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateSecurityRecipe.ts.html |here} to see how to use UpdateSecurityRecipe API.
+   */
+  public async updateSecurityRecipe(
+    updateSecurityRecipeRequest: requests.UpdateSecurityRecipeRequest
+  ): Promise<responses.UpdateSecurityRecipeResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateSecurityRecipe.");
+    const pathParams = {
+      "{securityRecipeId}": updateSecurityRecipeRequest.securityRecipeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSecurityRecipeRequest.ifMatch,
+      "opc-request-id": updateSecurityRecipeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSecurityRecipeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityRecipes/{securityRecipeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSecurityRecipeRequest.updateSecurityRecipeDetails,
+        "UpdateSecurityRecipeDetails",
+        model.UpdateSecurityRecipeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSecurityRecipeResponse>{},
+        body: await response.json(),
+        bodyKey: "securityRecipe",
+        bodyModel: model.SecurityRecipe,
+        type: "model.SecurityRecipe",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the security zone identified by its id
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateSecurityZoneRequest
+   * @return UpdateSecurityZoneResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateSecurityZone.ts.html |here} to see how to use UpdateSecurityZone API.
+   */
+  public async updateSecurityZone(
+    updateSecurityZoneRequest: requests.UpdateSecurityZoneRequest
+  ): Promise<responses.UpdateSecurityZoneResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateSecurityZone.");
+    const pathParams = {
+      "{securityZoneId}": updateSecurityZoneRequest.securityZoneId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSecurityZoneRequest.ifMatch,
+      "opc-request-id": updateSecurityZoneRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSecurityZoneRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityZones/{securityZoneId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSecurityZoneRequest.updateSecurityZoneDetails,
+        "UpdateSecurityZoneDetails",
+        model.UpdateSecurityZoneDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSecurityZoneResponse>{},
+        body: await response.json(),
+        bodyKey: "securityZone",
+        bodyModel: model.SecurityZone,
+        type: "model.SecurityZone",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
