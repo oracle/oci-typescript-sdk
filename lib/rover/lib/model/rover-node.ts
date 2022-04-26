@@ -35,6 +35,10 @@ export interface RoverNode {
    */
   "nodeType"?: model.NodeType;
   /**
+   * The shape of the node.
+   */
+  "shape"?: string;
+  /**
    * The type of enclosure rover node is shipped in.
    */
   "enclosureType"?: model.EnclosureType;
@@ -143,6 +147,10 @@ export interface RoverNode {
    * The link to pre-authenticated request for a bucket where image workloads are moved.
    */
   "imageExportPar"?: string;
+  /**
+   * Customer provided master key ID to encrypt secret information. If not provided, Rover's master key will be used for encryption.
+   */
+  "masterKeyId"?: string;
   /**
    * The tags associated with tagSlug.
    *

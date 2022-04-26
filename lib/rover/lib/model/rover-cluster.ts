@@ -152,6 +152,10 @@ export interface RoverCluster {
    */
   "imageExportPar"?: string;
   /**
+   * Customer provided master key ID to encrypt secret information. If not provided, Rover's master key will be used for encryption.
+   */
+  "masterKeyId"?: string;
+  /**
    * The tags associated with tagSlug.
    *
    */

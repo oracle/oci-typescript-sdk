@@ -24,7 +24,7 @@ export interface AddAutoScalingConfigurationDetails {
    */
   "displayName"?: string;
   /**
-   * A node type that is managed by an autoscale configuration. The only supported type is WORKER.
+   * A node type that is managed by an autoscale configuration. The only supported types are WORKER and COMPUTE_ONLY_WORKER.
    */
   "nodeType": string;
   /**
@@ -35,7 +35,12 @@ export interface AddAutoScalingConfigurationDetails {
    * Base-64 encoded password for the cluster (and Cloudera Manager) admin user.
    */
   "clusterAdminPassword": string;
-  "policy": model.AutoScalePolicy;
+  "policy"?: model.AutoScalePolicy;
+  "policyDetails"?:
+    | model.AddMetricBasedHorizontalScalingPolicyDetails
+    | model.AddScheduleBasedVerticalScalingPolicyDetails
+    | model.AddScheduleBasedHorizontalScalingPolicyDetails
+    | model.AddMetricBasedVerticalScalingPolicyDetails;
 }
 
 export namespace AddAutoScalingConfigurationDetails {
@@ -43,7 +48,10 @@ export namespace AddAutoScalingConfigurationDetails {
     const jsonObj = {
       ...obj,
       ...{
-        "policy": obj.policy ? model.AutoScalePolicy.getJsonObj(obj.policy) : undefined
+        "policy": obj.policy ? model.AutoScalePolicy.getJsonObj(obj.policy) : undefined,
+        "policyDetails": obj.policyDetails
+          ? model.AddAutoScalePolicyDetails.getJsonObj(obj.policyDetails)
+          : undefined
       }
     };
 
@@ -53,7 +61,10 @@ export namespace AddAutoScalingConfigurationDetails {
     const jsonObj = {
       ...obj,
       ...{
-        "policy": obj.policy ? model.AutoScalePolicy.getDeserializedJsonObj(obj.policy) : undefined
+        "policy": obj.policy ? model.AutoScalePolicy.getDeserializedJsonObj(obj.policy) : undefined,
+        "policyDetails": obj.policyDetails
+          ? model.AddAutoScalePolicyDetails.getDeserializedJsonObj(obj.policyDetails)
+          : undefined
       }
     };
 

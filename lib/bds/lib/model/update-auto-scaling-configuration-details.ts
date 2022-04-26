@@ -32,6 +32,11 @@ export interface UpdateAutoScalingConfigurationDetails {
    */
   "clusterAdminPassword"?: string;
   "policy"?: model.AutoScalePolicy;
+  "policyDetails"?:
+    | model.UpdateScheduleBasedHorizontalScalingPolicyDetails
+    | model.UpdateMetricBasedVerticalScalingPolicyDetails
+    | model.UpdateMetricBasedHorizontalScalingPolicyDetails
+    | model.UpdateScheduleBasedVerticalScalingPolicyDetails;
 }
 
 export namespace UpdateAutoScalingConfigurationDetails {
@@ -39,7 +44,10 @@ export namespace UpdateAutoScalingConfigurationDetails {
     const jsonObj = {
       ...obj,
       ...{
-        "policy": obj.policy ? model.AutoScalePolicy.getJsonObj(obj.policy) : undefined
+        "policy": obj.policy ? model.AutoScalePolicy.getJsonObj(obj.policy) : undefined,
+        "policyDetails": obj.policyDetails
+          ? model.UpdateAutoScalePolicyDetails.getJsonObj(obj.policyDetails)
+          : undefined
       }
     };
 
@@ -49,7 +57,10 @@ export namespace UpdateAutoScalingConfigurationDetails {
     const jsonObj = {
       ...obj,
       ...{
-        "policy": obj.policy ? model.AutoScalePolicy.getDeserializedJsonObj(obj.policy) : undefined
+        "policy": obj.policy ? model.AutoScalePolicy.getDeserializedJsonObj(obj.policy) : undefined,
+        "policyDetails": obj.policyDetails
+          ? model.UpdateAutoScalePolicyDetails.getDeserializedJsonObj(obj.policyDetails)
+          : undefined
       }
     };
 

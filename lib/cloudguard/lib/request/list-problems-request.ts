@@ -88,6 +88,11 @@ export interface ListProblemsRequest extends common.BaseRequest {
    */
   "targetId"?: string;
   /**
+   * Setting this to `SECURITY_ZONE` returns only security-zone related violations.
+   *
+   */
+  "problemCategory"?: model.ProblemCategoryEnum;
+  /**
    * Default is false.
    * When set to true, the hierarchy of compartments is traversed
    * and all compartments and subcompartments in the tenancy are

@@ -79,6 +79,14 @@ export interface Node {
    * The time the cluster was updated, shown as an RFC 3339 formatted datetime string.
    */
   "timeUpdated"?: Date;
+  /**
+   * The total number of OCPUs available to the node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "ocpus"?: number;
+  /**
+   * The total amount of memory available to the node, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memoryInGBs"?: number;
 }
 
 export namespace Node {
@@ -102,6 +110,7 @@ export namespace Node {
     Edge = "EDGE",
     Utility = "UTILITY",
     Worker = "WORKER",
+    ComputeOnlyWorker = "COMPUTE_ONLY_WORKER",
     Bursting = "BURSTING",
     CloudSql = "CLOUD_SQL",
     /**

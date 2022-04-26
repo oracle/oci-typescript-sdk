@@ -15,8 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Valid values are ACTUAL (the alert will trigger based on actual usage) or
- * FORECAST (the alert will trigger based on predicted usage).
+ * Valid values are ACTUAL (the alert triggers based on actual usage), or
+ * FORECAST (the alert triggers based on predicted usage).
  *
  **/
 export enum AlertType {

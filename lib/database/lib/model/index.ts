@@ -555,6 +555,8 @@ import * as DatabaseConnectionCredentailsByName from "./database-connection-cred
 export import DatabaseConnectionCredentailsByName = DatabaseConnectionCredentailsByName.DatabaseConnectionCredentailsByName;
 import * as DatabaseConnectionCredentialsByDetails from "./database-connection-credentials-by-details";
 export import DatabaseConnectionCredentialsByDetails = DatabaseConnectionCredentialsByDetails.DatabaseConnectionCredentialsByDetails;
+import * as DatabaseSslConnectionCredentials from "./database-ssl-connection-credentials";
+export import DatabaseSslConnectionCredentials = DatabaseSslConnectionCredentials.DatabaseSslConnectionCredentials;
 import * as DatabaseUpgradeWithDatabaseSoftwareImageDetails from "./database-upgrade-with-database-software-image-details";
 export import DatabaseUpgradeWithDatabaseSoftwareImageDetails = DatabaseUpgradeWithDatabaseSoftwareImageDetails.DatabaseUpgradeWithDatabaseSoftwareImageDetails;
 import * as DatabaseUpgradeWithDbHomeDetails from "./database-upgrade-with-db-home-details";

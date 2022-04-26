@@ -94,6 +94,32 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forChangeCaptureFilterCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeCaptureFilterCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeCaptureFilterCompartment(
+    request: serviceRequests.ChangeCaptureFilterCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeCaptureFilterCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeCaptureFilterCompartmentResponse = await this.client.changeCaptureFilterCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeCaptureFilterCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeCaptureFilterCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeDrgCompartment
    *
    * @param request the request to send
@@ -181,6 +207,27 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forChangeVtapCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeVtapCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeVtapCompartment(
+    request: serviceRequests.ChangeVtapCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeVtapCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeVtapCompartmentResponse = await this.client.changeVtapCompartment(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeVtapCompartmentResponse.opcWorkRequestId
+    );
+    return { response: changeVtapCompartmentResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forDeleteByoipRange
    *
    * @param request the request to send
@@ -202,6 +249,27 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forDeleteVtap
+   *
+   * @param request the request to send
+   * @return response returns DeleteVtapResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteVtap(
+    request: serviceRequests.DeleteVtapRequest
+  ): Promise<{
+    response: serviceResponses.DeleteVtapResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteVtapResponse = await this.client.deleteVtap(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteVtapResponse.opcWorkRequestId
+    );
+    return { response: deleteVtapResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forByoipRange till it reaches any of the provided states
    *
    * @param request the request to send
@@ -217,6 +285,25 @@ export class VirtualNetworkWaiter {
       () => this.client.getByoipRange(request),
       response => targetStates.includes(response.byoipRange.lifecycleState!),
       targetStates.includes(models.ByoipRange.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forCaptureFilter till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCaptureFilterResponse | null (null in case of 404 response)
+   */
+  public async forCaptureFilter(
+    request: serviceRequests.GetCaptureFilterRequest,
+    ...targetStates: models.CaptureFilter.LifecycleState[]
+  ): Promise<serviceResponses.GetCaptureFilterResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCaptureFilter(request),
+      response => targetStates.includes(response.captureFilter.lifecycleState!),
+      targetStates.includes(models.CaptureFilter.LifecycleState.Terminated)
     );
   }
 
@@ -752,6 +839,25 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forVtap till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetVtapResponse | null (null in case of 404 response)
+   */
+  public async forVtap(
+    request: serviceRequests.GetVtapRequest,
+    ...targetStates: models.Vtap.LifecycleState[]
+  ): Promise<serviceResponses.GetVtapResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getVtap(request),
+      response => targetStates.includes(response.vtap.lifecycleState!),
+      targetStates.includes(models.Vtap.LifecycleState.Terminated)
+    );
+  }
+
+  /**
    * Waits forModifyVcnCidr
    *
    * @param request the request to send
@@ -833,6 +939,27 @@ export class VirtualNetworkWaiter {
       removeVcnCidrResponse.opcWorkRequestId
     );
     return { response: removeVcnCidrResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateVtap
+   *
+   * @param request the request to send
+   * @return response returns UpdateVtapResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateVtap(
+    request: serviceRequests.UpdateVtapRequest
+  ): Promise<{
+    response: serviceResponses.UpdateVtapResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateVtapResponse = await this.client.updateVtap(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateVtapResponse.opcWorkRequestId
+    );
+    return { response: updateVtapResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

@@ -37,6 +37,7 @@ export class BdsClient {
   protected "_waiters": BdsWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -49,6 +50,9 @@ export class BdsClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -60,7 +64,8 @@ export class BdsClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -291,7 +296,7 @@ export class BdsClient {
   }
 
   /**
-   * Adds block storage to existing worker nodes. The same amount of  storage will be added to all worker nodes. No change will be made  to storage that is already attached. Block storage cannot be removed.
+   * Adds block storage to existing worker/compute only worker nodes. The same amount of  storage will be added to all worker/compute only worker nodes. No change will be made to storage that is already attached. Block storage cannot be removed.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddBlockStorageRequest
@@ -433,7 +438,7 @@ export class BdsClient {
   }
 
   /**
-   * Increases the size (scales out) a cluster by adding worker nodes. The added worker nodes will have the same shape and will have the same amount of attached block storage as other worker nodes in the cluster.
+   * Increases the size (scales out) a cluster by adding worker nodes(data/compute). The added worker nodes will have the same shape and will have the same amount of attached block storage as other worker nodes in the cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddWorkerNodesRequest
@@ -1389,6 +1394,77 @@ export class BdsClient {
   }
 
   /**
+   * Install the specified patch to this cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param InstallPatchRequest
+   * @return InstallPatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/InstallPatch.ts.html |here} to see how to use InstallPatch API.
+   */
+  public async installPatch(
+    installPatchRequest: requests.InstallPatchRequest
+  ): Promise<responses.InstallPatchResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#installPatch.");
+    const pathParams = {
+      "{bdsInstanceId}": installPatchRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": installPatchRequest.opcRequestId,
+      "if-match": installPatchRequest.ifMatch,
+      "opc-retry-token": installPatchRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      installPatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/installPatch",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        installPatchRequest.installPatchDetails,
+        "InstallPatchDetails",
+        model.InstallPatchDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.InstallPatchResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns information about the autoscaling configurations for a cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1903,6 +1979,256 @@ export class BdsClient {
   }
 
   /**
+   * List the patch history of this cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListPatchHistoriesRequest
+   * @return ListPatchHistoriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListPatchHistories.ts.html |here} to see how to use ListPatchHistories API.
+   */
+  public async listPatchHistories(
+    listPatchHistoriesRequest: requests.ListPatchHistoriesRequest
+  ): Promise<responses.ListPatchHistoriesResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listPatchHistories.");
+    const pathParams = {
+      "{bdsInstanceId}": listPatchHistoriesRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "lifecycleState": listPatchHistoriesRequest.lifecycleState,
+      "sortBy": listPatchHistoriesRequest.sortBy,
+      "patchVersion": listPatchHistoriesRequest.patchVersion,
+      "sortOrder": listPatchHistoriesRequest.sortOrder,
+      "page": listPatchHistoriesRequest.page,
+      "limit": listPatchHistoriesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPatchHistoriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPatchHistoriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/patchHistory",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPatchHistoriesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.PatchHistorySummary,
+        type: "Array<model.PatchHistorySummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPatchHistoriesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.PatchHistorySummary objects
+   * contained in responses from the listPatchHistories operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPatchHistories(
+    request: requests.ListPatchHistoriesRequest
+  ): AsyncIterableIterator<model.PatchHistorySummary> {
+    return paginateRecords(request, req => this.listPatchHistories(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPatchHistoriesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listPatchHistories operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPatchHistoriesResponses(
+    request: requests.ListPatchHistoriesRequest
+  ): AsyncIterableIterator<responses.ListPatchHistoriesResponse> {
+    return paginateResponses(request, req => this.listPatchHistories(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PatchHistorySummary objects
+   * contained in responses from the listPatchHistories operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPatchHistoriesRecordIterator(
+    request: requests.ListPatchHistoriesRequest
+  ): AsyncIterableIterator<model.PatchHistorySummary> {
+    return paginateRecords(request, req => this.listPatchHistories(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPatchHistories operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPatchHistoriesResponseIterator(
+    request: requests.ListPatchHistoriesRequest
+  ): AsyncIterableIterator<responses.ListPatchHistoriesResponse> {
+    return paginateResponses(request, req => this.listPatchHistories(req));
+  }
+
+  /**
+   * List all the available patches for this cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListPatchesRequest
+   * @return ListPatchesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListPatches.ts.html |here} to see how to use ListPatches API.
+   */
+  public async listPatches(
+    listPatchesRequest: requests.ListPatchesRequest
+  ): Promise<responses.ListPatchesResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listPatches.");
+    const pathParams = {
+      "{bdsInstanceId}": listPatchesRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "page": listPatchesRequest.page,
+      "limit": listPatchesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPatchesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPatchesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/patches",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPatchesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.PatchSummary,
+        type: "Array<model.PatchSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPatchesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.PatchSummary objects
+   * contained in responses from the listPatches operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPatches(
+    request: requests.ListPatchesRequest
+  ): AsyncIterableIterator<model.PatchSummary> {
+    return paginateRecords(request, req => this.listPatches(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPatchesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listPatches operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPatchesResponses(
+    request: requests.ListPatchesRequest
+  ): AsyncIterableIterator<responses.ListPatchesResponse> {
+    return paginateResponses(request, req => this.listPatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PatchSummary objects
+   * contained in responses from the listPatches operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPatchesRecordIterator(
+    request: requests.ListPatchesRequest
+  ): AsyncIterableIterator<model.PatchSummary> {
+    return paginateRecords(request, req => this.listPatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPatches operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPatchesResponseIterator(
+    request: requests.ListPatchesRequest
+  ): AsyncIterableIterator<responses.ListPatchesResponse> {
+    return paginateResponses(request, req => this.listPatches(req));
+  }
+
+  /**
    * Returns a paginated list of errors for a work request identified by the given ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2403,6 +2729,76 @@ export class BdsClient {
       const response = await retrier.makeServiceCall(this._httpClient, request);
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveCloudSqlResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a single node of a Big Data Service cluster
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveNodeRequest
+   * @return RemoveNodeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveNode.ts.html |here} to see how to use RemoveNode API.
+   */
+  public async removeNode(
+    removeNodeRequest: requests.RemoveNodeRequest
+  ): Promise<responses.RemoveNodeResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#removeNode.");
+    const pathParams = {
+      "{bdsInstanceId}": removeNodeRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeNodeRequest.opcRequestId,
+      "if-match": removeNodeRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeNodeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/removeNode",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeNodeRequest.removeNodeDetails,
+        "RemoveNodeDetails",
+        model.RemoveNodeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveNodeResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

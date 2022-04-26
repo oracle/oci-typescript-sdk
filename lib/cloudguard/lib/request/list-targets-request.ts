@@ -27,6 +27,13 @@ export interface ListTargetsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
+   * Default is false.
+   * When set to true, only the targets that would be deleted as part of
+   * security zone creation will be returned.
+   *
+   */
+  "isNonSecurityZoneTargetsOnlyQuery"?: boolean;
+  /**
    * The field life cycle state. Only one state can be provided. Default value for state is active. If no value is specified state is active.
    */
   "lifecycleState"?: model.LifecycleState;

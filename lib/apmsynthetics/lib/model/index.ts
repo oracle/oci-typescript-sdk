@@ -1,6 +1,6 @@
 /**
  * Application Performance Monitoring Synthetic Monitoring API
- * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors.
+ * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
  * OpenAPI spec version: 20200630
  *
  *
@@ -13,10 +13,22 @@
 
 import * as ContentTypes from "./content-types";
 export import ContentTypes = ContentTypes.ContentTypes;
+import * as CreateDedicatedVantagePointDetails from "./create-dedicated-vantage-point-details";
+export import CreateDedicatedVantagePointDetails = CreateDedicatedVantagePointDetails.CreateDedicatedVantagePointDetails;
 import * as CreateMonitorDetails from "./create-monitor-details";
 export import CreateMonitorDetails = CreateMonitorDetails.CreateMonitorDetails;
 import * as CreateScriptDetails from "./create-script-details";
 export import CreateScriptDetails = CreateScriptDetails.CreateScriptDetails;
+import * as DedicatedVantagePoint from "./dedicated-vantage-point";
+export import DedicatedVantagePoint = DedicatedVantagePoint.DedicatedVantagePoint;
+import * as DedicatedVantagePointCollection from "./dedicated-vantage-point-collection";
+export import DedicatedVantagePointCollection = DedicatedVantagePointCollection.DedicatedVantagePointCollection;
+import * as DedicatedVantagePointStatus from "./dedicated-vantage-point-status";
+export import DedicatedVantagePointStatus = DedicatedVantagePointStatus.DedicatedVantagePointStatus;
+import * as DedicatedVantagePointSummary from "./dedicated-vantage-point-summary";
+export import DedicatedVantagePointSummary = DedicatedVantagePointSummary.DedicatedVantagePointSummary;
+import * as DvpStackDetails from "./dvp-stack-details";
+export import DvpStackDetails = DvpStackDetails.DvpStackDetails;
 import * as GeoSummary from "./geo-summary";
 export import GeoSummary = GeoSummary.GeoSummary;
 import * as Header from "./header";
@@ -75,6 +87,8 @@ import * as ScriptSummary from "./script-summary";
 export import ScriptSummary = ScriptSummary.ScriptSummary;
 import * as SortOrders from "./sort-orders";
 export import SortOrders = SortOrders.SortOrders;
+import * as UpdateDedicatedVantagePointDetails from "./update-dedicated-vantage-point-details";
+export import UpdateDedicatedVantagePointDetails = UpdateDedicatedVantagePointDetails.UpdateDedicatedVantagePointDetails;
 import * as UpdateMonitorDetails from "./update-monitor-details";
 export import UpdateMonitorDetails = UpdateMonitorDetails.UpdateMonitorDetails;
 import * as UpdateScriptDetails from "./update-script-details";
@@ -86,6 +100,8 @@ export import VerifyText = VerifyText.VerifyText;
 
 import * as BrowserMonitorConfiguration from "./browser-monitor-configuration";
 export import BrowserMonitorConfiguration = BrowserMonitorConfiguration.BrowserMonitorConfiguration;
+import * as OracleRMStack from "./oracle-rm-stack";
+export import OracleRMStack = OracleRMStack.OracleRMStack;
 import * as RestMonitorConfiguration from "./rest-monitor-configuration";
 export import RestMonitorConfiguration = RestMonitorConfiguration.RestMonitorConfiguration;
 import * as ScriptedBrowserMonitorConfiguration from "./scripted-browser-monitor-configuration";

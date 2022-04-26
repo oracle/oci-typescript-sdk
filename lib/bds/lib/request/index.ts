@@ -48,6 +48,8 @@ import * as GetBdsMetastoreConfigurationRequest from "./get-bds-metastore-config
 export import GetBdsMetastoreConfigurationRequest = GetBdsMetastoreConfigurationRequest.GetBdsMetastoreConfigurationRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
+import * as InstallPatchRequest from "./install-patch-request";
+export import InstallPatchRequest = InstallPatchRequest.InstallPatchRequest;
 import * as ListAutoScalingConfigurationsRequest from "./list-auto-scaling-configurations-request";
 export import ListAutoScalingConfigurationsRequest = ListAutoScalingConfigurationsRequest.ListAutoScalingConfigurationsRequest;
 import * as ListBdsApiKeysRequest from "./list-bds-api-keys-request";
@@ -56,6 +58,10 @@ import * as ListBdsInstancesRequest from "./list-bds-instances-request";
 export import ListBdsInstancesRequest = ListBdsInstancesRequest.ListBdsInstancesRequest;
 import * as ListBdsMetastoreConfigurationsRequest from "./list-bds-metastore-configurations-request";
 export import ListBdsMetastoreConfigurationsRequest = ListBdsMetastoreConfigurationsRequest.ListBdsMetastoreConfigurationsRequest;
+import * as ListPatchHistoriesRequest from "./list-patch-histories-request";
+export import ListPatchHistoriesRequest = ListPatchHistoriesRequest.ListPatchHistoriesRequest;
+import * as ListPatchesRequest from "./list-patches-request";
+export import ListPatchesRequest = ListPatchesRequest.ListPatchesRequest;
 import * as ListWorkRequestErrorsRequest from "./list-work-request-errors-request";
 export import ListWorkRequestErrorsRequest = ListWorkRequestErrorsRequest.ListWorkRequestErrorsRequest;
 import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
@@ -66,6 +72,8 @@ import * as RemoveAutoScalingConfigurationRequest from "./remove-auto-scaling-co
 export import RemoveAutoScalingConfigurationRequest = RemoveAutoScalingConfigurationRequest.RemoveAutoScalingConfigurationRequest;
 import * as RemoveCloudSqlRequest from "./remove-cloud-sql-request";
 export import RemoveCloudSqlRequest = RemoveCloudSqlRequest.RemoveCloudSqlRequest;
+import * as RemoveNodeRequest from "./remove-node-request";
+export import RemoveNodeRequest = RemoveNodeRequest.RemoveNodeRequest;
 import * as RestartNodeRequest from "./restart-node-request";
 export import RestartNodeRequest = RestartNodeRequest.RestartNodeRequest;
 import * as TestBdsMetastoreConfigurationRequest from "./test-bds-metastore-configuration-request";

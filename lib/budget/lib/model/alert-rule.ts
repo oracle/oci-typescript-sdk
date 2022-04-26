@@ -19,25 +19,25 @@ import common = require("oci-common");
  */
 export interface AlertRule {
   /**
-   * The OCID of the alert rule
+   * The OCID of the alert rule.
    */
   "id": string;
   /**
-   * The OCID of the budget
+   * The OCID of the budget.
    */
   "budgetId": string;
   /**
-   * The name of the alert rule.
+   * The name of the alert rule. Avoid entering confidential information.
    */
   "displayName": string;
   /**
-   * The type of alert. Valid values are ACTUAL (the alert will trigger based on actual usage) or
-   * FORECAST (the alert will trigger based on predicted usage).
+   * The type of the alert. Valid values are ACTUAL (the alert triggers based on actual usage), or
+   * FORECAST (the alert triggers based on predicted usage).
    *
    */
   "type": model.AlertType;
   /**
-   * The threshold for triggering the alert. If thresholdType is PERCENTAGE, the maximum value is 10000.
+   * The threshold for triggering the alert. If the thresholdType is PERCENTAGE, the maximum value is 10000.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "threshold": number;
@@ -50,7 +50,7 @@ export interface AlertRule {
    */
   "lifecycleState": model.LifecycleState;
   /**
-   * Custom message sent when alert is triggered
+   * Custom message sent when an alert is triggered.
    */
   "message"?: string;
   /**
@@ -58,21 +58,21 @@ export interface AlertRule {
    */
   "description"?: string;
   /**
-   * Version of the alert rule. Starts from 1 and increments by 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The version of the alert rule. Starts from 1 and increments by 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
   /**
-   * Delimited list of email addresses to receive the alert when it triggers.
-   * Delimiter character can be comma, space, TAB, or semicolon.
+   * The delimited list of email addresses to receive the alert when it triggers.
+   * Delimiter characters can be a comma, space, TAB, or semicolon.
    *
    */
   "recipients": string;
   /**
-   * Time budget was created
+   * The time the budget was created.
    */
   "timeCreated": Date;
   /**
-   * Time budget was updated
+   * The time the budget was updated.
    */
   "timeUpdated": Date;
   /**

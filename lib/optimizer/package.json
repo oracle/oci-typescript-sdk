@@ -1,6 +1,6 @@
 {
   "name": "oci-optimizer",
-  "version": "2.23.0",
+  "version": "2.24.0",
   "description": "OCI NodeJS client for Optimizer Service",
   "repository": {
     "type": "git",

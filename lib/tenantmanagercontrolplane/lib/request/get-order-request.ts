@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetOrderRequest extends common.BaseRequest {
   /**
-   * Activation Token containing an order id. JWT RFC 7519 formatted string.
+   * Activation Token containing an order ID. A JWT RFC 7519 formatted string.
    *
    */
   "activationToken": string;

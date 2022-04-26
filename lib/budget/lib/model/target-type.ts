@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The type of target on which budget is applied. Valid values are COMPARTMENT or TAG.
+ * The type of target on which the budget is applied. Valid values are COMPARTMENT or TAG.
  **/
 export enum TargetType {
   Compartment = "COMPARTMENT",

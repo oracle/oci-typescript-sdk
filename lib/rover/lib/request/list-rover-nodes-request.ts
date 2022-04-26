@@ -31,6 +31,10 @@ export interface ListRoverNodesRequest extends common.BaseRequest {
    */
   "nodeType"?: model.NodeType;
   /**
+   * A filter to return only Nodes of type matched with the given node shape.
+   */
+  "shape"?: string;
+  /**
    * The maximum number of items to return.
    */
   "limit"?: number;

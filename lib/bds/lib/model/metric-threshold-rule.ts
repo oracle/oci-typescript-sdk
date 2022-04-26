@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An autoscale action is triggered when a performance metric meets or exceeds a threshold.
+ * An autoscale action is triggered when a performance metric exceeds a threshold.
  */
 export interface MetricThresholdRule {
   /**
-   * This value is the minimum period of time the metric value meets or exceeds the threshold value before the action is triggered. The value is in minutes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * This value is the minimum period of time the metric value exceeds the threshold value before the action is triggered. The value is in minutes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "durationInMinutes": number;
   /**

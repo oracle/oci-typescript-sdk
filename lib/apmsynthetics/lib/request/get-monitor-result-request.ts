@@ -33,12 +33,12 @@ export interface GetMonitorResultRequest extends common.BaseRequest {
    */
   "vantagePoint": string;
   /**
-   * The result type har, screenshot, log or network.
+   * The result type: har, screenshot, log, or network.
    *
    */
   "resultType": string;
   /**
-   * The result content type zip or raw.
+   * The result content type: zip or raw.
    *
    */
   "resultContentType": string;

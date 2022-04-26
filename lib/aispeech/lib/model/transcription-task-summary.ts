@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface TranscriptionTaskSummary {
   /**
-   * Unique identifier that is immutable on creation.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the task.
    */
   "id": string;
   /**
-   * Transcription task name.
+   * A user-friendly display name for the task.
    */
   "displayName": string;
   /**

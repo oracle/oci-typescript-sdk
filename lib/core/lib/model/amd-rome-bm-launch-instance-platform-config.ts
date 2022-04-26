@@ -20,7 +20,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The platform configuration used when launching a bare metal instance with the AMD Rome platform.
+ * The platform configuration used when launching a bare metal instance with the BM.Standard.E3.128 shape
+ * (the AMD Rome platform).
  *
  */
 export interface AmdRomeBmLaunchInstancePlatformConfig extends model.LaunchInstancePlatformConfig {

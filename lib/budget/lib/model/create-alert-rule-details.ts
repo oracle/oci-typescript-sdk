@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateAlertRuleDetails {
   /**
-   * The name of the alert rule.
+   * The name of the alert rule. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
@@ -27,15 +27,15 @@ export interface CreateAlertRuleDetails {
    */
   "description"?: string;
   /**
-   * Type of alert. Valid values are ACTUAL (the alert will trigger based on actual usage) or
-   * FORECAST (the alert will trigger based on predicted usage).
+   * The type of the alert. Valid values are ACTUAL (the alert triggers based on actual usage), or
+   * FORECAST (the alert triggers based on predicted usage).
    *
    */
   "type": model.AlertType;
   /**
-   * The threshold for triggering the alert expressed as a whole number or decimal value.
-   * If thresholdType is ABSOLUTE, threshold can have at most 12 digits before the decimal point and up to 2 digits after the decimal point.
-   * If thresholdType is PERCENTAGE, the maximum value is 10000 and can have up to 2 digits after the decimal point.
+   * The threshold for triggering the alert, expressed as a whole number or decimal value.
+   * If the thresholdType is ABSOLUTE, the threshold can have at most 12 digits before the decimal point, and up to two digits after the decimal point.
+   * If the thresholdType is PERCENTAGE, the maximum value is 10000 and can have up to two digits after the decimal point.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "threshold": number;
@@ -44,11 +44,11 @@ export interface CreateAlertRuleDetails {
    */
   "thresholdType": model.ThresholdType;
   /**
-   * The audience that will receive the alert when it triggers. An empty string is interpreted as null.
+   * The audience that receives the alert when it triggers. An empty string is interpreted as null.
    */
   "recipients"?: string;
   /**
-   * The message to be sent to the recipients when alert rule is triggered.
+   * The message to be sent to the recipients when the alert rule is triggered.
    */
   "message"?: string;
   /**

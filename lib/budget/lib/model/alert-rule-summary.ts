@@ -19,25 +19,25 @@ import common = require("oci-common");
  */
 export interface AlertRuleSummary {
   /**
-   * The OCID of the alert rule
+   * The OCID of the alert rule.
    */
   "id": string;
   /**
-   * The OCID of the budget
+   * The OCID of the budget.
    */
   "budgetId": string;
   /**
-   * The name of the alert rule.
+   * The name of the alert rule. Avoid entering confidential information.
    */
   "displayName": string;
   /**
-   * ACTUAL means the alert will trigger based on actual usage.
-   * FORECAST means the alert will trigger based on predicted usage.
+   * ACTUAL means the alert triggers based on actual usage.
+   * FORECAST means the alert triggers based on predicted usage.
    *
    */
   "type": model.AlertType;
   /**
-   * The threshold for triggering the alert. If thresholdType is PERCENTAGE, the maximum value is 10000.
+   * The threshold for triggering the alert. If the thresholdType is PERCENTAGE, the maximum value is 10000.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "threshold": number;
@@ -50,7 +50,7 @@ export interface AlertRuleSummary {
    */
   "lifecycleState": model.LifecycleState;
   /**
-   * Custom message that will be sent when alert is triggered
+   * The custom message that will be sent when the alert is triggered.
    */
   "message"?: string;
   /**
@@ -58,19 +58,19 @@ export interface AlertRuleSummary {
    */
   "description"?: string;
   /**
-   * Version of the alert rule. Starts from 1 and increments by 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The version of the alert rule. Starts from 1 and increments by 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
   /**
-   * The audience that will receive the alert when it triggers.
+   * The audience that receives the alert when it triggers.
    */
   "recipients": string;
   /**
-   * Time when budget was created
+   * The time when the budget was created.
    */
   "timeCreated": Date;
   /**
-   * Time when budget was updated
+   * The time when the budget was updated.
    */
   "timeUpdated": Date;
   /**

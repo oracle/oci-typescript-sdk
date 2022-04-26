@@ -14,6 +14,9 @@
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * The information required to create a RoverNode.
+ */
 export interface CreateRoverNodeDetails {
   /**
    * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
@@ -23,6 +26,10 @@ export interface CreateRoverNodeDetails {
    * The OCID of the compartment containing the RoverNode.
    */
   "compartmentId": string;
+  /**
+   * The shape of the node.
+   */
+  "shape"?: string;
   "customerShippingAddress"?: model.ShippingAddress;
   /**
    * List of existing workloads that should be provisioned on the node.
@@ -104,6 +111,10 @@ export interface CreateRoverNodeDetails {
    * Validation code returned by data validation tool. Required for return shipping label generation if data import was requested.
    */
   "dataValidationCode"?: string;
+  /**
+   * Customer provided master key ID to encrypt secret information. If not provided, Rover's master key will be used for encryption.
+   */
+  "masterKeyId"?: string;
   /**
    * The freeform tags associated with this resource, if any. Each tag is a simple key-value pair with no
    * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).

@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateTranscriptionJobDetails {
   /**
-   * Transcription job name.
+   * A user-friendly display name for the job.
    */
   "displayName"?: string;
   /**
-   * Transcription job description.
+   * A short description of the job.
    */
   "description"?: string;
   /**

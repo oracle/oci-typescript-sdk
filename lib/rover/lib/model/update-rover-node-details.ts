@@ -23,6 +23,10 @@ export interface UpdateRoverNodeDetails {
    */
   "displayName"?: string;
   /**
+   * The shape of workloads in the node.
+   */
+  "shape"?: string;
+  /**
    * Serial number of the node.
    */
   "serialNumber"?: string;

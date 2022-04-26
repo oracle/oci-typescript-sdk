@@ -48,6 +48,8 @@ import * as GetBdsMetastoreConfigurationResponse from "./get-bds-metastore-confi
 export import GetBdsMetastoreConfigurationResponse = GetBdsMetastoreConfigurationResponse.GetBdsMetastoreConfigurationResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
+import * as InstallPatchResponse from "./install-patch-response";
+export import InstallPatchResponse = InstallPatchResponse.InstallPatchResponse;
 import * as ListAutoScalingConfigurationsResponse from "./list-auto-scaling-configurations-response";
 export import ListAutoScalingConfigurationsResponse = ListAutoScalingConfigurationsResponse.ListAutoScalingConfigurationsResponse;
 import * as ListBdsApiKeysResponse from "./list-bds-api-keys-response";
@@ -56,6 +58,10 @@ import * as ListBdsInstancesResponse from "./list-bds-instances-response";
 export import ListBdsInstancesResponse = ListBdsInstancesResponse.ListBdsInstancesResponse;
 import * as ListBdsMetastoreConfigurationsResponse from "./list-bds-metastore-configurations-response";
 export import ListBdsMetastoreConfigurationsResponse = ListBdsMetastoreConfigurationsResponse.ListBdsMetastoreConfigurationsResponse;
+import * as ListPatchHistoriesResponse from "./list-patch-histories-response";
+export import ListPatchHistoriesResponse = ListPatchHistoriesResponse.ListPatchHistoriesResponse;
+import * as ListPatchesResponse from "./list-patches-response";
+export import ListPatchesResponse = ListPatchesResponse.ListPatchesResponse;
 import * as ListWorkRequestErrorsResponse from "./list-work-request-errors-response";
 export import ListWorkRequestErrorsResponse = ListWorkRequestErrorsResponse.ListWorkRequestErrorsResponse;
 import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response";
@@ -66,6 +72,8 @@ import * as RemoveAutoScalingConfigurationResponse from "./remove-auto-scaling-c
 export import RemoveAutoScalingConfigurationResponse = RemoveAutoScalingConfigurationResponse.RemoveAutoScalingConfigurationResponse;
 import * as RemoveCloudSqlResponse from "./remove-cloud-sql-response";
 export import RemoveCloudSqlResponse = RemoveCloudSqlResponse.RemoveCloudSqlResponse;
+import * as RemoveNodeResponse from "./remove-node-response";
+export import RemoveNodeResponse = RemoveNodeResponse.RemoveNodeResponse;
 import * as RestartNodeResponse from "./restart-node-response";
 export import RestartNodeResponse = RestartNodeResponse.RestartNodeResponse;
 import * as TestBdsMetastoreConfigurationResponse from "./test-bds-metastore-configuration-response";

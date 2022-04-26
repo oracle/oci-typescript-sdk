@@ -8,10 +8,10 @@ import { DefaultRetryCondition } from "./retrier";
 
 const Breaker = require("opossum");
 
-async function FetchWrapper(req: RequestInfo) {
+async function FetchWrapper(req: RequestInfo, options?: RequestInit) {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch(req);
+      const response = await fetch(req, options);
       if (response.status && response.status >= 200 && response.status <= 299) {
         resolve({ response });
       } else {

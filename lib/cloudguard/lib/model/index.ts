@@ -1,8 +1,8 @@
 /**
- * Cloud Guard API
- * Use the Cloud Guard API to automate processes that you would otherwise perform through the Cloud Guard Console.
+ * Cloud Guard and Security Zones API
+ * Use the Cloud Guard and Security Zones API to automate processes that you would otherwise perform through the Cloud Guard Console or the Security Zones Console. For more information on these services, see the [Cloud Guard](/iaas/cloud-guard/home.htm) and [Security Zones](/iaas/security-zone/home.htm) documentation.
 
-**Note:** You can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations from any region.
+**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations in Cloud Guard from any region.
 
  * OpenAPI spec version: 20200131
  * 
@@ -20,6 +20,8 @@ import * as ActivityProblemAggregationCollection from "./activity-problem-aggreg
 export import ActivityProblemAggregationCollection = ActivityProblemAggregationCollection.ActivityProblemAggregationCollection;
 import * as ActorType from "./actor-type";
 export import ActorType = ActorType.ActorType;
+import * as AddCompartmentDetails from "./add-compartment-details";
+export import AddCompartmentDetails = AddCompartmentDetails.AddCompartmentDetails;
 import * as AttachTargetDetectorRecipeDetails from "./attach-target-detector-recipe-details";
 export import AttachTargetDetectorRecipeDetails = AttachTargetDetectorRecipeDetails.AttachTargetDetectorRecipeDetails;
 import * as AttachTargetResponderRecipeDetails from "./attach-target-responder-recipe-details";
@@ -32,6 +34,12 @@ import * as ChangeManagedListCompartmentDetails from "./change-managed-list-comp
 export import ChangeManagedListCompartmentDetails = ChangeManagedListCompartmentDetails.ChangeManagedListCompartmentDetails;
 import * as ChangeResponderRecipeCompartmentDetails from "./change-responder-recipe-compartment-details";
 export import ChangeResponderRecipeCompartmentDetails = ChangeResponderRecipeCompartmentDetails.ChangeResponderRecipeCompartmentDetails;
+import * as ChangeSecurityPolicyCompartmentDetails from "./change-security-policy-compartment-details";
+export import ChangeSecurityPolicyCompartmentDetails = ChangeSecurityPolicyCompartmentDetails.ChangeSecurityPolicyCompartmentDetails;
+import * as ChangeSecurityRecipeCompartmentDetails from "./change-security-recipe-compartment-details";
+export import ChangeSecurityRecipeCompartmentDetails = ChangeSecurityRecipeCompartmentDetails.ChangeSecurityRecipeCompartmentDetails;
+import * as ChangeSecurityZoneCompartmentDetails from "./change-security-zone-compartment-details";
+export import ChangeSecurityZoneCompartmentDetails = ChangeSecurityZoneCompartmentDetails.ChangeSecurityZoneCompartmentDetails;
 import * as ClassificationStatus from "./classification-status";
 export import ClassificationStatus = ClassificationStatus.ClassificationStatus;
 import * as CloudGuardStatus from "./cloud-guard-status";
@@ -72,6 +80,12 @@ import * as CreateManagedListDetails from "./create-managed-list-details";
 export import CreateManagedListDetails = CreateManagedListDetails.CreateManagedListDetails;
 import * as CreateResponderRecipeDetails from "./create-responder-recipe-details";
 export import CreateResponderRecipeDetails = CreateResponderRecipeDetails.CreateResponderRecipeDetails;
+import * as CreateSecurityPolicyDetails from "./create-security-policy-details";
+export import CreateSecurityPolicyDetails = CreateSecurityPolicyDetails.CreateSecurityPolicyDetails;
+import * as CreateSecurityRecipeDetails from "./create-security-recipe-details";
+export import CreateSecurityRecipeDetails = CreateSecurityRecipeDetails.CreateSecurityRecipeDetails;
+import * as CreateSecurityZoneDetails from "./create-security-zone-details";
+export import CreateSecurityZoneDetails = CreateSecurityZoneDetails.CreateSecurityZoneDetails;
 import * as CreateTargetDetails from "./create-target-details";
 export import CreateTargetDetails = CreateTargetDetails.CreateTargetDetails;
 import * as CreateTargetDetectorRecipeDetails from "./create-target-detector-recipe-details";
@@ -162,6 +176,8 @@ import * as ProblemAggregation from "./problem-aggregation";
 export import ProblemAggregation = ProblemAggregation.ProblemAggregation;
 import * as ProblemAggregationCollection from "./problem-aggregation-collection";
 export import ProblemAggregationCollection = ProblemAggregationCollection.ProblemAggregationCollection;
+import * as ProblemCategoryEnum from "./problem-category-enum";
+export import ProblemCategoryEnum = ProblemCategoryEnum.ProblemCategoryEnum;
 import * as ProblemCollection from "./problem-collection";
 export import ProblemCollection = ProblemCollection.ProblemCollection;
 import * as ProblemDimension from "./problem-dimension";
@@ -192,6 +208,8 @@ import * as RecommendationSummaryCollection from "./recommendation-summary-colle
 export import RecommendationSummaryCollection = RecommendationSummaryCollection.RecommendationSummaryCollection;
 import * as RecommendationType from "./recommendation-type";
 export import RecommendationType = RecommendationType.RecommendationType;
+import * as RemoveCompartmentDetails from "./remove-compartment-details";
+export import RemoveCompartmentDetails = RemoveCompartmentDetails.RemoveCompartmentDetails;
 import * as RequestSummarizedTrendResourceRiskScoresDetails from "./request-summarized-trend-resource-risk-scores-details";
 export import RequestSummarizedTrendResourceRiskScoresDetails = RequestSummarizedTrendResourceRiskScoresDetails.RequestSummarizedTrendResourceRiskScoresDetails;
 import * as ResourceProfile from "./resource-profile";
@@ -286,8 +304,20 @@ import * as RiskScoreAggregationCollection from "./risk-score-aggregation-collec
 export import RiskScoreAggregationCollection = RiskScoreAggregationCollection.RiskScoreAggregationCollection;
 import * as RuleSummary from "./rule-summary";
 export import RuleSummary = RuleSummary.RuleSummary;
+import * as SecurityPolicy from "./security-policy";
+export import SecurityPolicy = SecurityPolicy.SecurityPolicy;
+import * as SecurityPolicyCollection from "./security-policy-collection";
+export import SecurityPolicyCollection = SecurityPolicyCollection.SecurityPolicyCollection;
+import * as SecurityPolicySummary from "./security-policy-summary";
+export import SecurityPolicySummary = SecurityPolicySummary.SecurityPolicySummary;
 import * as SecurityRating from "./security-rating";
 export import SecurityRating = SecurityRating.SecurityRating;
+import * as SecurityRecipe from "./security-recipe";
+export import SecurityRecipe = SecurityRecipe.SecurityRecipe;
+import * as SecurityRecipeCollection from "./security-recipe-collection";
+export import SecurityRecipeCollection = SecurityRecipeCollection.SecurityRecipeCollection;
+import * as SecurityRecipeSummary from "./security-recipe-summary";
+export import SecurityRecipeSummary = SecurityRecipeSummary.SecurityRecipeSummary;
 import * as SecurityScoreAggregation from "./security-score-aggregation";
 export import SecurityScoreAggregation = SecurityScoreAggregation.SecurityScoreAggregation;
 import * as SecurityScoreAggregationCollection from "./security-score-aggregation-collection";
@@ -296,6 +326,12 @@ import * as SecurityScoreTrendAggregation from "./security-score-trend-aggregati
 export import SecurityScoreTrendAggregation = SecurityScoreTrendAggregation.SecurityScoreTrendAggregation;
 import * as SecurityScoreTrendAggregationCollection from "./security-score-trend-aggregation-collection";
 export import SecurityScoreTrendAggregationCollection = SecurityScoreTrendAggregationCollection.SecurityScoreTrendAggregationCollection;
+import * as SecurityZone from "./security-zone";
+export import SecurityZone = SecurityZone.SecurityZone;
+import * as SecurityZoneCollection from "./security-zone-collection";
+export import SecurityZoneCollection = SecurityZoneCollection.SecurityZoneCollection;
+import * as SecurityZoneSummary from "./security-zone-summary";
+export import SecurityZoneSummary = SecurityZoneSummary.SecurityZoneSummary;
 import * as ServiceTypeSummary from "./service-type-summary";
 export import ServiceTypeSummary = ServiceTypeSummary.ServiceTypeSummary;
 import * as Severity from "./severity";
@@ -328,6 +364,8 @@ import * as Target from "./target";
 export import Target = Target.Target;
 import * as TargetCollection from "./target-collection";
 export import TargetCollection = TargetCollection.TargetCollection;
+import * as TargetDetails from "./target-details";
+export import TargetDetails = TargetDetails.TargetDetails;
 import * as TargetDetectorDetails from "./target-detector-details";
 export import TargetDetectorDetails = TargetDetectorDetails.TargetDetectorDetails;
 import * as TargetDetectorRecipe from "./target-detector-recipe";
@@ -392,6 +430,12 @@ import * as UpdateResponderRecipeResponderRuleDetails from "./update-responder-r
 export import UpdateResponderRecipeResponderRuleDetails = UpdateResponderRecipeResponderRuleDetails.UpdateResponderRecipeResponderRuleDetails;
 import * as UpdateResponderRuleDetails from "./update-responder-rule-details";
 export import UpdateResponderRuleDetails = UpdateResponderRuleDetails.UpdateResponderRuleDetails;
+import * as UpdateSecurityPolicyDetails from "./update-security-policy-details";
+export import UpdateSecurityPolicyDetails = UpdateSecurityPolicyDetails.UpdateSecurityPolicyDetails;
+import * as UpdateSecurityRecipeDetails from "./update-security-recipe-details";
+export import UpdateSecurityRecipeDetails = UpdateSecurityRecipeDetails.UpdateSecurityRecipeDetails;
+import * as UpdateSecurityZoneDetails from "./update-security-zone-details";
+export import UpdateSecurityZoneDetails = UpdateSecurityZoneDetails.UpdateSecurityZoneDetails;
 import * as UpdateTargetDetails from "./update-target-details";
 export import UpdateTargetDetails = UpdateTargetDetails.UpdateTargetDetails;
 import * as UpdateTargetDetectorRecipe from "./update-target-detector-recipe";
@@ -419,6 +463,8 @@ import * as AllTargetsSelected from "./all-targets-selected";
 export import AllTargetsSelected = AllTargetsSelected.AllTargetsSelected;
 import * as CompositeCondition from "./composite-condition";
 export import CompositeCondition = CompositeCondition.CompositeCondition;
+import * as SecurityZoneTargetDetails from "./security-zone-target-details";
+export import SecurityZoneTargetDetails = SecurityZoneTargetDetails.SecurityZoneTargetDetails;
 import * as SimpleCondition from "./simple-condition";
 export import SimpleCondition = SimpleCondition.SimpleCondition;
 import * as TargetIdsSelected from "./target-ids-selected";

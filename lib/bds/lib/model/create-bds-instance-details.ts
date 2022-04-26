@@ -49,9 +49,17 @@ export interface CreateBdsInstanceDetails {
   "isSecure": boolean;
   "networkConfig"?: model.NetworkConfig;
   /**
+   * Pre-authenticated URL of the script in Object Store that is downloaded and executed.
+   */
+  "bootstrapScriptUrl"?: string;
+  /**
    * The list of nodes in the Big Data Service cluster.
    */
   "nodes": Array<model.CreateNodeDetails>;
+  /**
+   * The user-defined kerberos realm name.
+   */
+  "kerberosRealmName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type, or scope.
    * Exists for cross-compatibility only. For example, `{\"bar-key\": \"value\"}`
@@ -74,6 +82,7 @@ export namespace CreateBdsInstanceDetails {
         "networkConfig": obj.networkConfig
           ? model.NetworkConfig.getJsonObj(obj.networkConfig)
           : undefined,
+
         "nodes": obj.nodes
           ? obj.nodes.map(item => {
               return model.CreateNodeDetails.getJsonObj(item);
@@ -91,6 +100,7 @@ export namespace CreateBdsInstanceDetails {
         "networkConfig": obj.networkConfig
           ? model.NetworkConfig.getDeserializedJsonObj(obj.networkConfig)
           : undefined,
+
         "nodes": obj.nodes
           ? obj.nodes.map(item => {
               return model.CreateNodeDetails.getDeserializedJsonObj(item);

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteBudgetRequest extends common.BaseRequest {
   /**
-   * The unique Budget OCID
+   * The unique budget OCID.
    */
   "budgetId": string;
   /**

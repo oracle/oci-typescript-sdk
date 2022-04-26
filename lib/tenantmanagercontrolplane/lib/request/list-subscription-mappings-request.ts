@@ -21,7 +21,7 @@ export interface ListSubscriptionMappingsRequest extends common.BaseRequest {
   /**
    * The ID of the subscription to which the tenancy is associated.
    */
-  "subscriptionId"?: string;
+  "subscriptionId": string;
   /**
    * SubscriptionMappingId is a unique ID for subscription and tenancy mapping.
    */

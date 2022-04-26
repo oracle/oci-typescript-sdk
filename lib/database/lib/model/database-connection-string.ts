@@ -41,6 +41,7 @@ export interface DatabaseConnectionString {
 export namespace DatabaseConnectionString {
   export enum Protocol {
     Tcp = "TCP",
+    Tcps = "TCPS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

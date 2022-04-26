@@ -1,6 +1,6 @@
 /**
  * Application Performance Monitoring Synthetic Monitoring API
- * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors.
+ * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
  * OpenAPI spec version: 20200630
  *
  *
@@ -23,7 +23,7 @@ export interface BrowserMonitorConfiguration extends model.MonitorConfiguration 
    */
   "isCertificateValidationEnabled"?: boolean;
   /**
-   * Verify all the search strings present in response.
+   * Verifies all the search strings present in the response.
    * If any search string is not present in the response, then it will be considered as a failure.
    *
    */

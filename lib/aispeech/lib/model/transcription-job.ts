@@ -19,19 +19,19 @@ import common = require("oci-common");
  */
 export interface TranscriptionJob {
   /**
-   * Unique identifier that is immutable on creation.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the job.
    */
   "id": string;
   /**
-   * Job name.
+   * A user-friendly display name for the job.
    */
   "displayName"?: string;
   /**
-   * The OCID of the compartment that contains the transcriptionJob.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want to create the job.
    */
   "compartmentId": string;
   /**
-   * Job description.
+   * A short description of the job.
    */
   "description"?: string;
   "modelDetails": model.TranscriptionModelDetails;
@@ -71,9 +71,13 @@ export interface TranscriptionJob {
   "inputLocation": model.ObjectListFileInputLocation | model.ObjectListInlineInputLocation;
   "outputLocation": model.OutputLocation;
   /**
-   * OCID of the user who created the transcriptionJob.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the user who created the job.
    */
   "createdBy"?: string;
+  /**
+   * Transcription format. JSON format will always be provided in addition to any formats in this list.
+   */
+  "additionalTranscriptionFormats"?: Array<TranscriptionJob.AdditionalTranscriptionFormats>;
   /**
    * The current state of the Job.
    */
@@ -103,6 +107,15 @@ export interface TranscriptionJob {
 }
 
 export namespace TranscriptionJob {
+  export enum AdditionalTranscriptionFormats {
+    Srt = "SRT",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum LifecycleState {
     Accepted = "ACCEPTED",
     InProgress = "IN_PROGRESS",

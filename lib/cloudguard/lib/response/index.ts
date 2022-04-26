@@ -1,8 +1,8 @@
 /**
- * Cloud Guard API
- * Use the Cloud Guard API to automate processes that you would otherwise perform through the Cloud Guard Console.
+ * Cloud Guard and Security Zones API
+ * Use the Cloud Guard and Security Zones API to automate processes that you would otherwise perform through the Cloud Guard Console or the Security Zones Console. For more information on these services, see the [Cloud Guard](/iaas/cloud-guard/home.htm) and [Security Zones](/iaas/security-zone/home.htm) documentation.
 
-**Note:** You can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations from any region.
+**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations in Cloud Guard from any region.
 
  * OpenAPI spec version: 20200131
  * 
@@ -14,12 +14,18 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddCompartmentResponse from "./add-compartment-response";
+export import AddCompartmentResponse = AddCompartmentResponse.AddCompartmentResponse;
 import * as ChangeDetectorRecipeCompartmentResponse from "./change-detector-recipe-compartment-response";
 export import ChangeDetectorRecipeCompartmentResponse = ChangeDetectorRecipeCompartmentResponse.ChangeDetectorRecipeCompartmentResponse;
 import * as ChangeManagedListCompartmentResponse from "./change-managed-list-compartment-response";
 export import ChangeManagedListCompartmentResponse = ChangeManagedListCompartmentResponse.ChangeManagedListCompartmentResponse;
 import * as ChangeResponderRecipeCompartmentResponse from "./change-responder-recipe-compartment-response";
 export import ChangeResponderRecipeCompartmentResponse = ChangeResponderRecipeCompartmentResponse.ChangeResponderRecipeCompartmentResponse;
+import * as ChangeSecurityRecipeCompartmentResponse from "./change-security-recipe-compartment-response";
+export import ChangeSecurityRecipeCompartmentResponse = ChangeSecurityRecipeCompartmentResponse.ChangeSecurityRecipeCompartmentResponse;
+import * as ChangeSecurityZoneCompartmentResponse from "./change-security-zone-compartment-response";
+export import ChangeSecurityZoneCompartmentResponse = ChangeSecurityZoneCompartmentResponse.ChangeSecurityZoneCompartmentResponse;
 import * as CreateDataMaskRuleResponse from "./create-data-mask-rule-response";
 export import CreateDataMaskRuleResponse = CreateDataMaskRuleResponse.CreateDataMaskRuleResponse;
 import * as CreateDetectorRecipeResponse from "./create-detector-recipe-response";
@@ -28,6 +34,10 @@ import * as CreateManagedListResponse from "./create-managed-list-response";
 export import CreateManagedListResponse = CreateManagedListResponse.CreateManagedListResponse;
 import * as CreateResponderRecipeResponse from "./create-responder-recipe-response";
 export import CreateResponderRecipeResponse = CreateResponderRecipeResponse.CreateResponderRecipeResponse;
+import * as CreateSecurityRecipeResponse from "./create-security-recipe-response";
+export import CreateSecurityRecipeResponse = CreateSecurityRecipeResponse.CreateSecurityRecipeResponse;
+import * as CreateSecurityZoneResponse from "./create-security-zone-response";
+export import CreateSecurityZoneResponse = CreateSecurityZoneResponse.CreateSecurityZoneResponse;
 import * as CreateTargetResponse from "./create-target-response";
 export import CreateTargetResponse = CreateTargetResponse.CreateTargetResponse;
 import * as CreateTargetDetectorRecipeResponse from "./create-target-detector-recipe-response";
@@ -42,6 +52,10 @@ import * as DeleteManagedListResponse from "./delete-managed-list-response";
 export import DeleteManagedListResponse = DeleteManagedListResponse.DeleteManagedListResponse;
 import * as DeleteResponderRecipeResponse from "./delete-responder-recipe-response";
 export import DeleteResponderRecipeResponse = DeleteResponderRecipeResponse.DeleteResponderRecipeResponse;
+import * as DeleteSecurityRecipeResponse from "./delete-security-recipe-response";
+export import DeleteSecurityRecipeResponse = DeleteSecurityRecipeResponse.DeleteSecurityRecipeResponse;
+import * as DeleteSecurityZoneResponse from "./delete-security-zone-response";
+export import DeleteSecurityZoneResponse = DeleteSecurityZoneResponse.DeleteSecurityZoneResponse;
 import * as DeleteTargetResponse from "./delete-target-response";
 export import DeleteTargetResponse = DeleteTargetResponse.DeleteTargetResponse;
 import * as DeleteTargetDetectorRecipeResponse from "./delete-target-detector-recipe-response";
@@ -78,6 +92,12 @@ import * as GetResponderRecipeResponderRuleResponse from "./get-responder-recipe
 export import GetResponderRecipeResponderRuleResponse = GetResponderRecipeResponderRuleResponse.GetResponderRecipeResponderRuleResponse;
 import * as GetResponderRuleResponse from "./get-responder-rule-response";
 export import GetResponderRuleResponse = GetResponderRuleResponse.GetResponderRuleResponse;
+import * as GetSecurityPolicyResponse from "./get-security-policy-response";
+export import GetSecurityPolicyResponse = GetSecurityPolicyResponse.GetSecurityPolicyResponse;
+import * as GetSecurityRecipeResponse from "./get-security-recipe-response";
+export import GetSecurityRecipeResponse = GetSecurityRecipeResponse.GetSecurityRecipeResponse;
+import * as GetSecurityZoneResponse from "./get-security-zone-response";
+export import GetSecurityZoneResponse = GetSecurityZoneResponse.GetSecurityZoneResponse;
 import * as GetSightingResponse from "./get-sighting-response";
 export import GetSightingResponse = GetSightingResponse.GetSightingResponse;
 import * as GetTargetResponse from "./get-target-response";
@@ -136,6 +156,12 @@ import * as ListResponderRecipesResponse from "./list-responder-recipes-response
 export import ListResponderRecipesResponse = ListResponderRecipesResponse.ListResponderRecipesResponse;
 import * as ListResponderRulesResponse from "./list-responder-rules-response";
 export import ListResponderRulesResponse = ListResponderRulesResponse.ListResponderRulesResponse;
+import * as ListSecurityPoliciesResponse from "./list-security-policies-response";
+export import ListSecurityPoliciesResponse = ListSecurityPoliciesResponse.ListSecurityPoliciesResponse;
+import * as ListSecurityRecipesResponse from "./list-security-recipes-response";
+export import ListSecurityRecipesResponse = ListSecurityRecipesResponse.ListSecurityRecipesResponse;
+import * as ListSecurityZonesResponse from "./list-security-zones-response";
+export import ListSecurityZonesResponse = ListSecurityZonesResponse.ListSecurityZonesResponse;
 import * as ListSightingEndpointsResponse from "./list-sighting-endpoints-response";
 export import ListSightingEndpointsResponse = ListSightingEndpointsResponse.ListSightingEndpointsResponse;
 import * as ListSightingImpactedResourcesResponse from "./list-sighting-impacted-resources-response";
@@ -156,6 +182,8 @@ import * as ListTargetsResponse from "./list-targets-response";
 export import ListTargetsResponse = ListTargetsResponse.ListTargetsResponse;
 import * as ListTechniquesResponse from "./list-techniques-response";
 export import ListTechniquesResponse = ListTechniquesResponse.ListTechniquesResponse;
+import * as RemoveCompartmentResponse from "./remove-compartment-response";
+export import RemoveCompartmentResponse = RemoveCompartmentResponse.RemoveCompartmentResponse;
 import * as RequestRiskScoresResponse from "./request-risk-scores-response";
 export import RequestRiskScoresResponse = RequestRiskScoresResponse.RequestRiskScoresResponse;
 import * as RequestSecurityScoreSummarizedTrendResponse from "./request-security-score-summarized-trend-response";
@@ -206,6 +234,10 @@ import * as UpdateResponderRecipeResponse from "./update-responder-recipe-respon
 export import UpdateResponderRecipeResponse = UpdateResponderRecipeResponse.UpdateResponderRecipeResponse;
 import * as UpdateResponderRecipeResponderRuleResponse from "./update-responder-recipe-responder-rule-response";
 export import UpdateResponderRecipeResponderRuleResponse = UpdateResponderRecipeResponderRuleResponse.UpdateResponderRecipeResponderRuleResponse;
+import * as UpdateSecurityRecipeResponse from "./update-security-recipe-response";
+export import UpdateSecurityRecipeResponse = UpdateSecurityRecipeResponse.UpdateSecurityRecipeResponse;
+import * as UpdateSecurityZoneResponse from "./update-security-zone-response";
+export import UpdateSecurityZoneResponse = UpdateSecurityZoneResponse.UpdateSecurityZoneResponse;
 import * as UpdateTargetResponse from "./update-target-response";
 export import UpdateTargetResponse = UpdateTargetResponse.UpdateTargetResponse;
 import * as UpdateTargetDetectorRecipeResponse from "./update-target-detector-recipe-response";

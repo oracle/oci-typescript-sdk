@@ -19,6 +19,10 @@ import common = require("oci-common");
  */
 export interface TranscriptionNormalization {
   /**
+   * Whether to add punctuation in generated transcription. By default it is enabled.
+   */
+  "isPunctuationEnabled"?: boolean;
+  /**
    * List of filters.
    */
   "filters"?: Array<model.TranscriptionFilter>;

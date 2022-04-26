@@ -1,6 +1,6 @@
 /**
  * Application Performance Monitoring Synthetic Monitoring API
- * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors.
+ * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
  * OpenAPI spec version: 20200630
  *
  *
@@ -39,7 +39,7 @@ export interface MonitorResult {
    */
   "monitorId"?: string;
   /**
-   * The name of the vantage point.
+   * The name of the public or dedicated vantage point.
    */
   "vantagePoint"?: string;
   /**

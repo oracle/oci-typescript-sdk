@@ -72,6 +72,14 @@ export interface ClusterDetails {
    * The URL of the Hue server.
    */
   "hueServerUrl"?: string;
+  /**
+   * Version of the ODH (Oracle Distribution including Apache Hadoop) installed on the cluster.
+   */
+  "odhVersion"?: string;
+  /**
+   * The URL of the Jupyterhub.
+   */
+  "jupyterHubUrl"?: string;
 }
 
 export namespace ClusterDetails {

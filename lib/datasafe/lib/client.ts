@@ -35,6 +35,7 @@ export class DataSafeClient {
   protected "_waiters": DataSafeWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
 
   protected _httpClient: common.HttpClient;
 
@@ -47,6 +48,9 @@ export class DataSafeClient {
       this._circuitBreaker = clientConfiguration.circuitBreaker
         ? clientConfiguration.circuitBreaker!.circuit
         : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -58,7 +62,8 @@ export class DataSafeClient {
       this._circuitBreaker = new common.CircuitBreaker().circuit;
     }
     this._httpClient =
-      params.httpClient || new common.FetchHttpClient(requestSigner, this._circuitBreaker);
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
 
     if (
       params.authenticationDetailsProvider &&
@@ -147,7 +152,7 @@ export class DataSafeClient {
   /**
    * Reactivates a previously deactivated Data Safe target database.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ActivateTargetDatabaseRequest
    * @return ActivateTargetDatabaseResponse
    * @throws OciError when an error occurs
@@ -170,7 +175,7 @@ export class DataSafeClient {
       "opc-request-id": activateTargetDatabaseRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       activateTargetDatabaseRequest.retryConfiguration,
@@ -221,7 +226,7 @@ export class DataSafeClient {
    * data model and uses this information to create columns in the masking policy. It also assigns
    * default masking formats to these columns based on the associated sensitive types.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AddMaskingColumnsFromSdmRequest
    * @return AddMaskingColumnsFromSdmResponse
    * @throws OciError when an error occurs
@@ -244,7 +249,7 @@ export class DataSafeClient {
       "opc-request-id": addMaskingColumnsFromSdmRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       addMaskingColumnsFromSdmRequest.retryConfiguration,
@@ -290,7 +295,7 @@ export class DataSafeClient {
    * attribute of the discovery results you want to process. ApplyDiscoveryJobResults automatically reads the plannedAction
    * attribute and updates the sensitive data model to reflect the actions you planned.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ApplyDiscoveryJobResultsRequest
    * @return ApplyDiscoveryJobResultsResponse
    * @throws OciError when an error occurs
@@ -313,7 +318,7 @@ export class DataSafeClient {
       "opc-request-id": applyDiscoveryJobResultsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       applyDiscoveryJobResultsRequest.retryConfiguration,
@@ -361,7 +366,7 @@ export class DataSafeClient {
 
   /**
    * Calculates the volume of audit events available on the target database to be collected. Measurable up to the defined retention period of the audit target resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CalculateAuditVolumeAvailableRequest
    * @return CalculateAuditVolumeAvailableResponse
    * @throws OciError when an error occurs
@@ -385,7 +390,7 @@ export class DataSafeClient {
       "opc-request-id": calculateAuditVolumeAvailableRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       calculateAuditVolumeAvailableRequest.retryConfiguration,
@@ -432,7 +437,7 @@ export class DataSafeClient {
 
   /**
    * Calculates the volume of audit events collected by data safe.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CalculateAuditVolumeCollectedRequest
    * @return CalculateAuditVolumeCollectedResponse
    * @throws OciError when an error occurs
@@ -456,7 +461,7 @@ export class DataSafeClient {
       "opc-request-id": calculateAuditVolumeCollectedRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       calculateAuditVolumeCollectedRequest.retryConfiguration,
@@ -504,7 +509,7 @@ export class DataSafeClient {
   /**
    * Cancel the given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
@@ -527,7 +532,7 @@ export class DataSafeClient {
       "if-match": cancelWorkRequestRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cancelWorkRequestRequest.retryConfiguration,
@@ -569,7 +574,7 @@ export class DataSafeClient {
 
   /**
    * Moves the specified alert into a different compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeAlertCompartmentRequest
    * @return ChangeAlertCompartmentResponse
    * @throws OciError when an error occurs
@@ -592,7 +597,7 @@ export class DataSafeClient {
       "opc-retry-token": changeAlertCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeAlertCompartmentRequest.retryConfiguration,
@@ -635,7 +640,7 @@ export class DataSafeClient {
   /**
    * Moves the archive retreival to the specified compartment. When provided, if-Match is checked against ETag value of the resource.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeAuditArchiveRetrievalCompartmentRequest
    * @return ChangeAuditArchiveRetrievalCompartmentResponse
    * @throws OciError when an error occurs
@@ -660,7 +665,7 @@ export class DataSafeClient {
       "opc-retry-token": changeAuditArchiveRetrievalCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeAuditArchiveRetrievalCompartmentRequest.retryConfiguration,
@@ -707,7 +712,7 @@ export class DataSafeClient {
 
   /**
    * Moves the specified audit policy and its dependent resources into a different compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeAuditPolicyCompartmentRequest
    * @return ChangeAuditPolicyCompartmentResponse
    * @throws OciError when an error occurs
@@ -731,7 +736,7 @@ export class DataSafeClient {
       "opc-retry-token": changeAuditPolicyCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeAuditPolicyCompartmentRequest.retryConfiguration,
@@ -778,7 +783,7 @@ export class DataSafeClient {
 
   /**
    * Moves the specified audit profile and its dependent resources into a different compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeAuditProfileCompartmentRequest
    * @return ChangeAuditProfileCompartmentResponse
    * @throws OciError when an error occurs
@@ -802,7 +807,7 @@ export class DataSafeClient {
       "opc-request-id": changeAuditProfileCompartmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeAuditProfileCompartmentRequest.retryConfiguration,
@@ -849,7 +854,7 @@ export class DataSafeClient {
 
   /**
    * Moves the Data Safe private endpoint and its dependent resources to the specified compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDataSafePrivateEndpointCompartmentRequest
    * @return ChangeDataSafePrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
@@ -875,7 +880,7 @@ export class DataSafeClient {
       "if-match": changeDataSafePrivateEndpointCompartmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeDataSafePrivateEndpointCompartmentRequest.retryConfiguration,
@@ -922,7 +927,7 @@ export class DataSafeClient {
 
   /**
    * Moves the specified discovery job and its dependent resources into a different compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDiscoveryJobCompartmentRequest
    * @return ChangeDiscoveryJobCompartmentResponse
    * @throws OciError when an error occurs
@@ -946,7 +951,7 @@ export class DataSafeClient {
       "opc-retry-token": changeDiscoveryJobCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeDiscoveryJobCompartmentRequest.retryConfiguration,
@@ -988,7 +993,7 @@ export class DataSafeClient {
 
   /**
    * Moves the specified library masking format into a different compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeLibraryMaskingFormatCompartmentRequest
    * @return ChangeLibraryMaskingFormatCompartmentResponse
    * @throws OciError when an error occurs
@@ -1013,7 +1018,7 @@ export class DataSafeClient {
       "opc-request-id": changeLibraryMaskingFormatCompartmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeLibraryMaskingFormatCompartmentRequest.retryConfiguration,
@@ -1055,7 +1060,7 @@ export class DataSafeClient {
 
   /**
    * Moves the specified masking policy and its dependent resources into a different compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeMaskingPolicyCompartmentRequest
    * @return ChangeMaskingPolicyCompartmentResponse
    * @throws OciError when an error occurs
@@ -1079,7 +1084,7 @@ export class DataSafeClient {
       "opc-request-id": changeMaskingPolicyCompartmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeMaskingPolicyCompartmentRequest.retryConfiguration,
@@ -1121,7 +1126,7 @@ export class DataSafeClient {
 
   /**
    * Moves the specified on-premises connector into a different compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeOnPremConnectorCompartmentRequest
    * @return ChangeOnPremConnectorCompartmentResponse
    * @throws OciError when an error occurs
@@ -1145,7 +1150,7 @@ export class DataSafeClient {
       "opc-retry-token": changeOnPremConnectorCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeOnPremConnectorCompartmentRequest.retryConfiguration,
@@ -1187,7 +1192,7 @@ export class DataSafeClient {
 
   /**
    * Moves a resource into a different compartment. When provided, If-Match is checked against ETag values of the resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeReportCompartmentRequest
    * @return ChangeReportCompartmentResponse
    * @throws OciError when an error occurs
@@ -1210,7 +1215,7 @@ export class DataSafeClient {
       "opc-retry-token": changeReportCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeReportCompartmentRequest.retryConfiguration,
@@ -1257,7 +1262,7 @@ export class DataSafeClient {
 
   /**
    * Moves a resource into a different compartment. When provided, If-Match is checked against ETag values of the resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeReportDefinitionCompartmentRequest
    * @return ChangeReportDefinitionCompartmentResponse
    * @throws OciError when an error occurs
@@ -1281,7 +1286,7 @@ export class DataSafeClient {
       "opc-retry-token": changeReportDefinitionCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeReportDefinitionCompartmentRequest.retryConfiguration,
@@ -1328,7 +1333,7 @@ export class DataSafeClient {
 
   /**
    * Change the online and offline months .
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeRetentionRequest
    * @return ChangeRetentionResponse
    * @throws OciError when an error occurs
@@ -1351,7 +1356,7 @@ export class DataSafeClient {
       "opc-retry-token": changeRetentionRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeRetentionRequest.retryConfiguration,
@@ -1403,7 +1408,7 @@ To start, call first the operation ListSecurityAssessments with filters \"type =
 * <p>
 The existing saved security assessments created due to the schedule are not moved. However, all new saves will be associated with the new compartment.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ChangeSecurityAssessmentCompartmentRequest
      * @return ChangeSecurityAssessmentCompartmentResponse
      * @throws OciError when an error occurs
@@ -1427,7 +1432,7 @@ The existing saved security assessments created due to the schedule are not move
       "opc-retry-token": changeSecurityAssessmentCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeSecurityAssessmentCompartmentRequest.retryConfiguration,
@@ -1469,7 +1474,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Moves the specified sensitive data model and its dependent resources into a different compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeSensitiveDataModelCompartmentRequest
    * @return ChangeSensitiveDataModelCompartmentResponse
    * @throws OciError when an error occurs
@@ -1493,7 +1498,7 @@ The existing saved security assessments created due to the schedule are not move
       "opc-retry-token": changeSensitiveDataModelCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeSensitiveDataModelCompartmentRequest.retryConfiguration,
@@ -1535,7 +1540,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Moves the specified sensitive type into a different compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeSensitiveTypeCompartmentRequest
    * @return ChangeSensitiveTypeCompartmentResponse
    * @throws OciError when an error occurs
@@ -1559,7 +1564,7 @@ The existing saved security assessments created due to the schedule are not move
       "opc-retry-token": changeSensitiveTypeCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeSensitiveTypeCompartmentRequest.retryConfiguration,
@@ -1601,7 +1606,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Moves the specified target-alert policy Association into a different compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeTargetAlertPolicyAssociationCompartmentRequest
    * @return ChangeTargetAlertPolicyAssociationCompartmentResponse
    * @throws OciError when an error occurs
@@ -1628,7 +1633,7 @@ The existing saved security assessments created due to the schedule are not move
       "opc-retry-token": changeTargetAlertPolicyAssociationCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeTargetAlertPolicyAssociationCompartmentRequest.retryConfiguration,
@@ -1671,7 +1676,7 @@ The existing saved security assessments created due to the schedule are not move
 
   /**
    * Moves the Data Safe target database to the specified compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeTargetDatabaseCompartmentRequest
    * @return ChangeTargetDatabaseCompartmentResponse
    * @throws OciError when an error occurs
@@ -1695,7 +1700,7 @@ The existing saved security assessments created due to the schedule are not move
       "opc-retry-token": changeTargetDatabaseCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeTargetDatabaseCompartmentRequest.retryConfiguration,
@@ -1742,7 +1747,7 @@ The existing saved security assessments created due to the schedule are not move
    * ChangeUserAssessmentCompartment with the scheduleAssessmentId. The existing saved user assessments created per the schedule
    * are not be moved. However, all new saves will be associated with the new compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeUserAssessmentCompartmentRequest
    * @return ChangeUserAssessmentCompartmentResponse
    * @throws OciError when an error occurs
@@ -1766,7 +1771,7 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": changeUserAssessmentCompartmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeUserAssessmentCompartmentRequest.retryConfiguration,
@@ -1810,7 +1815,7 @@ The existing saved security assessments created due to the schedule are not move
    * Compares two security assessments. For this comparison, a security assessment can be a saved assessment, a latest assessment, or a baseline assessment.
    * For example, you can compare saved assessment or a latest assessment against a baseline.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CompareSecurityAssessmentRequest
    * @return CompareSecurityAssessmentResponse
    * @throws OciError when an error occurs
@@ -1834,7 +1839,7 @@ The existing saved security assessments created due to the schedule are not move
       "if-match": compareSecurityAssessmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       compareSecurityAssessmentRequest.retryConfiguration,
@@ -1883,7 +1888,7 @@ The existing saved security assessments created due to the schedule are not move
    * Compares two user assessments. For this comparison, a user assessment can be a saved, a latest assessment, or a baseline.
    * As an example, it can be used to compare a user assessment saved or a latest assessment with a baseline.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CompareUserAssessmentRequest
    * @return CompareUserAssessmentResponse
    * @throws OciError when an error occurs
@@ -1906,7 +1911,7 @@ The existing saved security assessments created due to the schedule are not move
       "if-match": compareUserAssessmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       compareUserAssessmentRequest.retryConfiguration,
@@ -1956,7 +1961,7 @@ The existing saved security assessments created due to the schedule are not move
    * Save the id from the response of this operation. Call GetAuditArchiveRetrieval operation after an hour, passing the id to know the status of
    * this operation.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateAuditArchiveRetrievalRequest
    * @return CreateAuditArchiveRetrievalResponse
    * @throws OciError when an error occurs
@@ -1977,7 +1982,7 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": createAuditArchiveRetrievalRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createAuditArchiveRetrievalRequest.retryConfiguration,
@@ -2034,7 +2039,7 @@ The existing saved security assessments created due to the schedule are not move
   /**
    * Creates a new Data Safe private endpoint.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDataSafePrivateEndpointRequest
    * @return CreateDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -2055,7 +2060,7 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": createDataSafePrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDataSafePrivateEndpointRequest.retryConfiguration,
@@ -2121,7 +2126,7 @@ The existing saved security assessments created due to the schedule are not move
    * to specify the action you want perform on these results, and then ApplyDiscoveryJobResults to process the results
    * and apply them to the sensitive data model.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDiscoveryJobRequest
    * @return CreateDiscoveryJobResponse
    * @throws OciError when an error occurs
@@ -2141,7 +2146,7 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": createDiscoveryJobRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDiscoveryJobRequest.retryConfiguration,
@@ -2207,7 +2212,7 @@ The existing saved security assessments created due to the schedule are not move
    * parts of a data value separately and then combine them to get the final data value
    * for masking. Note that you cannot define masking condition in a library masking format.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateLibraryMaskingFormatRequest
    * @return CreateLibraryMaskingFormatResponse
    * @throws OciError when an error occurs
@@ -2228,7 +2233,7 @@ The existing saved security assessments created due to the schedule are not move
       "opc-request-id": createLibraryMaskingFormatRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createLibraryMaskingFormatRequest.retryConfiguration,
@@ -2309,7 +2314,7 @@ You can use the maskingColumnGroup attribute to group the columns that you would
 * like to mask together. It enables you to do <a href=\"https://docs.oracle.com/en/cloud/paas/data-safe/udscs/group-masking1.html#GUID-755056B9-9540-48C0-9491-262A44A85037\">group or compound masking</a> that ensures that the
 * masked data across the columns in a group continue to retain the same logical relationship.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateMaskingColumnRequest
      * @return CreateMaskingColumnResponse
      * @throws OciError when an error occurs
@@ -2331,7 +2336,7 @@ You can use the maskingColumnGroup attribute to group the columns that you would
       "opc-request-id": createMaskingColumnRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createMaskingColumnRequest.retryConfiguration,
@@ -2395,7 +2400,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 * and it automatically adds the child columns (in referential relationship with the parent columns) 
 * from the associated sensitive data model or target database.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateMaskingPolicyRequest
      * @return CreateMaskingPolicyResponse
      * @throws OciError when an error occurs
@@ -2415,7 +2420,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": createMaskingPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createMaskingPolicyRequest.retryConfiguration,
@@ -2477,7 +2482,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Creates a new on-premises connector.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateOnPremConnectorRequest
    * @return CreateOnPremConnectorResponse
    * @throws OciError when an error occurs
@@ -2497,7 +2502,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": createOnPremConnectorRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createOnPremConnectorRequest.retryConfiguration,
@@ -2559,7 +2564,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Creates a new report definition with parameters specified in the body. The report definition is stored in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateReportDefinitionRequest
    * @return CreateReportDefinitionResponse
    * @throws OciError when an error occurs
@@ -2579,7 +2584,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": createReportDefinitionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createReportDefinitionRequest.retryConfiguration,
@@ -2638,7 +2643,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * it will save the latest assessments in the specified compartment. If a schedule is passed, it will persist the latest assessments,
    * at the defined date and time, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateSecurityAssessmentRequest
    * @return CreateSecurityAssessmentResponse
    * @throws OciError when an error occurs
@@ -2659,7 +2664,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": createSecurityAssessmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createSecurityAssessmentRequest.retryConfiguration,
@@ -2721,7 +2726,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Creates a new sensitive column in the specified sensitive data model.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateSensitiveColumnRequest
    * @return CreateSensitiveColumnResponse
    * @throws OciError when an error occurs
@@ -2743,7 +2748,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": createSensitiveColumnRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createSensitiveColumnRequest.retryConfiguration,
@@ -2793,7 +2798,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * and adds the discovered columns to the sensitive data model. Otherwise, it creates an empty sensitive data model
    * that can be updated later.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateSensitiveDataModelRequest
    * @return CreateSensitiveDataModelResponse
    * @throws OciError when an error occurs
@@ -2814,7 +2819,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": createSensitiveDataModelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createSensitiveDataModelRequest.retryConfiguration,
@@ -2878,7 +2883,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * While sensitive types are used for data discovery, sensitive categories are used for logically grouping the related
    * or similar sensitive types.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateSensitiveTypeRequest
    * @return CreateSensitiveTypeResponse
    * @throws OciError when an error occurs
@@ -2898,7 +2903,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": createSensitiveTypeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createSensitiveTypeRequest.retryConfiguration,
@@ -2960,7 +2965,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Creates a new target-alert policy association to track a alert policy applied on target.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateTargetAlertPolicyAssociationRequest
    * @return CreateTargetAlertPolicyAssociationResponse
    * @throws OciError when an error occurs
@@ -2981,7 +2986,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": createTargetAlertPolicyAssociationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createTargetAlertPolicyAssociationRequest.retryConfiguration,
@@ -3043,7 +3048,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Registers the specified database with Data Safe and creates a Data Safe target database in the Data Safe Console.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateTargetDatabaseRequest
    * @return CreateTargetDatabaseResponse
    * @throws OciError when an error occurs
@@ -3063,7 +3068,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": createTargetDatabaseRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createTargetDatabaseRequest.retryConfiguration,
@@ -3127,7 +3132,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * specified compartment. If a scheduled is passed in, this operation persists the latest assessments that exist at the defined
    * date and time, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateUserAssessmentRequest
    * @return CreateUserAssessmentResponse
    * @throws OciError when an error occurs
@@ -3147,7 +3152,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": createUserAssessmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createUserAssessmentRequest.retryConfiguration,
@@ -3209,7 +3214,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Deactivates a target database in Data Safe.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeactivateTargetDatabaseRequest
    * @return DeactivateTargetDatabaseResponse
    * @throws OciError when an error occurs
@@ -3233,7 +3238,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deactivateTargetDatabaseRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deactivateTargetDatabaseRequest.retryConfiguration,
@@ -3277,7 +3282,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * To unload retrieved archive data, call the operation ListAuditArchiveRetrieval first.
    * This will return the auditArchiveRetrievalId. Then call this operation with auditArchiveRetrievalId.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAuditArchiveRetrievalRequest
    * @return DeleteAuditArchiveRetrievalResponse
    * @throws OciError when an error occurs
@@ -3300,7 +3305,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteAuditArchiveRetrievalRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteAuditArchiveRetrievalRequest.retryConfiguration,
@@ -3342,7 +3347,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deletes the specified audit trail.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAuditTrailRequest
    * @return DeleteAuditTrailResponse
    * @throws OciError when an error occurs
@@ -3364,7 +3369,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteAuditTrailRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteAuditTrailRequest.retryConfiguration,
@@ -3406,7 +3411,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deletes the specified Data Safe private endpoint.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDataSafePrivateEndpointRequest
    * @return DeleteDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -3429,7 +3434,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteDataSafePrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDataSafePrivateEndpointRequest.retryConfiguration,
@@ -3471,7 +3476,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deletes the specified discovery job.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDiscoveryJobRequest
    * @return DeleteDiscoveryJobResponse
    * @throws OciError when an error occurs
@@ -3493,7 +3498,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteDiscoveryJobRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDiscoveryJobRequest.retryConfiguration,
@@ -3535,7 +3540,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deletes the specified discovery result.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDiscoveryJobResultRequest
    * @return DeleteDiscoveryJobResultResponse
    * @throws OciError when an error occurs
@@ -3559,7 +3564,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteDiscoveryJobResultRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDiscoveryJobResultRequest.retryConfiguration,
@@ -3596,7 +3601,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deletes the specified library masking format.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteLibraryMaskingFormatRequest
    * @return DeleteLibraryMaskingFormatResponse
    * @throws OciError when an error occurs
@@ -3619,7 +3624,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteLibraryMaskingFormatRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteLibraryMaskingFormatRequest.retryConfiguration,
@@ -3656,7 +3661,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deletes the specified masking column.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteMaskingColumnRequest
    * @return DeleteMaskingColumnResponse
    * @throws OciError when an error occurs
@@ -3679,7 +3684,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteMaskingColumnRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteMaskingColumnRequest.retryConfiguration,
@@ -3716,7 +3721,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deletes the specified masking policy.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteMaskingPolicyRequest
    * @return DeleteMaskingPolicyResponse
    * @throws OciError when an error occurs
@@ -3738,7 +3743,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteMaskingPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteMaskingPolicyRequest.retryConfiguration,
@@ -3780,7 +3785,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deletes the specified on-premises connector.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteOnPremConnectorRequest
    * @return DeleteOnPremConnectorResponse
    * @throws OciError when an error occurs
@@ -3802,7 +3807,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteOnPremConnectorRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteOnPremConnectorRequest.retryConfiguration,
@@ -3844,7 +3849,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deletes the specified report definition. Only the user created report definition can be deleted. The seeded report definitions cannot be deleted.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteReportDefinitionRequest
    * @return DeleteReportDefinitionResponse
    * @throws OciError when an error occurs
@@ -3866,7 +3871,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteReportDefinitionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteReportDefinitionRequest.retryConfiguration,
@@ -3912,7 +3917,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * That operation returns the scheduleAssessmentId. Then, call DeleteSecurityAssessment with the scheduleAssessmentId.
    * If the assessment being deleted is the baseline for that compartment, then it will impact all baselines in the compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteSecurityAssessmentRequest
    * @return DeleteSecurityAssessmentResponse
    * @throws OciError when an error occurs
@@ -3935,7 +3940,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "if-match": deleteSecurityAssessmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteSecurityAssessmentRequest.retryConfiguration,
@@ -3977,7 +3982,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deletes the specified sensitive column.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteSensitiveColumnRequest
    * @return DeleteSensitiveColumnResponse
    * @throws OciError when an error occurs
@@ -4000,7 +4005,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteSensitiveColumnRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteSensitiveColumnRequest.retryConfiguration,
@@ -4037,7 +4042,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deletes the specified sensitive data model.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteSensitiveDataModelRequest
    * @return DeleteSensitiveDataModelResponse
    * @throws OciError when an error occurs
@@ -4060,7 +4065,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteSensitiveDataModelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteSensitiveDataModelRequest.retryConfiguration,
@@ -4102,7 +4107,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deletes the specified sensitive type.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteSensitiveTypeRequest
    * @return DeleteSensitiveTypeResponse
    * @throws OciError when an error occurs
@@ -4124,7 +4129,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteSensitiveTypeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteSensitiveTypeRequest.retryConfiguration,
@@ -4161,7 +4166,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deletes the specified target-alert policy Association.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteTargetAlertPolicyAssociationRequest
    * @return DeleteTargetAlertPolicyAssociationResponse
    * @throws OciError when an error occurs
@@ -4185,7 +4190,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteTargetAlertPolicyAssociationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteTargetAlertPolicyAssociationRequest.retryConfiguration,
@@ -4227,7 +4232,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Deregisters the specified database from Data Safe and removes the target database from the Data Safe Console.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteTargetDatabaseRequest
    * @return DeleteTargetDatabaseResponse
    * @throws OciError when an error occurs
@@ -4249,7 +4254,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteTargetDatabaseRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteTargetDatabaseRequest.retryConfiguration,
@@ -4295,7 +4300,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * That call returns the scheduleAssessmentId. Then call DeleteUserAssessment with the scheduleAssessmentId.
    * If the assessment being deleted is the baseline for that compartment, then it will impact all baselines in the compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteUserAssessmentRequest
    * @return DeleteUserAssessmentResponse
    * @throws OciError when an error occurs
@@ -4317,7 +4322,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": deleteUserAssessmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteUserAssessmentRequest.retryConfiguration,
@@ -4363,7 +4368,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * when they become available for audit collection because of change of database version
    * or change of database unified mode or change of data base  edition or being deleted previously etc.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DiscoverAuditTrailsRequest
    * @return DiscoverAuditTrailsResponse
    * @throws OciError when an error occurs
@@ -4386,7 +4391,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-retry-token": discoverAuditTrailsRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       discoverAuditTrailsRequest.retryConfiguration,
@@ -4432,7 +4437,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * report file and then use DownloadDiscoveryReport to download the generated file. By default, it downloads report for
    * all the columns in a sensitive data model. Use the discoveryJobId attribute to download report for a specific discovery job.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DownloadDiscoveryReportRequest
    * @return DownloadDiscoveryReportResponse
    * @throws OciError when an error occurs
@@ -4453,7 +4458,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": downloadDiscoveryReportRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       downloadDiscoveryReportRequest.retryConfiguration,
@@ -4509,7 +4514,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Downloads the masking log generated by the last masking operation on a target database using the specified masking policy.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DownloadMaskingLogRequest
    * @return DownloadMaskingLogResponse
    * @throws OciError when an error occurs
@@ -4530,7 +4535,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": downloadMaskingLogRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       downloadMaskingLogRequest.retryConfiguration,
@@ -4590,7 +4595,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * DownloadMaskingPolicy operation. Use GenerateMaskingPolicyForDownload to generate
    * a masking policy file and then use DownloadMaskingPolicy to download the generated file.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DownloadMaskingPolicyRequest
    * @return DownloadMaskingPolicyResponse
    * @throws OciError when an error occurs
@@ -4611,7 +4616,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": downloadMaskingPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       downloadMaskingPolicyRequest.retryConfiguration,
@@ -4670,7 +4675,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * operation is a prerequisite for the DownloadMaskingReport operation. Use GenerateMaskingReportForDownload
    * to generate a masking report file and then use DownloadMaskingReport to download the generated file.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DownloadMaskingReportRequest
    * @return DownloadMaskingReportResponse
    * @throws OciError when an error occurs
@@ -4691,7 +4696,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": downloadMaskingReportRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       downloadMaskingReportRequest.retryConfiguration,
@@ -4748,7 +4753,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Downloads the privilege script to grant/revoke required roles from the Data Safe account on the target database.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DownloadPrivilegeScriptRequest
    * @return DownloadPrivilegeScriptResponse
    * @throws OciError when an error occurs
@@ -4769,7 +4774,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "if-match": downloadPrivilegeScriptRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       downloadPrivilegeScriptRequest.retryConfiguration,
@@ -4822,7 +4827,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * Downloads the report of the specified security assessment. To download the security assessment report, it needs to be generated first.
    * Please use GenerateSecurityAssessmentReport to generate a downloadable report in the preferred format (PDF, XLS).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DownloadSecurityAssessmentReportRequest
    * @return DownloadSecurityAssessmentReportResponse
    * @throws OciError when an error occurs
@@ -4846,7 +4851,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": downloadSecurityAssessmentReportRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       downloadSecurityAssessmentReportRequest.retryConfiguration,
@@ -4906,7 +4911,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * Use GenerateSensitiveDataModelForDownload to generate a data model file and then use DownloadSensitiveDataModel
    * to download the generated file.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DownloadSensitiveDataModelRequest
    * @return DownloadSensitiveDataModelResponse
    * @throws OciError when an error occurs
@@ -4928,7 +4933,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": downloadSensitiveDataModelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       downloadSensitiveDataModelRequest.retryConfiguration,
@@ -4986,7 +4991,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * Downloads the report of the specified user assessment. To download the user assessment report, it needs to be generated first.
    * Please use GenerateUserAssessmentReport to generate a downloadable report in the preferred format (PDF, XLS).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DownloadUserAssessmentReportRequest
    * @return DownloadUserAssessmentReportResponse
    * @throws OciError when an error occurs
@@ -5010,7 +5015,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": downloadUserAssessmentReportRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       downloadUserAssessmentReportRequest.retryConfiguration,
@@ -5067,7 +5072,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Enables Data Safe in the tenancy and region.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param EnableDataSafeConfigurationRequest
    * @return EnableDataSafeConfigurationResponse
    * @throws OciError when an error occurs
@@ -5090,7 +5095,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": enableDataSafeConfigurationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       enableDataSafeConfigurationRequest.retryConfiguration,
@@ -5141,7 +5146,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * By default, it generates report for all the columns in a sensitive data model. Use the discoveryJobId attribute
    * to generate report for a specific discovery job.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateDiscoveryReportForDownloadRequest
    * @return GenerateDiscoveryReportForDownloadResponse
    * @throws OciError when an error occurs
@@ -5163,7 +5168,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": generateDiscoveryReportForDownloadRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       generateDiscoveryReportForDownloadRequest.retryConfiguration,
@@ -5215,7 +5220,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * Note that file generation and download are serial operations. The download operation
    * can't be invoked while the generate operation is in progress.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateMaskingPolicyForDownloadRequest
    * @return GenerateMaskingPolicyForDownloadResponse
    * @throws OciError when an error occurs
@@ -5237,7 +5242,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": generateMaskingPolicyForDownloadRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       generateMaskingPolicyForDownloadRequest.retryConfiguration,
@@ -5288,7 +5293,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * masking report file and then use DownloadMaskingReport to download
    * the generated file.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateMaskingReportForDownloadRequest
    * @return GenerateMaskingReportForDownloadResponse
    * @throws OciError when an error occurs
@@ -5310,7 +5315,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": generateMaskingReportForDownloadRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       generateMaskingReportForDownloadRequest.retryConfiguration,
@@ -5358,7 +5363,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Creates and downloads the configuration of the specified on-premises connector.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateOnPremConnectorConfigurationRequest
    * @return GenerateOnPremConnectorConfigurationResponse
    * @throws OciError when an error occurs
@@ -5382,7 +5387,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "if-match": generateOnPremConnectorConfigurationRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       generateOnPremConnectorConfigurationRequest.retryConfiguration,
@@ -5438,7 +5443,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Generates a PDF or XLS report based on parameters and report definition.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateReportRequest
    * @return GenerateReportResponse
    * @throws OciError when an error occurs
@@ -5463,7 +5468,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-retry-token": generateReportRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       generateReportRequest.retryConfiguration,
@@ -5512,7 +5517,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * Generates the report of the specified security assessment. You can get the report in PDF or XLS format.
    * After generating the report, use DownloadSecurityAssessmentReport to download it in the preferred format.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateSecurityAssessmentReportRequest
    * @return GenerateSecurityAssessmentReportResponse
    * @throws OciError when an error occurs
@@ -5536,7 +5541,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": generateSecurityAssessmentReportRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       generateSecurityAssessmentReportRequest.retryConfiguration,
@@ -5587,7 +5592,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * to download the generated file. Note that file generation and download are serial operations. The download operation
    * can't be invoked while the generate operation is in progress.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateSensitiveDataModelForDownloadRequest
    * @return GenerateSensitiveDataModelForDownloadResponse
    * @throws OciError when an error occurs
@@ -5609,7 +5614,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": generateSensitiveDataModelForDownloadRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       generateSensitiveDataModelForDownloadRequest.retryConfiguration,
@@ -5658,7 +5663,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * Generates the report of the specified user assessment. The report is available in PDF or XLS format.
    * After generating the report, use DownloadUserAssessmentReport to download it in the preferred format.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateUserAssessmentReportRequest
    * @return GenerateUserAssessmentReportResponse
    * @throws OciError when an error occurs
@@ -5682,7 +5687,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": generateUserAssessmentReportRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       generateUserAssessmentReportRequest.retryConfiguration,
@@ -5729,7 +5734,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of alert by its ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAlertRequest
    * @return GetAlertResponse
    * @throws OciError when an error occurs
@@ -5750,7 +5755,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getAlertRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAlertRequest.retryConfiguration,
@@ -5796,7 +5801,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of alert policy by its ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAlertPolicyRequest
    * @return GetAlertPolicyResponse
    * @throws OciError when an error occurs
@@ -5817,7 +5822,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getAlertPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAlertPolicyRequest.retryConfiguration,
@@ -5863,7 +5868,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified archive retreival.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAuditArchiveRetrievalRequest
    * @return GetAuditArchiveRetrievalResponse
    * @throws OciError when an error occurs
@@ -5886,7 +5891,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getAuditArchiveRetrievalRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAuditArchiveRetrievalRequest.retryConfiguration,
@@ -5932,7 +5937,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets a audit policy by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAuditPolicyRequest
    * @return GetAuditPolicyResponse
    * @throws OciError when an error occurs
@@ -5953,7 +5958,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getAuditPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAuditPolicyRequest.retryConfiguration,
@@ -5999,7 +6004,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of audit profile resource and associated audit trails of the audit profile.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAuditProfileRequest
    * @return GetAuditProfileResponse
    * @throws OciError when an error occurs
@@ -6020,7 +6025,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getAuditProfileRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAuditProfileRequest.retryConfiguration,
@@ -6066,7 +6071,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of audit trail.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAuditTrailRequest
    * @return GetAuditTrailResponse
    * @throws OciError when an error occurs
@@ -6087,7 +6092,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getAuditTrailRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAuditTrailRequest.retryConfiguration,
@@ -6140,7 +6145,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * LOB - Includes BLOB, CLOB, and NCLOB
    * All - Includes all the supported data types
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCompatibleFormatsForDataTypesRequest
    * @return GetCompatibleFormatsForDataTypesResponse
    * @throws OciError when an error occurs
@@ -6163,7 +6168,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getCompatibleFormatsForDataTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCompatibleFormatsForDataTypesRequest.retryConfiguration,
@@ -6218,7 +6223,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * the other library masking formats that have the sensitiveTypeIds attribute containing
    * the OCID of the sensitive type.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCompatibleFormatsForSensitiveTypesRequest
    * @return GetCompatibleFormatsForSensitiveTypesResponse
    * @throws OciError when an error occurs
@@ -6244,7 +6249,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getCompatibleFormatsForSensitiveTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCompatibleFormatsForSensitiveTypesRequest.retryConfiguration,
@@ -6295,7 +6300,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the Data Safe configuration.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDataSafeConfigurationRequest
    * @return GetDataSafeConfigurationResponse
    * @throws OciError when an error occurs
@@ -6317,7 +6322,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getDataSafeConfigurationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDataSafeConfigurationRequest.retryConfiguration,
@@ -6363,7 +6368,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified Data Safe private endpoint.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDataSafePrivateEndpointRequest
    * @return GetDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -6385,7 +6390,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getDataSafePrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDataSafePrivateEndpointRequest.retryConfiguration,
@@ -6431,7 +6436,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified discovery job.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDiscoveryJobRequest
    * @return GetDiscoveryJobResponse
    * @throws OciError when an error occurs
@@ -6452,7 +6457,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getDiscoveryJobRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDiscoveryJobRequest.retryConfiguration,
@@ -6498,7 +6503,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified discovery result.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDiscoveryJobResultRequest
    * @return GetDiscoveryJobResultResponse
    * @throws OciError when an error occurs
@@ -6520,7 +6525,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getDiscoveryJobResultRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDiscoveryJobResultRequest.retryConfiguration,
@@ -6566,7 +6571,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified library masking format.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetLibraryMaskingFormatRequest
    * @return GetLibraryMaskingFormatResponse
    * @throws OciError when an error occurs
@@ -6587,7 +6592,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getLibraryMaskingFormatRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getLibraryMaskingFormatRequest.retryConfiguration,
@@ -6633,7 +6638,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified masking column.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMaskingColumnRequest
    * @return GetMaskingColumnResponse
    * @throws OciError when an error occurs
@@ -6655,7 +6660,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getMaskingColumnRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getMaskingColumnRequest.retryConfiguration,
@@ -6701,7 +6706,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified masking policy.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMaskingPolicyRequest
    * @return GetMaskingPolicyResponse
    * @throws OciError when an error occurs
@@ -6722,7 +6727,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getMaskingPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getMaskingPolicyRequest.retryConfiguration,
@@ -6768,7 +6773,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified masking report.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMaskingReportRequest
    * @return GetMaskingReportResponse
    * @throws OciError when an error occurs
@@ -6789,7 +6794,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getMaskingReportRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getMaskingReportRequest.retryConfiguration,
@@ -6835,7 +6840,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified on-premises connector.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetOnPremConnectorRequest
    * @return GetOnPremConnectorResponse
    * @throws OciError when an error occurs
@@ -6856,7 +6861,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getOnPremConnectorRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getOnPremConnectorRequest.retryConfiguration,
@@ -6902,7 +6907,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets a report by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetReportRequest
    * @return GetReportResponse
    * @throws OciError when an error occurs
@@ -6923,7 +6928,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getReportRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getReportRequest.retryConfiguration,
@@ -6969,7 +6974,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Downloads the specified report in the form of PDF or XLXS.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetReportContentRequest
    * @return GetReportContentResponse
    * @throws OciError when an error occurs
@@ -6990,7 +6995,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getReportContentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getReportContentRequest.retryConfiguration,
@@ -7046,7 +7051,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of report definition specified by the identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetReportDefinitionRequest
    * @return GetReportDefinitionResponse
    * @throws OciError when an error occurs
@@ -7067,7 +7072,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getReportDefinitionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getReportDefinitionRequest.retryConfiguration,
@@ -7113,7 +7118,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified security assessment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSecurityAssessmentRequest
    * @return GetSecurityAssessmentResponse
    * @throws OciError when an error occurs
@@ -7134,7 +7139,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getSecurityAssessmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSecurityAssessmentRequest.retryConfiguration,
@@ -7180,7 +7185,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the comparison report on the security assessments submitted for comparison.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSecurityAssessmentComparisonRequest
    * @return GetSecurityAssessmentComparisonResponse
    * @throws OciError when an error occurs
@@ -7204,7 +7209,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getSecurityAssessmentComparisonRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSecurityAssessmentComparisonRequest.retryConfiguration,
@@ -7251,7 +7256,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified sensitive column.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSensitiveColumnRequest
    * @return GetSensitiveColumnResponse
    * @throws OciError when an error occurs
@@ -7273,7 +7278,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getSensitiveColumnRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSensitiveColumnRequest.retryConfiguration,
@@ -7319,7 +7324,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified sensitive data model.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSensitiveDataModelRequest
    * @return GetSensitiveDataModelResponse
    * @throws OciError when an error occurs
@@ -7340,7 +7345,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getSensitiveDataModelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSensitiveDataModelRequest.retryConfiguration,
@@ -7386,7 +7391,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified sensitive type.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSensitiveTypeRequest
    * @return GetSensitiveTypeResponse
    * @throws OciError when an error occurs
@@ -7407,7 +7412,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getSensitiveTypeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSensitiveTypeRequest.retryConfiguration,
@@ -7453,7 +7458,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of target-alert policy association by its ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTargetAlertPolicyAssociationRequest
    * @return GetTargetAlertPolicyAssociationResponse
    * @throws OciError when an error occurs
@@ -7476,7 +7481,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getTargetAlertPolicyAssociationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTargetAlertPolicyAssociationRequest.retryConfiguration,
@@ -7523,7 +7528,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Returns the details of the specified Data Safe target database.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTargetDatabaseRequest
    * @return GetTargetDatabaseResponse
    * @throws OciError when an error occurs
@@ -7544,7 +7549,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getTargetDatabaseRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTargetDatabaseRequest.retryConfiguration,
@@ -7590,7 +7595,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets a user assessment by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetUserAssessmentRequest
    * @return GetUserAssessmentResponse
    * @throws OciError when an error occurs
@@ -7611,7 +7616,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getUserAssessmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getUserAssessmentRequest.retryConfiguration,
@@ -7657,7 +7662,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the comparison report for the user assessments provided.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetUserAssessmentComparisonRequest
    * @return GetUserAssessmentComparisonResponse
    * @throws OciError when an error occurs
@@ -7680,7 +7685,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getUserAssessmentComparisonRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getUserAssessmentComparisonRequest.retryConfiguration,
@@ -7721,7 +7726,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
 
   /**
    * Gets the details of the specified work request.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -7742,7 +7747,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -7794,7 +7799,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Returns aggregation details of alerts.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAlertAnalyticsRequest
    * @return ListAlertAnalyticsResponse
    * @throws OciError when an error occurs
@@ -7829,7 +7834,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-retry-token": listAlertAnalyticsRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAlertAnalyticsRequest.retryConfiguration,
@@ -7876,7 +7881,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Gets a list of all alert policies.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAlertPoliciesRequest
    * @return ListAlertPoliciesResponse
    * @throws OciError when an error occurs
@@ -7910,7 +7915,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": listAlertPoliciesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAlertPoliciesRequest.retryConfiguration,
@@ -7968,7 +7973,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * Lists the rules of the specified alert policy. The alert policy is said to be satisfied when all rules in the policy evaulate to true.
    * If there are three rules: rule1,rule2 and rule3, the policy is satisfied if rule1 AND rule2 AND rule3 is True.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAlertPolicyRulesRequest
    * @return ListAlertPolicyRulesResponse
    * @throws OciError when an error occurs
@@ -7992,7 +7997,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": listAlertPolicyRulesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAlertPolicyRulesRequest.retryConfiguration,
@@ -8049,7 +8054,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Gets a list of all alerts.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAlertsRequest
    * @return ListAlertsResponse
    * @throws OciError when an error occurs
@@ -8079,7 +8084,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": listAlertsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAlertsRequest.retryConfiguration,
@@ -8131,7 +8136,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   /**
    * Returns the list of audit archive retrieval.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAuditArchiveRetrievalsRequest
    * @return ListAuditArchiveRetrievalsResponse
    * @throws OciError when an error occurs
@@ -8164,7 +8169,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-request-id": listAuditArchiveRetrievalsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAuditArchiveRetrievalsRequest.retryConfiguration,
@@ -8221,7 +8226,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    *              &summaryField=dmls&summaryField=privilege_changes&summaryField=ddls&summaryField=login_failure&summaryField=login_success
    *              &summaryField=eventcount&q=(operationTime ge '2021-06-13T23:49:14')&groupBy=targetName
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAuditEventAnalyticsRequest
    * @return ListAuditEventAnalyticsResponse
    * @throws OciError when an error occurs
@@ -8256,7 +8261,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       "opc-retry-token": listAuditEventAnalyticsRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAuditEventAnalyticsRequest.retryConfiguration,
@@ -8320,7 +8325,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditEvents 
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAuditEventsRequest
      * @return ListAuditEventsResponse
      * @throws OciError when an error occurs
@@ -8348,7 +8353,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditEvents 
       "opc-request-id": listAuditEventsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAuditEventsRequest.retryConfiguration,
@@ -8414,7 +8419,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditPolicie
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAuditPoliciesRequest
      * @return ListAuditPoliciesResponse
      * @throws OciError when an error occurs
@@ -8445,7 +8450,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditPolicie
       "opc-request-id": listAuditPoliciesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAuditPoliciesRequest.retryConfiguration,
@@ -8509,7 +8514,7 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditProfileAnal
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAuditProfileAnalyticsRequest
      * @return ListAuditProfileAnalyticsResponse
      * @throws OciError when an error occurs
@@ -8536,7 +8541,7 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditProfileAnal
       "opc-request-id": listAuditProfileAnalyticsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAuditProfileAnalyticsRequest.retryConfiguration,
@@ -8602,7 +8607,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditProfile
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAuditProfilesRequest
      * @return ListAuditProfilesResponse
      * @throws OciError when an error occurs
@@ -8637,7 +8642,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditProfile
       "opc-request-id": listAuditProfilesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAuditProfilesRequest.retryConfiguration,
@@ -8701,7 +8706,7 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditTrailAnalyt
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAuditTrailAnalyticsRequest
      * @return ListAuditTrailAnalyticsResponse
      * @throws OciError when an error occurs
@@ -8728,7 +8733,7 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditTrailAnalyt
       "opc-request-id": listAuditTrailAnalyticsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAuditTrailAnalyticsRequest.retryConfiguration,
@@ -8793,7 +8798,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAuditTrailsRequest
      * @return ListAuditTrailsResponse
      * @throws OciError when an error occurs
@@ -8825,7 +8830,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listAuditTrailsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAuditTrailsRequest.retryConfiguration,
@@ -8876,7 +8881,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
 
   /**
    * Retrieves a list of audit trails, and associated audit event volume for each trail up to defined start date.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAvailableAuditVolumesRequest
    * @return ListAvailableAuditVolumesResponse
    * @throws OciError when an error occurs
@@ -8908,7 +8913,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listAvailableAuditVolumesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAvailableAuditVolumesRequest.retryConfiguration,
@@ -8959,7 +8964,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
 
   /**
    * Gets a list of all collected audit volume data points.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCollectedAuditVolumesRequest
    * @return ListCollectedAuditVolumesResponse
    * @throws OciError when an error occurs
@@ -8990,7 +8995,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listCollectedAuditVolumesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCollectedAuditVolumesRequest.retryConfiguration,
@@ -9042,7 +9047,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   /**
    * Returns a list of column metadata objects.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListColumnsRequest
    * @return ListColumnsResponse
    * @throws OciError when an error occurs
@@ -9075,7 +9080,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listColumnsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listColumnsRequest.retryConfiguration,
@@ -9179,7 +9184,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   /**
    * Gets a list of Data Safe private endpoints.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDataSafePrivateEndpointsRequest
    * @return ListDataSafePrivateEndpointsResponse
    * @throws OciError when an error occurs
@@ -9210,7 +9215,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listDataSafePrivateEndpointsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDataSafePrivateEndpointsRequest.retryConfiguration,
@@ -9308,7 +9313,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
 
   /**
    * Gets consolidated discovery analytics data based on the specified query parameters.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDiscoveryAnalyticsRequest
    * @return ListDiscoveryAnalyticsResponse
    * @throws OciError when an error occurs
@@ -9335,7 +9340,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listDiscoveryAnalyticsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDiscoveryAnalyticsRequest.retryConfiguration,
@@ -9386,7 +9391,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
 
   /**
    * Gets a list of discovery results based on the specified query parameters.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDiscoveryJobResultsRequest
    * @return ListDiscoveryJobResultsResponse
    * @throws OciError when an error occurs
@@ -9418,7 +9423,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listDiscoveryJobResultsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDiscoveryJobResultsRequest.retryConfiguration,
@@ -9469,7 +9474,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
 
   /**
    * Gets a list of incremental discovery jobs based on the specified query parameters.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDiscoveryJobsRequest
    * @return ListDiscoveryJobsResponse
    * @throws OciError when an error occurs
@@ -9501,7 +9506,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listDiscoveryJobsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDiscoveryJobsRequest.retryConfiguration,
@@ -9553,7 +9558,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   /**
    * List all the findings from all the targets in the specified assessment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFindingsRequest
    * @return ListFindingsResponse
    * @throws OciError when an error occurs
@@ -9581,7 +9586,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listFindingsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listFindingsRequest.retryConfiguration,
@@ -9688,7 +9693,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
    * roles a privilege grant is. The userKey in this operation is a system-generated identifier. Perform the operation ListUsers
    * to get the userKey for a particular user.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListGrantsRequest
    * @return ListGrantsResponse
    * @throws OciError when an error occurs
@@ -9722,7 +9727,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listGrantsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listGrantsRequest.retryConfiguration,
@@ -9826,7 +9831,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   /**
    * Gets a list of library masking formats based on the specified query parameters.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListLibraryMaskingFormatsRequest
    * @return ListLibraryMaskingFormatsResponse
    * @throws OciError when an error occurs
@@ -9861,7 +9866,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listLibraryMaskingFormatsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listLibraryMaskingFormatsRequest.retryConfiguration,
@@ -9913,7 +9918,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   /**
    * Gets a list of masked columns present in the specified masking report and based on the specified query parameters.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMaskedColumnsRequest
    * @return ListMaskedColumnsResponse
    * @throws OciError when an error occurs
@@ -9945,7 +9950,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listMaskedColumnsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMaskedColumnsRequest.retryConfiguration,
@@ -9996,7 +10001,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
 
   /**
    * Gets consolidated masking analytics data based on the specified query parameters.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMaskingAnalyticsRequest
    * @return ListMaskingAnalyticsResponse
    * @throws OciError when an error occurs
@@ -10023,7 +10028,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listMaskingAnalyticsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMaskingAnalyticsRequest.retryConfiguration,
@@ -10075,7 +10080,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   /**
    * Gets a list of masking columns present in the specified masking policy and based on the specified query parameters.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMaskingColumnsRequest
    * @return ListMaskingColumnsResponse
    * @throws OciError when an error occurs
@@ -10115,7 +10120,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listMaskingColumnsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMaskingColumnsRequest.retryConfiguration,
@@ -10166,7 +10171,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
 
   /**
    * Gets a list of masking policies based on the specified query parameters.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMaskingPoliciesRequest
    * @return ListMaskingPoliciesResponse
    * @throws OciError when an error occurs
@@ -10200,7 +10205,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listMaskingPoliciesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMaskingPoliciesRequest.retryConfiguration,
@@ -10251,7 +10256,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
 
   /**
    * Gets a list of masking reports based on the specified query parameters.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMaskingReportsRequest
    * @return ListMaskingReportsResponse
    * @throws OciError when an error occurs
@@ -10280,7 +10285,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listMaskingReportsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMaskingReportsRequest.retryConfiguration,
@@ -10332,7 +10337,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   /**
    * Gets a list of on-premises connectors.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListOnPremConnectorsRequest
    * @return ListOnPremConnectorsResponse
    * @throws OciError when an error occurs
@@ -10362,7 +10367,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listOnPremConnectorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listOnPremConnectorsRequest.retryConfiguration,
@@ -10463,7 +10468,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
    * The ListReportDefinitions operation returns only the report definitions in the specified `compartmentId`.
    * It also returns the seeded report definitions which are available to all the compartments.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListReportDefinitionsRequest
    * @return ListReportDefinitionsResponse
    * @throws OciError when an error occurs
@@ -10495,7 +10500,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listReportDefinitionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listReportDefinitionsRequest.retryConfiguration,
@@ -10541,7 +10546,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
 
   /**
    * Gets a list of all the reports in the compartment. It contains information such as report generation time.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListReportsRequest
    * @return ListReportsResponse
    * @throws OciError when an error occurs
@@ -10571,7 +10576,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listReportsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listReportsRequest.retryConfiguration,
@@ -10618,7 +10623,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   /**
    * Returns a list of role metadata objects.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRolesRequest
    * @return ListRolesResponse
    * @throws OciError when an error occurs
@@ -10648,7 +10653,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listRolesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listRolesRequest.retryConfiguration,
@@ -10752,7 +10757,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   /**
    * Returns list of schema.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSchemasRequest
    * @return ListSchemasResponse
    * @throws OciError when an error occurs
@@ -10781,7 +10786,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "opc-request-id": listSchemasRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSchemasRequest.retryConfiguration,
@@ -10899,7 +10904,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListSecurityAssessmentsRequest
      * @return ListSecurityAssessmentsResponse
      * @throws OciError when an error occurs
@@ -10937,7 +10942,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       "opc-request-id": listSecurityAssessmentsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSecurityAssessmentsRequest.retryConfiguration,
@@ -11041,7 +11046,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   /**
    * Gets a list of sensitive columns present in the specified sensitive data model based on the specified query parameters.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSensitiveColumnsRequest
    * @return ListSensitiveColumnsResponse
    * @throws OciError when an error occurs
@@ -11084,7 +11089,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       "opc-request-id": listSensitiveColumnsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSensitiveColumnsRequest.retryConfiguration,
@@ -11136,7 +11141,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   /**
    * Gets a list of sensitive data models based on the specified query parameters.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSensitiveDataModelsRequest
    * @return ListSensitiveDataModelsResponse
    * @throws OciError when an error occurs
@@ -11170,7 +11175,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       "opc-request-id": listSensitiveDataModelsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSensitiveDataModelsRequest.retryConfiguration,
@@ -11222,7 +11227,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   /**
    * Gets a list of sensitive types based on the specified query parameters.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSensitiveTypesRequest
    * @return ListSensitiveTypesResponse
    * @throws OciError when an error occurs
@@ -11258,7 +11263,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       "opc-request-id": listSensitiveTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSensitiveTypesRequest.retryConfiguration,
@@ -11310,7 +11315,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   /**
    * Returns a list of table metadata objects.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTablesRequest
    * @return ListTablesResponse
    * @throws OciError when an error occurs
@@ -11340,7 +11345,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       "opc-request-id": listTablesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTablesRequest.retryConfiguration,
@@ -11444,7 +11449,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   /**
    * Gets a list of all target-alert policy associations.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTargetAlertPolicyAssociationsRequest
    * @return ListTargetAlertPolicyAssociationsResponse
    * @throws OciError when an error occurs
@@ -11480,7 +11485,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       "opc-request-id": listTargetAlertPolicyAssociationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTargetAlertPolicyAssociationsRequest.retryConfiguration,
@@ -11537,7 +11542,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   /**
    * Returns the list of registered target databases in Data Safe.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTargetDatabasesRequest
    * @return ListTargetDatabasesResponse
    * @throws OciError when an error occurs
@@ -11570,7 +11575,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       "opc-request-id": listTargetDatabasesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTargetDatabasesRequest.retryConfiguration,
@@ -11688,7 +11693,7 @@ The parameter compartmentIdInSubtree applies when you perform ListUserAnalytics 
 To use ListUserAnalytics to get a full list of all compartments and subcompartments in the tenancy from the root compartment,
 * set the parameter compartmentIdInSubtree to true and accessLevel to ACCESSIBLE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListUserAnalyticsRequest
      * @return ListUserAnalyticsResponse
      * @throws OciError when an error occurs
@@ -11731,7 +11736,7 @@ To use ListUserAnalytics to get a full list of all compartments and subcompartme
       "opc-request-id": listUserAnalyticsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listUserAnalyticsRequest.retryConfiguration,
@@ -11844,7 +11849,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListUserAssessmentsRequest
      * @return ListUserAssessmentsResponse
      * @throws OciError when an error occurs
@@ -11881,7 +11886,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": listUserAssessmentsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listUserAssessmentsRequest.retryConfiguration,
@@ -11988,7 +11993,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * of the latest password change. It also contains the user category derived from these user details as well as privileges
    * granted to each user.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListUsersRequest
    * @return ListUsersResponse
    * @throws OciError when an error occurs
@@ -12029,7 +12034,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": listUsersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listUsersRequest.retryConfiguration,
@@ -12133,7 +12138,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Gets a list of errors for the specified work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -12157,7 +12162,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -12256,7 +12261,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Gets a list of log entries for the specified work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -12280,7 +12285,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -12379,7 +12384,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Gets a list of work requests.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -12407,7 +12412,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -12505,7 +12510,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Masks data using the specified masking policy.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param MaskDataRequest
    * @return MaskDataResponse
    * @throws OciError when an error occurs
@@ -12526,7 +12531,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": maskDataRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       maskDataRequest.retryConfiguration,
@@ -12574,7 +12579,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Modifies Global Settings in Data Safe in the tenancy and region.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ModifyGlobalSettingsRequest
    * @return ModifyGlobalSettingsResponse
    * @throws OciError when an error occurs
@@ -12597,7 +12602,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-retry-token": modifyGlobalSettingsRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       modifyGlobalSettingsRequest.retryConfiguration,
@@ -12644,7 +12649,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Patch alerts. Updates one or more alerts by specifying alert Ids.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PatchAlertsRequest
    * @return PatchAlertsResponse
    * @throws OciError when an error occurs
@@ -12664,7 +12669,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "if-match": patchAlertsRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       patchAlertsRequest.retryConfiguration,
@@ -12713,7 +12718,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * Patches one or more discovery results. You can use this operation to set the plannedAction attribute before using
    * ApplyDiscoveryJobResults to process the results based on this attribute.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PatchDiscoveryJobResultsRequest
    * @return PatchDiscoveryJobResultsResponse
    * @throws OciError when an error occurs
@@ -12736,7 +12741,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": patchDiscoveryJobResultsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       patchDiscoveryJobResultsRequest.retryConfiguration,
@@ -12786,7 +12791,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * masking columns. To create masking columns, use CreateMaskingColumnDetails as the patch
    * value. And to update masking columns, use UpdateMaskingColumnDetails as the patch value.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PatchMaskingColumnsRequest
    * @return PatchMaskingColumnsResponse
    * @throws OciError when an error occurs
@@ -12808,7 +12813,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "if-match": patchMaskingColumnsRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       patchMaskingColumnsRequest.retryConfiguration,
@@ -12858,7 +12863,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * To create sensitive columns, use CreateSensitiveColumnDetails as the patch value. And to update sensitive columns,
    * use UpdateSensitiveColumnDetails as the patch value.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PatchSensitiveColumnsRequest
    * @return PatchSensitiveColumnsResponse
    * @throws OciError when an error occurs
@@ -12880,7 +12885,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": patchSensitiveColumnsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       patchSensitiveColumnsRequest.retryConfiguration,
@@ -12927,7 +12932,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Provision audit policy.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ProvisionAuditPolicyRequest
    * @return ProvisionAuditPolicyResponse
    * @throws OciError when an error occurs
@@ -12950,7 +12955,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-retry-token": provisionAuditPolicyRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       provisionAuditPolicyRequest.retryConfiguration,
@@ -12999,7 +13004,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * Runs a security assessment, refreshes the latest assessment, and saves it for future reference.
    * The assessment runs with a securityAssessmentId of type LATEST. Before you start, first call the ListSecurityAssessments operation with filter \"type = latest\" to get the security assessment id for the target's latest assessment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RefreshSecurityAssessmentRequest
    * @return RefreshSecurityAssessmentResponse
    * @throws OciError when an error occurs
@@ -13023,7 +13028,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "if-match": refreshSecurityAssessmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       refreshSecurityAssessmentRequest.retryConfiguration,
@@ -13073,7 +13078,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * Before you start, first call the ListUserAssessments operation with filter \"type = latest\" to get the user assessment ID for
    * the target's latest assessment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RefreshUserAssessmentRequest
    * @return RefreshUserAssessmentResponse
    * @throws OciError when an error occurs
@@ -13096,7 +13101,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "if-match": refreshUserAssessmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       refreshUserAssessmentRequest.retryConfiguration,
@@ -13143,7 +13148,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Resumes the specified audit trail once it got stopped.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResumeAuditTrailRequest
    * @return ResumeAuditTrailResponse
    * @throws OciError when an error occurs
@@ -13165,7 +13170,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": resumeAuditTrailRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       resumeAuditTrailRequest.retryConfiguration,
@@ -13208,7 +13213,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Resume the given work request. Issuing a resume does not guarantee of immediate resume of the work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResumeWorkRequestRequest
    * @return ResumeWorkRequestResponse
    * @throws OciError when an error occurs
@@ -13231,7 +13236,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "if-match": resumeWorkRequestRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       resumeWorkRequestRequest.retryConfiguration,
@@ -13273,7 +13278,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Retrieves the audit policy details from the source target database.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RetrieveAuditPoliciesRequest
    * @return RetrieveAuditPoliciesResponse
    * @throws OciError when an error occurs
@@ -13296,7 +13301,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-retry-token": retrieveAuditPoliciesRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       retrieveAuditPoliciesRequest.retryConfiguration,
@@ -13338,7 +13343,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Sets the saved security assessment as the baseline in the compartment where the the specified assessment resides. The security assessment needs to be of type 'SAVED'.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SetSecurityAssessmentBaselineRequest
    * @return SetSecurityAssessmentBaselineResponse
    * @throws OciError when an error occurs
@@ -13362,7 +13367,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": setSecurityAssessmentBaselineRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       setSecurityAssessmentBaselineRequest.retryConfiguration,
@@ -13409,7 +13414,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Sets the saved user assessment as the baseline in the compartment where the specified assessment resides. The user assessment needs to be of type 'SAVED'.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SetUserAssessmentBaselineRequest
    * @return SetUserAssessmentBaselineResponse
    * @throws OciError when an error occurs
@@ -13433,7 +13438,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": setUserAssessmentBaselineRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       setUserAssessmentBaselineRequest.retryConfiguration,
@@ -13480,7 +13485,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Starts collection of audit records on the specified audit trail.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StartAuditTrailRequest
    * @return StartAuditTrailResponse
    * @throws OciError when an error occurs
@@ -13503,7 +13508,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-retry-token": startAuditTrailRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       startAuditTrailRequest.retryConfiguration,
@@ -13550,7 +13555,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Stops the specified audit trail.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StopAuditTrailRequest
    * @return StopAuditTrailResponse
    * @throws OciError when an error occurs
@@ -13572,7 +13577,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": stopAuditTrailRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       stopAuditTrailRequest.retryConfiguration,
@@ -13615,7 +13620,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Suspend the given work request. Issuing a suspend does not guarantee of a immediate suspend of the work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SuspendWorkRequestRequest
    * @return SuspendWorkRequestResponse
    * @throws OciError when an error occurs
@@ -13638,7 +13643,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "if-match": suspendWorkRequestRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       suspendWorkRequestRequest.retryConfiguration,
@@ -13682,7 +13687,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * Removes the baseline setting for the saved security assessment. The saved security assessment is no longer considered a baseline.
    * Sets the if-match parameter to the value of the etag from a previous GET or POST response for that resource.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UnsetSecurityAssessmentBaselineRequest
    * @return UnsetSecurityAssessmentBaselineResponse
    * @throws OciError when an error occurs
@@ -13706,7 +13711,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": unsetSecurityAssessmentBaselineRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       unsetSecurityAssessmentBaselineRequest.retryConfiguration,
@@ -13750,7 +13755,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * Removes the baseline setting for the saved user assessment. The saved user assessment is no longer considered a baseline.
    * Sets the if-match parameter to the value of the etag from a previous GET or POST response for that resource.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UnsetUserAssessmentBaselineRequest
    * @return UnsetUserAssessmentBaselineResponse
    * @throws OciError when an error occurs
@@ -13774,7 +13779,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": unsetUserAssessmentBaselineRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       unsetUserAssessmentBaselineRequest.retryConfiguration,
@@ -13816,7 +13821,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates alert status of the specified alert.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAlertRequest
    * @return UpdateAlertResponse
    * @throws OciError when an error occurs
@@ -13838,7 +13843,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateAlertRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAlertRequest.retryConfiguration,
@@ -13889,7 +13894,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates the audit archive retrieval.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAuditArchiveRetrievalRequest
    * @return UpdateAuditArchiveRetrievalResponse
    * @throws OciError when an error occurs
@@ -13912,7 +13917,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateAuditArchiveRetrievalRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAuditArchiveRetrievalRequest.retryConfiguration,
@@ -13959,7 +13964,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates the audit policy.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAuditPolicyRequest
    * @return UpdateAuditPolicyResponse
    * @throws OciError when an error occurs
@@ -13981,7 +13986,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateAuditPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAuditPolicyRequest.retryConfiguration,
@@ -14028,7 +14033,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates one or more attributes of the specified audit profile.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAuditProfileRequest
    * @return UpdateAuditProfileResponse
    * @throws OciError when an error occurs
@@ -14050,7 +14055,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateAuditProfileRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAuditProfileRequest.retryConfiguration,
@@ -14097,7 +14102,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates one or more attributes of the specified audit trail.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAuditTrailRequest
    * @return UpdateAuditTrailResponse
    * @throws OciError when an error occurs
@@ -14119,7 +14124,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateAuditTrailRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAuditTrailRequest.retryConfiguration,
@@ -14166,7 +14171,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates one or more attributes of the specified Data Safe private endpoint.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDataSafePrivateEndpointRequest
    * @return UpdateDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -14189,7 +14194,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateDataSafePrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDataSafePrivateEndpointRequest.retryConfiguration,
@@ -14236,7 +14241,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates one or more attributes of the specified library masking format. Note that updating the formatEntries attribute replaces all the existing masking format entries with the specified format entries.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateLibraryMaskingFormatRequest
    * @return UpdateLibraryMaskingFormatResponse
    * @throws OciError when an error occurs
@@ -14259,7 +14264,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateLibraryMaskingFormatRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateLibraryMaskingFormatRequest.retryConfiguration,
@@ -14308,7 +14313,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * Updates one or more attributes of the specified masking column. Note that updating the maskingFormats
    * attribute replaces the currently assigned masking formats with the specified masking formats.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateMaskingColumnRequest
    * @return UpdateMaskingColumnResponse
    * @throws OciError when an error occurs
@@ -14331,7 +14336,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateMaskingColumnRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateMaskingColumnRequest.retryConfiguration,
@@ -14378,7 +14383,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates one or more attributes of the specified masking policy.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateMaskingPolicyRequest
    * @return UpdateMaskingPolicyResponse
    * @throws OciError when an error occurs
@@ -14400,7 +14405,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateMaskingPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateMaskingPolicyRequest.retryConfiguration,
@@ -14447,7 +14452,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates one or more attributes of the specified on-premises connector.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateOnPremConnectorRequest
    * @return UpdateOnPremConnectorResponse
    * @throws OciError when an error occurs
@@ -14469,7 +14474,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateOnPremConnectorRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateOnPremConnectorRequest.retryConfiguration,
@@ -14517,7 +14522,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Updates the wallet for the specified on-premises connector to a new version.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateOnPremConnectorWalletRequest
    * @return UpdateOnPremConnectorWalletResponse
    * @throws OciError when an error occurs
@@ -14541,7 +14546,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateOnPremConnectorWalletRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateOnPremConnectorWalletRequest.retryConfiguration,
@@ -14588,7 +14593,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates the specified report definition. Only user created report definition can be updated. Seeded report definitions need to be saved as new report definition first.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateReportDefinitionRequest
    * @return UpdateReportDefinitionResponse
    * @throws OciError when an error occurs
@@ -14611,7 +14616,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-retry-token": updateReportDefinitionRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateReportDefinitionRequest.retryConfiguration,
@@ -14659,7 +14664,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Updates one or more attributes of the specified security assessment. This operation allows to update the security assessment displayName, description, or schedule.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSecurityAssessmentRequest
    * @return UpdateSecurityAssessmentResponse
    * @throws OciError when an error occurs
@@ -14682,7 +14687,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "if-match": updateSecurityAssessmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateSecurityAssessmentRequest.retryConfiguration,
@@ -14729,7 +14734,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates one or more attributes of the specified sensitive column.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSensitiveColumnRequest
    * @return UpdateSensitiveColumnResponse
    * @throws OciError when an error occurs
@@ -14752,7 +14757,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateSensitiveColumnRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateSensitiveColumnRequest.retryConfiguration,
@@ -14801,7 +14806,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * Updates one or more attributes of the specified sensitive data model. Note that updating any attribute of a sensitive
    * data model does not perform data discovery.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSensitiveDataModelRequest
    * @return UpdateSensitiveDataModelResponse
    * @throws OciError when an error occurs
@@ -14824,7 +14829,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateSensitiveDataModelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateSensitiveDataModelRequest.retryConfiguration,
@@ -14871,7 +14876,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates one or more attributes of the specified sensitive type.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSensitiveTypeRequest
    * @return UpdateSensitiveTypeResponse
    * @throws OciError when an error occurs
@@ -14893,7 +14898,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateSensitiveTypeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateSensitiveTypeRequest.retryConfiguration,
@@ -14940,7 +14945,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates the specified target-alert policy association.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateTargetAlertPolicyAssociationRequest
    * @return UpdateTargetAlertPolicyAssociationResponse
    * @throws OciError when an error occurs
@@ -14964,7 +14969,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": updateTargetAlertPolicyAssociationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateTargetAlertPolicyAssociationRequest.retryConfiguration,
@@ -15011,7 +15016,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
 
   /**
    * Updates one or more attributes of the specified Data Safe target database.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateTargetDatabaseRequest
    * @return UpdateTargetDatabaseResponse
    * @throws OciError when an error occurs
@@ -15034,7 +15039,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-retry-token": updateTargetDatabaseRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateTargetDatabaseRequest.retryConfiguration,
@@ -15082,7 +15087,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   /**
    * Updates one or more attributes of the specified user assessment. This operation allows to update the user assessment displayName, description, or schedule.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateUserAssessmentRequest
    * @return UpdateUserAssessmentResponse
    * @throws OciError when an error occurs
@@ -15104,7 +15109,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "if-match": updateUserAssessmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateUserAssessmentRequest.retryConfiguration,
@@ -15156,7 +15161,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * Note that the upload operation replaces the content of the specified masking policy,
    * including all the existing columns and masking formats, with the content of the file.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UploadMaskingPolicyRequest
    * @return UploadMaskingPolicyResponse
    * @throws OciError when an error occurs
@@ -15177,7 +15182,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": uploadMaskingPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       uploadMaskingPolicyRequest.retryConfiguration,
@@ -15225,7 +15230,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * and then use this endpoint to upload the data model file. Note that the upload operation replaces the content of the
    * specified sensitive data model, including all the existing columns and their relationships, with the content of the file.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UploadSensitiveDataModelRequest
    * @return UploadSensitiveDataModelResponse
    * @throws OciError when an error occurs
@@ -15247,7 +15252,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "opc-request-id": uploadSensitiveDataModelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       uploadSensitiveDataModelRequest.retryConfiguration,
