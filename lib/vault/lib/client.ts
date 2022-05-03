@@ -1,6 +1,6 @@
 /**
- * Secrets Management API
- * API for managing secrets.
+ * Vault Secret Management API
+ * Use the Secret Management API to manage secrets and secret versions. For more information, see [Managing Secrets](/Content/KeyManagement/Tasks/managingsecrets.htm).
  * OpenAPI spec version: 20180608
  *
  *
@@ -361,7 +361,7 @@ When provided, if-match is checked against the ETag values of the secret.
 * <p>
 This operation is not supported by the Oracle Cloud Infrastructure Terraform Provider.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateSecretRequest
      * @return CreateSecretResponse
      * @throws OciError when an error occurs
@@ -381,7 +381,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       "opc-retry-token": createSecretRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createSecretRequest.retryConfiguration,
@@ -432,7 +432,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
 
   /**
    * Gets information about the specified secret.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSecretRequest
    * @return GetSecretResponse
    * @throws OciError when an error occurs
@@ -453,7 +453,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       "opc-request-id": getSecretRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSecretRequest.retryConfiguration,
@@ -500,7 +500,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   /**
    * Gets information about the specified version of a secret.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSecretVersionRequest
    * @return GetSecretVersionResponse
    * @throws OciError when an error occurs
@@ -522,7 +522,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       "opc-request-id": getSecretVersionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSecretVersionRequest.retryConfiguration,
@@ -568,7 +568,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
 
   /**
    * Lists all secret versions for the specified secret.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSecretVersionsRequest
    * @return ListSecretVersionsResponse
    * @throws OciError when an error occurs
@@ -594,7 +594,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       "opc-request-id": listSecretVersionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSecretVersionsRequest.retryConfiguration,
@@ -692,7 +692,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
 
   /**
    * Lists all secrets in the specified vault and compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSecretsRequest
    * @return ListSecretsResponse
    * @throws OciError when an error occurs
@@ -720,7 +720,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       "opc-request-id": listSecretsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSecretsRequest.retryConfiguration,
@@ -963,7 +963,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   /**
      * Updates the properties of a secret. Specifically, you can update the version number of the secret to make
 * that version number the current version. You can also update a secret's description, its free-form or defined tags, rules
-* and the secret contents. Updating the secret content automatically creates a new secret version. You cannot, however, update the current secret version number and the secret contents and the rules at the
+* and the secret contents. Updating the secret content automatically creates a new secret version. You cannot, however, update the current secret version number, secret contents, and secret rules at the
 * same time. Furthermore, the secret must in an `ACTIVE` lifecycle state to be updated.
 * <p>
 This operation is not supported by the Oracle Cloud Infrastructure Terraform Provider.

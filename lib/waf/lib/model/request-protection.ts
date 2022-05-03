@@ -30,8 +30,6 @@ export interface RequestProtection {
     * Maximum size of inspected HTTP message body in bytes. Actions to take if this limit is exceeded are defined in `bodyInspectionSizeLimitExceededActionName`.
 * <p>
 Body inspection maximum size allowed is defined with per-tenancy limit: 8192 bytes.
-* <p>
-For steps to request a limit increase, see [Requesting a Service Limit Increase](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/servicelimits.htm).
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "bodyInspectionSizeLimitInBytes"?: number;

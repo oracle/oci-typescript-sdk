@@ -66,6 +66,9 @@ export interface FunctionSummary {
    * Timeout for executions of the function. Value in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeoutInSeconds"?: number;
+  "provisionedConcurrencyConfig"?:
+    | model.NoneProvisionedConcurrencyConfig
+    | model.ConstantProvisionedConcurrencyConfig;
   "traceConfig"?: model.FunctionTraceConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
@@ -125,6 +128,9 @@ export namespace FunctionSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "provisionedConcurrencyConfig": obj.provisionedConcurrencyConfig
+          ? model.FunctionProvisionedConcurrencyConfig.getJsonObj(obj.provisionedConcurrencyConfig)
+          : undefined,
         "traceConfig": obj.traceConfig
           ? model.FunctionTraceConfig.getJsonObj(obj.traceConfig)
           : undefined
@@ -137,6 +143,11 @@ export namespace FunctionSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "provisionedConcurrencyConfig": obj.provisionedConcurrencyConfig
+          ? model.FunctionProvisionedConcurrencyConfig.getDeserializedJsonObj(
+              obj.provisionedConcurrencyConfig
+            )
+          : undefined,
         "traceConfig": obj.traceConfig
           ? model.FunctionTraceConfig.getDeserializedJsonObj(obj.traceConfig)
           : undefined

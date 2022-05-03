@@ -8474,6 +8474,11 @@ For more information about managing instance lifecycle states, see
       defaultHeaders: this._defaultHeaders,
       path: "/instances/{instanceId}",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        instanceActionRequest.instancePowerActionDetails,
+        "InstancePowerActionDetails",
+        model.InstancePowerActionDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams

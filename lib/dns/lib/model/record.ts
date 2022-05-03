@@ -58,7 +58,8 @@ export interface Record {
    */
   "rtype"?: string;
   /**
-   * The Time To Live for the record, in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The Time To Live for the record, in seconds. Using a TTL lower than 30 seconds is not recommended.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ttl"?: number;
 }

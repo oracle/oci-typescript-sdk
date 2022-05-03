@@ -297,7 +297,7 @@ export class DashboardClient {
 
   /**
    * Gets the specified dashboard's information. Uses the dashboard's OCID to determine which dashboard to retrieve.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDashboardRequest
    * @return GetDashboardResponse
    * @throws OciError when an error occurs
@@ -319,7 +319,7 @@ export class DashboardClient {
       "opc-cross-region": getDashboardRequest.opcCrossRegion
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDashboardRequest.retryConfiguration,
@@ -366,7 +366,7 @@ export class DashboardClient {
   /**
    * Returns a list of dashboards with a specific dashboard group ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDashboardsRequest
    * @return ListDashboardsResponse
    * @throws OciError when an error occurs
@@ -395,7 +395,7 @@ export class DashboardClient {
       "opc-cross-region": listDashboardsRequest.opcCrossRegion
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDashboardsRequest.retryConfiguration,
@@ -781,7 +781,7 @@ export class DashboardGroupClient {
 
   /**
    * Gets the specified dashboard group's information. Uses the dashboard group's OCID to determine which dashboard to retrieve.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDashboardGroupRequest
    * @return GetDashboardGroupResponse
    * @throws OciError when an error occurs
@@ -803,7 +803,7 @@ export class DashboardGroupClient {
       "opc-cross-region": getDashboardGroupRequest.opcCrossRegion
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDashboardGroupRequest.retryConfiguration,
@@ -850,7 +850,7 @@ export class DashboardGroupClient {
   /**
    * Returns a list of dashboard groups with a specific compartment ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDashboardGroupsRequest
    * @return ListDashboardGroupsResponse
    * @throws OciError when an error occurs
@@ -880,7 +880,7 @@ export class DashboardGroupClient {
       "opc-cross-region": listDashboardGroupsRequest.opcCrossRegion
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDashboardGroupsRequest.retryConfiguration,

@@ -210,6 +210,8 @@ Example: `2016-08-25T21:10:29.600Z`
     | model.AmdMilanBmPlatformConfig
     | model.AmdRomeBmPlatformConfig
     | model.IntelSkylakeBmPlatformConfig
+    | model.AmdRomeBmGpuPlatformConfig
+    | model.IntelIcelakeBmPlatformConfig
     | model.AmdVmPlatformConfig
     | model.IntelVmPlatformConfig;
 }

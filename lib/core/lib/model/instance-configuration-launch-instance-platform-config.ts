@@ -66,6 +66,13 @@ export namespace InstanceConfigurationLaunchInstancePlatformConfig {
             <model.InstanceConfigurationIntelVmLaunchInstancePlatformConfig>(<object>jsonObj),
             true
           );
+        case "INTEL_ICELAKE_BM":
+          return model.InstanceConfigurationIntelIcelakeBmLaunchInstancePlatformConfig.getJsonObj(
+            <model.InstanceConfigurationIntelIcelakeBmLaunchInstancePlatformConfig>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         case "AMD_ROME_BM":
           return model.InstanceConfigurationAmdRomeBmLaunchInstancePlatformConfig.getJsonObj(
             <model.InstanceConfigurationAmdRomeBmLaunchInstancePlatformConfig>(<object>jsonObj),
@@ -76,6 +83,11 @@ export namespace InstanceConfigurationLaunchInstancePlatformConfig {
             <model.InstanceConfigurationIntelSkylakeBmLaunchInstancePlatformConfig>(
               (<object>jsonObj)
             ),
+            true
+          );
+        case "AMD_ROME_BM_GPU":
+          return model.InstanceConfigurationAmdRomeBmGpuLaunchInstancePlatformConfig.getJsonObj(
+            <model.InstanceConfigurationAmdRomeBmGpuLaunchInstancePlatformConfig>(<object>jsonObj),
             true
           );
         case "AMD_VM":
@@ -106,6 +118,13 @@ export namespace InstanceConfigurationLaunchInstancePlatformConfig {
             <model.InstanceConfigurationIntelVmLaunchInstancePlatformConfig>(<object>jsonObj),
             true
           );
+        case "INTEL_ICELAKE_BM":
+          return model.InstanceConfigurationIntelIcelakeBmLaunchInstancePlatformConfig.getDeserializedJsonObj(
+            <model.InstanceConfigurationIntelIcelakeBmLaunchInstancePlatformConfig>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         case "AMD_ROME_BM":
           return model.InstanceConfigurationAmdRomeBmLaunchInstancePlatformConfig.getDeserializedJsonObj(
             <model.InstanceConfigurationAmdRomeBmLaunchInstancePlatformConfig>(<object>jsonObj),
@@ -116,6 +135,11 @@ export namespace InstanceConfigurationLaunchInstancePlatformConfig {
             <model.InstanceConfigurationIntelSkylakeBmLaunchInstancePlatformConfig>(
               (<object>jsonObj)
             ),
+            true
+          );
+        case "AMD_ROME_BM_GPU":
+          return model.InstanceConfigurationAmdRomeBmGpuLaunchInstancePlatformConfig.getDeserializedJsonObj(
+            <model.InstanceConfigurationAmdRomeBmGpuLaunchInstancePlatformConfig>(<object>jsonObj),
             true
           );
         case "AMD_VM":

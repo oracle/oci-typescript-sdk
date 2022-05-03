@@ -26,6 +26,8 @@ import * as CreateFunctionDetails from "./create-function-details";
 export import CreateFunctionDetails = CreateFunctionDetails.CreateFunctionDetails;
 import * as Function from "./function";
 export import Function = Function.Function;
+import * as FunctionProvisionedConcurrencyConfig from "./function-provisioned-concurrency-config";
+export import FunctionProvisionedConcurrencyConfig = FunctionProvisionedConcurrencyConfig.FunctionProvisionedConcurrencyConfig;
 import * as FunctionSummary from "./function-summary";
 export import FunctionSummary = FunctionSummary.FunctionSummary;
 import * as FunctionTraceConfig from "./function-trace-config";
@@ -38,3 +40,8 @@ import * as UpdateApplicationDetails from "./update-application-details";
 export import UpdateApplicationDetails = UpdateApplicationDetails.UpdateApplicationDetails;
 import * as UpdateFunctionDetails from "./update-function-details";
 export import UpdateFunctionDetails = UpdateFunctionDetails.UpdateFunctionDetails;
+
+import * as ConstantProvisionedConcurrencyConfig from "./constant-provisioned-concurrency-config";
+export import ConstantProvisionedConcurrencyConfig = ConstantProvisionedConcurrencyConfig.ConstantProvisionedConcurrencyConfig;
+import * as NoneProvisionedConcurrencyConfig from "./none-provisioned-concurrency-config";
+export import NoneProvisionedConcurrencyConfig = NoneProvisionedConcurrencyConfig.NoneProvisionedConcurrencyConfig;

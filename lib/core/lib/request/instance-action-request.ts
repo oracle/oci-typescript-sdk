@@ -42,6 +42,10 @@ export interface InstanceActionRequest extends common.BaseRequest {
    *
    */
   "ifMatch"?: string;
+  /**
+   * Instance Power Action details
+   */
+  "instancePowerActionDetails"?: model.ResetActionDetails | model.SoftResetActionDetails;
 }
 
 export namespace InstanceActionRequest {

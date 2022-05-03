@@ -30,8 +30,11 @@ export interface CreateZoneRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The OCID of the compartment the resource belongs to.
-   */
+ * The OCID of the compartment the zone belongs to.
+* <p>
+This parameter is deprecated and should be omitted.
+* 
+ */
   "compartmentId"?: string;
   /**
    * Specifies to operate only on resources that have a matching DNS scope.

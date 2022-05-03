@@ -1,6 +1,6 @@
 /**
- * Secrets Management API
- * API for managing secrets.
+ * Vault Secret Management API
+ * Use the Secret Management API to manage secrets and secret versions. For more information, see [Managing Secrets](/Content/KeyManagement/Tasks/managingsecrets.htm).
  * OpenAPI spec version: 20180608
  *
  *

@@ -227,7 +227,9 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
    */
   "isPvEncryptionInTransitEnabled"?: boolean;
   "platformConfig"?:
+    | model.AmdRomeBmGpuLaunchInstancePlatformConfig
     | model.AmdRomeBmLaunchInstancePlatformConfig
+    | model.IntelIcelakeBmLaunchInstancePlatformConfig
     | model.AmdVmLaunchInstancePlatformConfig
     | model.IntelVmLaunchInstancePlatformConfig
     | model.IntelSkylakeBmLaunchInstancePlatformConfig

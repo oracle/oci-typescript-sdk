@@ -33,12 +33,19 @@ export interface ShapePlatformConfigOptions {
   "measuredBootOptions"?: model.ShapeMeasuredBootOptions;
   "trustedPlatformModuleOptions"?: model.ShapeTrustedPlatformModuleOptions;
   "numaNodesPerSocketPlatformOptions"?: model.ShapeNumaNodesPerSocketPlatformOptions;
+  "symmetricMultiThreadingOptions"?: model.ShapeSymmetricMultiThreadingEnabledPlatformOptions;
+  "accessControlServiceOptions"?: model.ShapeAccessControlServiceEnabledPlatformOptions;
+  "virtualInstructionsOptions"?: model.ShapeVirtualInstructionsEnabledPlatformOptions;
+  "inputOutputMemoryManagementUnitOptions"?: model.ShapeInputOutputMemoryManagementUnitEnabledPlatformOptions;
+  "percentageOfCoresEnabledOptions"?: model.PercentageOfCoresEnabledOptions;
 }
 
 export namespace ShapePlatformConfigOptions {
   export enum Type {
     AmdMilanBm = "AMD_MILAN_BM",
     AmdRomeBm = "AMD_ROME_BM",
+    AmdRomeBmGpu = "AMD_ROME_BM_GPU",
+    IntelIcelakeBm = "INTEL_ICELAKE_BM",
     IntelSkylakeBm = "INTEL_SKYLAKE_BM",
     AmdVm = "AMD_VM",
     IntelVm = "INTEL_VM",
@@ -66,6 +73,29 @@ export namespace ShapePlatformConfigOptions {
           ? model.ShapeNumaNodesPerSocketPlatformOptions.getJsonObj(
               obj.numaNodesPerSocketPlatformOptions
             )
+          : undefined,
+        "symmetricMultiThreadingOptions": obj.symmetricMultiThreadingOptions
+          ? model.ShapeSymmetricMultiThreadingEnabledPlatformOptions.getJsonObj(
+              obj.symmetricMultiThreadingOptions
+            )
+          : undefined,
+        "accessControlServiceOptions": obj.accessControlServiceOptions
+          ? model.ShapeAccessControlServiceEnabledPlatformOptions.getJsonObj(
+              obj.accessControlServiceOptions
+            )
+          : undefined,
+        "virtualInstructionsOptions": obj.virtualInstructionsOptions
+          ? model.ShapeVirtualInstructionsEnabledPlatformOptions.getJsonObj(
+              obj.virtualInstructionsOptions
+            )
+          : undefined,
+        "inputOutputMemoryManagementUnitOptions": obj.inputOutputMemoryManagementUnitOptions
+          ? model.ShapeInputOutputMemoryManagementUnitEnabledPlatformOptions.getJsonObj(
+              obj.inputOutputMemoryManagementUnitOptions
+            )
+          : undefined,
+        "percentageOfCoresEnabledOptions": obj.percentageOfCoresEnabledOptions
+          ? model.PercentageOfCoresEnabledOptions.getJsonObj(obj.percentageOfCoresEnabledOptions)
           : undefined
       }
     };
@@ -90,6 +120,31 @@ export namespace ShapePlatformConfigOptions {
         "numaNodesPerSocketPlatformOptions": obj.numaNodesPerSocketPlatformOptions
           ? model.ShapeNumaNodesPerSocketPlatformOptions.getDeserializedJsonObj(
               obj.numaNodesPerSocketPlatformOptions
+            )
+          : undefined,
+        "symmetricMultiThreadingOptions": obj.symmetricMultiThreadingOptions
+          ? model.ShapeSymmetricMultiThreadingEnabledPlatformOptions.getDeserializedJsonObj(
+              obj.symmetricMultiThreadingOptions
+            )
+          : undefined,
+        "accessControlServiceOptions": obj.accessControlServiceOptions
+          ? model.ShapeAccessControlServiceEnabledPlatformOptions.getDeserializedJsonObj(
+              obj.accessControlServiceOptions
+            )
+          : undefined,
+        "virtualInstructionsOptions": obj.virtualInstructionsOptions
+          ? model.ShapeVirtualInstructionsEnabledPlatformOptions.getDeserializedJsonObj(
+              obj.virtualInstructionsOptions
+            )
+          : undefined,
+        "inputOutputMemoryManagementUnitOptions": obj.inputOutputMemoryManagementUnitOptions
+          ? model.ShapeInputOutputMemoryManagementUnitEnabledPlatformOptions.getDeserializedJsonObj(
+              obj.inputOutputMemoryManagementUnitOptions
+            )
+          : undefined,
+        "percentageOfCoresEnabledOptions": obj.percentageOfCoresEnabledOptions
+          ? model.PercentageOfCoresEnabledOptions.getDeserializedJsonObj(
+              obj.percentageOfCoresEnabledOptions
             )
           : undefined
       }

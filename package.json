@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.24.0",
+  "version": "2.25.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -124,7 +124,8 @@
     "oci-aispeech": "file:lib/aispeech",
     "oci-dataconnectivity": "file:lib/dataconnectivity",
     "oci-stackmonitoring": "file:lib/stackmonitoring",
-    "oci-servicemesh": "file:lib/servicemesh"
+    "oci-servicemesh": "file:lib/servicemesh",
+    "oci-adm": "file:lib/adm"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
