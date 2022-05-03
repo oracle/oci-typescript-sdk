@@ -1,6 +1,6 @@
 /**
- * Vault Service Secret Retrieval API
- * API for retrieving secrets from vaults.
+ * Vault Secret Retrieval API
+ * Use the Secret Retrieval API to retrieve secrets and secret versions from vaults. For more information, see [Managing Secrets](/Content/KeyManagement/Tasks/managingsecrets.htm).
  * OpenAPI spec version: 20190301
  *
  *
@@ -129,7 +129,7 @@ export class SecretsClient {
    * Gets a secret bundle that matches either the specified `stage`, `secretVersionName`, or `versionNumber` parameter.
    * If none of these parameters are provided, the bundle for the secret version marked as `CURRENT` will be returned.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSecretBundleRequest
    * @return GetSecretBundleResponse
    * @throws OciError when an error occurs
@@ -154,7 +154,7 @@ export class SecretsClient {
       "opc-request-id": getSecretBundleRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSecretBundleRequest.retryConfiguration,
@@ -202,7 +202,7 @@ export class SecretsClient {
    * Gets a secret bundle by secret name and vault ID, and secret version that matches either the specified `stage`, `secretVersionName`, or `versionNumber` parameter.
    * If none of these parameters are provided, the bundle for the secret version marked as `CURRENT` is returned.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSecretBundleByNameRequest
    * @return GetSecretBundleByNameResponse
    * @throws OciError when an error occurs
@@ -227,7 +227,7 @@ export class SecretsClient {
       "opc-request-id": getSecretBundleByNameRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSecretBundleByNameRequest.retryConfiguration,
@@ -268,7 +268,7 @@ export class SecretsClient {
 
   /**
    * Lists all secret bundle versions for the specified secret.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSecretBundleVersionsRequest
    * @return ListSecretBundleVersionsResponse
    * @throws OciError when an error occurs
@@ -294,7 +294,7 @@ export class SecretsClient {
       "opc-request-id": listSecretBundleVersionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSecretBundleVersionsRequest.retryConfiguration,

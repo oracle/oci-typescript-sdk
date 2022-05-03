@@ -89,8 +89,11 @@ export interface GetDomainRecordsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The OCID of the compartment the resource belongs to.
-   */
+ * The OCID of the compartment the zone belongs to.
+* <p>
+This parameter is deprecated and should be omitted.
+* 
+ */
   "compartmentId"?: string;
 }
 

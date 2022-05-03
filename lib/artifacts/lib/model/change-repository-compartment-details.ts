@@ -1,7 +1,7 @@
 /**
- * Container Images API
- * API covering the [Registry](/iaas/Content/Registry/Concepts/registryoverview.htm) services.
-Use this API to manage resources such as container images and repositories.
+ * Artifacts and Container Images API
+ * API covering the Artifacts and [Registry](/iaas/Content/Registry/Concepts/registryoverview.htm) services.
+Use this API to manage resources such as generic artifacts and container images.
 
  * OpenAPI spec version: 20160918
  * 

@@ -1,6 +1,6 @@
 /**
- * Secrets Management API
- * API for managing secrets.
+ * Vault Secret Management API
+ * Use the Secret Management API to manage secrets and secret versions. For more information, see [Managing Secrets](/Content/KeyManagement/Tasks/managingsecrets.htm).
  * OpenAPI spec version: 20180608
  *
  *
@@ -49,7 +49,8 @@ export interface Secret {
    */
   "id": string;
   /**
-   * The OCID of the master encryption key that is used to encrypt the secret.
+   * The OCID of the master encryption key that is used to encrypt the secret. You must specify a symmetric key to encrypt the secret during import to the vault. You cannot encrypt secrets with asymmetric keys. Furthermore, the key must exist in the vault that you specify.
+   *
    */
   "keyId"?: string;
   /**

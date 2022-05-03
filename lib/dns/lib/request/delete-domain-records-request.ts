@@ -61,7 +61,10 @@ export interface DeleteDomainRecordsRequest extends common.BaseRequest {
    */
   "viewId"?: string;
   /**
-   * The OCID of the compartment the resource belongs to.
-   */
+ * The OCID of the compartment the zone belongs to.
+* <p>
+This parameter is deprecated and should be omitted.
+* 
+ */
   "compartmentId"?: string;
 }

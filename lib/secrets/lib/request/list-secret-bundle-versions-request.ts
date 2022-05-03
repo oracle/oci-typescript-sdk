@@ -40,7 +40,7 @@ export interface ListSecretBundleVersionsRequest extends common.BaseRequest {
   "page"?: string;
   /**
    * The field to sort by. You can specify only one sort order. The default
-   * order for `VERSION_NUMBER` is ascending.
+   * order for `VERSION_NUMBER` is descending.
    *
    */
   "sortBy"?: ListSecretBundleVersionsRequest.SortBy;

@@ -53,6 +53,11 @@ The following values are supported:
 * 
     */
   "baselineOcpuUtilization"?: InstanceConfigurationLaunchInstanceShapeConfigDetails.BaselineOcpuUtilization;
+  /**
+   * The number of NVMe drives to be used for storage. A single drive has 6.8 TB available.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "nvmes"?: number;
 }
 
 export namespace InstanceConfigurationLaunchInstanceShapeConfigDetails {

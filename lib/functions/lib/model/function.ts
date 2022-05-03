@@ -76,6 +76,9 @@ The maximum size for all configuration keys and values is limited to 4KB. This i
    * Timeout for executions of the function. Value in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeoutInSeconds"?: number;
+  "provisionedConcurrencyConfig"?:
+    | model.NoneProvisionedConcurrencyConfig
+    | model.ConstantProvisionedConcurrencyConfig;
   "traceConfig"?: model.FunctionTraceConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
@@ -135,6 +138,9 @@ export namespace Function {
     const jsonObj = {
       ...obj,
       ...{
+        "provisionedConcurrencyConfig": obj.provisionedConcurrencyConfig
+          ? model.FunctionProvisionedConcurrencyConfig.getJsonObj(obj.provisionedConcurrencyConfig)
+          : undefined,
         "traceConfig": obj.traceConfig
           ? model.FunctionTraceConfig.getJsonObj(obj.traceConfig)
           : undefined
@@ -147,6 +153,11 @@ export namespace Function {
     const jsonObj = {
       ...obj,
       ...{
+        "provisionedConcurrencyConfig": obj.provisionedConcurrencyConfig
+          ? model.FunctionProvisionedConcurrencyConfig.getDeserializedJsonObj(
+              obj.provisionedConcurrencyConfig
+            )
+          : undefined,
         "traceConfig": obj.traceConfig
           ? model.FunctionTraceConfig.getDeserializedJsonObj(obj.traceConfig)
           : undefined

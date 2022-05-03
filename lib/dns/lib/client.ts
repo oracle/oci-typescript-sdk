@@ -157,15 +157,17 @@ export class DnsClient {
   }
 
   /**
-   * Moves a resolver into a different compartment along with its protected default view and any endpoints.
-   * Zones in the default view are not moved. Requires a `PRIVATE` scope query parameter.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param ChangeResolverCompartmentRequest
-   * @return ChangeResolverCompartmentResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeResolverCompartment.ts.html |here} to see how to use ChangeResolverCompartment API.
-   */
+     * Moves a resolver into a different compartment along with its protected default view and any endpoints.
+* <p>
+Zones in the default view are not moved. VCN-dedicated resolvers are initially created in the same compartment
+* as their corresponding VCN, but can then be moved to a different compartment.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ChangeResolverCompartmentRequest
+     * @return ChangeResolverCompartmentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeResolverCompartment.ts.html |here} to see how to use ChangeResolverCompartment API.
+     */
   public async changeResolverCompartment(
     changeResolverCompartmentRequest: requests.ChangeResolverCompartmentRequest
   ): Promise<responses.ChangeResolverCompartmentResponse> {
@@ -185,7 +187,7 @@ export class DnsClient {
       "opc-request-id": changeResolverCompartmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeResolverCompartmentRequest.retryConfiguration,
@@ -233,7 +235,7 @@ export class DnsClient {
   /**
    * Moves a steering policy into a different compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeSteeringPolicyCompartmentRequest
    * @return ChangeSteeringPolicyCompartmentResponse
    * @throws OciError when an error occurs
@@ -259,7 +261,7 @@ export class DnsClient {
       "opc-request-id": changeSteeringPolicyCompartmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeSteeringPolicyCompartmentRequest.retryConfiguration,
@@ -302,7 +304,7 @@ export class DnsClient {
   /**
    * Moves a TSIG key into a different compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeTsigKeyCompartmentRequest
    * @return ChangeTsigKeyCompartmentResponse
    * @throws OciError when an error occurs
@@ -327,7 +329,7 @@ export class DnsClient {
       "opc-request-id": changeTsigKeyCompartmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeTsigKeyCompartmentRequest.retryConfiguration,
@@ -368,15 +370,16 @@ export class DnsClient {
   }
 
   /**
-   * Moves a view into a different compartment. Protected views cannot have their compartment changed. Requires a
-   * `PRIVATE` scope query parameter.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param ChangeViewCompartmentRequest
-   * @return ChangeViewCompartmentResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeViewCompartment.ts.html |here} to see how to use ChangeViewCompartment API.
-   */
+     * Moves a view into a different compartment.
+* <p>
+To change the compartment of a protected view, change the compartment of its corresponding resolver.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ChangeViewCompartmentRequest
+     * @return ChangeViewCompartmentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeViewCompartment.ts.html |here} to see how to use ChangeViewCompartment API.
+     */
   public async changeViewCompartment(
     changeViewCompartmentRequest: requests.ChangeViewCompartmentRequest
   ): Promise<responses.ChangeViewCompartmentResponse> {
@@ -396,7 +399,7 @@ export class DnsClient {
       "opc-request-id": changeViewCompartmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeViewCompartmentRequest.retryConfiguration,
@@ -442,18 +445,21 @@ export class DnsClient {
   }
 
   /**
-   * Moves a zone into a different compartment. Protected zones cannot have their compartment changed. For private
-   * zones, the scope query parameter is required with a value of `PRIVATE`. When the zone name is provided as a
-   * path parameter and `PRIVATE` is used for the scope query parameter then the viewId query parameter is required.
-   * <p>
-   **Note:** All SteeringPolicyAttachment objects associated with this zone will also be moved into the provided compartment.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param ChangeZoneCompartmentRequest
-   * @return ChangeZoneCompartmentResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeZoneCompartment.ts.html |here} to see how to use ChangeZoneCompartment API.
-   */
+     * Moves a zone into a different compartment.
+* <p>
+Protected zones cannot have their compartment changed. When the zone name is provided as a path
+* parameter and `PRIVATE` is used for the scope query parameter then the viewId query parameter is
+* required.
+* <p>
+**Note:** All SteeringPolicyAttachment objects associated with this zone will also be moved into
+* the provided compartment.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ChangeZoneCompartmentRequest
+     * @return ChangeZoneCompartmentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeZoneCompartment.ts.html |here} to see how to use ChangeZoneCompartment API.
+     */
   public async changeZoneCompartment(
     changeZoneCompartmentRequest: requests.ChangeZoneCompartmentRequest
   ): Promise<responses.ChangeZoneCompartmentResponse> {
@@ -473,7 +479,7 @@ export class DnsClient {
       "opc-request-id": changeZoneCompartmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeZoneCompartmentRequest.retryConfiguration,
@@ -519,9 +525,9 @@ export class DnsClient {
   }
 
   /**
-   * Creates a new resolver endpoint. Requires a `PRIVATE` scope query parameter.
+   * Creates a new resolver endpoint in the same compartment as the resolver.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateResolverEndpointRequest
    * @return CreateResolverEndpointResponse
    * @throws OciError when an error occurs
@@ -545,7 +551,7 @@ export class DnsClient {
       "opc-request-id": createResolverEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createResolverEndpointRequest.retryConfiguration,
@@ -608,7 +614,7 @@ export class DnsClient {
    * Creates a new steering policy in the specified compartment. For more information on
    * creating policies with templates, see [Traffic Management API Guide](https://docs.cloud.oracle.com/iaas/Content/TrafficManagement/Concepts/trafficmanagementapi.htm).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateSteeringPolicyRequest
    * @return CreateSteeringPolicyResponse
    * @throws OciError when an error occurs
@@ -630,7 +636,7 @@ export class DnsClient {
       "opc-request-id": createSteeringPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createSteeringPolicyRequest.retryConfiguration,
@@ -692,7 +698,7 @@ export class DnsClient {
 For the purposes of access control, the attachment is automatically placed
 * into the same compartment as the domain's zone.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateSteeringPolicyAttachmentRequest
      * @return CreateSteeringPolicyAttachmentResponse
      * @throws OciError when an error occurs
@@ -715,7 +721,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": createSteeringPolicyAttachmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createSteeringPolicyAttachmentRequest.retryConfiguration,
@@ -773,7 +779,7 @@ For the purposes of access control, the attachment is automatically placed
    * Creates a new TSIG key in the specified compartment. There is no
    * `opc-retry-token` header since TSIG key names must be globally unique.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateTsigKeyRequest
    * @return CreateTsigKeyResponse
    * @throws OciError when an error occurs
@@ -794,7 +800,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": createTsigKeyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createTsigKeyRequest.retryConfiguration,
@@ -854,9 +860,9 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Creates a new view in the specified compartment. Requires a `PRIVATE` scope query parameter.
+   * Creates a new view in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateViewRequest
    * @return CreateViewResponse
    * @throws OciError when an error occurs
@@ -878,7 +884,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": createViewRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createViewRequest.retryConfiguration,
@@ -938,18 +944,17 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Creates a new zone in the specified compartment. For global zones, if the `Content-Type` header for the request
-   * is `text/dns`, the `compartmentId` query parameter is required. `text/dns` for the `Content-Type` header is
-   * not supported for private zones. Query parameter scope with a value of `PRIVATE` is required when creating a
-   * private zone. Private zones must have a zone type of `PRIMARY`. Creating a private zone at or under
-   * `oraclevcn.com` within the default protected view of a VCN-dedicated resolver is not permitted.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param CreateZoneRequest
-   * @return CreateZoneResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateZone.ts.html |here} to see how to use CreateZone API.
-   */
+     * Creates a new zone in the specified compartment.
+* <p>
+Private zones must have a zone type of `PRIMARY`. Creating a private zone at or under `oraclevcn.com`
+* within the default protected view of a VCN-dedicated resolver is not permitted.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateZoneRequest
+     * @return CreateZoneResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateZone.ts.html |here} to see how to use CreateZone API.
+     */
   public async createZone(
     createZoneRequest: requests.CreateZoneRequest
   ): Promise<responses.CreateZoneResponse> {
@@ -1027,16 +1032,17 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Deletes all records at the specified zone and domain. For private zones, the scope query parameter is
-   * required with a value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used
-   * for the scope query parameter then the viewId query parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param DeleteDomainRecordsRequest
-   * @return DeleteDomainRecordsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteDomainRecords.ts.html |here} to see how to use DeleteDomainRecords API.
-   */
+     * Deletes all records at the specified zone and domain.
+* <p>
+When the zone name is provided as a path parameter and `PRIVATE` is used for the scope query parameter
+* then the viewId query parameter is required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DeleteDomainRecordsRequest
+     * @return DeleteDomainRecordsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteDomainRecords.ts.html |here} to see how to use DeleteDomainRecords API.
+     */
   public async deleteDomainRecords(
     deleteDomainRecordsRequest: requests.DeleteDomainRecordsRequest
   ): Promise<responses.DeleteDomainRecordsResponse> {
@@ -1059,7 +1065,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteDomainRecordsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDomainRecordsRequest.retryConfiguration,
@@ -1095,16 +1101,17 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Deletes all records in the specified RRSet. For private zones, the scope query parameter is required with a
-   * value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used for the scope
-   * query parameter then the viewId query parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param DeleteRRSetRequest
-   * @return DeleteRRSetResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteRRSet.ts.html |here} to see how to use DeleteRRSet API.
-   */
+     * Deletes all records in the specified RRSet.
+* <p>
+When the zone name is provided as a path parameter and `PRIVATE` is used for the scope
+* query parameter then the viewId query parameter is required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DeleteRRSetRequest
+     * @return DeleteRRSetResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteRRSet.ts.html |here} to see how to use DeleteRRSet API.
+     */
   public async deleteRRSet(
     deleteRRSetRequest: requests.DeleteRRSetRequest
   ): Promise<responses.DeleteRRSetResponse> {
@@ -1128,7 +1135,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteRRSetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteRRSetRequest.retryConfiguration,
@@ -1164,17 +1171,18 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Deletes the specified resolver endpoint. Note that attempting to delete a resolver endpoint in the
-   * DELETED lifecycle state will result in a `404` response to be consistent with other operations of the API.
-   * Resolver endpoints may not be deleted if they are referenced by a resolver rule. Requires a `PRIVATE` scope
-   * query parameter.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param DeleteResolverEndpointRequest
-   * @return DeleteResolverEndpointResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteResolverEndpoint.ts.html |here} to see how to use DeleteResolverEndpoint API.
-   */
+     * Deletes the specified resolver endpoint.
+* <p>
+Note that attempting to delete a resolver endpoint in the DELETED lifecycle state will result in
+* a `404` response to be consistent with other operations of the API. Resolver endpoints may not
+* be deleted if they are referenced by a resolver rule.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DeleteResolverEndpointRequest
+     * @return DeleteResolverEndpointResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteResolverEndpoint.ts.html |here} to see how to use DeleteResolverEndpoint API.
+     */
   public async deleteResolverEndpoint(
     deleteResolverEndpointRequest: requests.DeleteResolverEndpointRequest
   ): Promise<responses.DeleteResolverEndpointResponse> {
@@ -1195,7 +1203,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteResolverEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteResolverEndpointRequest.retryConfiguration,
@@ -1236,17 +1244,18 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Deletes the specified steering policy.
-   * A `204` response indicates that the delete has been successful.
-   * Deletion will fail if the policy is attached to any zones. To detach a
-   * policy from a zone, see `DeleteSteeringPolicyAttachment`.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param DeleteSteeringPolicyRequest
-   * @return DeleteSteeringPolicyResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteSteeringPolicy.ts.html |here} to see how to use DeleteSteeringPolicy API.
-   */
+     * Deletes the specified steering policy.
+* <p>
+A `204` response indicates that the delete has been successful.
+* Deletion will fail if the policy is attached to any zones. To detach a
+* policy from a zone, see `DeleteSteeringPolicyAttachment`.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DeleteSteeringPolicyRequest
+     * @return DeleteSteeringPolicyResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteSteeringPolicy.ts.html |here} to see how to use DeleteSteeringPolicy API.
+     */
   public async deleteSteeringPolicy(
     deleteSteeringPolicyRequest: requests.DeleteSteeringPolicyRequest
   ): Promise<responses.DeleteSteeringPolicyResponse> {
@@ -1266,7 +1275,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteSteeringPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteSteeringPolicyRequest.retryConfiguration,
@@ -1305,7 +1314,7 @@ For the purposes of access control, the attachment is automatically placed
    * Deletes the specified steering policy attachment.
    * A `204` response indicates that the delete has been successful.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteSteeringPolicyAttachmentRequest
    * @return DeleteSteeringPolicyAttachmentResponse
    * @throws OciError when an error occurs
@@ -1332,7 +1341,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteSteeringPolicyAttachmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteSteeringPolicyAttachmentRequest.retryConfiguration,
@@ -1370,7 +1379,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Deletes the specified TSIG key.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteTsigKeyRequest
    * @return DeleteTsigKeyResponse
    * @throws OciError when an error occurs
@@ -1395,7 +1404,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteTsigKeyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteTsigKeyRequest.retryConfiguration,
@@ -1436,18 +1445,19 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Deletes the specified view. Note that attempting to delete a
-   * view in the DELETED lifecycleState will result in a `404` response to be
-   * consistent with other operations of the API. Views cannot be
-   * deleted if they are referenced by non-deleted zones or resolvers.
-   * Protected views cannot be deleted. Requires a `PRIVATE` scope query parameter.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param DeleteViewRequest
-   * @return DeleteViewResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteView.ts.html |here} to see how to use DeleteView API.
-   */
+     * Deletes the specified view.
+* <p>
+Note that attempting to delete a view in the DELETED lifecycleState will result in a `404`
+* response to be consistent with other operations of the API. Views cannot be
+* deleted if they are referenced by non-deleted zones or resolvers.
+* Protected views cannot be deleted.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DeleteViewRequest
+     * @return DeleteViewResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteView.ts.html |here} to see how to use DeleteView API.
+     */
   public async deleteView(
     deleteViewRequest: requests.DeleteViewRequest
   ): Promise<responses.DeleteViewResponse> {
@@ -1467,7 +1477,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": deleteViewRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteViewRequest.retryConfiguration,
@@ -1508,17 +1518,18 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Deletes the specified zone and all its steering policy attachments. A `204` response indicates that the zone has
-   * been successfully deleted. Protected zones cannot be deleted. For private zones, the scope query parameter is
-   * required with a value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used
-   * for the scope query parameter then the viewId query parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param DeleteZoneRequest
-   * @return DeleteZoneResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteZone.ts.html |here} to see how to use DeleteZone API.
-   */
+     * Deletes the specified zone and all its steering policy attachments.
+* <p>
+A `204` response indicates that the zone has been successfully deleted. Protected zones cannot be deleted.
+* When the zone name is provided as a path parameter and `PRIVATE` is used for the scope query parameter
+* then the viewId query parameter is required.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DeleteZoneRequest
+     * @return DeleteZoneResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteZone.ts.html |here} to see how to use DeleteZone API.
+     */
   public async deleteZone(
     deleteZoneRequest: requests.DeleteZoneRequest
   ): Promise<responses.DeleteZoneResponse> {
@@ -1581,18 +1592,18 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets a list of all records at the specified zone and domain. The results are sorted by `rtype` in
-   * alphabetical order by default. You can optionally filter and/or sort the results using the listed parameters.
-   * For private zones, the scope query parameter is required with a value of `PRIVATE`. When the zone name is
-   * provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query
-   * parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetDomainRecordsRequest
-   * @return GetDomainRecordsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetDomainRecords.ts.html |here} to see how to use GetDomainRecords API.
-   */
+     * Gets a list of all records at the specified zone and domain.
+* <p>
+The results are sorted by `rtype` in alphabetical order by default. You can optionally filter and/or sort
+* the results using the listed parameters. When the zone name is provided as a path parameter and `PRIVATE`
+* is used for the scope query parameter then the viewId query parameter is required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetDomainRecordsRequest
+     * @return GetDomainRecordsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetDomainRecords.ts.html |here} to see how to use GetDomainRecords API.
+     */
   public async getDomainRecords(
     getDomainRecordsRequest: requests.GetDomainRecordsRequest
   ): Promise<responses.GetDomainRecordsResponse> {
@@ -1621,7 +1632,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getDomainRecordsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDomainRecordsRequest.retryConfiguration,
@@ -1750,17 +1761,17 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets a list of all records in the specified RRSet. The results are sorted by `recordHash` by default. For
-   * private zones, the scope query parameter is required with a value of `PRIVATE`. When the zone name is
-   * provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query
-   * parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetRRSetRequest
-   * @return GetRRSetResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetRRSet.ts.html |here} to see how to use GetRRSet API.
-   */
+     * Gets a list of all records in the specified RRSet.
+* <p>
+The results are sorted by `recordHash` by default. When the zone name is provided as a path parameter
+* and `PRIVATE` is used for the scope query parameter then the viewId query parameter is required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetRRSetRequest
+     * @return GetRRSetResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetRRSet.ts.html |here} to see how to use GetRRSet API.
+     */
   public async getRRSet(
     getRRSetRequest: requests.GetRRSetRequest
   ): Promise<responses.GetRRSetResponse> {
@@ -1787,7 +1798,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getRRSetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getRRSetRequest.retryConfiguration,
@@ -1914,16 +1925,17 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets information about a specific resolver. Note that attempting to get a
-   * resolver in the DELETED lifecycleState will result in a `404` response to be
-   * consistent with other operations of the API. Requires a `PRIVATE` scope query parameter.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetResolverRequest
-   * @return GetResolverResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetResolver.ts.html |here} to see how to use GetResolver API.
-   */
+     * Gets information about a specific resolver.
+* <p>
+Note that attempting to get a resolver in the DELETED lifecycleState will result in a `404`
+* response to be consistent with other operations of the API.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetResolverRequest
+     * @return GetResolverResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetResolver.ts.html |here} to see how to use GetResolver API.
+     */
   public async getResolver(
     getResolverRequest: requests.GetResolverRequest
   ): Promise<responses.GetResolverResponse> {
@@ -1943,7 +1955,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getResolverRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getResolverRequest.retryConfiguration,
@@ -1988,16 +2000,17 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets information about a specific resolver endpoint. Note that attempting to get a resolver endpoint
-   * in the DELETED lifecycle state will result in a `404` response to be consistent with other operations of the
-   * API. Requires a `PRIVATE` scope query parameter.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetResolverEndpointRequest
-   * @return GetResolverEndpointResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetResolverEndpoint.ts.html |here} to see how to use GetResolverEndpoint API.
-   */
+     * Gets information about a specific resolver endpoint.
+* <p>
+Note that attempting to get a resolver endpoint in the DELETED lifecycle state will result
+* in a `404` response to be consistent with other operations of the API.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetResolverEndpointRequest
+     * @return GetResolverEndpointResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetResolverEndpoint.ts.html |here} to see how to use GetResolverEndpoint API.
+     */
   public async getResolverEndpoint(
     getResolverEndpointRequest: requests.GetResolverEndpointRequest
   ): Promise<responses.GetResolverEndpointResponse> {
@@ -2018,7 +2031,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getResolverEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getResolverEndpointRequest.retryConfiguration,
@@ -2065,7 +2078,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Gets information about the specified steering policy.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSteeringPolicyRequest
    * @return GetSteeringPolicyResponse
    * @throws OciError when an error occurs
@@ -2090,7 +2103,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getSteeringPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSteeringPolicyRequest.retryConfiguration,
@@ -2137,7 +2150,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Gets information about the specified steering policy attachment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSteeringPolicyAttachmentRequest
    * @return GetSteeringPolicyAttachmentResponse
    * @throws OciError when an error occurs
@@ -2162,7 +2175,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getSteeringPolicyAttachmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSteeringPolicyAttachmentRequest.retryConfiguration,
@@ -2209,7 +2222,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Gets information about the specified TSIG key.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTsigKeyRequest
    * @return GetTsigKeyResponse
    * @throws OciError when an error occurs
@@ -2234,7 +2247,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getTsigKeyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTsigKeyRequest.retryConfiguration,
@@ -2279,16 +2292,18 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets information about a specific view. Note that attempting to get a
-   * view in the DELETED lifecycleState will result in a `404` response to be
-   * consistent with other operations of the API. Requires a `PRIVATE` scope query parameter.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetViewRequest
-   * @return GetViewResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetView.ts.html |here} to see how to use GetView API.
-   */
+     * Gets information about a specific view.
+* <p>
+Note that attempting to get a
+* view in the DELETED lifecycleState will result in a `404` response to be
+* consistent with other operations of the API.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetViewRequest
+     * @return GetViewResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetView.ts.html |here} to see how to use GetView API.
+     */
   public async getView(
     getViewRequest: requests.GetViewRequest
   ): Promise<responses.GetViewResponse> {
@@ -2308,7 +2323,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getViewRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getViewRequest.retryConfiguration,
@@ -2353,16 +2368,17 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets information about the specified zone, including its creation date, zone type, and serial. For private
-   * zones, the scope query parameter is required with a value of `PRIVATE`. When the zone name is provided as a
-   * path parameter and `PRIVATE` is used for the scope query parameter then the viewId query parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetZoneRequest
-   * @return GetZoneResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetZone.ts.html |here} to see how to use GetZone API.
-   */
+     * Gets information about the specified zone, including its creation date, zone type, and serial.
+* <p>
+When the zone name is provided as a path parameter and `PRIVATE` is used for the scope query
+* parameter then the viewId query parameter is required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetZoneRequest
+     * @return GetZoneResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetZone.ts.html |here} to see how to use GetZone API.
+     */
   public async getZone(
     getZoneRequest: requests.GetZoneRequest
   ): Promise<responses.GetZoneResponse> {
@@ -2384,7 +2400,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getZoneRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getZoneRequest.retryConfiguration,
@@ -2431,7 +2447,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Gets the requested zone's zone file.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetZoneContentRequest
    * @return GetZoneContentResponse
    * @throws OciError when an error occurs
@@ -2457,7 +2473,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getZoneContentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getZoneContentRequest.retryConfiguration,
@@ -2502,18 +2518,19 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets all records in the specified zone. The results are sorted by `domain` in alphabetical order by default.
-   * For more information about records, see [Resource Record (RR) TYPEs](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-4).
-   * For private zones, the scope query parameter is required with a value of `PRIVATE`. When the zone name is
-   * provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query
-   * parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetZoneRecordsRequest
-   * @return GetZoneRecordsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetZoneRecords.ts.html |here} to see how to use GetZoneRecords API.
-   */
+     * Gets all records in the specified zone.
+* <p>
+The results are sorted by `domain` in alphabetical order by default. For more information about records,
+* see [Resource Record (RR) TYPEs](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-4).
+* When the zone name is provided as a path parameter and `PRIVATE` is used for the scope query parameter
+* then the viewId query parameter is required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetZoneRecordsRequest
+     * @return GetZoneRecordsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetZoneRecords.ts.html |here} to see how to use GetZoneRecords API.
+     */
   public async getZoneRecords(
     getZoneRecordsRequest: requests.GetZoneRecordsRequest
   ): Promise<responses.GetZoneRecordsResponse> {
@@ -2543,7 +2560,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": getZoneRecordsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getZoneRecordsRequest.retryConfiguration,
@@ -2675,9 +2692,9 @@ For the purposes of access control, the attachment is automatically placed
    * Gets a list of all endpoints within a resolver. The collection can be filtered by name or lifecycle state.
    * It can be sorted on creation time or name both in ASC or DESC order. Note that when no lifecycleState
    * query parameter is provided, the collection does not include resolver endpoints in the DELETED
-   * lifecycle state to be consistent with other operations of the API. Requires a `PRIVATE` scope query parameter.
+   * lifecycle state to be consistent with other operations of the API.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListResolverEndpointsRequest
    * @return ListResolverEndpointsResponse
    * @throws OciError when an error occurs
@@ -2706,7 +2723,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listResolverEndpointsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listResolverEndpointsRequest.retryConfiguration,
@@ -2803,19 +2820,19 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets a list of all resolvers within a compartment. The collection can
-   * be filtered by display name, id, or lifecycle state. It can be sorted
-   * on creation time or displayName both in ASC or DESC order. Note that
-   * when no lifecycleState query parameter is provided, the collection
-   * does not include resolvers in the DELETED lifecycleState to be consistent
-   * with other operations of the API. Requires a `PRIVATE` scope query parameter.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param ListResolversRequest
-   * @return ListResolversResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListResolvers.ts.html |here} to see how to use ListResolvers API.
-   */
+     * Gets a list of all resolvers within a compartment.
+* <p>
+The collection can be filtered by display name, id, or lifecycle state. It can be sorted
+* on creation time or displayName both in ASC or DESC order. Note that when no lifecycleState
+* query parameter is provided, the collection does not include resolvers in the DELETED
+* lifecycleState to be consistent with other operations of the API.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListResolversRequest
+     * @return ListResolversResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListResolvers.ts.html |here} to see how to use ListResolvers API.
+     */
   public async listResolvers(
     listResolversRequest: requests.ListResolversRequest
   ): Promise<responses.ListResolversResponse> {
@@ -2839,7 +2856,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listResolversRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listResolversRequest.retryConfiguration,
@@ -2938,7 +2955,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Gets a list of all steering policies in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSteeringPoliciesRequest
    * @return ListSteeringPoliciesResponse
    * @throws OciError when an error occurs
@@ -2973,7 +2990,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listSteeringPoliciesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSteeringPoliciesRequest.retryConfiguration,
@@ -3077,7 +3094,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Lists the steering policy attachments in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSteeringPolicyAttachmentsRequest
    * @return ListSteeringPolicyAttachmentsResponse
    * @throws OciError when an error occurs
@@ -3114,7 +3131,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listSteeringPolicyAttachmentsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSteeringPolicyAttachmentsRequest.retryConfiguration,
@@ -3218,7 +3235,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Gets a list of all TSIG keys in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTsigKeysRequest
    * @return ListTsigKeysResponse
    * @throws OciError when an error occurs
@@ -3247,7 +3264,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listTsigKeysRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTsigKeysRequest.retryConfiguration,
@@ -3344,19 +3361,19 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets a list of all views within a compartment. The collection can
-   * be filtered by display name, id, or lifecycle state. It can be sorted
-   * on creation time or displayName both in ASC or DESC order. Note that
-   * when no lifecycleState query parameter is provided, the collection
-   * does not include views in the DELETED lifecycleState to be consistent
-   * with other operations of the API. Requires a `PRIVATE` scope query parameter.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param ListViewsRequest
-   * @return ListViewsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListViews.ts.html |here} to see how to use ListViews API.
-   */
+     * Gets a list of all views within a compartment.
+* <p>
+The collection can be filtered by display name, id, or lifecycle state. It can be sorted
+* on creation time or displayName both in ASC or DESC order. Note that when no lifecycleState
+* query parameter is provided, the collection does not include views in the DELETED
+* lifecycleState to be consistent with other operations of the API.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListViewsRequest
+     * @return ListViewsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListViews.ts.html |here} to see how to use ListViews API.
+     */
   public async listViews(
     listViewsRequest: requests.ListViewsRequest
   ): Promise<responses.ListViewsResponse> {
@@ -3380,7 +3397,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listViewsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listViewsRequest.retryConfiguration,
@@ -3481,7 +3498,7 @@ For the purposes of access control, the attachment is automatically placed
    * compartment (which must be the root compartment of a tenancy) that transfer zone data with external master or
    * downstream nameservers.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListZoneTransferServersRequest
    * @return ListZoneTransferServersResponse
    * @throws OciError when an error occurs
@@ -3504,7 +3521,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listZoneTransferServersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listZoneTransferServersRequest.retryConfiguration,
@@ -3601,15 +3618,17 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Gets a list of all zones in the specified compartment. The collection can be filtered by name, time created,
-   * scope, associated view, and zone type. Filtering by view is only supported for private zones.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param ListZonesRequest
-   * @return ListZonesResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListZones.ts.html |here} to see how to use ListZones API.
-   */
+     * Gets a list of all zones in the specified compartment.
+* <p>
+The collection can be filtered by name, time created, scope, associated view, and zone type.
+* Filtering by view is only supported for private zones.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListZonesRequest
+     * @return ListZonesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListZones.ts.html |here} to see how to use ListZones API.
+     */
   public async listZones(
     listZonesRequest: requests.ListZonesRequest
   ): Promise<responses.ListZonesResponse> {
@@ -3638,7 +3657,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": listZonesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listZonesRequest.retryConfiguration,
@@ -3740,18 +3759,19 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates records in the specified zone at a domain. You can update one record or all records for the specified
-   * zone depending on the changes provided in the request body. You can also add or remove records using this
-   * function. For private zones, the scope query parameter is required with a value of `PRIVATE`. When the zone
-   * name is provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId
-   * query parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param PatchDomainRecordsRequest
-   * @return PatchDomainRecordsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchDomainRecords.ts.html |here} to see how to use PatchDomainRecords API.
-   */
+     * Updates records in the specified zone at a domain.
+* <p>
+You can update one record or all records for the specified zone depending on the changes provided in the
+* request body. You can also add or remove records using this function. When the zone name is provided as
+* a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query parameter is
+* required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param PatchDomainRecordsRequest
+     * @return PatchDomainRecordsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchDomainRecords.ts.html |here} to see how to use PatchDomainRecords API.
+     */
   public async patchDomainRecords(
     patchDomainRecordsRequest: requests.PatchDomainRecordsRequest
   ): Promise<responses.PatchDomainRecordsResponse> {
@@ -3774,7 +3794,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": patchDomainRecordsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       patchDomainRecordsRequest.retryConfiguration,
@@ -3834,16 +3854,17 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates records in the specified RRSet. For private zones, the scope query parameter is required with a value
-   * of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used for the scope query
-   * parameter then the viewId query parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param PatchRRSetRequest
-   * @return PatchRRSetResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchRRSet.ts.html |here} to see how to use PatchRRSet API.
-   */
+     * Updates records in the specified RRSet.
+* <p>
+When the zone name is provided as a path parameter and `PRIVATE` is used for the scope query
+* parameter then the viewId query parameter is required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param PatchRRSetRequest
+     * @return PatchRRSetResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchRRSet.ts.html |here} to see how to use PatchRRSet API.
+     */
   public async patchRRSet(
     patchRRSetRequest: requests.PatchRRSetRequest
   ): Promise<responses.PatchRRSetResponse> {
@@ -3867,7 +3888,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": patchRRSetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       patchRRSetRequest.retryConfiguration,
@@ -3927,18 +3948,19 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates a collection of records in the specified zone. You can update one record or all records for the
-   * specified zone depending on the changes provided in the request body. You can also add or remove records
-   * using this function. For private zones, the scope query parameter is required with a value of `PRIVATE`. When
-   * the zone name is provided as a path parameter and `PRIVATE` is used for the scope query parameter then the
-   * viewId query parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param PatchZoneRecordsRequest
-   * @return PatchZoneRecordsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchZoneRecords.ts.html |here} to see how to use PatchZoneRecords API.
-   */
+     * Updates a collection of records in the specified zone.
+* <p>
+You can update one record or all records for the specified zone depending on the changes provided in the
+* request body. You can also add or remove records using this function. When the zone name is provided as
+* a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query parameter is
+* required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param PatchZoneRecordsRequest
+     * @return PatchZoneRecordsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchZoneRecords.ts.html |here} to see how to use PatchZoneRecords API.
+     */
   public async patchZoneRecords(
     patchZoneRecordsRequest: requests.PatchZoneRecordsRequest
   ): Promise<responses.PatchZoneRecordsResponse> {
@@ -3960,7 +3982,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": patchZoneRecordsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       patchZoneRecordsRequest.retryConfiguration,
@@ -4020,19 +4042,19 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Replaces records in the specified zone at a domain with the records specified in the request body. If a
-   * specified record does not exist, it will be created. If the record exists, then it will be updated to
-   * represent the record in the body of the request. If a record in the zone does not exist in the request body,
-   * the record will be removed from the zone. For private zones, the scope query parameter is required with a
-   * value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used for the scope
-   * query parameter then the viewId query parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param UpdateDomainRecordsRequest
-   * @return UpdateDomainRecordsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateDomainRecords.ts.html |here} to see how to use UpdateDomainRecords API.
-   */
+     * Replaces records in the specified zone at a domain with the records specified in the request body.
+* <p>
+If a specified record does not exist, it will be created. If the record exists, then it will be updated to
+* represent the record in the body of the request. If a record in the zone does not exist in the request body,
+* the record will be removed from the zone. When the zone name is provided as a path parameter and `PRIVATE`
+* is used for the scope query parameter then the viewId query parameter is required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param UpdateDomainRecordsRequest
+     * @return UpdateDomainRecordsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateDomainRecords.ts.html |here} to see how to use UpdateDomainRecords API.
+     */
   public async updateDomainRecords(
     updateDomainRecordsRequest: requests.UpdateDomainRecordsRequest
   ): Promise<responses.UpdateDomainRecordsResponse> {
@@ -4055,7 +4077,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateDomainRecordsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDomainRecordsRequest.retryConfiguration,
@@ -4115,16 +4137,17 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Replaces records in the specified RRSet. For private zones, the scope query parameter is required with a
-   * value of `PRIVATE`. When the zone name is provided as a path parameter and `PRIVATE` is used for the scope
-   * query parameter then the viewId query parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param UpdateRRSetRequest
-   * @return UpdateRRSetResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateRRSet.ts.html |here} to see how to use UpdateRRSet API.
-   */
+     * Replaces records in the specified RRSet.
+* <p>
+When the zone name is provided as a path parameter and `PRIVATE` is used for the scope
+* query parameter then the viewId query parameter is required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param UpdateRRSetRequest
+     * @return UpdateRRSetResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateRRSet.ts.html |here} to see how to use UpdateRRSet API.
+     */
   public async updateRRSet(
     updateRRSetRequest: requests.UpdateRRSetRequest
   ): Promise<responses.UpdateRRSetResponse> {
@@ -4148,7 +4171,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateRRSetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateRRSetRequest.retryConfiguration,
@@ -4208,9 +4231,9 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates the specified resolver with your new information. Requires a `PRIVATE` scope query parameter.
+   * Updates the specified resolver with your new information.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateResolverRequest
    * @return UpdateResolverResponse
    * @throws OciError when an error occurs
@@ -4235,7 +4258,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateResolverRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateResolverRequest.retryConfiguration,
@@ -4290,9 +4313,9 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates the specified resolver endpoint with your new information. Requires a `PRIVATE` scope query parameter.
+   * Updates the specified resolver endpoint with your new information.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateResolverEndpointRequest
    * @return UpdateResolverEndpointResponse
    * @throws OciError when an error occurs
@@ -4318,7 +4341,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateResolverEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateResolverEndpointRequest.retryConfiguration,
@@ -4375,7 +4398,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Updates the configuration of the specified steering policy.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSteeringPolicyRequest
    * @return UpdateSteeringPolicyResponse
    * @throws OciError when an error occurs
@@ -4400,7 +4423,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateSteeringPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateSteeringPolicyRequest.retryConfiguration,
@@ -4452,7 +4475,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Updates the specified steering policy attachment with your new information.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSteeringPolicyAttachmentRequest
    * @return UpdateSteeringPolicyAttachmentResponse
    * @throws OciError when an error occurs
@@ -4479,7 +4502,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateSteeringPolicyAttachmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateSteeringPolicyAttachmentRequest.retryConfiguration,
@@ -4531,7 +4554,7 @@ For the purposes of access control, the attachment is automatically placed
   /**
    * Updates the specified TSIG key.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateTsigKeyRequest
    * @return UpdateTsigKeyResponse
    * @throws OciError when an error occurs
@@ -4556,7 +4579,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateTsigKeyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateTsigKeyRequest.retryConfiguration,
@@ -4611,9 +4634,9 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates the specified view with your new information. Requires a `PRIVATE` scope query parameter.
+   * Updates the specified view with your new information.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateViewRequest
    * @return UpdateViewResponse
    * @throws OciError when an error occurs
@@ -4638,7 +4661,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateViewRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateViewRequest.retryConfiguration,
@@ -4693,18 +4716,19 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Updates the zone with the specified information. Global secondary zones may have their external masters updated.
-   * For more information about secondary zone, see [Manage DNS Service Zone](https://docs.cloud.oracle.com/iaas/Content/DNS/Tasks/managingdnszones.htm).
-   * For private zones, the scope query parameter is required with a value of `PRIVATE`. When the zone name is
-   * provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId query
-   * parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param UpdateZoneRequest
-   * @return UpdateZoneResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateZone.ts.html |here} to see how to use UpdateZone API.
-   */
+     * Updates the zone with the specified information.
+* <p>
+Global secondary zones may have their external masters updated. For more information about secondary
+* zones, see [Manage DNS Service Zone](https://docs.cloud.oracle.com/iaas/Content/DNS/Tasks/managingdnszones.htm). When the zone name
+* is provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId
+* query parameter is required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param UpdateZoneRequest
+     * @return UpdateZoneResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateZone.ts.html |here} to see how to use UpdateZone API.
+     */
   public async updateZone(
     updateZoneRequest: requests.UpdateZoneRequest
   ): Promise<responses.UpdateZoneResponse> {
@@ -4726,7 +4750,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateZoneRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateZoneRequest.retryConfiguration,
@@ -4781,19 +4805,20 @@ For the purposes of access control, the attachment is automatically placed
   }
 
   /**
-   * Replaces records in the specified zone with the records specified in the request body. If a specified record
-   * does not exist, it will be created. If the record exists, then it will be updated to represent the record in
-   * the body of the request. If a record in the zone does not exist in the request body, the record will be
-   * removed from the zone. For private zones, the scope query parameter is required with a value of `PRIVATE`.
-   * When the zone name is provided as a path parameter and `PRIVATE` is used for the scope query parameter then
-   * the viewId query parameter is required.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param UpdateZoneRecordsRequest
-   * @return UpdateZoneRecordsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateZoneRecords.ts.html |here} to see how to use UpdateZoneRecords API.
-   */
+     * Replaces records in the specified zone with the records specified in the request body.
+* <p>
+If a specified record does not exist, it will be created. If the record exists, then it will be updated
+* to represent the record in the body of the request. If a record in the zone does not exist in the
+* request body, the record will be removed from the zone. When the zone name is provided as a path
+* parameter and `PRIVATE` is used for the scope query parameter then the viewId query parameter is
+* required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param UpdateZoneRecordsRequest
+     * @return UpdateZoneRecordsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateZoneRecords.ts.html |here} to see how to use UpdateZoneRecords API.
+     */
   public async updateZoneRecords(
     updateZoneRecordsRequest: requests.UpdateZoneRecordsRequest
   ): Promise<responses.UpdateZoneRecordsResponse> {
@@ -4815,7 +4840,7 @@ For the purposes of access control, the attachment is automatically placed
       "opc-request-id": updateZoneRecordsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateZoneRecordsRequest.retryConfiguration,
