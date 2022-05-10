@@ -37,6 +37,11 @@ export namespace AbstractReadAttribute {
             <model.BiccReadAttributes>(<object>jsonObj),
             true
           );
+        case "BIP_READ_ATTRIBUTE":
+          return model.BipReadAttributes.getJsonObj(
+            <model.BipReadAttributes>(<object>jsonObj),
+            true
+          );
         case "ORACLEREADATTRIBUTE":
           return model.OracleReadAttribute.getJsonObj(
             <model.OracleReadAttribute>(<object>jsonObj),
@@ -61,6 +66,11 @@ export namespace AbstractReadAttribute {
         case "BICC_READ_ATTRIBUTE":
           return model.BiccReadAttributes.getDeserializedJsonObj(
             <model.BiccReadAttributes>(<object>jsonObj),
+            true
+          );
+        case "BIP_READ_ATTRIBUTE":
+          return model.BipReadAttributes.getDeserializedJsonObj(
+            <model.BipReadAttributes>(<object>jsonObj),
             true
           );
         case "ORACLEREADATTRIBUTE":

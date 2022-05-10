@@ -50,6 +50,7 @@ export interface FlowNode {
   "operator"?:
     | model.Joiner
     | model.TaskOperator
+    | model.Flatten
     | model.Aggregator
     | model.SortOper
     | model.Projection
@@ -57,13 +58,16 @@ export interface FlowNode {
     | model.Source
     | model.Union
     | model.ExpressionOperator
+    | model.Function
     | model.Intersect
     | model.Target
     | model.Distinct
     | model.Filter
     | model.Lookup
+    | model.Pivot
     | model.StartOperator
     | model.MergeOperator
+    | model.Split
     | model.Minus;
   "uiProperties"?: model.UIProperties;
   "configProviderDelegate"?: model.ConfigProvider;

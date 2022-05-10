@@ -18,12 +18,29 @@ import common = require("oci-common");
  * The information about the data operation.
  */
 export interface AbstractDataOperationConfig {
+  /**
+   * This map is used for passing extra metatdata configuration that is required by read / write operation.
+   */
+  "metadataConfigProperties"?: { [key: string]: string };
+  /**
+   * this map is used for passing BIP report parameter values.
+   */
+  "derivedAttributes"?: { [key: string]: string };
+  "callAttribute"?: model.BipCallAttribute;
+
   "modelType": string;
 }
 
 export namespace AbstractDataOperationConfig {
   export function getJsonObj(obj: AbstractDataOperationConfig): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "callAttribute": obj.callAttribute
+          ? model.BipCallAttribute.getJsonObj(obj.callAttribute)
+          : undefined
+      }
+    };
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
@@ -44,7 +61,14 @@ export namespace AbstractDataOperationConfig {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: AbstractDataOperationConfig): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "callAttribute": obj.callAttribute
+          ? model.BipCallAttribute.getDeserializedJsonObj(obj.callAttribute)
+          : undefined
+      }
+    };
 
     if ("modelType" in obj && obj.modelType) {
       switch (obj.modelType) {

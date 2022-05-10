@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.26.0 - 2022-05-10
+### Added
+- Support for getting usage information for autonomous databases and Cloud at Customer autonomous databases in the Database service
+- Support for the `standby` lifecycle state on autonomous databases in the Database service
+- Support for BIP connections and dataflow operators in the Data Integration service
+ 
+### Breaking Changes
+- Support for retries by default on WAF Edge Policy GET, LIST operations in the Web Application Acceleration and Security service
+- Support for retries by default on some operations in the Stack Monitoring service
+- Support for retries by default on some resource discovery and monitoring operations in the Application Management service
+- Support for retries by default on some operations in the MySQL Database service
+- The property `outputPorts` in `operater` model was changed from Array of `OutputPort` to Array of `TypedObject` in the Data Integration service
+
 ## 2.25.0 - 2022-05-03
 ### Added
 - Support for the Application Dependency Management service

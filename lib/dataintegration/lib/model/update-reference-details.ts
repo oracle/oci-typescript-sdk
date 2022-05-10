@@ -23,7 +23,7 @@ export interface UpdateReferenceDetails {
    */
   "options"?: { [key: string]: string };
   /**
-   * The new target object to reference. This should be of type `DataAsset`. The child references can be of type `Connection`.
+   * The new target object to reference. This can be of type `DataAsset`, `Schema` or `Task`. In case of `DataAsset`, the child references can be of type `Connection`.
    */
   "targetObject"?: any;
   /**

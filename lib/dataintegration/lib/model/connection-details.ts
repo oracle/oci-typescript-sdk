@@ -121,6 +121,11 @@ export namespace ConnectionDetails {
             <model.ConnectionFromOracleDetails>(<object>jsonObj),
             true
           );
+        case "BIP_CONNECTION":
+          return model.ConnectionFromBipDetails.getJsonObj(
+            <model.ConnectionFromBipDetails>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.modelType);
       }
@@ -190,6 +195,11 @@ export namespace ConnectionDetails {
         case "ORACLEDB_CONNECTION":
           return model.ConnectionFromOracleDetails.getDeserializedJsonObj(
             <model.ConnectionFromOracleDetails>(<object>jsonObj),
+            true
+          );
+        case "BIP_CONNECTION":
+          return model.ConnectionFromBipDetails.getDeserializedJsonObj(
+            <model.ConnectionFromBipDetails>(<object>jsonObj),
             true
           );
         default:

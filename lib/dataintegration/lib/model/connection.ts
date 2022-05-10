@@ -110,6 +110,11 @@ export namespace Connection {
             <model.ConnectionFromAmazonS3>(<object>jsonObj),
             true
           );
+        case "BIP_CONNECTION":
+          return model.ConnectionFromBIP.getJsonObj(
+            <model.ConnectionFromBIP>(<object>jsonObj),
+            true
+          );
         case "MYSQL_CONNECTION":
           return model.ConnectionFromMySQL.getJsonObj(
             <model.ConnectionFromMySQL>(<object>jsonObj),
@@ -179,6 +184,11 @@ export namespace Connection {
         case "AMAZON_S3_CONNECTION":
           return model.ConnectionFromAmazonS3.getDeserializedJsonObj(
             <model.ConnectionFromAmazonS3>(<object>jsonObj),
+            true
+          );
+        case "BIP_CONNECTION":
+          return model.ConnectionFromBIP.getDeserializedJsonObj(
+            <model.ConnectionFromBIP>(<object>jsonObj),
             true
           );
         case "MYSQL_CONNECTION":

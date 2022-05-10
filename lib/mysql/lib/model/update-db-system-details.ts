@@ -33,10 +33,14 @@ export interface UpdateDbSystemDetails {
    */
   "subnetId"?: string;
   /**
-   * If the policy is to enable high availability of the instance, by
-   * maintaining secondary/failover capacity as necessary.
-   *
-   */
+    * Specifies if the DB System is highly available.
+* <p>
+Set to true to enable high availability. Two secondary MySQL instances are created and placed in the unused
+* availability or fault domains, depending on your region and subnet type.
+* Set to false to disable high availability. The secondary MySQL instances are removed and the MySQL instance
+* in the preferred location is used.
+* 
+    */
   "isHighlyAvailable"?: boolean;
   /**
     * The availability domain on which to deploy the Read/Write endpoint. This defines the preferred primary instance.

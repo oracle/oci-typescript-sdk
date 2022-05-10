@@ -120,6 +120,11 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromMySQL>(<object>jsonObj),
             true
           );
+        case "BIP_CONNECTION":
+          return model.ConnectionSummaryFromBIP.getJsonObj(
+            <model.ConnectionSummaryFromBIP>(<object>jsonObj),
+            true
+          );
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
           return model.ConnectionSummaryFromObjectStorage.getJsonObj(
             <model.ConnectionSummaryFromObjectStorage>(<object>jsonObj),
@@ -189,6 +194,11 @@ export namespace ConnectionSummary {
         case "MYSQL_CONNECTION":
           return model.ConnectionSummaryFromMySQL.getDeserializedJsonObj(
             <model.ConnectionSummaryFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "BIP_CONNECTION":
+          return model.ConnectionSummaryFromBIP.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromBIP>(<object>jsonObj),
             true
           );
         case "ORACLE_OBJECT_STORAGE_CONNECTION":

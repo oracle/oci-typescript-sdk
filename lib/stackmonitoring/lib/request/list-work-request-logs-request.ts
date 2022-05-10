@@ -48,7 +48,7 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort by. Only one sort order may
+   * The field to sort by. Only one sort order may be provided. Default order for timestamp is descending. If no value is specified timestamp is default.
    *
    */
   "sortBy"?: ListWorkRequestLogsRequest.SortBy;

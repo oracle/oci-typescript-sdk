@@ -97,6 +97,11 @@ export namespace CreateConnectionDetails {
             <model.CreateConnectionFromAtp>(<object>jsonObj),
             true
           );
+        case "BIP_CONNECTION":
+          return model.CreateConnectionFromBIP.getJsonObj(
+            <model.CreateConnectionFromBIP>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ADWC_CONNECTION":
           return model.CreateConnectionFromAdwc.getJsonObj(
             <model.CreateConnectionFromAdwc>(<object>jsonObj),
@@ -162,6 +167,11 @@ export namespace CreateConnectionDetails {
         case "ORACLE_ATP_CONNECTION":
           return model.CreateConnectionFromAtp.getDeserializedJsonObj(
             <model.CreateConnectionFromAtp>(<object>jsonObj),
+            true
+          );
+        case "BIP_CONNECTION":
+          return model.CreateConnectionFromBIP.getDeserializedJsonObj(
+            <model.CreateConnectionFromBIP>(<object>jsonObj),
             true
           );
         case "ORACLE_ADWC_CONNECTION":

@@ -151,6 +151,38 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * CPU cores available for allocation to Autonomous Databases. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableCpus"?: number;
+  /**
+   * CPU cores that are not released to available pool after an Autonomous Database is terminated (Requires Autonomous Container Database restart). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "reclaimableCpus"?: number;
+  /**
+   * The number of Autonomous Container Databases that can be created with the currently available local storage. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableContainerDatabases"?: number;
+  /**
+   * The total number of Autonomous Container Databases that can be created with the allocated local storage. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalContainerDatabases"?: number;
+  /**
+   * The data disk group size available for Autonomous Databases, in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableAutonomousDataStorageSizeInTBs"?: number;
+  /**
+   * The data disk group size allocated for Autonomous Databases, in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "autonomousDataStorageSizeInTBs"?: number;
+  /**
+   * The local node storage allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dbNodeStorageSizeInGBs"?: number;
+  /**
+   * The amount of memory (in GBs) enabled per each OCPU core. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memoryPerOracleComputeUnitInGBs"?: number;
 }
 
 export namespace CloudAutonomousVmCluster {

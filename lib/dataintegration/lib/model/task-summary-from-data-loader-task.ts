@@ -19,6 +19,15 @@ import common = require("oci-common");
  */
 export interface TaskSummaryFromDataLoaderTask extends model.TaskSummary {
   "dataFlow"?: model.DataFlow;
+  "conditionalCompositeFieldMap"?: model.ConditionalCompositeFieldMap;
+  /**
+   * Defines whether Data Loader task is used for single load or multiple
+   */
+  "isSingleLoad"?: boolean;
+  /**
+   * Defines the number of entities being loaded in parallel at a time for a Data Loader task Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "parallelLoadLimit"?: number;
 
   "modelType": string;
 }
@@ -33,7 +42,10 @@ export namespace TaskSummaryFromDataLoaderTask {
         ? obj
         : (model.TaskSummary.getJsonObj(obj) as TaskSummaryFromDataLoaderTask)),
       ...{
-        "dataFlow": obj.dataFlow ? model.DataFlow.getJsonObj(obj.dataFlow) : undefined
+        "dataFlow": obj.dataFlow ? model.DataFlow.getJsonObj(obj.dataFlow) : undefined,
+        "conditionalCompositeFieldMap": obj.conditionalCompositeFieldMap
+          ? model.ConditionalCompositeFieldMap.getJsonObj(obj.conditionalCompositeFieldMap)
+          : undefined
       }
     };
 
@@ -49,7 +61,12 @@ export namespace TaskSummaryFromDataLoaderTask {
         ? obj
         : (model.TaskSummary.getDeserializedJsonObj(obj) as TaskSummaryFromDataLoaderTask)),
       ...{
-        "dataFlow": obj.dataFlow ? model.DataFlow.getDeserializedJsonObj(obj.dataFlow) : undefined
+        "dataFlow": obj.dataFlow ? model.DataFlow.getDeserializedJsonObj(obj.dataFlow) : undefined,
+        "conditionalCompositeFieldMap": obj.conditionalCompositeFieldMap
+          ? model.ConditionalCompositeFieldMap.getDeserializedJsonObj(
+              obj.conditionalCompositeFieldMap
+            )
+          : undefined
       }
     };
 
