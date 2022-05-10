@@ -41,6 +41,7 @@ export interface OracleAdwcWriteAttribute extends model.AbstractWriteAttribute {
     | model.ConnectionFromAtp
     | model.ConnectionFromOracle
     | model.ConnectionFromAmazonS3
+    | model.ConnectionFromBIP
     | model.ConnectionFromMySQL
     | model.ConnectionFromJdbc
     | model.ConnectionFromBICC;

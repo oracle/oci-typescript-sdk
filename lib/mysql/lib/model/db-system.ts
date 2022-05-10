@@ -41,8 +41,7 @@ export interface DbSystem {
    */
   "subnetId": string;
   /**
-   * If the policy is to enable high availability of the instance, by
-   * maintaining secondary/failover capacity as necessary.
+   * Specifies if the DB System is highly available.
    *
    */
   "isHighlyAvailable"?: boolean;

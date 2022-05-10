@@ -38,6 +38,7 @@ export interface OracleAtpWriteAttributes extends model.AbstractWriteAttribute {
     | model.ConnectionFromAtp
     | model.ConnectionFromOracle
     | model.ConnectionFromAmazonS3
+    | model.ConnectionFromBIP
     | model.ConnectionFromMySQL
     | model.ConnectionFromJdbc
     | model.ConnectionFromBICC;

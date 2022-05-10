@@ -46,7 +46,7 @@ export interface Operator {
   /**
    * An array of output ports.
    */
-  "outputPorts"?: Array<model.OutputPort>;
+  "outputPorts"?: Array<model.TypedObject>;
   /**
    * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -78,7 +78,7 @@ export namespace Operator {
           : undefined,
         "outputPorts": obj.outputPorts
           ? obj.outputPorts.map(item => {
-              return model.OutputPort.getJsonObj(item);
+              return model.TypedObject.getJsonObj(item);
             })
           : undefined,
 
@@ -99,6 +99,8 @@ export namespace Operator {
           return model.Joiner.getJsonObj(<model.Joiner>(<object>jsonObj), true);
         case "TASK_OPERATOR":
           return model.TaskOperator.getJsonObj(<model.TaskOperator>(<object>jsonObj), true);
+        case "FLATTEN_OPERATOR":
+          return model.Flatten.getJsonObj(<model.Flatten>(<object>jsonObj), true);
         case "AGGREGATOR_OPERATOR":
           return model.Aggregator.getJsonObj(<model.Aggregator>(<object>jsonObj), true);
         case "SORT_OPERATOR":
@@ -116,6 +118,8 @@ export namespace Operator {
             <model.ExpressionOperator>(<object>jsonObj),
             true
           );
+        case "FUNCTION_OPERATOR":
+          return model.Function.getJsonObj(<model.Function>(<object>jsonObj), true);
         case "INTERSECT_OPERATOR":
           return model.Intersect.getJsonObj(<model.Intersect>(<object>jsonObj), true);
         case "TARGET_OPERATOR":
@@ -126,10 +130,14 @@ export namespace Operator {
           return model.Filter.getJsonObj(<model.Filter>(<object>jsonObj), true);
         case "LOOKUP_OPERATOR":
           return model.Lookup.getJsonObj(<model.Lookup>(<object>jsonObj), true);
+        case "PIVOT_OPERATOR":
+          return model.Pivot.getJsonObj(<model.Pivot>(<object>jsonObj), true);
         case "START_OPERATOR":
           return model.StartOperator.getJsonObj(<model.StartOperator>(<object>jsonObj), true);
         case "MERGE_OPERATOR":
           return model.MergeOperator.getJsonObj(<model.MergeOperator>(<object>jsonObj), true);
+        case "SPLIT_OPERATOR":
+          return model.Split.getJsonObj(<model.Split>(<object>jsonObj), true);
         case "MINUS_OPERATOR":
           return model.Minus.getJsonObj(<model.Minus>(<object>jsonObj), true);
         default:
@@ -153,7 +161,7 @@ export namespace Operator {
           : undefined,
         "outputPorts": obj.outputPorts
           ? obj.outputPorts.map(item => {
-              return model.OutputPort.getDeserializedJsonObj(item);
+              return model.TypedObject.getDeserializedJsonObj(item);
             })
           : undefined,
 
@@ -177,6 +185,8 @@ export namespace Operator {
             <model.TaskOperator>(<object>jsonObj),
             true
           );
+        case "FLATTEN_OPERATOR":
+          return model.Flatten.getDeserializedJsonObj(<model.Flatten>(<object>jsonObj), true);
         case "AGGREGATOR_OPERATOR":
           return model.Aggregator.getDeserializedJsonObj(<model.Aggregator>(<object>jsonObj), true);
         case "SORT_OPERATOR":
@@ -197,6 +207,8 @@ export namespace Operator {
             <model.ExpressionOperator>(<object>jsonObj),
             true
           );
+        case "FUNCTION_OPERATOR":
+          return model.Function.getDeserializedJsonObj(<model.Function>(<object>jsonObj), true);
         case "INTERSECT_OPERATOR":
           return model.Intersect.getDeserializedJsonObj(<model.Intersect>(<object>jsonObj), true);
         case "TARGET_OPERATOR":
@@ -207,6 +219,8 @@ export namespace Operator {
           return model.Filter.getDeserializedJsonObj(<model.Filter>(<object>jsonObj), true);
         case "LOOKUP_OPERATOR":
           return model.Lookup.getDeserializedJsonObj(<model.Lookup>(<object>jsonObj), true);
+        case "PIVOT_OPERATOR":
+          return model.Pivot.getDeserializedJsonObj(<model.Pivot>(<object>jsonObj), true);
         case "START_OPERATOR":
           return model.StartOperator.getDeserializedJsonObj(
             <model.StartOperator>(<object>jsonObj),
@@ -217,6 +231,8 @@ export namespace Operator {
             <model.MergeOperator>(<object>jsonObj),
             true
           );
+        case "SPLIT_OPERATOR":
+          return model.Split.getDeserializedJsonObj(<model.Split>(<object>jsonObj), true);
         case "MINUS_OPERATOR":
           return model.Minus.getDeserializedJsonObj(<model.Minus>(<object>jsonObj), true);
         default:

@@ -31,6 +31,7 @@ export interface CreateConnectionRequest extends common.BaseRequest {
     | model.CreateConnectionFromJdbc
     | model.CreateConnectionFromBICC
     | model.CreateConnectionFromAtp
+    | model.CreateConnectionFromBIP
     | model.CreateConnectionFromAdwc
     | model.CreateConnectionFromOracle
     | model.CreateConnectionFromObjectStorage;

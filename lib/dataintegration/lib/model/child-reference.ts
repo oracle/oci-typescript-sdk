@@ -64,6 +64,9 @@ export namespace ChildReference {
     OracleAdwcConnection = "ORACLE_ADWC_CONNECTION",
     MysqlConnection = "MYSQL_CONNECTION",
     GenericJdbcConnection = "GENERIC_JDBC_CONNECTION",
+    BipConnection = "BIP_CONNECTION",
+    BiccConnection = "BICC_CONNECTION",
+    AmazonS3Connection = "AMAZON_S3_CONNECTION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

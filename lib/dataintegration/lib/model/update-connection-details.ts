@@ -111,6 +111,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateConnectionFromAdwc>(<object>jsonObj),
             true
           );
+        case "BIP_CONNECTION":
+          return model.UpdateConnectionFromBIP.getJsonObj(
+            <model.UpdateConnectionFromBIP>(<object>jsonObj),
+            true
+          );
         case "MYSQL_CONNECTION":
           return model.UpdateConnectionFromMySQL.getJsonObj(
             <model.UpdateConnectionFromMySQL>(<object>jsonObj),
@@ -176,6 +181,11 @@ export namespace UpdateConnectionDetails {
         case "ORACLE_ADWC_CONNECTION":
           return model.UpdateConnectionFromAdwc.getDeserializedJsonObj(
             <model.UpdateConnectionFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "BIP_CONNECTION":
+          return model.UpdateConnectionFromBIP.getDeserializedJsonObj(
+            <model.UpdateConnectionFromBIP>(<object>jsonObj),
             true
           );
         case "MYSQL_CONNECTION":

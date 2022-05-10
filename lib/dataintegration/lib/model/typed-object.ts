@@ -73,6 +73,11 @@ export namespace TypedObject {
           return model.Shape.getJsonObj(<model.Shape>(<object>jsonObj), true);
         case "INPUT_PORT":
           return model.InputPort.getJsonObj(<model.InputPort>(<object>jsonObj), true);
+        case "CONDITIONAL_OUTPUT_PORT":
+          return model.ConditionalOutputPort.getJsonObj(
+            <model.ConditionalOutputPort>(<object>jsonObj),
+            true
+          );
         case "PROXY_FIELD":
           return model.ProxyField.getJsonObj(<model.ProxyField>(<object>jsonObj), true);
         case "DYNAMIC_PROXY_FIELD":
@@ -84,6 +89,8 @@ export namespace TypedObject {
           return model.ShapeField.getJsonObj(<model.ShapeField>(<object>jsonObj), true);
         case "PARAMETER":
           return model.Parameter.getJsonObj(<model.Parameter>(<object>jsonObj), true);
+        case "PIVOT_FIELD":
+          return model.PivotField.getJsonObj(<model.PivotField>(<object>jsonObj), true);
         case "OUTPUT_FIELD":
           return model.OutputField.getJsonObj(<model.OutputField>(<object>jsonObj), true);
         case "MACRO_FIELD":
@@ -133,6 +140,11 @@ export namespace TypedObject {
           return model.Shape.getDeserializedJsonObj(<model.Shape>(<object>jsonObj), true);
         case "INPUT_PORT":
           return model.InputPort.getDeserializedJsonObj(<model.InputPort>(<object>jsonObj), true);
+        case "CONDITIONAL_OUTPUT_PORT":
+          return model.ConditionalOutputPort.getDeserializedJsonObj(
+            <model.ConditionalOutputPort>(<object>jsonObj),
+            true
+          );
         case "PROXY_FIELD":
           return model.ProxyField.getDeserializedJsonObj(<model.ProxyField>(<object>jsonObj), true);
         case "DYNAMIC_PROXY_FIELD":
@@ -144,6 +156,8 @@ export namespace TypedObject {
           return model.ShapeField.getDeserializedJsonObj(<model.ShapeField>(<object>jsonObj), true);
         case "PARAMETER":
           return model.Parameter.getDeserializedJsonObj(<model.Parameter>(<object>jsonObj), true);
+        case "PIVOT_FIELD":
+          return model.PivotField.getDeserializedJsonObj(<model.PivotField>(<object>jsonObj), true);
         case "OUTPUT_FIELD":
           return model.OutputField.getDeserializedJsonObj(
             <model.OutputField>(<object>jsonObj),

@@ -33,6 +33,15 @@ export interface PublishedObjectFromDataLoaderTask extends model.PublishedObject
   "opConfigValues"?: model.ConfigValues;
   "configProviderDelegate"?: model.ConfigProvider;
   "dataFlow"?: model.DataFlow;
+  "conditionalCompositeFieldMap"?: model.ConditionalCompositeFieldMap;
+  /**
+   * If true, defines a singular load.
+   */
+  "isSingleLoad"?: boolean;
+  /**
+   * If not a singular load, this defines the number of entities being loaded in parallel at a time for a Data Loader task. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "parallelLoadLimit"?: number;
 
   "modelType": string;
 }
@@ -68,7 +77,10 @@ export namespace PublishedObjectFromDataLoaderTask {
         "configProviderDelegate": obj.configProviderDelegate
           ? model.ConfigProvider.getJsonObj(obj.configProviderDelegate)
           : undefined,
-        "dataFlow": obj.dataFlow ? model.DataFlow.getJsonObj(obj.dataFlow) : undefined
+        "dataFlow": obj.dataFlow ? model.DataFlow.getJsonObj(obj.dataFlow) : undefined,
+        "conditionalCompositeFieldMap": obj.conditionalCompositeFieldMap
+          ? model.ConditionalCompositeFieldMap.getJsonObj(obj.conditionalCompositeFieldMap)
+          : undefined
       }
     };
 
@@ -105,7 +117,12 @@ export namespace PublishedObjectFromDataLoaderTask {
         "configProviderDelegate": obj.configProviderDelegate
           ? model.ConfigProvider.getDeserializedJsonObj(obj.configProviderDelegate)
           : undefined,
-        "dataFlow": obj.dataFlow ? model.DataFlow.getDeserializedJsonObj(obj.dataFlow) : undefined
+        "dataFlow": obj.dataFlow ? model.DataFlow.getDeserializedJsonObj(obj.dataFlow) : undefined,
+        "conditionalCompositeFieldMap": obj.conditionalCompositeFieldMap
+          ? model.ConditionalCompositeFieldMap.getDeserializedJsonObj(
+              obj.conditionalCompositeFieldMap
+            )
+          : undefined
       }
     };
 

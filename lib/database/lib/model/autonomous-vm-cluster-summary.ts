@@ -115,7 +115,8 @@ export interface AutonomousVmClusterSummary {
    */
   "dataStorageSizeInGBs"?: number;
   /**
-   * The data storage available in TBs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * **Deprecated.** Use `availableAutonomousDataStorageSizeInTBs` for Autonomous Databases data storage available, in TBs.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableDataStorageSizeInTBs"?: number;
   /**
@@ -137,6 +138,18 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * CPU cores that are not released to available pool after an Autonomous Database is terminated (Requires Autonomous Container Database restart). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "reclaimableCpus"?: number;
+  /**
+   * The number of Autonomous Container Databases that can be created with the currently available local storage. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableContainerDatabases"?: number;
+  /**
+   * The data disk group size available for Autonomous Databases, in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableAutonomousDataStorageSizeInTBs"?: number;
 }
 
 export namespace AutonomousVmClusterSummary {

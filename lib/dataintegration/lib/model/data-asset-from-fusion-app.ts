@@ -22,7 +22,16 @@ export interface DataAssetFromFusionApp extends model.DataAsset {
    * The service url of the BI Server.
    */
   "serviceUrl"?: string;
-  "defaultConnection"?: model.ConnectionFromBICCDetails;
+  "defaultConnection"?:
+    | model.ConnectionFromJdbcDetails
+    | model.ConnectionFromAmazonS3Details
+    | model.ConnectionFromObjectStorageDetails
+    | model.ConnectionFromBICCDetails
+    | model.ConnectionFromMySQLDetails
+    | model.ConnectionFromAdwcDetails
+    | model.ConnectionFromAtpDetails
+    | model.ConnectionFromOracleDetails
+    | model.ConnectionFromBipDetails;
 
   "modelType": string;
 }
@@ -33,7 +42,7 @@ export namespace DataAssetFromFusionApp {
       ...(isParentJsonObj ? obj : (model.DataAsset.getJsonObj(obj) as DataAssetFromFusionApp)),
       ...{
         "defaultConnection": obj.defaultConnection
-          ? model.ConnectionFromBICCDetails.getJsonObj(obj.defaultConnection)
+          ? model.ConnectionDetails.getJsonObj(obj.defaultConnection)
           : undefined
       }
     };
@@ -51,7 +60,7 @@ export namespace DataAssetFromFusionApp {
         : (model.DataAsset.getDeserializedJsonObj(obj) as DataAssetFromFusionApp)),
       ...{
         "defaultConnection": obj.defaultConnection
-          ? model.ConnectionFromBICCDetails.getDeserializedJsonObj(obj.defaultConnection)
+          ? model.ConnectionDetails.getDeserializedJsonObj(obj.defaultConnection)
           : undefined
       }
     };

@@ -464,7 +464,7 @@ export class StackMonitoringClient {
 
   /**
    * Deletes a DiscoveryJob by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDiscoveryJobRequest
    * @return DeleteDiscoveryJobResponse
    * @throws OciError when an error occurs
@@ -487,7 +487,7 @@ export class StackMonitoringClient {
       "opc-request-id": deleteDiscoveryJobRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDiscoveryJobRequest.retryConfiguration,
@@ -721,7 +721,7 @@ export class StackMonitoringClient {
   /**
    * API to get the details of discovery Job by identifier.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDiscoveryJobRequest
    * @return GetDiscoveryJobResponse
    * @throws OciError when an error occurs
@@ -742,7 +742,7 @@ export class StackMonitoringClient {
       "opc-request-id": getDiscoveryJobRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDiscoveryJobRequest.retryConfiguration,
@@ -788,7 +788,7 @@ export class StackMonitoringClient {
 
   /**
    * Gets a monitored resource by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMonitoredResourceRequest
    * @return GetMonitoredResourceResponse
    * @throws OciError when an error occurs
@@ -810,7 +810,7 @@ export class StackMonitoringClient {
       "opc-request-id": getMonitoredResourceRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getMonitoredResourceRequest.retryConfiguration,
@@ -856,7 +856,7 @@ export class StackMonitoringClient {
 
   /**
    * Gets the status of the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -877,7 +877,7 @@ export class StackMonitoringClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -924,7 +924,7 @@ export class StackMonitoringClient {
   /**
    * API to get all the logs of a Discovery Job.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDiscoveryJobLogsRequest
    * @return ListDiscoveryJobLogsResponse
    * @throws OciError when an error occurs
@@ -952,7 +952,7 @@ export class StackMonitoringClient {
       "opc-request-id": listDiscoveryJobLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDiscoveryJobLogsRequest.retryConfiguration,
@@ -999,7 +999,7 @@ export class StackMonitoringClient {
   /**
    * API to get the details of all Discovery Jobs.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDiscoveryJobsRequest
    * @return ListDiscoveryJobsResponse
    * @throws OciError when an error occurs
@@ -1026,7 +1026,7 @@ export class StackMonitoringClient {
       "opc-request-id": listDiscoveryJobsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDiscoveryJobsRequest.retryConfiguration,
@@ -1073,7 +1073,7 @@ export class StackMonitoringClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1100,7 +1100,7 @@ export class StackMonitoringClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -1147,7 +1147,7 @@ export class StackMonitoringClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1174,7 +1174,7 @@ export class StackMonitoringClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -1221,7 +1221,7 @@ export class StackMonitoringClient {
   /**
    * Lists the work requests in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1249,7 +1249,7 @@ export class StackMonitoringClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -1295,7 +1295,7 @@ export class StackMonitoringClient {
 
   /**
    * Returns a list of monitored resource associations.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SearchMonitoredResourceAssociationsRequest
    * @return SearchMonitoredResourceAssociationsResponse
    * @throws OciError when an error occurs
@@ -1322,7 +1322,7 @@ export class StackMonitoringClient {
       "if-match": searchMonitoredResourceAssociationsRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       searchMonitoredResourceAssociationsRequest.retryConfiguration,
@@ -1378,7 +1378,7 @@ export class StackMonitoringClient {
 
   /**
    * List resources which are members of the given monitored resource
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SearchMonitoredResourceMembersRequest
    * @return SearchMonitoredResourceMembersResponse
    * @throws OciError when an error occurs
@@ -1407,7 +1407,7 @@ export class StackMonitoringClient {
       "if-match": searchMonitoredResourceMembersRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       searchMonitoredResourceMembersRequest.retryConfiguration,
@@ -1463,7 +1463,7 @@ export class StackMonitoringClient {
 
   /**
    * Returns a list of monitored resources.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SearchMonitoredResourcesRequest
    * @return SearchMonitoredResourcesResponse
    * @throws OciError when an error occurs
@@ -1488,7 +1488,7 @@ export class StackMonitoringClient {
       "if-match": searchMonitoredResourcesRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       searchMonitoredResourcesRequest.retryConfiguration,

@@ -21,8 +21,11 @@ export interface ConditionalInputLink extends model.FlowPortLink {
   "fromLink"?: model.OutputLink;
   "fieldMap"?:
     | model.RuleBasedFieldMap
+    | model.RuleBasedEntityMap
+    | model.NamedEntityMap
     | model.DirectFieldMap
     | model.CompositeFieldMap
+    | model.ConditionalCompositeFieldMap
     | model.DirectNamedFieldMap;
   "condition"?: model.Expression;
 

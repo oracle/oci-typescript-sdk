@@ -37,12 +37,28 @@ export interface Target extends model.Operator {
    */
   "isPredefinedShape"?: boolean;
   /**
+   * Specifies if entity name is the same as source.
+   */
+  "isUseSameSourceName"?: boolean;
+  /**
+   * Prefix for the entity Name.
+   */
+  "targetEntityNamePrefix"?: string;
+  /**
+   * Suffix for the entity Name.
+   */
+  "targetEntityNameSuffix"?: string;
+  /**
    * Specifies the data property.
    */
   "dataProperty"?: Target.DataProperty;
   "schemaDriftConfig"?: model.SchemaDriftConfig;
   "fixedDataShape"?: model.Shape;
   "writeOperationConfig"?: model.WriteOperationConfig;
+  /**
+   * A numeric loading order number for the target. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "loadOrder"?: number;
 
   "modelType": string;
 }

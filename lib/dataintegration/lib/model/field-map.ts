@@ -37,11 +37,23 @@ export namespace FieldMap {
             <model.RuleBasedFieldMap>(<object>jsonObj),
             true
           );
+        case "RULE_BASED_ENTITY_MAP":
+          return model.RuleBasedEntityMap.getJsonObj(
+            <model.RuleBasedEntityMap>(<object>jsonObj),
+            true
+          );
+        case "NAMED_ENTITY_MAP":
+          return model.NamedEntityMap.getJsonObj(<model.NamedEntityMap>(<object>jsonObj), true);
         case "DIRECT_FIELD_MAP":
           return model.DirectFieldMap.getJsonObj(<model.DirectFieldMap>(<object>jsonObj), true);
         case "COMPOSITE_FIELD_MAP":
           return model.CompositeFieldMap.getJsonObj(
             <model.CompositeFieldMap>(<object>jsonObj),
+            true
+          );
+        case "CONDITIONAL_COMPOSITE_FIELD_MAP":
+          return model.ConditionalCompositeFieldMap.getJsonObj(
+            <model.ConditionalCompositeFieldMap>(<object>jsonObj),
             true
           );
         case "DIRECT_NAMED_FIELD_MAP":
@@ -65,6 +77,16 @@ export namespace FieldMap {
             <model.RuleBasedFieldMap>(<object>jsonObj),
             true
           );
+        case "RULE_BASED_ENTITY_MAP":
+          return model.RuleBasedEntityMap.getDeserializedJsonObj(
+            <model.RuleBasedEntityMap>(<object>jsonObj),
+            true
+          );
+        case "NAMED_ENTITY_MAP":
+          return model.NamedEntityMap.getDeserializedJsonObj(
+            <model.NamedEntityMap>(<object>jsonObj),
+            true
+          );
         case "DIRECT_FIELD_MAP":
           return model.DirectFieldMap.getDeserializedJsonObj(
             <model.DirectFieldMap>(<object>jsonObj),
@@ -73,6 +95,11 @@ export namespace FieldMap {
         case "COMPOSITE_FIELD_MAP":
           return model.CompositeFieldMap.getDeserializedJsonObj(
             <model.CompositeFieldMap>(<object>jsonObj),
+            true
+          );
+        case "CONDITIONAL_COMPOSITE_FIELD_MAP":
+          return model.ConditionalCompositeFieldMap.getDeserializedJsonObj(
+            <model.ConditionalCompositeFieldMap>(<object>jsonObj),
             true
           );
         case "DIRECT_NAMED_FIELD_MAP":

@@ -156,7 +156,7 @@ export class ChannelsClient {
   /**
    * Creates a Channel to establish replication from a source to a target.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateChannelRequest
    * @return CreateChannelResponse
    * @throws OciError when an error occurs
@@ -176,7 +176,7 @@ export class ChannelsClient {
       "opc-retry-token": createChannelRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createChannelRequest.retryConfiguration,
@@ -232,7 +232,7 @@ export class ChannelsClient {
 
   /**
    * Deletes the specified Channel.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteChannelRequest
    * @return DeleteChannelResponse
    * @throws OciError when an error occurs
@@ -254,7 +254,7 @@ export class ChannelsClient {
       "opc-request-id": deleteChannelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteChannelRequest.retryConfiguration,
@@ -299,7 +299,7 @@ export class ChannelsClient {
    * configuration parameters (passwords are omitted), as well as information about
    * the state of the Channel, its sources and targets.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetChannelRequest
    * @return GetChannelResponse
    * @throws OciError when an error occurs
@@ -321,7 +321,7 @@ export class ChannelsClient {
       "if-none-match": getChannelRequest.ifNoneMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getChannelRequest.retryConfiguration,
@@ -367,7 +367,7 @@ export class ChannelsClient {
 
   /**
    * Lists all the Channels that match the specified filters.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListChannelsRequest
    * @return ListChannelsResponse
    * @throws OciError when an error occurs
@@ -397,7 +397,7 @@ export class ChannelsClient {
       "opc-request-id": listChannelsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listChannelsRequest.retryConfiguration,
@@ -497,7 +497,7 @@ export class ChannelsClient {
    * Resets the specified Channel by purging its cached information, leaving the Channel
    * as if it had just been created. This operation is only accepted in Inactive Channels.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResetChannelRequest
    * @return ResetChannelResponse
    * @throws OciError when an error occurs
@@ -520,7 +520,7 @@ export class ChannelsClient {
       "opc-retry-token": resetChannelRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       resetChannelRequest.retryConfiguration,
@@ -565,7 +565,7 @@ export class ChannelsClient {
    * requires that the error that cause the Channel to become Inactive has already been fixed,
    * otherwise the operation may fail.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResumeChannelRequest
    * @return ResumeChannelResponse
    * @throws OciError when an error occurs
@@ -588,7 +588,7 @@ export class ChannelsClient {
       "opc-retry-token": resumeChannelRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       resumeChannelRequest.retryConfiguration,
@@ -634,7 +634,7 @@ export class ChannelsClient {
    * parameters to the Channel and the Channel may become temporarily unavailable. Otherwise, the
    * new configuration will be applied the next time the Channel becomes Active.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateChannelRequest
    * @return UpdateChannelResponse
    * @throws OciError when an error occurs
@@ -657,7 +657,7 @@ export class ChannelsClient {
       "opc-retry-token": updateChannelRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateChannelRequest.retryConfiguration,
@@ -904,7 +904,7 @@ export class DbBackupsClient {
   /**
    * Create a backup of a DB System.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateBackupRequest
    * @return CreateBackupResponse
    * @throws OciError when an error occurs
@@ -924,7 +924,7 @@ export class DbBackupsClient {
       "opc-retry-token": createBackupRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createBackupRequest.retryConfiguration,
@@ -981,7 +981,7 @@ export class DbBackupsClient {
   /**
    * Delete a Backup.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteBackupRequest
    * @return DeleteBackupResponse
    * @throws OciError when an error occurs
@@ -1003,7 +1003,7 @@ export class DbBackupsClient {
       "opc-request-id": deleteBackupRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteBackupRequest.retryConfiguration,
@@ -1045,7 +1045,7 @@ export class DbBackupsClient {
 
   /**
    * Get information about the specified Backup
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetBackupRequest
    * @return GetBackupResponse
    * @throws OciError when an error occurs
@@ -1067,7 +1067,7 @@ export class DbBackupsClient {
       "if-none-match": getBackupRequest.ifNoneMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getBackupRequest.retryConfiguration,
@@ -1114,7 +1114,7 @@ export class DbBackupsClient {
   /**
    * Get a list of DB System backups.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListBackupsRequest
    * @return ListBackupsResponse
    * @throws OciError when an error occurs
@@ -1144,7 +1144,7 @@ export class DbBackupsClient {
       "opc-request-id": listBackupsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listBackupsRequest.retryConfiguration,
@@ -1242,7 +1242,7 @@ export class DbBackupsClient {
 
   /**
    * Update the metadata of a Backup. Metadata such as the displayName or description
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateBackupRequest
    * @return UpdateBackupResponse
    * @throws OciError when an error occurs
@@ -1264,7 +1264,7 @@ export class DbBackupsClient {
       "opc-request-id": updateBackupRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateBackupRequest.retryConfiguration,
@@ -1434,7 +1434,7 @@ export class DbSystemClient {
    * DEPRECATED -- please use HeatWave API instead.
    * Adds an Analytics Cluster to the DB System.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AddAnalyticsClusterRequest
    * @return AddAnalyticsClusterResponse
    * @throws OciError when an error occurs
@@ -1457,7 +1457,7 @@ export class DbSystemClient {
       "opc-retry-token": addAnalyticsClusterRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       addAnalyticsClusterRequest.retryConfiguration,
@@ -1514,7 +1514,7 @@ export class DbSystemClient {
   /**
    * Adds a HeatWave cluster to the DB System.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AddHeatWaveClusterRequest
    * @return AddHeatWaveClusterResponse
    * @throws OciError when an error occurs
@@ -1537,7 +1537,7 @@ export class DbSystemClient {
       "opc-retry-token": addHeatWaveClusterRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       addHeatWaveClusterRequest.retryConfiguration,
@@ -1594,7 +1594,7 @@ export class DbSystemClient {
   /**
    * Creates and launches a DB System.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDbSystemRequest
    * @return CreateDbSystemResponse
    * @throws OciError when an error occurs
@@ -1614,7 +1614,7 @@ export class DbSystemClient {
       "opc-retry-token": createDbSystemRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDbSystemRequest.retryConfiguration,
@@ -1678,7 +1678,7 @@ export class DbSystemClient {
    * Deletes the Analytics Cluster including terminating, detaching, removing, finalizing and
    * otherwise deleting all related resources.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAnalyticsClusterRequest
    * @return DeleteAnalyticsClusterResponse
    * @throws OciError when an error occurs
@@ -1700,7 +1700,7 @@ export class DbSystemClient {
       "opc-request-id": deleteAnalyticsClusterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteAnalyticsClusterRequest.retryConfiguration,
@@ -1744,7 +1744,7 @@ export class DbSystemClient {
    * Delete a DB System, including terminating, detaching,
    * removing, finalizing and otherwise deleting all related resources.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDbSystemRequest
    * @return DeleteDbSystemResponse
    * @throws OciError when an error occurs
@@ -1766,7 +1766,7 @@ export class DbSystemClient {
       "opc-request-id": deleteDbSystemRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDbSystemRequest.retryConfiguration,
@@ -1810,7 +1810,7 @@ export class DbSystemClient {
    * Deletes the HeatWave cluster including terminating, detaching, removing, finalizing and
    * otherwise deleting all related resources.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteHeatWaveClusterRequest
    * @return DeleteHeatWaveClusterResponse
    * @throws OciError when an error occurs
@@ -1832,7 +1832,7 @@ export class DbSystemClient {
       "opc-request-id": deleteHeatWaveClusterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteHeatWaveClusterRequest.retryConfiguration,
@@ -1876,7 +1876,7 @@ export class DbSystemClient {
    * DEPRECATED -- please use HeatWave API instead.
    * Sends a request to estimate the memory footprints of user tables when loaded to Analytics Cluster memory.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateAnalyticsClusterMemoryEstimateRequest
    * @return GenerateAnalyticsClusterMemoryEstimateResponse
    * @throws OciError when an error occurs
@@ -1899,7 +1899,7 @@ export class DbSystemClient {
       "opc-retry-token": generateAnalyticsClusterMemoryEstimateRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       generateAnalyticsClusterMemoryEstimateRequest.retryConfiguration,
@@ -1946,7 +1946,7 @@ export class DbSystemClient {
   /**
    * Sends a request to estimate the memory footprints of user tables when loaded to HeatWave cluster memory.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateHeatWaveClusterMemoryEstimateRequest
    * @return GenerateHeatWaveClusterMemoryEstimateResponse
    * @throws OciError when an error occurs
@@ -1969,7 +1969,7 @@ export class DbSystemClient {
       "opc-retry-token": generateHeatWaveClusterMemoryEstimateRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       generateHeatWaveClusterMemoryEstimateRequest.retryConfiguration,
@@ -2017,7 +2017,7 @@ export class DbSystemClient {
    * DEPRECATED -- please use HeatWave API instead.
    * Gets information about the Analytics Cluster.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAnalyticsClusterRequest
    * @return GetAnalyticsClusterResponse
    * @throws OciError when an error occurs
@@ -2039,7 +2039,7 @@ export class DbSystemClient {
       "if-none-match": getAnalyticsClusterRequest.ifNoneMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAnalyticsClusterRequest.retryConfiguration,
@@ -2088,7 +2088,7 @@ export class DbSystemClient {
    * Gets the most recent Analytics Cluster memory estimate that can be used to determine a suitable
    * Analytics Cluster size.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAnalyticsClusterMemoryEstimateRequest
    * @return GetAnalyticsClusterMemoryEstimateResponse
    * @throws OciError when an error occurs
@@ -2110,7 +2110,7 @@ export class DbSystemClient {
       "opc-request-id": getAnalyticsClusterMemoryEstimateRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAnalyticsClusterMemoryEstimateRequest.retryConfiguration,
@@ -2151,7 +2151,7 @@ export class DbSystemClient {
 
   /**
    * Get information about the specified DB System.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDbSystemRequest
    * @return GetDbSystemResponse
    * @throws OciError when an error occurs
@@ -2173,7 +2173,7 @@ export class DbSystemClient {
       "if-none-match": getDbSystemRequest.ifNoneMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDbSystemRequest.retryConfiguration,
@@ -2219,7 +2219,7 @@ export class DbSystemClient {
 
   /**
    * Gets information about the HeatWave cluster.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetHeatWaveClusterRequest
    * @return GetHeatWaveClusterResponse
    * @throws OciError when an error occurs
@@ -2241,7 +2241,7 @@ export class DbSystemClient {
       "if-none-match": getHeatWaveClusterRequest.ifNoneMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getHeatWaveClusterRequest.retryConfiguration,
@@ -2289,7 +2289,7 @@ export class DbSystemClient {
    * Gets the most recent HeatWave cluster memory estimate that can be used to determine a suitable
    * HeatWave cluster size.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetHeatWaveClusterMemoryEstimateRequest
    * @return GetHeatWaveClusterMemoryEstimateResponse
    * @throws OciError when an error occurs
@@ -2311,7 +2311,7 @@ export class DbSystemClient {
       "opc-request-id": getHeatWaveClusterMemoryEstimateRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getHeatWaveClusterMemoryEstimateRequest.retryConfiguration,
@@ -2354,7 +2354,7 @@ export class DbSystemClient {
    * Get a list of DB Systems in the specified compartment.
    * The default sort order is by timeUpdated, descending.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDbSystemsRequest
    * @return ListDbSystemsResponse
    * @throws OciError when an error occurs
@@ -2386,7 +2386,7 @@ export class DbSystemClient {
       "opc-request-id": listDbSystemsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDbSystemsRequest.retryConfiguration,
@@ -2486,7 +2486,7 @@ export class DbSystemClient {
    * DEPRECATED -- please use HeatWave API instead.
    * Restarts the Analytics Cluster.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RestartAnalyticsClusterRequest
    * @return RestartAnalyticsClusterResponse
    * @throws OciError when an error occurs
@@ -2509,7 +2509,7 @@ export class DbSystemClient {
       "opc-retry-token": restartAnalyticsClusterRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       restartAnalyticsClusterRequest.retryConfiguration,
@@ -2551,7 +2551,7 @@ export class DbSystemClient {
 
   /**
    * Restarts the specified DB System.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RestartDbSystemRequest
    * @return RestartDbSystemResponse
    * @throws OciError when an error occurs
@@ -2574,7 +2574,7 @@ export class DbSystemClient {
       "opc-retry-token": restartDbSystemRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       restartDbSystemRequest.retryConfiguration,
@@ -2621,7 +2621,7 @@ export class DbSystemClient {
 
   /**
    * Restarts the HeatWave cluster.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RestartHeatWaveClusterRequest
    * @return RestartHeatWaveClusterResponse
    * @throws OciError when an error occurs
@@ -2644,7 +2644,7 @@ export class DbSystemClient {
       "opc-retry-token": restartHeatWaveClusterRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       restartHeatWaveClusterRequest.retryConfiguration,
@@ -2688,7 +2688,7 @@ export class DbSystemClient {
    * DEPRECATED -- please use HeatWave API instead.
    * Starts the Analytics Cluster.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StartAnalyticsClusterRequest
    * @return StartAnalyticsClusterResponse
    * @throws OciError when an error occurs
@@ -2711,7 +2711,7 @@ export class DbSystemClient {
       "opc-retry-token": startAnalyticsClusterRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       startAnalyticsClusterRequest.retryConfiguration,
@@ -2753,7 +2753,7 @@ export class DbSystemClient {
 
   /**
    * Start the specified DB System.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StartDbSystemRequest
    * @return StartDbSystemResponse
    * @throws OciError when an error occurs
@@ -2776,7 +2776,7 @@ export class DbSystemClient {
       "opc-retry-token": startDbSystemRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       startDbSystemRequest.retryConfiguration,
@@ -2818,7 +2818,7 @@ export class DbSystemClient {
 
   /**
    * Starts the HeatWave cluster.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StartHeatWaveClusterRequest
    * @return StartHeatWaveClusterResponse
    * @throws OciError when an error occurs
@@ -2841,7 +2841,7 @@ export class DbSystemClient {
       "opc-retry-token": startHeatWaveClusterRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       startHeatWaveClusterRequest.retryConfiguration,
@@ -2885,7 +2885,7 @@ export class DbSystemClient {
    * DEPRECATED -- please use HeatWave API instead.
    * Stops the Analytics Cluster.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StopAnalyticsClusterRequest
    * @return StopAnalyticsClusterResponse
    * @throws OciError when an error occurs
@@ -2908,7 +2908,7 @@ export class DbSystemClient {
       "opc-retry-token": stopAnalyticsClusterRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       stopAnalyticsClusterRequest.retryConfiguration,
@@ -2953,7 +2953,7 @@ export class DbSystemClient {
 * <p>
 A stopped DB System is not billed.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param StopDbSystemRequest
      * @return StopDbSystemResponse
      * @throws OciError when an error occurs
@@ -2976,7 +2976,7 @@ A stopped DB System is not billed.
       "opc-retry-token": stopDbSystemRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       stopDbSystemRequest.retryConfiguration,
@@ -3023,7 +3023,7 @@ A stopped DB System is not billed.
 
   /**
    * Stops the HeatWave cluster.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StopHeatWaveClusterRequest
    * @return StopHeatWaveClusterResponse
    * @throws OciError when an error occurs
@@ -3046,7 +3046,7 @@ A stopped DB System is not billed.
       "opc-retry-token": stopHeatWaveClusterRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       stopHeatWaveClusterRequest.retryConfiguration,
@@ -3090,7 +3090,7 @@ A stopped DB System is not billed.
    * DEPRECATED -- please use HeatWave API instead.
    * Updates the Analytics Cluster.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAnalyticsClusterRequest
    * @return UpdateAnalyticsClusterResponse
    * @throws OciError when an error occurs
@@ -3112,7 +3112,7 @@ A stopped DB System is not billed.
       "opc-request-id": updateAnalyticsClusterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAnalyticsClusterRequest.retryConfiguration,
@@ -3167,7 +3167,7 @@ Updating different fields in the DB System will have different results
 * Compute resources, pausing the DB System and migrating storage
 * before making the DB System available again.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateDbSystemRequest
      * @return UpdateDbSystemResponse
      * @throws OciError when an error occurs
@@ -3189,7 +3189,7 @@ Updating different fields in the DB System will have different results
       "opc-request-id": updateDbSystemRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDbSystemRequest.retryConfiguration,
@@ -3237,7 +3237,7 @@ Updating different fields in the DB System will have different results
   /**
    * Updates the HeatWave cluster.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateHeatWaveClusterRequest
    * @return UpdateHeatWaveClusterResponse
    * @throws OciError when an error occurs
@@ -3259,7 +3259,7 @@ Updating different fields in the DB System will have different results
       "opc-request-id": updateHeatWaveClusterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateHeatWaveClusterRequest.retryConfiguration,
@@ -3515,7 +3515,7 @@ export class MysqlaasClient {
    * Deletes a Configuration.
    * The Configuration must not be in use by any DB Systems.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteConfigurationRequest
    * @return DeleteConfigurationResponse
    * @throws OciError when an error occurs
@@ -3537,7 +3537,7 @@ export class MysqlaasClient {
       "opc-request-id": deleteConfigurationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteConfigurationRequest.retryConfiguration,
@@ -3575,7 +3575,7 @@ export class MysqlaasClient {
   /**
    * Get the full details of the specified Configuration, including the list of MySQL Variables and their values.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetConfigurationRequest
    * @return GetConfigurationResponse
    * @throws OciError when an error occurs
@@ -3597,7 +3597,7 @@ export class MysqlaasClient {
       "if-none-match": getConfigurationRequest.ifNoneMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getConfigurationRequest.retryConfiguration,
@@ -3651,7 +3651,7 @@ The default sort order is a multi-part sort by:
 *   - DEFAULT-before-CUSTOM
 *   - displayName ascending
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListConfigurationsRequest
      * @return ListConfigurationsResponse
      * @throws OciError when an error occurs
@@ -3681,7 +3681,7 @@ The default sort order is a multi-part sort by:
       "opc-request-id": listConfigurationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listConfigurationsRequest.retryConfiguration,
@@ -3783,7 +3783,7 @@ The default sort order is a multi-part sort by:
    * CPU cores and memory for VM shapes; CPU cores, memory and
    * storage for non-VM (or bare metal) shapes.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListShapesRequest
    * @return ListShapesResponse
    * @throws OciError when an error occurs
@@ -3807,7 +3807,7 @@ The default sort order is a multi-part sort by:
       "opc-request-id": listShapesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listShapesRequest.retryConfiguration,
@@ -3851,7 +3851,7 @@ The default sort order is a multi-part sort by:
 * <p>
 The list is sorted by version family.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListVersionsRequest
      * @return ListVersionsResponse
      * @throws OciError when an error occurs
@@ -3872,7 +3872,7 @@ The list is sorted by version family.
       "opc-request-id": listVersionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listVersionsRequest.retryConfiguration,
@@ -3913,7 +3913,7 @@ The list is sorted by version family.
 
   /**
    * Updates the Configuration details.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateConfigurationRequest
    * @return UpdateConfigurationResponse
    * @throws OciError when an error occurs
@@ -3935,7 +3935,7 @@ The list is sorted by version family.
       "opc-request-id": updateConfigurationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateConfigurationRequest.retryConfiguration,
@@ -4112,7 +4112,7 @@ export class WorkRequestsClient {
 
   /**
    * Gets the status of the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -4134,7 +4134,7 @@ export class WorkRequestsClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -4186,7 +4186,7 @@ export class WorkRequestsClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -4211,7 +4211,7 @@ export class WorkRequestsClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -4310,7 +4310,7 @@ export class WorkRequestsClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -4334,7 +4334,7 @@ export class WorkRequestsClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -4433,7 +4433,7 @@ export class WorkRequestsClient {
   /**
    * Lists the work requests in a specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -4458,7 +4458,7 @@ export class WorkRequestsClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,

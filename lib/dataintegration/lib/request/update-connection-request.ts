@@ -37,6 +37,7 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
     | model.UpdateConnectionFromAtp
     | model.UpdateConnectionFromOracle
     | model.UpdateConnectionFromAdwc
+    | model.UpdateConnectionFromBIP
     | model.UpdateConnectionFromMySQL;
   /**
    * Unique Oracle-assigned identifier for the request. If

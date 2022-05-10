@@ -104,6 +104,10 @@ For Autonomous Databases on dedicated Exadata infrastructure, the maximum number
     */
   "ocpuCount"?: number;
   /**
+   * An array of CPU values that an Autonomous Database can be scaled to.
+   */
+  "provisionableCpus"?: Array<number>;
+  /**
    * The quantity of data in the database, in terabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInTBs": number;
@@ -465,6 +469,7 @@ export namespace AutonomousDatabase {
     RoleChangeInProgress = "ROLE_CHANGE_IN_PROGRESS",
     Upgrading = "UPGRADING",
     Inaccessible = "INACCESSIBLE",
+    Standby = "STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

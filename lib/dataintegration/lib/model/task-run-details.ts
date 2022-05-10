@@ -91,6 +91,10 @@ export interface TaskRunDetails {
    * Step Id for running from a certain step.
    */
   "stepId"?: string;
+  /**
+   * A map of the configuration provider input bindings of the run.
+   */
+  "inputs"?: { [key: string]: model.ParameterValue };
   "metadata"?: model.ObjectMetadata;
 }
 
@@ -141,6 +145,9 @@ export namespace TaskRunDetails {
       ...{
         "parentRef": obj.parentRef ? model.ParentReference.getJsonObj(obj.parentRef) : undefined,
 
+        "inputs": obj.inputs
+          ? common.mapContainer(obj.inputs, model.ParameterValue.getJsonObj)
+          : undefined,
         "metadata": obj.metadata ? model.ObjectMetadata.getJsonObj(obj.metadata) : undefined
       }
     };
@@ -155,6 +162,9 @@ export namespace TaskRunDetails {
           ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
           : undefined,
 
+        "inputs": obj.inputs
+          ? common.mapContainer(obj.inputs, model.ParameterValue.getDeserializedJsonObj)
+          : undefined,
         "metadata": obj.metadata
           ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
           : undefined

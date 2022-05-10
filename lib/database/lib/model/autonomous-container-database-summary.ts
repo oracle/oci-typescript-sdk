@@ -149,6 +149,22 @@ Example: `{\"Department\": \"Finance\"}`
    * The amount of memory (in GBs) enabled per each OCPU core in Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
+  /**
+   * Sum of OCPUs available on the Autonomous VM Cluster + Sum of Fractional OCPUs available in the Autonomous Container Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableCpus"?: number;
+  /**
+   * The number of CPU cores allocated to the Autonomous VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalCpus"?: number;
+  /**
+   * CPU cores that are not released to available pool after an Autonomous Database is terminated (Requires Autonomous Container Database restart). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "reclaimableCpus"?: number;
+  /**
+   * An array of CPU values that can be used to successfully provision a single Autonomous Database.
+   */
+  "provisionableCpus"?: Array<number>;
 }
 
 export namespace AutonomousContainerDatabaseSummary {

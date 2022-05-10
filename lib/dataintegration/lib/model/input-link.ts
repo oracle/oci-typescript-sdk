@@ -24,8 +24,11 @@ export interface InputLink extends model.FlowPortLink {
   "fromLink"?: string;
   "fieldMap"?:
     | model.RuleBasedFieldMap
+    | model.RuleBasedEntityMap
+    | model.NamedEntityMap
     | model.DirectFieldMap
     | model.CompositeFieldMap
+    | model.ConditionalCompositeFieldMap
     | model.DirectNamedFieldMap;
 
   "modelType": string;
